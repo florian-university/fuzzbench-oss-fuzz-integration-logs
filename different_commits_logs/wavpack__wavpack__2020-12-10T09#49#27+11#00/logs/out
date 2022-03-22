@@ -1,0 +1,593 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: wavpack_wavpack.
+INFO:root:Please run "make test-run-afl-wavpack_wavpack" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:42452948213fe59d76d283d5d94c95425948bdd3dca63c0513fafa9733bc04a7
+#2 transferring context: 2B done
+#2 DONE 1.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f4f32d6149c83476a1f0a4936666dc3dea98761968e889b5daee27f63fa2aa4d
+#1 transferring dockerfile: 931B done
+#1 DONE 0.9s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack
+#4 sha256:59dc3870deb515f732a2b1758e2ecd5aa472d2c1068d5737010c1ddc11d80126
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack:latest: not found
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:e94c22665874d420ced0c3b871f4947e168d3bab9afd9b749baffcff0f8f695f
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/dbry/WavPack.git wavpack
+#7 sha256:2cf011693086b8994539d64c64671aff32ff82b8d3c09ea22ce1f8491a1ae5db
+#7 CACHED
+
+#8 [4/5] RUN cp wavpack/fuzzing/build.sh /src
+#8 sha256:9d167afa4282e8ed1e85fb0601f6014f77f1f7009a904d9389f21129e72ee69e
+#8 CACHED
+
+#9 [5/5] WORKDIR wavpack
+#9 sha256:c89af2b87af59a67fdb54e298b6bbe7cd74249f9a48c0be90bd73710f5723225
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:47f7aedee00b60ea69c099966cdad7c9212a85100ffc529a1c2623f77193cd5b 0.0s done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack done
+#10 DONE 0.4s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:0a57779d92fb59adbcea73ec5bbe75ecb68f46883b9824e3cbfdf0045d72d24e
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:c49ccb1f5ff650022b76439dfe9f43227559a865eba45ee5cd0496448a289c32
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack:latest
+#3 sha256:95d1858a9ccfc68daef92357e366b4c692b664944e3c32a6f15feac6c76ffe8d
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack
+#5 sha256:b32b6a1ca9765fc0052b04283881f93bc36c3e0c2497cca30bc8c06c780e5f8f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate
+#4 sha256:1413b91e7e4360516392750de94ab71f525f973430e80c1f77f3249c0d7b9f9f
+#4 ERROR: gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:8434bb9c97f8eaf152b377ba1cec65e9b5baffa9d4912e197177419cffaa8ce7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:3f0f8874ac6c7436f91e1e4d21da9d821a936cf296405d4e2d4491096c13e00a
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:c343cd55f936b3d53346c7e3a435e7aba9483309ad705aa5417f4abfadb0f449 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:87502f51db16eea4e4875498efd78ecfae37a6e28728024a5726edaf3da0e9e7
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7fe324275d9617434c39a81155ead1eb21f0831e7db64f5dedf6b6b31539df48
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:ed433344ac8c730e9032d04f4475e352cd72f4fa04bbef3076f5a609d86280d1
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d5884634ce31b9383159fe49bc0503d0ea87c72ccd017238520bef3259940486
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:15c7638eb32bc15741642eaa706392224ae5af71c9227a51011d4d99fdae881a
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:69e75660cee010e152df94ef9034ac2d9cd9955ff3bc1890f1ad9eb8412187d8
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:614f74625cf7e89c3ce2f482397c4b82539e427f58f7a3f16ba9c80f093b133a
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:68d1d4096046f3a5a450f377425db9e66c7666c4d412d1d64ca6bbe5308e26f1
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:526603d3457812146554c0aeac70199fa8d2faf20d20da3697fa43562c2fe331
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate:latest
+#3 sha256:64507a805cf2a57d95258a07576e25ad4f0fb90f4b5dcd73babf7702fd1ce42b
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:f9d2b6a6d5766c72e43cc4571a1465d1bbed9f104e0eae3a05b8a311c4913054
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate
+#6 sha256:1efd61360fff5cda447d58472a5726ea69db235771551ae4a7fa11b4360e402b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/wavpack_wavpack
+#5 sha256:9548840cb98875a2f1d16616df9ba240016006d3fb6fbddd54749c8e01a0050d
+#5 ERROR: gcr.io/fuzzbench/builders/afl/wavpack_wavpack:latest: not found
+
+#12 [internal] load build context
+#12 sha256:f9d2b6a6d5766c72e43cc4571a1465d1bbed9f104e0eae3a05b8a311c4913054
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:6cb3451cad5f4428fe8a6a346c63525a8b3524b68a648c4324fafe5d0e614973
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:aaf676dff53c2626ce7cc0752650f4bff4fc5e18146db12808ef44f3163e91fa
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:637ade824826bba449343b899b761b1714b30d5af7d51565003bb86e36186c7a
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:01f562f1911e731ab37d601410e08b58fb40e6d3e30fe0a709e708390b218b04
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:9dcd4fc7500d0492fdbecbe21fb924f321b56a0092c15b82f05a94490aecac26
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:9a5776b052db6432d3b5409936cb667cd00367c2194189194b115a900244e7cf
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/wavpack_wavpack/benchmark.yaml /
+#15 sha256:445dae7fc1a1f7c09f060202a96994c62c1fc30c77aa73f7fbc039ea3e1046ca
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:51ac6d8b666a3c0611414063c3864430ee754fca61df00115b93bd9250c8cc35
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:7c5e48aba3afc5b9a3d5b483bb539b3ae50e23e38595bd0f8945b610c1566cf1
+#17 DONE 0.5s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:7ab055debacee136baf4a6d4cc2efeb98ab3fa6a1fab048fc89fb6297e92cef2
+#18 0.552 Checking out commit 84faf557
+#18 9.292 From https://github.com/dbry/WavPack
+#18 9.292  * [new tag]         4.70.0       -> 4.70.0
+#18 9.292  * [new tag]         4.70.0-rc    -> 4.70.0-rc
+#18 9.292  * [new tag]         4.75.0       -> 4.75.0
+#18 9.292  * [new tag]         4.75.0-rc    -> 4.75.0-rc
+#18 9.293  * [new tag]         4.75.2       -> 4.75.2
+#18 9.293  * [new tag]         4.80.0       -> 4.80.0
+#18 9.293  * [new tag]         4.80.0-rc    -> 4.80.0-rc
+#18 9.293  * [new tag]         5.0.0        -> 5.0.0
+#18 9.294  * [new tag]         5.0.0-alpha  -> 5.0.0-alpha
+#18 9.294  * [new tag]         5.0.0-alpha2 -> 5.0.0-alpha2
+#18 9.294  * [new tag]         5.0.0-alpha3 -> 5.0.0-alpha3
+#18 9.295  * [new tag]         5.0.0-alpha4 -> 5.0.0-alpha4
+#18 9.295  * [new tag]         5.0.0-alpha5 -> 5.0.0-alpha5
+#18 9.295  * [new tag]         5.1.0        -> 5.1.0
+#18 9.295  * [new tag]         5.2.0        -> 5.2.0
+#18 9.296  * [new tag]         5.3.0        -> 5.3.0
+#18 9.296  * [new tag]         5.4.0        -> 5.4.0
+#18 9.302 error: pathspec '84faf557' did not match any file(s) known to git
+#18 9.307 error: pathspec '84faf557' did not match any file(s) known to git
+#18 9.313 error: pathspec '84faf557' did not match any file(s) known to git
+#18 9.354 Checkout unsuccessful.
+#18 DONE 9.8s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a136c3ee05433cfd06f7f99e2adb7e1261fc456e0619b3f31588e460e7610f17
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:34bc7a2dd0786ea7685d6aa590c64efbb02b77c11613f1bbde4a76e76ebbe080
+#20 0.577 Run fuzzer_build to build the target
+#20 0.690 FUZZ_TARGET = wavpack
+#20 0.690 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.690 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.695 Building benchmark wavpack_wavpack with fuzzer afl
+#20 0.698 + ./autogen.sh --disable-apps --disable-shared --enable-static
+#20 1.053 autoreconf: Entering directory `.'
+#20 1.054 autoreconf: configure.ac: not using Gettext
+#20 2.055 autoreconf: running: aclocal 
+#20 2.465 configure.ac:67: warning: macro 'AM_ICONV' not found in library
+#20 3.052 autoreconf: configure.ac: tracing
+#20 3.615 autoreconf: running: libtoolize --copy
+#20 3.925 libtoolize: putting auxiliary files in '.'.
+#20 3.925 libtoolize: copying file './ltmain.sh'
+#20 4.163 libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+#20 4.163 libtoolize: and rerunning libtoolize and aclocal.
+#20 4.163 libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+#20 4.558 configure.ac:67: warning: macro 'AM_ICONV' not found in library
+#20 5.314 autoreconf: running: /usr/bin/autoconf
+#20 5.775 configure.ac:67: error: possibly undefined macro: AM_ICONV
+#20 5.775       If this token and others are legitimate, please use m4_pattern_allow.
+#20 5.775       See the Autoconf documentation.
+#20 5.779 autoreconf: /usr/bin/autoconf failed with exit status: 1
+#20 5.782 Traceback (most recent call last):
+#20 5.782   File "<string>", line 1, in <module>
+#20 5.782   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 5.783     utils.build_benchmark()
+#20 5.783   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 5.783     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 5.783   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 5.784     raise CalledProcessError(retcode, cmd)
+#20 5.784 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/wavpack_wavpack:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2743872: .afl-wavpack_wavpack-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:97ec5736eada8f4fc686416b9374d0731cd30626876d260479ca80a38279b7df
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:6c001aab4fa718480237a09a90479e0ebd29393f0e227bd4c26943b107d02731
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack
+#4 sha256:59dc3870deb515f732a2b1758e2ecd5aa472d2c1068d5737010c1ddc11d80126
+#4 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:e94c22665874d420ced0c3b871f4947e168d3bab9afd9b749baffcff0f8f695f
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/dbry/WavPack.git wavpack
+#7 sha256:2cf011693086b8994539d64c64671aff32ff82b8d3c09ea22ce1f8491a1ae5db
+#7 CACHED
+
+#8 [4/5] RUN cp wavpack/fuzzing/build.sh /src
+#8 sha256:9d167afa4282e8ed1e85fb0601f6014f77f1f7009a904d9389f21129e72ee69e
+#8 CACHED
+
+#9 [5/5] WORKDIR wavpack
+#9 sha256:c89af2b87af59a67fdb54e298b6bbe7cd74249f9a48c0be90bd73710f5723225
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:47f7aedee00b60ea69c099966cdad7c9212a85100ffc529a1c2623f77193cd5b
+#10 writing image sha256:47f7aedee00b60ea69c099966cdad7c9212a85100ffc529a1c2623f77193cd5b done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack done
+#10 DONE 0.2s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:6b0a40762498b82b1ca9bc0527240262db560823914aef88bbf1ea84ac9ffec8
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:b33fbc8a4c22bb4f58e2c3cf2988512c1386a71d1e33341c40aee5a92c997139
+#1 transferring dockerfile: 46B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack:latest
+#3 sha256:95d1858a9ccfc68daef92357e366b4c692b664944e3c32a6f15feac6c76ffe8d
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate
+#4 sha256:1413b91e7e4360516392750de94ab71f525f973430e80c1f77f3249c0d7b9f9f
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/wavpack_wavpack
+#5 sha256:b32b6a1ca9765fc0052b04283881f93bc36c3e0c2497cca30bc8c06c780e5f8f
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:8434bb9c97f8eaf152b377ba1cec65e9b5baffa9d4912e197177419cffaa8ce7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:3f0f8874ac6c7436f91e1e4d21da9d821a936cf296405d4e2d4491096c13e00a
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:c343cd55f936b3d53346c7e3a435e7aba9483309ad705aa5417f4abfadb0f449
+#8 writing image sha256:c343cd55f936b3d53346c7e3a435e7aba9483309ad705aa5417f4abfadb0f449 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:07d9426a23d32cdece77fb65b20e1655c597b512e4a21126d069dbd3520dda17
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2e68302000faf87d4f0f1824b0cde86259f477089215f750e72f796e30b3409c
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:802bff6aefe500cd8894107d9bfe029fe235414739c51e0e86fefa35f061d842
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:9808e18cb638c48d62385b16db6579751f6c4cd003e3402f5bd446f587846874
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:0303359a69c1c49cb0b556e899ad65cef7420ae7231421f937354f4e2cd9f6d4
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:75577400cd56518ed71d6c54864b33a001cdeb525dc652118771968c7550ea0b
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:ebcf47a1456f10da8c570c337c01df429dfea96ce0f759af83cf3e028498b3eb
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d4e1181ec9685f1427ae94c3e01090efbb74aa57fa52547bbf0f81c6e945007b
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:886a27f8c95995385ba234c1c9652c0c7e84a9be4a32550f49795b5545ba8192
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate:latest
+#3 sha256:64507a805cf2a57d95258a07576e25ad4f0fb90f4b5dcd73babf7702fd1ce42b
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:73154d5e6a6228d7eb3f800efa25dd5b9c6f5a86fa2bca2351eb4a5bce8c5f7c
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/wavpack_wavpack-intermediate
+#6 sha256:1efd61360fff5cda447d58472a5726ea69db235771551ae4a7fa11b4360e402b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/wavpack_wavpack
+#5 sha256:9548840cb98875a2f1d16616df9ba240016006d3fb6fbddd54749c8e01a0050d
+#5 ERROR: gcr.io/fuzzbench/builders/afl/wavpack_wavpack:latest: not found
+
+#12 [internal] load build context
+#12 sha256:73154d5e6a6228d7eb3f800efa25dd5b9c6f5a86fa2bca2351eb4a5bce8c5f7c
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:ab56fa3f94f32d5d35d3714d68454717b368fc5b5d9169b62c53226da4a3482d
+#16 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:637ade824826bba449343b899b761b1714b30d5af7d51565003bb86e36186c7a
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:9dcd4fc7500d0492fdbecbe21fb924f321b56a0092c15b82f05a94490aecac26
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:7476eca07ce54c2ef73788ba5ff19756f187231de3e8da605fc32d8e75d8232b
+#13 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:7d2208fba993d4429e94e43593c856de99713ad919c2e65032c097f98526b33e
+#17 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:b321ed85ed09fbdaac6e2420339b792ada88b59f99ef1cfc3b9881d0cccb9432
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/wavpack_wavpack/benchmark.yaml /
+#15 sha256:0703df929227aa23a568f480d257c164375d1d677abdecc07b6696b37400ff87
+#15 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:bd0537aba2ef53bcc8111d31575d21d341a5a2afd168a6ec168fb7156aea788d
+#18 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:01f562f1911e731ab37d601410e08b58fb40e6d3e30fe0a709e708390b218b04
+#10 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:aaf676dff53c2626ce7cc0752650f4bff4fc5e18146db12808ef44f3163e91fa
+#8 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:9b8e83b9a77cc78872d1868e5e981f5202b6c137ca7d5b5645b836a64ba447bb
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:ac13463e58e5b156bccae950e460ed9481ab559dd907089bab61ad46fa233e6c
+#20 0.466 Run fuzzer_build to build the target
+#20 0.577 FUZZ_TARGET = wavpack
+#20 0.577 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.577 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.581 Building benchmark wavpack_wavpack with fuzzer afl
+#20 0.585 + ./autogen.sh --disable-apps --disable-shared --enable-static
+#20 0.920 autoreconf: Entering directory `.'
+#20 0.921 autoreconf: configure.ac: not using Gettext
+#20 1.922 autoreconf: running: aclocal 
+#20 2.325 configure.ac:67: warning: macro 'AM_ICONV' not found in library
+#20 2.867 autoreconf: configure.ac: tracing
+#20 3.437 autoreconf: running: libtoolize --copy
+#20 3.758 libtoolize: putting auxiliary files in '.'.
+#20 3.758 libtoolize: copying file './ltmain.sh'
+#20 3.995 libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+#20 3.995 libtoolize: and rerunning libtoolize and aclocal.
+#20 3.995 libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+#20 4.404 configure.ac:67: warning: macro 'AM_ICONV' not found in library
+#20 4.939 autoreconf: running: /usr/bin/autoconf
+#20 5.386 configure.ac:67: error: possibly undefined macro: AM_ICONV
+#20 5.386       If this token and others are legitimate, please use m4_pattern_allow.
+#20 5.386       See the Autoconf documentation.
+#20 5.389 autoreconf: /usr/bin/autoconf failed with exit status: 1
+#20 5.393 Traceback (most recent call last):
+#20 5.393   File "<string>", line 1, in <module>
+#20 5.393   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 5.394     utils.build_benchmark()
+#20 5.394   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 5.394     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 5.394   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 5.394     raise CalledProcessError(retcode, cmd)
+#20 5.394 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/wavpack_wavpack:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2743872: .afl-wavpack_wavpack-builder] Error 1

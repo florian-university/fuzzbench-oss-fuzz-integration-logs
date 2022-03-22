@@ -1,0 +1,1264 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: matio_matio.
+INFO:root:Please run "make test-run-afl-matio_matio" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:a25bd4b68d6d8e41fea5d38be116e81690a1c6363ac858a40812b3e06aacf100
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5f5c22e4acb98f9e6f65542f34f108e025b2fa5d06c7485db93edc2989a31de9
+#1 transferring dockerfile: 969B done
+#1 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:ffdd111417148f9bcaccc0341fcc46ca3bc09a6ee0d736f6f3b3a8b423d78ff7
+#9 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/matio_matio
+#4 sha256:487fa3782846524bedb69b155ad89377170dd489bbed1737963c8f64a4120236
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/matio_matio:latest: not found
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:52e32c454805a8c94e441551d01b16d090304920e0b4ce6b465dec91bafa72a3
+#6 CACHED
+
+#9 [internal] load build context
+#9 sha256:ffdd111417148f9bcaccc0341fcc46ca3bc09a6ee0d736f6f3b3a8b423d78ff7
+#9 transferring context: 4.76kB done
+#9 DONE 0.1s
+
+#7 [3/6] RUN git clone --depth 1 git://git.code.sf.net/p/matio/matio matio
+#7 sha256:40066594d1bb1e4f828f8566cdd7d21548ea28d44e45999bde0f7198b56b703d
+#7 0.457 Cloning into 'matio'...
+#7 DONE 3.6s
+
+#8 [4/6] WORKDIR matio
+#8 sha256:5867a42ee4a523f80fa38d6638a7c2d8be5eda96f1479cd09b26c15558ea187b
+#8 DONE 0.2s
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:f8cb437f23819ba4b9b4404408c276517281558c9e9a868ae2e89fdb1af11aa6
+#10 DONE 0.2s
+
+#11 [6/6] COPY *.cc *.h /src/
+#11 sha256:01739d888cfd7012eb92b61b916380059d2d644c4d99ff520c219e26a77dbd57
+#11 DONE 0.2s
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:749aa947b58e429498e88cd564d1422ad4bf2e797ced126bd98c64b7e9eb4ab1 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/matio_matio done
+#12 DONE 0.2s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/matio_matio:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:192560906232d72e7a5e5780055988f8d442945002205d6d6d0ab545f435c6bf
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:022092f1f75421684b01d02ba24355b82192a6ccb083c7e278b50fb4c1e5815b
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/matio_matio:latest
+#3 sha256:8848777a3748cdeaba97cceff7fac262afbd8bcb3871e73927b9f6ae9965745d
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/matio_matio
+#5 sha256:fd423ca89381408ec037246fd2290bd785cc8334ecfd4dd21265cc261234f4c5
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/matio_matio-intermediate
+#4 sha256:a3f92f841877b66486adc850f39bc68fe325f287179b897a181b4f665b48d313
+#4 ERROR: gcr.io/fuzzbench/builders/afl/matio_matio-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/matio_matio
+#5 sha256:fd423ca89381408ec037246fd2290bd785cc8334ecfd4dd21265cc261234f4c5
+#5 DONE 0.9s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:7c1e574477b3bd1a737043c732d30189c069b4b35cc81b7d096f72fc9c26d34d
+#6 0.387 Cloning into '/afl'...
+#6 1.240 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.240 
+#6 1.240 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.240 changes and commit them, and you can discard any commits you make in this
+#6 1.240 state without impacting any branches by switching back to a branch.
+#6 1.240 
+#6 1.240 If you want to create a new branch to retain commits you create, you may
+#6 1.240 do so (now or later) by using -c with the switch command. Example:
+#6 1.240 
+#6 1.240   git switch -c <new-branch-name>
+#6 1.240 
+#6 1.240 Or undo this operation with:
+#6 1.240 
+#6 1.240   git switch -
+#6 1.240 
+#6 1.240 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.240 
+#6 1.240 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.277 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.278 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.489 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.505 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.877 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.196 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.622 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.784 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.180 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.431 ln -sf afl-as as
+#6 5.433 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.435 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.435 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.9s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:06ed11360957826c851d547f717f8c861c3dd907eb7f600a65ff72985121130c
+#7 0.689 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.689 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.702 Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#7 0.714 Get:4 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+#7 0.792 Get:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#7 1.592 Fetched 336 kB in 1s (346 kB/s)
+#7 1.592 Reading package lists...
+#7 3.262 Reading package lists...
+#7 4.709 Building dependency tree...
+#7 4.926 Reading state information...
+#7 5.179 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.179 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 5.206 --2022-02-10 21:25:23--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.222 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+#7 5.224 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+#7 5.250 HTTP request sent, awaiting response... 200 OK
+#7 5.269 Length: 9177 (9.0K) [text/plain]
+#7 5.269 Saving to: '/afl/afl_driver.cpp'
+#7 5.269 
+#7 5.269      0K ........                                              100% 6.65M=0.001s
+#7 5.270 
+#7 5.271 2022-02-10 21:25:23 (6.65 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.271 
+#7 7.044 ar: creating /libAFL.a
+#7 DONE 7.7s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:0fe597fd7a351b390fc76b12ff4a65cdf999276eb33fbaca25c13260e8e6aa39 done
+#8 naming to gcr.io/fuzzbench/builders/afl/matio_matio-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/matio_matio-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4b92fdfcf621bb94f32df861f0ab6824041bd85a16c6319df2e751b15764b8ea
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:34fac8197442984ff548f7ea6c01b7cd31301c4658649186d29c156b1fe86ce3
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:e435c670eafdcc5ba91a9d11de664787eee43cdff725d20ecc07049fe73e04f0
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2c01b595fc700a5978c1b0abf3e79625acd0fa3bfe1d5dde9c8a1a47d9f061cd
+#9 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:2609f2d9502b5ea4194559a23e8562aab36dc3816fbf7b9652bf2f28b10bec40
+#11 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:0c07d5ab2d4bf1b1047bdf4a3fbf0cbae706e4b50075b4cad675130d000b86aa
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:4af43a5762fabbad246faf2593fb157619f7f41df1c5bca8898a5a2d5680c72f
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0222a8fdcf54a34963ceecd85049a8d566b4cb1076c3190a4972517c2fe5a4f8
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ac026479a80def5ce4f897ee36d1a4273528f438d9c9acebd3ebb338962c9ad7
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/matio_matio-intermediate:latest
+#4 sha256:4b15626a1f579e7387d452894cc51a8ef2aa37ac66297884c09c9106a3635483
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d2c5ea7eb9827747771b1656dade64aebef988171ef5874c996fc229343f5f34
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/matio_matio-intermediate
+#6 sha256:bd3f02568953c6a2ae66476106d6468221458d8fe1e27bf77f5a091e31921c31
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/matio_matio
+#5 sha256:745696c7bbb14ccc9409d21d9aaa38e3b75c1eee59372a3efce5255802622062
+#5 ERROR: gcr.io/fuzzbench/builders/afl/matio_matio:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:d2c5ea7eb9827747771b1656dade64aebef988171ef5874c996fc229343f5f34
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/matio_matio-intermediate
+#6 sha256:bd3f02568953c6a2ae66476106d6468221458d8fe1e27bf77f5a091e31921c31
+#6 DONE 0.5s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:8f42c84c179f6ce9739fef1ed18883ae61ad50e91f264297b911d7117f13507c
+#8 DONE 0.6s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:94aea7aca5aeba9b0d63671ed0f134921051e8b8b901a05c66b36988acf1511a
+#9 DONE 12.5s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:432027d6f8b5e6b765fe09a1338275b0a05dfd90bf4d7e90df3d4367d2048371
+#10 DONE 0.4s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:6d29c8db3efb34ecf9177ba7b041e123a048777a18f903fb997953d953df2881
+#11 DONE 16.4s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:a201c49c872ad3a2f808e039a97b9ab9741b70e2d108ba63eede6c528eab481a
+#13 DONE 0.2s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:3afb1eaeb815833ab14f18a294631beb616b8f4bb3e162b70d34b2941fa7284b
+#14 DONE 0.6s
+
+#15 [stage-1  8/13] COPY benchmarks/matio_matio/benchmark.yaml /
+#15 sha256:86df69155102e4d915fc5cf3d149b01062f2863ea74ff4df52a6722b871e9804
+#15 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:41da6291991ca47494a06ec126217e971c23f0cd7380e81fba14c56f2a4b3d03
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:f2e0e5f98a69e7a3004d3eca3bf62f805edb0ec785e7c001bdf67715b5d6240a
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:0d401b2e6968613ba5afbfd72ce369af4abba89269f8b0a410da8538ec28b2d4
+#18 0.510 Checking out commit fb35c823
+#18 23.10 From git://git.code.sf.net/p/matio/matio
+#18 23.10  * [new tag]         v1.5.0     -> v1.5.0
+#18 23.10  * [new tag]         v1.5.0b1   -> v1.5.0b1
+#18 23.10  * [new tag]         v1.5.1     -> v1.5.1
+#18 23.11  * [new tag]         v1.5.10    -> v1.5.10
+#18 23.11  * [new tag]         v1.5.11    -> v1.5.11
+#18 23.11  * [new tag]         v1.5.12    -> v1.5.12
+#18 23.11  * [new tag]         v1.5.13    -> v1.5.13
+#18 23.11  * [new tag]         v1.5.14    -> v1.5.14
+#18 23.11  * [new tag]         v1.5.15    -> v1.5.15
+#18 23.11  * [new tag]         v1.5.16    -> v1.5.16
+#18 23.11  * [new tag]         v1.5.17    -> v1.5.17
+#18 23.11  * [new tag]         v1.5.18    -> v1.5.18
+#18 23.11  * [new tag]         v1.5.19    -> v1.5.19
+#18 23.11  * [new tag]         v1.5.2     -> v1.5.2
+#18 23.11  * [new tag]         v1.5.20    -> v1.5.20
+#18 23.11  * [new tag]         v1.5.21    -> v1.5.21
+#18 23.11  * [new tag]         v1.5.4     -> v1.5.4
+#18 23.11  * [new tag]         v1.5.5     -> v1.5.5
+#18 23.11  * [new tag]         v1.5.6     -> v1.5.6
+#18 23.11  * [new tag]         v1.5.7     -> v1.5.7
+#18 23.11  * [new tag]         v1.5.8     -> v1.5.8
+#18 23.11  * [new tag]         v1.5.9     -> v1.5.9
+#18 23.21 error: pathspec 'fb35c823' did not match any file(s) known to git
+#18 23.22 error: pathspec 'fb35c823' did not match any file(s) known to git
+#18 23.22 error: pathspec 'fb35c823' did not match any file(s) known to git
+#18 23.28 Checkout unsuccessful.
+#18 DONE 23.7s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:1646fff4a0e68d314c3457e7de20fd4daef5f98828f8860e5f8cdb9b6db62cde
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:ba9528fe4941d4e9e2900f8207217ef985850e5ea88fa7c2c1d72e9545570428
+#20 0.540 Run fuzzer_build to build the target
+#20 0.663 FUZZ_TARGET = matio
+#20 0.663 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.663 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.671 Building benchmark matio_matio with fuzzer afl
+#20 0.675 + ./autogen.sh
+#20 1.114 libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+#20 1.114 libtoolize: copying file 'config/ltmain.sh'
+#20 1.151 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'config'.
+#20 1.151 libtoolize: copying file 'config/libtool.m4'
+#20 1.161 libtoolize: copying file 'config/ltoptions.m4'
+#20 1.171 libtoolize: copying file 'config/ltsugar.m4'
+#20 1.180 libtoolize: copying file 'config/ltversion.m4'
+#20 1.190 libtoolize: copying file 'config/lt~obsolete.m4'
+#20 4.531 configure.ac:54: installing 'config/compile'
+#20 4.638 documentation/Makefile.am:28: installing 'config/texinfo.tex'
+#20 5.452 + ./configure
+#20 5.675 checking for a BSD-compatible install... /usr/bin/install -c
+#20 5.694 checking whether build environment is sane... yes
+#20 5.712 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 5.716 checking for gawk... no
+#20 5.717 checking for mawk... mawk
+#20 5.718 checking whether make sets $(MAKE)... yes
+#20 5.735 checking whether make supports nested variables... yes
+#20 5.759 checking whether make supports nested variables... (cached) yes
+#20 5.760 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 5.772 checking build system type... x86_64-pc-linux-gnu
+#20 5.846 checking host system type... x86_64-pc-linux-gnu
+#20 5.926 checking whether the C compiler works... yes
+#20 6.072 checking for C compiler default output file name... a.out
+#20 6.075 checking for suffix of executables... 
+#20 6.193 checking whether we are cross compiling... no
+#20 6.333 checking for suffix of object files... o
+#20 6.365 checking whether we are using the GNU C compiler... yes
+#20 6.392 checking whether clang accepts -g... yes
+#20 6.416 checking for clang option to accept ISO C89... none needed
+#20 6.466 checking whether clang understands -c and -o together... yes
+#20 6.510 checking debug mode... no
+#20 6.513 checking profile mode... no
+#20 6.516 checking how to print strings... printf
+#20 6.569 checking for a sed that does not truncate output... /usr/bin/sed
+#20 6.578 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 6.583 checking for egrep... /usr/bin/grep -E
+#20 6.586 checking for fgrep... /usr/bin/grep -F
+#20 6.589 checking for ld used by clang... /usr/bin/ld
+#20 6.606 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 6.611 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 6.619 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 6.651 checking whether ln -s works... yes
+#20 6.651 checking the maximum length of command line arguments... 1572864
+#20 6.666 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 6.667 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 6.668 checking for /usr/bin/ld option to reload object files... -r
+#20 6.669 checking for objdump... objdump
+#20 6.670 checking how to recognize dependent libraries... pass_all
+#20 6.672 checking for dlltool... no
+#20 6.673 checking how to associate runtime and link libraries... printf %s\n
+#20 6.674 checking for ar... ar
+#20 6.675 checking for archiver @FILE support... @
+#20 6.719 checking for strip... strip
+#20 6.720 checking for ranlib... ranlib
+#20 6.721 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 6.914 checking for sysroot... no
+#20 6.915 checking for a working dd... /usr/bin/dd
+#20 6.936 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 6.982 checking for mt... no
+#20 6.983 checking if : is a manifest tool... no
+#20 6.992 checking how to run the C preprocessor... clang -E
+#20 7.099 checking for ANSI C header files... yes
+#20 7.349 checking for sys/types.h... yes
+#20 7.401 checking for sys/stat.h... yes
+#20 7.458 checking for stdlib.h... yes
+#20 7.513 checking for string.h... yes
+#20 7.578 checking for memory.h... yes
+#20 7.640 checking for strings.h... yes
+#20 7.700 checking for inttypes.h... yes
+#20 7.771 checking for stdint.h... yes
+#20 7.837 checking for unistd.h... yes
+#20 7.900 checking for dlfcn.h... yes
+#20 7.959 checking for objdir... .libs
+#20 8.130 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 8.160 checking for clang option to produce PIC... -fPIC -DPIC
+#20 8.160 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 8.193 checking if clang static flag -static works... yes
+#20 8.456 checking if clang supports -c -o file.o... yes
+#20 8.501 checking if clang supports -c -o file.o... (cached) yes
+#20 8.501 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 8.531 checking whether -lc should be explicitly linked in... no
+#20 8.602 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 8.801 checking how to hardcode library paths into programs... immediate
+#20 8.802 checking whether stripping libraries is possible... yes
+#20 8.807 checking if libtool supports shared libraries... yes
+#20 8.807 checking whether to build shared libraries... yes
+#20 8.807 checking whether to build static libraries... yes
+#20 8.809 checking whether make sets $(MAKE)... (cached) yes
+#20 8.814 checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+#20 8.815 checking for pow in -lm... yes
+#20 8.961 checking for ANSI C header files... (cached) yes
+#20 8.967 checking for stdarg.h... yes
+#20 9.036 checking for varargs.h... no
+#20 9.100 checking for inttypes.h... (cached) yes
+#20 9.103 checking for stdint.h... (cached) yes
+#20 9.106 checking intsafe.h usability... no
+#20 9.168 checking intsafe.h presence... no
+#20 9.193 checking for intsafe.h... no
+#20 9.194 checking for strings.h... (cached) yes
+#20 9.197 checking for unistd.h... (cached) yes
+#20 9.203 checking locale.h usability... yes
+#20 9.258 checking locale.h presence... yes
+#20 9.282 checking for locale.h... yes
+#20 9.294 checking stddef.h usability... yes
+#20 9.354 checking stddef.h presence... yes
+#20 9.374 checking for stddef.h... yes
+#20 9.382 checking for struct lconv.decimal_point... yes
+#20 9.416 checking for struct lconv.thousands_sep... yes
+#20 9.449 checking for ptrdiff_t... yes
+#20 9.575 checking for localeconv... yes
+#20 9.718 checking for getopt_long... internal
+#20 9.808 checking size of double... 8
+#20 9.979 checking size of float... 4
+#20 10.17 checking size of long long... 8
+#20 10.36 checking size of long... 8
+#20 10.53 checking size of int... 4
+#20 10.69 checking size of short... 2
+#20 10.86 checking size of char... 1
+#20 11.04 checking size of void *... 8
+#20 11.22 checking size of size_t... 8
+#20 11.39 checking for mat_int64_t... int64_t
+#20 11.53 checking for mat_uint64_t... uint64_t
+#20 11.70 checking for mat_int32_t... int32_t
+#20 11.84 checking for mat_uint32_t... uint32_t
+#20 11.98 checking for mat_int16_t... int16_t
+#20 12.12 checking for mat_uint16_t... uint16_t
+#20 12.26 checking for mat_int8_t... int8_t
+#20 12.57 checking for mat_uint8_t... uint8_t
+#20 12.71 checking for long double... yes
+#20 12.71 checking for unsigned long long int... yes
+#20 12.85 checking for long long int... yes
+#20 13.00 checking for unsigned long long int... (cached) yes
+#20 13.00 checking for size_t... yes
+#20 13.12 checking for intmax_t... yes
+#20 13.24 checking for uintmax_t... yes
+#20 13.37 checking for uintptr_t... yes
+#20 13.49 checking for va_copy() function... yes
+#20 13.68 checking for vsnprintf()... yes
+#20 13.83 checking for snprintf()... yes
+#20 13.97 checking for vasprintf()... yes
+#20 14.12 checking for asprintf()... yes
+#20 14.28 checking for matlab... no
+#20 14.28 checking for zlib Library... configure: no
+#20 14.39 checking for HDF5 software... no
+#20 14.45 checking enable MAT v7.3 file support... no
+#20 14.46 checking for default MAT file version... MAT_FT_MAT5
+#20 14.46 checking enable extended sparse types... yes
+#20 14.51 checking that generated files are newer than configure... done
+#20 14.51 configure: creating ./config.status
+#20 15.29 config.status: creating Makefile
+#20 15.31 config.status: creating matio.pc
+#20 15.34 config.status: creating src/Makefile
+#20 15.37 config.status: creating getopt/Makefile
+#20 15.40 config.status: creating tools/Makefile
+#20 15.42 config.status: creating test/Makefile
+#20 15.45 config.status: creating documentation/Makefile
+#20 15.47 config.status: creating src/matioConfig.h
+#20 15.50 config.status: creating src/matio_pubconf.h
+#20 15.52 config.status: executing libtool commands
+#20 15.55 config.status: executing test/atconfig commands
+#20 15.55 
+#20 15.55    MATIO Configuration Summary       
+#20 15.55 ==============================================================
+#20 15.55            C Compiler: clang
+#20 15.55                CFLAGS:  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard
+#20 15.55      Shared Libraries: yes
+#20 15.55      Static Libraries: yes
+#20 15.55   default MAT version: MAT_FT_MAT5
+#20 15.55 
+#20 15.56 Features --------------------------------------------
+#20 15.56   MAT v7.3 file support: no
+#20 15.56 Extended sparse support: yes
+#20 15.56 
+#20 15.56 Packages --------------------------------------------
+#20 15.56                  zlib: 
+#20 15.56                  hdf5: 
+#20 15.56                MATLAB: 
+#20 15.56 
+#20 15.56 
+#20 15.62 ++ nproc
+#20 15.62 + make -j8
+#20 15.63 Making all in src
+#20 15.64 make[1]: Entering directory '/src/matio/src'
+#20 15.64 make  all-am
+#20 15.65 make[2]: Entering directory '/src/matio/src'
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o snprintf.lo snprintf.c
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o endian.lo endian.c
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o io.lo io.c
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o read_data.lo read_data.c
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o mat5.lo mat5.c
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o mat4.lo mat4.c
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o mat.lo mat.c
+#20 15.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o matvar_cell.lo matvar_cell.c
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c endian.c  -fPIC -DPIC -o .libs/endian.o
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c mat4.c  -fPIC -DPIC -o .libs/mat4.o
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c io.c  -fPIC -DPIC -o .libs/io.o
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c read_data.c  -fPIC -DPIC -o .libs/read_data.o
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c matvar_cell.c  -fPIC -DPIC -o .libs/matvar_cell.o
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c mat5.c  -fPIC -DPIC -o .libs/mat5.o
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c snprintf.c  -fPIC -DPIC -o .libs/snprintf.o
+#20 15.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c mat.c  -fPIC -DPIC -o .libs/mat.o
+#20 15.75 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c snprintf.c -o snprintf.o >/dev/null 2>&1
+#20 15.77 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.    -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o matvar_struct.lo matvar_struct.c
+#20 15.83 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c endian.c -o endian.o >/dev/null 2>&1
+#20 15.88 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c io.c -o io.o >/dev/null 2>&1
+#20 15.90 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c matvar_struct.c  -fPIC -DPIC -o .libs/matvar_struct.o
+#20 15.99 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c matvar_cell.c -o matvar_cell.o >/dev/null 2>&1
+#20 16.21 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c mat4.c -o mat4.o >/dev/null 2>&1
+#20 16.36 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c matvar_struct.c -o matvar_struct.o >/dev/null 2>&1
+#20 16.70 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c mat.c -o mat.o >/dev/null 2>&1
+#20 16.71 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c mat5.c -o mat5.o >/dev/null 2>&1
+#20 21.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I. -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c read_data.c -o read_data.o >/dev/null 2>&1
+#20 27.69 /bin/bash ../libtool  --tag=CC   --mode=link clang -I.    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -no-undefined -export-symbols ./matio.sym -version-info 11:3:0   -o libmatio.la -rpath /usr/local/lib snprintf.lo endian.lo io.lo  read_data.lo mat5.lo mat4.lo mat.lo matvar_cell.lo matvar_struct.lo    -lm 
+#20 27.82 libtool: link: echo "{ global:" > .libs/libmatio.ver
+#20 27.82 libtool: link:  cat ./matio.sym | sed -e "s/\(.*\)/\1;/" >> .libs/libmatio.ver
+#20 27.84 libtool: link:  echo "local: *; };" >> .libs/libmatio.ver
+#20 27.84 libtool: link:  clang -shared  -fPIC -DPIC  .libs/snprintf.o .libs/endian.o .libs/io.o .libs/read_data.o .libs/mat5.o .libs/mat4.o .libs/mat.o .libs/matvar_cell.o .libs/matvar_struct.o   -lm  -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -O3   -pthread -Wl,-soname -Wl,libmatio.so.11 -Wl,-version-script -Wl,.libs/libmatio.ver -o .libs/libmatio.so.11.0.3
+#20 27.90 libtool: link: (cd ".libs" && rm -f "libmatio.so.11" && ln -s "libmatio.so.11.0.3" "libmatio.so.11")
+#20 27.91 libtool: link: (cd ".libs" && rm -f "libmatio.so" && ln -s "libmatio.so.11.0.3" "libmatio.so")
+#20 27.91 libtool: link: ar cr .libs/libmatio.a  snprintf.o endian.o io.o read_data.o mat5.o mat4.o mat.o matvar_cell.o matvar_struct.o
+#20 27.93 libtool: link: ranlib .libs/libmatio.a
+#20 27.96 libtool: link: ( cd ".libs" && rm -f "libmatio.la" && ln -s "../libmatio.la" "libmatio.la" )
+#20 27.97 make[2]: Leaving directory '/src/matio/src'
+#20 27.97 make[1]: Leaving directory '/src/matio/src'
+#20 27.97 Making all in getopt
+#20 27.97 make[1]: Entering directory '/src/matio/getopt'
+#20 27.97 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../src    -DREPLACE_GETOPT=1 -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o libgetopt_la-getopt_long.lo `test -f 'getopt_long.c' || echo './'`getopt_long.c
+#20 28.03 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../src -DREPLACE_GETOPT=1 -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c getopt_long.c  -fPIC -DPIC -o .libs/libgetopt_la-getopt_long.o
+#20 28.22 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../src -DREPLACE_GETOPT=1 -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c getopt_long.c -o libgetopt_la-getopt_long.o >/dev/null 2>&1
+#20 28.40 /bin/bash ../libtool  --tag=CC   --mode=link clang -DREPLACE_GETOPT=1 -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o libgetopt.la  libgetopt_la-getopt_long.lo  -lm 
+#20 28.51 libtool: link: ar cr .libs/libgetopt.a .libs/libgetopt_la-getopt_long.o 
+#20 28.51 libtool: link: ranlib .libs/libgetopt.a
+#20 28.53 libtool: link: ( cd ".libs" && rm -f "libgetopt.la" && ln -s "../libgetopt.la" "libgetopt.la" )
+#20 28.53 make[1]: Leaving directory '/src/matio/getopt'
+#20 28.53 Making all in tools
+#20 28.54 make[1]: Entering directory '/src/matio/tools'
+#20 28.54 clang -DHAVE_CONFIG_H -I. -I../src    -I../src -I../getopt    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o matdump.o matdump.c
+#20 29.03 /bin/bash ../libtool  --tag=CC   --mode=link clang -I../src -I../getopt    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard    -o matdump matdump.o ../src/libmatio.la   ../getopt/libgetopt.la -lm 
+#20 29.19 libtool: link: clang -I../src -I../getopt -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/matdump matdump.o  ../src/.libs/libmatio.so ../getopt/.libs/libgetopt.a -lm -pthread
+#20 29.30 make[1]: Leaving directory '/src/matio/tools'
+#20 29.30 Making all in test
+#20 29.30 make[1]: Entering directory '/src/matio/test'
+#20 29.30 clang -DHAVE_CONFIG_H -I. -I../src    -I../src -I../getopt   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o test_mat.o test_mat.c
+#20 29.31 clang -DHAVE_CONFIG_H -I. -I../src    -I../src -I../getopt   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -o test_snprintf.o test_snprintf.c
+#20 29.41 /bin/bash ../libtool  --tag=CC   --mode=link clang -I../src -I../getopt   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o test_snprintf test_snprintf.o  -lm 
+#20 29.50 libtool: link: clang -I../src -I../getopt -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o test_snprintf test_snprintf.o  -lm -pthread
+#20 30.38 /bin/bash ../libtool  --tag=CC   --mode=link clang -I../src -I../getopt   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -L../src  -o test_mat test_mat.o ../src/libmatio.la ../getopt/libgetopt.la   -lm 
+#20 30.54 libtool: link: clang -I../src -I../getopt -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/test_mat test_mat.o  -L../src ../src/.libs/libmatio.so ../getopt/.libs/libgetopt.a -lm -pthread
+#20 30.66 make[1]: Leaving directory '/src/matio/test'
+#20 30.66 Making all in documentation
+#20 30.67 make[1]: Entering directory '/src/matio/documentation'
+#20 30.67 make[1]: Nothing to be done for 'all'.
+#20 30.67 make[1]: Leaving directory '/src/matio/documentation'
+#20 30.67 make[1]: Entering directory '/src/matio'
+#20 30.67 make[1]: Nothing to be done for 'all-am'.
+#20 30.67 make[1]: Leaving directory '/src/matio'
+#20 30.67 + make install
+#20 30.68 Making install in src
+#20 30.68 make[1]: Entering directory '/src/matio/src'
+#20 30.70 make[2]: Entering directory '/src/matio/src'
+#20 30.70  /usr/bin/mkdir -p '/usr/local/lib'
+#20 30.70  /bin/bash ../libtool   --mode=install /usr/bin/install -c   libmatio.la '/usr/local/lib'
+#20 30.74 libtool: install: /usr/bin/install -c .libs/libmatio.so.11.0.3 /usr/local/lib/libmatio.so.11.0.3
+#20 30.75 libtool: install: (cd /usr/local/lib && { ln -s -f libmatio.so.11.0.3 libmatio.so.11 || { rm -f libmatio.so.11 && ln -s libmatio.so.11.0.3 libmatio.so.11; }; })
+#20 30.75 libtool: install: (cd /usr/local/lib && { ln -s -f libmatio.so.11.0.3 libmatio.so || { rm -f libmatio.so && ln -s libmatio.so.11.0.3 libmatio.so; }; })
+#20 30.75 libtool: install: /usr/bin/install -c .libs/libmatio.lai /usr/local/lib/libmatio.la
+#20 30.76 libtool: install: /usr/bin/install -c .libs/libmatio.a /usr/local/lib/libmatio.a
+#20 30.76 libtool: install: chmod 644 /usr/local/lib/libmatio.a
+#20 30.76 libtool: install: ranlib /usr/local/lib/libmatio.a
+#20 30.84 libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out:/sbin" ldconfig -n /usr/local/lib
+#20 30.87 ----------------------------------------------------------------------
+#20 30.87 Libraries have been installed in:
+#20 30.87    /usr/local/lib
+#20 30.87 
+#20 30.87 If you ever happen to want to link against installed libraries
+#20 30.87 in a given directory, LIBDIR, you must either use libtool, and
+#20 30.87 specify the full pathname of the library, or use the '-LLIBDIR'
+#20 30.87 flag during linking and do at least one of the following:
+#20 30.87    - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+#20 30.87      during execution
+#20 30.87    - add LIBDIR to the 'LD_RUN_PATH' environment variable
+#20 30.87      during linking
+#20 30.87    - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+#20 30.87    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+#20 30.87 
+#20 30.87 See any operating system documentation about shared libraries for
+#20 30.87 more information, such as the ld(1) and ld.so(8) manual pages.
+#20 30.87 ----------------------------------------------------------------------
+#20 30.88  /usr/bin/mkdir -p '/usr/local/include'
+#20 30.88  /usr/bin/install -c -m 644 matio.h '/usr/local/include'
+#20 30.89  /usr/bin/mkdir -p '/usr/local/include'
+#20 30.89  /usr/bin/install -c -m 644 matio_pubconf.h '/usr/local/include'
+#20 30.90 make[2]: Leaving directory '/src/matio/src'
+#20 30.90 make[1]: Leaving directory '/src/matio/src'
+#20 30.90 Making install in getopt
+#20 30.90 make[1]: Entering directory '/src/matio/getopt'
+#20 30.90 make[2]: Entering directory '/src/matio/getopt'
+#20 30.90 make[2]: Nothing to be done for 'install-exec-am'.
+#20 30.90 make[2]: Nothing to be done for 'install-data-am'.
+#20 30.90 make[2]: Leaving directory '/src/matio/getopt'
+#20 30.90 make[1]: Leaving directory '/src/matio/getopt'
+#20 30.90 Making install in tools
+#20 30.91 make[1]: Entering directory '/src/matio/tools'
+#20 30.91 make[2]: Entering directory '/src/matio/tools'
+#20 30.91  /usr/bin/mkdir -p '/usr/local/bin'
+#20 30.92   /bin/bash ../libtool   --mode=install /usr/bin/install -c matdump '/usr/local/bin'
+#20 30.98 libtool: install: /usr/bin/install -c .libs/matdump /usr/local/bin/matdump
+#20 30.98 make[2]: Nothing to be done for 'install-data-am'.
+#20 30.98 make[2]: Leaving directory '/src/matio/tools'
+#20 30.98 make[1]: Leaving directory '/src/matio/tools'
+#20 30.98 Making install in test
+#20 30.99 make[1]: Entering directory '/src/matio/test'
+#20 30.99 make[2]: Entering directory '/src/matio/test'
+#20 30.99 make[2]: Nothing to be done for 'install-exec-am'.
+#20 30.99 make[2]: Nothing to be done for 'install-data-am'.
+#20 30.99 make[2]: Leaving directory '/src/matio/test'
+#20 30.99 make[1]: Leaving directory '/src/matio/test'
+#20 30.99 Making install in documentation
+#20 31.00 make[1]: Entering directory '/src/matio/documentation'
+#20 31.00 make[2]: Entering directory '/src/matio/documentation'
+#20 31.00 make[2]: Nothing to be done for 'install-exec-am'.
+#20 31.01  /usr/bin/mkdir -p '/usr/local/share/info'
+#20 31.04  /usr/bin/mkdir -p '/usr/local/share/man/man3'
+#20 31.05  /usr/bin/install -c -m 644 Mat_Close.3 Mat_CreateVer.3 Mat_GetDir.3 Mat_GetFilename.3 Mat_GetHeader.3 Mat_GetLibraryVersion.3 Mat_GetVersion.3 Mat_Open.3 Mat_Rewind.3 Mat_VarAddStructField.3 Mat_VarCreate.3 Mat_VarCreateStruct.3 Mat_VarDelete.3 Mat_VarFree.3 Mat_VarGetNumberOfFields.3 Mat_VarGetSize.3 Mat_VarGetStructFieldnames.3 Mat_VarGetStructs.3 Mat_VarGetStructsLinear.3 Mat_VarRead.3 Mat_VarReadInfo.3 Mat_VarReadNext.3 Mat_VarReadNextInfo.3 Mat_VarPrint.3 Mat_VarWrite.3 Mat_VarWriteAppend.3 '/usr/local/share/man/man3'
+#20 31.06 make[2]: Leaving directory '/src/matio/documentation'
+#20 31.06 make[1]: Leaving directory '/src/matio/documentation'
+#20 31.07 make[1]: Entering directory '/src/matio'
+#20 31.07 make[2]: Entering directory '/src/matio'
+#20 31.07 make[2]: Nothing to be done for 'install-exec-am'.
+#20 31.07  /usr/bin/mkdir -p '/usr/local/lib/pkgconfig'
+#20 31.08  /usr/bin/install -c -m 644 matio.pc '/usr/local/lib/pkgconfig'
+#20 31.08 make[2]: Leaving directory '/src/matio'
+#20 31.08 make[1]: Leaving directory '/src/matio'
+#20 31.08 ++ find /src -name '*_fuzzer.cc'
+#20 31.11 + for fuzzers in $(find $SRC -name '*_fuzzer.cc')
+#20 31.11 ++ basename -s .cc /src/matio_fuzzer.cc
+#20 31.11 + base=matio_fuzzer
+#20 31.11 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -Iinclude /src/matio_fuzzer.cc ./getopt/.libs/libgetopt.a ./src/.libs/libmatio.a -o /out/matio_fuzzer /libAFL.a
+#20 33.17 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 33.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:11cbc3d6252896dacf24733b9ddbecbd09004d9806a7d9910ef25fd406c642e9 done
+#21 naming to gcr.io/fuzzbench/builders/afl/matio_matio done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/matio_matio:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:d78c340c2e22c120f2fe56ab7b29d77d9e6a5f55af4636e7b527046550d4263a
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:a19afa06b43f69bb0e65541b258f07c0a3be105187f44e1124fb72ddb19e3140
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/matio_matio-intermediate
+#5 sha256:d03fa929e92790bbd5f356ca4c3f78da54fdefe6dbe83e35880e2e8d88db2c6b
+#5 ERROR: gcr.io/fuzzbench/runners/afl/matio_matio-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c done
+#6 naming to gcr.io/fuzzbench/runners/afl/matio_matio-intermediate 0.0s done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/matio_matio-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:79063d91b1160de72e41023f76b9d4369120481f09c5a5805e54329b5b688504
+#2 transferring context: 34B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:97414c19162881a56e779efdf50b92817383e8046cc1298a76407625677b55b5
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:79063d91b1160de72e41023f76b9d4369120481f09c5a5805e54329b5b688504
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/matio_matio-intermediate:latest
+#3 sha256:fd456129a27227d2b67bbad2ae5bc8bec96ab15e9a3d3eee661964273c878054
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/matio_matio:latest
+#4 sha256:2a694c205007875379f3a99b43cf415c73350301ee52b66b466f395e8f1f9bf6
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:ffa8a7dd1afd0f8475464bdb9cff4a1c1d9c944d68e284f70d57ee6f49e17b16
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/matio_matio-intermediate
+#6 sha256:ac47c5e0befc339930576f7a93af1c52415ef4f072a54992e487cef30c09ffe8
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/matio_matio
+#10 sha256:40f7f5c76c1995b072cab97be9ed2c7269f0bf0faf1f427d3e44b26b3bf9617c
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/matio_matio
+#5 sha256:f9d7364c1aaa6814f647a34bb11d127c5699d0293ee6594ca92fb7ccab6b897a
+#5 ERROR: gcr.io/fuzzbench/runners/afl/matio_matio:latest: not found
+
+#12 [internal] load build context
+#12 sha256:ffa8a7dd1afd0f8475464bdb9cff4a1c1d9c944d68e284f70d57ee6f49e17b16
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/matio_matio
+#10 sha256:40f7f5c76c1995b072cab97be9ed2c7269f0bf0faf1f427d3e44b26b3bf9617c
+#10 DONE 1.6s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:1976f3cd6481c5652f2c9799d0c5e5ee846d520318268964cd0c2078b4cea0ac
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:93ee36632a53bc8fe0384f64152d0d670e111e34d60cca8234855af15fa31947
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:60865991c87e43de5aa5ebce0cb653dc7b8302ba06b3973b081425dc021defcd
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:f6902fc5252922da13849f358b4ace55dee5cdea19309867598087a207949a59
+#11 DONE 0.1s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:5bc8eb949804558ab3d5a5763b78b716030527a394e7141ab65d34fcf1c1aaa9
+#13 DONE 0.9s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:40fcc9989ff7e7fac5f8b4ad2d3fbf849d7d47120268ad9635a003004d6b46d8
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:147f293c8c55c624964823777a7a941bf74e5590eb4a4690ce7466371783cd31
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:e5c0e24d743f79d9027a753cdc8cf4cca043811f661540dce8f976bc924392c1
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:cc544eb3df30fd502e5a6c4842dd64868184083c89f5db3af3792705feebf9bc
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:e3a19b97c3256b7d0c8663d4e415114b3d98ec65bc016726b70326aabda143c6
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:3f39046a73f4930a4f726f708d1a8314af45399483dc3894e657bbe3106f21f7
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:3a50edbb9697a844a37478fc94c3789f6e5e1d56afe197abbd37f766acab355d
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:2069d49072743f4f57d59980025e04ed632602c999ea2f27b43013b257c9e488
+#21 writing image sha256:2069d49072743f4f57d59980025e04ed632602c999ea2f27b43013b257c9e488 done
+#21 naming to gcr.io/fuzzbench/runners/afl/matio_matio done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/matio_matio:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fba6b08bf70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:70ef4250da12aa2665b52418a75345530ab67bf8f0dd5822fac732f5d2cec5a6
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:afc15a44da845eda7415a7121ec4448db8951a4c7af433e7a855b8921e513a7a
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/matio_matio
+#4 sha256:487fa3782846524bedb69b155ad89377170dd489bbed1737963c8f64a4120236
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:42b84b12318099f5996fa8b4936ba3aee98e1b0c539dc9d83201f605e2a3ee85
+#9 transferring context: 103B done
+#9 DONE 0.0s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:52e32c454805a8c94e441551d01b16d090304920e0b4ce6b465dec91bafa72a3
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 git://git.code.sf.net/p/matio/matio matio
+#7 sha256:40066594d1bb1e4f828f8566cdd7d21548ea28d44e45999bde0f7198b56b703d
+#7 CACHED
+
+#8 [4/6] WORKDIR matio
+#8 sha256:5867a42ee4a523f80fa38d6638a7c2d8be5eda96f1479cd09b26c15558ea187b
+#8 CACHED
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:165497357b5c0bfbec4ad004f7ee3d52dd41e2637586cae3246873360209ef21
+#10 CACHED
+
+#11 [6/6] COPY *.cc *.h /src/
+#11 sha256:31713c303ec34de43547d3a3754f3e3cc4b9c2fedd711ca64c81ceb1864a9449
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:749aa947b58e429498e88cd564d1422ad4bf2e797ced126bd98c64b7e9eb4ab1 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/matio_matio done
+#12 DONE 0.2s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:b032fcaa0a4330d2a9757358829b0a758ea919bb3382d3488e3e1f3adae173e1
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:5f0243cdbdbeb685a8a9fee8ea702700316933a0a7f86e1cbe46481aefbdbe1f
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/matio_matio:latest
+#3 sha256:8848777a3748cdeaba97cceff7fac262afbd8bcb3871e73927b9f6ae9965745d
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/matio_matio
+#5 sha256:fd423ca89381408ec037246fd2290bd785cc8334ecfd4dd21265cc261234f4c5
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/matio_matio-intermediate
+#4 sha256:a3f92f841877b66486adc850f39bc68fe325f287179b897a181b4f665b48d313
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:7c1e574477b3bd1a737043c732d30189c069b4b35cc81b7d096f72fc9c26d34d
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:06ed11360957826c851d547f717f8c861c3dd907eb7f600a65ff72985121130c
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:0fe597fd7a351b390fc76b12ff4a65cdf999276eb33fbaca25c13260e8e6aa39 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/matio_matio-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c4bf3a80837a080ba10d5f34955c61928fd460c076d4dcf30f39997282db317e
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d623e4bff5c9afcb045987813ad3edb522ddf319091945b6741c6d660740a0ca
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:3e527d625eff6b5927f39600fe30b07bb19c8148b113e1347d8221958cf734e4
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:d318c55179e24b7a790815586916371db4644444cde759e8ace18fb63cc045d9
+#11 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:83e70d066b9f8074f639e61b0a437a1a6caeca2c07790b644085d68fe25db233
+#10 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2eb9d2a549438c9a716e76012f983c754842468d6d317776f0bdca851742e0c3
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:02bb49d77eab1f1717915dfe0390078b3a2e1d1ec6c6419bbf2929f088be3d8a
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ff841749aab81e50ac1379e57a3c79dbe84994d4bcfc266b802f66ef211eb69c
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f8bedc039fa193a602c976caee6ff021fe72a53ed9ee2ac0f0171c1df751e6d4
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/matio_matio-intermediate:latest
+#3 sha256:4b15626a1f579e7387d452894cc51a8ef2aa37ac66297884c09c9106a3635483
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/matio_matio-intermediate
+#6 sha256:bd3f02568953c6a2ae66476106d6468221458d8fe1e27bf77f5a091e31921c31
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/matio_matio
+#5 sha256:745696c7bbb14ccc9409d21d9aaa38e3b75c1eee59372a3efce5255802622062
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:51a8d21d92b3447cee4d0c28aeafe1c6aaf16e64c721ae89584954d9a024ee23
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:6d29c8db3efb34ecf9177ba7b041e123a048777a18f903fb997953d953df2881
+#11 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:6a66ee4e8c2eab1cf815154cd7e4e7911be4ae25cf63fff1fd60a234863feadb
+#17 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:295e065b94caa78e3f9bec4b9930cc14f8ec14b50f91d1fff95dc5a0537d1861
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/matio_matio/benchmark.yaml /
+#15 sha256:cd14dd88e6436908903d131a1690b1ed28875c49d227da3d5d8832ec78dec177
+#15 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:8e53fbe410477d4aa95e155c28958fea36eb2a40f863f2f84139b95398d0139d
+#18 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:8f42c84c179f6ce9739fef1ed18883ae61ad50e91f264297b911d7117f13507c
+#8 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:e37c14fdd242d1db42d52a67ddbec9ff8c161cf0d4d458b25ccb64f284a96497
+#16 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:432027d6f8b5e6b765fe09a1338275b0a05dfd90bf4d7e90df3d4367d2048371
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:db64881cd09a1e47ec4e1dc5bdf4644f8bc49d5129dab2c21f4bf7a309830764
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a47fbe12b3174b59768a98ad336941442b7324588d0225e8db1bc1a33d6ff80e
+#19 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:94aea7aca5aeba9b0d63671ed0f134921051e8b8b901a05c66b36988acf1511a
+#9 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:a03adfd6889057d65887020e5a863e955213022fe19e0a2bd8e5aef8cd94173b
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:11cbc3d6252896dacf24733b9ddbecbd09004d9806a7d9910ef25fd406c642e9 done
+#21 naming to gcr.io/fuzzbench/builders/afl/matio_matio done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:627785d39eb511e0cb0619447404405ef114367f65bec72e075ee82b2bb9107c
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:c10926d6d04fc8999a21313fbc9a142680d1b45d9aa051bf2005329d9c1e42f7
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/matio_matio-intermediate
+#5 sha256:d03fa929e92790bbd5f356ca4c3f78da54fdefe6dbe83e35880e2e8d88db2c6b
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c done
+#6 naming to gcr.io/fuzzbench/runners/afl/matio_matio-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b11c4b71b7f2bf8bdac9a7328925b52fceeb590e6ade4c68c622a1b29b81ec50
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9f39e2eb5f7904ef701949c99c218fef295a69fa526fbe14832ec978013e50b5
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/matio_matio-intermediate:latest
+#3 sha256:fd456129a27227d2b67bbad2ae5bc8bec96ab15e9a3d3eee661964273c878054
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/matio_matio:latest
+#4 sha256:2a694c205007875379f3a99b43cf415c73350301ee52b66b466f395e8f1f9bf6
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/matio_matio-intermediate
+#6 sha256:ac47c5e0befc339930576f7a93af1c52415ef4f072a54992e487cef30c09ffe8
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/matio_matio
+#5 sha256:f9d7364c1aaa6814f647a34bb11d127c5699d0293ee6594ca92fb7ccab6b897a
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/matio_matio
+#10 sha256:40f7f5c76c1995b072cab97be9ed2c7269f0bf0faf1f427d3e44b26b3bf9617c
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:43e8d49329e1474f43494b2a0d25c04bc8735c084480426c09d091f2e3e47b54
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 0.6s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:1976f3cd6481c5652f2c9799d0c5e5ee846d520318268964cd0c2078b4cea0ac
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:f6902fc5252922da13849f358b4ace55dee5cdea19309867598087a207949a59
+#11 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:717cc39a89ee23ead6cc05d620c83f057450bc64417fcd8d75301c2a4d1fd97a
+#15 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:93ee36632a53bc8fe0384f64152d0d670e111e34d60cca8234855af15fa31947
+#8 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:d93e9279a94c5c82737cf94166d475140d27c9a188272f7e0ab60060369e9bbd
+#19 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:d19afd3c3d10362e2eaa89394d894718ee8deb13117b43b8f062e48a685d9317
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:b54fb671783fcd33bbe54ffff4b33de1806e5508db0ead7d3c491dccff202cde
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:2b25d616f9fa4dec7ba4447ee491bd01d8f73e9f3df79d913cc6569971e18932
+#18 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:520c3e9d5004dd6320afcaebd6af05d60f7500465285d40db5ca7c34dc4ea2cd
+#13 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:2b3ac88fb8ffed846ea8c44365a340452033aa49e1d9980cd4cdbcb90fd993ff
+#17 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:60865991c87e43de5aa5ebce0cb653dc7b8302ba06b3973b081425dc021defcd
+#9 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:adc33cf96089e9d7038072d01694ac57d9bb1d4845bfede8f00b040c90e9f1cf
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:2069d49072743f4f57d59980025e04ed632602c999ea2f27b43013b257c9e488
+#21 writing image sha256:2069d49072743f4f57d59980025e04ed632602c999ea2f27b43013b257c9e488 done
+#21 naming to gcr.io/fuzzbench/runners/afl/matio_matio done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f0c3732cf70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

@@ -1,0 +1,1248 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: oniguruma_oniguruma.
+INFO:root:Please run "make test-run-afl-oniguruma_oniguruma" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:431ab26e83294e7b7242f03bb8fb5f9fbc40bde7e0631f07c4fbea6dd02b9df5
+#1 transferring dockerfile: 997B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:74ef056fe7e66c71546554f9be015e4f59a1431215018b8880f2df272f99813c
+#2 transferring context: 2B done
+#2 DONE 0.6s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:e4b5f33bae8130a3a9d91b3a49d00f38edcd7f5a96e89e0c32ecbb52bfe8c470
+#9 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma
+#4 sha256:712879ef937be1281c8f091e6fa3acdbf5ed2ae1936fd4bdf8b5f0d228705ecd
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma:latest: not found
+
+#9 [internal] load build context
+#9 sha256:e4b5f33bae8130a3a9d91b3a49d00f38edcd7f5a96e89e0c32ecbb52bfe8c470
+#9 transferring context: 61B done
+#9 DONE 0.0s
+
+#8 [4/6] WORKDIR oniguruma
+#8 sha256:d1c6cb866bcc9abc90e523a372ea1c6e25e6862a5634d63735338e5521a1203a
+#8 CACHED
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:e207ba55c86517395cdfe074689cede460b009bc4b873728d08fa0744768d816
+#10 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:52e32c454805a8c94e441551d01b16d090304920e0b4ce6b465dec91bafa72a3
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/kkos/oniguruma.git oniguruma
+#7 sha256:b71dbdeff540ed7b8f8d9a71b6aef4516ba7681ae518d4b5740dbae4d454adcc
+#7 CACHED
+
+#11 [6/6] COPY fuzzer.options /src/oniguruma/harnesses
+#11 sha256:8879f508c6c3cfc935825ec7689fe01033c8efea3c2a80485d19c8a10bdf9945
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:528b16e6ca7cc7648ee337bb73835031eb88a60002bee76791c47b30b76d699a done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e35f07ec1c6f07df06d221d1862d26b714859f80fe97c7c402b7b56438cd0f96
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:92c8a32c49d7c5b06018f7553863bb3727291ad91db2346c198699e50b6f7815
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma:latest
+#3 sha256:e6bf859edd5e5d573e458309a76af2c2b92d4a4e535f8f81f1d9ac27500d3949
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma
+#5 sha256:997827307c3b96e0de58e650d892141929a50c4acff212f2c46559c626e80347
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate
+#4 sha256:1f546eb9b0d2e345670680cea9348410ece98ed32559fa37d6bb2ddb76e6085c
+#4 ERROR: gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:db47a055a306afbd74eddac55d77bce7cf55499cfece14c417205bef509599d7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:8ee14e5a793934b751884ad8593ef53d51df89d2ec58a36d955ed8a0d0363632
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:dd6f539805608336c08351d6280a9d1d0ddf3659028be359eb632049e9e3d0aa done
+#8 naming to gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:cdd623602042ec7479c54651b53158dfa4e78715babc415552f986580b2f1dee
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:aa2c36b1265430a8a50fd4424f82ae2071fa2cba838bce7f25af8d6ed799aeec
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:e3da589298ea22668eee6871c17d52711612a12ff5c80ca9e8adca21c8b3451c
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d67b31dff90043bbbd6241497799bd6f2652e7ce4d245eed8cc4a4c1d6446e9e
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:c019ec1dbe667c19b718bf8dc7b67d6b9eb8458e45db6e62e4fba6c0344f0612
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:529a8af9bf5a4531697d125380cfdc9cbbb1d5580ddeb35051108df4c84c360e
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:9026e3c3b8ebf6c9c68baa483011a080eabb66799ec902f0a5b1db7d0f7628ce
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:9c4b8419fb5776ca7905b1a61a7fd2e34c8586eb86ee058c46502322b4232087
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c800177c9b59b4197828eb6d336bb9b5ae5548a41676c8e3f937bd1ad6e8a58f
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.2s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate:latest
+#3 sha256:103281e90dac58e80153a6b05d287ff073677df7e7852594f3731c2e7abc1600
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:f7d235464f83c48b566485dd2fe39a4ac10a7a657174473808b289d8d7db5fd2
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate
+#6 sha256:575ffe51e3fde8861e131c24fa54f7d41a2bc5d98edc8947ed491672bd0e6de1
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma
+#5 sha256:7a9bc494d1207708b2c919aef4e9641c52aaeba414d58de98431a9a73dc1da23
+#5 ERROR: gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma:latest: not found
+
+#12 [internal] load build context
+#12 sha256:f7d235464f83c48b566485dd2fe39a4ac10a7a657174473808b289d8d7db5fd2
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.1s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:613b7182216c5313c9522cd3372d666e195c1a0f4495849dbd97ab0fcdb34516
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:58f7a4825bb785815293ef60e62139f83b79aafeb64f06c418becd9a3fed9ae7
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:fe4852f9ac51ab26ac48254cb8adfeb2f0ad04490b800a40273b52c812142d78
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:6c23b2e77d9356011fd08af97d3a8e0f944a454c91d64f5f712087b480c0ecc2
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:b0a38a49537decbc750dd24675e50d1afef1e778ac57abc8e1e5ed9ffc311e37
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:d70dd35d1ca765108c00c7b53fe723e466cd8c3697ca11471ae4359efe347e03
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/oniguruma_oniguruma/benchmark.yaml /
+#15 sha256:33e33c5e776f79ab5c646b32da04ab4445bc5eaf77c2029ab32aecd57747afa7
+#15 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:8da8d3db91a3e57aca29ed7bd2886f5424452262b71dd7c4ae3a566385b1c7ce
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:4e224352983e20a01a73146f43089f4452e6683860ad1407f8c91307c8c16510
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:03b4a21ccc00c700c25ad86dd50a4633842dd4cee8ee652620dbdb4cc0b60c0e
+#18 0.440 Checking out commit 6527c33b
+#18 4.262 From https://github.com/kkos/oniguruma
+#18 4.262  * [new tag]         v5.9.6       -> v5.9.6
+#18 4.263  * [new tag]         v6.0.0       -> v6.0.0
+#18 4.263  * [new tag]         v6.1.0       -> v6.1.0
+#18 4.263  * [new tag]         v6.1.1       -> v6.1.1
+#18 4.263  * [new tag]         v6.1.2       -> v6.1.2
+#18 4.264  * [new tag]         v6.1.3       -> v6.1.3
+#18 4.264  * [new tag]         v6.2.0       -> v6.2.0
+#18 4.264  * [new tag]         v6.3.0       -> v6.3.0
+#18 4.264  * [new tag]         v6.4.0       -> v6.4.0
+#18 4.264  * [new tag]         v6.5.0       -> v6.5.0
+#18 4.265  * [new tag]         v6.6.0       -> v6.6.0
+#18 4.265  * [new tag]         v6.6.1       -> v6.6.1
+#18 4.265  * [new tag]         v6.7.0       -> v6.7.0
+#18 4.265  * [new tag]         v6.7.1       -> v6.7.1
+#18 4.266  * [new tag]         v6.8.0       -> v6.8.0
+#18 4.266  * [new tag]         v6.8.1       -> v6.8.1
+#18 4.266  * [new tag]         v6.8.2       -> v6.8.2
+#18 4.266  * [new tag]         v6.9.0       -> v6.9.0
+#18 4.266  * [new tag]         v6.9.1       -> v6.9.1
+#18 4.267  * [new tag]         v6.9.2       -> v6.9.2
+#18 4.267  * [new tag]         v6.9.2_rc1   -> v6.9.2_rc1
+#18 4.267  * [new tag]         v6.9.2_rc2   -> v6.9.2_rc2
+#18 4.267  * [new tag]         v6.9.2_rc3   -> v6.9.2_rc3
+#18 4.267  * [new tag]         v6.9.3       -> v6.9.3
+#18 4.268  * [new tag]         v6.9.4       -> v6.9.4
+#18 4.268  * [new tag]         v6.9.4_mark1 -> v6.9.4_mark1
+#18 4.268  * [new tag]         v6.9.4_rc1   -> v6.9.4_rc1
+#18 4.268  * [new tag]         v6.9.4_rc2   -> v6.9.4_rc2
+#18 4.268  * [new tag]         v6.9.4_rc3   -> v6.9.4_rc3
+#18 4.269  * [new tag]         v6.9.5       -> v6.9.5
+#18 4.269  * [new tag]         v6.9.5_rc1   -> v6.9.5_rc1
+#18 4.269  * [new tag]         v6.9.5_rc2   -> v6.9.5_rc2
+#18 4.269  * [new tag]         v6.9.5_rev1  -> v6.9.5_rev1
+#18 4.270  * [new tag]         v6.9.6       -> v6.9.6
+#18 4.270  * [new tag]         v6.9.6_rc1   -> v6.9.6_rc1
+#18 4.270  * [new tag]         v6.9.6_rc2   -> v6.9.6_rc2
+#18 4.270  * [new tag]         v6.9.6_rc3   -> v6.9.6_rc3
+#18 4.270  * [new tag]         v6.9.6_rc4   -> v6.9.6_rc4
+#18 4.271  * [new tag]         v6.9.7       -> v6.9.7
+#18 4.271  * [new tag]         v6.9.7.1     -> v6.9.7.1
+#18 4.271  * [new tag]         v6.9.7_rc1   -> v6.9.7_rc1
+#18 4.276 error: pathspec '6527c33b' did not match any file(s) known to git
+#18 4.284 error: pathspec '6527c33b' did not match any file(s) known to git
+#18 4.290 error: pathspec '6527c33b' did not match any file(s) known to git
+#18 4.328 Checkout unsuccessful.
+#18 DONE 4.5s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:29ea581f8600ec3fffc168504a15a8a4b84a3c51c792f612a96831ac56204e8e
+#19 DONE 0.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f94e99d711f00e1b591b28896592c099b21443fc2321f63c6bfb96ce7080d14d
+#20 0.453 Run fuzzer_build to build the target
+#20 0.574 FUZZ_TARGET = oniguruma
+#20 0.574 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.574 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.579 Building benchmark oniguruma_oniguruma with fuzzer afl
+#20 0.582 + ./autogen.sh
+#20 0.582 Generating autotools files.
+#20 4.453 libtoolize: putting auxiliary files in '.'.
+#20 4.453 libtoolize: copying file './ltmain.sh'
+#20 4.483 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 4.483 libtoolize: copying file 'm4/libtool.m4'
+#20 4.508 libtoolize: copying file 'm4/ltoptions.m4'
+#20 4.535 libtoolize: copying file 'm4/ltsugar.m4'
+#20 4.564 libtoolize: copying file 'm4/ltversion.m4'
+#20 4.593 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 8.370 configure.ac:58: installing './compile'
+#20 8.380 configure.ac:6: installing './missing'
+#20 8.475 sample/Makefile.am: installing './depcomp'
+#20 8.702 
+#20 8.702 Run ./configure, make, and make install.
+#20 8.702 + ./configure
+#20 8.856 checking for a BSD-compatible install... /usr/bin/install -c
+#20 8.867 checking whether build environment is sane... yes
+#20 8.879 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 8.883 checking for gawk... no
+#20 8.884 checking for mawk... mawk
+#20 8.885 checking whether make sets $(MAKE)... yes
+#20 8.898 checking whether make supports nested variables... yes
+#20 8.910 checking for gcc... clang
+#20 8.959 checking whether the C compiler works... yes
+#20 9.071 checking for C compiler default output file name... a.out
+#20 9.073 checking for suffix of executables... 
+#20 9.185 checking whether we are cross compiling... no
+#20 9.309 checking for suffix of object files... o
+#20 9.332 checking whether we are using the GNU C compiler... yes
+#20 9.354 checking whether clang accepts -g... yes
+#20 9.373 checking for clang option to accept ISO C89... none needed
+#20 9.411 checking whether clang understands -c and -o together... yes
+#20 9.442 checking whether make supports the include directive... yes (GNU style)
+#20 9.455 checking dependency style of clang... gcc3
+#20 9.508 checking build system type... x86_64-pc-linux-gnu
+#20 9.560 checking host system type... x86_64-pc-linux-gnu
+#20 9.561 checking how to print strings... printf
+#20 9.608 checking for a sed that does not truncate output... /usr/bin/sed
+#20 9.614 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 9.617 checking for egrep... /usr/bin/grep -E
+#20 9.619 checking for fgrep... /usr/bin/grep -F
+#20 9.622 checking for ld used by clang... /usr/bin/ld
+#20 9.635 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 9.638 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 9.642 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 9.666 checking whether ln -s works... yes
+#20 9.667 checking the maximum length of command line arguments... 1572864
+#20 9.675 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 9.676 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 9.676 checking for /usr/bin/ld option to reload object files... -r
+#20 9.677 checking for objdump... objdump
+#20 9.678 checking how to recognize dependent libraries... pass_all
+#20 9.679 checking for dlltool... no
+#20 9.680 checking how to associate runtime and link libraries... printf %s\n
+#20 9.681 checking for ar... ar
+#20 9.682 checking for archiver @FILE support... @
+#20 9.713 checking for strip... strip
+#20 9.714 checking for ranlib... ranlib
+#20 9.715 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 9.868 checking for sysroot... no
+#20 9.869 checking for a working dd... /usr/bin/dd
+#20 9.874 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 9.897 checking for mt... no
+#20 9.897 checking if : is a manifest tool... no
+#20 9.906 checking how to run the C preprocessor... clang -E
+#20 9.983 checking for ANSI C header files... yes
+#20 10.20 checking for sys/types.h... yes
+#20 10.25 checking for sys/stat.h... yes
+#20 10.30 checking for stdlib.h... yes
+#20 10.34 checking for string.h... yes
+#20 10.39 checking for memory.h... yes
+#20 10.44 checking for strings.h... yes
+#20 10.49 checking for inttypes.h... yes
+#20 10.55 checking for stdint.h... yes
+#20 10.60 checking for unistd.h... yes
+#20 10.65 checking for dlfcn.h... yes
+#20 10.71 checking for objdir... .libs
+#20 10.86 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 10.88 checking for clang option to produce PIC... -fPIC -DPIC
+#20 10.88 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 10.91 checking if clang static flag -static works... yes
+#20 11.08 checking if clang supports -c -o file.o... yes
+#20 11.11 checking if clang supports -c -o file.o... (cached) yes
+#20 11.11 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 11.13 checking whether -lc should be explicitly linked in... no
+#20 11.17 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 11.33 checking how to hardcode library paths into programs... immediate
+#20 11.33 checking whether stripping libraries is possible... yes
+#20 11.33 checking if libtool supports shared libraries... yes
+#20 11.33 checking whether to build shared libraries... yes
+#20 11.33 checking whether to build static libraries... yes
+#20 11.33 checking whether make sets $(MAKE)... (cached) yes
+#20 11.34 checking sys/time.h usability... yes
+#20 11.39 checking sys/time.h presence... yes
+#20 11.41 checking for sys/time.h... yes
+#20 11.42 checking for unistd.h... (cached) yes
+#20 11.43 checking sys/times.h usability... yes
+#20 11.48 checking sys/times.h presence... yes
+#20 11.49 checking for sys/times.h... yes
+#20 11.50 checking size of int... 4
+#20 11.66 checking size of long... 8
+#20 11.81 checking size of long long... 8
+#20 11.97 checking size of void*... 8
+#20 12.13 checking for size_t... yes
+#20 12.24 checking for working alloca.h... yes
+#20 12.35 checking for alloca... yes
+#20 12.50 checking that generated files are newer than configure... done
+#20 12.50 configure: creating ./config.status
+#20 13.07 config.status: creating Makefile
+#20 13.08 config.status: creating src/Makefile
+#20 13.10 config.status: creating test/Makefile
+#20 13.12 config.status: creating sample/Makefile
+#20 13.14 config.status: creating onig-config
+#20 13.15 config.status: creating src/config.h
+#20 13.17 config.status: executing depfiles commands
+#20 13.52 config.status: executing libtool commands
+#20 13.54 config.status: executing default commands
+#20 13.59 + make clean
+#20 13.59 Making clean in src
+#20 13.60 make[1]: Entering directory '/src/oniguruma/src'
+#20 13.60 test -z "libonig.la" || rm -f libonig.la
+#20 13.60 rm -f ./so_locations
+#20 13.60 rm -rf .libs _libs
+#20 13.61 rm -f *.o
+#20 13.61 rm -f *.lo
+#20 13.61 make[1]: Leaving directory '/src/oniguruma/src'
+#20 13.61 Making clean in test
+#20 13.61 make[1]: Entering directory '/src/oniguruma/test'
+#20 13.61  rm -f test_utf8 test_syntax test_options testc testcu test_regset test_back
+#20 13.62 rm -rf .libs _libs
+#20 13.62 rm -f *.o
+#20 13.62 test -z "test_utf8.log test_syntax.log test_options.log testc.log testcu.log test_regset.log test_back.log" || rm -f test_utf8.log test_syntax.log test_options.log testc.log testcu.log test_regset.log test_back.log
+#20 13.62 test -z "test_utf8.trs test_syntax.trs test_options.trs testc.trs testcu.trs test_regset.trs test_back.trs" || rm -f test_utf8.trs test_syntax.trs test_options.trs testc.trs testcu.trs test_regset.trs test_back.trs
+#20 13.62 test -z "test-suite.log" || rm -f test-suite.log
+#20 13.63 rm -f *.lo
+#20 13.63 make[1]: Leaving directory '/src/oniguruma/test'
+#20 13.63 Making clean in sample
+#20 13.63 make[1]: Entering directory '/src/oniguruma/sample'
+#20 13.63  rm -f encode listcap names simple sql syntax user_property callout echo count bug_fix regset scan callback_each_match
+#20 13.63 rm -rf .libs _libs
+#20 13.64 rm -f *.o
+#20 13.64 test -z "encode.log listcap.log names.log simple.log sql.log syntax.log user_property.log callout.log echo.log count.log bug_fix.log regset.log scan.log callback_each_match.log" || rm -f encode.log listcap.log names.log simple.log sql.log syntax.log user_property.log callout.log echo.log count.log bug_fix.log regset.log scan.log callback_each_match.log
+#20 13.64 test -z "encode.trs listcap.trs names.trs simple.trs sql.trs syntax.trs user_property.trs callout.trs echo.trs count.trs bug_fix.trs regset.trs scan.trs callback_each_match.trs" || rm -f encode.trs listcap.trs names.trs simple.trs sql.trs syntax.trs user_property.trs callout.trs echo.trs count.trs bug_fix.trs regset.trs scan.trs callback_each_match.trs
+#20 13.65 test -z "test-suite.log" || rm -f test-suite.log
+#20 13.65 rm -f *.lo
+#20 13.65 make[1]: Leaving directory '/src/oniguruma/sample'
+#20 13.65 make[1]: Entering directory '/src/oniguruma'
+#20 13.65 rm -rf .libs _libs
+#20 13.66 rm -f *.lo
+#20 13.66 make[1]: Leaving directory '/src/oniguruma'
+#20 13.66 ++ nproc
+#20 13.66 + make -j8
+#20 13.67 Making all in src
+#20 13.67 make[1]: Entering directory '/src/oniguruma/src'
+#20 13.68 make  all-am
+#20 13.68 make[2]: Entering directory '/src/oniguruma/src'
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regparse.lo -MD -MP -MF .deps/regparse.Tpo -c -o regparse.lo regparse.c
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regcomp.lo -MD -MP -MF .deps/regcomp.Tpo -c -o regcomp.lo regcomp.c
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regexec.lo -MD -MP -MF .deps/regexec.Tpo -c -o regexec.lo regexec.c
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regenc.lo -MD -MP -MF .deps/regenc.Tpo -c -o regenc.lo regenc.c
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regerror.lo -MD -MP -MF .deps/regerror.Tpo -c -o regerror.lo regerror.c
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regext.lo -MD -MP -MF .deps/regext.Tpo -c -o regext.lo regext.c
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regsyntax.lo -MD -MP -MF .deps/regsyntax.Tpo -c -o regsyntax.lo regsyntax.c
+#20 13.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regtrav.lo -MD -MP -MF .deps/regtrav.Tpo -c -o regtrav.lo regtrav.c
+#20 13.76 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regsyntax.lo -MD -MP -MF .deps/regsyntax.Tpo -c regsyntax.c  -fPIC -DPIC -o .libs/regsyntax.o
+#20 13.76 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regexec.lo -MD -MP -MF .deps/regexec.Tpo -c regexec.c  -fPIC -DPIC -o .libs/regexec.o
+#20 13.76 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regerror.lo -MD -MP -MF .deps/regerror.Tpo -c regerror.c  -fPIC -DPIC -o .libs/regerror.o
+#20 13.76 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regcomp.lo -MD -MP -MF .deps/regcomp.Tpo -c regcomp.c  -fPIC -DPIC -o .libs/regcomp.o
+#20 13.77 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regparse.lo -MD -MP -MF .deps/regparse.Tpo -c regparse.c  -fPIC -DPIC -o .libs/regparse.o
+#20 13.78 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regenc.lo -MD -MP -MF .deps/regenc.Tpo -c regenc.c  -fPIC -DPIC -o .libs/regenc.o
+#20 13.80 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regext.lo -MD -MP -MF .deps/regext.Tpo -c regext.c  -fPIC -DPIC -o .libs/regext.o
+#20 13.85 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regtrav.lo -MD -MP -MF .deps/regtrav.Tpo -c regtrav.c  -fPIC -DPIC -o .libs/regtrav.o
+#20 13.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regsyntax.lo -MD -MP -MF .deps/regsyntax.Tpo -c regsyntax.c -o regsyntax.o >/dev/null 2>&1
+#20 13.89 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regext.lo -MD -MP -MF .deps/regext.Tpo -c regext.c -o regext.o >/dev/null 2>&1
+#20 13.96 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regtrav.lo -MD -MP -MF .deps/regtrav.Tpo -c regtrav.c -o regtrav.o >/dev/null 2>&1
+#20 14.05 mv -f .deps/regext.Tpo .deps/regext.Plo
+#20 14.06 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regversion.lo -MD -MP -MF .deps/regversion.Tpo -c -o regversion.lo regversion.c
+#20 14.07 mv -f .deps/regsyntax.Tpo .deps/regsyntax.Plo
+#20 14.07 mv -f .deps/regtrav.Tpo .deps/regtrav.Plo
+#20 14.08 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT st.lo -MD -MP -MF .deps/st.Tpo -c -o st.lo st.c
+#20 14.08 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT reggnu.lo -MD -MP -MF .deps/reggnu.Tpo -c -o reggnu.lo reggnu.c
+#20 14.11 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regerror.lo -MD -MP -MF .deps/regerror.Tpo -c regerror.c -o regerror.o >/dev/null 2>&1
+#20 14.15 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regversion.lo -MD -MP -MF .deps/regversion.Tpo -c regversion.c  -fPIC -DPIC -o .libs/regversion.o
+#20 14.18 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT reggnu.lo -MD -MP -MF .deps/reggnu.Tpo -c reggnu.c  -fPIC -DPIC -o .libs/reggnu.o
+#20 14.22 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT st.lo -MD -MP -MF .deps/st.Tpo -c st.c  -fPIC -DPIC -o .libs/st.o
+#20 14.24 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regversion.lo -MD -MP -MF .deps/regversion.Tpo -c regversion.c -o regversion.o >/dev/null 2>&1
+#20 14.29 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT reggnu.lo -MD -MP -MF .deps/reggnu.Tpo -c reggnu.c -o reggnu.o >/dev/null 2>&1
+#20 14.33 mv -f .deps/regversion.Tpo .deps/regversion.Plo
+#20 14.34 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regenc.lo -MD -MP -MF .deps/regenc.Tpo -c regenc.c -o regenc.o >/dev/null 2>&1
+#20 14.34 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode.lo -MD -MP -MF .deps/unicode.Tpo -c -o unicode.lo unicode.c
+#20 14.41 mv -f .deps/reggnu.Tpo .deps/reggnu.Plo
+#20 14.41 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_unfold_key.lo -MD -MP -MF .deps/unicode_unfold_key.Tpo -c -o unicode_unfold_key.lo unicode_unfold_key.c
+#20 14.46 mv -f .deps/regerror.Tpo .deps/regerror.Plo
+#20 14.46 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold1_key.lo -MD -MP -MF .deps/unicode_fold1_key.Tpo -c -o unicode_fold1_key.lo unicode_fold1_key.c
+#20 14.51 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_unfold_key.lo -MD -MP -MF .deps/unicode_unfold_key.Tpo -c unicode_unfold_key.c  -fPIC -DPIC -o .libs/unicode_unfold_key.o
+#20 14.53 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode.lo -MD -MP -MF .deps/unicode.Tpo -c unicode.c  -fPIC -DPIC -o .libs/unicode.o
+#20 14.62 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT st.lo -MD -MP -MF .deps/st.Tpo -c st.c -o st.o >/dev/null 2>&1
+#20 14.68 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_unfold_key.lo -MD -MP -MF .deps/unicode_unfold_key.Tpo -c unicode_unfold_key.c -o unicode_unfold_key.o >/dev/null 2>&1
+#20 14.69 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold1_key.lo -MD -MP -MF .deps/unicode_fold1_key.Tpo -c unicode_fold1_key.c  -fPIC -DPIC -o .libs/unicode_fold1_key.o
+#20 14.82 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold1_key.lo -MD -MP -MF .deps/unicode_fold1_key.Tpo -c unicode_fold1_key.c -o unicode_fold1_key.o >/dev/null 2>&1
+#20 14.89 mv -f .deps/regenc.Tpo .deps/regenc.Plo
+#20 14.90 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold2_key.lo -MD -MP -MF .deps/unicode_fold2_key.Tpo -c -o unicode_fold2_key.lo unicode_fold2_key.c
+#20 14.93 mv -f .deps/unicode_unfold_key.Tpo .deps/unicode_unfold_key.Plo
+#20 14.93 mv -f .deps/unicode_fold1_key.Tpo .deps/unicode_fold1_key.Plo
+#20 14.93 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold3_key.lo -MD -MP -MF .deps/unicode_fold3_key.Tpo -c -o unicode_fold3_key.lo unicode_fold3_key.c
+#20 14.94 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT ascii.lo -MD -MP -MF .deps/ascii.Tpo -c -o ascii.lo ascii.c
+#20 14.99 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold2_key.lo -MD -MP -MF .deps/unicode_fold2_key.Tpo -c unicode_fold2_key.c  -fPIC -DPIC -o .libs/unicode_fold2_key.o
+#20 15.03 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT ascii.lo -MD -MP -MF .deps/ascii.Tpo -c ascii.c  -fPIC -DPIC -o .libs/ascii.o
+#20 15.05 mv -f .deps/st.Tpo .deps/st.Plo
+#20 15.05 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf8.lo -MD -MP -MF .deps/utf8.Tpo -c -o utf8.lo utf8.c
+#20 15.08 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold3_key.lo -MD -MP -MF .deps/unicode_fold3_key.Tpo -c unicode_fold3_key.c  -fPIC -DPIC -o .libs/unicode_fold3_key.o
+#20 15.10 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold2_key.lo -MD -MP -MF .deps/unicode_fold2_key.Tpo -c unicode_fold2_key.c -o unicode_fold2_key.o >/dev/null 2>&1
+#20 15.14 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT ascii.lo -MD -MP -MF .deps/ascii.Tpo -c ascii.c -o ascii.o >/dev/null 2>&1
+#20 15.17 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode_fold3_key.lo -MD -MP -MF .deps/unicode_fold3_key.Tpo -c unicode_fold3_key.c -o unicode_fold3_key.o >/dev/null 2>&1
+#20 15.22 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf8.lo -MD -MP -MF .deps/utf8.Tpo -c utf8.c  -fPIC -DPIC -o .libs/utf8.o
+#20 15.24 mv -f .deps/unicode_fold2_key.Tpo .deps/unicode_fold2_key.Plo
+#20 15.25 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf16_be.lo -MD -MP -MF .deps/utf16_be.Tpo -c -o utf16_be.lo utf16_be.c
+#20 15.27 mv -f .deps/unicode_fold3_key.Tpo .deps/unicode_fold3_key.Plo
+#20 15.27 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf16_le.lo -MD -MP -MF .deps/utf16_le.Tpo -c -o utf16_le.lo utf16_le.c
+#20 15.28 mv -f .deps/ascii.Tpo .deps/ascii.Plo
+#20 15.29 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf32_be.lo -MD -MP -MF .deps/utf32_be.Tpo -c -o utf32_be.lo utf32_be.c
+#20 15.34 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf8.lo -MD -MP -MF .deps/utf8.Tpo -c utf8.c -o utf8.o >/dev/null 2>&1
+#20 15.37 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf32_be.lo -MD -MP -MF .deps/utf32_be.Tpo -c utf32_be.c  -fPIC -DPIC -o .libs/utf32_be.o
+#20 15.39 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf16_le.lo -MD -MP -MF .deps/utf16_le.Tpo -c utf16_le.c  -fPIC -DPIC -o .libs/utf16_le.o
+#20 15.44 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf16_be.lo -MD -MP -MF .deps/utf16_be.Tpo -c utf16_be.c  -fPIC -DPIC -o .libs/utf16_be.o
+#20 15.44 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf32_be.lo -MD -MP -MF .deps/utf32_be.Tpo -c utf32_be.c -o utf32_be.o >/dev/null 2>&1
+#20 15.47 mv -f .deps/utf8.Tpo .deps/utf8.Plo
+#20 15.47 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf32_le.lo -MD -MP -MF .deps/utf32_le.Tpo -c -o utf32_le.lo utf32_le.c
+#20 15.53 mv -f .deps/utf32_be.Tpo .deps/utf32_be.Plo
+#20 15.54 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_jp.lo -MD -MP -MF .deps/euc_jp.Tpo -c -o euc_jp.lo euc_jp.c
+#20 15.54 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf16_le.lo -MD -MP -MF .deps/utf16_le.Tpo -c utf16_le.c -o utf16_le.o >/dev/null 2>&1
+#20 15.64 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_jp.lo -MD -MP -MF .deps/euc_jp.Tpo -c euc_jp.c  -fPIC -DPIC -o .libs/euc_jp.o
+#20 15.66 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf16_be.lo -MD -MP -MF .deps/utf16_be.Tpo -c utf16_be.c -o utf16_be.o >/dev/null 2>&1
+#20 15.67 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf32_le.lo -MD -MP -MF .deps/utf32_le.Tpo -c utf32_le.c  -fPIC -DPIC -o .libs/utf32_le.o
+#20 15.71 mv -f .deps/utf16_le.Tpo .deps/utf16_le.Plo
+#20 15.71 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_jp_prop.lo -MD -MP -MF .deps/euc_jp_prop.Tpo -c -o euc_jp_prop.lo euc_jp_prop.c
+#20 15.78 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf32_le.lo -MD -MP -MF .deps/utf32_le.Tpo -c utf32_le.c -o utf32_le.o >/dev/null 2>&1
+#20 15.85 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_jp.lo -MD -MP -MF .deps/euc_jp.Tpo -c euc_jp.c -o euc_jp.o >/dev/null 2>&1
+#20 15.86 mv -f .deps/utf16_be.Tpo .deps/utf16_be.Plo
+#20 15.86 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT sjis.lo -MD -MP -MF .deps/sjis.Tpo -c -o sjis.lo sjis.c
+#20 15.88 mv -f .deps/utf32_le.Tpo .deps/utf32_le.Plo
+#20 15.89 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT sjis_prop.lo -MD -MP -MF .deps/sjis_prop.Tpo -c -o sjis_prop.lo sjis_prop.c
+#20 15.89 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_jp_prop.lo -MD -MP -MF .deps/euc_jp_prop.Tpo -c euc_jp_prop.c  -fPIC -DPIC -o .libs/euc_jp_prop.o
+#20 15.99 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_jp_prop.lo -MD -MP -MF .deps/euc_jp_prop.Tpo -c euc_jp_prop.c -o euc_jp_prop.o >/dev/null 2>&1
+#20 15.99 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT sjis.lo -MD -MP -MF .deps/sjis.Tpo -c sjis.c  -fPIC -DPIC -o .libs/sjis.o
+#20 16.02 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT unicode.lo -MD -MP -MF .deps/unicode.Tpo -c unicode.c -o unicode.o >/dev/null 2>&1
+#20 16.09 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT sjis_prop.lo -MD -MP -MF .deps/sjis_prop.Tpo -c sjis_prop.c  -fPIC -DPIC -o .libs/sjis_prop.o
+#20 16.12 mv -f .deps/euc_jp.Tpo .deps/euc_jp.Plo
+#20 16.12 mv -f .deps/euc_jp_prop.Tpo .deps/euc_jp_prop.Plo
+#20 16.13 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_1.lo -MD -MP -MF .deps/iso8859_1.Tpo -c -o iso8859_1.lo iso8859_1.c
+#20 16.13 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_2.lo -MD -MP -MF .deps/iso8859_2.Tpo -c -o iso8859_2.lo iso8859_2.c
+#20 16.18 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT sjis_prop.lo -MD -MP -MF .deps/sjis_prop.Tpo -c sjis_prop.c -o sjis_prop.o >/dev/null 2>&1
+#20 16.20 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT sjis.lo -MD -MP -MF .deps/sjis.Tpo -c sjis.c -o sjis.o >/dev/null 2>&1
+#20 16.28 mv -f .deps/sjis_prop.Tpo .deps/sjis_prop.Plo
+#20 16.28 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_2.lo -MD -MP -MF .deps/iso8859_2.Tpo -c iso8859_2.c  -fPIC -DPIC -o .libs/iso8859_2.o
+#20 16.28 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_3.lo -MD -MP -MF .deps/iso8859_3.Tpo -c -o iso8859_3.lo iso8859_3.c
+#20 16.30 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_1.lo -MD -MP -MF .deps/iso8859_1.Tpo -c iso8859_1.c  -fPIC -DPIC -o .libs/iso8859_1.o
+#20 16.34 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_2.lo -MD -MP -MF .deps/iso8859_2.Tpo -c iso8859_2.c -o iso8859_2.o >/dev/null 2>&1
+#20 16.40 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_1.lo -MD -MP -MF .deps/iso8859_1.Tpo -c iso8859_1.c -o iso8859_1.o >/dev/null 2>&1
+#20 16.41 mv -f .deps/sjis.Tpo .deps/sjis.Plo
+#20 16.41 mv -f .deps/iso8859_2.Tpo .deps/iso8859_2.Plo
+#20 16.41 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_4.lo -MD -MP -MF .deps/iso8859_4.Tpo -c -o iso8859_4.lo iso8859_4.c
+#20 16.41 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_5.lo -MD -MP -MF .deps/iso8859_5.Tpo -c -o iso8859_5.lo iso8859_5.c
+#20 16.46 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_3.lo -MD -MP -MF .deps/iso8859_3.Tpo -c iso8859_3.c  -fPIC -DPIC -o .libs/iso8859_3.o
+#20 16.51 mv -f .deps/iso8859_1.Tpo .deps/iso8859_1.Plo
+#20 16.52 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_6.lo -MD -MP -MF .deps/iso8859_6.Tpo -c -o iso8859_6.lo iso8859_6.c
+#20 16.53 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_3.lo -MD -MP -MF .deps/iso8859_3.Tpo -c iso8859_3.c -o iso8859_3.o >/dev/null 2>&1
+#20 16.53 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_4.lo -MD -MP -MF .deps/iso8859_4.Tpo -c iso8859_4.c  -fPIC -DPIC -o .libs/iso8859_4.o
+#20 16.57 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_5.lo -MD -MP -MF .deps/iso8859_5.Tpo -c iso8859_5.c  -fPIC -DPIC -o .libs/iso8859_5.o
+#20 16.60 mv -f .deps/iso8859_3.Tpo .deps/iso8859_3.Plo
+#20 16.60 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_7.lo -MD -MP -MF .deps/iso8859_7.Tpo -c -o iso8859_7.lo iso8859_7.c
+#20 16.60 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_4.lo -MD -MP -MF .deps/iso8859_4.Tpo -c iso8859_4.c -o iso8859_4.o >/dev/null 2>&1
+#20 16.63 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_6.lo -MD -MP -MF .deps/iso8859_6.Tpo -c iso8859_6.c  -fPIC -DPIC -o .libs/iso8859_6.o
+#20 16.65 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_5.lo -MD -MP -MF .deps/iso8859_5.Tpo -c iso8859_5.c -o iso8859_5.o >/dev/null 2>&1
+#20 16.68 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_6.lo -MD -MP -MF .deps/iso8859_6.Tpo -c iso8859_6.c -o iso8859_6.o >/dev/null 2>&1
+#20 16.71 mv -f .deps/iso8859_4.Tpo .deps/iso8859_4.Plo
+#20 16.72 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_8.lo -MD -MP -MF .deps/iso8859_8.Tpo -c -o iso8859_8.lo iso8859_8.c
+#20 16.72 mv -f .deps/iso8859_5.Tpo .deps/iso8859_5.Plo
+#20 16.73 mv -f .deps/iso8859_6.Tpo .deps/iso8859_6.Plo
+#20 16.73 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_9.lo -MD -MP -MF .deps/iso8859_9.Tpo -c -o iso8859_9.lo iso8859_9.c
+#20 16.74 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_10.lo -MD -MP -MF .deps/iso8859_10.Tpo -c -o iso8859_10.lo iso8859_10.c
+#20 16.74 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_7.lo -MD -MP -MF .deps/iso8859_7.Tpo -c iso8859_7.c  -fPIC -DPIC -o .libs/iso8859_7.o
+#20 16.80 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_7.lo -MD -MP -MF .deps/iso8859_7.Tpo -c iso8859_7.c -o iso8859_7.o >/dev/null 2>&1
+#20 16.81 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_8.lo -MD -MP -MF .deps/iso8859_8.Tpo -c iso8859_8.c  -fPIC -DPIC -o .libs/iso8859_8.o
+#20 16.86 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_8.lo -MD -MP -MF .deps/iso8859_8.Tpo -c iso8859_8.c -o iso8859_8.o >/dev/null 2>&1
+#20 16.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_10.lo -MD -MP -MF .deps/iso8859_10.Tpo -c iso8859_10.c  -fPIC -DPIC -o .libs/iso8859_10.o
+#20 16.87 mv -f .deps/iso8859_7.Tpo .deps/iso8859_7.Plo
+#20 16.88 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_11.lo -MD -MP -MF .deps/iso8859_11.Tpo -c -o iso8859_11.lo iso8859_11.c
+#20 16.89 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_9.lo -MD -MP -MF .deps/iso8859_9.Tpo -c iso8859_9.c  -fPIC -DPIC -o .libs/iso8859_9.o
+#20 16.92 mv -f .deps/iso8859_8.Tpo .deps/iso8859_8.Plo
+#20 16.92 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_13.lo -MD -MP -MF .deps/iso8859_13.Tpo -c -o iso8859_13.lo iso8859_13.c
+#20 16.95 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_10.lo -MD -MP -MF .deps/iso8859_10.Tpo -c iso8859_10.c -o iso8859_10.o >/dev/null 2>&1
+#20 16.96 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_9.lo -MD -MP -MF .deps/iso8859_9.Tpo -c iso8859_9.c -o iso8859_9.o >/dev/null 2>&1
+#20 17.00 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_13.lo -MD -MP -MF .deps/iso8859_13.Tpo -c iso8859_13.c  -fPIC -DPIC -o .libs/iso8859_13.o
+#20 17.04 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_11.lo -MD -MP -MF .deps/iso8859_11.Tpo -c iso8859_11.c  -fPIC -DPIC -o .libs/iso8859_11.o
+#20 17.04 mv -f .deps/iso8859_10.Tpo .deps/iso8859_10.Plo
+#20 17.06 mv -f .deps/iso8859_9.Tpo .deps/iso8859_9.Plo
+#20 17.06 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_14.lo -MD -MP -MF .deps/iso8859_14.Tpo -c -o iso8859_14.lo iso8859_14.c
+#20 17.07 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_15.lo -MD -MP -MF .deps/iso8859_15.Tpo -c -o iso8859_15.lo iso8859_15.c
+#20 17.07 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_13.lo -MD -MP -MF .deps/iso8859_13.Tpo -c iso8859_13.c -o iso8859_13.o >/dev/null 2>&1
+#20 17.09 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_11.lo -MD -MP -MF .deps/iso8859_11.Tpo -c iso8859_11.c -o iso8859_11.o >/dev/null 2>&1
+#20 17.14 mv -f .deps/iso8859_13.Tpo .deps/iso8859_13.Plo
+#20 17.14 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_16.lo -MD -MP -MF .deps/iso8859_16.Tpo -c -o iso8859_16.lo iso8859_16.c
+#20 17.16 mv -f .deps/iso8859_11.Tpo .deps/iso8859_11.Plo
+#20 17.16 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_tw.lo -MD -MP -MF .deps/euc_tw.Tpo -c -o euc_tw.lo euc_tw.c
+#20 17.21 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_15.lo -MD -MP -MF .deps/iso8859_15.Tpo -c iso8859_15.c  -fPIC -DPIC -o .libs/iso8859_15.o
+#20 17.22 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_14.lo -MD -MP -MF .deps/iso8859_14.Tpo -c iso8859_14.c  -fPIC -DPIC -o .libs/iso8859_14.o
+#20 17.23 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_16.lo -MD -MP -MF .deps/iso8859_16.Tpo -c iso8859_16.c  -fPIC -DPIC -o .libs/iso8859_16.o
+#20 17.27 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_15.lo -MD -MP -MF .deps/iso8859_15.Tpo -c iso8859_15.c -o iso8859_15.o >/dev/null 2>&1
+#20 17.30 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_16.lo -MD -MP -MF .deps/iso8859_16.Tpo -c iso8859_16.c -o iso8859_16.o >/dev/null 2>&1
+#20 17.32 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT iso8859_14.lo -MD -MP -MF .deps/iso8859_14.Tpo -c iso8859_14.c -o iso8859_14.o >/dev/null 2>&1
+#20 17.33 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_tw.lo -MD -MP -MF .deps/euc_tw.Tpo -c euc_tw.c  -fPIC -DPIC -o .libs/euc_tw.o
+#20 17.36 mv -f .deps/iso8859_15.Tpo .deps/iso8859_15.Plo
+#20 17.37 mv -f .deps/iso8859_16.Tpo .deps/iso8859_16.Plo
+#20 17.37 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_kr.lo -MD -MP -MF .deps/euc_kr.Tpo -c -o euc_kr.lo euc_kr.c
+#20 17.38 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT big5.lo -MD -MP -MF .deps/big5.Tpo -c -o big5.lo big5.c
+#20 17.40 mv -f .deps/iso8859_14.Tpo .deps/iso8859_14.Plo
+#20 17.41 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT gb18030.lo -MD -MP -MF .deps/gb18030.Tpo -c -o gb18030.lo gb18030.c
+#20 17.41 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_tw.lo -MD -MP -MF .deps/euc_tw.Tpo -c euc_tw.c -o euc_tw.o >/dev/null 2>&1
+#20 17.49 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT big5.lo -MD -MP -MF .deps/big5.Tpo -c big5.c  -fPIC -DPIC -o .libs/big5.o
+#20 17.49 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_kr.lo -MD -MP -MF .deps/euc_kr.Tpo -c euc_kr.c  -fPIC -DPIC -o .libs/euc_kr.o
+#20 17.50 mv -f .deps/unicode.Tpo .deps/unicode.Plo
+#20 17.50 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT koi8_r.lo -MD -MP -MF .deps/koi8_r.Tpo -c -o koi8_r.lo koi8_r.c
+#20 17.52 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT gb18030.lo -MD -MP -MF .deps/gb18030.Tpo -c gb18030.c  -fPIC -DPIC -o .libs/gb18030.o
+#20 17.53 mv -f .deps/euc_tw.Tpo .deps/euc_tw.Plo
+#20 17.53 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT cp1251.lo -MD -MP -MF .deps/cp1251.Tpo -c -o cp1251.lo cp1251.c
+#20 17.58 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT euc_kr.lo -MD -MP -MF .deps/euc_kr.Tpo -c euc_kr.c -o euc_kr.o >/dev/null 2>&1
+#20 17.59 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT big5.lo -MD -MP -MF .deps/big5.Tpo -c big5.c -o big5.o >/dev/null 2>&1
+#20 17.66 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT cp1251.lo -MD -MP -MF .deps/cp1251.Tpo -c cp1251.c  -fPIC -DPIC -o .libs/cp1251.o
+#20 17.68 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT koi8_r.lo -MD -MP -MF .deps/koi8_r.Tpo -c koi8_r.c  -fPIC -DPIC -o .libs/koi8_r.o
+#20 17.68 mv -f .deps/euc_kr.Tpo .deps/euc_kr.Plo
+#20 17.69 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I.  -I..  -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT onig_init.lo -MD -MP -MF .deps/onig_init.Tpo -c -o onig_init.lo onig_init.c
+#20 17.70 mv -f .deps/big5.Tpo .deps/big5.Plo
+#20 17.72 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT gb18030.lo -MD -MP -MF .deps/gb18030.Tpo -c gb18030.c -o gb18030.o >/dev/null 2>&1
+#20 17.73 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT cp1251.lo -MD -MP -MF .deps/cp1251.Tpo -c cp1251.c -o cp1251.o >/dev/null 2>&1
+#20 17.75 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT koi8_r.lo -MD -MP -MF .deps/koi8_r.Tpo -c koi8_r.c -o koi8_r.o >/dev/null 2>&1
+#20 17.78 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT onig_init.lo -MD -MP -MF .deps/onig_init.Tpo -c onig_init.c  -fPIC -DPIC -o .libs/onig_init.o
+#20 17.80 mv -f .deps/cp1251.Tpo .deps/cp1251.Plo
+#20 17.81 mv -f .deps/koi8_r.Tpo .deps/koi8_r.Plo
+#20 17.85 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT onig_init.lo -MD -MP -MF .deps/onig_init.Tpo -c onig_init.c -o onig_init.o >/dev/null 2>&1
+#20 17.89 mv -f .deps/gb18030.Tpo .deps/gb18030.Plo
+#20 17.90 mv -f .deps/onig_init.Tpo .deps/onig_init.Plo
+#20 18.49 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regparse.lo -MD -MP -MF .deps/regparse.Tpo -c regparse.c -o regparse.o >/dev/null 2>&1
+#20 18.51 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regcomp.lo -MD -MP -MF .deps/regcomp.Tpo -c regcomp.c -o regcomp.o >/dev/null 2>&1
+#20 18.76 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT regexec.lo -MD -MP -MF .deps/regexec.Tpo -c regexec.c -o regexec.o >/dev/null 2>&1
+#20 21.42 mv -f .deps/regcomp.Tpo .deps/regcomp.Plo
+#20 21.47 mv -f .deps/regparse.Tpo .deps/regparse.Plo
+#20 22.10 mv -f .deps/regexec.Tpo .deps/regexec.Plo
+#20 22.10 /bin/bash ../libtool  --tag=CC   --mode=link clang -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -version-info 7:0:2   -o libonig.la -rpath /usr/local/lib regparse.lo regcomp.lo regexec.lo regenc.lo regerror.lo regext.lo regsyntax.lo regtrav.lo regversion.lo st.lo reggnu.lo  unicode.lo unicode_unfold_key.lo unicode_fold1_key.lo unicode_fold2_key.lo unicode_fold3_key.lo ascii.lo utf8.lo utf16_be.lo utf16_le.lo utf32_be.lo utf32_le.lo euc_jp.lo euc_jp_prop.lo sjis.lo sjis_prop.lo iso8859_1.lo iso8859_2.lo iso8859_3.lo iso8859_4.lo iso8859_5.lo iso8859_6.lo iso8859_7.lo iso8859_8.lo iso8859_9.lo iso8859_10.lo iso8859_11.lo iso8859_13.lo iso8859_14.lo iso8859_15.lo iso8859_16.lo euc_tw.lo euc_kr.lo big5.lo gb18030.lo koi8_r.lo cp1251.lo onig_init.lo  
+#20 22.24 libtool: link: clang -shared  -fPIC -DPIC  .libs/regparse.o .libs/regcomp.o .libs/regexec.o .libs/regenc.o .libs/regerror.o .libs/regext.o .libs/regsyntax.o .libs/regtrav.o .libs/regversion.o .libs/st.o .libs/reggnu.o .libs/unicode.o .libs/unicode_unfold_key.o .libs/unicode_fold1_key.o .libs/unicode_fold2_key.o .libs/unicode_fold3_key.o .libs/ascii.o .libs/utf8.o .libs/utf16_be.o .libs/utf16_le.o .libs/utf32_be.o .libs/utf32_le.o .libs/euc_jp.o .libs/euc_jp_prop.o .libs/sjis.o .libs/sjis_prop.o .libs/iso8859_1.o .libs/iso8859_2.o .libs/iso8859_3.o .libs/iso8859_4.o .libs/iso8859_5.o .libs/iso8859_6.o .libs/iso8859_7.o .libs/iso8859_8.o .libs/iso8859_9.o .libs/iso8859_10.o .libs/iso8859_11.o .libs/iso8859_13.o .libs/iso8859_14.o .libs/iso8859_15.o .libs/iso8859_16.o .libs/euc_tw.o .libs/euc_kr.o .libs/big5.o .libs/gb18030.o .libs/koi8_r.o .libs/cp1251.o .libs/onig_init.o    -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -O3   -pthread -Wl,-soname -Wl,libonig.so.5 -o .libs/libonig.so.5.2.0
+#20 22.33 libtool: link: (cd ".libs" && rm -f "libonig.so.5" && ln -s "libonig.so.5.2.0" "libonig.so.5")
+#20 22.34 libtool: link: (cd ".libs" && rm -f "libonig.so" && ln -s "libonig.so.5.2.0" "libonig.so")
+#20 22.35 libtool: link: ar cr .libs/libonig.a  regparse.o regcomp.o regexec.o regenc.o regerror.o regext.o regsyntax.o regtrav.o regversion.o st.o reggnu.o unicode.o unicode_unfold_key.o unicode_fold1_key.o unicode_fold2_key.o unicode_fold3_key.o ascii.o utf8.o utf16_be.o utf16_le.o utf32_be.o utf32_le.o euc_jp.o euc_jp_prop.o sjis.o sjis_prop.o iso8859_1.o iso8859_2.o iso8859_3.o iso8859_4.o iso8859_5.o iso8859_6.o iso8859_7.o iso8859_8.o iso8859_9.o iso8859_10.o iso8859_11.o iso8859_13.o iso8859_14.o iso8859_15.o iso8859_16.o euc_tw.o euc_kr.o big5.o gb18030.o koi8_r.o cp1251.o onig_init.o
+#20 22.38 libtool: link: ranlib .libs/libonig.a
+#20 22.41 libtool: link: ( cd ".libs" && rm -f "libonig.la" && ln -s "../libonig.la" "libonig.la" )
+#20 22.41 make[2]: Leaving directory '/src/oniguruma/src'
+#20 22.41 make[1]: Leaving directory '/src/oniguruma/src'
+#20 22.41 Making all in test
+#20 22.41 make[1]: Entering directory '/src/oniguruma/test'
+#20 22.41 make[1]: Nothing to be done for 'all'.
+#20 22.41 make[1]: Leaving directory '/src/oniguruma/test'
+#20 22.41 Making all in sample
+#20 22.42 make[1]: Entering directory '/src/oniguruma/sample'
+#20 22.42 make[1]: Nothing to be done for 'all'.
+#20 22.42 make[1]: Leaving directory '/src/oniguruma/sample'
+#20 22.42 make[1]: Entering directory '/src/oniguruma'
+#20 22.42 sed -e 's,[@]datadir[@],/usr/local/share,g' -e 's,[@]datarootdir[@],/usr/local/share,g' -e 's,[@]PACKAGE_VERSION[@],6.9.7,g' -e 's,[@]prefix[@],/usr/local,g' -e 's,[@]exec_prefix[@],/usr/local,g' -e 's,[@]libdir[@],/usr/local/lib,g' -e 's,[@]includedir[@],/usr/local/include,g' < ./oniguruma.pc.in > oniguruma.pc
+#20 22.43 make[1]: Leaving directory '/src/oniguruma'
+#20 22.43 + FUZZ_SRCDIR=harnesses
+#20 22.43 + FUZZ_TARGET=fuzzer
+#20 22.43 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o harnesses/fuzzer_syntax.o -I src -c -DSYNTAX_TEST harnesses/base.c
+#20 22.53 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/fuzzer harnesses/fuzzer_syntax.o /libAFL.a src/.libs/libonig.a
+#20 22.81 + cp harnesses/fuzzer.options /out/
+#20 22.82 + cp harnesses/ascii_compatible.dict /out/fuzzer.dict
+#20 22.82 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 23.0s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:2b13b383f13c522f3b10296cc8395745490271760cfad52c314675703906c3bc done
+#21 naming to gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma:
+------
+#5 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:7c9c56bbc87fc70970edb89befa9b3ec1d9a1c787373b2943689c46779ac5b33
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f7512c691e42c3b875bbc386c41e176bfa90ff79f41e894743464f1977dcc62e
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c done
+#6 naming to gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate 0.0s done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate
+#4 sha256:af87a8dc9bd03b924f1504809557c0424e506625f7ef4d852ea8239a5bfbe0db
+#4 ERROR: gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate:latest: not found
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:65cecac1bf03e57462b9f865b41147ff48cde2355447e8ec5036222db91d53f8
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:027a25a52ad8698dff63248e9b285ca2ee04618381b78772a8cf7a341d59986f
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate:latest
+#3 sha256:01d45041786c3e86a7a8bb7aae098a4a3e695ad3fb15b78b677338fc94339e8b
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma:latest
+#4 sha256:426d24cda7be93814a3faa8aa414ab5ece25222902073bc449ef88ab2e7c7c14
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2471bd92d3fcbc0a0c9dd6017b20506551cf2c14c1651d8ddab2e8ca862c8f36
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate
+#6 sha256:bad7eaa4e66df3c7bed99da84d4537b8b5f98a477ac974e3f01b3b7790914f2e
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma
+#10 sha256:6558a36f6a4ad903dae2baefa837ebb8c02e6d088812108be04cffcf3c531f29
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma
+#5 sha256:2c552ac8af1f72a62ea1e38aa8a877fe45998e0192e079f51d4af8896eb6d1ed
+#5 ERROR: gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma:latest: not found
+
+#12 [internal] load build context
+#12 sha256:2471bd92d3fcbc0a0c9dd6017b20506551cf2c14c1651d8ddab2e8ca862c8f36
+#12 ...
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma
+#10 sha256:6558a36f6a4ad903dae2baefa837ebb8c02e6d088812108be04cffcf3c531f29
+#10 DONE 0.3s
+
+#12 [internal] load build context
+#12 sha256:2471bd92d3fcbc0a0c9dd6017b20506551cf2c14c1651d8ddab2e8ca862c8f36
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 0.7s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:6c968367c26ac4bad7fc2c63885b9b42e0b2db74511505a3179533ff6093951b
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:e660e1fc001bcb4f25582d7f570d2c114426e0b0a821ca958331db2e684fc1c9
+#9 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:a4fff7cd2a0a6fa8ca76b255f58ef2e25c05fe1c8a5e315df6122481de0274c2
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:7d900517d6f9e96e0f28d7b7b20b66a3c9afb5904ef44108eb2e6d4481f8848a
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:718b567823dcf1812e9c62c9fee68cb9d479edc4f7268a890999ea613e836b8c
+#13 DONE 1.1s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:09f77f46fb9c5a4b256aea138a57f0a31e4c63b7c159dfd20d74710948759255
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:50b72330b57dcfc609c9449a2148e209e19681284c998614a789f1612a28869a
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:4753e83b6ec0928a717dc6c67ba6a760faa716a6d3806c8dee32c4d16bf08697
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:c103886802247d1a1e687a22063839e0ad92cc4767d5910ed8ad100fee67fa1e
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:e8897a2bfb31d369323c8f4bb4e66e9ba40f286b9a370eee227099e873a541e1
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:2ddba096339a0a51265809219d856233ab5f794e59f568dc9dc1de42ae1156b6
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:2dc54368278fe60b54f60b85b49f50b9f4e1b151f94ef4f0da7b6797e34382ab
+#20 DONE 2.2s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:4b41b861c19b06108c38884925a0da18526b22c425d564b86d29ef2794ffdbeb done
+#21 naming to gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f54a1b4af70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:016c8928d029a71fbd5f35714bfb4f01e250a9a4177eb4ce3e9fafdfa3d4d28d
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:bd86fe6030158eb7ecf51c212a91eed7c56f699b0a67228e241a8f298df9f334
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.8s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma
+#4 sha256:712879ef937be1281c8f091e6fa3acdbf5ed2ae1936fd4bdf8b5f0d228705ecd
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:841eb96ef0a8c275258d5ffae78df8f3ac6ef9dbdf51915d54ec7b7d9efb8386
+#9 transferring context: 61B done
+#9 DONE 0.0s
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/kkos/oniguruma.git oniguruma
+#7 sha256:b71dbdeff540ed7b8f8d9a71b6aef4516ba7681ae518d4b5740dbae4d454adcc
+#7 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:52e32c454805a8c94e441551d01b16d090304920e0b4ce6b465dec91bafa72a3
+#6 CACHED
+
+#8 [4/6] WORKDIR oniguruma
+#8 sha256:d1c6cb866bcc9abc90e523a372ea1c6e25e6862a5634d63735338e5521a1203a
+#8 CACHED
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:a59bcf9cdb8f0973f5e530737aac4e3772528225c12f8650aff7079750427cfe
+#10 CACHED
+
+#11 [6/6] COPY fuzzer.options /src/oniguruma/harnesses
+#11 sha256:df9419f1bce5186c80fdc55f36222ceb552777e5b6b9abaa60f297a322a23f99
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:528b16e6ca7cc7648ee337bb73835031eb88a60002bee76791c47b30b76d699a done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e0171ec1fc4279ef87e7f310e581088f5ec7cc38b4395cb8a224cf70e5acf33a
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:fc953822638479ad40a2f79de02687de39b0340f5f36647b19b20ad038a0c3ca
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma:latest
+#3 sha256:e6bf859edd5e5d573e458309a76af2c2b92d4a4e535f8f81f1d9ac27500d3949
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate
+#4 sha256:1f546eb9b0d2e345670680cea9348410ece98ed32559fa37d6bb2ddb76e6085c
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/oniguruma_oniguruma
+#5 sha256:997827307c3b96e0de58e650d892141929a50c4acff212f2c46559c626e80347
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:db47a055a306afbd74eddac55d77bce7cf55499cfece14c417205bef509599d7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:8ee14e5a793934b751884ad8593ef53d51df89d2ec58a36d955ed8a0d0363632
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:dd6f539805608336c08351d6280a9d1d0ddf3659028be359eb632049e9e3d0aa done
+#8 naming to gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0d8f811a05df7a6afbf8380f0a46deb39d1c1e42666432798fbdbd5019ba7479
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e4cb1f2cadc51f4231ba9774835658c8c83c622c4fc49c2cbe64fb0d6ec7de79
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:4cfc5249770aee464fee8edf96277c5dab714d60d3246f064b380ba969480f9c
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3b5fbb11b6e3beba06e48b0cbf90a82e7c04626bb2d51818ab42f6c56e236152
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:09412969655854add8a90cbd9832139af863364c68429a524827718604049e94
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:5cf80c2dbbab5431ac754f39e0da714f54e674ff5fa5568e50295eae5d079afa
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:8b9cc98730a16eb341c3880fd3651a9f4cfccb6ca58d47acaae4f74b15c90443
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:66ac910b3b772faa0e3b0a1a8633a59d4bceed4916dfe5ebfdd72eb4cec153e4
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:166de2a179e3660bdf8e69a2edb3d8037388fe9a7a4b2c570e6c9fb2c2c7a62d
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate:latest
+#4 sha256:103281e90dac58e80153a6b05d287ff073677df7e7852594f3731c2e7abc1600
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:55984e0cce0607ee04d150d72a5a0efc5502019e15d8a7510e860787698d4c0a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma-intermediate
+#6 sha256:575ffe51e3fde8861e131c24fa54f7d41a2bc5d98edc8947ed491672bd0e6de1
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma
+#5 sha256:7a9bc494d1207708b2c919aef4e9641c52aaeba414d58de98431a9a73dc1da23
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:55984e0cce0607ee04d150d72a5a0efc5502019e15d8a7510e860787698d4c0a
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.1s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:613b7182216c5313c9522cd3372d666e195c1a0f4495849dbd97ab0fcdb34516
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:da95d8f7fb471a4ce96103b9008dcb0d57e3eb95bf1634ca18392f487f70e803
+#14 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:b0a38a49537decbc750dd24675e50d1afef1e778ac57abc8e1e5ed9ffc311e37
+#9 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:d19a34154eb02dea827bf576e5ddb20dad158762f785c39ec6fc8ef1e037c016
+#18 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:eec035765fdf05eeed9baf17a4bfd2f5517e8d60df1bb3c0e7b396b40bb77d92
+#13 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:1eaf5e0738556c2b6feb9f3753261db8cb068b023b04370903d546c46f7ea868
+#17 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:7791370319717e7c6544a7926f4b1fc8c18fdc797b132a3d6c0168f5f8afb710
+#16 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:58f7a4825bb785815293ef60e62139f83b79aafeb64f06c418becd9a3fed9ae7
+#11 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/oniguruma_oniguruma/benchmark.yaml /
+#15 sha256:522d42f8efc0bd81e4e987c36aaf75dd150d9fcd25eda85ab2088f4704a1a893
+#15 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:0a9243cc50a4482b69e8b930bdcbd6796cf6e9234430d9a8847752750a1d70ff
+#19 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:6c23b2e77d9356011fd08af97d3a8e0f944a454c91d64f5f712087b480c0ecc2
+#8 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:0863a2dd4ee5bfe52e401a66da4c729fb874b1273bf92080a807fc25797972f4
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:2b13b383f13c522f3b10296cc8395745490271760cfad52c314675703906c3bc done
+#21 naming to gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#4 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:c285a78f2e17e907581ab61033e25f1a65c375da1581a9efc0d741f497df1327
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:cbaca2cf8e20ceb855e94015538ee6d28ac21d38763bdc3141a89edad1dcffa4
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate
+#5 sha256:af87a8dc9bd03b924f1504809557c0424e506625f7ef4d852ea8239a5bfbe0db
+#5 DONE 0.0s
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c done
+#6 naming to gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5b86508295246b59fd0ac83fcf3dd3b6eaecc574382a018e66dbd3c68059d430
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9b5706f1bc1282796317a5fe17637178d2d9391c32c9ac47ac344beb1c19a056
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate:latest
+#3 sha256:01d45041786c3e86a7a8bb7aae098a4a3e695ad3fb15b78b677338fc94339e8b
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma:latest
+#4 sha256:426d24cda7be93814a3faa8aa414ab5ece25222902073bc449ef88ab2e7c7c14
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma-intermediate
+#6 sha256:bad7eaa4e66df3c7bed99da84d4537b8b5f98a477ac974e3f01b3b7790914f2e
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma
+#5 sha256:2c552ac8af1f72a62ea1e38aa8a877fe45998e0192e079f51d4af8896eb6d1ed
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/oniguruma_oniguruma
+#10 sha256:6558a36f6a4ad903dae2baefa837ebb8c02e6d088812108be04cffcf3c531f29
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d089b80abd198735d5360a988822e74d614080020da569696cf017a16f6997fe
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 0.7s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:6c968367c26ac4bad7fc2c63885b9b42e0b2db74511505a3179533ff6093951b
+#8 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:6b52fd999eacb1030888c7ddf6265e57e1034b202ad242aaea5599515c889a40
+#14 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:e660e1fc001bcb4f25582d7f570d2c114426e0b0a821ca958331db2e684fc1c9
+#9 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:4e4f0bf3c671665ceff59358d55647709ac79d2067373d6d7d1007c33d472b23
+#19 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:269a38feaaaf15c4194f1b3f39c4e51d85c0897b7d8ee6db12ea7616d2e630eb
+#18 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:482882e5a7d16ccabf87c26562dcc81d00500f1c4c33827fde952e3361b4a701
+#16 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:41a7deae3e5715f9b81daf7e93c809a0fd40724b75b37a37ee56e105488dadab
+#17 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:a4fff7cd2a0a6fa8ca76b255f58ef2e25c05fe1c8a5e315df6122481de0274c2
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:7d900517d6f9e96e0f28d7b7b20b66a3c9afb5904ef44108eb2e6d4481f8848a
+#11 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:6ed6f85beaeade3c9e53b1c9169cdad13df7b947495ed8eab517498f62f9387e
+#15 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:317abbc38c5fd2b2c74f8727a281bea1294f2e540f2c3c59e4030fb8788cfdb9
+#13 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:fc3482477b3fe187335ba25bcab36d80c6a66246ecac1a80046fe09addac2e84
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:4b41b861c19b06108c38884925a0da18526b22c425d564b86d29ef2794ffdbeb 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/oniguruma_oniguruma done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f96ccc78f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

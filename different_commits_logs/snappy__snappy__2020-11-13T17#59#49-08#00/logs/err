@@ -1,0 +1,703 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: snappy_snappy.
+INFO:root:Please run "make test-run-afl-snappy_snappy" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:2ef501e7464503db49fba9286a3495595b395e003a6000cc9e9dd25fbe2469e1
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f6a382809eb7ebb9d7f2f5efbae37ea4569e6b4d1bbcb6c1e66bf6032cd186f9
+#1 transferring dockerfile: 32B done
+#1 DONE 2.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:2ef501e7464503db49fba9286a3495595b395e003a6000cc9e9dd25fbe2469e1
+#2 DONE 2.7s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:1c988a536c6da5f12c48a790e447b40838efd9f6c514981570717cdfbfc52840
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/snappy_snappy
+#4 sha256:2ed8b779a0dbd1b31452e521070af517f87fe38bfbc8c0cd2bd7a15eb990ab39
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/snappy_snappy:latest: not found
+
+#9 [internal] load build context
+#9 sha256:1c988a536c6da5f12c48a790e447b40838efd9f6c514981570717cdfbfc52840
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#7 [3/5] RUN git clone https://github.com/google/snappy
+#7 sha256:f0b4b0a5a39672222cc478acb23d9bcf37ef9f10ed8fae6df17665fa318f0d8e
+#7 CACHED
+
+#8 [4/5] WORKDIR /src/
+#8 sha256:bcd18a5860a430dddc61f311207591030de010f01d3905140eef8ec0057cbb14
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool gettext pkg-config build-essential
+#6 sha256:6f555bfeb9e90dde696962d300dfa05015ef7b1e87f812434bdbb8837bb18ee0
+#6 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:d97bea6add3cbfdf3419121d937d18156ee918c14b832463c578d9459c6a3b93
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:e64ee950cb4ff4e69525b8d68aa8a0bde8e41a410abe929e95e0ad7ac5a15748 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/snappy_snappy 0.0s done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/snappy_snappy:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:f42fd4bd861e2ea8590bce5ddfb0f78bf966e87ddbe0a933828fee0e30b39cb1
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:8f580de491faacafa39745054c26206a1f82e0b8a11f560b1227201b7a35c0e5
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/snappy_snappy:latest
+#3 sha256:3ce0a5d21020121b7d27302ca7041aef18e45fc22eb4bc095eca6ea1a58e692d
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/snappy_snappy
+#5 sha256:fd193941d83d94f3bb7395a7a4b6c078de85c7b69fad8a2024e170a781fedd5a
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate
+#4 sha256:540b33728abb113a1cb353ba03cdf3c5e77f4fb2b2f785e83d2b36c6ca9f454f
+#4 ERROR: gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:7b4bf77c5c6fecea00f85aed6e16bbdb367d952dd3a3dd552faf1b17707a217e
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:db24caed3da8e3e2e538859e89ca785680ab7d711d897f9ede174b483879563e
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:1cbf1368c873e8ca30008534bff27ae8174d89755088f13553498f0a8235f118 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate 0.0s done
+#8 DONE 0.6s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:69f6659e08b4a8e38ce7bf2060c88fa6e23c22ae0952cbe643b8abe16ad3e56b
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:dd55b2e3a79c3bfb62c3b88b67c8427d0386d6b3f75979a2f2262b2d8bd95be9
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:8964caefcdce0a774d1501b2572086b5e75d98040515511dcea0c06c19068c93
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:c52972a627609d3fc6c6f87b8d021a33f8b2c281cf0ff4c8adec6059d9156b1b
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:a8fe75ac1df8f21f1054209684377d76907b1da9bcf27e4dc8cb595e049b9c25
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:de00a11fc03febbd992670944471cbac752c415a18b2618177546d7e9c087d46
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:172ff6a62b2122e14a288ef6c092fdcc235e2213b2c010ad6985719969e80450
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:ef0e87506e02e8309334e3a5cc106b4cd4043dd187be24e173eb28546ac98029
+#13 writing image sha256:ef0e87506e02e8309334e3a5cc106b4cd4043dd187be24e173eb28546ac98029 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:a64448ce45a32dc07de6762bd9986ea8017b83454a21d9588ed294846c041c66
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:81d35b3aa88bdc8db41db42f2a0bd68a6c92fa78d0efd0c1ced7e5d5d5cfad5e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate:latest
+#3 sha256:107331ab50cb4bf44cda3a7ca0cfd02cb1154f50842005310edbcab4cf10f0c0
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e4478b8962f4d21e7ba23b74de86cf4e625e78178729d3235a24e092d9ce6ca8
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate
+#6 sha256:c0971aa3c8e8e7c793826ff2217b1023b872bdaf0ab7e3cb44ed0d037e2a7173
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/snappy_snappy
+#5 sha256:f2f99c1a4665e584c904453f621c322f3c4926444c162742f5b378c4b98da580
+#5 ERROR: gcr.io/fuzzbench/builders/afl/snappy_snappy:latest: not found
+
+#12 [internal] load build context
+#12 sha256:e4478b8962f4d21e7ba23b74de86cf4e625e78178729d3235a24e092d9ce6ca8
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:9aad65b0d0a65c90e761d48c0e9f38c15a0d386b0f5008f5853fb3514b3637fe
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4f8592b1817498c5b1102472a97c292a703c78b743801c7b9b1831d77547913c
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:2ca42189f6ce29d187395a380d953e20d7c58a248cf543ee6cf7db1fdeddd708
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:026f2b5004dfcde089c301cd6a3fe65fa77a2f9e317845b4c8c338a3b7f525ba
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:b178d81df0c3f54ac5a46219a69d53f59a46bac0d70ae5a3236f27681b7cdd02
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:c5b77e69f82b6ceeb60e4fbe85a9f3dd40f7d647fce456f7958de0759788bd75
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/snappy_snappy/benchmark.yaml /
+#15 sha256:41c6236c6d9e3bc38a4f2dae86286fb57dad553b14a984b9e22bcbd6eda172b6
+#15 DONE 1.0s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:385f37f09e9f20f79c1165e4a89803e829db9a80157d320fa7ce7265bac53bd0
+#16 DONE 1.1s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:b84c9ce5b062196ce4eeb6a0b22cc90ef2868bee48a57fec500361f74950c5e9
+#17 DONE 0.5s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:48ce613c4852cf941c02967fd874765a0703be2aaeee198be1176bfec9d7db86
+#18 0.620 Checking out commit cfd6969b
+#18 0.624 error: pathspec 'cfd6969b' did not match any file(s) known to git
+#18 0.629 error: pathspec 'cfd6969b' did not match any file(s) known to git
+#18 0.635 error: pathspec 'cfd6969b' did not match any file(s) known to git
+#18 0.675 Checkout unsuccessful.
+#18 DONE 1.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:aa47c5575a8c8d8b06e87aed9c516acbe903ea5347f5dc1f2348f03085deff46
+#19 DONE 2.1s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:89d9f9a7a6536f50d79c3d3e8ff880e46efeb257743387b0e3d5bb82e59ab3d6
+#20 0.713 Run fuzzer_build to build the target
+#20 0.825 FUZZ_TARGET = snappy
+#20 0.825 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.825 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.829 Building benchmark snappy_snappy with fuzzer afl
+#20 0.833 + cd /src/snappy
+#20 0.833 + mkdir build
+#20 0.835 + cd build
+#20 0.835 + cmake -DSNAPPY_FUZZING_BUILD=ON -DSNAPPY_BUILD_TESTS=OFF ../
+#20 1.038 -- The C compiler identification is Clang 14.0.0
+#20 1.285 -- The CXX compiler identification is Clang 14.0.0
+#20 1.296 -- Detecting C compiler ABI info
+#20 1.453 -- Detecting C compiler ABI info - done
+#20 1.502 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.503 -- Detecting C compile features
+#20 1.503 -- Detecting C compile features - done
+#20 1.510 -- Detecting CXX compiler ABI info
+#20 1.697 -- Detecting CXX compiler ABI info - done
+#20 1.761 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.762 -- Detecting CXX compile features
+#20 1.763 -- Detecting CXX compile features - done
+#20 1.766 -- Looking for sys/mman.h
+#20 1.925 -- Looking for sys/mman.h - found
+#20 1.925 -- Looking for sys/resource.h
+#20 2.083 -- Looking for sys/resource.h - found
+#20 2.084 -- Looking for sys/time.h
+#20 2.245 -- Looking for sys/time.h - found
+#20 2.246 -- Looking for sys/uio.h
+#20 2.411 -- Looking for sys/uio.h - found
+#20 2.412 -- Looking for unistd.h
+#20 2.576 -- Looking for unistd.h - found
+#20 2.576 -- Looking for windows.h
+#20 2.616 -- Looking for windows.h - not found
+#20 2.616 -- Looking for zlibVersion in z
+#20 2.713 -- Looking for zlibVersion in z - not found
+#20 2.713 -- Looking for lzo1x_1_15_compress in lzo2
+#20 2.812 -- Looking for lzo1x_1_15_compress in lzo2 - not found
+#20 2.812 -- Looking for LZ4_compress_default in lz4
+#20 2.904 -- Looking for LZ4_compress_default in lz4 - not found
+#20 2.908 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX
+#20 2.945 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX - Failed
+#20 2.947 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2
+#20 2.983 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2 - Failed
+#20 2.986 -- Performing Test HAVE_CLANG_MAVX
+#20 3.174 -- Performing Test HAVE_CLANG_MAVX - Success
+#20 3.176 -- Performing Test HAVE_CLANG_MBMI2
+#20 3.363 -- Performing Test HAVE_CLANG_MBMI2 - Success
+#20 3.365 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS
+#20 3.548 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS - Success
+#20 3.549 -- Performing Test HAVE_BUILTIN_EXPECT
+#20 3.759 -- Performing Test HAVE_BUILTIN_EXPECT - Success
+#20 3.760 -- Performing Test HAVE_BUILTIN_CTZ
+#20 3.965 -- Performing Test HAVE_BUILTIN_CTZ - Success
+#20 3.965 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE
+#20 4.168 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE - Success
+#20 4.168 -- Performing Test SNAPPY_HAVE_SSSE3
+#20 4.296 -- Performing Test SNAPPY_HAVE_SSSE3 - Failed
+#20 4.297 -- Performing Test SNAPPY_HAVE_BMI2
+#20 5.024 -- Performing Test SNAPPY_HAVE_BMI2 - Failed
+#20 5.024 -- Performing Test SNAPPY_HAVE_NEON
+#20 5.113 -- Performing Test SNAPPY_HAVE_NEON - Failed
+#20 5.114 -- Looking for mmap
+#20 5.293 -- Looking for mmap - found
+#20 5.294 -- Looking for sysconf
+#20 5.460 -- Looking for sysconf - found
+#20 5.463 CMake Error at CMakeLists.txt:344 (add_subdirectory):
+#20 5.463   The source directory
+#20 5.463 
+#20 5.463     /src/snappy/third_party/benchmark
+#20 5.463 
+#20 5.463   does not contain a CMakeLists.txt file.
+#20 5.463 
+#20 5.463 
+#20 5.472 -- Configuring incomplete, errors occurred!
+#20 5.472 See also "/src/snappy/build/CMakeFiles/CMakeOutput.log".
+#20 5.472 See also "/src/snappy/build/CMakeFiles/CMakeError.log".
+#20 5.476 + cp '*_fuzzer' /out/
+#20 5.478 cp: cannot stat '*_fuzzer': No such file or directory
+#20 5.479 Traceback (most recent call last):
+#20 5.479   File "<string>", line 1, in <module>
+#20 5.479   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 5.479     utils.build_benchmark()
+#20 5.479   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 5.480     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 5.480   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 5.480     raise CalledProcessError(retcode, cmd)
+#20 5.480 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/snappy_snappy:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2865855: .afl-snappy_snappy-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:98b6395df35ca1771973eec3d78c206cdc9b07039b68f144b7d785685bf3ce01
+#1 transferring dockerfile:
+#1 transferring dockerfile: 32B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:80268056f99050a25ef529aee5bfa060e8165aec4b508da4e242f5284547abb6
+#2 transferring context: 2B done
+#2 DONE 0.5s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/snappy_snappy
+#4 sha256:2ed8b779a0dbd1b31452e521070af517f87fe38bfbc8c0cd2bd7a15eb990ab39
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:7c2ddfe5f2c267b6cde7f4a618ee4c0dd1f29b4652cc445164eb3e222efe658e
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool gettext pkg-config build-essential
+#6 sha256:6f555bfeb9e90dde696962d300dfa05015ef7b1e87f812434bdbb8837bb18ee0
+#6 CACHED
+
+#7 [3/5] RUN git clone https://github.com/google/snappy
+#7 sha256:f0b4b0a5a39672222cc478acb23d9bcf37ef9f10ed8fae6df17665fa318f0d8e
+#7 CACHED
+
+#8 [4/5] WORKDIR /src/
+#8 sha256:bcd18a5860a430dddc61f311207591030de010f01d3905140eef8ec0057cbb14
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:c2577f746e9545fd8b7e5df2dc7edace5d878c2f913308adacc0f905606347b1
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:e64ee950cb4ff4e69525b8d68aa8a0bde8e41a410abe929e95e0ad7ac5a15748 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/snappy_snappy done
+#11 DONE 0.5s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:6cd7fc487df73e7c3b5c9a377d42014984447ab68fada251d8b0a9030910fd35
+#1 transferring dockerfile: 46B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:259cd7c025dadc99557f55b4d8c0e01fdbaf726fdfb975c59963179b43d417f1
+#2 transferring context: 2B done
+#2 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/snappy_snappy:latest
+#3 sha256:3ce0a5d21020121b7d27302ca7041aef18e45fc22eb4bc095eca6ea1a58e692d
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate
+#4 sha256:540b33728abb113a1cb353ba03cdf3c5e77f4fb2b2f785e83d2b36c6ca9f454f
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/snappy_snappy
+#5 sha256:fd193941d83d94f3bb7395a7a4b6c078de85c7b69fad8a2024e170a781fedd5a
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:7b4bf77c5c6fecea00f85aed6e16bbdb367d952dd3a3dd552faf1b17707a217e
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:db24caed3da8e3e2e538859e89ca785680ab7d711d897f9ede174b483879563e
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:1cbf1368c873e8ca30008534bff27ae8174d89755088f13553498f0a8235f118 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c6245a6a929258f180cf439d0cd2ac3349b97a2e99c5401c3e16851908701bd3
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:2d550e7ec2546e58578d9329fb9c80fa06727e6b0668cd28b216985dedc8ace1
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:239504a6dc70166d760201a59ee93bf77f70cdc7fae462333e9df44bf2d88656
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d3ae4d2347116287326e9ddb1d6a7e2194d8c06fbf2a7ce971a8655470a716ff
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:ecec545f44a2e039c5016dee298a95771de9620810a2c62561e88aa65c99da86
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:174954a76405b287bfe2d3c5f8c6a25e9823d37ccb487ff3ce3b29a56720bb24
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:0fe42f765e66769ac4818141850489e6dc834d3f72d76d418df761e4c670e498
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:ef0e87506e02e8309334e3a5cc106b4cd4043dd187be24e173eb28546ac98029
+#13 writing image sha256:ef0e87506e02e8309334e3a5cc106b4cd4043dd187be24e173eb28546ac98029 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1161abf58eb2bf2551e6a88f64a2eb7124f6855b6826ffcd9ab627fe20e6a1fb
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5f2fdf0609a4eb3fe61407a0922f489b577a2c00ec497a3dc6762363992470e7
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate:latest
+#3 sha256:107331ab50cb4bf44cda3a7ca0cfd02cb1154f50842005310edbcab4cf10f0c0
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b49d1fd8e899977289fba6259d4ff5974ad61623f6a00c7ca2e85df1b4a2587e
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/snappy_snappy-intermediate
+#6 sha256:c0971aa3c8e8e7c793826ff2217b1023b872bdaf0ab7e3cb44ed0d037e2a7173
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/snappy_snappy
+#5 sha256:f2f99c1a4665e584c904453f621c322f3c4926444c162742f5b378c4b98da580
+#5 ERROR: gcr.io/fuzzbench/builders/afl/snappy_snappy:latest: not found
+
+#12 [internal] load build context
+#12 sha256:b49d1fd8e899977289fba6259d4ff5974ad61623f6a00c7ca2e85df1b4a2587e
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:46669cf7bcc1b3a49cf45e00dc64ec5832abdcac4200697ff678851bc2763186
+#16 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4f8592b1817498c5b1102472a97c292a703c78b743801c7b9b1831d77547913c
+#9 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:88fd19b4f1b493f41753b0d1520832e1c8d58c01aaa5181555cc662526d63130
+#13 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:a2f1e8dce59cf8883a8a72fee6ce71110ed1e0047fd987dcb49ee3983435a422
+#17 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/snappy_snappy/benchmark.yaml /
+#15 sha256:4e6747b98c8f7fe8acfa16041ee9f6306aebfed97b3918223cf4551ae3317567
+#15 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:fdc87b4710467fb934096dbea41c85122ba0687a72f8b07d513bba59f47fc9c6
+#18 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:026f2b5004dfcde089c301cd6a3fe65fa77a2f9e317845b4c8c338a3b7f525ba
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:43666fe4efdf46e39b50b9a5878be5fa74addc26e1dc2db9ee05fb64c32103dc
+#14 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:9aad65b0d0a65c90e761d48c0e9f38c15a0d386b0f5008f5853fb3514b3637fe
+#8 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:2ca42189f6ce29d187395a380d953e20d7c58a248cf543ee6cf7db1fdeddd708
+#10 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:c8fe522a375640a90551b5a3cc163ff36a76f0d8cb7939ee0a791ba240b81578
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:30e46695b891a6e3e87a864d9b1b07af9cb4415fe3d6f435016e96d47c3642bf
+#20 0.580 Run fuzzer_build to build the target
+#20 0.694 FUZZ_TARGET = snappy
+#20 0.694 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.694 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.699 Building benchmark snappy_snappy with fuzzer afl
+#20 0.703 + cd /src/snappy
+#20 0.703 + mkdir build
+#20 0.705 + cd build
+#20 0.705 + cmake -DSNAPPY_FUZZING_BUILD=ON -DSNAPPY_BUILD_TESTS=OFF ../
+#20 0.910 -- The C compiler identification is Clang 14.0.0
+#20 1.166 -- The CXX compiler identification is Clang 14.0.0
+#20 1.177 -- Detecting C compiler ABI info
+#20 1.326 -- Detecting C compiler ABI info - done
+#20 1.374 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.375 -- Detecting C compile features
+#20 1.375 -- Detecting C compile features - done
+#20 1.382 -- Detecting CXX compiler ABI info
+#20 1.569 -- Detecting CXX compiler ABI info - done
+#20 1.634 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.634 -- Detecting CXX compile features
+#20 1.635 -- Detecting CXX compile features - done
+#20 1.638 -- Looking for sys/mman.h
+#20 1.798 -- Looking for sys/mman.h - found
+#20 1.799 -- Looking for sys/resource.h
+#20 1.959 -- Looking for sys/resource.h - found
+#20 1.959 -- Looking for sys/time.h
+#20 2.124 -- Looking for sys/time.h - found
+#20 2.124 -- Looking for sys/uio.h
+#20 2.296 -- Looking for sys/uio.h - found
+#20 2.296 -- Looking for unistd.h
+#20 2.463 -- Looking for unistd.h - found
+#20 2.463 -- Looking for windows.h
+#20 2.506 -- Looking for windows.h - not found
+#20 2.507 -- Looking for zlibVersion in z
+#20 2.606 -- Looking for zlibVersion in z - not found
+#20 2.606 -- Looking for lzo1x_1_15_compress in lzo2
+#20 2.702 -- Looking for lzo1x_1_15_compress in lzo2 - not found
+#20 2.702 -- Looking for LZ4_compress_default in lz4
+#20 2.789 -- Looking for LZ4_compress_default in lz4 - not found
+#20 2.793 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX
+#20 2.831 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX - Failed
+#20 2.833 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2
+#20 2.871 -- Performing Test HAVE_VISUAL_STUDIO_ARCH_AVX2 - Failed
+#20 2.873 -- Performing Test HAVE_CLANG_MAVX
+#20 3.057 -- Performing Test HAVE_CLANG_MAVX - Success
+#20 3.059 -- Performing Test HAVE_CLANG_MBMI2
+#20 3.247 -- Performing Test HAVE_CLANG_MBMI2 - Success
+#20 3.249 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS
+#20 3.433 -- Performing Test SNAPPY_HAVE_NO_MISSING_FIELD_INITIALIZERS - Success
+#20 3.435 -- Performing Test HAVE_BUILTIN_EXPECT
+#20 3.640 -- Performing Test HAVE_BUILTIN_EXPECT - Success
+#20 3.641 -- Performing Test HAVE_BUILTIN_CTZ
+#20 3.839 -- Performing Test HAVE_BUILTIN_CTZ - Success
+#20 3.840 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE
+#20 4.055 -- Performing Test HAVE_ATTRIBUTE_ALWAYS_INLINE - Success
+#20 4.056 -- Performing Test SNAPPY_HAVE_SSSE3
+#20 4.191 -- Performing Test SNAPPY_HAVE_SSSE3 - Failed
+#20 4.192 -- Performing Test SNAPPY_HAVE_BMI2
+#20 4.905 -- Performing Test SNAPPY_HAVE_BMI2 - Failed
+#20 4.906 -- Performing Test SNAPPY_HAVE_NEON
+#20 4.985 -- Performing Test SNAPPY_HAVE_NEON - Failed
+#20 4.987 -- Looking for mmap
+#20 5.156 -- Looking for mmap - found
+#20 5.157 -- Looking for sysconf
+#20 5.322 -- Looking for sysconf - found
+#20 5.325 CMake Error at CMakeLists.txt:344 (add_subdirectory):
+#20 5.325   The source directory
+#20 5.325 
+#20 5.325     /src/snappy/third_party/benchmark
+#20 5.325 
+#20 5.325   does not contain a CMakeLists.txt file.
+#20 5.325 
+#20 5.325 
+#20 5.334 -- Configuring incomplete, errors occurred!
+#20 5.334 See also "/src/snappy/build/CMakeFiles/CMakeOutput.log".
+#20 5.334 See also "/src/snappy/build/CMakeFiles/CMakeError.log".
+#20 5.338 + cp '*_fuzzer' /out/
+#20 5.340 cp: cannot stat '*_fuzzer': No such file or directory
+#20 5.341 Traceback (most recent call last):
+#20 5.341   File "<string>", line 1, in <module>
+#20 5.341   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 5.341     utils.build_benchmark()
+#20 5.341   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 5.341     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 5.341   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 5.342     raise CalledProcessError(retcode, cmd)
+#20 5.342 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/snappy_snappy:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2865855: .afl-snappy_snappy-builder] Error 1

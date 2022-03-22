@@ -1,0 +1,803 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: opencv_imread_fuzzer.
+INFO:root:Please run "make test-run-afl-opencv_imread_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:642381a8d35455effc9f6d32a00b75df31b15605cf4d3a1ded9ce26c14d2bead
+#1 transferring dockerfile: 32B done
+#1 ...
+
+#2 [internal] load .dockerignore
+#2 sha256:d3959026173095e559d09037911f4bdb1fa803097382bf9d9ab1218b80352320
+#2 transferring context: 2B done
+#2 DONE 1.4s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:642381a8d35455effc9f6d32a00b75df31b15605cf4d3a1ded9ce26c14d2bead
+#1 DONE 2.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.7s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:e60acf8f0bc9c4ec610d69be82a68015ed5bf140d8ab78aea8a56d1148ee2d3a
+#9 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer
+#4 sha256:a461cec460427bc88bd9907cbad8072c70b80a9cd298ce65d9d1a9ad83b8492b
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:e60acf8f0bc9c4ec610d69be82a68015ed5bf140d8ab78aea8a56d1148ee2d3a
+#9 transferring context: 2.18kB done
+#9 DONE 0.7s
+
+#6 [2/6] RUN apt-get update && apt-get install -y build-essential cmake pkg-config
+#6 sha256:5b4cdd543f7676d762d91b87c637b12e81d197a5de05812a3f0a2dc7aead2436
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/opencv/opencv.git opencv
+#7 sha256:59a9fb61118231e7c2a207bca2277cafcfad95bb7e22f5ee768b2c0e041e7f83
+#7 CACHED
+
+#8 [4/6] WORKDIR opencv/
+#8 sha256:fda6c4b7e211bdd8ec1ae001cbb40929be694af912454da7105b1ff5a7d1ef7e
+#8 CACHED
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:df2472ef7036752602b47430648b1a0fa338cf510e24a6e3dafe9f3664b54edc
+#10 CACHED
+
+#11 [6/6] COPY *.cc *.h /src/
+#11 sha256:4c0296c5d62688b97b963cbade7a4743a67dec86043014d9d9a32856eb71bf6c
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:8a497c7e790611b7a92bb9829260fb3a936252ecb7d9088bba013e8d2b52277b
+#12 writing image sha256:8a497c7e790611b7a92bb9829260fb3a936252ecb7d9088bba013e8d2b52277b done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:8f213787db19aea8937d45f7b1d0ef5277d11f45c5b6699b20c2ac2b6918f281
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1c42a1ddd8878add0e91afdb46c701829630e0bf43d305234f8165956432e923
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer:latest
+#3 sha256:e019acfa470ff41cfd8f30a32556ed9a424a313d8214c4c2a52035d71f0c6089
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer
+#5 sha256:44c5d4fffad9c762076cd7b8330a70f098b01a1eb97f1117687114a1051dc3f3
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate
+#4 sha256:b4aaf45be437b92e272b579c4a99a1a86df4ffe8c7ffd29cf7b5fa3ff04c9c2f
+#4 ERROR: gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:980479c750c659ace6f93c239bbb68cd6d95520095bb877f116f305bcc42e9f0
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:89970c73d55f7355a84376bbdd2a196cb1824448b6f05f8d8725c20f9e8b3e87
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:abe2b32671846efe952468466ad42dff64a887ab71f481b7118d3c0190ecbd7a
+#8 writing image sha256:abe2b32671846efe952468466ad42dff64a887ab71f481b7118d3c0190ecbd7a 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b81c40f31c58a8020deea4e761efb11928e5b4ba4fc4a8e0cc3730ff3c202b60
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:866d5087999b67b298eeb0f479e69b5109b6489c935dec99c30eb4cc122cb41c
+#2 transferring context: 34B done
+#2 DONE 0.6s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:6f86e3bd19f915c43a0b6af5684a82975674d975154a0765c556c505b2f5e75c
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:fc174bc565333d0554985bf2a2badd978dd50da4ed04629af664820d22a8ddb1
+#11 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:beade8f97f09553ea58e232ad970ec858a600b75ec1618e9ea05e956b17b63ec
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:998d3f46d2e27708dcc97da3edbfa4bc078b594f1734e67aed785bd46d38a5d6
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:bb2bbe4472579707637bcc8792c9e2f2a3a98bad3e3919cf20c5e2702ca367b7
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:55e5825902805b10e1ba0cd27e4af0d82c25f9e225d6218342d4b6474bd3ddae 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:78f3cbf37995b174eb9ee9854f360bb6d303467213c70f7ee1f673447e39fd47
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:cc37a7c21717e908a634bfdd267f07e27a866f75748a32130270c7c75639f629
+#2 transferring context: 34B 0.0s done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 1.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate
+#6 sha256:544290f9f3ac4040fcfc4af63d6b7d8341e3aea4e9e11015d0681b01f7f0324d
+#6 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate:latest
+#4 sha256:ff8a892e7b22b423a8276eca2c2ef184230072a34ada0bf57d3fd4a9a63759c3
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7e254d193103077bb7e1540117dcce233a7ed7ee59d36fed6239e5390a5cbf66
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer
+#5 sha256:44393d81ef4fdc26a431aa4e7a52f9f6e5ff68878c30c9b73cc34a0132ad66df
+#5 ERROR: gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:7e254d193103077bb7e1540117dcce233a7ed7ee59d36fed6239e5390a5cbf66
+#12 transferring context: 669.88kB 0.2s done
+#12 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:f49153a9152afbe38e1ddf2d03f74776998ce574a1814ea3fa3e322632b31b2d
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:33e5c7df4af8fba614f86cd1c6fc98ee08864c4aafe5f938a0c670bb35716309
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d8353e14eca9f0c1a044d3b894344f0c4495c6679c28c0045035738526cd7c3c
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:148ee822599502cf8d718b54b38b69f91931ef6ab0837863a98bb959c5112c1e
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:1b24d49498aca42e71c5e6cc7a4fa304011f05840333df3c64291e2c01c05bd9
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:f6af21bb09880fbd0301bdc3344613b71d868b0370e8ccc1351cf4e635a9fdbc
+#14 DONE 5.7s
+
+#15 [stage-1  8/13] COPY benchmarks/opencv_imread_fuzzer/benchmark.yaml /
+#15 sha256:df7a7b40fac8d9121c3a05d8801af4953bc8ba321e7351b3e98e778073d519e5
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:6aebd74a46744351c1f1e09b3b429473d7bd3aa5e2cd3fa2a1b331ce5c976b9d
+#16 DONE 1.4s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:a31d0db5b5f0e37923fcaab5a836275818d84f81d0f065ca7f54ed9844c84787
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:9671c04b4c5806da8ff35c6cc05235f789e14bf6e6d10b111d2727da495bc297
+#18 1.301 Checking out commit b27c51de
+#18 143.4 From https://github.com/opencv/opencv
+#18 143.4  * [new tag]               2.2                  -> 2.2
+#18 143.4  * [new tag]               2.4.0                -> 2.4.0
+#18 143.4  * [new tag]               2.4.1                -> 2.4.1
+#18 143.4  * [new tag]               2.4.10               -> 2.4.10
+#18 143.4  * [new tag]               2.4.10.1             -> 2.4.10.1
+#18 143.4  * [new tag]               2.4.10.2             -> 2.4.10.2
+#18 143.4  * [new tag]               2.4.10.3             -> 2.4.10.3
+#18 143.4  * [new tag]               2.4.10.4             -> 2.4.10.4
+#18 143.4  * [new tag]               2.4.11               -> 2.4.11
+#18 143.4  * [new tag]               2.4.12               -> 2.4.12
+#18 143.4  * [new tag]               2.4.12.1             -> 2.4.12.1
+#18 143.4  * [new tag]               2.4.12.2             -> 2.4.12.2
+#18 143.4  * [new tag]               2.4.12.3             -> 2.4.12.3
+#18 143.4  * [new tag]               2.4.13               -> 2.4.13
+#18 143.4  * [new tag]               2.4.13.1             -> 2.4.13.1
+#18 143.4  * [new tag]               2.4.2                -> 2.4.2
+#18 143.4  * [new tag]               2.4.3                -> 2.4.3
+#18 143.4  * [new tag]               2.4.3-rc             -> 2.4.3-rc
+#18 143.4  * [new tag]               2.4.3.1              -> 2.4.3.1
+#18 143.4  * [new tag]               2.4.3.2              -> 2.4.3.2
+#18 143.4  * [new tag]               2.4.4                -> 2.4.4
+#18 143.4  * [new tag]               2.4.4-beta           -> 2.4.4-beta
+#18 143.4  * [new tag]               2.4.5                -> 2.4.5
+#18 143.4  * [new tag]               2.4.6                -> 2.4.6
+#18 143.4  * [new tag]               2.4.6.1              -> 2.4.6.1
+#18 143.4  * [new tag]               2.4.6.2              -> 2.4.6.2
+#18 143.4  * [new tag]               2.4.6.2-rc1          -> 2.4.6.2-rc1
+#18 143.4  * [new tag]               2.4.7                -> 2.4.7
+#18 143.4  * [new tag]               2.4.7-rc1            -> 2.4.7-rc1
+#18 143.4  * [new tag]               2.4.7.1              -> 2.4.7.1
+#18 143.4  * [new tag]               2.4.7.2              -> 2.4.7.2
+#18 143.4  * [new tag]               2.4.8                -> 2.4.8
+#18 143.4  * [new tag]               2.4.8.1              -> 2.4.8.1
+#18 143.4  * [new tag]               2.4.8.2              -> 2.4.8.2
+#18 143.4  * [new tag]               2.4.8.3              -> 2.4.8.3
+#18 143.4  * [new tag]               2.4.9                -> 2.4.9
+#18 143.4  * [new tag]               2.4.9.1              -> 2.4.9.1
+#18 143.4  * [new tag]               3.0-ocl-tech-preview -> 3.0-ocl-tech-preview
+#18 143.4  * [new tag]               3.0-ocl-tp2          -> 3.0-ocl-tp2
+#18 143.4  * [new tag]               3.0.0                -> 3.0.0
+#18 143.4  * [new tag]               3.0.0-alpha          -> 3.0.0-alpha
+#18 143.4  * [new tag]               3.0.0-beta           -> 3.0.0-beta
+#18 143.4  * [new tag]               3.0.0-rc1            -> 3.0.0-rc1
+#18 143.4  * [new tag]               3.1.0                -> 3.1.0
+#18 143.4  * [new tag]               3.2.0                -> 3.2.0
+#18 143.4  * [new tag]               3.2.0-rc             -> 3.2.0-rc
+#18 143.4  * [new tag]               3.3.0                -> 3.3.0
+#18 143.4  * [new tag]               3.3.0-cvsdk          -> 3.3.0-cvsdk
+#18 143.4  * [new tag]               3.3.0-rc             -> 3.3.0-rc
+#18 143.4  * [new tag]               3.3.1                -> 3.3.1
+#18 143.4  * [new tag]               3.3.1-cvsdk          -> 3.3.1-cvsdk
+#18 143.4  * [new tag]               3.4.0                -> 3.4.0
+#18 143.4  * [new tag]               3.4.0-rc             -> 3.4.0-rc
+#18 143.4  * [new tag]               3.4.1                -> 3.4.1
+#18 143.4  * [new tag]               3.4.1-cvsdk          -> 3.4.1-cvsdk
+#18 143.4  * [new tag]               3.4.10               -> 3.4.10
+#18 143.4  * [new tag]               3.4.11               -> 3.4.11
+#18 143.4  * [new tag]               3.4.12               -> 3.4.12
+#18 143.4  * [new tag]               3.4.13               -> 3.4.13
+#18 143.4  * [new tag]               3.4.14               -> 3.4.14
+#18 143.4  * [new tag]               3.4.15               -> 3.4.15
+#18 143.4  * [new tag]               3.4.16               -> 3.4.16
+#18 143.4  * [new tag]               3.4.17               -> 3.4.17
+#18 143.4  * [new tag]               3.4.2                -> 3.4.2
+#18 143.4  * [new tag]               3.4.2-openvino       -> 3.4.2-openvino
+#18 143.5  * [new tag]               3.4.3                -> 3.4.3
+#18 143.5  * [new tag]               3.4.3-openvino       -> 3.4.3-openvino
+#18 143.5  * [new tag]               3.4.4                -> 3.4.4
+#18 143.5  * [new tag]               3.4.5                -> 3.4.5
+#18 143.5  * [new tag]               3.4.6                -> 3.4.6
+#18 143.5  * [new tag]               3.4.7                -> 3.4.7
+#18 143.5  * [new tag]               3.4.8                -> 3.4.8
+#18 143.5  * [new tag]               3.4.9                -> 3.4.9
+#18 143.5  * [new tag]               4.0.0                -> 4.0.0
+#18 143.5  * [new tag]               4.0.0-alpha          -> 4.0.0-alpha
+#18 143.5  * [new tag]               4.0.0-beta           -> 4.0.0-beta
+#18 143.5  * [new tag]               4.0.0-openvino       -> 4.0.0-openvino
+#18 143.5  * [new tag]               4.0.0-rc             -> 4.0.0-rc
+#18 143.5  * [new tag]               4.0.1                -> 4.0.1
+#18 143.5  * [new tag]               4.0.1-openvino       -> 4.0.1-openvino
+#18 143.5  * [new tag]               4.1.0                -> 4.1.0
+#18 143.5  * [new tag]               4.1.0-openvino       -> 4.1.0-openvino
+#18 143.5  * [new tag]               4.1.1                -> 4.1.1
+#18 143.5  * [new tag]               4.1.1-openvino       -> 4.1.1-openvino
+#18 143.5  * [new tag]               4.1.2                -> 4.1.2
+#18 143.5  * [new tag]               4.1.2-openvino       -> 4.1.2-openvino
+#18 143.5  * [new tag]               4.2.0                -> 4.2.0
+#18 143.5  * [new tag]               4.3.0                -> 4.3.0
+#18 143.5  * [new tag]               4.4.0                -> 4.4.0
+#18 143.5  * [new tag]               4.5.0                -> 4.5.0
+#18 143.5  * [new tag]               4.5.1                -> 4.5.1
+#18 143.5  * [new tag]               4.5.2                -> 4.5.2
+#18 143.5  * [new tag]               4.5.3                -> 4.5.3
+#18 143.5  * [new tag]               4.5.4                -> 4.5.4
+#18 143.5  * [new tag]               4.5.5                -> 4.5.5
+#18 143.5 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.5 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.6 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.7 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.8 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.8 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.8 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.9 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 143.9 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.0 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.1 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.1 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.3 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.4 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.4 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.5 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.5 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.5 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.6 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.6 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.6 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.7 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 144.9 Checkout unsuccessful.
+#18 DONE 145.2s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:66ff0413ccb2f188ee12b1ad2b01de1f0c6ca5a8f3b5db5e3c6995689def03b0
+#19 DONE 1.6s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:5991ffdf3bd5a151241ee6440e0b3efffb01c45cb03313fb3f435d10207cf52d
+#20 1.247 Run fuzzer_build to build the target
+#20 1.681 FUZZ_TARGET = imread_fuzzer
+#20 1.682 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.683 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.697 Building benchmark opencv_imread_fuzzer with fuzzer afl
+#20 1.703 + mkdir opencv/build
+#20 1.712 mkdir: cannot create directory ‘opencv/build’: No such file or directory
+#20 1.715 Traceback (most recent call last):
+#20 1.715   File "<string>", line 1, in <module>
+#20 1.715   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 1.719     utils.build_benchmark()
+#20 1.720   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 1.721     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 1.722   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 1.724     raise CalledProcessError(retcode, cmd)
+#20 1.725 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2854550: .afl-opencv_imread_fuzzer-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4b1e8ea38431d9959a85a31e5a6c4ad9bee08aefce44f3e872520a819ab61f0b
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a129fcd248829a61971f02c0860964d0ecc7225fb165ffd62da6d5e74bad50c0
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#4 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#4 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#4 DONE 0.0s
+
+#11 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer
+#11 sha256:a461cec460427bc88bd9907cbad8072c70b80a9cd298ce65d9d1a9ad83b8492b
+#11 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:e041efae596a984b1b4bbc5726773b0f5c22432a4f450173b29511beb4e65aa0
+#8 transferring context: 429B done
+#8 DONE 0.0s
+
+#5 [2/6] RUN apt-get update && apt-get install -y build-essential cmake pkg-config
+#5 sha256:5b4cdd543f7676d762d91b87c637b12e81d197a5de05812a3f0a2dc7aead2436
+#5 CACHED
+
+#6 [3/6] RUN git clone --depth 1 https://github.com/opencv/opencv.git opencv
+#6 sha256:59a9fb61118231e7c2a207bca2277cafcfad95bb7e22f5ee768b2c0e041e7f83
+#6 CACHED
+
+#7 [4/6] WORKDIR opencv/
+#7 sha256:fda6c4b7e211bdd8ec1ae001cbb40929be694af912454da7105b1ff5a7d1ef7e
+#7 CACHED
+
+#9 [5/6] COPY build.sh /src/
+#9 sha256:d9886d83ad7d322f452bbda5728476b1c66fc915035b926626a4270c2ff50a10
+#9 CACHED
+
+#10 [6/6] COPY *.cc *.h /src/
+#10 sha256:483656b0ab02c4f4dd16dd9d27e5864ea59de3f505c1b846692718a472b53174
+#10 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:8a497c7e790611b7a92bb9829260fb3a936252ecb7d9088bba013e8d2b52277b
+#12 writing image sha256:8a497c7e790611b7a92bb9829260fb3a936252ecb7d9088bba013e8d2b52277b done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:ae1ddb7e864aad92aa64f5ca58ef0925813394f54b27b23c1a3f51d800b229b8
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:177c3595e15dd98d81b101f7ad631454344e6437ea3fb8603ba66de0fa1188f2
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer:latest
+#3 sha256:e019acfa470ff41cfd8f30a32556ed9a424a313d8214c4c2a52035d71f0c6089
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate
+#4 sha256:b4aaf45be437b92e272b579c4a99a1a86df4ffe8c7ffd29cf7b5fa3ff04c9c2f
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/opencv_imread_fuzzer
+#5 sha256:44c5d4fffad9c762076cd7b8330a70f098b01a1eb97f1117687114a1051dc3f3
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:980479c750c659ace6f93c239bbb68cd6d95520095bb877f116f305bcc42e9f0
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:89970c73d55f7355a84376bbdd2a196cb1824448b6f05f8d8725c20f9e8b3e87
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:abe2b32671846efe952468466ad42dff64a887ab71f481b7118d3c0190ecbd7a done
+#8 naming to gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7b23eca1d98c609b7af5677988f5673998f59a621e1f40a09dae2d167c90420f
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:320f64926d4c23ceee1a4b7e01da7a74e853c36bb085b9be380e1242607b6a78
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:97176d70f64cd687c9a509fd8dbc673ab66289c18c4e21d662e1f73c127451e4
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:360d882f3babdda8eba5ee92baa28000862bda29dcb3ab57a1b95cb6406d3826
+#9 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:beafa08e739302a91873b169ab4b1b9e6fe621d79df25e3c8ac70ac7ea94d435
+#11 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:5956dffbe0c151270e6cb9b47b9cac1a37a2910d2c36739a7dda2359b96c531b
+#10 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:528b9f14a6d3b4e093c3d85cd2f59222508afed55ac3a70d55c3328eb4953ce8
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:55e5825902805b10e1ba0cd27e4af0d82c25f9e225d6218342d4b6474bd3ddae done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:287df8c13fefde8fdffc142d71438ef593c321c892dbbe35221dff2d46652a69
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2b72607fbdc0602c25bafe0c580b916e22c79bfa0018be8e5fd4e1f964c37e45
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 1.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate
+#6 sha256:544290f9f3ac4040fcfc4af63d6b7d8341e3aea4e9e11015d0681b01f7f0324d
+#6 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer-intermediate:latest
+#3 sha256:ff8a892e7b22b423a8276eca2c2ef184230072a34ada0bf57d3fd4a9a63759c3
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:32eb12ac583cb05dac416db2b7701070a59bdd57c467e7f0e63c04b9a3ec27fd
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer
+#5 sha256:44393d81ef4fdc26a431aa4e7a52f9f6e5ff68878c30c9b73cc34a0132ad66df
+#5 ERROR: gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:32eb12ac583cb05dac416db2b7701070a59bdd57c467e7f0e63c04b9a3ec27fd
+#12 transferring context: 669.88kB 0.2s done
+#12 DONE 0.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:a0e5f46b21c59721974333c12ea7f5d12e2c846234e4e3d5aa56ce1424631bf9
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d8353e14eca9f0c1a044d3b894344f0c4495c6679c28c0045035738526cd7c3c
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:148ee822599502cf8d718b54b38b69f91931ef6ab0837863a98bb959c5112c1e
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:1b24d49498aca42e71c5e6cc7a4fa304011f05840333df3c64291e2c01c05bd9
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:f49153a9152afbe38e1ddf2d03f74776998ce574a1814ea3fa3e322632b31b2d
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:7608917f19263a0a65c730c6654f524457bd9a3f5ddc528e8b69632dc087aac1
+#14 DONE 1.3s
+
+#15 [stage-1  8/13] COPY benchmarks/opencv_imread_fuzzer/benchmark.yaml /
+#15 sha256:a1d26640834233b5fc83173ac72c8452bfd51c20abe7d2f37821fda450746593
+#15 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:c0f80a01db4097ec6785495a4cf6648a67f16426495c78a9946edd88ed073660
+#16 DONE 1.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:6f9b801224f6f7408d7648adc2fa69bec6a825e6b2f7715423fdce91f13939df
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3e5e7522f9caa722951159c1c6feb3f2f6a113fdc873e98652bc3d6d99b64d0b
+#18 1.488 Checking out commit b27c51de
+#18 139.9 From https://github.com/opencv/opencv
+#18 139.9  * [new tag]               2.2                  -> 2.2
+#18 139.9  * [new tag]               2.4.0                -> 2.4.0
+#18 139.9  * [new tag]               2.4.1                -> 2.4.1
+#18 139.9  * [new tag]               2.4.10               -> 2.4.10
+#18 139.9  * [new tag]               2.4.10.1             -> 2.4.10.1
+#18 139.9  * [new tag]               2.4.10.2             -> 2.4.10.2
+#18 139.9  * [new tag]               2.4.10.3             -> 2.4.10.3
+#18 139.9  * [new tag]               2.4.10.4             -> 2.4.10.4
+#18 139.9  * [new tag]               2.4.11               -> 2.4.11
+#18 139.9  * [new tag]               2.4.12               -> 2.4.12
+#18 139.9  * [new tag]               2.4.12.1             -> 2.4.12.1
+#18 139.9  * [new tag]               2.4.12.2             -> 2.4.12.2
+#18 139.9  * [new tag]               2.4.12.3             -> 2.4.12.3
+#18 139.9  * [new tag]               2.4.13               -> 2.4.13
+#18 139.9  * [new tag]               2.4.13.1             -> 2.4.13.1
+#18 139.9  * [new tag]               2.4.2                -> 2.4.2
+#18 139.9  * [new tag]               2.4.3                -> 2.4.3
+#18 139.9  * [new tag]               2.4.3-rc             -> 2.4.3-rc
+#18 139.9  * [new tag]               2.4.3.1              -> 2.4.3.1
+#18 139.9  * [new tag]               2.4.3.2              -> 2.4.3.2
+#18 139.9  * [new tag]               2.4.4                -> 2.4.4
+#18 139.9  * [new tag]               2.4.4-beta           -> 2.4.4-beta
+#18 139.9  * [new tag]               2.4.5                -> 2.4.5
+#18 139.9  * [new tag]               2.4.6                -> 2.4.6
+#18 139.9  * [new tag]               2.4.6.1              -> 2.4.6.1
+#18 139.9  * [new tag]               2.4.6.2              -> 2.4.6.2
+#18 139.9  * [new tag]               2.4.6.2-rc1          -> 2.4.6.2-rc1
+#18 139.9  * [new tag]               2.4.7                -> 2.4.7
+#18 139.9  * [new tag]               2.4.7-rc1            -> 2.4.7-rc1
+#18 139.9  * [new tag]               2.4.7.1              -> 2.4.7.1
+#18 139.9  * [new tag]               2.4.7.2              -> 2.4.7.2
+#18 140.0  * [new tag]               2.4.8                -> 2.4.8
+#18 140.0  * [new tag]               2.4.8.1              -> 2.4.8.1
+#18 140.0  * [new tag]               2.4.8.2              -> 2.4.8.2
+#18 140.0  * [new tag]               2.4.8.3              -> 2.4.8.3
+#18 140.0  * [new tag]               2.4.9                -> 2.4.9
+#18 140.0  * [new tag]               2.4.9.1              -> 2.4.9.1
+#18 140.0  * [new tag]               3.0-ocl-tech-preview -> 3.0-ocl-tech-preview
+#18 140.0  * [new tag]               3.0-ocl-tp2          -> 3.0-ocl-tp2
+#18 140.0  * [new tag]               3.0.0                -> 3.0.0
+#18 140.0  * [new tag]               3.0.0-alpha          -> 3.0.0-alpha
+#18 140.0  * [new tag]               3.0.0-beta           -> 3.0.0-beta
+#18 140.0  * [new tag]               3.0.0-rc1            -> 3.0.0-rc1
+#18 140.0  * [new tag]               3.1.0                -> 3.1.0
+#18 140.0  * [new tag]               3.2.0                -> 3.2.0
+#18 140.0  * [new tag]               3.2.0-rc             -> 3.2.0-rc
+#18 140.0  * [new tag]               3.3.0                -> 3.3.0
+#18 140.0  * [new tag]               3.3.0-cvsdk          -> 3.3.0-cvsdk
+#18 140.0  * [new tag]               3.3.0-rc             -> 3.3.0-rc
+#18 140.0  * [new tag]               3.3.1                -> 3.3.1
+#18 140.0  * [new tag]               3.3.1-cvsdk          -> 3.3.1-cvsdk
+#18 140.0  * [new tag]               3.4.0                -> 3.4.0
+#18 140.0  * [new tag]               3.4.0-rc             -> 3.4.0-rc
+#18 140.0  * [new tag]               3.4.1                -> 3.4.1
+#18 140.0  * [new tag]               3.4.1-cvsdk          -> 3.4.1-cvsdk
+#18 140.0  * [new tag]               3.4.10               -> 3.4.10
+#18 140.0  * [new tag]               3.4.11               -> 3.4.11
+#18 140.0  * [new tag]               3.4.12               -> 3.4.12
+#18 140.0  * [new tag]               3.4.13               -> 3.4.13
+#18 140.0  * [new tag]               3.4.14               -> 3.4.14
+#18 140.0  * [new tag]               3.4.15               -> 3.4.15
+#18 140.0  * [new tag]               3.4.16               -> 3.4.16
+#18 140.0  * [new tag]               3.4.17               -> 3.4.17
+#18 140.0  * [new tag]               3.4.2                -> 3.4.2
+#18 140.0  * [new tag]               3.4.2-openvino       -> 3.4.2-openvino
+#18 140.0  * [new tag]               3.4.3                -> 3.4.3
+#18 140.0  * [new tag]               3.4.3-openvino       -> 3.4.3-openvino
+#18 140.0  * [new tag]               3.4.4                -> 3.4.4
+#18 140.0  * [new tag]               3.4.5                -> 3.4.5
+#18 140.0  * [new tag]               3.4.6                -> 3.4.6
+#18 140.0  * [new tag]               3.4.7                -> 3.4.7
+#18 140.0  * [new tag]               3.4.8                -> 3.4.8
+#18 140.0  * [new tag]               3.4.9                -> 3.4.9
+#18 140.0  * [new tag]               4.0.0                -> 4.0.0
+#18 140.0  * [new tag]               4.0.0-alpha          -> 4.0.0-alpha
+#18 140.0  * [new tag]               4.0.0-beta           -> 4.0.0-beta
+#18 140.0  * [new tag]               4.0.0-openvino       -> 4.0.0-openvino
+#18 140.0  * [new tag]               4.0.0-rc             -> 4.0.0-rc
+#18 140.0  * [new tag]               4.0.1                -> 4.0.1
+#18 140.0  * [new tag]               4.0.1-openvino       -> 4.0.1-openvino
+#18 140.0  * [new tag]               4.1.0                -> 4.1.0
+#18 140.0  * [new tag]               4.1.0-openvino       -> 4.1.0-openvino
+#18 140.0  * [new tag]               4.1.1                -> 4.1.1
+#18 140.0  * [new tag]               4.1.1-openvino       -> 4.1.1-openvino
+#18 140.0  * [new tag]               4.1.2                -> 4.1.2
+#18 140.0  * [new tag]               4.1.2-openvino       -> 4.1.2-openvino
+#18 140.0  * [new tag]               4.2.0                -> 4.2.0
+#18 140.0  * [new tag]               4.3.0                -> 4.3.0
+#18 140.0  * [new tag]               4.4.0                -> 4.4.0
+#18 140.0  * [new tag]               4.5.0                -> 4.5.0
+#18 140.0  * [new tag]               4.5.1                -> 4.5.1
+#18 140.0  * [new tag]               4.5.2                -> 4.5.2
+#18 140.0  * [new tag]               4.5.3                -> 4.5.3
+#18 140.0  * [new tag]               4.5.4                -> 4.5.4
+#18 140.0  * [new tag]               4.5.5                -> 4.5.5
+#18 140.1 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.1 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.1 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.2 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.2 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.3 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.3 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.4 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.4 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.6 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.6 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.6 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.8 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.8 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.9 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 140.9 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 141.0 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 141.0 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 141.1 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 141.1 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 141.2 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 141.2 error: pathspec 'b27c51de' did not match any file(s) known to git
+#18 141.5 Checkout unsuccessful.
+#18 DONE 141.6s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:9537c0037b1cc92c5f8a3ff2d926638de5ae7e9ef85f4dfb090eb2c622dc8de9
+#19 DONE 1.2s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:5cd1549bc2d312176eedae0a30b279ffe373ae57d7121c91685a999093b27604
+#20 1.569 Run fuzzer_build to build the target
+#20 1.942 FUZZ_TARGET = imread_fuzzer
+#20 1.942 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.942 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.953 Building benchmark opencv_imread_fuzzer with fuzzer afl
+#20 1.959 + mkdir opencv/build
+#20 1.962 mkdir: cannot create directory ‘opencv/build’: No such file or directory
+#20 1.963 Traceback (most recent call last):
+#20 1.963   File "<string>", line 1, in <module>
+#20 1.963   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 1.964     utils.build_benchmark()
+#20 1.964   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 1.965     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 1.965   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 1.965     raise CalledProcessError(retcode, cmd)
+#20 1.965 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_imread_fuzzer:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2854550: .afl-opencv_imread_fuzzer-builder] Error 1

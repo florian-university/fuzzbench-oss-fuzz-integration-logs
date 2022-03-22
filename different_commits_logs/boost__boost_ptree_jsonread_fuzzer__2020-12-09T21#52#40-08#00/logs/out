@@ -1,0 +1,1677 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: boost_boost_ptree_jsonread_fuzzer.
+INFO:root:Please run "make test-run-afl-boost_boost_ptree_jsonread_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ceaf081be3c9af3d67d0af7eef10d80ccbf9233153fe838c0570b12442e8b313
+#1 transferring dockerfile:
+#1 transferring dockerfile: 953B done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:85b283740a05735a5b83624ab811afdf79b2cbaf7b28c5b2df0182ffab5b40e0
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:6a8c079af97d4d5377c31c32386b1fa6bc8495f81dc58a98945b053280540c72
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer
+#4 sha256:f2cad61150b1b9b673b846bbb07fd8b40ad615d9a2330ab117957fc27b180cda
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:6a8c079af97d4d5377c31c32386b1fa6bc8495f81dc58a98945b053280540c72
+#9 transferring context: 8.66kB done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y g++
+#6 sha256:af3a28fbaef1d043919d93747061c5755e2161896ee0b66b13300fc7e54c3d90
+#6 CACHED
+
+#7 [3/5] RUN git clone --recursive https://github.com/boostorg/boost.git
+#7 sha256:67869b6b2869a34d8198f8ddb8ff78e8a8b8e5a898b3f72376b5ac365e825fe2
+#7 CACHED
+
+#8 [4/5] WORKDIR boost
+#8 sha256:755c9caf20b728150890ac7a5930f5fbc4bb14055a1d076889c70231e26b5020
+#8 CACHED
+
+#10 [5/5] COPY build.sh *.cc /src/
+#10 sha256:223f30589bcfc1989fcd068f826ba5433e983b98ccd0915fed440bb40c94160a
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:18379b83f97c72ff325c1341b711031c80d22df7f1b361b4ec75d0508b7da032 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer 0.0s done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:3746ebc344e0742da762f4d0160918977194ac49d430b3a60df8e848617273a7
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:92862ce80aab00e32a3663eabbd3e5279c3ef4c1e3ed981a2f591b17652b800c
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer:latest
+#3 sha256:578e2a05d327d9e5122f0d97563c77132eeedac954d356dfa9a905cfbda0691b
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer
+#7 sha256:e53d8adbff41c54f085ded7c10f6fa50b9e84efeed3e2bedf219aa4f9c557418
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#4 sha256:7a9cc79a76401160fd14f307b918db4e5aced255bb96649bb8f647dd53bcb432
+#4 ERROR: gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:001e454584db9f93ceb7d8563422d4a2638f8e9dfcf9d0e6a312537ea69110fb
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:e6400518c4cd1f484c9bf30cf444ddcfae884a0b6b2dd76d00d5d799d3343d3b
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:520c67fc2444406c21ff335d9eb8231c985703d507ec572378b2aa168c1e0bfd 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#8 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:133d03062490dc6a86f571f9d98cc34860ac37734ecd9f56839bf03a142c0637
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:aca7a8789dd7ac4664f44f49e63addf7401b2127fe153575248a298932b3452a
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:2183bac82ae0c059bfc6d068f8e108f2b497ba8789a6599ccdd0ea2bc02d9629
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:1bddc06fcc2eddd5ee116f82640f519ac124c5f5399df50c38b4fb36a1a25a82
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:c0f0d61f7dbee6b0bb38d3c1f8933f0b18a41f340b5953b9b7db64f8cb4870d5
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:4ab402198772817dd6c8df260e27b8c2888b6c3f2995c2161c8bf3d1ca98c1ca
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:472d373dfae5353d12757cfe79959b61dc50330b55967c7306be3788e8de0f67
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:cdb478538a35041a0b5608a1313087aff20fc062fe25108e635bb6f1faebe08e
+#13 writing image sha256:cdb478538a35041a0b5608a1313087aff20fc062fe25108e635bb6f1faebe08e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2a8dcaff3998ef87998f908f8da3a3a99fff92887fbb8ef2f198b492c5123a60
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:74635a10ab7a36c7ca94de1b1257a7d3213de1c9dfbb236e712d9c268811d2a3
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:latest
+#3 sha256:b0468e9b7d59ae15774dabcd0c9e4b6d445e4412e91839e677ae3509a4fbe592
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:119a1d66bcc19128ff5d596171862ea94fbd7c926f8f99930854d61f73b78b6f
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#6 sha256:161dde1d5f1d405aac7b487fc103a2ea07d276e881efeb2e88d8dffd6ae76b0a
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer
+#5 sha256:ec1838740da7c5c1c490eea60aae300f468facaf6407b01b9429240c18fc129b
+#5 ERROR: gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:119a1d66bcc19128ff5d596171862ea94fbd7c926f8f99930854d61f73b78b6f
+#12 transferring context: 669.92kB 0.1s done
+#12 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3bb99f55776ba17c85bd6e6d084514dbae65fa5d9536b4154dfa95193f378d0e
+#11 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:ee44d709ef046f4c0b89b31b2786736fd934c78fa913601c5d9f792b839271bd
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:f53e3eda49c3d8c8c53675281081b6b3e85f2ea3440c12c04a5c54ed05ed1f56
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:0cd181f1101b4023eb0857805e9d1696024ddf3baaecaba043fddb37d012f1d5
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:d55efa8a7a5f73eaf70f1083af1431eddee89fcd3faf2b65765a30a48f212d82
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:0a0d61f78e50e601734fc86193dcb21a35f2a4e17692dc53ed31c45d93faeeeb
+#14 DONE 0.8s
+
+#15 [stage-1  8/13] COPY benchmarks/boost_boost_ptree_jsonread_fuzzer/benchmark.yaml /
+#15 sha256:0f718169893d0adb7990e3ec851b20295b72f142c25c114bc50dfdcdb65e4c26
+#15 DONE 0.3s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:2968b6952a7a2e7ed6fd997eacde862c813c9fbcd81b571d4ace0bd0b4b56627
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:70cd704e9aef020c1c6ab6f81d5b552dd2e12a692f51c07bf353c9dc8e6a605e
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:7ec4543a6a459a348c749d639c020862a2a34938dd1b59e2d548025fbf01e647
+#18 0.443 Checking out commit 1d5a2cd8
+#18 0.449 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.453 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.460 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.498 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.518 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.533 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.548 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.563 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.570 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.577 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.582 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.590 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.597 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.603 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.612 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.619 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.626 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.632 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.642 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.655 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.662 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.671 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.679 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.685 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.693 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.699 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.706 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.713 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.719 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.726 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.736 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.743 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.749 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.766 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.772 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.778 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.783 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.793 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.802 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.815 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.834 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.841 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.848 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.856 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.865 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.898 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.905 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.911 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.920 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.928 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.957 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.964 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.975 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.982 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.988 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.995 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.002 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.008 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.014 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.019 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.026 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.034 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.053 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.060 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.070 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.084 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.091 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.100 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.107 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.114 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.121 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.131 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.144 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.151 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.161 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.178 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.187 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.193 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.200 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.206 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.213 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.222 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.229 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.236 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.243 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.252 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.260 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.272 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.286 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.292 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.302 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.309 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.321 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.353 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.360 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.368 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.377 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.383 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.389 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.397 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.405 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.412 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.419 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.427 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.434 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.440 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.449 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.455 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.463 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.470 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.478 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.489 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.499 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.507 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.513 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.521 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.527 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.533 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.540 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.545 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.553 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.565 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.572 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.578 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.585 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.591 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.599 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.605 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.614 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.632 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.642 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.654 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.660 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.670 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.677 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.683 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.689 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.698 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.708 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.719 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.740 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.747 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.754 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.761 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.768 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.773 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.789 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.798 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.804 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.812 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.819 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.828 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.834 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.841 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.849 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.856 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.864 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.873 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.883 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.890 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.897 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.909 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.918 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 1.924 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 2.191 Checkout unsuccessful.
+#18 DONE 3.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:3f1045d00328105d06e8d8ee88115a10f7d3bdafc96ed67ea4757dee275073b2
+#19 DONE 0.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:6c91e8489be716703e6a60e1d5ca16148906aa24e097b5bdff337b6501a4bc62
+#20 0.528 Run fuzzer_build to build the target
+#20 0.643 FUZZ_TARGET = boost_ptree_jsonread_fuzzer
+#20 0.643 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.643 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.648 Building benchmark boost_boost_ptree_jsonread_fuzzer with fuzzer afl
+#20 0.651 + ./bootstrap.sh
+#20 1.262 Building B2 engine..
+#20 1.872 
+#20 1.872 ###
+#20 1.872 ###
+#20 1.872 ### Using 'gcc' toolset.
+#20 1.872 ###
+#20 1.872 ###
+#20 1.872 
+#20 1.874 g++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
+#20 1.874 Copyright (C) 2019 Free Software Foundation, Inc.
+#20 1.874 This is free software; see the source for copying conditions.  There is NO
+#20 1.874 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#20 1.874 
+#20 1.874 
+#20 1.874 ###
+#20 1.874 ###
+#20 1.874 
+#20 1.875 > g++ -x c++ -std=c++11 -O2 -s -DNDEBUG builtins.cpp class.cpp command.cpp compile.cpp constants.cpp cwd.cpp debug.cpp debugger.cpp execcmd.cpp execnt.cpp execunix.cpp filesys.cpp filent.cpp fileunix.cpp frames.cpp function.cpp glob.cpp hash.cpp hcache.cpp hdrmacro.cpp headers.cpp jam_strings.cpp jam.cpp jamgram.cpp lists.cpp make.cpp make1.cpp md5.cpp mem.cpp modules.cpp native.cpp object.cpp option.cpp output.cpp parse.cpp pathnt.cpp pathsys.cpp pathunix.cpp regexp.cpp rules.cpp scan.cpp search.cpp startup.cpp subst.cpp sysinfo.cpp timestamp.cpp variable.cpp w32_getreg.cpp modules/order.cpp modules/path.cpp modules/property-set.cpp modules/regex.cpp modules/sequence.cpp modules/set.cpp -o b2
+#20 26.30 > cp b2 bjam
+#20 26.30 tools/build/src/engine/b2
+#20 26.33 Detecting Python version... 3.8
+#20 26.35 Detecting Python root... /usr
+#20 26.37 Unicode/ICU support for Boost.Regex?... not found.
+#20 26.38 Generating B2 configuration in project-config.jam for gcc...
+#20 26.38 
+#20 26.38 Bootstrapping is done. To build, run:
+#20 26.38 
+#20 26.38     ./b2
+#20 26.38     
+#20 26.38 To generate header files, run:
+#20 26.38 
+#20 26.38     ./b2 headers
+#20 26.38 
+#20 26.38 The configuration generated uses gcc to build by default. If that is
+#20 26.38 unintended either use the --with-toolset option or adjust configuration, by
+#20 26.38 editing 'project-config.jam'.
+#20 26.38 
+#20 26.38 Further information:
+#20 26.38 
+#20 26.38    - Command line help:
+#20 26.38      ./b2 --help
+#20 26.38      
+#20 26.38    - Getting started guide: 
+#20 26.38      http://www.boost.org/more/getting_started/unix-variants.html
+#20 26.38      
+#20 26.38    - B2 documentation:
+#20 26.38      http://www.boost.org/build/
+#20 26.38 
+#20 26.38 + ./b2 headers
+#20 28.29 Performing configuration checks
+#20 28.29 
+#20 28.29     - default address-model    : 64-bit [1]
+#20 29.12     - default architecture     : x86 [1]
+#20 29.14     - symlinks supported       : yes
+#20 30.39 
+#20 30.39 [1] gcc-9
+#20 30.41 ...found 1367 targets...
+#20 30.41 ...updating 615 targets...
+#20 30.41 mklink-or-dir boost
+#20 30.41 mklink-or-dir boost/yap
+#20 30.41 mklink-or-dir boost/xpressive
+#20 30.41 mklink-or-dir boost/winapi
+#20 30.41 link.mklink boost/wave.hpp
+#20 30.41 mklink-or-dir boost/wave
+#20 30.41 mklink-or-dir boost/detail
+#20 30.41 mklink-or-dir boost/vmd
+#20 30.41 mklink-or-dir boost/variant2
+#20 30.41 link.mklink boost/variant2.hpp
+#20 30.41 link.mklink boost/variant.hpp
+#20 30.41 mklink-or-dir boost/variant
+#20 30.41 link.mklink boost/detail/ob_compressed_pair.hpp
+#20 30.41 mklink-or-dir boost/detail/winapi
+#20 30.41 mklink-or-dir boost/uuid
+#20 30.41 link.mklink boost/utility.hpp
+#20 30.41 link.mklink boost/detail/interlocked.hpp
+#20 30.41 link.mklink boost/detail/call_traits.hpp
+#20 30.41 link.mklink boost/detail/compressed_pair.hpp
+#20 30.41 link.mklink boost/detail/quick_allocator.hpp
+#20 30.42 link.mklink boost/detail/lightweight_thread.hpp
+#20 30.42 link.mklink boost/detail/lightweight_mutex.hpp
+#20 30.42 link.mklink boost/detail/atomic_count.hpp
+#20 30.42 link.mklink boost/detail/basic_pointerbuf.hpp
+#20 30.42 link.mklink boost/detail/algorithm.hpp
+#20 30.42 link.mklink boost/detail/lcast_precision.hpp
+#20 30.42 link.mklink boost/detail/utf8_codecvt_facet.ipp
+#20 30.42 link.mklink boost/detail/templated_streams.hpp
+#20 30.42 link.mklink boost/detail/utf8_codecvt_facet.hpp
+#20 30.42 link.mklink boost/detail/select_type.hpp
+#20 30.42 link.mklink boost/detail/reference_content.hpp
+#20 30.42 link.mklink boost/detail/named_template_params.hpp
+#20 30.42 link.mklink boost/detail/numeric_traits.hpp
+#20 30.42 link.mklink boost/detail/lightweight_test_report.hpp
+#20 30.42 link.mklink boost/detail/is_xxx.hpp
+#20 30.42 link.mklink boost/detail/is_sorted.hpp
+#20 30.42 link.mklink boost/detail/is_incrementable.hpp
+#20 30.42 link.mklink boost/detail/lightweight_main.hpp
+#20 30.42 link.mklink boost/detail/identifier.hpp
+#20 30.42 link.mklink boost/detail/indirect_traits.hpp
+#20 30.42 link.mklink boost/detail/fenv.hpp
+#20 30.42 link.mklink boost/detail/has_default_constructor.hpp
+#20 30.42 link.mklink boost/detail/container_fwd.hpp
+#20 30.42 link.mklink boost/detail/catch_exceptions.hpp
+#20 30.42 link.mklink boost/detail/allocator_utilities.hpp
+#20 30.42 link.mklink boost/detail/bitmask.hpp
+#20 30.42 link.mklink boost/detail/sp_typeinfo.hpp
+#20 30.42 link.mklink boost/detail/binary_search.hpp
+#20 30.42 link.mklink boost/detail/scoped_enum_emulation.hpp
+#20 30.43 link.mklink boost/detail/no_exceptions_support.hpp
+#20 30.43 link.mklink boost/detail/lightweight_test.hpp
+#20 30.43 link.mklink boost/detail/workaround.hpp
+#20 30.43 link.mklink boost/detail/iterator.hpp
+#20 30.43 link.mklink boost/operators_v1.hpp
+#20 30.43 mklink-or-dir boost/utility
+#20 30.43 link.mklink boost/call_traits.hpp
+#20 30.43 link.mklink boost/operators.hpp
+#20 30.43 link.mklink boost/compressed_pair.hpp
+#20 30.43 link.mklink boost/unordered_set.hpp
+#20 30.43 link.mklink boost/unordered_map.hpp
+#20 30.43 mklink-or-dir boost/unordered
+#20 30.43 mklink-or-dir boost/units
+#20 30.43 link.mklink boost/utility/string_view_fwd.hpp
+#20 30.43 link.mklink boost/utility/string_view.hpp
+#20 30.43 link.mklink boost/utility/typed_in_place_factory.hpp
+#20 30.43 link.mklink boost/utility/string_ref_fwd.hpp
+#20 30.43 link.mklink boost/utility/value_init.hpp
+#20 30.43 link.mklink boost/utility/string_ref.hpp
+#20 30.43 link.mklink boost/utility/result_of.hpp
+#20 30.43 link.mklink boost/utility/in_place_factory.hpp
+#20 30.43 link.mklink boost/utility/identity_type.hpp
+#20 30.43 mklink-or-dir boost/utility/detail
+#20 30.43 link.mklink boost/utility/binary.hpp
+#20 30.43 link.mklink boost/utility/compare_pointees.hpp
+#20 30.43 link.mklink boost/utility/base_from_member.hpp
+#20 30.43 link.mklink boost/utility/swap.hpp
+#20 30.43 link.mklink boost/utility/declval.hpp
+#20 30.43 link.mklink boost/utility/explicit_operator_bool.hpp
+#20 30.43 link.mklink boost/utility/enable_if.hpp
+#20 30.43 mklink-or-dir boost/typeof
+#20 30.43 link.mklink boost/utility/addressof.hpp
+#20 30.44 link.mklink boost/aligned_storage.hpp
+#20 30.44 mklink-or-dir boost/type_traits
+#20 30.44 link.mklink boost/type_traits.hpp
+#20 30.44 mklink-or-dir boost/tuple
+#20 30.44 link.mklink boost/type_index.hpp
+#20 30.44 mklink-or-dir boost/type_index
+#20 30.44 mklink-or-dir boost/tti
+#20 30.44 link.mklink boost/tokenizer.hpp
+#20 30.44 link.mklink boost/token_iterator.hpp
+#20 30.44 mklink-or-dir boost/type_erasure
+#20 30.44 link.mklink boost/token_functions.hpp
+#20 30.44 ...on 100th target...
+#20 30.44 link.mklink boost/timer.hpp
+#20 30.44 mklink-or-dir boost/timer
+#20 30.44 link.mklink boost/progress.hpp
+#20 30.44 link.mklink boost/throw_exception.hpp
+#20 30.44 mklink-or-dir boost/exception
+#20 30.44 link.mklink boost/thread.hpp
+#20 30.44 mklink-or-dir boost/thread
+#20 30.44 link.mklink boost/system.hpp
+#20 30.44 mklink-or-dir boost/system
+#20 30.44 mklink-or-dir boost/test
+#20 30.44 link.mklink boost/cerrno.hpp
+#20 30.44 mklink-or-dir boost/stl_interfaces
+#20 30.44 link.mklink boost/exception/exception.hpp
+#20 30.44 link.mklink boost/exception/to_string_stub.hpp
+#20 30.44 link.mklink boost/exception/to_string.hpp
+#20 30.44 link.mklink boost/exception/info_tuple.hpp
+#20 30.44 link.mklink boost/exception/info.hpp
+#20 30.44 link.mklink boost/exception/get_error_info.hpp
+#20 30.44 link.mklink boost/exception/error_info.hpp
+#20 30.44 link.mklink boost/exception/errinfo_type_info_name.hpp
+#20 30.45 link.mklink boost/exception/errinfo_file_open_mode.hpp
+#20 30.45 link.mklink boost/exception/errinfo_file_name.hpp
+#20 30.45 link.mklink boost/exception/errinfo_file_handle.hpp
+#20 30.45 link.mklink boost/exception/errinfo_nested_exception.hpp
+#20 30.45 link.mklink boost/exception/errinfo_errno.hpp
+#20 30.45 link.mklink boost/exception/errinfo_at_line.hpp
+#20 30.45 link.mklink boost/exception/errinfo_api_function.hpp
+#20 30.45 link.mklink boost/exception/enable_error_info.hpp
+#20 30.45 link.mklink boost/exception/diagnostic_information.hpp
+#20 30.45 mklink-or-dir boost/exception/detail
+#20 30.45 link.mklink boost/exception/current_exception_cast.hpp
+#20 30.45 link.mklink boost/exception/enable_current_exception.hpp
+#20 30.45 link.mklink boost/exception/all.hpp
+#20 30.45 link.mklink boost/static_string.hpp
+#20 30.45 mklink-or-dir boost/static_string
+#20 30.45 mklink-or-dir boost/statechart
+#20 30.45 link.mklink boost/static_assert.hpp
+#20 30.45 link.mklink boost/stacktrace.hpp
+#20 30.45 link.mklink boost/spirit.hpp
+#20 30.45 mklink-or-dir boost/spirit
+#20 30.45 mklink-or-dir boost/stacktrace
+#20 30.45 link.mklink boost/weak_ptr.hpp
+#20 30.45 mklink-or-dir boost/sort
+#20 30.45 link.mklink boost/shared_ptr.hpp
+#20 30.45 mklink-or-dir boost/smart_ptr
+#20 30.45 link.mklink boost/smart_ptr.hpp
+#20 30.45 link.mklink boost/shared_array.hpp
+#20 30.45 link.mklink boost/scoped_ptr.hpp
+#20 30.45 link.mklink boost/scoped_array.hpp
+#20 30.45 link.mklink boost/pointer_to_other.hpp
+#20 30.46 link.mklink boost/pointer_cast.hpp
+#20 30.46 link.mklink boost/make_unique.hpp
+#20 30.46 link.mklink boost/make_shared.hpp
+#20 30.46 link.mklink boost/intrusive_ptr.hpp
+#20 30.46 link.mklink boost/signals2.hpp
+#20 30.46 mklink-or-dir boost/signals2
+#20 30.46 link.mklink boost/enable_shared_from_this.hpp
+#20 30.46 mklink-or-dir boost/serialization
+#20 30.46 mklink-or-dir boost/archive
+#20 30.46 link.mklink boost/scope_exit.hpp
+#20 30.46 mklink-or-dir boost/safe_numerics
+#20 30.46 link.mklink boost/regex_fwd.hpp
+#20 30.46 link.mklink boost/regex.hpp
+#20 30.46 link.mklink boost/regex.h
+#20 30.46 mklink-or-dir boost/regex
+#20 30.46 link.mklink boost/cregex.hpp
+#20 30.46 link.mklink boost/rational.hpp
+#20 30.46 link.mklink boost/ratio.hpp
+#20 30.46 mklink-or-dir boost/ratio
+#20 30.46 link.mklink boost/range.hpp
+#20 30.46 link.mklink boost/random.hpp
+#20 30.46 mklink-or-dir boost/range
+#20 30.46 mklink-or-dir boost/random
+#20 30.46 link.mklink boost/nondet_random.hpp
+#20 30.46 link.mklink boost/qvm.hpp
+#20 30.46 link.mklink boost/qvm_lite.hpp
+#20 30.46 mklink-or-dir boost/python
+#20 30.46 mklink-or-dir boost/qvm
+#20 30.46 link.mklink boost/python.hpp
+#20 30.46 mklink-or-dir boost/ptr_container
+#20 30.47 mklink-or-dir boost/proto
+#20 30.47 mklink-or-dir boost/property_map
+#20 30.47 mklink-or-dir boost/property_tree
+#20 30.47 mklink-or-dir boost/program_options
+#20 30.47 link.mklink boost/program_options.hpp
+#20 30.47 link.mklink boost/process.hpp
+#20 30.47 mklink-or-dir boost/process
+#20 30.47 link.mklink boost/preprocessor.hpp
+#20 30.47 mklink-or-dir boost/property_map/parallel
+#20 30.47 link.mklink boost/property_map/transform_value_property_map.hpp
+#20 30.47 mklink-or-dir boost/preprocessor
+#20 30.47 link.mklink boost/property_map/vector_property_map.hpp
+#20 30.47 link.mklink boost/property_map/property_map_iterator.hpp
+#20 30.47 link.mklink boost/property_map/shared_array_property_map.hpp
+#20 30.47 link.mklink boost/property_map/property_map.hpp
+#20 30.47 link.mklink boost/property_map/function_property_map.hpp
+#20 30.47 link.mklink boost/property_map/dynamic_property_map.hpp
+#20 30.47 link.mklink boost/property_map/compose_property_map.hpp
+#20 30.47 link.mklink boost/predef.h
+#20 30.47 mklink-or-dir boost/predef
+#20 30.47 ...on 200th target...
+#20 30.47 mklink-or-dir boost/pool
+#20 30.47 mklink-or-dir boost/polygon
+#20 30.47 mklink-or-dir boost/poly_collection
+#20 30.47 link.mklink boost/phoenix.hpp
+#20 30.47 mklink-or-dir boost/phoenix
+#20 30.47 link.mklink boost/pfr.hpp
+#20 30.47 mklink-or-dir boost/pfr
+#20 30.47 link.mklink boost/parameter.hpp
+#20 30.48 mklink-or-dir boost/parameter
+#20 30.48 mklink-or-dir boost/outcome
+#20 30.48 link.mklink boost/outcome.hpp
+#20 30.48 mklink-or-dir boost/optional
+#20 30.48 link.mklink boost/optional.hpp
+#20 30.48 link.mklink boost/none_t.hpp
+#20 30.48 link.mklink boost/none.hpp
+#20 30.48 link.mklink boost/parameter/python.hpp
+#20 30.48 mklink-or-dir boost/nowide
+#20 30.48 mklink-or-dir boost/parameter/aux_
+#20 30.48 link.mklink boost/parameter/value_type.hpp
+#20 30.48 link.mklink boost/parameter/template_keyword.hpp
+#20 30.48 link.mklink boost/parameter/required.hpp
+#20 30.48 link.mklink boost/parameter/preprocessor_no_spec.hpp
+#20 30.48 link.mklink boost/parameter/preprocessor.hpp
+#20 30.48 link.mklink boost/parameter/parameters.hpp
+#20 30.48 link.mklink boost/parameter/optional.hpp
+#20 30.48 link.mklink boost/parameter/aux_/yesno.hpp
+#20 30.48 mklink-or-dir boost/parameter/aux_/python
+#20 30.48 link.mklink boost/parameter/aux_/void.hpp
+#20 30.48 link.mklink boost/parameter/aux_/use_default_tag.hpp
+#20 30.48 link.mklink boost/parameter/aux_/use_default.hpp
+#20 30.48 link.mklink boost/parameter/aux_/unwrap_cv_reference.hpp
+#20 30.48 link.mklink boost/parameter/aux_/template_keyword.hpp
+#20 30.48 link.mklink boost/parameter/aux_/tagged_argument_fwd.hpp
+#20 30.48 link.mklink boost/parameter/aux_/tagged_argument.hpp
+#20 30.48 link.mklink boost/parameter/aux_/tag.hpp
+#20 30.48 link.mklink boost/parameter/aux_/set.hpp
+#20 30.48 link.mklink boost/parameter/aux_/result_of0.hpp
+#20 30.49 mklink-or-dir boost/parameter/aux_/preprocessor
+#20 30.49 link.mklink boost/parameter/aux_/parameter_requirements.hpp
+#20 30.49 link.mklink boost/parameter/aux_/maybe.hpp
+#20 30.49 mklink-or-dir boost/parameter/aux_/pp_impl
+#20 30.49 link.mklink boost/parameter/aux_/parenthesized_type.hpp
+#20 30.49 mklink-or-dir boost/parameter/aux_/pack
+#20 30.49 link.mklink boost/parameter/aux_/name.hpp
+#20 30.49 link.mklink boost/parameter/aux_/lambda_tag.hpp
+#20 30.49 link.mklink boost/parameter/aux_/is_tagged_argument.hpp
+#20 30.49 link.mklink boost/parameter/aux_/is_placeholder.hpp
+#20 30.49 link.mklink boost/parameter/aux_/is_maybe.hpp
+#20 30.49 link.mklink boost/parameter/aux_/has_nested_template_fn.hpp
+#20 30.49 link.mklink boost/parameter/aux_/default.hpp
+#20 30.49 link.mklink boost/parameter/aux_/augment_predicate.hpp
+#20 30.49 link.mklink boost/parameter/aux_/as_lvalue.hpp
+#20 30.49 link.mklink boost/parameter/aux_/arg_list.hpp
+#20 30.49 link.mklink boost/parameter/aux_/cast.hpp
+#20 30.49 link.mklink boost/parameter/nested_keyword.hpp
+#20 30.49 link.mklink boost/parameter/aux_/always_true_predicate.hpp
+#20 30.49 link.mklink boost/parameter/name.hpp
+#20 30.49 link.mklink boost/parameter/match.hpp
+#20 30.49 link.mklink boost/parameter/macros.hpp
+#20 30.49 link.mklink boost/parameter/keyword_fwd.hpp
+#20 30.49 link.mklink boost/parameter/keyword.hpp
+#20 30.49 link.mklink boost/parameter/is_argument_pack.hpp
+#20 30.49 link.mklink boost/parameter/deduced.hpp
+#20 30.49 link.mklink boost/parameter/compose.hpp
+#20 30.49 link.mklink boost/parameter/config.hpp
+#20 30.50 link.mklink boost/parameter/binding.hpp
+#20 30.50 link.mklink boost/parameter/are_tagged_arguments.hpp
+#20 30.50 mklink-or-dir boost/multiprecision
+#20 30.50 link.mklink boost/multi_index_container_fwd.hpp
+#20 30.50 mklink-or-dir boost/multi_index
+#20 30.50 link.mklink boost/multi_index_container.hpp
+#20 30.50 link.mklink boost/multi_array.hpp
+#20 30.50 mklink-or-dir boost/multi_array
+#20 30.50 link.mklink boost/mpi.hpp
+#20 30.50 mklink-or-dir boost/msm
+#20 30.50 mklink-or-dir boost/mpl
+#20 30.50 link.mklink boost/mp11.hpp
+#20 30.50 mklink-or-dir boost/mpi
+#20 30.50 mklink-or-dir boost/mp11
+#20 30.50 mklink-or-dir boost/move
+#20 30.50 link.mklink boost/metaparse.hpp
+#20 30.50 mklink-or-dir boost/math
+#20 30.50 mklink-or-dir boost/metaparse
+#20 30.50 mklink-or-dir boost/logic
+#20 30.50 link.mklink boost/math_fwd.hpp
+#20 30.50 mklink-or-dir boost/lockfree
+#20 30.50 mklink-or-dir boost/log
+#20 30.50 link.mklink boost/cstdfloat.hpp
+#20 30.57 link.mklink boost/locale.hpp
+#20 30.57 link.mklink boost/local_function.hpp
+#20 30.57 mklink-or-dir boost/local_function
+#20 30.57 mklink-or-dir boost/lexical_cast
+#20 30.57 link.mklink boost/lexical_cast.hpp
+#20 30.57 link.mklink boost/leaf.hpp
+#20 30.57 mklink-or-dir boost/locale
+#20 30.57 mklink-or-dir boost/leaf
+#20 30.57 link.mklink boost/lambda2.hpp
+#20 30.57 mklink-or-dir boost/lambda2
+#20 30.57 mklink-or-dir boost/lambda
+#20 30.57 link.mklink boost/json.hpp
+#20 30.57 mklink-or-dir boost/json
+#20 30.57 ...on 300th target...
+#20 30.57 link.mklink boost/shared_container_iterator.hpp
+#20 30.57 link.mklink boost/pointee.hpp
+#20 30.57 mklink-or-dir boost/pending
+#20 30.58 link.mklink boost/iterator_adaptors.hpp
+#20 30.58 mklink-or-dir boost/iterator
+#20 30.58 link.mklink boost/indirect_reference.hpp
+#20 30.58 link.mklink boost/generator_iterator.hpp
+#20 30.58 link.mklink boost/next_prior.hpp
+#20 30.58 link.mklink boost/pending/iterator_tests.hpp
+#20 30.58 link.mklink boost/function_output_iterator.hpp
+#20 30.58 mklink-or-dir boost/iostreams
+#20 30.58 link.mklink boost/pending/iterator_adaptors.hpp
+#20 30.58 mklink-or-dir boost/pending/detail
+#20 30.58 link.mklink boost/pending/integer_log2.hpp
+#20 30.58 link.mklink boost/pending/stringtok.hpp
+#20 30.58 link.mklink boost/pending/relaxed_heap.hpp
+#20 30.58 link.mklink boost/pending/property_serialize.hpp
+#20 30.58 link.mklink boost/pending/queue.hpp
+#20 30.58 link.mklink boost/pending/property.hpp
+#20 30.58 link.mklink boost/pending/mutable_queue.hpp
+#20 30.58 link.mklink boost/pending/detail/int_iterator.hpp
+#20 30.58 link.mklink boost/pending/indirect_cmp.hpp
+#20 30.58 link.mklink boost/pending/detail/property.hpp
+#20 30.58 link.mklink boost/pending/detail/disjoint_sets.hpp
+#20 30.58 link.mklink boost/pending/mutable_heap.hpp
+#20 30.58 link.mklink boost/pending/is_heap.hpp
+#20 30.58 link.mklink boost/pending/fibonacci_heap.hpp
+#20 30.58 link.mklink boost/pending/fenced_priority_queue.hpp
+#20 30.58 link.mklink boost/pending/disjoint_sets.hpp
+#20 30.58 link.mklink boost/pending/bucket_sorter.hpp
+#20 30.58 link.mklink boost/io_fwd.hpp
+#20 30.58 mklink-or-dir boost/io
+#20 30.58 mklink-or-dir boost/intrusive
+#20 30.59 mklink-or-dir boost/interprocess
+#20 30.59 link.mklink boost/pending/container_traits.hpp
+#20 30.59 link.mklink boost/integer_traits.hpp
+#20 30.59 link.mklink boost/integer_fwd.hpp
+#20 30.59 link.mklink boost/integer.hpp
+#20 30.59 mklink-or-dir boost/integer
+#20 30.59 mklink-or-dir boost/icl
+#20 30.59 mklink-or-dir boost/hof
+#20 30.59 link.mklink boost/hof.hpp
+#20 30.59 link.mklink boost/histogram.hpp
+#20 30.59 mklink-or-dir boost/histogram
+#20 30.59 mklink-or-dir boost/heap
+#20 30.59 link.mklink boost/hana.hpp
+#20 30.59 mklink-or-dir boost/hana
+#20 30.59 link.mklink boost/gil.hpp
+#20 30.59 mklink-or-dir boost/geometry
+#20 30.59 mklink-or-dir boost/graph
+#20 30.59 mklink-or-dir boost/gil
+#20 30.59 link.mklink boost/geometry.hpp
+#20 30.59 mklink-or-dir boost/fusion
+#20 30.59 link.mklink boost/functional.hpp
+#20 30.59 mklink-or-dir boost/functional
+#20 30.59 mklink-or-dir boost/graph/parallel
+#20 30.59 mklink-or-dir boost/function_types
+#20 30.59 link.mklink boost/graph/accounting.hpp
+#20 30.59 link.mklink boost/graph/write_dimacs.hpp
+#20 30.59 link.mklink boost/graph/wavefront.hpp
+#20 30.59 mklink-or-dir boost/graph/distributed
+#20 30.59 link.mklink boost/graph/visitors.hpp
+#20 30.59 link.mklink boost/functional/value_factory.hpp
+#20 30.59 link.mklink boost/functional/overloaded_function.hpp
+#20 30.59 mklink-or-dir boost/functional/overloaded_function
+#20 30.59 link.mklink boost/functional/identity.hpp
+#20 30.60 link.mklink boost/functional/factory.hpp
+#20 30.60 link.mklink boost/functional/forward_adapter.hpp
+#20 30.60 mklink-or-dir boost/functional/hash
+#20 30.60 link.mklink boost/functional/hash_fwd.hpp
+#20 30.60 link.mklink boost/functional/hash.hpp
+#20 30.60 link.mklink boost/functional/lightweight_forward_adapter.hpp
+#20 30.60 link.mklink boost/graph/vf2_sub_graph_iso.hpp
+#20 30.60 link.mklink boost/graph/vertex_and_edge_range.hpp
+#20 30.60 link.mklink boost/graph/use_mpi.hpp
+#20 30.60 link.mklink boost/graph/vector_as_graph.hpp
+#20 30.60 link.mklink boost/graph/undirected_graph.hpp
+#20 30.60 link.mklink boost/graph/undirected_dfs.hpp
+#20 30.60 link.mklink boost/graph/two_graphs_common_spanning_trees.hpp
+#20 30.60 link.mklink boost/graph/two_bit_color_map.hpp
+#20 30.60 link.mklink boost/graph/tree_traits.hpp
+#20 30.60 link.mklink boost/graph/transpose_graph.hpp
+#20 30.60 link.mklink boost/graph/topology.hpp
+#20 30.60 link.mklink boost/graph/transitive_reduction.hpp
+#20 30.60 link.mklink boost/graph/topological_sort.hpp
+#20 30.60 link.mklink boost/graph/transitive_closure.hpp
+#20 30.60 link.mklink boost/graph/tiernan_all_cycles.hpp
+#20 30.60 link.mklink boost/graph/successive_shortest_path_nonnegative_weights.hpp
+#20 30.60 link.mklink boost/graph/subgraph.hpp
+#20 30.60 link.mklink boost/graph/strong_components.hpp
+#20 30.60 link.mklink boost/graph/stoer_wagner_min_cut.hpp
+#20 30.60 link.mklink boost/graph/stanford_graph.hpp
+#20 30.60 link.mklink boost/graph/st_connected.hpp
+#20 30.60 link.mklink boost/graph/ssca_graph_generator.hpp
+#20 30.60 link.mklink boost/graph/smallest_last_ordering.hpp
+#20 30.60 link.mklink boost/graph/small_world_generator.hpp
+#20 30.60 link.mklink boost/graph/sloan_ordering.hpp
+#20 30.60 link.mklink boost/graph/simple_point.hpp
+#20 30.61 link.mklink boost/graph/sequential_vertex_coloring.hpp
+#20 30.61 ...on 400th target...
+#20 30.61 link.mklink boost/graph/rmat_graph_generator.hpp
+#20 30.61 link.mklink boost/graph/reverse_graph.hpp
+#20 30.61 link.mklink boost/graph/relax.hpp
+#20 30.61 link.mklink boost/graph/read_dimacs.hpp
+#20 30.61 link.mklink boost/graph/random_spanning_tree.hpp
+#20 30.61 link.mklink boost/graph/random_layout.hpp
+#20 30.61 link.mklink boost/graph/random.hpp
+#20 30.61 link.mklink boost/graph/r_c_shortest_paths.hpp
+#20 30.61 link.mklink boost/graph/push_relabel_max_flow.hpp
+#20 30.61 mklink-or-dir boost/graph/property_maps
+#20 30.61 link.mklink boost/graph/property_iter_range.hpp
+#20 30.61 link.mklink boost/graph/properties.hpp
+#20 30.61 link.mklink boost/graph/profile.hpp
+#20 30.61 link.mklink boost/graph/prim_minimum_spanning_tree.hpp
+#20 30.61 link.mklink boost/graph/point_traits.hpp
+#20 30.61 link.mklink boost/graph/plod_generator.hpp
+#20 30.61 link.mklink boost/graph/planar_face_traversal.hpp
+#20 30.61 mklink-or-dir boost/graph/planar_detail
+#20 30.61 link.mklink boost/graph/planar_canonical_ordering.hpp
+#20 30.61 link.mklink boost/graph/page_rank.hpp
+#20 30.61 link.mklink boost/graph/overloading.hpp
+#20 30.61 link.mklink boost/graph/one_bit_color_map.hpp
+#20 30.61 link.mklink boost/graph/numeric_values.hpp
+#20 30.61 link.mklink boost/graph/neighbor_bfs.hpp
+#20 30.61 link.mklink boost/graph/named_graph.hpp
+#20 30.61 link.mklink boost/graph/metric_tsp_approx.hpp
+#20 30.61 link.mklink boost/graph/named_function_params.hpp
+#20 30.61 link.mklink boost/graph/minimum_degree_ordering.hpp
+#20 30.61 link.mklink boost/graph/metis.hpp
+#20 30.61 link.mklink boost/graph/mesh_graph_generator.hpp
+#20 30.62 link.mklink boost/graph/mcgregor_common_subgraphs.hpp
+#20 30.62 link.mklink boost/graph/maximum_weighted_matching.hpp
+#20 30.62 link.mklink boost/graph/maximum_adjacency_search.hpp
+#20 30.62 link.mklink boost/graph/matrix_as_graph.hpp
+#20 30.62 link.mklink boost/graph/max_cardinality_matching.hpp
+#20 30.62 link.mklink boost/graph/make_connected.hpp
+#20 30.62 link.mklink boost/graph/make_maximal_planar.hpp
+#20 30.62 link.mklink boost/graph/make_biconnected_planar.hpp
+#20 30.62 link.mklink boost/graph/loop_erased_random_walk.hpp
+#20 30.62 link.mklink boost/graph/lookup_edge.hpp
+#20 30.62 link.mklink boost/graph/labeled_graph.hpp
+#20 30.62 link.mklink boost/graph/leda_graph.hpp
+#20 30.62 link.mklink boost/graph/kruskal_min_spanning_tree.hpp
+#20 30.62 link.mklink boost/graph/king_ordering.hpp
+#20 30.62 link.mklink boost/graph/johnson_all_pairs_shortest.hpp
+#20 30.62 link.mklink boost/graph/kamada_kawai_spring_layout.hpp
+#20 30.62 link.mklink boost/graph/iteration_macros_undef.hpp
+#20 30.62 link.mklink boost/graph/iteration_macros.hpp
+#20 30.62 link.mklink boost/graph/is_straight_line_drawing.hpp
+#20 30.62 link.mklink boost/graph/isomorphism.hpp
+#20 30.62 link.mklink boost/graph/is_kuratowski_subgraph.hpp
+#20 30.62 link.mklink boost/graph/incremental_components.hpp
+#20 30.62 link.mklink boost/graph/howard_cycle_ratio.hpp
+#20 30.62 link.mklink boost/graph/hawick_circuits.hpp
+#20 30.62 link.mklink boost/graph/gursoy_atun_layout.hpp
+#20 30.62 link.mklink boost/graph/grid_graph.hpp
+#20 30.62 link.mklink boost/graph/graphviz.hpp
+#20 30.62 link.mklink boost/graph/graphml.hpp
+#20 30.62 link.mklink boost/graph/graph_utility.hpp
+#20 30.62 link.mklink boost/graph/graph_traits.hpp
+#20 30.62 link.mklink boost/graph/graph_selectors.hpp
+#20 30.62 link.mklink boost/graph/graph_stats.hpp
+#20 30.63 link.mklink boost/graph/graph_concepts.hpp
+#20 30.63 link.mklink boost/graph/graph_mutability_traits.hpp
+#20 30.63 link.mklink boost/graph/graph_as_tree.hpp
+#20 30.63 link.mklink boost/graph/graph_archetypes.hpp
+#20 30.63 link.mklink boost/graph/geodesic_distance.hpp
+#20 30.63 link.mklink boost/graph/fruchterman_reingold.hpp
+#20 30.63 link.mklink boost/graph/find_flow_cost.hpp
+#20 30.63 link.mklink boost/graph/filtered_graph.hpp
+#20 30.63 link.mklink boost/graph/floyd_warshall_shortest.hpp
+#20 30.63 link.mklink boost/graph/exterior_property.hpp
+#20 30.63 link.mklink boost/graph/exception.hpp
+#20 30.63 link.mklink boost/graph/erdos_renyi_generator.hpp
+#20 30.63 link.mklink boost/graph/edmunds_karp_max_flow.hpp
+#20 30.63 link.mklink boost/graph/edmonds_karp_max_flow.hpp
+#20 30.63 link.mklink boost/graph/edge_list.hpp
+#20 30.63 link.mklink boost/graph/edge_connectivity.hpp
+#20 30.63 link.mklink boost/graph/eccentricity.hpp
+#20 30.63 link.mklink boost/graph/edge_coloring.hpp
+#20 30.63 link.mklink boost/graph/dll_import_export.hpp
+#20 30.63 link.mklink boost/graph/directed_graph.hpp
+#20 30.63 link.mklink boost/graph/dominator_tree.hpp
+#20 30.63 link.mklink boost/graph/dijkstra_shortest_paths_no_color_map.hpp
+#20 30.63 mklink-or-dir boost/graph/detail
+#20 30.63 link.mklink boost/graph/dijkstra_shortest_paths.hpp
+#20 30.63 link.mklink boost/graph/dimacs.hpp
+#20 30.63 link.mklink boost/graph/degree_centrality.hpp
+#20 30.63 link.mklink boost/graph/depth_first_search.hpp
+#20 30.63 link.mklink boost/graph/dag_shortest_paths.hpp
+#20 30.63 link.mklink boost/graph/cycle_canceling.hpp
+#20 30.63 link.mklink boost/graph/cuthill_mckee_ordering.hpp
+#20 30.63 link.mklink boost/graph/create_condensation_graph.hpp
+#20 30.63 link.mklink boost/graph/core_numbers.hpp
+#20 30.64 link.mklink boost/graph/copy.hpp
+#20 30.64 link.mklink boost/graph/connected_components.hpp
+#20 30.64 link.mklink boost/graph/clustering_coefficient.hpp
+#20 30.64 link.mklink boost/graph/closeness_centrality.hpp
+#20 30.64 link.mklink boost/graph/compressed_sparse_row_graph.hpp
+#20 30.64 link.mklink boost/graph/circle_layout.hpp
+#20 30.64 ...on 500th target...
+#20 30.64 link.mklink boost/graph/chrobak_payne_drawing.hpp
+#20 30.64 link.mklink boost/graph/buffer_concepts.hpp
+#20 30.64 link.mklink boost/graph/bron_kerbosch_all_cliques.hpp
+#20 30.64 link.mklink boost/graph/breadth_first_search.hpp
+#20 30.64 link.mklink boost/graph/boykov_kolmogorov_max_flow.hpp
+#20 30.64 link.mklink boost/graph/boyer_myrvold_planar_test.hpp
+#20 30.64 link.mklink boost/graph/bipartite.hpp
+#20 30.64 link.mklink boost/graph/betweenness_centrality.hpp
+#20 30.64 link.mklink boost/graph/biconnected_components.hpp
+#20 30.64 link.mklink boost/graph/bellman_ford_shortest_paths.hpp
+#20 30.64 link.mklink boost/graph/adjacency_matrix.hpp
+#20 30.64 link.mklink boost/graph/bandwidth.hpp
+#20 30.64 link.mklink boost/graph/astar_search.hpp
+#20 30.64 link.mklink boost/graph/bc_clustering.hpp
+#20 30.64 link.mklink boost/graph/adjacency_list.hpp
+#20 30.64 link.mklink boost/graph/adjacency_list_io.hpp
+#20 30.64 link.mklink boost/graph/adjacency_iterator.hpp
+#20 30.64 link.mklink boost/graph/adj_list_serialize.hpp
+#20 30.64 link.mklink boost/function_equal.hpp
+#20 30.64 link.mklink boost/function.hpp
+#20 30.64 mklink-or-dir boost/function
+#20 30.64 link.mklink boost/format.hpp
+#20 30.64 mklink-or-dir boost/format
+#20 30.64 link.mklink boost/foreach_fwd.hpp
+#20 30.64 link.mklink boost/flyweight.hpp
+#20 30.65 link.mklink boost/foreach.hpp
+#20 30.65 mklink-or-dir boost/flyweight
+#20 30.65 mklink-or-dir boost/filesystem
+#20 30.65 link.mklink boost/exception_ptr.hpp
+#20 30.65 link.mklink boost/filesystem.hpp
+#20 30.65 mklink-or-dir boost/fiber
+#20 30.65 mklink-or-dir boost/endian
+#20 30.65 link.mklink boost/endian.hpp
+#20 30.65 link.mklink boost/dynamic_bitset_fwd.hpp
+#20 30.65 link.mklink boost/dynamic_bitset.hpp
+#20 30.65 link.mklink boost/dll.hpp
+#20 30.65 mklink-or-dir boost/dll
+#20 30.65 mklink-or-dir boost/dynamic_bitset
+#20 30.65 link.mklink boost/blank_fwd.hpp
+#20 30.65 link.mklink boost/blank.hpp
+#20 30.65 link.mklink boost/cstdlib.hpp
+#20 30.65 link.mklink boost/describe.hpp
+#20 30.65 link.mklink boost/date_time.hpp
+#20 30.65 mklink-or-dir boost/describe
+#20 30.65 mklink-or-dir boost/date_time
+#20 30.65 mklink-or-dir boost/coroutine2
+#20 30.65 link.mklink boost/crc.hpp
+#20 30.65 mklink-or-dir boost/coroutine
+#20 30.65 link.mklink boost/visit_each.hpp
+#20 30.65 link.mklink boost/type.hpp
+#20 30.65 link.mklink boost/swap.hpp
+#20 30.65 link.mklink boost/ref.hpp
+#20 30.65 link.mklink boost/noncopyable.hpp
+#20 30.65 link.mklink boost/non_type.hpp
+#20 30.65 link.mklink boost/iterator.hpp
+#20 30.65 link.mklink boost/get_pointer.hpp
+#20 30.65 mklink-or-dir boost/core
+#20 30.66 link.mklink boost/make_default.hpp
+#20 30.66 link.mklink boost/convert.hpp
+#20 30.66 mklink-or-dir boost/convert
+#20 30.66 link.mklink boost/checked_delete.hpp
+#20 30.66 link.mklink boost/polymorphic_pointer_cast.hpp
+#20 30.66 link.mklink boost/polymorphic_cast.hpp
+#20 30.66 link.mklink boost/implicit_cast.hpp
+#20 30.66 link.mklink boost/contract_macro.hpp
+#20 30.66 link.mklink boost/contract.hpp
+#20 30.66 mklink-or-dir boost/contract
+#20 30.66 mklink-or-dir boost/context
+#20 30.66 mklink-or-dir boost/container
+#20 30.66 mklink-or-dir boost/container_hash
+#20 30.66 link.mklink boost/version.hpp
+#20 30.66 link.mklink boost/limits.hpp
+#20 30.66 link.mklink boost/cstdint.hpp
+#20 30.66 link.mklink boost/config.hpp
+#20 30.66 link.mklink boost/cxx11_char_types.hpp
+#20 30.66 link.mklink boost/concept_check.hpp
+#20 30.66 mklink-or-dir boost/config
+#20 30.66 mklink-or-dir boost/concept_check
+#20 30.66 mklink-or-dir boost/concept
+#20 30.66 link.mklink boost/compute.hpp
+#20 30.66 mklink-or-dir boost/compute
+#20 30.66 link.mklink boost/concept_archetype.hpp
+#20 30.66 mklink-or-dir boost/compatibility
+#20 30.66 link.mklink boost/circular_buffer_fwd.hpp
+#20 30.66 link.mklink boost/circular_buffer.hpp
+#20 30.66 mklink-or-dir boost/circular_buffer
+#20 30.66 mklink-or-dir boost/chrono
+#20 30.66 link.mklink boost/chrono.hpp
+#20 30.66 link.mklink boost/callable_traits.hpp
+#20 30.66 link.mklink boost/is_placeholder.hpp
+#20 30.66 mklink-or-dir boost/callable_traits
+#20 30.66 link.mklink boost/mem_fn.hpp
+#20 30.67 link.mklink boost/bind.hpp
+#20 30.67 mklink-or-dir boost/bind
+#20 30.67 link.mklink boost/bimap.hpp
+#20 30.67 link.mklink boost/beast.hpp
+#20 30.67 mklink-or-dir boost/beast
+#20 30.67 link.mklink boost/memory_order.hpp
+#20 30.67 mklink-or-dir boost/bimap
+#20 30.67 link.mklink boost/atomic.hpp
+#20 30.67 ...on 600th target...
+#20 30.67 mklink-or-dir boost/atomic
+#20 30.67 mklink-or-dir boost/assign
+#20 30.67 link.mklink boost/current_function.hpp
+#20 30.67 link.mklink boost/assign.hpp
+#20 30.67 link.mklink boost/assert.hpp
+#20 30.67 mklink-or-dir boost/assert
+#20 30.67 link.mklink boost/asio.hpp
+#20 30.67 mklink-or-dir boost/asio
+#20 30.67 link.mklink boost/array.hpp
+#20 30.67 link.mklink boost/any.hpp
+#20 30.67 link.mklink boost/align.hpp
+#20 30.67 mklink-or-dir boost/any
+#20 30.67 mklink-or-dir boost/accumulators
+#20 30.67 mklink-or-dir boost/algorithm
+#20 30.67 link.mklink boost/cast.hpp
+#20 30.67 mklink-or-dir boost/numeric
+#20 30.67 mklink-or-dir boost/align
+#20 30.67 mklink-or-dir boost/numeric/ublas
+#20 30.67 link.mklink boost/numeric/odeint.hpp
+#20 30.67 mklink-or-dir boost/numeric/odeint
+#20 30.68 link.mklink boost/numeric/interval.hpp
+#20 30.68 mklink-or-dir boost/numeric/interval
+#20 30.68 mklink-or-dir boost/numeric/conversion
+#20 30.70 ...updated 615 targets...
+#20 30.70 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I . ../boost_regex_fuzzer.cc libs/regex/src/posix_api.cpp libs/regex/src/regex.cpp libs/regex/src/regex_debug.cpp libs/regex/src/static_mutex.cpp libs/regex/src/wide_posix_api.cpp /libAFL.a -o boost_regex_fuzzer
+#20 55.19 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I . ../boost_ptree_xmlread_fuzzer.cc /libAFL.a -o boost_ptree_xmlread_fuzzer
+#20 60.47 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I . ../boost_ptree_jsonread_fuzzer.cc /libAFL.a -o boost_ptree_jsonread_fuzzer
+#20 65.29 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I . ../boost_ptree_iniread_fuzzer.cc /libAFL.a -o boost_ptree_iniread_fuzzer
+#20 69.43 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I . ../boost_ptree_inforead_fuzzer.cc /libAFL.a -o boost_ptree_inforead_fuzzer
+#20 74.16 + find . -name '*_fuzzer' -exec cp -v '{}' /out ';'
+#20 74.47 './boost_ptree_iniread_fuzzer' -> '/out/boost_ptree_iniread_fuzzer'
+#20 74.48 './boost_ptree_xmlread_fuzzer' -> '/out/boost_ptree_xmlread_fuzzer'
+#20 74.49 './boost_regex_fuzzer' -> '/out/boost_regex_fuzzer'
+#20 74.49 './boost_ptree_inforead_fuzzer' -> '/out/boost_ptree_inforead_fuzzer'
+#20 74.50 './boost_ptree_jsonread_fuzzer' -> '/out/boost_ptree_jsonread_fuzzer'
+#20 74.50 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 76.8s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a84fc47b75680bfc48a42ddd2526ad0e8b5425460587663c11d96552a30e5b7e done
+#21 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:0e053c4dbd90d70bbed0d69944c81dc89a104abe6eff1874b2977cccc4427f74
+#1 DONE 0.0s
+
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:0e053c4dbd90d70bbed0d69944c81dc89a104abe6eff1874b2977cccc4427f74
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5ec641d657a79569ac20f1788ff82e9d9f4fccfeec4a759c93eae7bdc00710d5
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#5 sha256:007217b7233d3b4ae721cefb369c42c74ca742b9f98ca4abcedc92271d7e9aee
+#5 ERROR: gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5c7d6d3502981d8dc761263bd06f4e4f219ec5cfc9159c607e4edb9749b5e14
+#6 writing image sha256:d5c7d6d3502981d8dc761263bd06f4e4f219ec5cfc9159c607e4edb9749b5e14 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:13bea4f1976e8a0b6eecaa81d470c69dc9dbb3a6c92180d56d18ff375e87f069
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:e19c927a4ebff7691fae3b67da9595816640f786deb2c049ebbc153ea8a599a8
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer:latest
+#4 sha256:a87cdaa068ada1a24dd33b017d7fef092c89d5b4b45811ec836237c72273e5be
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:latest
+#3 sha256:a4b4daff6e4f0089f91e2afccb55df6c1ebcfda3eeb80cfe6cc51d2c9dd00a02
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:450dfd170518a5205d06cc0a9cf8c1e386ba84ba016f2fb616959a61562dbdac
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#6 sha256:887c3c5822915647e37f60007307b6d02ab44a739b2ae90d4a29035140525e1b
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer
+#10 sha256:31177b3544f531abecb2e578fc5f98a56ae93613acfa7f5832b2aac9f1b330c4
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer
+#5 sha256:d7ea40322c5c093e1859a72604ccbc2fe4bd63ec4cf332b1af67eb7e3c27d9f9
+#5 ERROR: gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:450dfd170518a5205d06cc0a9cf8c1e386ba84ba016f2fb616959a61562dbdac
+#12 transferring context: 18.42MB 0.6s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer
+#10 sha256:31177b3544f531abecb2e578fc5f98a56ae93613acfa7f5832b2aac9f1b330c4
+#10 DONE 1.2s
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:49dee08cb4b6c033ffcbcc0248de6fd8743dbfed4c010283596be568ff167769
+#9 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:9beecbee2f873922670eabcfdde65097606c0916d377558a8847f1659055db52
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:b8ed3566d214410a2a52d12adcefb4461c4ea876cd12c69375154d6447c70df7
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:eadc40b24333d36a6d7a51d83532da840f79bc6b537aedf15c35990c34594fbd
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:ac5f184f625ac035bb0d94fef1c9db5920fd80af0a2082d883d8a4714376c0f5
+#13 DONE 1.2s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:889511ea460d14d1b251dbf5b7e4dff6e60b7a4f93bb3d21cf4995fef9bb0dda
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:a514d7283e01444d177d37aa935feec09ace04088d7ab15446ef453ae4d94d88
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:696700413ff15d6fa55bb0175093cb5fd6f3a778e657c6d9f6d0b2ca529c805f
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:e1405102b615178c1f501bc772a6acecfff42bdbc5ff99b2eb53dea1ddc2fab9
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:c869533ec59dd7d460d3eb5d9672f3c3a9476a6bb13a345e62f89267f728eabf
+#18 DONE 0.3s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:3f131ead92db6925e35346d8e26ce192934427539af7a5a857753accf1a4e0c1
+#19 DONE 0.3s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:9cb6059c62dc2d31802bedb43523ca5f2cb6a1ea2d887ce4da4196a3dc519ea3
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:31f380c61541ef837589d8ca332a51656005927dcf77715b1d74d08036fc2ca5 done
+#21 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Doing final sync.
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0d998707c97e342c7b6662759650970fe933ad6ca9c4e4f8dd89f53c8dce3367
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:620284d54bef7ceec6762541599e50c2138473a28616ade46d72c01e931231ff
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer
+#4 sha256:f2cad61150b1b9b673b846bbb07fd8b40ad615d9a2330ab117957fc27b180cda
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:4bc581cf6d900a84b203636d84ba999c1e5c4a3e949099756f95bb148527e124
+#9 transferring context: 269B done
+#9 DONE 0.0s
+
+#7 [3/5] RUN git clone --recursive https://github.com/boostorg/boost.git
+#7 sha256:67869b6b2869a34d8198f8ddb8ff78e8a8b8e5a898b3f72376b5ac365e825fe2
+#7 CACHED
+
+#8 [4/5] WORKDIR boost
+#8 sha256:755c9caf20b728150890ac7a5930f5fbc4bb14055a1d076889c70231e26b5020
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y g++
+#6 sha256:af3a28fbaef1d043919d93747061c5755e2161896ee0b66b13300fc7e54c3d90
+#6 CACHED
+
+#10 [5/5] COPY build.sh *.cc /src/
+#10 sha256:9056600232adacd6882fe582cc7b58b13d76c4a515aa2a4d1351234526759307
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:18379b83f97c72ff325c1341b711031c80d22df7f1b361b4ec75d0508b7da032
+#11 writing image sha256:18379b83f97c72ff325c1341b711031c80d22df7f1b361b4ec75d0508b7da032 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:b23c9d1fdbe1e56328eed9563667a22e87932aa09c6a133ff86597cdf0fd25f6
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:58f928b6d0570ea50623336a4df37bc610921381e8949f2d297ee3906f6446fe
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer:latest
+#3 sha256:578e2a05d327d9e5122f0d97563c77132eeedac954d356dfa9a905cfbda0691b
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_jsonread_fuzzer
+#5 sha256:e53d8adbff41c54f085ded7c10f6fa50b9e84efeed3e2bedf219aa4f9c557418
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#4 sha256:7a9cc79a76401160fd14f307b918db4e5aced255bb96649bb8f647dd53bcb432
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:001e454584db9f93ceb7d8563422d4a2638f8e9dfcf9d0e6a312537ea69110fb
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:e6400518c4cd1f484c9bf30cf444ddcfae884a0b6b2dd76d00d5d799d3343d3b
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:520c67fc2444406c21ff335d9eb8231c985703d507ec572378b2aa168c1e0bfd
+#8 writing image sha256:520c67fc2444406c21ff335d9eb8231c985703d507ec572378b2aa168c1e0bfd done
+#8 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:28331013900b060aa81f90e194076c36c004a25436872b4154f5228ed8052ca0
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:fb789ed74d25439c4c9a89b2f5fe4d2a03e17f803d7f51c94e508fc894d12219
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:171b12310fda8ce39c4e9ad70d023b58d74982a6001b41b5e46cb8cb12a1062d
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:c181959b09daa81333f5e58a96afcf687e9a58c50c58fde2ac86624d127db491
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:a5426bd4871966e7f6f9f6d3ae064bdf873ebaebc45a5f61d25f010ee6dd1544
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:bbcb89aaf9c72614c18dc7ffff160b2b32768ea4161f2917d790ff3f6643355c
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:95b260eeea818cb8def68fd40225e902a567fde5db840dcaeb256e4f67d75293
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:cdb478538a35041a0b5608a1313087aff20fc062fe25108e635bb6f1faebe08e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8327123673ea72215550ba6d14a1e44a845aefd4c120389efeeb94fc2ef56444
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2df2e7f7b0cd3099cae5046c799525833be8e5a0931cd85c21abeb2a3a6b6711
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:latest
+#3 sha256:b0468e9b7d59ae15774dabcd0c9e4b6d445e4412e91839e677ae3509a4fbe592
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer
+#5 sha256:ec1838740da7c5c1c490eea60aae300f468facaf6407b01b9429240c18fc129b
+#5 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#6 sha256:161dde1d5f1d405aac7b487fc103a2ea07d276e881efeb2e88d8dffd6ae76b0a
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e862f91abe59e3cb8230a9ad3e5fd45013a20b77989f81a64add5ca33c815bb1
+#12 transferring context: 669.92kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:ee44d709ef046f4c0b89b31b2786736fd934c78fa913601c5d9f792b839271bd
+#8 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/boost_boost_ptree_jsonread_fuzzer/benchmark.yaml /
+#15 sha256:bd02c1bcdb28e37490766533974ee540c8bbb86745bce7e7f9797d331279cd70
+#15 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3bb99f55776ba17c85bd6e6d084514dbae65fa5d9536b4154dfa95193f378d0e
+#11 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:f53e3eda49c3d8c8c53675281081b6b3e85f2ea3440c12c04a5c54ed05ed1f56
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:26f9915d28a394f6000e1dc0ac989e18cf06e139d42b940ad3ead83c1b517ff7
+#14 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:f40f5a63e1781ac258135bb5a7317aa669b77ee9432c77432c18f93999aec942
+#17 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:105d2d5567f288585e0cbedeb8b69cfb6a06f7c4ad77fb3ca6bbef3b2e9dd408
+#13 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:bb8a9b4369ce92a8311ad33c121f31b23def3bd3feb8556489667f883ca5c055
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:ac082aa8793d4409001e47e08472c2836b5e773907b8414e469137a76867d908
+#18 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:0cd181f1101b4023eb0857805e9d1696024ddf3baaecaba043fddb37d012f1d5
+#10 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:8b2b0e7ec62b52a8fd696cc135711433ea4f08233e055274145c5314afe61da9
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:5006be504685044372376db979ea99f578c98b284d6f8a084e4cb5d2182f867e
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a84fc47b75680bfc48a42ddd2526ad0e8b5425460587663c11d96552a30e5b7e
+#21 writing image sha256:a84fc47b75680bfc48a42ddd2526ad0e8b5425460587663c11d96552a30e5b7e done
+#21 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:e62e770f011e7b25aa4df93319058eaf01055dbe43c7f8e70b3cf5b2794fd739
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:44272f02863eddea4bd53082a9fad7315118c8b7e0b6df649256cf1a7cbd3887
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#5 sha256:007217b7233d3b4ae721cefb369c42c74ca742b9f98ca4abcedc92271d7e9aee
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5c7d6d3502981d8dc761263bd06f4e4f219ec5cfc9159c607e4edb9749b5e14
+#6 writing image sha256:d5c7d6d3502981d8dc761263bd06f4e4f219ec5cfc9159c607e4edb9749b5e14 done
+#6 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:12e356e056689af9b59c9bf7e71871ab58fe7576b571217398707ac78c4f7967
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:6366d8146272562853cc559be255e0369caf27abfaa0153af6881107e67d1af6
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate:latest
+#3 sha256:a4b4daff6e4f0089f91e2afccb55df6c1ebcfda3eeb80cfe6cc51d2c9dd00a02
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer:latest
+#4 sha256:a87cdaa068ada1a24dd33b017d7fef092c89d5b4b45811ec836237c72273e5be
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer-intermediate
+#6 sha256:887c3c5822915647e37f60007307b6d02ab44a739b2ae90d4a29035140525e1b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer
+#5 sha256:d7ea40322c5c093e1859a72604ccbc2fe4bd63ec4cf332b1af67eb7e3c27d9f9
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_jsonread_fuzzer
+#10 sha256:31177b3544f531abecb2e578fc5f98a56ae93613acfa7f5832b2aac9f1b330c4
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:bf4304ba215c068713ef07270666055dc95ddf9dd1bdca24dd6e01f87e4e3cd7
+#12 transferring context: 18.42MB 0.6s done
+#12 DONE 0.7s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:ad12e7272e1fed34d523d777fc5810267e02e3b01b0f6ab39cbe16ecba011b91
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:ac259d93efead673789bfbb291c4905d1e4787b79242f21dcfe35e0ff9d15e23
+#16 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:b48bc96aee2e75728521a846e72893841c4d51d3478e06e6fa959b8ebe591f2a
+#15 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:e5a0cd3b9e6c050433ba6a185eef4ab35cb27f285d7e979ba3c7ac779719e36f
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:eadc40b24333d36a6d7a51d83532da840f79bc6b537aedf15c35990c34594fbd
+#11 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:b8ed3566d214410a2a52d12adcefb4461c4ea876cd12c69375154d6447c70df7
+#8 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:9beecbee2f873922670eabcfdde65097606c0916d377558a8847f1659055db52
+#7 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:49dee08cb4b6c033ffcbcc0248de6fd8743dbfed4c010283596be568ff167769
+#9 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:537dd4ff821514eeb828f61b7b07ce3a1fe2d96365674d17e39c12728691f030
+#13 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:e8633fe7d7bb80d08289d967bb65b31f5ffaa55131058b9563dbd078aee3ed07
+#17 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:a2226f6aa586bd3c37919bace6a9802508c5c4c2fce3ad7439cef6e92e1e44cf
+#18 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:20741b7fec82fca1c603e6da9f52f5793d22c37da3971094a1c4a91e1930bff4
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:31f380c61541ef837589d8ca332a51656005927dcf77715b1d74d08036fc2ca5 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_jsonread_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Doing final sync.

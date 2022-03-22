@@ -1,0 +1,1214 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: lzo_lzo_compress_target.
+INFO:root:Please run "make test-run-afl-lzo_lzo_compress_target" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:491da87ffed835ec46da04c0addf9bba934e3b9dfbbdaa950bc29176359e7b98
+#1 transferring dockerfile: 1.04kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:cf1d04a14fa87f36c10f78b77ed2d18d1ff26d62d9e86c4cd8bbc619da0e5d7a
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#8 [internal] load build context
+#8 sha256:16253284ad59aaf375e447e128f925baf46929f50705a539d10518896978b51f
+#8 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target
+#4 sha256:276fd8f0620ec45df579251a6bddd529674f0fe3edd7a9274abdd10af97797c3
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target:latest: not found
+
+#8 [internal] load build context
+#8 sha256:16253284ad59aaf375e447e128f925baf46929f50705a539d10518896978b51f
+#8 transferring context: 6.75kB done
+#8 DONE 0.1s
+
+#9 [4/5] COPY *.c *.options build.sh /src/
+#9 sha256:440fc526c88d56550948c2c4c5dc8d93793844fb137eeb314c5514467321a269
+#9 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool wget
+#6 sha256:4f84a0ce69ee663e95cd1295ccb0c22599aeb66f813cea39811e39dcebbc0ef1
+#6 CACHED
+
+#7 [3/5] RUN wget -O lzo.tar.gz     http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
+#7 sha256:a43c89546416d010bc5b9d695ab5a9bf5530c91e0201187b3c518bde8e76f8c3
+#7 CACHED
+
+#10 [5/5] COPY lzo_decompress_target_seeds /src/lzo_decompress_target_seeds
+#10 sha256:21e73e09e4367805150c02240961e7af1b16bb0d30207074d1dc766f03445b94
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:35096e761a4be5a0297450d67599f66d8f7ff98b81d478d19638d2eb992773d2 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:94196bf792a3c3c37b86329e93b87b07e5eac88fc76af7d5be9e2fff85196792
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f5f3826b25a3b31e6fe14ab47fe5daa0d503c316b46667d8d18d3106e8ad38fb
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target:latest
+#3 sha256:f5ec9e9359a442a727946f3234dbfb899ed5b34bc9f541ece787396431ef4a09
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target
+#7 sha256:5a0b540267164f01412c68661ee673b3502a28b875dc82df0f28757504417cb3
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate
+#4 sha256:0533b6d2c0d8819eeae0f115054effff180491b8dab752588b4f3559b76d007f
+#4 ERROR: gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:2b349f777ab5462b39ee4aa55ff0ce6af1271583ccedde0ce7e12ae8bba09714
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:d731994ca1364899ccdd43a6d1a0bf62adc2bd7f54e537a9a7bfeefb48e71c07
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:d9e7ec5c5ce05edd61b1e372e3511309bde23872284342a9a072de1946ff3464 done
+#8 naming to gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:304d952962faa019731073d6a77fab35d33ed0b64cb1047a909107e3ce4f4041
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:dc8f8907230237f4f2489eeb2f69c55071f633764a1ba1773fd376eb2e3dac58
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:69fc41175be189eb029c8a0089ff49d5769f225525823792feb86da86e4161f7
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d0e48eac3d3e6be9da3dec95009b4673ff62a4e198078b433785bf6f4ea16139
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:1270c4d8390e81f9b7bf128e0b21fb73de6ac5bce3eb145c845b26ffc3aea519
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:514189cf153ae47b09e6acba1fa711960eb75904971bf53ff7241988370016fd
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:4700c76de5f3ce8b2791dcfa71cbdbddf280a494eaba568e3f19ba1380eee8c6
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5dc85c66b74f60d1770fb4d8a2f0cf89b872162f5c4ad8fde1e9774f9306976f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d4e62807237e8bdb46d30e1a36587e517a46397a6ef290f389239ad1ad94562d
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:53ff2eb6a750ea9bd2bc6f5fdc217a92d70708d31b1e953d3cbc6342da42cf27
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate:latest
+#3 sha256:5b354102f9d5380fb85d8ba845e889176a82bfa2d1f5d6d962a6834fb5f2cb24
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:56a756591efe669cb19603c2c70774ff9be8beb0afa9ef229fbcdafc037038d9
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate
+#6 sha256:727babeddead958b31f63abd0b42ca9d6747b6f38c12a2997c1d3fcacd73fca6
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target
+#5 sha256:e623f8feb5c1d5fcad8c18f4b4cdd912880b962ac9b31b70cc56dc1f1913934a
+#5 ERROR: gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target:latest: not found
+
+#12 [internal] load build context
+#12 sha256:56a756591efe669cb19603c2c70774ff9be8beb0afa9ef229fbcdafc037038d9
+#12 transferring context: 669.89kB 0.1s done
+#12 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:b9276b00dc7f5f9c077b8d983d4cfefa98cffe470e558323c92ca74e8414a744
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:04f93d97e5ff833527f258b02953b459f2be482540faf490d5684d484700d69b
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:8bfebcbdab8cbdfe718501416c25412cb66610f50b388d8c83a31a8f6211f4ab
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:63aac8e984f0fffa57d1f946a38c876d1e5bca6333f6f8961643c4dc2734b1c6
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:5ce706e4f9f08fde3ecb97099f5e0a2e3d893b65171bb79c32bf22a12555b4e6
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:52c156008b1b3b8b4ee28066533d3553bf4f80b2381616682134e3cf79174ede
+#14 DONE 1.0s
+
+#15 [stage-1  8/13] COPY benchmarks/lzo_lzo_compress_target/benchmark.yaml /
+#15 sha256:1a512040a0c4a76006477cf9eddd8f0b434aeb41b9c308321443e4694b652ce3
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:39a76b592302077e120b934a8b03e57fa07302b797e27c2de36d26cef8694a17
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:94daa3ae9daf1c2074f71f55cb6dbb6d87d317eddd073393b6fe7d3a4419867e
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:d2f8e958a8b2b3e6901d0f64047ff5ee6405f309c38a45d260609386999c3342
+#18 0.590 Checking out commit 754db9eb
+#18 0.609 error: pathspec '754db9eb' did not match any file(s) known to git
+#18 0.616 error: pathspec '754db9eb' did not match any file(s) known to git
+#18 0.654 Checkout unsuccessful.
+#18 DONE 1.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:b60411a26b0ff0911b14f07847a63bde71ec553551c880f4d4306e9e3e9bb4b6
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:0fea34b8276861e8cc84ab6e872772049c627605231f6289f98f57e780d0b370
+#20 0.564 Run fuzzer_build to build the target
+#20 0.676 FUZZ_TARGET = lzo_compress_target
+#20 0.676 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.676 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.687 Building benchmark lzo_lzo_compress_target with fuzzer afl
+#20 0.691 + cd /src
+#20 0.691 + tar xzf lzo.tar.gz
+#20 0.736 + cd lzo-2.10
+#20 0.736 + ./configure
+#20 0.938 configure: Configuring LZO 2.10
+#20 0.957 checking build system type... x86_64-pc-linux-gnu
+#20 1.033 checking host system type... x86_64-pc-linux-gnu
+#20 1.034 checking target system type... x86_64-pc-linux-gnu
+#20 1.035 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 1.036 checking for gcc... clang
+#20 1.105 checking whether the C compiler works... yes
+#20 1.239 checking for C compiler default output file name... a.out
+#20 1.241 checking for suffix of executables... 
+#20 1.367 checking whether we are cross compiling... no
+#20 1.502 checking for suffix of object files... o
+#20 1.530 checking whether we are using the GNU C compiler... yes
+#20 1.560 checking whether clang accepts -g... yes
+#20 1.583 checking for clang option to accept ISO C89... none needed
+#20 1.629 checking whether clang understands -c and -o together... yes
+#20 1.671 checking for ar... ar
+#20 1.672 checking the archiver (ar) interface... ar
+#20 1.707 checking for style of include used by make... GNU
+#20 1.714 checking dependency style of clang... gcc3
+#20 1.769 checking how to run the C preprocessor... clang -E
+#20 1.868 checking whether the C preprocessor needs special flags... none needed
+#20 1.898 checking for an ANSI C-conforming const... yes
+#20 1.929 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 1.932 checking for egrep... /usr/bin/grep -E
+#20 1.934 checking for ANSI C header files... yes
+#20 2.178 checking for sys/types.h... yes
+#20 2.230 checking for sys/stat.h... yes
+#20 2.285 checking for stdlib.h... yes
+#20 2.339 checking for string.h... yes
+#20 2.398 checking for memory.h... yes
+#20 2.457 checking for strings.h... yes
+#20 2.515 checking for inttypes.h... yes
+#20 2.576 checking for stdint.h... yes
+#20 2.636 checking for unistd.h... yes
+#20 2.697 checking whether byte ordering is bigendian... no
+#20 2.812 checking for special C compiler options needed for large files... no
+#20 2.812 checking for _FILE_OFFSET_BITS value needed for large files... no
+#20 2.846 checking for a BSD-compatible install... /usr/bin/install -c
+#20 2.860 checking whether build environment is sane... yes
+#20 2.877 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 2.881 checking for gawk... no
+#20 2.882 checking for mawk... mawk
+#20 2.883 checking whether make sets $(MAKE)... yes
+#20 2.895 checking whether make supports nested variables... yes
+#20 2.907 checking dependency style of clang... gcc3
+#20 2.964 checking whether make supports nested variables... (cached) yes
+#20 2.967 checking how to print strings... printf
+#20 3.020 checking for a sed that does not truncate output... /usr/bin/sed
+#20 3.029 checking for fgrep... /usr/bin/grep -F
+#20 3.033 checking for ld used by clang... /usr/bin/ld
+#20 3.051 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 3.056 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 3.061 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 3.095 checking whether ln -s works... yes
+#20 3.095 checking the maximum length of command line arguments... 1572864
+#20 3.106 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 3.107 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 3.107 checking for /usr/bin/ld option to reload object files... -r
+#20 3.108 checking for objdump... objdump
+#20 3.109 checking how to recognize dependent libraries... pass_all
+#20 3.111 checking for dlltool... no
+#20 3.112 checking how to associate runtime and link libraries... printf %s\n
+#20 3.113 checking for archiver @FILE support... @
+#20 3.153 checking for strip... strip
+#20 3.154 checking for ranlib... ranlib
+#20 3.155 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 3.334 checking for sysroot... no
+#20 3.358 checking for mt... no
+#20 3.358 checking if : is a manifest tool... no
+#20 3.367 checking for dlfcn.h... yes
+#20 3.425 checking for objdir... .libs
+#20 3.593 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 3.626 checking for clang option to produce PIC... -fPIC -DPIC
+#20 3.627 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 3.657 checking if clang static flag -static works... yes
+#20 3.836 checking if clang supports -c -o file.o... yes
+#20 3.879 checking if clang supports -c -o file.o... (cached) yes
+#20 3.880 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 3.911 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 4.089 checking how to hardcode library paths into programs... immediate
+#20 4.090 checking whether stripping libraries is possible... yes
+#20 4.093 checking if libtool supports shared libraries... yes
+#20 4.094 checking whether to build shared libraries... no
+#20 4.094 checking whether to build static libraries... yes
+#20 4.096 checking whether time.h and sys/time.h may both be included... yes
+#20 4.135 checking assert.h usability... yes
+#20 4.194 checking assert.h presence... yes
+#20 4.216 checking for assert.h... yes
+#20 4.228 checking ctype.h usability... yes
+#20 4.291 checking ctype.h presence... yes
+#20 4.314 checking for ctype.h... yes
+#20 4.325 checking dirent.h usability... yes
+#20 4.381 checking dirent.h presence... yes
+#20 4.406 checking for dirent.h... yes
+#20 4.417 checking errno.h usability... yes
+#20 4.474 checking errno.h presence... yes
+#20 4.496 checking for errno.h... yes
+#20 4.507 checking fcntl.h usability... yes
+#20 4.563 checking fcntl.h presence... yes
+#20 4.584 checking for fcntl.h... yes
+#20 4.594 checking float.h usability... yes
+#20 4.650 checking float.h presence... yes
+#20 4.670 checking for float.h... yes
+#20 4.682 checking limits.h usability... yes
+#20 4.738 checking limits.h presence... yes
+#20 4.760 checking for limits.h... yes
+#20 4.772 checking malloc.h usability... yes
+#20 4.833 checking malloc.h presence... yes
+#20 4.858 checking for malloc.h... yes
+#20 4.870 checking for memory.h... (cached) yes
+#20 4.882 checking setjmp.h usability... yes
+#20 4.936 checking setjmp.h presence... yes
+#20 4.961 checking for setjmp.h... yes
+#20 4.972 checking signal.h usability... yes
+#20 5.206 checking signal.h presence... yes
+#20 5.229 checking for signal.h... yes
+#20 5.239 checking stdarg.h usability... yes
+#20 5.296 checking stdarg.h presence... yes
+#20 5.316 checking for stdarg.h... yes
+#20 5.328 checking stddef.h usability... yes
+#20 5.382 checking stddef.h presence... yes
+#20 5.403 checking for stddef.h... yes
+#20 5.415 checking for stdint.h... (cached) yes
+#20 5.426 checking stdio.h usability... yes
+#20 5.486 checking stdio.h presence... yes
+#20 5.508 checking for stdio.h... yes
+#20 5.520 checking for stdlib.h... (cached) yes
+#20 5.531 checking for string.h... (cached) yes
+#20 5.542 checking for strings.h... (cached) yes
+#20 5.554 checking time.h usability... yes
+#20 5.612 checking time.h presence... yes
+#20 5.634 checking for time.h... yes
+#20 5.646 checking for unistd.h... (cached) yes
+#20 5.657 checking utime.h usability... yes
+#20 5.713 checking utime.h presence... yes
+#20 5.735 checking for utime.h... yes
+#20 5.745 checking sys/mman.h usability... yes
+#20 5.800 checking sys/mman.h presence... yes
+#20 5.822 checking for sys/mman.h... yes
+#20 5.834 checking sys/resource.h usability... yes
+#20 5.895 checking sys/resource.h presence... yes
+#20 5.918 checking for sys/resource.h... yes
+#20 5.928 checking for sys/stat.h... (cached) yes
+#20 5.939 checking sys/time.h usability... yes
+#20 5.998 checking sys/time.h presence... yes
+#20 6.021 checking for sys/time.h... yes
+#20 6.033 checking for sys/types.h... (cached) yes
+#20 6.044 checking sys/wait.h usability... yes
+#20 6.110 checking sys/wait.h presence... yes
+#20 6.135 checking for sys/wait.h... yes
+#20 6.142 checking whether limits.h is sane... yes
+#20 6.173 checking for off_t... yes
+#20 6.298 checking for ptrdiff_t... yes
+#20 6.427 checking for size_t... yes
+#20 6.551 checking return type of signal handlers... void
+#20 6.593 checking size of short... 2
+#20 6.760 checking size of int... 4
+#20 6.931 checking size of long... 8
+#20 7.093 checking size of long long... 8
+#20 7.266 checking size of __int16... 0
+#20 7.339 checking size of __int32... 0
+#20 7.418 checking size of __int64... 0
+#20 7.499 checking size of void *... 8
+#20 7.669 checking size of size_t... 8
+#20 7.828 checking size of ptrdiff_t... 8
+#20 8.000 checking size of __int32... (cached) 0
+#20 8.003 checking size of intmax_t... 8
+#20 8.178 checking size of uintmax_t... 8
+#20 8.350 checking size of intptr_t... 8
+#20 8.508 checking size of uintptr_t... 8
+#20 8.678 checking size of float... 4
+#20 8.846 checking size of double... 8
+#20 9.019 checking size of long double... 16
+#20 9.194 checking size of dev_t... 8
+#20 9.360 checking size of fpos_t... 16
+#20 9.532 checking size of mode_t... 4
+#20 9.702 checking size of off_t... 8
+#20 9.869 checking size of ssize_t... 8
+#20 10.05 checking size of time_t... 8
+#20 10.22 checking for access... yes
+#20 10.36 checking for alloca... no
+#20 10.50 checking for atexit... yes
+#20 10.64 checking for atoi... yes
+#20 10.77 checking for atol... yes
+#20 10.91 checking for chmod... yes
+#20 11.05 checking for chown... yes
+#20 11.19 checking for clock_getcpuclockid... yes
+#20 11.33 checking for clock_getres... yes
+#20 11.46 checking for clock_gettime... yes
+#20 11.60 checking for ctime... yes
+#20 11.74 checking for difftime... yes
+#20 11.87 checking for fstat... yes
+#20 12.01 checking for getenv... yes
+#20 12.15 checking for getpagesize... yes
+#20 12.28 checking for getrusage... yes
+#20 12.42 checking for gettimeofday... yes
+#20 12.56 checking for gmtime... yes
+#20 12.70 checking for isatty... yes
+#20 12.84 checking for localtime... yes
+#20 12.98 checking for longjmp... yes
+#20 13.13 checking for lstat... yes
+#20 13.27 checking for memcmp... yes
+#20 13.42 checking for memcpy... yes
+#20 13.56 checking for memmove... yes
+#20 13.70 checking for memset... yes
+#20 13.84 checking for mkdir... yes
+#20 13.98 checking for mktime... yes
+#20 14.12 checking for mmap... yes
+#20 14.26 checking for mprotect... yes
+#20 14.40 checking for munmap... yes
+#20 14.54 checking for qsort... yes
+#20 14.68 checking for raise... yes
+#20 14.81 checking for rmdir... yes
+#20 14.95 checking for setjmp... yes
+#20 15.09 checking for signal... yes
+#20 15.22 checking for snprintf... yes
+#20 15.37 checking for strcasecmp... yes
+#20 15.51 checking for strchr... yes
+#20 15.65 checking for strdup... yes
+#20 15.82 checking for strerror... yes
+#20 15.96 checking for strftime... yes
+#20 16.10 checking for stricmp... no
+#20 16.24 checking for strncasecmp... yes
+#20 16.38 checking for strnicmp... no
+#20 16.52 checking for strrchr... yes
+#20 16.67 checking for strstr... yes
+#20 16.81 checking for time... yes
+#20 16.95 checking for umask... yes
+#20 17.09 checking for utime... yes
+#20 17.22 checking for vsnprintf... yes
+#20 17.36 checking whether to build assembly versions... no
+#20 17.39 checking whether your compiler passes the LZO conformance test... yes
+#20 17.59 checking that generated files are newer than configure... done
+#20 17.59 configure: creating ./config.status
+#20 18.35 config.status: creating Makefile
+#20 18.38 config.status: creating lzo2.pc
+#20 18.40 config.status: creating config.h
+#20 18.41 config.status: executing depfiles commands
+#20 18.66 config.status: executing libtool commands
+#20 18.68 
+#20 18.68    LZO configuration summary
+#20 18.68    -------------------------
+#20 18.68    LZO version                : 2.10
+#20 18.68    configured for host        : x86_64-pc-linux-gnu
+#20 18.68    source code location       : .
+#20 18.68    compiler                   : clang
+#20 18.68    preprocessor definitions   : -DLZO_HAVE_CONFIG_H=1
+#20 18.68    preprocessor flags         : 
+#20 18.68    compiler flags             : -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard
+#20 18.68    build static library       : yes
+#20 18.68    build shared library       : no
+#20 18.68    enable i386 assembly code  : no
+#20 18.68 
+#20 18.68 
+#20 18.68    LZO 2.10 configured.
+#20 18.68 
+#20 18.68    Copyright (C) 1996-2017 Markus Franz Xaver Johannes Oberhumer
+#20 18.68    All Rights Reserved.
+#20 18.68 
+#20 18.68    The LZO library is free software; you can redistribute it and/or
+#20 18.68    modify it under the terms of the GNU General Public License as
+#20 18.68    published by the Free Software Foundation; either version 2 of
+#20 18.68    the License, or (at your option) any later version.
+#20 18.68 
+#20 18.68    The LZO library is distributed in the hope that it will be useful,
+#20 18.68    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#20 18.68    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#20 18.68    GNU General Public License for more details.
+#20 18.68 
+#20 18.68    Markus F.X.J. Oberhumer
+#20 18.68    <markus@oberhumer.com>
+#20 18.68    http://www.oberhumer.com/opensource/lzo/
+#20 18.68 
+#20 18.68 
+#20 18.68 Type 'make' to build LZO.
+#20 18.68 Type 'make check' and 'make test' to test LZO.
+#20 18.68 Type 'make install' to install LZO.
+#20 18.68 After installing LZO, please have a look at 'examples/simple.c'.
+#20 18.68 
+#20 18.74 ++ nproc
+#20 18.76 + make -j8
+#20 18.78 make  all-am
+#20 18.79 make[1]: Entering directory '/src/lzo-2.10'
+#20 18.81   CC       src/lzo1.lo
+#20 18.81   CC       src/lzo1_99.lo
+#20 18.81   CC       src/lzo1a.lo
+#20 18.81   CC       src/lzo1a_99.lo
+#20 18.81   CC       src/lzo1b_2.lo
+#20 18.81   CC       src/lzo1b_1.lo
+#20 18.81   CC       src/lzo1b_3.lo
+#20 18.81   CC       src/lzo1b_4.lo
+#20 19.48   CC       src/lzo1b_5.lo
+#20 19.49   CC       src/lzo1b_6.lo
+#20 19.50   CC       src/lzo1b_7.lo
+#20 19.51   CC       src/lzo1b_8.lo
+#20 19.53   CC       src/lzo1b_9.lo
+#20 19.53   CC       src/lzo1b_99.lo
+#20 19.63   CC       src/lzo1b_9x.lo
+#20 19.66   CC       src/lzo1b_cc.lo
+#20 20.18   CC       src/lzo1b_d1.lo
+#20 20.19   CC       src/lzo1b_d2.lo
+#20 20.21   CC       src/lzo1b_rr.lo
+#20 20.21   CC       src/lzo1b_xx.lo
+#20 20.21   CC       src/lzo1c_1.lo
+#20 20.26   CC       src/lzo1c_2.lo
+#20 20.28   CC       src/lzo1c_3.lo
+#20 20.42   CC       src/lzo1c_4.lo
+#20 20.74   CC       src/lzo1c_5.lo
+#20 20.81   CC       src/lzo1c_6.lo
+#20 20.89   CC       src/lzo1c_7.lo
+#20 20.90   CC       src/lzo1c_8.lo
+#20 20.95   CC       src/lzo1c_9.lo
+#20 20.95   CC       src/lzo1c_99.lo
+#20 20.96   CC       src/lzo1c_9x.lo
+#20 21.15   CC       src/lzo1c_cc.lo
+#20 21.45   CC       src/lzo1c_d1.lo
+#20 21.54   CC       src/lzo1c_d2.lo
+#20 21.63   CC       src/lzo1c_rr.lo
+#20 21.67   CC       src/lzo1c_xx.lo
+#20 21.69   CC       src/lzo1f_1.lo
+#20 21.72   CC       src/lzo1f_9x.lo
+#20 21.72   CC       src/lzo1f_d1.lo
+#20 21.75   CC       src/lzo1f_d2.lo
+#20 22.20   CC       src/lzo1x_1.lo
+#20 22.20   CC       src/lzo1x_1k.lo
+#20 22.22   CC       src/lzo1x_1l.lo
+#20 22.40   CC       src/lzo1x_1o.lo
+#20 22.40   CC       src/lzo1x_9x.lo
+#20 22.41   CC       src/lzo1x_d1.lo
+#20 22.48   CC       src/lzo1x_d2.lo
+#20 22.63   CC       src/lzo1x_d3.lo
+#20 22.94   CC       src/lzo1x_o.lo
+#20 22.96   CC       src/lzo1y_1.lo
+#20 22.99   CC       src/lzo1y_9x.lo
+#20 23.06   CC       src/lzo1y_d1.lo
+#20 23.15   CC       src/lzo1y_d2.lo
+#20 23.15   CC       src/lzo1y_d3.lo
+#20 23.47   CC       src/lzo1y_o.lo
+#20 23.54   CC       src/lzo1z_9x.lo
+#20 23.70   CC       src/lzo1z_d1.lo
+#20 23.72   CC       src/lzo1z_d2.lo
+#20 23.74   CC       src/lzo1z_d3.lo
+#20 23.83   CC       src/lzo2a_9x.lo
+#20 23.97   CC       src/lzo2a_d1.lo
+#20 24.12   CC       src/lzo2a_d2.lo
+#20 24.25   CC       src/lzo_crc.lo
+#20 24.37   CC       src/lzo_init.lo
+#20 24.42   CC       src/lzo_ptr.lo
+#20 24.54   CC       src/lzo_str.lo
+#20 24.58   CC       src/lzo_util.lo
+#20 24.68   CC       examples/dict.o
+#20 24.72   CC       examples/lzopack.o
+#20 24.73   CC       examples/overlap.o
+#20 24.83   CC       examples/precomp.o
+#20 24.91   CC       examples/precomp2.o
+#20 24.92   CC       examples/simple.o
+#20 24.94   CC       lzotest/lzotest.o
+#20 25.03   CC       tests/align.o
+#20 25.04   CC       tests/chksum.o
+#20 25.06   CC       tests/promote.o
+#20 25.07   CC       tests/sizes.o
+#20 25.07   CC       minilzo/t-testmini.o
+#20 25.11   CC       minilzo/t-minilzo.o
+#20 25.16   CCLD     tests/promote
+#20 25.16   CCLD     tests/sizes
+#20 25.19   CCLD     src/liblzo2.la
+#20 25.69   CCLD     minilzo/testmini
+#20 25.73 ar: `u' modifier ignored since `D' is the default (see `U')
+#20 25.81   CCLD     examples/dict
+#20 25.81   CCLD     examples/overlap
+#20 25.81   CCLD     examples/lzopack
+#20 25.81   CCLD     examples/precomp
+#20 25.81   CCLD     examples/precomp2
+#20 25.81   CCLD     examples/simple
+#20 26.28   CCLD     tests/align
+#20 26.46   CCLD     tests/chksum
+#20 26.56   CCLD     lzotest/lzotest
+#20 27.03 make[1]: Leaving directory '/src/lzo-2.10'
+#20 27.04 + for file in $SRC/*.c
+#20 27.04 ++ basename /src/lzo_compress_target.c .c
+#20 27.04 + name=lzo_compress_target
+#20 27.04 + clang -c -I include -I minilzo -I include/lzo /src/lzo_compress_target.c -o lzo_compress_target.o
+#20 27.09 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I include -I minilzo -I include/lzo lzo_compress_target.o -o /out/lzo_compress_target -lFuzzingEngine src/.libs/liblzo2.a
+#20 27.33 + for file in $SRC/*.c
+#20 27.33 ++ basename /src/lzo_decompress_target.c .c
+#20 27.33 + name=lzo_decompress_target
+#20 27.33 + clang -c -I include -I minilzo -I include/lzo /src/lzo_decompress_target.c -o lzo_decompress_target.o
+#20 27.38 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I include -I minilzo -I include/lzo lzo_decompress_target.o -o /out/lzo_decompress_target -lFuzzingEngine src/.libs/liblzo2.a
+#20 27.62 + cp /src/lzo_compress_target.options /src/lzo_decompress_target.options /out/
+#20 27.63 + zip -j /out/lzo_decompress_target_seed_corpus.zip /src/lzo_decompress_target_seeds/seed.lzo
+#20 27.63   adding: seed.lzo (deflated 6%)
+#20 27.64 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 27.9s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a2f4d4ef7ed44a6d7c0690fe6e8533fe7dfa25a27818ac096f3b76b8ac5c8982 done
+#21 naming to gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:b38081cee273ddcc15593a9ac296b7ad8c048dd0577f5a97825f52db9f9dcfc1
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d0eb728379096a42e2d675fde4806dcc25ce2a14fcdedd30d25fd864fe3c84f2
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate
+#4 sha256:984b8733a3f35ce35176e1ce91a09a5f427a5b9fe8ca96b7ce6c1186d62c7580
+#4 ERROR: gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:460de8759a450eba6fbeb388ea7b433485c57144929f60f90d8fad3292e3a801
+#6 writing image sha256:460de8759a450eba6fbeb388ea7b433485c57144929f60f90d8fad3292e3a801 done
+#6 naming to gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:312fafefa951eb09b780c77c5e960f78f3b521f51566ee7f9d9d1b77a98c35d2
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:767e85b53c1824314cdf3eb246f7fcff883d0afa17a6f86d8db48f81b07315f3
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate:latest
+#3 sha256:97a36ef8d19d92615cc79cb6ac74ba707dd146f6388c452ffc1ff91cd0a8d3d8
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target:latest
+#4 sha256:84a9e25f2b5b36df5f3ff113346521dd60880e2132124c5a01bd556f50a4a486
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:cee9b9430aafaca7ad8d16e6d5d378d3236688d46155fcf74c7dc85d3beb475a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate
+#6 sha256:0437d568ce64fc268441b04623bc639bff417f46529de3b41c185553b25c0f8c
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target
+#10 sha256:387dbceced38672d6a9002362988778094031314ff004ddf11344cc91db4e80e
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target
+#5 sha256:93da7dfefbae7c843951b953fb16a242ba95d46bf039ced3eaedb5ce466f0784
+#5 ERROR: gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target:latest: not found
+
+#12 [internal] load build context
+#12 sha256:cee9b9430aafaca7ad8d16e6d5d378d3236688d46155fcf74c7dc85d3beb475a
+#12 transferring context: 19.00MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target
+#10 sha256:387dbceced38672d6a9002362988778094031314ff004ddf11344cc91db4e80e
+#10 DONE 0.9s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:eec26aa3a06a9d73a3679fe088d803b45fdb0f2e5bf9131d30dbd57a01daf0d1
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:b5148ee283555d98ff60be89d37cf6ef87e377a6782ca773ff9f61d814d94391
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:403847561eb2f5388ecbceeb9828c7be277cb93ee5dc6a74a783f6098dba69b7
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:e87fcb9a37f42638bcb37e5e009373ec74d1bc169a1e5c40a555c4998c7a14a7
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:2e15b98d2ca3147a4c865b7b9d77bc9694e2fa3097c8186e4b221a9e4562a85c
+#13 DONE 1.8s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:df8dc8ee50a7489ddc2b6a906645f1146da2ec35eb2dfb997da970712a4e1423
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:f79f7f1e036c023cf237dff755e9f6b582515d139cb5524d6adbd4e5cec457c5
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:aa20e94e744929c684ce89294539c757cec190da11d56007cbe0661d77996b21
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:6474b7e7af31f8b25e37f11eb23b1a70e483afc681163d6df03928ca6ed713a5
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:7e34432f36573c523bcc406e12a2a069da04037c87f2dcceab457f7d92f44a50
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:cd13b338cd0a7d121203994c668069d80d6683347a032d6b92164b5e1fb73452
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:678a7424853143cdae283569cc83e57ebec51a8307adcc0518e7cfc321725cde
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e4b971845c2216d570645d755562ac4cb6fe94dace6d7dc35b7f7618f1759ca8 done
+#21 naming to gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target
+#21 naming to gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Doing final sync.
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:eedbe8bbad0ab9e9c9401739347b5a3373b5207a016967f6ccbc6dcda65800b3
+#1 transferring dockerfile: 32B done
+#1 DONE 0.5s
+
+#2 [internal] load .dockerignore
+#2 sha256:359140d745035ef339f9fff07d24fb5fe41e93dd57a72e4f592216794ce0efe1
+#2 transferring context: 2B done
+#2 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target
+#4 sha256:276fd8f0620ec45df579251a6bddd529674f0fe3edd7a9274abdd10af97797c3
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:23c3b52331de113a0b9e2f2d3898873226c382eed08d40f404006c82ffd2b591
+#8 transferring context: 311B done
+#8 DONE 0.4s
+
+#9 [4/5] COPY *.c *.options build.sh /src/
+#9 sha256:aa998f3a3898f5310fedfde39808bb37d0a2c3350889a888773ff2af430f2975
+#9 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool wget
+#6 sha256:4f84a0ce69ee663e95cd1295ccb0c22599aeb66f813cea39811e39dcebbc0ef1
+#6 CACHED
+
+#7 [3/5] RUN wget -O lzo.tar.gz     http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
+#7 sha256:a43c89546416d010bc5b9d695ab5a9bf5530c91e0201187b3c518bde8e76f8c3
+#7 CACHED
+
+#10 [5/5] COPY lzo_decompress_target_seeds /src/lzo_decompress_target_seeds
+#10 sha256:e88b2d04f320ce1ed44a145dfdd978766cf2a3f93707a35558a0e121889dcaed
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:35096e761a4be5a0297450d67599f66d8f7ff98b81d478d19638d2eb992773d2 0.1s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target done
+#11 DONE 1.2s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:d608f0f7daab9694d18588b516b7c4c1a9b1a71af165f8ad4d2d2376fdf8568a
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:76053116fef63e26a5fb91d5b4943d7c8a5fd02f653a2672e50e033152554778
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:d608f0f7daab9694d18588b516b7c4c1a9b1a71af165f8ad4d2d2376fdf8568a
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target:latest
+#3 sha256:f5ec9e9359a442a727946f3234dbfb899ed5b34bc9f541ece787396431ef4a09
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate
+#4 sha256:0533b6d2c0d8819eeae0f115054effff180491b8dab752588b4f3559b76d007f
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/lzo_lzo_compress_target
+#5 sha256:5a0b540267164f01412c68661ee673b3502a28b875dc82df0f28757504417cb3
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:2b349f777ab5462b39ee4aa55ff0ce6af1271583ccedde0ce7e12ae8bba09714
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:d731994ca1364899ccdd43a6d1a0bf62adc2bd7f54e537a9a7bfeefb48e71c07
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:d9e7ec5c5ce05edd61b1e372e3511309bde23872284342a9a072de1946ff3464 done
+#8 naming to gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:557c25debffc9df74efbcc6f3267456224e8e1996b012348763bcee44eb1b9dd
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2ea603cc2a05822ba26a232fffdaa786726e20ff88578529fc52ea680a23cdfd
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:cf868dc771db40bec2ce4da788018a200763b85727aa2057cea5278731e6731f
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d4a1eaf4ce19758ab1d9805b7a7723a24cbeed831a6c84ffb31993284f469e53
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:c29c60af6e84e790c746d4922336b6441c35022ca6e23387afe4cc239a800186
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:709b9e6d63aa66fab6f2d53fda6f6dddc1d1bb8f88f3288389f77c0d4220aa8d
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:de00e2f34ced5c5ac459add9ad080c2c75c651b1fe6cf9d9ecaefc8c54b712b7
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5dc85c66b74f60d1770fb4d8a2f0cf89b872162f5c4ad8fde1e9774f9306976f
+#13 writing image sha256:5dc85c66b74f60d1770fb4d8a2f0cf89b872162f5c4ad8fde1e9774f9306976f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7ac3947b0d4b3198426473a34984fac7d41ab0d576a8d88b6f2f17000ed28ff2
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:12c27a0d3f459282af020599fb3a92520d77cdc534ee901f87c58d8d7b59672e
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate:latest
+#3 sha256:5b354102f9d5380fb85d8ba845e889176a82bfa2d1f5d6d962a6834fb5f2cb24
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target-intermediate
+#6 sha256:727babeddead958b31f63abd0b42ca9d6747b6f38c12a2997c1d3fcacd73fca6
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target
+#5 sha256:e623f8feb5c1d5fcad8c18f4b4cdd912880b962ac9b31b70cc56dc1f1913934a
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b6bfff6cd01935d522183fd89e2c483c0d722caca994a57ac0589f7a2310a342
+#12 transferring context: 669.89kB 0.1s done
+#12 DONE 0.1s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:d3dea7d39c9173d052c190ad5bd3d897fbd94bbf484230822c685909ca6f9d1f
+#14 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:8bfebcbdab8cbdfe718501416c25412cb66610f50b388d8c83a31a8f6211f4ab
+#10 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:04f93d97e5ff833527f258b02953b459f2be482540faf490d5684d484700d69b
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:63aac8e984f0fffa57d1f946a38c876d1e5bca6333f6f8961643c4dc2734b1c6
+#11 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:5b4c9c197fd7e069ef7dc29d1d563303e9261ac1a06a8b838b6d49c4e7b0c2f0
+#17 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:c495fd8426506ebd47356360cfda473964665d5c824ca6440b15f38449d7cf83
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:edfe49a8c4214f6cf5934809a1bb621ba73c452da4a7cbec648cfd98c6d41b8a
+#18 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:b9276b00dc7f5f9c077b8d983d4cfefa98cffe470e558323c92ca74e8414a744
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:ad413d69ad8878a5a6ead1e4e51ed408a969ea7cc813ed7a26c735cc2fa06756
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:0667c9991064b76cdcc38bd4639ed2d25b45c8ebccc41706660c6a2156a6d00b
+#19 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/lzo_lzo_compress_target/benchmark.yaml /
+#15 sha256:9b8e23cb99c01d4b654acba8645d22f488a7bc732ab98c6e1e98232983da7fba
+#15 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:6e5c9fc0e47cc6feaba510885292753f32b337ad77ba2fb11b7b07cbe47a9cf6
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a2f4d4ef7ed44a6d7c0690fe6e8533fe7dfa25a27818ac096f3b76b8ac5c8982 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:93a7a7f1a10a8f8cdf1357215d29c67ce1dab45d058f4bf26d61858bc947fe38
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:0742f85a8b1ac4327ad78da904db74d47f9e3a172ac51285274ef451e5eea7fe
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate
+#5 sha256:984b8733a3f35ce35176e1ce91a09a5f427a5b9fe8ca96b7ce6c1186d62c7580
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:460de8759a450eba6fbeb388ea7b433485c57144929f60f90d8fad3292e3a801 done
+#6 naming to gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4747fa15f4619fbb600aab1308fc665465edc1b8a1e95113bff9736c0654d3ce
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:456f0e12f15c11a60e32e5c1ae13c697f31df60ef40b3ed2f882165474d97eaf
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate:latest
+#4 sha256:97a36ef8d19d92615cc79cb6ac74ba707dd146f6388c452ffc1ff91cd0a8d3d8
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target:latest
+#3 sha256:84a9e25f2b5b36df5f3ff113346521dd60880e2132124c5a01bd556f50a4a486
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target-intermediate
+#6 sha256:0437d568ce64fc268441b04623bc639bff417f46529de3b41c185553b25c0f8c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target
+#5 sha256:93da7dfefbae7c843951b953fb16a242ba95d46bf039ced3eaedb5ce466f0784
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/lzo_lzo_compress_target
+#10 sha256:387dbceced38672d6a9002362988778094031314ff004ddf11344cc91db4e80e
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7b5f949d92e3958bc3ff3777664e8ee255d57f7403ca5d8f9f499a73136a77ac
+#12 transferring context: 19.00MB 0.6s done
+#12 DONE 1.0s
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:e87fcb9a37f42638bcb37e5e009373ec74d1bc169a1e5c40a555c4998c7a14a7
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:d4cda599cb20ffd2b04c5af94a8985854a443108514174912083084c2b989d88
+#13 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:84e9d897adb984b85fe12cb2cd23e6ed42c5eb8c191608f64997b9cb29cd237a
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:1934b6f93a1c41691195626da64dddbc4ed9ea757eb6f171985c674d87f73a71
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:5d8c314fbb2ac087111557abcca75789402e97186c8f300c8f4cf6fc7c554ce5
+#18 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:1757ebf78d8774904154ed9afe7577927a9460dd03174d4512c96f425bd57d39
+#19 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:b5148ee283555d98ff60be89d37cf6ef87e377a6782ca773ff9f61d814d94391
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:403847561eb2f5388ecbceeb9828c7be277cb93ee5dc6a74a783f6098dba69b7
+#9 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:9ad6869e0e689809a015c4d2ba5de08e529980edf101d5666dc71514630829bd
+#17 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:f31962e754879e090a8475fcf844154fafa8499235c144a58a2a8a97ee990279
+#15 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:eec26aa3a06a9d73a3679fe088d803b45fdb0f2e5bf9131d30dbd57a01daf0d1
+#7 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:39bff4ea7f81c9f5d942bfde2e3df720a622ff4eff3bcbb9ed74a9f92dda581e
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e4b971845c2216d570645d755562ac4cb6fe94dace6d7dc35b7f7618f1759ca8 done
+#21 naming to gcr.io/fuzzbench/runners/afl/lzo_lzo_compress_target done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Doing final sync.

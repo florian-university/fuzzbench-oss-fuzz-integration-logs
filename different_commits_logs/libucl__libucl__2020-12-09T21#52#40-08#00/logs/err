@@ -1,0 +1,1172 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: libucl_libucl.
+INFO:root:Please run "make test-run-afl-libucl_libucl" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:296807b21800bb028b58409249f7583f880530dd2b4b3d7c4fa0a10320195954
+#2 transferring context: 2B done
+#2 DONE 0.5s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:07b6f37e739745a944623fb76e3409218e145dc0fc7d94538a2d6a6bb0e38507
+#1 transferring dockerfile: 902B done
+#1 DONE 0.5s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.6s
+
+#9 [internal] load build context
+#9 sha256:9fd32def50edd5c6f01de5964ed98c951f648569db86264425f205b8d24e58ca
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libucl_libucl
+#4 sha256:cfb7bf749b186d50caaa0dfc21b1d9b825a0b36b161e78f0df5c863abe343d48
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/libucl_libucl:latest: not found
+
+#9 [internal] load build context
+#9 sha256:9fd32def50edd5c6f01de5964ed98c951f648569db86264425f205b8d24e58ca
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#8 [4/5] WORKDIR /src
+#8 sha256:d6b58b378b0c4343341661ade5d5a50e526ae1d698f5d0c3f9ddbcde7d74a785
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make cmake autoconf pkg-config libtool
+#6 sha256:bfe5abff10cc6a9eac411333e8dad189d76d7982a11e4ec7cc162639ae36c9b8
+#6 CACHED
+
+#7 [3/5] RUN git clone https://github.com/vstakhov/libucl
+#7 sha256:367fc595830fa047af360edc3779d91f58895038348386dedf464b852f86e887
+#7 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:e585fa00e8a39b3912e710a3645637406945ef313a01af094df9f66c475a7df2
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:2f4f65255d358f1087b213d36ef1cfb0eaa733d5be595b1ffe9a2fcab497e049
+#11 writing image sha256:2f4f65255d358f1087b213d36ef1cfb0eaa733d5be595b1ffe9a2fcab497e049 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/libucl_libucl 0.0s done
+#11 DONE 0.5s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libucl_libucl:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:55da24e784cfe87b8afe6d4063e8c6c2ba77c41e5fdb00696524ddddcf9013f5
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:dc26a91baa00557f9739c8f781c9f5dc6e2bfb8434e13e2d0e507190433a188e
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libucl_libucl:latest
+#3 sha256:e5a49974e58e15564e9e75e3152b1fc576af4ccd882230df2eb63d7d615f7cf3
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libucl_libucl
+#5 sha256:949c4dd548e5fae3c14b8c70b7c8cd9abbe7d8f54cd66f932f042e7b78279960
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate
+#4 sha256:4c49f1d0d2f77812f6937b6843f2e97d6070e1da126ed7b6ebdbc9869f0e4e1e
+#4 ERROR: gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:80568800d1b07b3178324d3d94167e805010ff06f39aeed12035e12ea1a916a6
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:946b772af1fc65eb4e59ad15550a28678d7061ca268be9f1f4b5af9e764c8a3d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:e9109fe21fb0b0c1fd023a13200f167d0a0c7e83a03648731d8511cd49f185c1 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:72211713d73320819f93384f8440fd82b39cdd37b97b932fc77d2b8dd1d8bcf6
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d36511cc22645281644e2c8f317112233ee39096b51bb82f493341591dd880a6
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:2a5c9f9ed7edb6a020bff4456aea6fb819a1872ca759af9b3a824fa6b24378cd
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:a9dceed19fd76a16af47c2173e68c4448a8c32b0b51f76ac1c5ef78297496213
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:5233a74b264689f4566aa6ab4a9cecad9eb5d00510bc8adf5bc35cb98d0d639b
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:b73e45c1f0a2cf55ffbd97231c83aed5d67e44efcc0612f5e682ab7a35bd2980
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:67cf84edf6c61742a3ec2293e0e4070b4e3bf8447f01401236abe288be4c9bf8
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:b912c3e2a192c2a5792c1eb57a9f841f2bcff8a9d7fb9be34e4e6a7f1bd29c8e
+#13 writing image sha256:b912c3e2a192c2a5792c1eb57a9f841f2bcff8a9d7fb9be34e4e6a7f1bd29c8e 0.5s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.6s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:127d4aa7301dbfc195244a95186457c77d170ab6a7d962210344ce491ca930c0
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:03d074ad3d4a742113e279da99b6de4602d8ad3f2f224163b5e6375459f029ee
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 1.3s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate:latest
+#4 sha256:865742cd62294e0a80119d84fa62aaeee55df8bb9446fbddc9891d37487fe751
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7ec6a7cd6c59b09bb8e914668a1aba326ad9ea9d8d6518e9e8aaf0f833c7ad61
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate
+#6 sha256:2c27a6b8c232a8903ccba53883f52853b007344e8cd926bc076b7f2ea7d9a337
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libucl_libucl
+#5 sha256:f0b64bb710ebb734e35b0e82e97a7059457e5b649fd671fa1957039ba060505d
+#5 ERROR: gcr.io/fuzzbench/builders/afl/libucl_libucl:latest: not found
+
+#12 [internal] load build context
+#12 sha256:7ec6a7cd6c59b09bb8e914668a1aba326ad9ea9d8d6518e9e8aaf0f833c7ad61
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:98b416a2fe9cc27d57a7c6452eb54f7f6e0086baa4688532c06620e774a941c8
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:a8edf36452fce3cc5c0521064a7b225501be9ea24b9e501708b192ccbeaa04b6
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:8686efd41f34845dfa2a137ec2508355957e44f3dc991acc352f89c78af56b83
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:b86940deb2e601a5b362758acfbb0cfcbaad569dde47ce82097a337b2381e150
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:488c73620e70e67b76ef97918f677b981c94ce31bd3f79f276eb1468304c2090
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:520f98dd82314499f142494d5e51fb435d35ca4ed2ab8150e342e0708aff4cbb
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libucl_libucl/benchmark.yaml /
+#15 sha256:23c807cce490cf3c2c6a82ea4d7f27e9cfce7b8c1ab9089ea8efdf4da7b55fb1
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:64df8d9202d326a70055bf4d92bf6ee66a1e1ab0d9d3d7fa78a5343b9b113a60
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:60834545a786f0a2798421a5424897e703fafcae05790d866e83849b907129f7
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:0dc925a1d28d52a5f5ac4d5dfeea5a112d4aa84d1257d6bd1919dfaf1af42024
+#18 0.729 Checking out commit 1d5a2cd8
+#18 0.748 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.758 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.768 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 0.845 Checkout unsuccessful.
+#18 DONE 1.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:4768f522975ea723beb29c11d6b0c23ae9bc52af2297af9bc22d86ccdee6f3aa
+#19 DONE 1.0s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:fedc7b41e5f6dca4d6723e09709e0dd82d1de49ae3165ebae820fbeb96c8ca5b
+#20 0.710 Run fuzzer_build to build the target
+#20 0.853 FUZZ_TARGET = libucl
+#20 0.853 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.853 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.860 Building benchmark libucl_libucl with fuzzer afl
+#20 0.863 + export ASAN_OPTIONS=detect_leaks=0
+#20 0.863 + ASAN_OPTIONS=detect_leaks=0
+#20 0.863 + cd libucl
+#20 0.863 + ./autogen.sh
+#20 7.484 libtoolize: putting auxiliary files in '.'.
+#20 7.484 libtoolize: copying file './ltmain.sh'
+#20 7.513 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 7.513 libtoolize: copying file 'm4/libtool.m4'
+#20 7.550 libtoolize: copying file 'm4/ltoptions.m4'
+#20 7.588 libtoolize: copying file 'm4/ltsugar.m4'
+#20 7.627 libtoolize: copying file 'm4/ltversion.m4'
+#20 7.667 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 14.64 configure.ac:20: installing './ar-lib'
+#20 14.64 configure.ac:18: installing './compile'
+#20 14.64 configure.ac:21: installing './config.guess'
+#20 14.65 configure.ac:21: installing './config.sub'
+#20 14.65 configure.ac:9: installing './install-sh'
+#20 14.65 configure.ac:9: installing './missing'
+#20 14.81 lua/Makefile.am: installing './depcomp'
+#20 15.04 parallel-tests: installing './test-driver'
+#20 15.18 + ./configure
+#20 15.37 checking for a BSD-compatible install... /usr/bin/install -c
+#20 15.38 checking whether build environment is sane... yes
+#20 15.40 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 15.40 checking for gawk... no
+#20 15.40 checking for mawk... mawk
+#20 15.40 checking whether make sets $(MAKE)... yes
+#20 15.42 checking whether make supports nested variables... yes
+#20 15.43 checking whether make supports nested variables... (cached) yes
+#20 15.44 checking whether make supports the include directive... yes (GNU style)
+#20 15.45 checking for gcc... clang
+#20 15.51 checking whether the C compiler works... yes
+#20 15.77 checking for C compiler default output file name... a.out
+#20 15.77 checking for suffix of executables... 
+#20 15.92 checking whether we are cross compiling... no
+#20 16.09 checking for suffix of object files... o
+#20 16.12 checking whether we are using the GNU C compiler... yes
+#20 16.15 checking whether clang accepts -g... yes
+#20 16.18 checking for clang option to accept ISO C89... none needed
+#20 16.23 checking whether clang understands -c and -o together... yes
+#20 16.27 checking dependency style of clang... gcc3
+#20 16.32 checking for clang option to accept ISO C99... none needed
+#20 16.40 checking for ar... ar
+#20 16.40 checking the archiver (ar) interface... ar
+#20 16.45 checking build system type... x86_64-pc-linux-gnu
+#20 16.52 checking host system type... x86_64-pc-linux-gnu
+#20 16.52 checking how to print strings... printf
+#20 16.58 checking for a sed that does not truncate output... /usr/bin/sed
+#20 16.59 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 16.59 checking for egrep... /usr/bin/grep -E
+#20 16.60 checking for fgrep... /usr/bin/grep -F
+#20 16.60 checking for ld used by clang... /usr/bin/ld
+#20 16.62 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 16.62 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 16.63 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 16.66 checking whether ln -s works... yes
+#20 16.66 checking the maximum length of command line arguments... 1572864
+#20 16.67 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 16.67 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 16.67 checking for /usr/bin/ld option to reload object files... -r
+#20 16.67 checking for objdump... objdump
+#20 16.67 checking how to recognize dependent libraries... pass_all
+#20 16.67 checking for dlltool... no
+#20 16.67 checking how to associate runtime and link libraries... printf %s\n
+#20 16.68 checking for archiver @FILE support... @
+#20 16.71 checking for strip... strip
+#20 16.71 checking for ranlib... ranlib
+#20 16.72 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 16.91 checking for sysroot... no
+#20 16.91 checking for a working dd... /usr/bin/dd
+#20 16.92 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 16.95 checking for mt... no
+#20 16.95 checking if : is a manifest tool... no
+#20 16.96 checking how to run the C preprocessor... clang -E
+#20 17.06 checking for ANSI C header files... yes
+#20 17.34 checking for sys/types.h... yes
+#20 17.40 checking for sys/stat.h... yes
+#20 17.46 checking for stdlib.h... yes
+#20 17.52 checking for string.h... yes
+#20 17.59 checking for memory.h... yes
+#20 17.65 checking for strings.h... yes
+#20 17.71 checking for inttypes.h... yes
+#20 17.78 checking for stdint.h... yes
+#20 17.85 checking for unistd.h... yes
+#20 17.92 checking for dlfcn.h... yes
+#20 17.98 checking for objdir... .libs
+#20 18.18 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 18.21 checking for clang option to produce PIC... -fPIC -DPIC
+#20 18.21 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 18.24 checking if clang static flag -static works... yes
+#20 18.46 checking if clang supports -c -o file.o... yes
+#20 18.50 checking if clang supports -c -o file.o... (cached) yes
+#20 18.50 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 18.52 checking whether -lc should be explicitly linked in... no
+#20 18.58 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 18.77 checking how to hardcode library paths into programs... immediate
+#20 18.78 checking whether stripping libraries is possible... yes
+#20 18.78 checking if libtool supports shared libraries... yes
+#20 18.78 checking whether to build shared libraries... yes
+#20 18.78 checking whether to build static libraries... yes
+#20 18.78 checking for an ANSI C-conforming const... yes
+#20 18.81 checking for size_t... yes
+#20 18.97 checking for fcntl.h... yes
+#20 19.04 checking for unistd.h... (cached) yes
+#20 19.06 checking for stdlib.h... (cached) yes
+#20 19.07 checking for sys/param.h... yes
+#20 19.15 checking for sys/types.h... (cached) yes
+#20 19.16 checking for sys/stat.h... (cached) yes
+#20 19.17 checking for sys/mman.h... yes
+#20 19.25 checking for stddef.h... yes
+#20 19.32 checking for stdarg.h... yes
+#20 19.40 checking for stdbool.h... yes
+#20 19.47 checking for stdint.h... (cached) yes
+#20 19.48 checking for string.h... (cached) yes
+#20 19.49 checking for strings.h... (cached) yes
+#20 19.51 checking for ctype.h... yes
+#20 19.58 checking for errno.h... yes
+#20 19.66 checking for limits.h... yes
+#20 19.74 checking for libgen.h... yes
+#20 19.81 checking for stdio.h... yes
+#20 19.89 checking for float.h... yes
+#20 19.96 checking for math.h... yes
+#20 20.06 checking for endian.h... yes
+#20 20.14 checking for sys/endian.h... no
+#20 20.22 checking for machine/endian.h... no
+#20 20.29 checking for off_t... yes
+#20 20.44 checking for getpagesize... yes
+#20 20.59 checking for working mmap... yes
+#20 20.84 checking for pandoc... /non/existent
+#20 20.85 checking for library containing clock_gettime... none required
+#20 21.00 checking for library containing remainder... none required
+#20 21.16 checking for regex.h... yes
+#20 21.19 checking for library containing regexec... none required
+#20 21.34 checking for pkg-config... /usr/bin/pkg-config
+#20 21.34 checking pkg-config is at least version 0.9.0... yes
+#20 21.35 checking for GCC atomic builtins... yes
+#20 21.55 checking that generated files are newer than configure... done
+#20 21.55 configure: creating ./config.status
+#20 22.29 config.status: creating Makefile
+#20 22.31 config.status: creating src/Makefile
+#20 22.33 config.status: creating lua/Makefile
+#20 22.36 config.status: creating tests/Makefile
+#20 22.39 config.status: creating utils/Makefile
+#20 22.41 config.status: creating doc/Makefile
+#20 22.43 config.status: creating lua/libucl.rockspec
+#20 22.46 config.status: creating libucl.pc
+#20 22.48 config.status: creating stamp-h
+#20 22.49 config.status: creating config.h
+#20 22.50 config.status: executing depfiles commands
+#20 22.70 config.status: executing libtool commands
+#20 22.79 + make
+#20 22.80 make  all-recursive
+#20 22.80 make[1]: Entering directory '/src/libucl'
+#20 22.81 Making all in src
+#20 22.81 make[2]: Entering directory '/src/libucl/src'
+#20 22.82   CC       libucl_la-ucl_emitter.lo
+#20 23.94   CC       libucl_la-ucl_emitter_streamline.lo
+#20 24.47   CC       libucl_la-ucl_emitter_utils.lo
+#20 25.61   CC       libucl_la-ucl_hash.lo
+#20 27.13   CC       libucl_la-ucl_parser.lo
+#20 32.78   CC       libucl_la-ucl_schema.lo
+#20 34.40   CC       libucl_la-ucl_util.lo
+#20 37.32   CC       libucl_la-ucl_msgpack.lo
+#20 38.10   CC       libucl_la-ucl_sexp.lo
+#20 38.46   CCLD     libucl.la
+#20 38.81 make[2]: Leaving directory '/src/libucl/src'
+#20 38.81 Making all in tests
+#20 38.81 make[2]: Entering directory '/src/libucl/tests'
+#20 38.81 make[2]: Nothing to be done for 'all'.
+#20 38.81 make[2]: Leaving directory '/src/libucl/tests'
+#20 38.81 Making all in utils
+#20 38.82 make[2]: Entering directory '/src/libucl/utils'
+#20 38.82 make[2]: Nothing to be done for 'all'.
+#20 38.82 make[2]: Leaving directory '/src/libucl/utils'
+#20 38.82 Making all in doc
+#20 38.82 make[2]: Entering directory '/src/libucl/doc'
+#20 38.82 make[2]: Nothing to be done for 'all'.
+#20 38.82 make[2]: Leaving directory '/src/libucl/doc'
+#20 38.82 make[2]: Entering directory '/src/libucl'
+#20 38.83 make[2]: Leaving directory '/src/libucl'
+#20 38.83 make[1]: Leaving directory '/src/libucl'
+#20 38.83 + clang tests/fuzzers/ucl_add_string_fuzzer.c -DHAVE_CONFIG_H -I./src -I./include src/.libs/libucl.a -I./ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard /libAFL.a -o /out/ucl_add_string_fuzzer
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `main':
+#20 38.98 afl_driver.cpp:(.text+0x278): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x285): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x2b9): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::seekg(long long, std::__1::ios_base::seekdir)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x2c1): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::tellg()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x2d0): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::seekg(long long, std::__1::ios_base::seekdir)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x2d5): undefined reference to `std::__1::cout'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x2ef): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::operator<<(unsigned long)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x33a): undefined reference to `std::__1::ios_base::getloc() const'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x33f): undefined reference to `std::__1::ctype<char>::id'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x349): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x363): undefined reference to `std::__1::locale::~locale()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x36e): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::put(char)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x376): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::flush()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x39a): undefined reference to `operator new(unsigned long)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x3d2): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::read(char*, long)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x3f6): undefined reference to `std::__1::cout'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x41c): undefined reference to `std::__1::ios_base::getloc() const'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x421): undefined reference to `std::__1::ctype<char>::id'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x42b): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x445): undefined reference to `std::__1::locale::~locale()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x450): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::put(char)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x458): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::flush()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x469): undefined reference to `operator delete(void*)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x4c9): undefined reference to `operator new[](unsigned long)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x4f3): undefined reference to `operator delete[](void*)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x595): undefined reference to `operator delete(void*)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x5a8): undefined reference to `std::__1::locale::~locale()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x5b7): undefined reference to `std::__1::locale::~locale()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x5c9): undefined reference to `operator delete(void*)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text+0x5ea): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::basic_ifstream(char const*, unsigned int)':
+#20 38.98 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x40): undefined reference to `std::__1::ios_base::init(void*)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x90): undefined reference to `std::__1::ios_base::clear(unsigned int)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x165): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x172): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 38.98 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev]+0x1a): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::basic_filebuf()':
+#20 38.98 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xc): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::basic_streambuf()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x56): undefined reference to `std::__1::locale::locale(std::__1::locale const&)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x5b): undefined reference to `std::__1::codecvt<char, char, __mbstate_t>::id'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x63): undefined reference to `std::__1::locale::has_facet(std::__1::locale::id&) const'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x6f): undefined reference to `std::__1::locale::~locale()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x84): undefined reference to `std::__1::locale::locale(std::__1::locale const&)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x89): undefined reference to `std::__1::codecvt<char, char, __mbstate_t>::id'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x91): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xa2): undefined reference to `std::__1::locale::~locale()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xdb): undefined reference to `std::__1::locale::~locale()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xe8): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::~basic_streambuf()'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::~basic_filebuf()':
+#20 38.98 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x50): undefined reference to `operator delete[](void*)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x67): undefined reference to `operator delete[](void*)'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x74): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::~basic_streambuf()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x8c): undefined reference to `__cxa_begin_catch'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x91): undefined reference to `__cxa_end_catch'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x9e): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::~basic_streambuf()'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 38.98 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x32): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x3a): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x49): undefined reference to `operator delete(void*)'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `virtual thunk to std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 38.98 afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev]+0x43): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev]+0x52): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `virtual thunk to std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 38.98 afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x43): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x4b): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 38.98 /usr/bin/ld: afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x5a): undefined reference to `operator delete(void*)'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::~basic_filebuf()':
+#20 38.98 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED0Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED0Ev]+0xe): undefined reference to `operator delete(void*)'
+#20 38.98 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::imbue(std::__1::locale const&)':
+#20 38.98 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0x11): undefined reference to `std::__1::codecvt<char, char, __mbstate_t>::id'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0x19): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0x6a): undefined reference to `operator delete[](void*)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0xa7): undefined reference to `operator new[](unsigned long)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0xd9): undefined reference to `operator new[](unsigned long)'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::setbuf(char*, long)':
+#20 38.99 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0x32): undefined reference to `operator delete[](void*)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0x49): undefined reference to `operator delete[](void*)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0xac): undefined reference to `operator new[](unsigned long)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0xe4): undefined reference to `operator new[](unsigned long)'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `__clang_call_terminate':
+#20 38.99 afl_driver.cpp:(.text.__clang_call_terminate[__clang_call_terminate]+0x2): undefined reference to `__cxa_begin_catch'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text.__clang_call_terminate[__clang_call_terminate]+0x7): undefined reference to `std::terminate()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::__throw_bad_cast()':
+#20 38.99 afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x7): undefined reference to `__cxa_allocate_exception'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x12): undefined reference to `std::bad_cast::bad_cast()'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x17): undefined reference to `typeinfo for std::bad_cast'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x1c): undefined reference to `std::bad_cast::~bad_cast()'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x24): undefined reference to `__cxa_throw'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)':
+#20 38.99 afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x20): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::sentry(std::__1::basic_ostream<char, std::__1::char_traits<char> >&)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x58): undefined reference to `std::__1::ios_base::getloc() const'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x62): undefined reference to `std::__1::ctype<char>::id'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x67): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x83): undefined reference to `std::__1::locale::~locale()'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0xd4): undefined reference to `std::__1::ios_base::clear(unsigned int)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0xde): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::~sentry()'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0xff): undefined reference to `std::__1::locale::~locale()'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x10e): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::~sentry()'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x11b): undefined reference to `__cxa_begin_catch'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x12a): undefined reference to `std::__1::ios_base::__set_badbit_and_consider_rethrow()'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x12f): undefined reference to `__cxa_end_catch'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x139): undefined reference to `__cxa_end_catch'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)':
+#20 38.99 afl_driver.cpp:(.text._ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_[_ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_]+0x8a): undefined reference to `operator new(unsigned long)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_[_ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_]+0xf0): undefined reference to `operator delete(void*)'
+#20 38.99 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_[_ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_]+0x145): undefined reference to `operator delete(void*)'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::__vector_base<char, std::__1::allocator<char> >::__throw_length_error() const':
+#20 38.99 afl_driver.cpp:(.text._ZNKSt3__113__vector_baseIcNS_9allocatorIcEEE20__throw_length_errorEv[_ZNKSt3__113__vector_baseIcNS_9allocatorIcEEE20__throw_length_errorEv]+0x2): undefined reference to `std::__1::__vector_base_common<true>::__throw_length_error() const'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 38.99 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED2Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED2Ev]+0x37): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x10): undefined reference to `typeinfo for std::__1::basic_istream<char, std::__1::char_traits<char> >'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x18): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x20): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x38): undefined reference to `typeinfo for std::__1::basic_istream<char, std::__1::char_traits<char> >'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x40): undefined reference to `virtual thunk to std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x48): undefined reference to `virtual thunk to std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE[_ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE]+0x0): undefined reference to `vtable for __cxxabiv1::__si_class_type_info'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE[_ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE]+0x10): undefined reference to `typeinfo for std::__1::basic_istream<char, std::__1::char_traits<char> >'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x48): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::showmanyc()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x50): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::xsgetn(char*, long)'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x60): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::uflow()'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x70): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::xsputn(char const*, long)'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x0): undefined reference to `vtable for __cxxabiv1::__si_class_type_info'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x10): undefined reference to `typeinfo for std::__1::basic_streambuf<char, std::__1::char_traits<char> >'
+#20 38.99 /usr/bin/ld: /libAFL.a(afl_driver.o):(.eh_frame+0x37b): undefined reference to `__gxx_personality_v0'
+#20 39.01 clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
+#20 39.04 Traceback (most recent call last):
+#20 39.04   File "<string>", line 1, in <module>
+#20 39.04   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 39.04     utils.build_benchmark()
+#20 39.04   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 39.04     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 39.04   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 39.04     raise CalledProcessError(retcode, cmd)
+#20 39.04 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libucl_libucl:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2844129: .afl-libucl_libucl-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:29f926c22868ae9d10e313bd9be70ebceda1f3fbc25dfb47394b85673d00caed
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f0a9dd709a63a0c864dad2f85a1b2461fedc00515fbdbf0fd89aba816b8bdf64
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libucl_libucl
+#4 sha256:cfb7bf749b186d50caaa0dfc21b1d9b825a0b36b161e78f0df5c863abe343d48
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:2dc32413daf7ff87c15865bd6ec9770c7b89d9fcf5ce04d97554f9426c577f95
+#9 transferring context: 30B done
+#9 DONE 0.0s
+
+#8 [4/5] WORKDIR /src
+#8 sha256:d6b58b378b0c4343341661ade5d5a50e526ae1d698f5d0c3f9ddbcde7d74a785
+#8 CACHED
+
+#7 [3/5] RUN git clone https://github.com/vstakhov/libucl
+#7 sha256:367fc595830fa047af360edc3779d91f58895038348386dedf464b852f86e887
+#7 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make cmake autoconf pkg-config libtool
+#6 sha256:bfe5abff10cc6a9eac411333e8dad189d76d7982a11e4ec7cc162639ae36c9b8
+#6 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:8ea33f146a15ad748f01d8d232d76b109f8bc1ad9d2a44c6aabaf6c1d803bd13
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:2f4f65255d358f1087b213d36ef1cfb0eaa733d5be595b1ffe9a2fcab497e049 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/libucl_libucl done
+#11 DONE 0.2s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:5e82f875e34be8b5b2a6bf47ba05087d13bef039e0e3b8f4d413f37a96f0863b
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:509202ee84d1ff7c00238e2ea9cd9f169aa53f7beff2a3234fd66da190827d53
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libucl_libucl:latest
+#3 sha256:e5a49974e58e15564e9e75e3152b1fc576af4ccd882230df2eb63d7d615f7cf3
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libucl_libucl
+#5 sha256:949c4dd548e5fae3c14b8c70b7c8cd9abbe7d8f54cd66f932f042e7b78279960
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate
+#4 sha256:4c49f1d0d2f77812f6937b6843f2e97d6070e1da126ed7b6ebdbc9869f0e4e1e
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:80568800d1b07b3178324d3d94167e805010ff06f39aeed12035e12ea1a916a6
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:946b772af1fc65eb4e59ad15550a28678d7061ca268be9f1f4b5af9e764c8a3d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:e9109fe21fb0b0c1fd023a13200f167d0a0c7e83a03648731d8511cd49f185c1 done
+#8 naming to gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:502fae298c6405655e706af49f837d6a310ca62714fae26dc35e35177e424959
+#2 transferring context: 34B done
+#2 DONE 0.3s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:fadaf7a2f937157f81a1c3ebddf8e6931ab32210b865735fde8f26020cf76b90
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:c3ad54b8fbfb52031a85d7642ff4cfa8fc01e23456668150bf01a5106ead8487
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ff7034cc35100715e1081b7a2723885ad5f9abd2b12b3b4acfa1846938b7750d
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:97643415cdc4fe0b2c0e2ef7a105ac5233e217d015db4b96c5fbe07c07429d5c
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:5cacf32d7f638c5f76f1716265df8c0cf32fdcef406af4a3948953f5337d2437
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:48d907184fabdd59ed3f2ece42efc9712511ccf88458f4f1f909b8f62853f708
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:b912c3e2a192c2a5792c1eb57a9f841f2bcff8a9d7fb9be34e4e6a7f1bd29c8e
+#13 writing image sha256:b912c3e2a192c2a5792c1eb57a9f841f2bcff8a9d7fb9be34e4e6a7f1bd29c8e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:de53b3d2bf41f8b1806485db243eed2341955e3da129c3a3d1fbf5f668dc906d
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7a857be5b6e8fcb4079c3e047b1a3c09c0efd905cfbf9d20a1bf84609404c1a5
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 1.3s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate:latest
+#3 sha256:865742cd62294e0a80119d84fa62aaeee55df8bb9446fbddc9891d37487fe751
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:0ab419afb508bcf571f9a09530ab28e41a2aa7e9c45036752034c3a33e552d6d
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libucl_libucl-intermediate
+#6 sha256:2c27a6b8c232a8903ccba53883f52853b007344e8cd926bc076b7f2ea7d9a337
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libucl_libucl
+#5 sha256:f0b64bb710ebb734e35b0e82e97a7059457e5b649fd671fa1957039ba060505d
+#5 ERROR: gcr.io/fuzzbench/builders/afl/libucl_libucl:latest: not found
+
+#12 [internal] load build context
+#12 sha256:0ab419afb508bcf571f9a09530ab28e41a2aa7e9c45036752034c3a33e552d6d
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:98b416a2fe9cc27d57a7c6452eb54f7f6e0086baa4688532c06620e774a941c8
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:b86940deb2e601a5b362758acfbb0cfcbaad569dde47ce82097a337b2381e150
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:3d706e67e65f6eb994a34813948f081237502427214318fdf8f297e8baa6672c
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:4b2f84c5e0e3fd2493ffdc234f3960b1b365e7d6a8212bad8c8a1ebea5dd6f5f
+#18 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:371c66e845d1a2b296a1d01a9742a1142a58da0ca0d1ea363731c28446e5ed5a
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libucl_libucl/benchmark.yaml /
+#15 sha256:c1aae935cf4236274221e1d2f7c10995fe49b2d7357c3642a177d2e72e696597
+#15 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:fe774853217a0c4330c79373f8f55e64c72d09115da8fb91af8820a2ac878f0d
+#17 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:a8edf36452fce3cc5c0521064a7b225501be9ea24b9e501708b192ccbeaa04b6
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:8686efd41f34845dfa2a137ec2508355957e44f3dc991acc352f89c78af56b83
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:6aecc37f19232b987ee8f37b18bbbe61f25caaf0dfda3cfcd46025459842ed8f
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:8767a639c58db1dbd1a7d75fe48326ae20d2221cf1be9fa2fdee5e2cb18930b7
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:433cd144b558f146d60411a444804ffd8369dc99f6c47bea41c0bcc25539326e
+#20 0.487 Run fuzzer_build to build the target
+#20 0.597 FUZZ_TARGET = libucl
+#20 0.597 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.597 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.602 Building benchmark libucl_libucl with fuzzer afl
+#20 0.605 + export ASAN_OPTIONS=detect_leaks=0
+#20 0.605 + ASAN_OPTIONS=detect_leaks=0
+#20 0.605 + cd libucl
+#20 0.605 + ./autogen.sh
+#20 4.781 libtoolize: putting auxiliary files in '.'.
+#20 4.781 libtoolize: copying file './ltmain.sh'
+#20 4.806 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 4.806 libtoolize: copying file 'm4/libtool.m4'
+#20 4.837 libtoolize: copying file 'm4/ltoptions.m4'
+#20 4.872 libtoolize: copying file 'm4/ltsugar.m4'
+#20 4.904 libtoolize: copying file 'm4/ltversion.m4'
+#20 4.937 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 8.971 configure.ac:20: installing './ar-lib'
+#20 8.974 configure.ac:18: installing './compile'
+#20 8.976 configure.ac:21: installing './config.guess'
+#20 8.979 configure.ac:21: installing './config.sub'
+#20 8.981 configure.ac:9: installing './install-sh'
+#20 8.984 configure.ac:9: installing './missing'
+#20 9.095 lua/Makefile.am: installing './depcomp'
+#20 9.260 parallel-tests: installing './test-driver'
+#20 9.358 + ./configure
+#20 9.523 checking for a BSD-compatible install... /usr/bin/install -c
+#20 9.538 checking whether build environment is sane... yes
+#20 9.554 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 9.557 checking for gawk... no
+#20 9.558 checking for mawk... mawk
+#20 9.559 checking whether make sets $(MAKE)... yes
+#20 9.575 checking whether make supports nested variables... yes
+#20 9.588 checking whether make supports nested variables... (cached) yes
+#20 9.589 checking whether make supports the include directive... yes (GNU style)
+#20 9.601 checking for gcc... clang
+#20 9.656 checking whether the C compiler works... yes
+#20 9.775 checking for C compiler default output file name... a.out
+#20 9.776 checking for suffix of executables... 
+#20 9.891 checking whether we are cross compiling... no
+#20 10.01 checking for suffix of object files... o
+#20 10.04 checking whether we are using the GNU C compiler... yes
+#20 10.06 checking whether clang accepts -g... yes
+#20 10.08 checking for clang option to accept ISO C89... none needed
+#20 10.12 checking whether clang understands -c and -o together... yes
+#20 10.16 checking dependency style of clang... gcc3
+#20 10.20 checking for clang option to accept ISO C99... none needed
+#20 10.26 checking for ar... ar
+#20 10.26 checking the archiver (ar) interface... ar
+#20 10.30 checking build system type... x86_64-pc-linux-gnu
+#20 10.36 checking host system type... x86_64-pc-linux-gnu
+#20 10.36 checking how to print strings... printf
+#20 10.40 checking for a sed that does not truncate output... /usr/bin/sed
+#20 10.41 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 10.41 checking for egrep... /usr/bin/grep -E
+#20 10.42 checking for fgrep... /usr/bin/grep -F
+#20 10.42 checking for ld used by clang... /usr/bin/ld
+#20 10.43 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 10.44 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 10.44 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 10.47 checking whether ln -s works... yes
+#20 10.47 checking the maximum length of command line arguments... 1572864
+#20 10.48 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 10.48 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 10.48 checking for /usr/bin/ld option to reload object files... -r
+#20 10.48 checking for objdump... objdump
+#20 10.48 checking how to recognize dependent libraries... pass_all
+#20 10.48 checking for dlltool... no
+#20 10.48 checking how to associate runtime and link libraries... printf %s\n
+#20 10.48 checking for archiver @FILE support... @
+#20 10.51 checking for strip... strip
+#20 10.51 checking for ranlib... ranlib
+#20 10.51 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 10.67 checking for sysroot... no
+#20 10.67 checking for a working dd... /usr/bin/dd
+#20 10.68 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 10.70 checking for mt... no
+#20 10.70 checking if : is a manifest tool... no
+#20 10.71 checking how to run the C preprocessor... clang -E
+#20 10.79 checking for ANSI C header files... yes
+#20 11.01 checking for sys/types.h... yes
+#20 11.06 checking for sys/stat.h... yes
+#20 11.11 checking for stdlib.h... yes
+#20 11.16 checking for string.h... yes
+#20 11.21 checking for memory.h... yes
+#20 11.27 checking for strings.h... yes
+#20 11.32 checking for inttypes.h... yes
+#20 11.38 checking for stdint.h... yes
+#20 11.43 checking for unistd.h... yes
+#20 11.49 checking for dlfcn.h... yes
+#20 11.55 checking for objdir... .libs
+#20 11.70 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 11.73 checking for clang option to produce PIC... -fPIC -DPIC
+#20 11.73 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 11.75 checking if clang static flag -static works... yes
+#20 11.93 checking if clang supports -c -o file.o... yes
+#20 11.96 checking if clang supports -c -o file.o... (cached) yes
+#20 11.96 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 11.98 checking whether -lc should be explicitly linked in... no
+#20 12.03 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 12.18 checking how to hardcode library paths into programs... immediate
+#20 12.18 checking whether stripping libraries is possible... yes
+#20 12.19 checking if libtool supports shared libraries... yes
+#20 12.19 checking whether to build shared libraries... yes
+#20 12.19 checking whether to build static libraries... yes
+#20 12.19 checking for an ANSI C-conforming const... yes
+#20 12.22 checking for size_t... yes
+#20 12.34 checking for fcntl.h... yes
+#20 12.40 checking for unistd.h... (cached) yes
+#20 12.41 checking for stdlib.h... (cached) yes
+#20 12.42 checking for sys/param.h... yes
+#20 12.49 checking for sys/types.h... (cached) yes
+#20 12.49 checking for sys/stat.h... (cached) yes
+#20 12.50 checking for sys/mman.h... yes
+#20 12.57 checking for stddef.h... yes
+#20 12.63 checking for stdarg.h... yes
+#20 12.69 checking for stdbool.h... yes
+#20 12.75 checking for stdint.h... (cached) yes
+#20 12.76 checking for string.h... (cached) yes
+#20 12.77 checking for strings.h... (cached) yes
+#20 12.78 checking for ctype.h... yes
+#20 12.84 checking for errno.h... yes
+#20 12.90 checking for limits.h... yes
+#20 12.97 checking for libgen.h... yes
+#20 13.03 checking for stdio.h... yes
+#20 13.09 checking for float.h... yes
+#20 13.15 checking for math.h... yes
+#20 13.23 checking for endian.h... yes
+#20 13.29 checking for sys/endian.h... no
+#20 13.36 checking for machine/endian.h... no
+#20 13.41 checking for off_t... yes
+#20 13.53 checking for getpagesize... yes
+#20 13.65 checking for working mmap... yes
+#20 13.85 checking for pandoc... /non/existent
+#20 13.85 checking for library containing clock_gettime... none required
+#20 13.97 checking for library containing remainder... none required
+#20 14.10 checking for regex.h... yes
+#20 14.12 checking for library containing regexec... none required
+#20 14.24 checking for pkg-config... /usr/bin/pkg-config
+#20 14.24 checking pkg-config is at least version 0.9.0... yes
+#20 14.25 checking for GCC atomic builtins... yes
+#20 14.40 checking that generated files are newer than configure... done
+#20 14.40 configure: creating ./config.status
+#20 14.99 config.status: creating Makefile
+#20 15.00 config.status: creating src/Makefile
+#20 15.02 config.status: creating lua/Makefile
+#20 15.04 config.status: creating tests/Makefile
+#20 15.07 config.status: creating utils/Makefile
+#20 15.09 config.status: creating doc/Makefile
+#20 15.11 config.status: creating lua/libucl.rockspec
+#20 15.13 config.status: creating libucl.pc
+#20 15.14 config.status: creating stamp-h
+#20 15.16 config.status: creating config.h
+#20 15.17 config.status: executing depfiles commands
+#20 15.33 config.status: executing libtool commands
+#20 15.40 + make
+#20 15.41 make  all-recursive
+#20 15.42 make[1]: Entering directory '/src/libucl'
+#20 15.42 Making all in src
+#20 15.42 make[2]: Entering directory '/src/libucl/src'
+#20 15.43   CC       libucl_la-ucl_emitter.lo
+#20 16.12   CC       libucl_la-ucl_emitter_streamline.lo
+#20 16.41   CC       libucl_la-ucl_emitter_utils.lo
+#20 16.98   CC       libucl_la-ucl_hash.lo
+#20 18.19   CC       libucl_la-ucl_parser.lo
+#20 22.19   CC       libucl_la-ucl_schema.lo
+#20 23.34   CC       libucl_la-ucl_util.lo
+#20 25.99   CC       libucl_la-ucl_msgpack.lo
+#20 26.70   CC       libucl_la-ucl_sexp.lo
+#20 27.06   CCLD     libucl.la
+#20 27.29 make[2]: Leaving directory '/src/libucl/src'
+#20 27.29 Making all in tests
+#20 27.30 make[2]: Entering directory '/src/libucl/tests'
+#20 27.30 make[2]: Nothing to be done for 'all'.
+#20 27.30 make[2]: Leaving directory '/src/libucl/tests'
+#20 27.30 Making all in utils
+#20 27.30 make[2]: Entering directory '/src/libucl/utils'
+#20 27.30 make[2]: Nothing to be done for 'all'.
+#20 27.30 make[2]: Leaving directory '/src/libucl/utils'
+#20 27.30 Making all in doc
+#20 27.30 make[2]: Entering directory '/src/libucl/doc'
+#20 27.30 make[2]: Nothing to be done for 'all'.
+#20 27.30 make[2]: Leaving directory '/src/libucl/doc'
+#20 27.31 make[2]: Entering directory '/src/libucl'
+#20 27.31 make[2]: Leaving directory '/src/libucl'
+#20 27.31 make[1]: Leaving directory '/src/libucl'
+#20 27.31 + clang tests/fuzzers/ucl_add_string_fuzzer.c -DHAVE_CONFIG_H -I./src -I./include src/.libs/libucl.a -I./ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard /libAFL.a -o /out/ucl_add_string_fuzzer
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `main':
+#20 27.47 afl_driver.cpp:(.text+0x278): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x285): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x2b9): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::seekg(long long, std::__1::ios_base::seekdir)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x2c1): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::tellg()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x2d0): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::seekg(long long, std::__1::ios_base::seekdir)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x2d5): undefined reference to `std::__1::cout'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x2ef): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::operator<<(unsigned long)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x33a): undefined reference to `std::__1::ios_base::getloc() const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x33f): undefined reference to `std::__1::ctype<char>::id'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x349): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x363): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x36e): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::put(char)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x376): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::flush()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x39a): undefined reference to `operator new(unsigned long)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x3d2): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::read(char*, long)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x3f6): undefined reference to `std::__1::cout'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x41c): undefined reference to `std::__1::ios_base::getloc() const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x421): undefined reference to `std::__1::ctype<char>::id'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x42b): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x445): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x450): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::put(char)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x458): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::flush()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x469): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x4c9): undefined reference to `operator new[](unsigned long)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x4f3): undefined reference to `operator delete[](void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x595): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x5a8): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x5b7): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x5c9): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text+0x5ea): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::basic_ifstream(char const*, unsigned int)':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x40): undefined reference to `std::__1::ios_base::init(void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x90): undefined reference to `std::__1::ios_base::clear(unsigned int)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x165): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1EPKcj]+0x172): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev]+0x1a): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::basic_filebuf()':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xc): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::basic_streambuf()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x56): undefined reference to `std::__1::locale::locale(std::__1::locale const&)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x5b): undefined reference to `std::__1::codecvt<char, char, __mbstate_t>::id'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x63): undefined reference to `std::__1::locale::has_facet(std::__1::locale::id&) const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x6f): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x84): undefined reference to `std::__1::locale::locale(std::__1::locale const&)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x89): undefined reference to `std::__1::codecvt<char, char, __mbstate_t>::id'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0x91): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xa2): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xdb): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEEC2Ev]+0xe8): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::~basic_streambuf()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::~basic_filebuf()':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x50): undefined reference to `operator delete[](void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x67): undefined reference to `operator delete[](void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x74): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::~basic_streambuf()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x8c): undefined reference to `__cxa_begin_catch'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x91): undefined reference to `__cxa_end_catch'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED2Ev]+0x9e): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::~basic_streambuf()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x32): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x3a): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x49): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `virtual thunk to std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 27.47 afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev]+0x43): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED1Ev]+0x52): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `virtual thunk to std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 27.47 afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x43): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x4b): undefined reference to `std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev[_ZTv0_n24_NSt3__114basic_ifstreamIcNS_11char_traitsIcEEED0Ev]+0x5a): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::~basic_filebuf()':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED0Ev[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEED0Ev]+0xe): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::imbue(std::__1::locale const&)':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0x11): undefined reference to `std::__1::codecvt<char, char, __mbstate_t>::id'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0x19): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0x6a): undefined reference to `operator delete[](void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0xa7): undefined reference to `operator new[](unsigned long)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE5imbueERKNS_6localeE]+0xd9): undefined reference to `operator new[](unsigned long)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_filebuf<char, std::__1::char_traits<char> >::setbuf(char*, long)':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0x32): undefined reference to `operator delete[](void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0x49): undefined reference to `operator delete[](void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0xac): undefined reference to `operator new[](unsigned long)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl[_ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE6setbufEPcl]+0xe4): undefined reference to `operator new[](unsigned long)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `__clang_call_terminate':
+#20 27.47 afl_driver.cpp:(.text.__clang_call_terminate[__clang_call_terminate]+0x2): undefined reference to `__cxa_begin_catch'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text.__clang_call_terminate[__clang_call_terminate]+0x7): undefined reference to `std::terminate()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::__throw_bad_cast()':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x7): undefined reference to `__cxa_allocate_exception'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x12): undefined reference to `std::bad_cast::bad_cast()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x17): undefined reference to `typeinfo for std::bad_cast'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x1c): undefined reference to `std::bad_cast::~bad_cast()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__throw_bad_castEv[_ZNSt3__116__throw_bad_castEv]+0x24): undefined reference to `__cxa_throw'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x20): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::sentry(std::__1::basic_ostream<char, std::__1::char_traits<char> >&)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x58): undefined reference to `std::__1::ios_base::getloc() const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x62): undefined reference to `std::__1::ctype<char>::id'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x67): undefined reference to `std::__1::locale::use_facet(std::__1::locale::id&) const'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x83): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0xd4): undefined reference to `std::__1::ios_base::clear(unsigned int)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0xde): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::~sentry()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0xff): undefined reference to `std::__1::locale::~locale()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x10e): undefined reference to `std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::~sentry()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x11b): undefined reference to `__cxa_begin_catch'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x12a): undefined reference to `std::__1::ios_base::__set_badbit_and_consider_rethrow()'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x12f): undefined reference to `__cxa_end_catch'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m[_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m]+0x139): undefined reference to `__cxa_end_catch'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_[_ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_]+0x8a): undefined reference to `operator new(unsigned long)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_[_ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_]+0xf0): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: afl_driver.cpp:(.text._ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_[_ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_]+0x145): undefined reference to `operator delete(void*)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::__vector_base<char, std::__1::allocator<char> >::__throw_length_error() const':
+#20 27.47 afl_driver.cpp:(.text._ZNKSt3__113__vector_baseIcNS_9allocatorIcEEE20__throw_length_errorEv[_ZNKSt3__113__vector_baseIcNS_9allocatorIcEEE20__throw_length_errorEv]+0x2): undefined reference to `std::__1::__vector_base_common<true>::__throw_length_error() const'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o): in function `std::__1::basic_ifstream<char, std::__1::char_traits<char> >::~basic_ifstream()':
+#20 27.47 afl_driver.cpp:(.text._ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED2Ev[_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEED2Ev]+0x37): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x10): undefined reference to `typeinfo for std::__1::basic_istream<char, std::__1::char_traits<char> >'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x18): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x20): undefined reference to `std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x38): undefined reference to `typeinfo for std::__1::basic_istream<char, std::__1::char_traits<char> >'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x40): undefined reference to `virtual thunk to std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE[_ZTCNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE0_NS_13basic_istreamIcS2_EE]+0x48): undefined reference to `virtual thunk to std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE[_ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE]+0x0): undefined reference to `vtable for __cxxabiv1::__si_class_type_info'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE[_ZTINSt3__114basic_ifstreamIcNS_11char_traitsIcEEEE]+0x10): undefined reference to `typeinfo for std::__1::basic_istream<char, std::__1::char_traits<char> >'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x48): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::showmanyc()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x50): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::xsgetn(char*, long)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x60): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::uflow()'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTVNSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x70): undefined reference to `std::__1::basic_streambuf<char, std::__1::char_traits<char> >::xsputn(char const*, long)'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x0): undefined reference to `vtable for __cxxabiv1::__si_class_type_info'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.rodata._ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE[_ZTINSt3__113basic_filebufIcNS_11char_traitsIcEEEE]+0x10): undefined reference to `typeinfo for std::__1::basic_streambuf<char, std::__1::char_traits<char> >'
+#20 27.47 /usr/bin/ld: /libAFL.a(afl_driver.o):(.eh_frame+0x37b): undefined reference to `__gxx_personality_v0'
+#20 27.50 clang-14: error: linker command failed with exit code 1 (use -v to see invocation)
+#20 27.50 Traceback (most recent call last):
+#20 27.50   File "<string>", line 1, in <module>
+#20 27.50   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 27.50     utils.build_benchmark()
+#20 27.50   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 27.50     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 27.50   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 27.50     raise CalledProcessError(retcode, cmd)
+#20 27.50 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libucl_libucl:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2844129: .afl-libucl_libucl-builder] Error 1

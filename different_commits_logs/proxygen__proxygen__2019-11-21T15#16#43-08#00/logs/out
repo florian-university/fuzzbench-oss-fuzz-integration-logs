@@ -1,0 +1,120 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: proxygen_proxygen.
+INFO:root:Please run "make test-run-afl-proxygen_proxygen" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7492c637457992ef96beb66b53a9457c8d42d42fd9de041dba80255318a268dd
+#1 transferring dockerfile: 4.79kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:861e6aeca8197e8f14e0848c576c4fcfad076b8f683e13f386dbdff3bcc40381
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [ 1/15] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#6 [ 2/15] RUN apt-get update &&     apt-get install -y     make     autoconf     automake     libtool     sudo     wget     gcc     g++     python     python-dev
+#6 sha256:51d417ec155726374c82a458fb666fca6bb9ab88db728fae9e3370f4ceb2c4c1
+#6 CACHED
+
+#19 [internal] load build context
+#19 sha256:f7848bd7f32d8119156c3363bf7eafeb48af525d759375d292c5f21dbf89a41b
+#19 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/proxygen_proxygen
+#4 sha256:154750c549a871a68971f5f4745fc71fa82ecb418261ec445b7f58068b8e3711
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/proxygen_proxygen:latest: not found
+
+#7 [ 3/15] RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz &&     tar xzf cmake-3.15.2.tar.gz &&     cd cmake-3.15.2 &&     export CC=clang &&     export CXX=clang++ &&     CXXFLAGS="" &&     CFLAGS="" &&     ./bootstrap &&     make -j$(nproc) &&     make install &&     cd .. &&     rm -rf cmake-3.15.2
+#7 sha256:28137b825cedb6bb5013d0858ad3431b859e4efa312622edc9c3b1a9c06fb2af
+#7 CACHED
+
+#19 [internal] load build context
+#19 sha256:f7848bd7f32d8119156c3363bf7eafeb48af525d759375d292c5f21dbf89a41b
+#19 transferring context: 1.32kB done
+#19 DONE 0.1s
+
+#8 [ 4/15] RUN wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0
+#8 sha256:29c4b04edff9f657e05c946d031799e0c0809208543891fa153f0f3acf2ae34b
+#8 0.603 --2022-02-17 14:52:01--  https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz
+#8 0.605 Resolving dl.bintray.com (dl.bintray.com)... 54.189.239.169, 34.211.215.209
+#8 0.638 Connecting to dl.bintray.com (dl.bintray.com)|54.189.239.169|:443... connected.
+#8 1.176 HTTP request sent, awaiting response... 502 Bad Gateway
+#8 1.372 2022-02-17 14:52:01 ERROR 502: Bad Gateway.
+#8 1.372 
+#8 ERROR: executor failed running [/bin/sh -c wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0]: exit code: 8
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/proxygen_proxygen:
+------
+------
+ > [ 4/15] RUN wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0:
+------
+executor failed running [/bin/sh -c wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0]: exit code: 8
+make: *** [docker/generated.mk:58446: .proxygen_proxygen-project-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9cffb9a79e98e82a4ae124b9de82d330a65b3f151867f21603c7c5bad8fbb9a1
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:82f991ae6d7d6c7375565534269aeb739d746e66cb268fd5ad6ac534a5804202
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [ 1/15] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#6 [ 2/15] RUN apt-get update &&     apt-get install -y     make     autoconf     automake     libtool     sudo     wget     gcc     g++     python     python-dev
+#6 sha256:51d417ec155726374c82a458fb666fca6bb9ab88db728fae9e3370f4ceb2c4c1
+#6 CACHED
+
+#19 [internal] load build context
+#19 sha256:3a924090b812a6c3f3031876e2b767858c3890aaba3fe521dc98acdd764fafbe
+#19 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/proxygen_proxygen
+#4 sha256:154750c549a871a68971f5f4745fc71fa82ecb418261ec445b7f58068b8e3711
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/proxygen_proxygen:latest: not found
+
+#7 [ 3/15] RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz &&     tar xzf cmake-3.15.2.tar.gz &&     cd cmake-3.15.2 &&     export CC=clang &&     export CXX=clang++ &&     CXXFLAGS="" &&     CFLAGS="" &&     ./bootstrap &&     make -j$(nproc) &&     make install &&     cd .. &&     rm -rf cmake-3.15.2
+#7 sha256:28137b825cedb6bb5013d0858ad3431b859e4efa312622edc9c3b1a9c06fb2af
+#7 CACHED
+
+#8 [ 4/15] RUN wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0
+#8 sha256:29c4b04edff9f657e05c946d031799e0c0809208543891fa153f0f3acf2ae34b
+#8 ...
+
+#19 [internal] load build context
+#19 sha256:3a924090b812a6c3f3031876e2b767858c3890aaba3fe521dc98acdd764fafbe
+#19 transferring context: 30B done
+#19 DONE 0.1s
+
+#8 [ 4/15] RUN wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0
+#8 sha256:29c4b04edff9f657e05c946d031799e0c0809208543891fa153f0f3acf2ae34b
+#8 1.013 --2022-02-17 14:52:09--  https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz
+#8 1.016 Resolving dl.bintray.com (dl.bintray.com)... 54.189.239.169, 34.211.215.209
+#8 1.019 Connecting to dl.bintray.com (dl.bintray.com)|54.189.239.169|:443... connected.
+#8 1.563 HTTP request sent, awaiting response... 502 Bad Gateway
+#8 1.743 2022-02-17 14:52:10 ERROR 502: Bad Gateway.
+#8 1.743 
+#8 ERROR: executor failed running [/bin/sh -c wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0]: exit code: 8
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/proxygen_proxygen:
+------
+------
+ > [ 4/15] RUN wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0:
+------
+executor failed running [/bin/sh -c wget https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.gz &&     tar xzf boost_1_70_0.tar.gz &&     cd boost_1_70_0 &&     ./bootstrap.sh --with-toolset=clang &&     ./b2 clean &&     ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" -j$(nproc) install &&     cd .. &&     rm -rf boost_1_70_0]: exit code: 8
+make: *** [docker/generated.mk:58446: .proxygen_proxygen-project-builder] Error 1

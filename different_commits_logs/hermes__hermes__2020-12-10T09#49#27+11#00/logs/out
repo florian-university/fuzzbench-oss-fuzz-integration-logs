@@ -1,0 +1,1128 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: hermes_hermes.
+INFO:root:Please run "make test-run-afl-hermes_hermes" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:29733b2b6ab2ab6f564d40e9dfa59b2f2ac046a10f0a4adb8fb35c9975e3dd8b
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c4bf32239dfa701e7d2ea48ae937eaa975e9db2af80701f75e534e1d0c589caa
+#1 transferring dockerfile: 984B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:b75523e2f79a943ad908b2963ea4c051d29a450a4c2b44d2cb15871eaa89ff9e
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/hermes_hermes
+#4 sha256:32e0bda97e4844d4376724c4ba5dfc143944afb264aea24436188d02f86c9baa
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/hermes_hermes:latest: not found
+
+#9 [internal] load build context
+#9 sha256:b75523e2f79a943ad908b2963ea4c051d29a450a4c2b44d2cb15871eaa89ff9e
+#9 transferring context: 1.24kB done
+#9 DONE 0.2s
+
+#6 [2/5] RUN apt-get update &&     apt-get install -y make autoconf automake libtool wget libicu-dev     ninja-build python zip libreadline-dev libatomic-ops-dev
+#6 sha256:2b15c830703af49ad6ea4382df8ad18f4e57d3992c6ffb875760cbda9357a785
+#6 CACHED
+
+#7 [3/5] RUN git clone https://github.com/facebook/hermes.git
+#7 sha256:22ee937d70159e331c9c232393fe75ff00079c39638fbe65cbaf874489929d24
+#7 CACHED
+
+#8 [4/5] WORKDIR hermes
+#8 sha256:26021147af1b52f90b4d924712d0a9f491a515f3091780e73fae17f22ebc8df0
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:865080ea2770843171ebb622bd59c169198c2450e137dd433705150beb0a5034
+#10 DONE 0.4s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:5d7986a147dd7c8cf43567c6c4ed8d885cc39ab1cbbb018612014715f3539a52 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/hermes_hermes 0.0s done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/hermes_hermes:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:3ee23f97457ac3f82307792488ee0a57478d4de2e8a7169c77c175f9264fa220
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:4075ace90b76bef893aec1786ba60150826bd80608b981c0fa57ec7b554d0d5f
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/hermes_hermes:latest
+#3 sha256:1e66f7c1e0ea9c3599798ddb302383d80b60bfc06c808d6c6946289ff7d909a3
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/hermes_hermes
+#5 sha256:c927fcebce01c0a042a9f0d06ca6ce25f9222d03d9defdb3b8dd736aa5e204e3
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate
+#4 sha256:6999862fde588d500362a2afa03ed926999a434225cbd26409488b623ddea20e
+#4 ERROR: gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/hermes_hermes
+#5 sha256:c927fcebce01c0a042a9f0d06ca6ce25f9222d03d9defdb3b8dd736aa5e204e3
+#5 DONE 0.4s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:ec362fa50e3d5648ab59489da759a0807e44517cdad4cc539c6cd562a95d0ceb
+#6 0.417 Cloning into '/afl'...
+#6 1.604 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.604 
+#6 1.604 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.604 changes and commit them, and you can discard any commits you make in this
+#6 1.604 state without impacting any branches by switching back to a branch.
+#6 1.604 
+#6 1.604 If you want to create a new branch to retain commits you create, you may
+#6 1.604 do so (now or later) by using -c with the switch command. Example:
+#6 1.604 
+#6 1.604   git switch -c <new-branch-name>
+#6 1.604 
+#6 1.604 Or undo this operation with:
+#6 1.604 
+#6 1.604   git switch -
+#6 1.604 
+#6 1.604 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.604 
+#6 1.604 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.625 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.625 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.808 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.814 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 4.197 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.510 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.939 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 5.088 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.484 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.711 ln -sf afl-as as
+#6 5.714 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.716 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.717 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 6.2s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:15c1aec074c499cd85cf1a8618d2e5d287aff2a5bb67d3bf70dc35366d59b548
+#7 0.787 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.787 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.800 Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.824 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 0.920 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.781 Reading package lists...
+#7 3.666 Reading package lists...
+#7 5.211 Building dependency tree...
+#7 5.441 Reading state information...
+#7 5.692 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.692 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#7 5.698 --2022-02-15 12:13:19--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.701 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+#7 5.703 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+#7 5.726 HTTP request sent, awaiting response... 200 OK
+#7 5.902 Length: 9177 (9.0K) [text/plain]
+#7 5.902 Saving to: '/afl/afl_driver.cpp'
+#7 5.902 
+#7 5.902      0K ........                                              100% 12.5M=0.001s
+#7 5.903 
+#7 5.903 2022-02-15 12:13:19 (12.5 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.903 
+#7 7.766 ar: creating /libAFL.a
+#7 DONE 8.1s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:1d65d8e8c5a2578edf82ff8272a5269de106a69a6bacee700b1f37fbd9669497 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:69934fb1213fba667ecfd057244480af95d2d897365850e6b2bf1e430a3639d7
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:22ef9ccafd66693c0e4769783a79e2e3c8fddb99d1b4d029de7d86c3e685d61b
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:8347027b4adab6b3430e81d7b9620d792d7fbfe37e5ae38f84719949622ff928
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:1c0412165c5b64815d406654e6a8c6c79d07196fe34503f8ee2ea717eef33846
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9ee51d9159b4f922d2b158ded8a2a5a07120289d4682e26d1688fcaca1c34f44
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:c865a0e04b271e3890a9c4a9ff70948f4ff32f1d0de4b751755d17da291347d7
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:9649ac58bdac12947399400f35b66b30ecdb245a7b1e46c02ec6bd3e97b5eef5
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6790d1e458fed6fef090f118c3708a59b06941bffd5a6e77c541e47f043e2366
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:a74159f2e86a99d3609823b954d71550a527fa0363c6255f217d22b2817991ed
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate:latest
+#3 sha256:5561a36246758753acbe540bf2b5cadf77c99534ec7b2840e2adbfcc83dfdaa3
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:61c511c268d92dfbd0aa81add4fcd18e8774a3d98b38e6dfe157b3efb135db08
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate
+#6 sha256:384d978507c991159604fd96efe2b332eb7efd145576173212cea39efb66c095
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/hermes_hermes
+#5 sha256:ae3895136d7ae94400bc7ed2bc42984d5d9347c128399282c0f187582ad2854b
+#5 ERROR: gcr.io/fuzzbench/builders/afl/hermes_hermes:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:61c511c268d92dfbd0aa81add4fcd18e8774a3d98b38e6dfe157b3efb135db08
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.3s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate
+#6 sha256:384d978507c991159604fd96efe2b332eb7efd145576173212cea39efb66c095
+#6 DONE 1.0s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:51032db5a22c50470ad87ed3e7b3ae7de4ae67c77998a3d06efa5d5e28e131de
+#8 DONE 0.8s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:88d38d1ce48c1fd55b0cd09dfa411d304ca9c565a91a8f462c5b9779c5bc7c10
+#9 DONE 33.1s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:6b60dceb41b6edbd491db33bfe31969300b0eb21e06d4c497fd2ce74f6a54437
+#10 DONE 0.4s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:ebd5827b9a3be216be034fb480102bb5a4324ca37db309b835cfc82d61bf455e
+#11 DONE 61.3s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:9f7aaf661a3187bcd6dd158f0b1c27033777463801fa49d9a6cb52c83258a081
+#13 DONE 1.8s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:8eeac3dcd9875c5be124707dcc6ff13c487643bf6e790757d002c1a30946fb34
+#14 DONE 1.2s
+
+#15 [stage-1  8/13] COPY benchmarks/hermes_hermes/benchmark.yaml /
+#15 sha256:2ec2b3845c9684eed48d99849dd8cc9cbf806d62e849f29f497355a1e4ebad37
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:8cd09fd5489a7a442395b5f9d7b33a4c8d6a299457f6a5c873baa37533e497ec
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:3011e9d63599ae435dc78d647984284e0c7bc4c2fc0b468343008dcb3c85931d
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:81ef59b59790d5bc83b0d4b905ca50127a08cb68a06042bffb13e9a79ec3d75d
+#18 0.587 Checking out commit 84faf557
+#18 0.611 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.617 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.628 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.651 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.672 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.683 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.713 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.721 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.731 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.742 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.752 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.765 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.773 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.858 Checkout unsuccessful.
+#18 DONE 2.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:ace5a6f30431f56bb2958fd0ddfadda7955de23c5d8885d340a9d6bcc4379340
+#19 DONE 1.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:b64d27b253ff318616c6cfc948f55fc0efe278ae6860f19c460225c42d82b0c7
+#20 0.561 Run fuzzer_build to build the target
+#20 0.689 FUZZ_TARGET = hermes
+#20 0.689 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.689 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.695 Building benchmark hermes_hermes with fuzzer afl
+#20 0.698 + '[' address = address ']'
+#20 0.698 + CONFIGURE_FLAGS=--enable-asan
+#20 0.699 + ./utils/build/configure.py /out/build --build-system Ninja --enable-asan '--cmake-flags=-DHERMES_USE_STATIC_ICU=ON -DHERMES_FUZZING_FLAG=/libAFL.a -DHERMES_ENABLE_FUZZING=ON'
+#20 0.760 ./utils/build/configure.py:202: UserWarning: Configuring CMake with Python2. Python3 is recommended for the configuration of the Hermes build
+#20 0.760   "Configuring CMake with Python2. "
+#20 0.842 CMake Deprecation Warning at CMakeLists.txt:44 (cmake_policy):
+#20 0.842   The OLD behavior for policy CMP0023 will be removed from a future version
+#20 0.842   of CMake.
+#20 0.842 
+#20 0.842   The cmake-policies(7) manual explains that the OLD behaviors of all
+#20 0.842   policies are deprecated and that a policy should be set to OLD only under
+#20 0.842   specific short-term circumstances.  Projects should be ported to the NEW
+#20 0.842   behavior and not rely on setting a policy to OLD.
+#20 0.842 
+#20 0.842 
+#20 0.842 CMake Deprecation Warning at CMakeLists.txt:51 (cmake_policy):
+#20 0.842   The OLD behavior for policy CMP0026 will be removed from a future version
+#20 0.842   of CMake.
+#20 0.842 
+#20 0.842   The cmake-policies(7) manual explains that the OLD behaviors of all
+#20 0.842   policies are deprecated and that a policy should be set to OLD only under
+#20 0.842   specific short-term circumstances.  Projects should be ported to the NEW
+#20 0.842   behavior and not rely on setting a policy to OLD.
+#20 0.842 
+#20 0.842 
+#20 1.103 -- The C compiler identification is Clang 14.0.0
+#20 1.397 -- The CXX compiler identification is Clang 14.0.0
+#20 1.452 -- Detecting C compiler ABI info
+#20 1.622 -- Detecting C compiler ABI info - done
+#20 1.671 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.680 -- Detecting C compile features
+#20 1.681 -- Detecting C compile features - done
+#20 1.691 -- Detecting CXX compiler ABI info
+#20 1.894 -- Detecting CXX compiler ABI info - done
+#20 1.963 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.964 -- Detecting CXX compile features
+#20 1.965 -- Detecting CXX compile features - done
+#20 1.978 -- Performing Test CXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG
+#20 2.168 -- Performing Test CXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG - Success
+#20 2.171 -- Performing Test DEPRECATED_COPY_FLAG
+#20 2.366 -- Performing Test DEPRECATED_COPY_FLAG - Success
+#20 2.367 -- Performing Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG
+#20 2.567 -- Performing Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG - Failed
+#20 2.569 -- Performing Test CXX_SUPPORTS_NOEXCEPT_TYPE_FLAG
+#20 2.768 -- Performing Test CXX_SUPPORTS_NOEXCEPT_TYPE_FLAG - Success
+#20 2.768 -- Performing Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR
+#20 2.984 -- Performing Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR - Success
+#20 2.987 -- Performing Test C_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG
+#20 3.142 -- Performing Test C_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG - Success
+#20 3.144 -- Performing Test CXX_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG
+#20 3.337 -- Performing Test CXX_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG - Success
+#20 3.340 -- Performing Test RANGE_ANALYSIS_FLAG
+#20 3.532 -- Performing Test RANGE_ANALYSIS_FLAG - Success
+#20 3.558 -- Found PythonInterp: /usr/bin/python (found version "2.7.18") 
+#20 3.559 -- Performing Test HAVE_COMPUTED_GOTO
+#20 3.761 -- Performing Test HAVE_COMPUTED_GOTO - Success
+#20 3.763 -- Performing Test HAVE_GC_SECTIONS
+#20 3.828 -- Performing Test HAVE_GC_SECTIONS - Failed
+#20 4.039 -- Found the following ICU libraries:
+#20 4.039 --   uc (required)
+#20 4.039 --   i18n (required)
+#20 4.039 --   data (required)
+#20 4.039 --   uc (required)
+#20 4.041 -- Found ICU: /usr/include (found suitable version "66.1", minimum required is "52") 
+#20 4.042 icu dir: /usr/lib/x86_64-linux-gnu
+#20 4.058 -- Performing Test LLVM_NO_OLD_LIBSTDCXX
+#20 4.569 -- Performing Test LLVM_NO_OLD_LIBSTDCXX - Success
+#20 4.580 -- Looking for dlfcn.h
+#20 4.846 -- Looking for dlfcn.h - found
+#20 4.847 -- Looking for errno.h
+#20 5.457 -- Looking for errno.h - found
+#20 5.458 -- Looking for fcntl.h
+#20 5.880 -- Looking for fcntl.h - found
+#20 5.880 -- Looking for link.h
+#20 6.168 -- Looking for link.h - found
+#20 6.168 -- Looking for malloc.h
+#20 6.440 -- Looking for malloc.h - found
+#20 6.441 -- Looking for malloc/malloc.h
+#20 6.490 -- Looking for malloc/malloc.h - not found
+#20 6.491 -- Looking for pthread.h
+#20 6.766 -- Looking for pthread.h - found
+#20 6.767 -- Looking for signal.h
+#20 7.035 -- Looking for signal.h - found
+#20 7.036 -- Looking for sys/ioctl.h
+#20 7.299 -- Looking for sys/ioctl.h - found
+#20 7.300 -- Looking for sys/mman.h
+#20 7.577 -- Looking for sys/mman.h - found
+#20 7.577 -- Looking for sys/param.h
+#20 7.857 -- Looking for sys/param.h - found
+#20 7.858 -- Looking for sys/resource.h
+#20 8.135 -- Looking for sys/resource.h - found
+#20 8.136 -- Looking for sys/stat.h
+#20 8.403 -- Looking for sys/stat.h - found
+#20 8.404 -- Looking for sys/time.h
+#20 8.667 -- Looking for sys/time.h - found
+#20 8.668 -- Looking for sys/types.h
+#20 8.948 -- Looking for sys/types.h - found
+#20 8.948 -- Looking for termios.h
+#20 9.214 -- Looking for termios.h - found
+#20 9.215 -- Looking for unistd.h
+#20 9.487 -- Looking for unistd.h - found
+#20 9.487 -- Looking for valgrind/valgrind.h
+#20 9.532 -- Looking for valgrind/valgrind.h - not found
+#20 9.533 -- Looking for zlib.h
+#20 9.579 -- Looking for zlib.h - not found
+#20 9.580 -- Looking for fenv.h
+#20 9.864 -- Looking for fenv.h - found
+#20 9.880 -- Looking for FE_ALL_EXCEPT
+#20 10.14 -- Looking for FE_ALL_EXCEPT - found
+#20 10.15 -- Looking for FE_INEXACT
+#20 10.40 -- Looking for FE_INEXACT - found
+#20 10.40 -- Looking for mach/mach.h
+#20 10.45 -- Looking for mach/mach.h - not found
+#20 10.45 -- Looking for histedit.h
+#20 10.49 -- Looking for histedit.h - not found
+#20 10.49 -- Looking for CrashReporterClient.h
+#20 10.54 -- Looking for CrashReporterClient.h - not found
+#20 10.54 -- Looking for linux/magic.h
+#20 10.81 -- Looking for linux/magic.h - found
+#20 10.81 -- Looking for pthread_create in pthread
+#20 11.09 -- Looking for pthread_create in pthread - found
+#20 11.09 -- Looking for pthread_getspecific in pthread
+#20 11.35 -- Looking for pthread_getspecific in pthread - found
+#20 11.35 -- Looking for pthread_rwlock_init in pthread
+#20 11.63 -- Looking for pthread_rwlock_init in pthread - found
+#20 11.63 -- Looking for pthread_mutex_lock in pthread
+#20 11.90 -- Looking for pthread_mutex_lock in pthread - found
+#20 11.90 -- Looking for dlopen in dl
+#20 12.16 -- Looking for dlopen in dl - found
+#20 12.16 -- Looking for clock_gettime in rt
+#20 12.44 -- Looking for clock_gettime in rt - found
+#20 12.46 -- Looking for pthread.h
+#20 12.73 -- Looking for pthread.h - found
+#20 12.73 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 13.01 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 13.01 -- Found Threads: TRUE  
+#20 13.01 -- Looking for xar_open in xar
+#20 13.12 -- Looking for xar_open in xar - not found
+#20 13.12 -- Looking for arc4random
+#20 13.22 -- Looking for arc4random - not found
+#20 13.22 -- Looking for backtrace
+#20 13.49 -- Looking for backtrace - found
+#20 13.49 -- backtrace facility detected in default set of libraries
+#20 13.49 -- Found Backtrace: /usr/include  
+#20 13.49 -- Performing Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW
+#20 13.73 -- Performing Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW - Success
+#20 13.73 -- Looking for _Unwind_Backtrace
+#20 13.99 -- Looking for _Unwind_Backtrace - found
+#20 13.99 -- Looking for getpagesize
+#20 14.26 -- Looking for getpagesize - found
+#20 14.26 -- Looking for sysconf
+#20 14.53 -- Looking for sysconf - found
+#20 14.53 -- Looking for getrusage
+#20 14.80 -- Looking for getrusage - found
+#20 14.80 -- Looking for setrlimit
+#20 15.08 -- Looking for setrlimit - found
+#20 15.08 -- Looking for isatty
+#20 15.36 -- Looking for isatty - found
+#20 15.36 -- Looking for futimens
+#20 15.63 -- Looking for futimens - found
+#20 15.63 -- Looking for futimes
+#20 15.90 -- Looking for futimes - found
+#20 15.90 -- Looking for posix_fallocate
+#20 16.17 -- Looking for posix_fallocate - found
+#20 16.17 -- Looking for sigaltstack
+#20 16.45 -- Looking for sigaltstack - found
+#20 16.45 -- Looking for lseek64
+#20 16.73 -- Looking for lseek64 - found
+#20 16.73 -- Looking for mallctl
+#20 16.78 -- Looking for mallctl - not found
+#20 16.78 -- Looking for mallinfo
+#20 17.05 -- Looking for mallinfo - found
+#20 17.05 -- Looking for malloc_zone_statistics
+#20 17.10 -- Looking for malloc_zone_statistics - not found
+#20 17.10 -- Looking for getrlimit
+#20 17.37 -- Looking for getrlimit - found
+#20 17.37 -- Looking for posix_spawn
+#20 17.65 -- Looking for posix_spawn - found
+#20 17.65 -- Looking for pread
+#20 17.93 -- Looking for pread - found
+#20 17.93 -- Looking for realpath
+#20 18.21 -- Looking for realpath - found
+#20 18.21 -- Looking for sbrk
+#20 18.49 -- Looking for sbrk - found
+#20 18.49 -- Looking for strerror
+#20 18.75 -- Looking for strerror - found
+#20 18.75 -- Looking for strerror_r
+#20 19.03 -- Looking for strerror_r - found
+#20 19.03 -- Looking for strerror_s
+#20 19.08 -- Looking for strerror_s - not found
+#20 19.09 -- Looking for setenv
+#20 19.35 -- Looking for setenv - found
+#20 19.36 -- Looking for dlopen
+#20 19.64 -- Looking for dlopen - found
+#20 19.64 -- Looking for dladdr
+#20 19.70 -- Looking for dladdr - not found
+#20 19.70 -- Looking for __GLIBC__
+#20 19.97 -- Looking for __GLIBC__ - found
+#20 19.97 -- Looking for sched_getaffinity
+#20 20.23 -- Looking for sched_getaffinity - found
+#20 20.23 -- Looking for CPU_COUNT
+#20 20.62 -- Looking for CPU_COUNT - found
+#20 20.62 -- Looking for pthread_getname_np
+#20 20.89 -- Looking for pthread_getname_np - found
+#20 20.89 -- Looking for pthread_setname_np
+#20 21.16 -- Looking for pthread_setname_np - found
+#20 21.16 -- Performing Test HAVE_CXX_ATOMICS_WITHOUT_LIB
+#20 21.65 -- Performing Test HAVE_CXX_ATOMICS_WITHOUT_LIB - Success
+#20 21.65 -- Performing Test HAVE_CXX_ATOMICS64_WITHOUT_LIB
+#20 22.13 -- Performing Test HAVE_CXX_ATOMICS64_WITHOUT_LIB - Success
+#20 22.13 -- Performing Test LLVM_HAS_ATOMICS
+#20 22.41 -- Performing Test LLVM_HAS_ATOMICS - Success
+#20 22.42 -- Performing Test SUPPORTS_NO_PIE_FLAG
+#20 22.66 -- Performing Test SUPPORTS_NO_PIE_FLAG - Success
+#20 22.66 -- Performing Test SUPPORTS_VARIADIC_MACROS_FLAG
+#20 22.91 -- Performing Test SUPPORTS_VARIADIC_MACROS_FLAG - Success
+#20 22.91 -- Performing Test SUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG
+#20 23.15 -- Performing Test SUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG - Success
+#20 23.17 -- Threads enabled.
+#20 23.17 -- Doxygen disabled.
+#20 23.17 -- Go bindings disabled.
+#20 23.19 -- Could NOT find Python module pygments
+#20 23.21 -- Could NOT find Python module pygments.lexers.c_cpp
+#20 23.22 -- Could NOT find Python module yaml
+#20 23.26 -- CMAKE_HOST_SYSTEM_NAME = Linux
+#20 23.26 -- CMAKE_SYSTEM_NAME = Linux
+#20 23.26 -- HERMES_APPLE_TARGET_PLATFORM = 
+#20 23.26 -- CMAKE_CROSSCOMPILING = FALSE
+#20 23.28 -- Looking for readline
+#20 23.55 -- Looking for readline - found
+#20 23.69 -- Configuring done
+#20 24.34 -- Generating done
+#20 24.37 CMake Warning:
+#20 24.37   Manually-specified variables were not used by the project:
+#20 24.37 
+#20 24.37     HERMES_ENABLE_FUZZING
+#20 24.37 
+#20 24.37 
+#20 24.37 -- Build files have been written to: /out/build
+#20 24.42 Building hermes using Ninja into /out/build/
+#20 24.42 CMake flags: -DHERMES_USE_STATIC_ICU=ON -DHERMES_FUZZING_FLAG=/libAFL.a -DHERMES_ENABLE_FUZZING=ON -DPYTHON_EXECUTABLE=/usr/bin/python -DCMAKE_BUILD_TYPE=Debug -DHERMES_ENABLE_ADDRESS_SANITIZER=ON
+#20 24.42 CMake version:
+#20 24.42 cmake version 3.21.1
+#20 24.42 
+#20 24.42 CMake suite maintained and supported by Kitware (kitware.com/cmake).
+#20 24.42 
+#20 24.42 + /usr/local/bin/cmake /src/hermes -G Ninja -DHERMES_USE_STATIC_ICU=ON -DHERMES_FUZZING_FLAG=/libAFL.a -DHERMES_ENABLE_FUZZING=ON -DPYTHON_EXECUTABLE=/usr/bin/python -DCMAKE_BUILD_TYPE=Debug -DHERMES_ENABLE_ADDRESS_SANITIZER=ON
+#20 24.42 + cmake --build /out/build --parallel --target fuzzer-jsi-entry
+#20 24.45 ninja: error: unknown target 'fuzzer-jsi-entry'
+#20 24.45 Traceback (most recent call last):
+#20 24.45   File "<string>", line 1, in <module>
+#20 24.45   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 24.45     utils.build_benchmark()
+#20 24.45   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 24.45     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 24.45   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 24.45     raise CalledProcessError(retcode, cmd)
+#20 24.45 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/hermes_hermes:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2680210: .afl-hermes_hermes-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:3a136bba61a4960b237612fe6f1ca3b9d8240d5151f5a811f72e02c8523ea9a0
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:af4c17c350699e236a8c9c1321a65a47f2ed68d525d8449b799db366839632f6
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/hermes_hermes
+#4 sha256:32e0bda97e4844d4376724c4ba5dfc143944afb264aea24436188d02f86c9baa
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:959947825151b80c239d70cbc9fd8d8ce2fc026f6021c3c84779641776a9deba
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update &&     apt-get install -y make autoconf automake libtool wget libicu-dev     ninja-build python zip libreadline-dev libatomic-ops-dev
+#6 sha256:2b15c830703af49ad6ea4382df8ad18f4e57d3992c6ffb875760cbda9357a785
+#6 CACHED
+
+#7 [3/5] RUN git clone https://github.com/facebook/hermes.git
+#7 sha256:22ee937d70159e331c9c232393fe75ff00079c39638fbe65cbaf874489929d24
+#7 CACHED
+
+#8 [4/5] WORKDIR hermes
+#8 sha256:26021147af1b52f90b4d924712d0a9f491a515f3091780e73fae17f22ebc8df0
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:7b02d5bfc11f42545bf049001b7e8c1ab5032c2cf61807bec8ca97fc10d3ea4b
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:5d7986a147dd7c8cf43567c6c4ed8d885cc39ab1cbbb018612014715f3539a52 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/hermes_hermes done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:187e90d352b0626f66f2d43473c8c016fe8edd2be75a9644078d244ae526f9f1
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:bec27e487659af88ccdb1633f68359473d83911574e7c6b8369b8aa1de39ca4f
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/hermes_hermes:latest
+#3 sha256:1e66f7c1e0ea9c3599798ddb302383d80b60bfc06c808d6c6946289ff7d909a3
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/hermes_hermes
+#5 sha256:c927fcebce01c0a042a9f0d06ca6ce25f9222d03d9defdb3b8dd736aa5e204e3
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate
+#4 sha256:6999862fde588d500362a2afa03ed926999a434225cbd26409488b623ddea20e
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:ec362fa50e3d5648ab59489da759a0807e44517cdad4cc539c6cd562a95d0ceb
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:15c1aec074c499cd85cf1a8618d2e5d287aff2a5bb67d3bf70dc35366d59b548
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:1d65d8e8c5a2578edf82ff8272a5269de106a69a6bacee700b1f37fbd9669497 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6f44564ee3035e2d3592de981d757d1557c60b81e457621c4f256c0542eb0266
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.00kB 0.0s done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:45a21cb3157b12c21fc42bc63728c22d401eca3c5bdba1f2ace22427a306d651
+#2 transferring context: 34B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:d822e9f2ed3aaa97c73ab4013448ff3732b33f7e79aec56a95393b5919ac351c
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:10a9b27a04915b3fbed4f3546202dc8c08b3502cc2c1a1122d5ce90413207c8d
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:152c9ebf797d6934f7148fc0345135cd150bc3c63fa165b97bc228e0447497d0
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:48ce0bdcc58af5567ce6502be98f9531526b256252a6b59af290fac0053d0462
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:b334ba3f81ba0c181ae59b99cd5bc9757a650654838369ae06967379849406da
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:794d1b31e8f80413db1bbd40c11a79c67723ee56430a72aa7c30cd6d00baad43
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:eb43a79898fc4d51b5dc4fa95c0d74dd310fc28585bd2d9c7b7b03d8a6ed6a44
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate:latest
+#3 sha256:5561a36246758753acbe540bf2b5cadf77c99534ec7b2840e2adbfcc83dfdaa3
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:206b42d098315f6297c69fdb53dd964ca26b2f2a8a8404457b1714158075ea1e
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/hermes_hermes-intermediate
+#6 sha256:384d978507c991159604fd96efe2b332eb7efd145576173212cea39efb66c095
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/hermes_hermes
+#5 sha256:ae3895136d7ae94400bc7ed2bc42984d5d9347c128399282c0f187582ad2854b
+#5 ERROR: gcr.io/fuzzbench/builders/afl/hermes_hermes:latest: not found
+
+#12 [internal] load build context
+#12 sha256:206b42d098315f6297c69fdb53dd964ca26b2f2a8a8404457b1714158075ea1e
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:88d38d1ce48c1fd55b0cd09dfa411d304ca9c565a91a8f462c5b9779c5bc7c10
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:6b60dceb41b6edbd491db33bfe31969300b0eb21e06d4c497fd2ce74f6a54437
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:0e7a6203407f7e6cacbc6dc6ccc17dde35a2ead2e2fd8e4bd03f732a6b6bdb21
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:5d60890d888f6ee83f347d5cbbb7afad6e9cc7ae97daa106038a1bcabdccf6d3
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/hermes_hermes/benchmark.yaml /
+#15 sha256:064b340de79a6118374784c57df4d07d6eb0478a28d002c3b3fcafafdd61b8e2
+#15 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:93206411280dc258bb462ee60a8cf2b9750eab94d8695a1c0af3d275bde82b36
+#17 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:51032db5a22c50470ad87ed3e7b3ae7de4ae67c77998a3d06efa5d5e28e131de
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:ebd5827b9a3be216be034fb480102bb5a4324ca37db309b835cfc82d61bf455e
+#11 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:0e872ff922ee9ad16eed2322afb81856cecab2e291ed95b6984d04251bcc89c7
+#18 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:adafaf48a03a9da37e61d7e5d1cc96345fa58539b76bd984aa75e7d8ad761d92
+#16 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:015035973f8202229195b7da0282b4b97f9fd3a3cd04e920017c91ad2c9cb27e
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:c846626582f2ca4fcde51b0305ecaac276cf336cbb24c05f3086719f0f45ae82
+#20 0.465 Run fuzzer_build to build the target
+#20 0.587 FUZZ_TARGET = hermes
+#20 0.587 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.587 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.591 Building benchmark hermes_hermes with fuzzer afl
+#20 0.595 + '[' address = address ']'
+#20 0.595 + CONFIGURE_FLAGS=--enable-asan
+#20 0.595 + ./utils/build/configure.py /out/build --build-system Ninja --enable-asan '--cmake-flags=-DHERMES_USE_STATIC_ICU=ON -DHERMES_FUZZING_FLAG=/libAFL.a -DHERMES_ENABLE_FUZZING=ON'
+#20 0.635 ./utils/build/configure.py:202: UserWarning: Configuring CMake with Python2. Python3 is recommended for the configuration of the Hermes build
+#20 0.635   "Configuring CMake with Python2. "
+#20 0.645 CMake Deprecation Warning at CMakeLists.txt:44 (cmake_policy):
+#20 0.645   The OLD behavior for policy CMP0023 will be removed from a future version
+#20 0.645   of CMake.
+#20 0.645 
+#20 0.645   The cmake-policies(7) manual explains that the OLD behaviors of all
+#20 0.645   policies are deprecated and that a policy should be set to OLD only under
+#20 0.645   specific short-term circumstances.  Projects should be ported to the NEW
+#20 0.645   behavior and not rely on setting a policy to OLD.
+#20 0.645 
+#20 0.645 
+#20 0.645 CMake Deprecation Warning at CMakeLists.txt:51 (cmake_policy):
+#20 0.645   The OLD behavior for policy CMP0026 will be removed from a future version
+#20 0.645   of CMake.
+#20 0.645 
+#20 0.645   The cmake-policies(7) manual explains that the OLD behaviors of all
+#20 0.645   policies are deprecated and that a policy should be set to OLD only under
+#20 0.645   specific short-term circumstances.  Projects should be ported to the NEW
+#20 0.645   behavior and not rely on setting a policy to OLD.
+#20 0.645 
+#20 0.645 
+#20 0.837 -- The C compiler identification is Clang 14.0.0
+#20 1.088 -- The CXX compiler identification is Clang 14.0.0
+#20 1.099 -- Detecting C compiler ABI info
+#20 1.254 -- Detecting C compiler ABI info - done
+#20 1.302 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.303 -- Detecting C compile features
+#20 1.304 -- Detecting C compile features - done
+#20 1.310 -- Detecting CXX compiler ABI info
+#20 1.491 -- Detecting CXX compiler ABI info - done
+#20 1.553 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.554 -- Detecting CXX compile features
+#20 1.555 -- Detecting CXX compile features - done
+#20 1.561 -- Performing Test CXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG
+#20 1.737 -- Performing Test CXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG - Success
+#20 1.739 -- Performing Test DEPRECATED_COPY_FLAG
+#20 1.918 -- Performing Test DEPRECATED_COPY_FLAG - Success
+#20 1.921 -- Performing Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG
+#20 2.105 -- Performing Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG - Failed
+#20 2.107 -- Performing Test CXX_SUPPORTS_NOEXCEPT_TYPE_FLAG
+#20 2.290 -- Performing Test CXX_SUPPORTS_NOEXCEPT_TYPE_FLAG - Success
+#20 2.291 -- Performing Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR
+#20 2.498 -- Performing Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR - Success
+#20 2.500 -- Performing Test C_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG
+#20 2.652 -- Performing Test C_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG - Success
+#20 2.654 -- Performing Test CXX_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG
+#20 2.838 -- Performing Test CXX_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG - Success
+#20 2.841 -- Performing Test RANGE_ANALYSIS_FLAG
+#20 3.020 -- Performing Test RANGE_ANALYSIS_FLAG - Success
+#20 3.042 -- Found PythonInterp: /usr/bin/python (found version "2.7.18") 
+#20 3.043 -- Performing Test HAVE_COMPUTED_GOTO
+#20 3.243 -- Performing Test HAVE_COMPUTED_GOTO - Success
+#20 3.246 -- Performing Test HAVE_GC_SECTIONS
+#20 3.311 -- Performing Test HAVE_GC_SECTIONS - Failed
+#20 3.471 -- Found the following ICU libraries:
+#20 3.471 --   uc (required)
+#20 3.471 --   i18n (required)
+#20 3.471 --   data (required)
+#20 3.471 --   uc (required)
+#20 3.472 -- Found ICU: /usr/include (found suitable version "66.1", minimum required is "52") 
+#20 3.473 icu dir: /usr/lib/x86_64-linux-gnu
+#20 3.477 -- Performing Test LLVM_NO_OLD_LIBSTDCXX
+#20 3.958 -- Performing Test LLVM_NO_OLD_LIBSTDCXX - Success
+#20 3.960 -- Looking for dlfcn.h
+#20 4.229 -- Looking for dlfcn.h - found
+#20 4.229 -- Looking for errno.h
+#20 4.489 -- Looking for errno.h - found
+#20 4.490 -- Looking for fcntl.h
+#20 4.758 -- Looking for fcntl.h - found
+#20 4.759 -- Looking for link.h
+#20 5.033 -- Looking for link.h - found
+#20 5.034 -- Looking for malloc.h
+#20 5.469 -- Looking for malloc.h - found
+#20 5.470 -- Looking for malloc/malloc.h
+#20 5.515 -- Looking for malloc/malloc.h - not found
+#20 5.516 -- Looking for pthread.h
+#20 5.788 -- Looking for pthread.h - found
+#20 5.789 -- Looking for signal.h
+#20 6.074 -- Looking for signal.h - found
+#20 6.075 -- Looking for sys/ioctl.h
+#20 6.341 -- Looking for sys/ioctl.h - found
+#20 6.342 -- Looking for sys/mman.h
+#20 6.601 -- Looking for sys/mman.h - found
+#20 6.602 -- Looking for sys/param.h
+#20 6.878 -- Looking for sys/param.h - found
+#20 6.879 -- Looking for sys/resource.h
+#20 7.147 -- Looking for sys/resource.h - found
+#20 7.148 -- Looking for sys/stat.h
+#20 7.410 -- Looking for sys/stat.h - found
+#20 7.411 -- Looking for sys/time.h
+#20 7.676 -- Looking for sys/time.h - found
+#20 7.677 -- Looking for sys/types.h
+#20 7.942 -- Looking for sys/types.h - found
+#20 7.943 -- Looking for termios.h
+#20 8.213 -- Looking for termios.h - found
+#20 8.214 -- Looking for unistd.h
+#20 8.497 -- Looking for unistd.h - found
+#20 8.498 -- Looking for valgrind/valgrind.h
+#20 8.542 -- Looking for valgrind/valgrind.h - not found
+#20 8.542 -- Looking for zlib.h
+#20 8.587 -- Looking for zlib.h - not found
+#20 8.588 -- Looking for fenv.h
+#20 8.855 -- Looking for fenv.h - found
+#20 8.856 -- Looking for FE_ALL_EXCEPT
+#20 9.119 -- Looking for FE_ALL_EXCEPT - found
+#20 9.120 -- Looking for FE_INEXACT
+#20 9.383 -- Looking for FE_INEXACT - found
+#20 9.384 -- Looking for mach/mach.h
+#20 9.428 -- Looking for mach/mach.h - not found
+#20 9.429 -- Looking for histedit.h
+#20 9.474 -- Looking for histedit.h - not found
+#20 9.475 -- Looking for CrashReporterClient.h
+#20 9.520 -- Looking for CrashReporterClient.h - not found
+#20 9.521 -- Looking for linux/magic.h
+#20 9.779 -- Looking for linux/magic.h - found
+#20 9.780 -- Looking for pthread_create in pthread
+#20 10.05 -- Looking for pthread_create in pthread - found
+#20 10.05 -- Looking for pthread_getspecific in pthread
+#20 10.31 -- Looking for pthread_getspecific in pthread - found
+#20 10.32 -- Looking for pthread_rwlock_init in pthread
+#20 10.58 -- Looking for pthread_rwlock_init in pthread - found
+#20 10.58 -- Looking for pthread_mutex_lock in pthread
+#20 10.84 -- Looking for pthread_mutex_lock in pthread - found
+#20 10.84 -- Looking for dlopen in dl
+#20 11.12 -- Looking for dlopen in dl - found
+#20 11.12 -- Looking for clock_gettime in rt
+#20 11.38 -- Looking for clock_gettime in rt - found
+#20 11.39 -- Looking for pthread.h
+#20 11.66 -- Looking for pthread.h - found
+#20 11.66 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 11.93 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 11.94 -- Found Threads: TRUE  
+#20 11.94 -- Looking for xar_open in xar
+#20 12.05 -- Looking for xar_open in xar - not found
+#20 12.05 -- Looking for arc4random
+#20 12.11 -- Looking for arc4random - not found
+#20 12.11 -- Looking for backtrace
+#20 12.38 -- Looking for backtrace - found
+#20 12.38 -- backtrace facility detected in default set of libraries
+#20 12.38 -- Found Backtrace: /usr/include  
+#20 12.38 -- Performing Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW
+#20 12.61 -- Performing Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW - Success
+#20 12.61 -- Looking for _Unwind_Backtrace
+#20 12.88 -- Looking for _Unwind_Backtrace - found
+#20 12.88 -- Looking for getpagesize
+#20 13.15 -- Looking for getpagesize - found
+#20 13.15 -- Looking for sysconf
+#20 13.42 -- Looking for sysconf - found
+#20 13.43 -- Looking for getrusage
+#20 13.69 -- Looking for getrusage - found
+#20 13.69 -- Looking for setrlimit
+#20 13.96 -- Looking for setrlimit - found
+#20 13.96 -- Looking for isatty
+#20 14.23 -- Looking for isatty - found
+#20 14.23 -- Looking for futimens
+#20 14.50 -- Looking for futimens - found
+#20 14.50 -- Looking for futimes
+#20 14.77 -- Looking for futimes - found
+#20 14.77 -- Looking for posix_fallocate
+#20 15.03 -- Looking for posix_fallocate - found
+#20 15.03 -- Looking for sigaltstack
+#20 15.32 -- Looking for sigaltstack - found
+#20 15.33 -- Looking for lseek64
+#20 15.61 -- Looking for lseek64 - found
+#20 15.61 -- Looking for mallctl
+#20 15.65 -- Looking for mallctl - not found
+#20 15.66 -- Looking for mallinfo
+#20 15.94 -- Looking for mallinfo - found
+#20 15.94 -- Looking for malloc_zone_statistics
+#20 15.99 -- Looking for malloc_zone_statistics - not found
+#20 15.99 -- Looking for getrlimit
+#20 16.26 -- Looking for getrlimit - found
+#20 16.26 -- Looking for posix_spawn
+#20 16.54 -- Looking for posix_spawn - found
+#20 16.54 -- Looking for pread
+#20 16.82 -- Looking for pread - found
+#20 16.82 -- Looking for realpath
+#20 17.09 -- Looking for realpath - found
+#20 17.09 -- Looking for sbrk
+#20 17.36 -- Looking for sbrk - found
+#20 17.36 -- Looking for strerror
+#20 17.63 -- Looking for strerror - found
+#20 17.63 -- Looking for strerror_r
+#20 17.90 -- Looking for strerror_r - found
+#20 17.90 -- Looking for strerror_s
+#20 17.95 -- Looking for strerror_s - not found
+#20 17.95 -- Looking for setenv
+#20 18.23 -- Looking for setenv - found
+#20 18.23 -- Looking for dlopen
+#20 18.50 -- Looking for dlopen - found
+#20 18.50 -- Looking for dladdr
+#20 18.54 -- Looking for dladdr - not found
+#20 18.55 -- Looking for __GLIBC__
+#20 18.81 -- Looking for __GLIBC__ - found
+#20 18.82 -- Looking for sched_getaffinity
+#20 19.08 -- Looking for sched_getaffinity - found
+#20 19.08 -- Looking for CPU_COUNT
+#20 19.35 -- Looking for CPU_COUNT - found
+#20 19.35 -- Looking for pthread_getname_np
+#20 19.63 -- Looking for pthread_getname_np - found
+#20 19.63 -- Looking for pthread_setname_np
+#20 19.91 -- Looking for pthread_setname_np - found
+#20 19.91 -- Performing Test HAVE_CXX_ATOMICS_WITHOUT_LIB
+#20 20.41 -- Performing Test HAVE_CXX_ATOMICS_WITHOUT_LIB - Success
+#20 20.41 -- Performing Test HAVE_CXX_ATOMICS64_WITHOUT_LIB
+#20 20.90 -- Performing Test HAVE_CXX_ATOMICS64_WITHOUT_LIB - Success
+#20 20.90 -- Performing Test LLVM_HAS_ATOMICS
+#20 21.19 -- Performing Test LLVM_HAS_ATOMICS - Success
+#20 21.19 -- Performing Test SUPPORTS_NO_PIE_FLAG
+#20 21.44 -- Performing Test SUPPORTS_NO_PIE_FLAG - Success
+#20 21.44 -- Performing Test SUPPORTS_VARIADIC_MACROS_FLAG
+#20 21.69 -- Performing Test SUPPORTS_VARIADIC_MACROS_FLAG - Success
+#20 21.69 -- Performing Test SUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG
+#20 21.93 -- Performing Test SUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG - Success
+#20 21.95 -- Threads enabled.
+#20 21.95 -- Doxygen disabled.
+#20 21.95 -- Go bindings disabled.
+#20 21.96 -- Could NOT find Python module pygments
+#20 21.98 -- Could NOT find Python module pygments.lexers.c_cpp
+#20 22.00 -- Could NOT find Python module yaml
+#20 22.04 -- CMAKE_HOST_SYSTEM_NAME = Linux
+#20 22.04 -- CMAKE_SYSTEM_NAME = Linux
+#20 22.04 -- HERMES_APPLE_TARGET_PLATFORM = 
+#20 22.04 -- CMAKE_CROSSCOMPILING = FALSE
+#20 22.06 -- Looking for readline
+#20 22.34 -- Looking for readline - found
+#20 22.48 -- Configuring done
+#20 23.13 -- Generating done
+#20 23.16 CMake Warning:
+#20 23.16   Manually-specified variables were not used by the project:
+#20 23.16 
+#20 23.16     HERMES_ENABLE_FUZZING
+#20 23.16 
+#20 23.16 
+#20 23.16 -- Build files have been written to: /out/build
+#20 23.21 Building hermes using Ninja into /out/build/
+#20 23.21 CMake flags: -DHERMES_USE_STATIC_ICU=ON -DHERMES_FUZZING_FLAG=/libAFL.a -DHERMES_ENABLE_FUZZING=ON -DPYTHON_EXECUTABLE=/usr/bin/python -DCMAKE_BUILD_TYPE=Debug -DHERMES_ENABLE_ADDRESS_SANITIZER=ON
+#20 23.21 CMake version:
+#20 23.21 cmake version 3.21.1
+#20 23.21 
+#20 23.21 CMake suite maintained and supported by Kitware (kitware.com/cmake).
+#20 23.21 
+#20 23.21 + /usr/local/bin/cmake /src/hermes -G Ninja -DHERMES_USE_STATIC_ICU=ON -DHERMES_FUZZING_FLAG=/libAFL.a -DHERMES_ENABLE_FUZZING=ON -DPYTHON_EXECUTABLE=/usr/bin/python -DCMAKE_BUILD_TYPE=Debug -DHERMES_ENABLE_ADDRESS_SANITIZER=ON
+#20 23.21 + cmake --build /out/build --parallel --target fuzzer-jsi-entry
+#20 23.24 ninja: error: unknown target 'fuzzer-jsi-entry'
+#20 23.24 Traceback (most recent call last):
+#20 23.24   File "<string>", line 1, in <module>
+#20 23.24   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 23.24     utils.build_benchmark()
+#20 23.24   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 23.24     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 23.24   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 23.25     raise CalledProcessError(retcode, cmd)
+#20 23.25 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/hermes_hermes:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2680210: .afl-hermes_hermes-builder] Error 1

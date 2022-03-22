@@ -1,0 +1,2733 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: libpcap_libpcap.
+INFO:root:Please run "make test-run-afl-libpcap_libpcap" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0e24320f4375ec91a8097eb1e90b4c66d92dac5cb4a0706523c7ce5d4f7d7d75
+#1 transferring dockerfile: 1.02kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:847ecc2c951035fe0f51baac0d674767673b9a1adcfa61881ba1450288b17a52
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:61909fc2bd08989acf20435337718023c5c4b08265f5980cd769e9111deab078
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap
+#4 sha256:2aa280c792499dca5ff43204348e7b2645c89646558dc667bf7f550560a3e995
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap:latest: not found
+
+#10 [internal] load build context
+#10 sha256:61909fc2bd08989acf20435337718023c5c4b08265f5980cd769e9111deab078
+#10 transferring context: 1.36kB done
+#10 DONE 0.1s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make cmake flex bison
+#6 sha256:52435ce0b5ed70ac5eb22aeadb5a9a05ed2c063e2307188ebc9c46b9b266dcb6
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/the-tcpdump-group/libpcap.git libpcap
+#7 sha256:6be1c5310f0ddffed9a58551035adc3ac7417371904b93431df7b111c5f8ceae
+#7 CACHED
+
+#8 [4/6] RUN git clone --depth=1 https://github.com/the-tcpdump-group/tcpdump.git tcpdump
+#8 sha256:7282f5fdec7f9fea802be57b838fc3b47b91050654d1456f3e1d6ecc4f1e532a
+#8 CACHED
+
+#9 [5/6] WORKDIR /src
+#9 sha256:274e5ba6725f7d51b4397de1ed66fa5b95ff352a720874c4e77ecac73dadda65
+#9 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:ad899b3c6f6ca319a0f9bc3d866cbc51bb4845d41d54cd32bac1b6031c54cf1c
+#11 DONE 0.3s
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:41f8544132e56f010e80d1361c5c1b2bd1d8dc04432ed48a51a731652f01181d done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:edf4644ce13f9e26c547768a5ab2b7d58642ce283af0a7ee5107e313acc48715
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f162daa3a548bfb5c02611a2100a4d96abdbb563db610c5d901863d17c5bf282
+#2 transferring context: 2B done
+#2 DONE 0.6s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap:latest
+#3 sha256:56df2e20fea9da0eef4cbf8b60264d4f36e01bd334a18b7a6cdc20b86e007b83
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap
+#5 sha256:1391a3cbc0c3e1602fb515d72f5c72cee3b8663c12304be5df8ccc21ccac04d7
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate
+#4 sha256:663fa657d43daea810a524bc995d6d944b0d3f597fec779e646106d74a8f0d0b
+#4 ERROR: gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap
+#5 sha256:1391a3cbc0c3e1602fb515d72f5c72cee3b8663c12304be5df8ccc21ccac04d7
+#5 DONE 0.7s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a40312cdd85912acc5ecf9b4b52ef5957333365617f8209d50713b60d88d0a59
+#6 0.478 Cloning into '/afl'...
+#6 1.597 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.597 
+#6 1.597 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.597 changes and commit them, and you can discard any commits you make in this
+#6 1.597 state without impacting any branches by switching back to a branch.
+#6 1.597 
+#6 1.597 If you want to create a new branch to retain commits you create, you may
+#6 1.597 do so (now or later) by using -c with the switch command. Example:
+#6 1.597 
+#6 1.597   git switch -c <new-branch-name>
+#6 1.597 
+#6 1.597 Or undo this operation with:
+#6 1.597 
+#6 1.597   git switch -
+#6 1.597 
+#6 1.597 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.597 
+#6 1.597 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.615 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.615 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.792 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.796 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 4.155 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.468 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.898 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 5.059 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.454 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.691 ln -sf afl-as as
+#6 5.693 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.695 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.696 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 6.0s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:933d2137840812a0b72a3fe5e4d74bab81f44f861d231d701f6572a06982de6b
+#7 0.828 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.828 Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.828 Hit:3 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.868 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 0.938 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.926 Reading package lists...
+#7 3.409 Reading package lists...
+#7 4.820 Building dependency tree...
+#7 5.033 Reading state information...
+#7 5.278 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.278 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+#7 5.283 --2022-02-16 01:08:42--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.286 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+#7 5.288 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+#7 5.312 HTTP request sent, awaiting response... 200 OK
+#7 5.471 Length: 9177 (9.0K) [text/plain]
+#7 5.471 Saving to: '/afl/afl_driver.cpp'
+#7 5.471 
+#7 5.471      0K ........                                              100% 11.6M=0.001s
+#7 5.472 
+#7 5.472 2022-02-16 01:08:42 (11.6 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.472 
+#7 7.261 ar: creating /libAFL.a
+#7 DONE 7.9s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3ac93ad6683ee9eca1d1c16a6877ec00a58e9a58971c6340cf0bc04fb5548db5
+#8 writing image sha256:3ac93ad6683ee9eca1d1c16a6877ec00a58e9a58971c6340cf0bc04fb5548db5 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e00241671412f400939d2c1161bb70b3575ac06346770bef2464ae8c8ea7fc16
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1ee914e165338e405026fd1abe3f4ac252fa1b578d5a4de50b1b60d36e4c3451
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:9f5925080fc5ec08b19ec0e34735561b9ac75a55dd4155078f1c679b98474fdf
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:b7d246a5be530067ae2c7773bd865b7c3415d11d96e62f7d047eada8d2e841be
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:c21f3db674e546b2225d96fe46e8accb2fccdfd72f97c20efbf6aceff53e466d
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:5763159dbf945e0db8ac8e2cf760161b3a581ab0d11894096c38141e6500275a
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:75b83a798540231c87dac132bc5705c0355b65038af6ebd16b07840b6112bd8f
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:de7d260c240b0af6ff857bc54a3968a402ef106281b0b62ad114f7457c60534d
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7a949239bfbde966bebcb31ed78ad671ce43c13207b29e0c29737ce29d1638cc
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate:latest
+#3 sha256:673ae6c229a44afd51f367b25b4a460ee8361cd080b3615e569472a5cabf29e5
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:ca4469fa5fff3cee90de78b3c2e99507551f6cad9adf386e0d259fa988a5994c
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate
+#6 sha256:fe0f342526391a5862369003f66e141043ae5223b393bad701824c86aae086d4
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libpcap_libpcap
+#5 sha256:f8ca330aac2c15e72e171fd2782203b97494b5222dd5ee990a18ca4bad04c277
+#5 ERROR: gcr.io/fuzzbench/builders/afl/libpcap_libpcap:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:ca4469fa5fff3cee90de78b3c2e99507551f6cad9adf386e0d259fa988a5994c
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate
+#6 sha256:fe0f342526391a5862369003f66e141043ae5223b393bad701824c86aae086d4
+#6 DONE 1.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:3120f4e02c6e2df0edbe031c3df463bf6941bf9a65172c011f7f67f9f4dd61e2
+#8 DONE 0.6s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:aaf888a642a14956ba7d56da774f11045fa28459056c2740abc9a86defbbcbf3
+#9 DONE 44.0s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:f8b8f57b5f601044520173d7df81e38117e47ce489ad9cc74f22e6cc62f1b423
+#10 DONE 0.4s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:2ea8ef09a3ed08b2835198a5b3e57c1d68ff49fb52db267044771b68d599d154
+#11 DONE 56.0s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:d98051b3d5293e49f9accbd0e0d519c10a2257ff81ae04885f422b1ef0150cb0
+#13 DONE 0.6s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:f156c600c13414353ed85135d64d96f756e6a00e98e80a64ed4af55b35a93738
+#14 DONE 0.8s
+
+#15 [stage-1  8/13] COPY benchmarks/libpcap_libpcap/benchmark.yaml /
+#15 sha256:887c81a658d6eb491199de9375df31e5311928f871d02db7c891d0b4089d2285
+#15 DONE 2.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:c8b576998ef58c7e44d9de0c0c525f980f6cb6e771620c5623b9ec4b786764db
+#16 DONE 4.0s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:2041e4ff8af101b6cc6e7755e877e0c0ccb1bf431345d6ecd2fbafb2fab0c97a
+#17 DONE 6.0s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:807b7a5be128f31127f68fc0494f3ad80a7ef12f3eec6ddb6d79b21ce96c70df
+#18 0.514 Checking out commit 84faf557
+#18 10.41 From https://github.com/the-tcpdump-group/tcpdump
+#18 10.41  * [new tag]           tcpdump-3.5.1     -> tcpdump-3.5.1
+#18 10.41  * [new tag]           tcpdump-3.6.1     -> tcpdump-3.6.1
+#18 10.41  * [new tag]           tcpdump-3.7.1     -> tcpdump-3.7.1
+#18 10.41  * [new tag]           tcpdump-3.8-bp    -> tcpdump-3.8-bp
+#18 10.41  * [new tag]           tcpdump-4.5.0     -> tcpdump-4.5.0
+#18 10.42  * [new tag]           tcpdump-4.6.0     -> tcpdump-4.6.0
+#18 10.42  * [new tag]           tcpdump-4.6.0-bp  -> tcpdump-4.6.0-bp
+#18 10.42  * [new tag]           tcpdump-4.7.0-bp  -> tcpdump-4.7.0-bp
+#18 10.42  * [new tag]           tcpdump-4.9.0-bp  -> tcpdump-4.9.0-bp
+#18 10.42  * [new tag]           tcpdump-4.99-bp   -> tcpdump-4.99-bp
+#18 10.42  * [new tag]           tcpdump-4.99.0-bp -> tcpdump-4.99.0-bp
+#18 10.42 error: pathspec '84faf557' did not match any file(s) known to git
+#18 16.43 From https://github.com/the-tcpdump-group/libpcap
+#18 16.43  * [new tag]           libpcap-0.6.1     -> libpcap-0.6.1
+#18 16.43  * [new tag]           libpcap-0.7.1     -> libpcap-0.7.1
+#18 16.43  * [new tag]           libpcap-0.8-bp    -> libpcap-0.8-bp
+#18 16.43  * [new tag]           libpcap-1.10-bp   -> libpcap-1.10-bp
+#18 16.43  * [new tag]           libpcap-1.3-bp    -> libpcap-1.3-bp
+#18 16.43  * [new tag]           libpcap-1.5.0     -> libpcap-1.5.0
+#18 16.43  * [new tag]           libpcap-1.6.0-bp  -> libpcap-1.6.0-bp
+#18 16.43  * [new tag]           libpcap-1.7.0-bp  -> libpcap-1.7.0-bp
+#18 16.43  * [new tag]           libpcap-1.8.0-bp  -> libpcap-1.8.0-bp
+#18 16.43  * [new tag]           libpcap-1.8.1     -> libpcap-1.8.1
+#18 16.43  * [new tag]           libpcap-1.9-bp    -> libpcap-1.9-bp
+#18 16.43  * [new tag]           libpcap-1.9.0-rc1 -> libpcap-1.9.0-rc1
+#18 16.44 error: pathspec '84faf557' did not match any file(s) known to git
+#18 16.44 error: pathspec '84faf557' did not match any file(s) known to git
+#18 16.45 error: pathspec '84faf557' did not match any file(s) known to git
+#18 16.49 error: pathspec '84faf557' did not match any file(s) known to git
+#18 16.50 Checkout unsuccessful.
+#18 DONE 17.4s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:9298c43143e98c3abfd1312861aa77e7e2db7a0cf09ff590bc5b68f67eb1d288
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:8d38d47dda67fd8dc982cf7e5e4419be59a43b0daa483d3a572b247f1efb7aaa
+#20 0.641 Run fuzzer_build to build the target
+#20 0.758 FUZZ_TARGET = libpcap
+#20 0.758 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.758 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.763 Building benchmark libpcap_libpcap with fuzzer afl
+#20 0.766 + cd libpcap
+#20 0.766 + mkdir build
+#20 0.768 + cd build
+#20 0.768 + cmake ..
+#20 0.775 CMake Deprecation Warning at CMakeLists.txt:7 (cmake_minimum_required):
+#20 0.775   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#20 0.775   CMake.
+#20 0.775 
+#20 0.775   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#20 0.775   CMake that the project does not need compatibility with older versions.
+#20 0.775 
+#20 0.775 
+#20 0.775 CMake Deprecation Warning at CMakeLists.txt:16 (cmake_policy):
+#20 0.775   The OLD behavior for policy CMP0042 will be removed from a future version
+#20 0.775   of CMake.
+#20 0.775 
+#20 0.775   The cmake-policies(7) manual explains that the OLD behaviors of all
+#20 0.775   policies are deprecated and that a policy should be set to OLD only under
+#20 0.775   specific short-term circumstances.  Projects should be ported to the NEW
+#20 0.775   behavior and not rely on setting a policy to OLD.
+#20 0.775 
+#20 0.775 
+#20 0.981 -- The C compiler identification is Clang 14.0.0
+#20 1.234 -- The CXX compiler identification is Clang 14.0.0
+#20 1.247 -- Detecting C compiler ABI info
+#20 1.409 -- Detecting C compiler ABI info - done
+#20 1.460 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.460 -- Detecting C compile features
+#20 1.461 -- Detecting C compile features - done
+#20 1.469 -- Detecting CXX compiler ABI info
+#20 1.657 -- Detecting CXX compiler ABI info - done
+#20 1.724 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.724 -- Detecting CXX compile features
+#20 1.725 -- Detecting CXX compile features - done
+#20 1.728 -- Checking C compiler flag -std=gnu99
+#20 1.730 -- Performing Test std-gnu99
+#20 1.882 -- Performing Test std-gnu99 - Success
+#20 1.885 -- Use DYNAMIC runtime
+#20 1.889 -- Looking for inttypes.h
+#20 2.050 -- Looking for inttypes.h - found
+#20 2.051 -- Looking for stdint.h
+#20 2.212 -- Looking for stdint.h - found
+#20 2.213 -- Looking for unistd.h
+#20 2.377 -- Looking for unistd.h - found
+#20 2.378 -- Looking for bitypes.h
+#20 2.417 -- Looking for bitypes.h - not found
+#20 2.418 -- Looking for sys/ioccom.h
+#20 2.457 -- Looking for sys/ioccom.h - not found
+#20 2.458 -- Looking for sys/sockio.h
+#20 2.495 -- Looking for sys/sockio.h - not found
+#20 2.496 -- Looking for sys/select.h
+#20 2.659 -- Looking for sys/select.h - found
+#20 2.660 -- Looking for netpacket/packet.h
+#20 2.826 -- Looking for netpacket/packet.h - found
+#20 2.827 -- Looking for netinet/if_ether.h
+#20 3.002 -- Looking for netinet/if_ether.h - found
+#20 3.002 -- Performing Test HAVE___ATOMIC_LOAD_N
+#20 3.167 -- Performing Test HAVE___ATOMIC_LOAD_N - Success
+#20 3.167 -- Performing Test HAVE___ATOMIC_STORE_N
+#20 3.339 -- Performing Test HAVE___ATOMIC_STORE_N - Success
+#20 3.339 -- Looking for strerror
+#20 3.505 -- Looking for strerror - found
+#20 3.505 -- Looking for strerror_r
+#20 3.668 -- Looking for strerror_r - found
+#20 3.669 -- Performing Test HAVE_GNU_STRERROR_R
+#20 3.837 -- Performing Test HAVE_GNU_STRERROR_R - Success
+#20 3.838 -- Looking for vsnprintf
+#20 4.015 -- Looking for vsnprintf - found
+#20 4.016 -- Looking for snprintf
+#20 4.190 -- Looking for snprintf - found
+#20 4.190 -- Looking for strlcpy
+#20 4.352 -- Looking for strlcpy - not found
+#20 4.352 -- Looking for strlcat
+#20 4.516 -- Looking for strlcat - not found
+#20 4.516 -- Looking for asprintf
+#20 4.687 -- Looking for asprintf - found
+#20 4.687 -- Looking for vasprintf
+#20 4.850 -- Looking for vasprintf - found
+#20 4.850 -- Looking for strtok_r
+#20 5.019 -- Looking for strtok_r - found
+#20 5.020 -- Looking for vsyslog
+#20 5.245 -- Looking for vsyslog - found
+#20 5.246 -- Looking for getaddrinfo
+#20 5.406 -- Looking for getaddrinfo - found
+#20 5.407 -- Looking for putmsg
+#20 5.565 -- Looking for putmsg - not found
+#20 5.566 -- Looking for putmsg in str
+#20 5.659 -- Looking for putmsg in str - not found
+#20 5.661 -- Looking for getnetbyname_r
+#20 5.838 -- Looking for getnetbyname_r - found
+#20 5.839 -- Performing Test HAVE_LINUX_GETNETBYNAME_R
+#20 6.011 -- Performing Test HAVE_LINUX_GETNETBYNAME_R - Success
+#20 6.012 -- Looking for getprotobyname_r
+#20 6.186 -- Looking for getprotobyname_r - found
+#20 6.187 -- Performing Test HAVE_LINUX_GETPROTOBYNAME_R
+#20 6.364 -- Performing Test HAVE_LINUX_GETPROTOBYNAME_R - Success
+#20 6.366 -- Looking for sys/types.h
+#20 6.549 -- Looking for sys/types.h - found
+#20 6.550 -- Looking for stddef.h
+#20 6.711 -- Looking for stddef.h - found
+#20 6.711 -- Check size of struct sockaddr_storage
+#20 6.925 -- Check size of struct sockaddr_storage - done
+#20 6.926 -- Check size of socklen_t
+#20 7.133 -- Check size of socklen_t - done
+#20 7.134 -- Performing Test HAVE_STRUCT_SOCKADDR_SA_LEN
+#20 7.181 -- Performing Test HAVE_STRUCT_SOCKADDR_SA_LEN - Failed
+#20 7.182 -- Looking for ffs
+#20 7.344 -- Looking for ffs - found
+#20 7.345 -- Looking for ffs
+#20 7.509 -- Looking for ffs - found
+#20 7.510 -- Looking for ether_hostton
+#20 7.673 -- Looking for ether_hostton - found
+#20 7.675 -- Looking for ether_hostton
+#20 7.724 -- Looking for ether_hostton - not found
+#20 7.726 -- Looking for ether_hostton
+#20 7.899 -- Looking for ether_hostton - found
+#20 7.902 -- Looking for native LFS support
+#20 8.074 -- Looking for native LFS support - found
+#20 8.075 -- Found LFS: TRUE  
+#20 8.079 -- Looking for native fseeko support
+#20 8.243 -- Looking for native fseeko support - found
+#20 8.244 -- Found FSEEKO: TRUE  
+#20 8.244 -- Support IPv6
+#20 8.247 -- Looking for pthread.h
+#20 8.417 -- Looking for pthread.h - found
+#20 8.418 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 8.590 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 8.593 -- Found Threads: TRUE  
+#20 8.617 -- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+#20 8.618 -- Looking for include files sys/types.h, net/bpf.h
+#20 8.659 -- Looking for include files sys/types.h, net/bpf.h - not found
+#20 8.660 -- Looking for net/pfilt.h
+#20 8.701 -- Looking for net/pfilt.h - not found
+#20 8.702 -- Looking for net/enet.h
+#20 8.745 -- Looking for net/enet.h - not found
+#20 8.746 -- Looking for net/nit.h
+#20 8.788 -- Looking for net/nit.h - not found
+#20 8.789 -- Looking for sys/net/nit.h
+#20 8.830 -- Looking for sys/net/nit.h - not found
+#20 8.830 -- Looking for linux/socket.h
+#20 8.990 -- Looking for linux/socket.h - found
+#20 8.991 -- Looking for net/raw.h
+#20 9.122 -- Looking for net/raw.h - not found
+#20 9.122 -- Looking for sys/dlpi.h
+#20 9.161 -- Looking for sys/dlpi.h - not found
+#20 9.162 -- Looking for config/HaikuConfig.h
+#20 9.200 -- Looking for config/HaikuConfig.h - not found
+#20 9.200 -- Packet capture mechanism type: linux
+#20 9.206 -- Looking for include files sys/socket.h, linux/wireless.h
+#20 9.378 -- Looking for include files sys/socket.h, linux/wireless.h - found
+#20 9.380 -- Looking for nl_socket_alloc
+#20 9.473 -- Looking for nl_socket_alloc - not found
+#20 9.474 -- Performing Test HAVE_STRUCT_TPACKET_AUXDATA_TP_VLAN_TCI
+#20 9.629 -- Performing Test HAVE_STRUCT_TPACKET_AUXDATA_TP_VLAN_TCI - Success
+#20 9.630 -- Looking for getifaddrs
+#20 9.789 -- Looking for getifaddrs - found
+#20 9.791 -- Looking for include files sys/types.h, ifaddrs.h
+#20 9.960 -- Looking for include files sys/types.h, ifaddrs.h - found
+#20 9.960 -- Find-interfaces mechanism type: getad
+#20 9.961 -- Looking for linux/net_tstamp.h
+#20 10.13 -- Looking for linux/net_tstamp.h - found
+#20 10.13 -- Looking for include file linux/compiler.h
+#20 10.32 -- Looking for include file linux/compiler.h - not found
+#20 10.32 -- Looking for include file linux/usbdevice_fs.h
+#20 10.70 -- Looking for include file linux/usbdevice_fs.h - found
+#20 10.70 -- Performing Test HAVE_STRUCT_USBDEVFS_CTRLTRANSFER_BREQUESTTYPE
+#20 10.86 -- Performing Test HAVE_STRUCT_USBDEVFS_CTRLTRANSFER_BREQUESTTYPE - Success
+#20 10.86 -- Performing Test PCAP_SUPPORT_NETFILTER
+#20 11.03 -- Performing Test PCAP_SUPPORT_NETFILTER - Success
+#20 11.03 -- Performing Test PCAP_SUPPORT_NETMAP
+#20 11.07 -- Performing Test PCAP_SUPPORT_NETMAP - Failed
+#20 11.07 -- Executing Finddpdk
+#20 11.07 -- Executing find_path
+#20 11.09 -- Could NOT find dpdk (missing: dpdk_INCLUDE_DIRS) 
+#20 11.09 -- Looking for bluetooth/bluetooth.h
+#20 11.13 -- Looking for bluetooth/bluetooth.h - not found
+#20 11.13 -- Looking for ibv_get_device_list in ibverbs
+#20 11.23 -- Looking for ibv_get_device_list in ibverbs - not found
+#20 11.23 -- Could NOT find DAG (missing: DAG_INCLUDE_DIR DAG_LIBRARY DAGCONF_LIBRARY) 
+#20 11.24 -- Looking for msg.h
+#20 11.27 -- Looking for msg.h - not found
+#20 11.28 -- Could NOT find SNF (missing: SNF_INCLUDE_DIR SNF_LIBRARY) 
+#20 11.28 CMake Warning (dev) at /usr/local/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+#20 11.28   The package name passed to `find_package_handle_standard_args` (AIRPCAP)
+#20 11.28   does not match the name of the calling package (AirPcap).  This can lead to
+#20 11.28   problems in calling code that expects `find_package` result variables
+#20 11.28   (e.g., `_FOUND`) to follow a certain pattern.
+#20 11.28 Call Stack (most recent call first):
+#20 11.28   cmake/Modules/FindAirPcap.cmake:60 (find_package_handle_standard_args)
+#20 11.28   CMakeLists.txt:1819 (find_package)
+#20 11.28 This warning is for project developers.  Use -Wno-dev to suppress it.
+#20 11.28 
+#20 11.28 -- Could NOT find AIRPCAP (missing: AIRPCAP_INCLUDE_DIR AIRPCAP_LIBRARY) 
+#20 11.29 -- Could NOT find TC (missing: TC_INCLUDE_DIR TC_LIBRARY) 
+#20 11.29 -- Checking C compiler flag -fvisibility=hidden
+#20 11.29 -- Performing Test fvisibility-hidden
+#20 11.44 -- Performing Test fvisibility-hidden - Success
+#20 11.44 -- Lexical analyzer generator: /usr/bin/flex
+#20 11.45 -- Parser generator: /usr/bin/bison
+#20 11.48 -- Configuring done
+#20 11.53 -- Generating done
+#20 11.53 -- Build files have been written to: /src/libpcap/build
+#20 11.54 + make
+#20 11.56 [  1%] Generating grammar.c, grammar.h
+#20 11.83 [  3%] Generating scanner.c, scanner.h
+#20 11.90 [  3%] Built target SerializeTarget
+#20 11.91 [  5%] Building C object CMakeFiles/pcap.dir/bpf_dump.c.o
+#20 11.98 [  6%] Building C object CMakeFiles/pcap.dir/bpf_filter.c.o
+#20 12.12 [  8%] Building C object CMakeFiles/pcap.dir/bpf_image.c.o
+#20 12.22 [ 10%] Building C object CMakeFiles/pcap.dir/etherent.c.o
+#20 12.39 [ 11%] Building C object CMakeFiles/pcap.dir/fmtutils.c.o
+#20 12.46 [ 13%] Building C object CMakeFiles/pcap.dir/gencode.c.o
+#20 17.65 [ 15%] Building C object CMakeFiles/pcap.dir/nametoaddr.c.o
+#20 17.81 [ 16%] Building C object CMakeFiles/pcap.dir/optimize.c.o
+#20 20.12 [ 18%] Building C object CMakeFiles/pcap.dir/pcap-common.c.o
+#20 20.26 [ 20%] Building C object CMakeFiles/pcap.dir/pcap.c.o
+#20 20.82 [ 22%] Building C object CMakeFiles/pcap.dir/savefile.c.o
+#20 20.94 [ 23%] Building C object CMakeFiles/pcap.dir/sf-pcapng.c.o
+#20 21.17 [ 25%] Building C object CMakeFiles/pcap.dir/sf-pcap.c.o
+#20 21.36 [ 27%] Building C object CMakeFiles/pcap.dir/missing/strlcat.c.o
+#20 21.41 [ 28%] Building C object CMakeFiles/pcap.dir/missing/strlcpy.c.o
+#20 21.44 [ 30%] Building C object CMakeFiles/pcap.dir/pcap-linux.c.o
+#20 22.08 [ 32%] Building C object CMakeFiles/pcap.dir/fad-getad.c.o
+#20 22.18 [ 33%] Building C object CMakeFiles/pcap.dir/pcap-usb-linux.c.o
+#20 22.36 [ 35%] Building C object CMakeFiles/pcap.dir/pcap-netfilter-linux.c.o
+#20 22.59 [ 37%] Building C object CMakeFiles/pcap.dir/grammar.c.o
+#20 23.09 [ 38%] Building C object CMakeFiles/pcap.dir/scanner.c.o
+#20 23.63 [ 40%] Linking C shared library libpcap.so
+#20 23.80 [ 44%] Built target pcap
+#20 23.81 [ 45%] Building C object CMakeFiles/pcap_static.dir/bpf_dump.c.o
+#20 23.87 [ 47%] Building C object CMakeFiles/pcap_static.dir/bpf_filter.c.o
+#20 24.01 [ 49%] Building C object CMakeFiles/pcap_static.dir/bpf_image.c.o
+#20 24.11 [ 50%] Building C object CMakeFiles/pcap_static.dir/etherent.c.o
+#20 24.25 [ 52%] Building C object CMakeFiles/pcap_static.dir/fmtutils.c.o
+#20 24.32 [ 54%] Building C object CMakeFiles/pcap_static.dir/gencode.c.o
+#20 29.39 [ 55%] Building C object CMakeFiles/pcap_static.dir/nametoaddr.c.o
+#20 29.54 [ 57%] Building C object CMakeFiles/pcap_static.dir/optimize.c.o
+#20 31.42 [ 59%] Building C object CMakeFiles/pcap_static.dir/pcap-common.c.o
+#20 31.55 [ 61%] Building C object CMakeFiles/pcap_static.dir/pcap.c.o
+#20 32.07 [ 62%] Building C object CMakeFiles/pcap_static.dir/savefile.c.o
+#20 32.18 [ 64%] Building C object CMakeFiles/pcap_static.dir/sf-pcapng.c.o
+#20 32.42 [ 66%] Building C object CMakeFiles/pcap_static.dir/sf-pcap.c.o
+#20 32.61 [ 67%] Building C object CMakeFiles/pcap_static.dir/missing/strlcat.c.o
+#20 32.65 [ 69%] Building C object CMakeFiles/pcap_static.dir/missing/strlcpy.c.o
+#20 32.70 [ 71%] Building C object CMakeFiles/pcap_static.dir/pcap-linux.c.o
+#20 33.32 [ 72%] Building C object CMakeFiles/pcap_static.dir/fad-getad.c.o
+#20 33.41 [ 74%] Building C object CMakeFiles/pcap_static.dir/pcap-usb-linux.c.o
+#20 33.59 [ 76%] Building C object CMakeFiles/pcap_static.dir/pcap-netfilter-linux.c.o
+#20 33.83 [ 77%] Building C object CMakeFiles/pcap_static.dir/grammar.c.o
+#20 34.31 [ 79%] Building C object CMakeFiles/pcap_static.dir/scanner.c.o
+#20 34.85 [ 81%] Linking C static library libpcap.a
+#20 34.90 [ 84%] Built target pcap_static
+#20 34.92 [ 86%] Building C object testprogs/fuzz/CMakeFiles/fuzz_pcap.dir/onefile.c.o
+#20 34.97 [ 88%] Building C object testprogs/fuzz/CMakeFiles/fuzz_pcap.dir/fuzz_pcap.c.o
+#20 35.05 [ 89%] Linking C executable ../../run/fuzz_pcap
+#20 35.19 [ 89%] Built target fuzz_pcap
+#20 35.20 [ 91%] Building C object testprogs/fuzz/CMakeFiles/fuzz_both.dir/onefile.c.o
+#20 35.26 [ 93%] Building C object testprogs/fuzz/CMakeFiles/fuzz_both.dir/fuzz_both.c.o
+#20 35.34 [ 94%] Linking C executable ../../run/fuzz_both
+#20 35.49 [ 94%] Built target fuzz_both
+#20 35.50 [ 96%] Building C object testprogs/fuzz/CMakeFiles/fuzz_filter.dir/onefile.c.o
+#20 35.55 [ 98%] Building C object testprogs/fuzz/CMakeFiles/fuzz_filter.dir/fuzz_filter.c.o
+#20 35.61 [100%] Linking C executable ../../run/fuzz_filter
+#20 35.76 [100%] Built target fuzz_filter
+#20 35.77 + for target in pcap filter both
+#20 35.77 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I.. -c ../testprogs/fuzz/fuzz_pcap.c -o fuzz_pcap.o
+#20 35.84 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard fuzz_pcap.o -o /out/fuzz_pcap libpcap.a /libAFL.a
+#20 36.11 + for target in pcap filter both
+#20 36.11 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I.. -c ../testprogs/fuzz/fuzz_filter.c -o fuzz_filter.o
+#20 36.17 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard fuzz_filter.o -o /out/fuzz_filter libpcap.a /libAFL.a
+#20 36.44 + for target in pcap filter both
+#20 36.44 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I.. -c ../testprogs/fuzz/fuzz_both.c -o fuzz_both.o
+#20 36.52 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard fuzz_both.o -o /out/fuzz_both libpcap.a /libAFL.a
+#20 36.78 + cd ..
+#20 36.78 + cp testprogs/fuzz/fuzz_both.options testprogs/fuzz/fuzz_filter.options testprogs/fuzz/fuzz_pcap.options /out/
+#20 36.78 + cd /src/tcpdump/
+#20 36.78 + zip -r fuzz_pcap_seed_corpus.zip tests/
+#20 36.81   adding: tests/ (stored 0%)
+#20 36.81   adding: tests/hoobr_chdlc_print.pcap (deflated 94%)
+#20 36.81   adding: tests/smb_data_print-oobr-nosmb.out (deflated 66%)
+#20 36.81   adding: tests/pcap-invalid-version-1.pcap (deflated 1%)
+#20 36.81   adding: tests/igmpv1.out (deflated 81%)
+#20 36.81   adding: tests/LLDP_and_CDP.pcap (deflated 84%)
+#20 36.81   adding: tests/ip_ts_opts_asan.pcap (deflated 7%)
+#20 36.81   adding: tests/extract_read2_asan.pcap (deflated 31%)
+#20 36.81   adding: tests/brcm-tag-e.out (deflated 87%)
+#20 36.81   adding: tests/lspping-fec-rsvp.pcap (deflated 64%)
+#20 36.81   adding: tests/bgp-aigp-2.out (deflated 41%)
+#20 36.81   adding: tests/RADIUS-RFC5176.pcap (deflated 35%)
+#20 36.81   adding: tests/RADIUS-RFC3162.pcap (deflated 33%)
+#20 36.81   adding: tests/isakmp3.out (deflated 74%)
+#20 36.81   adding: tests/sflow_print-segv.pcap (deflated 74%)
+#20 36.81   adding: tests/icmpv6-rfc7112.out (deflated 23%)
+#20 36.81   adding: tests/hsrp_1.out (deflated 89%)
+#20 36.81   adding: tests/ospf2-seg-fault-1-v.out (deflated 34%)
+#20 36.81   adding: tests/isupvv.out (deflated 77%)
+#20 36.81   adding: tests/reason_code-45.pcap (deflated 16%)
+#20 36.81   adding: tests/pcap-invalid-version-1.out.stderr (stored 0%)
+#20 36.81   adding: tests/macsec-short-shorter.pcap (deflated 15%)
+#20 36.81   adding: tests/quic_handshake.pcap (deflated 16%)
+#20 36.81   adding: tests/status_code-68.pcap (deflated 17%)
+#20 36.81   adding: tests/zmtp1-inf-loop-1.pcapng (deflated 26%)
+#20 36.81   adding: tests/dhcpv6-ia-pd.out (deflated 71%)
+#20 36.81   adding: tests/dhcpv6-ntp-server.pcap (deflated 32%)
+#20 36.81   adding: tests/eigrp1-v.out (deflated 94%)
+#20 36.82   adding: tests/pcap-invalid-version-2.out (deflated 3%)
+#20 36.82   adding: tests/dhcpv6-ntp-server.out (deflated 32%)
+#20 36.82   adding: tests/cve2015-0261-crash.out (deflated 37%)
+#20 36.82   adding: tests/bgp_mp_reach_nlri-oobr.out (deflated 68%)
+#20 36.82   adding: tests/reason_code-29.pcap (deflated 16%)
+#20 36.82   adding: tests/ldp-infinite-loop.pcap (deflated 58%)
+#20 36.82   adding: tests/bgp-aigp-oobr.pcap (deflated 99%)
+#20 36.82   adding: tests/lspping-fec-ldp-v.out (deflated 85%)
+#20 36.82   adding: tests/status_code-63.pcap (deflated 17%)
+#20 36.82   adding: tests/icmpv6.pcap (deflated 55%)
+#20 36.82   adding: tests/dns-badcookie.out (deflated 55%)
+#20 36.82   adding: tests/status_code-54.pcap (deflated 18%)
+#20 36.82   adding: tests/status_code-98.pcap (deflated 17%)
+#20 36.82   adding: tests/hncp_dhcpv6data-oobr.out (deflated 22%)
+#20 36.82   adding: tests/relts-0x80000000.pcap (deflated 85%)
+#20 36.82   adding: tests/beep-oobr.out (deflated 45%)
+#20 36.82   adding: tests/babel_rtt.pcap (deflated 59%)
+#20 36.82   adding: tests/dccp_partial_csum_v6_simple.pcap (deflated 60%)
+#20 36.82   adding: tests/status_code-2.pcap (deflated 19%)
+#20 36.82   adding: tests/isis-areaaddr-oobr-2.pcap (deflated 99%)
+#20 36.82   adding: tests/reason_code-44.pcap (deflated 16%)
+#20 36.82   adding: tests/dns_udp_8053-T.out (deflated 50%)
+#20 36.82   adding: tests/esis_snpa_asan-2.out (deflated 18%)
+#20 36.82   adding: tests/bgp-encap.pcap (deflated 25%)
+#20 36.82   adding: tests/bgp_infloop-v.out (deflated 71%)
+#20 36.82   adding: tests/08-sunrise-sunset-aes.pcap (deflated 27%)
+#20 36.82   adding: tests/dsa.pcap (deflated 65%)
+#20 36.82   adding: tests/pgm_group_addr_asan.out (deflated 27%)
+#20 36.82   adding: tests/forces2vvv.out (deflated 92%)
+#20 36.82   adding: tests/rpki-rtr-oobr.out (deflated 22%)
+#20 36.82   adding: tests/pppoes.out (deflated 37%)
+#20 36.82   adding: tests/status_code-13.pcap (deflated 17%)
+#20 36.82   adding: tests/ipx.pcap (deflated 85%)
+#20 36.82   adding: tests/loopback.pcap (deflated 79%)
+#20 36.82   adding: tests/kday1.out (stored 0%)
+#20 36.82   adding: tests/bfd-sbfd.pcap (deflated 76%)
+#20 36.82   adding: tests/rx_ubik-oobr.out (deflated 21%)
+#20 36.82   adding: tests/isis_poi.out (deflated 35%)
+#20 36.82   adding: tests/lmp.out (deflated 81%)
+#20 36.82   adding: tests/ikev2four.pcap (deflated 24%)
+#20 36.82   adding: tests/ntp-time--v.out (deflated 64%)
+#20 36.82   adding: tests/status_code-8.pcap (deflated 17%)
+#20 36.82   adding: tests/eigrp-tlv-oobr.out (deflated 95%)
+#20 36.82   adding: tests/ipv6-srh-ipproto-ether-ev.out (deflated 38%)
+#20 36.82   adding: tests/pim_header_asan.out (deflated 28%)
+#20 36.82   adding: tests/edns-opts.pcap (deflated 73%)
+#20 36.82   adding: tests/lmp-v-fptype2.out (deflated 87%)
+#20 36.83   adding: tests/esis_snpa_asan.pcap (deflated 46%)
+#20 36.83   adding: tests/ospf-gmpls.pcap (deflated 58%)
+#20 36.83   adding: tests/reason_code-40.pcap (deflated 16%)
+#20 36.83   adding: tests/syslog-v.out (deflated 67%)
+#20 36.83   adding: tests/802_15_4-oobr-1.out (deflated 14%)
+#20 36.83   adding: tests/heapoverflow-ppp_hdlc_if_print.out (stored 0%)
+#20 36.83   adding: tests/mptcp-v1.out (deflated 83%)
+#20 36.83   adding: tests/resp_4_infiniteloop.out (deflated 80%)
+#20 36.83   adding: tests/icmp-icmp_print-oobr-2.pcap (deflated 33%)
+#20 36.83   adding: tests/isup.out (deflated 74%)
+#20 36.83   adding: tests/reason_code-24.pcap (deflated 16%)
+#20 36.83   adding: tests/status_code-26.pcap (deflated 17%)
+#20 36.83   adding: tests/isakmp-various-oobr.out (deflated 40%)
+#20 36.83   adding: tests/smb_data_print-segv.out (deflated 68%)
+#20 36.83   adding: tests/frf16_magic_ie-oobr.out (deflated 19%)
+#20 36.83   adding: tests/reason_code-8.pcap (deflated 16%)
+#20 36.83   adding: tests/pgm_opts_asan.pcap (deflated 13%)
+#20 36.83   adding: tests/status_code-96.pcap (deflated 17%)
+#20 36.83   adding: tests/RADIUS.pcap (deflated 34%)
+#20 36.83   adding: tests/ieee802.11_meshid.out (deflated 55%)
+#20 36.83   adding: tests/eigrp2-v.out (deflated 92%)
+#20 36.83   adding: tests/isakmpv1-attr-oobr.out (deflated 23%)
+#20 36.83   adding: tests/isis_poi.pcap (deflated 11%)
+#20 36.83   adding: tests/dhcp-rfc4388.pcap (deflated 90%)
+#20 36.83   adding: tests/someip2.pcap (deflated 20%)
+#20 36.83   adding: tests/vtp_asan.pcap (deflated 41%)
+#20 36.83   adding: tests/kh-timed-001-oobr.pcap (deflated 86%)
+#20 36.83   adding: tests/heap-overflow-2.pcap (deflated 39%)
+#20 36.83   adding: tests/UDLD.pcap (deflated 85%)
+#20 36.83   adding: tests/LACP.pcap (deflated 89%)
+#20 36.83   adding: tests/ntp-control.out (deflated 85%)
+#20 36.83   adding: tests/dcb_pfc.out (deflated 84%)
+#20 36.83   adding: tests/dhcpv6-domain-list.pcap (deflated 33%)
+#20 36.83   adding: tests/dns-uri.out (deflated 52%)
+#20 36.83   adding: tests/status_code-42.pcap (deflated 18%)
+#20 36.83   adding: tests/bfd-raw-auth-md5.out (deflated 93%)
+#20 36.83   adding: tests/isis-areaaddr-oobr-1.out (deflated 39%)
+#20 36.83   adding: tests/EIGRP_ipv6.pcap (deflated 37%)
+#20 36.83   adding: tests/lwres_with_extra.pcap (deflated 35%)
+#20 36.83   adding: tests/ipv6-srh-ipproto-ether-v.out (deflated 33%)
+#20 36.83   adding: tests/RADIUS-RFC4675.pcap (deflated 31%)
+#20 36.83   adding: tests/nflog-e.out (deflated 65%)
+#20 36.83   adding: tests/reason_code-0.pcap (deflated 16%)
+#20 36.83   adding: tests/hdlc1.out (deflated 11%)
+#20 36.83   adding: tests/bcm-li-v.out (deflated 92%)
+#20 36.83   adding: tests/ntp-time.out (deflated 40%)
+#20 36.83   adding: tests/empty.pcap (deflated 33%)
+#20 36.83   adding: tests/esp3.gdbinit (deflated 19%)
+#20 36.83   adding: tests/dhcpv6-domain-list.out (deflated 33%)
+#20 36.83   adding: tests/rx_serviceid_oobr.pcap (deflated 30%)
+#20 36.83   adding: tests/ospf-nssa-bitnt.pcap (deflated 26%)
+#20 36.83   adding: tests/e1000g.out (deflated 86%)
+#20 36.83   adding: tests/esis_snpa_asan-3.pcap (deflated 39%)
+#20 36.83   adding: tests/slip-bad-direction.pcap (deflated 39%)
+#20 36.83   adding: tests/isis-seg-fault-1-v.tests (deflated 41%)
+#20 36.83   adding: tests/vrrp-vrrp_print-oobr.out (deflated 70%)
+#20 36.83   adding: tests/radius-rfc5580-v.out (deflated 59%)
+#20 36.83   adding: tests/rsvp_uni-oobr-2.pcap (deflated 2%)
+#20 36.83   adding: tests/icmp-cksum-oobr-2.out (deflated 39%)
+#20 36.83   adding: tests/tcp_rst_data.pcap (deflated 5%)
+#20 36.83   adding: tests/rpl-26-senddaovv.out (deflated 19%)
+#20 36.83   adding: tests/OLSRv1_HNA_sgw_1.out (deflated 51%)
+#20 36.83   adding: tests/eigrp3-v.out (deflated 90%)
+#20 36.83   adding: tests/RADIUS-RFC5176-2.pcap (deflated 17%)
+#20 36.83   adding: tests/bgp-addpath.out (deflated 63%)
+#20 36.83   adding: tests/bgp-as-path-oobr-ssl.out (deflated 99%)
+#20 36.84   adding: tests/TESTLIST (deflated 75%)
+#20 36.84   adding: tests/status_code-23.pcap (deflated 17%)
+#20 36.84   adding: tests/slip-bad-direction.out (stored 0%)
+#20 36.84   adding: tests/HDLC.pcap (deflated 74%)
+#20 36.84   adding: tests/reason_code-7.pcap (deflated 16%)
+#20 36.84   adding: tests/reason_code-38.pcap (deflated 16%)
+#20 36.84   adding: tests/radiotap-heapoverflow.pcap (deflated 40%)
+#20 36.84   adding: tests/ipx-invalid-length.out (deflated 16%)
+#20 36.84   adding: tests/kday7.out (deflated 75%)
+#20 36.84   adding: tests/pimv2-oobr-2.out (deflated 73%)
+#20 36.84   adding: tests/babel_rfc6126bis.out (deflated 94%)
+#20 36.84   adding: tests/ieee802.11_rates_oobr.pcap (deflated 64%)
+#20 36.84   adding: tests/pcap-invalid-version-2.out.stderr (stored 0%)
+#20 36.84   adding: tests/icmp-icmp_print-oobr-2.out (deflated 28%)
+#20 36.84   adding: tests/icmp6_mobileprefix_asan.pcap (deflated 21%)
+#20 36.84   adding: tests/eapon1.pcap (deflated 80%)
+#20 36.84   adding: tests/bgp_mvpn_6_and_7_oobr.pcap (deflated 22%)
+#20 36.84   adding: tests/vsock-1-vv.out (deflated 76%)
+#20 36.84   adding: tests/epgm_zmtp1.pcap (deflated 87%)
+#20 36.84   adding: tests/vsock-1-v.out (deflated 77%)
+#20 36.84   adding: tests/mtrace.out (deflated 54%)
+#20 36.84   adding: tests/of10_pf5240-vv.out (deflated 88%)
+#20 36.84   adding: tests/heapoverflow-atalk_2.pcap (deflated 46%)
+#20 36.84   adding: tests/mobility_opt_asan_4.pcap (deflated 17%)
+#20 36.84   adding: tests/isakmpv1-attr-oobr.pcap (deflated 7%)
+#20 36.84   adding: tests/bfd-raw-auth-simple.pcap (deflated 79%)
+#20 36.84   adding: tests/e1000g.pcap (deflated 80%)
+#20 36.84   adding: tests/reason_code-19.pcap (deflated 16%)
+#20 36.84   adding: tests/rsvp-infinite-loop.pcap (deflated 63%)
+#20 36.84   adding: tests/status_code-71.pcap (deflated 17%)
+#20 36.84   adding: tests/tcp-handshake-nano.pcap (deflated 35%)
+#20 36.84   adding: tests/lwres_with_extra.out (deflated 29%)
+#20 36.84   adding: tests/bootp_asan.pcap (deflated 14%)
+#20 36.84   adding: tests/syslog_udp.pcap (deflated 45%)
+#20 36.84   adding: tests/802_15_4-oobr-2.pcap (deflated 9%)
+#20 36.84   adding: tests/mlppp-oobr.pcap (deflated 34%)
+#20 36.84   adding: tests/tcp-handshake-micro.out (deflated 55%)
+#20 36.84   adding: tests/stp-v.out (deflated 91%)
+#20 36.84   adding: tests/udp-length-heapoverflow.out (deflated 23%)
+#20 36.84   adding: tests/dns-zlip-3.pcap (deflated 27%)
+#20 36.84   adding: tests/hncp.out (deflated 76%)
+#20 36.84   adding: tests/OLSRv1_HNA_sgw_1.pcap (deflated 16%)
+#20 36.84   adding: tests/isis_sr.out (deflated 48%)
+#20 36.84   adding: tests/pptp.pcap (deflated 71%)
+#20 36.84   adding: tests/forces3vvv.out (deflated 91%)
+#20 36.84   adding: tests/nfs-attr-oobr.out (deflated 98%)
+#20 36.84   adding: tests/ospf6_print_lshdr-oobr.pcap (deflated 71%)
+#20 36.85   adding: tests/ipoib.pcap (deflated 63%)
+#20 36.85   adding: tests/DECnet_Phone.pcap (deflated 81%)
+#20 36.85   adding: tests/lmp-lmp_print_data_link_subobjs-oobr.pcap (deflated 40%)
+#20 36.85   adding: tests/esis_snpa_asan-3.out (deflated 41%)
+#20 36.85   adding: tests/nsh-over-vxlan-gpe-vv.out (deflated 42%)
+#20 36.85   adding: tests/lmpv1_busyloop.out (deflated 76%)
+#20 36.85   adding: tests/cve2015-0261-ipv6.out (deflated 60%)
+#20 36.85   adding: tests/hoobr_safeputs.pcap (deflated 52%)
+#20 36.85   adding: tests/dns_tcp-v.out (deflated 77%)
+#20 36.85   adding: tests/whois.pcap (deflated 47%)
+#20 36.85   adding: tests/pktap-heap-overflow.pcap (deflated 74%)
+#20 36.85   adding: tests/rsvp_cap.out (deflated 48%)
+#20 36.85   adding: tests/status_code-14.pcap (deflated 17%)
+#20 36.85   adding: tests/tcp-handshake-micro-ttttt.out (deflated 59%)
+#20 36.85   adding: tests/of10_s4810-vvvv.out (deflated 90%)
+#20 36.85   adding: tests/802_15_4-data.out (deflated 13%)
+#20 36.85   adding: tests/status_code-17.pcap (deflated 17%)
+#20 36.85   adding: tests/esp1.gdbinit (deflated 21%)
+#20 36.85   adding: tests/isakmp5-v.out (deflated 80%)
+#20 36.85   adding: tests/edns-opts.out (deflated 82%)
+#20 36.85   adding: tests/radius-rfc3162-v.out (deflated 61%)
+#20 36.85   adding: tests/udld-inf-loop-1-v.out (deflated 43%)
+#20 36.85   adding: tests/unaligned-nfs-1.pcap (deflated 31%)
+#20 36.85   adding: tests/heapoverflow-tcp_print.pcap (deflated 60%)
+#20 36.85   adding: tests/status_code-3.pcap (deflated 17%)
+#20 36.85   adding: tests/pppoes.pcap (deflated 26%)
+#20 36.85   adding: tests/macsec-short-valid.out (deflated 25%)
+#20 36.85   adding: tests/ripv2_auth.out (deflated 78%)
+#20 36.85   adding: tests/of10_inv_QUEUE_GET_CONFIG_REPLY.pcap (deflated 85%)
+#20 36.85   adding: tests/heapoverflow-atalk_2.out (stored 0%)
+#20 36.85   adding: tests/bgp-rt-prefix.pcap (deflated 64%)
+#20 36.85   adding: tests/ieee802.11_rx-stbc.pcap (deflated 43%)
+#20 36.85   adding: tests/mobility_opt_asan_3.pcap (deflated 31%)
+#20 36.85   adding: tests/bgp_pmsi_tunnel-oobr.out (deflated 25%)
+#20 36.85   adding: tests/unsupported-link-type-160.out (deflated 31%)
+#20 36.85   adding: tests/IGMP_V1.pcap (deflated 69%)
+#20 36.85   adding: tests/ISIS_external_lsp.pcap (deflated 97%)
+#20 36.85   adding: tests/status_code-34.pcap (deflated 17%)
+#20 36.85   adding: tests/ahcp-vv.out (deflated 84%)
+#20 36.85   adding: tests/status_code-88.pcap (deflated 18%)
+#20 36.85   adding: tests/status_code-16.pcap (deflated 17%)
+#20 36.85   adding: tests/hoobr_nfs_printfh.pcap (deflated 95%)
+#20 36.85   adding: tests/rsvp_uni-oobr-3.pcap (deflated 30%)
+#20 36.85   adding: tests/ipv6-srh-insert-cksum.pcap (deflated 89%)
+#20 36.85   adding: tests/bootp_asan-2.pcap (deflated 20%)
+#20 36.85   adding: tests/isis_stlv_asan-3.out (deflated 46%)
+#20 36.85   adding: tests/status_code-75.pcap (deflated 17%)
+#20 36.85   adding: tests/whois-v.out (deflated 73%)
+#20 36.85   adding: tests/nsh-over-vxlan-gpe-vvv.out (deflated 48%)
+#20 36.85   adding: tests/ipv6-rthdr-oobr.pcap (deflated 60%)
+#20 36.85   adding: tests/bgp-4byte-asdot.out (deflated 87%)
+#20 36.85   adding: tests/heapoverflow-sl_if_print.out (stored 0%)
+#20 36.85   adding: tests/edsa-e.out (deflated 85%)
+#20 36.85   adding: tests/ikev2fourv4.out (deflated 66%)
+#20 36.85   adding: tests/EIGRP_adjacency.pcap (deflated 85%)
+#20 36.85   adding: tests/bgp-encap.out (deflated 44%)
+#20 36.85   adding: tests/mobility_opt_asan_2.out (deflated 21%)
+#20 36.85   adding: tests/bgp-enhanced-route-refresh-subtype.pcapng (deflated 56%)
+#20 36.85   adding: tests/dns_udp-vv.out (deflated 52%)
+#20 36.85   adding: tests/isis_poi2.pcap (deflated 12%)
+#20 36.85   adding: tests/rsvp_infloop-v.out (deflated 81%)
+#20 36.85   adding: tests/TESTrun (deflated 67%)
+#20 36.86   adding: tests/eapon1.out (deflated 85%)
+#20 36.86   adding: tests/status_code-9.pcap (deflated 17%)
+#20 36.86   adding: tests/status_code-70.pcap (deflated 17%)
+#20 36.86   adding: tests/forces1vvvv.out (deflated 86%)
+#20 36.86   adding: tests/EIGRP_goodbye.pcap (deflated 83%)
+#20 36.86   adding: tests/hdlc2.out (deflated 7%)
+#20 36.86   adding: tests/hoobr_nfs_xid_map_enter.pcap (deflated 93%)
+#20 36.86   adding: tests/evb.pcap (deflated 86%)
+#20 36.86   adding: tests/vtp_asan-2.pcap (deflated 10%)
+#20 36.86   adding: tests/cve-2014-8768-Geonet.out (deflated 19%)
+#20 36.86   adding: tests/802_15_4_beacon.pcap (deflated 13%)
+#20 36.86   adding: tests/hoobr_bfd_print.out (deflated 71%)
+#20 36.86   adding: tests/status_code-41.pcap (deflated 17%)
+#20 36.86   adding: tests/juniper_header-heapoverflow.pcap (deflated 71%)
+#20 36.86   adding: tests/reason_code-20.pcap (deflated 16%)
+#20 36.86   adding: tests/extract_read2_asan.out (deflated 26%)
+#20 36.86   adding: tests/esis_snpa_asan-5.out (deflated 52%)
+#20 36.86   adding: tests/tcp-handshake-nano-ttt.out (deflated 57%)
+#20 36.86   adding: tests/vrrp-vrrp_print-oobr-2.out (deflated 85%)
+#20 36.86   adding: tests/PIM-SM_join_prune.pcap (deflated 79%)
+#20 36.86   adding: tests/print-A.out (deflated 60%)
+#20 36.86   adding: tests/radius-v.out (deflated 76%)
+#20 36.86   adding: tests/ntp-mode7--v.out (deflated 81%)
+#20 36.86   adding: tests/of10_inv_OFPST_FLOW.pcap (deflated 67%)
+#20 36.86   adding: tests/dns_tcp-vvv.out (deflated 75%)
+#20 36.86   adding: tests/cve-2014-8767-OLSR.pcap (deflated 36%)
+#20 36.86   adding: tests/dccp_partial_csum_v4_longer.pcap (deflated 64%)
+#20 36.86   adding: tests/rpvst-v.out (deflated 88%)
+#20 36.86   adding: tests/status_code-20.pcap (deflated 17%)
+#20 36.86   adding: tests/lldp_8021_linkagg.pcap (deflated 40%)
+#20 36.86   adding: tests/babel_rfc6126bis.pcap (deflated 79%)
+#20 36.86   adding: tests/icmp-icmp_print-oobr-1.pcap (deflated 33%)
+#20 36.86   adding: tests/of10_inv_QUEUE_GET_CONFIG_REPLY-vv.out (deflated 35%)
+#20 36.86   adding: tests/radius-rfc5176-2-v.out (deflated 44%)
+#20 36.86   adding: tests/reason_code-23.pcap (deflated 16%)
+#20 36.86   adding: tests/dhcpv6-sip-server-d.pcap (deflated 28%)
+#20 36.86   adding: tests/rsvp_uni-oobr-1.out (deflated 28%)
+#20 36.86   adding: tests/printf_z.tests (deflated 86%)
+#20 36.86   adding: tests/pimv2_register-v.out (deflated 53%)
+#20 36.86   adding: tests/OSPFv3_NBMA_adjacencies.pcap (deflated 81%)
+#20 36.86   adding: tests/mobility_opt_asan_6.pcap (deflated 33%)
+#20 36.86   adding: tests/tok2str-oobr-2.pcap (deflated 24%)
+#20 36.86   adding: tests/stp-heapoverflow-1.out (deflated 93%)
+#20 36.86   adding: tests/OSPFv3_broadcast_adjacency.pcap (deflated 77%)
+#20 36.86   adding: tests/arista_ether-ev.out (deflated 89%)
+#20 36.86   adding: tests/evb.out (deflated 88%)
+#20 36.86   adding: tests/babel_pad1.pcap (deflated 39%)
+#20 36.86   adding: tests/ipv6-srh-ipproto-ether.pcap (deflated 36%)
+#20 36.86   adding: tests/juniper_atm1_oobr.pcap (deflated 31%)
+#20 36.86   adding: tests/status_code-0.pcap (deflated 18%)
+#20 36.86   adding: tests/olsr-oobr-1.out (deflated 74%)
+#20 36.86   adding: tests/.gitignore (stored 0%)
+#20 36.86   adding: tests/kday4.out (deflated 75%)
+#20 36.86   adding: tests/pimv2-oobr-3.out (deflated 44%)
+#20 36.86   adding: tests/print-capX.out (deflated 64%)
+#20 36.86   adding: tests/cve-2014-8768-Geonet.pcap (deflated 25%)
+#20 36.86   adding: tests/reason_code-46.pcap (deflated 16%)
+#20 36.86   adding: tests/status_code-53.pcap (deflated 17%)
+#20 36.86   adding: tests/hoobr_juniper.pcap (deflated 34%)
+#20 36.86   adding: tests/dhcp-rfc3004-v.out (deflated 78%)
+#20 36.87   adding: tests/bgp_pmsi_tunnel-oobr.pcap (deflated 14%)
+#20 36.87   adding: tests/mptcp-tcprst.out (deflated 47%)
+#20 36.87   adding: tests/status_code-80.pcap (deflated 17%)
+#20 36.87   adding: tests/gquic.pcap (deflated 56%)
+#20 36.87   adding: tests/ntp-time--vv.out (deflated 64%)
+#20 36.87   adding: tests/status_code-38.pcap (deflated 17%)
+#20 36.87   adding: tests/dhcpv6-mud.out (deflated 84%)
+#20 36.87   adding: tests/nsh-over-vxlan-gpe-v.out (deflated 42%)
+#20 36.87   adding: tests/802_15_4-oobr-1.pcap (deflated 18%)
+#20 36.87   adding: tests/esis_snpa_asan-4.pcap (deflated 51%)
+#20 36.87   adding: tests/bgp_vpn_rt-oobr.pcap (deflated 80%)
+#20 36.87   adding: tests/dccp_partial_csum_v4_simple.pcap (deflated 47%)
+#20 36.87   adding: tests/sflow-print-v6.pcap (deflated 89%)
+#20 36.87   adding: tests/icmpv6_opt24-v.out (deflated 71%)
+#20 36.87   adding: tests/heapoverflow-in_checksum.pcap (deflated 48%)
+#20 36.87   adding: tests/resp_4_infiniteloop.pcapng (deflated 72%)
+#20 36.87   adding: tests/ospf3_nbma-vv.out (deflated 94%)
+#20 36.87   adding: tests/status_code-107.pcap (deflated 17%)
+#20 36.87   adding: tests/wb-oobr.out (deflated 79%)
+#20 36.87   adding: tests/isoclns-heapoverflow-3.out (deflated 24%)
+#20 36.87   adding: tests/heapoverflow-ppp_hdlc_if_print.pcap (deflated 40%)
+#20 36.87   adding: tests/status_code-30.pcap (deflated 17%)
+#20 36.87   adding: tests/wb-oobr.pcap (deflated 76%)
+#20 36.87   adding: tests/isis_sid.pcap (deflated 52%)
+#20 36.87   adding: tests/dhcpv6-ia-pd.pcap (deflated 60%)
+#20 36.87   adding: tests/pgm_poll_polr.out (deflated 90%)
+#20 36.87   adding: tests/status_code-101.pcap (deflated 17%)
+#20 36.87   adding: tests/mobility_opt_asan_7.out (deflated 48%)
+#20 36.87   adding: tests/l2tp-avp-overflow.out (deflated 89%)
+#20 36.87   adding: tests/eapon1-v-nosmb.out (deflated 88%)
+#20 36.87   adding: tests/isis_2-v.out (deflated 93%)
+#20 36.87   adding: tests/setkey2esp-secrets.pl (deflated 37%)
+#20 36.87   adding: tests/esp2.gdbinit (deflated 43%)
+#20 36.87   adding: tests/geneve.pcap (deflated 52%)
+#20 36.87   adding: tests/reason_code-37.pcap (deflated 16%)
+#20 36.87   adding: tests/isakmp-3948-oobr-2.pcap (deflated 51%)
+#20 36.87   adding: tests/bgp-lu-multiple-labels.out (deflated 86%)
+#20 36.87   adding: tests/atm-heapoverflow.out (stored 0%)
+#20 36.87   adding: tests/resp_1_benchmark.pcap (deflated 88%)
+#20 36.87   adding: tests/brcm-tag.out (deflated 83%)
+#20 36.87   adding: tests/ip_printroute_asan.pcap (deflated 8%)
+#20 36.87   adding: tests/ipv6-routing-header.out (deflated 72%)
+#20 36.87   adding: tests/lmp.pcap (deflated 65%)
+#20 36.87   adding: tests/bfd-multihop.out (deflated 90%)
+#20 36.87   adding: tests/hoobr_parse_field.out (deflated 62%)
+#20 36.87   adding: tests/isis-extd-ipreach-oobr.out (deflated 93%)
+#20 36.87   adding: tests/isoclns-oobr.out (stored 0%)
+#20 36.87   adding: tests/isis_3-v.out (deflated 95%)
+#20 36.87   adding: tests/icmp-cksum-oobr-2.pcap (deflated 37%)
+#20 36.87   adding: tests/olsr-oobr-2.out (deflated 28%)
+#20 36.87   adding: tests/of10_7050sx_bsn.pcap (deflated 69%)
+#20 36.87   adding: tests/heapoverflow-atalk_print.pcap (deflated 48%)
+#20 36.87   adding: tests/babel.pcap (deflated 75%)
+#20 36.87   adding: tests/pgm_opts_asan_2.out (deflated 29%)
+#20 36.87   adding: tests/3560_CDP.pcap (deflated 69%)
+#20 36.87   adding: tests/status_code-78.pcap (deflated 17%)
+#20 36.87   adding: tests/dns_udp.out (deflated 34%)
+#20 36.87   adding: tests/heapoverflow-q933_printq.out (deflated 15%)
+#20 36.87   adding: tests/reason_code-21.pcap (deflated 16%)
+#20 36.87   adding: tests/reason_code-60.pcap (deflated 16%)
+#20 36.87   adding: tests/eap_extract_read2_asan.pcap (deflated 18%)
+#20 36.87   adding: tests/mobility_opt_asan_8.pcap (deflated 19%)
+#20 36.87   adding: tests/802.1w_rapid_STP.pcap (deflated 87%)
+#20 36.87   adding: tests/decnet-oobr.pcap (deflated 68%)
+#20 36.87   adding: tests/isoclns-heapoverflow.out (stored 0%)
+#20 36.87   adding: tests/802_15_4-oobr-2.out (deflated 1%)
+#20 36.88   adding: tests/oobr_parse_elements.pcap (deflated 85%)
+#20 36.88   adding: tests/reason_code-32.pcap (deflated 16%)
+#20 36.88   adding: tests/PIM_register_register-stop.pcap (deflated 41%)
+#20 36.88   adding: tests/rstp-v.out (deflated 93%)
+#20 36.88   adding: tests/tfo-5c1fa7f9ae91.pcap (deflated 58%)
+#20 36.88   adding: tests/dhcp-mud.out (deflated 59%)
+#20 36.88   adding: tests/reason_code-22.pcap (deflated 16%)
+#20 36.88   adding: tests/dns_tcp_8053.pcap (deflated 49%)
+#20 36.88   adding: tests/802_15_4-data.pcap (deflated 8%)
+#20 36.88   adding: tests/geonet_and_calm_fast.pcap (deflated 78%)
+#20 36.88   adding: tests/bgp-aigp.pcap (deflated 23%)
+#20 36.88   adding: tests/ptp_ethernet.out (deflated 95%)
+#20 36.88   adding: tests/pgm_zmtp1v.out (deflated 81%)
+#20 36.88   adding: tests/reason_code-54.pcap (deflated 16%)
+#20 36.88   adding: tests/ieee802.11_meshhdr-oobr.pcap (deflated 53%)
+#20 36.88   adding: tests/EIGRP_subnet_up.pcap (deflated 75%)
+#20 36.88   adding: tests/epgmv.out (deflated 88%)
+#20 36.88   adding: tests/aoe-oobr-1.pcap (deflated 24%)
+#20 36.88   adding: tests/isakmp-rfc3948-oobr.pcap (deflated 96%)
+#20 36.88   adding: tests/smb_print_trans-oobr2.out (deflated 49%)
+#20 36.88   adding: tests/lldp_mudurl-vv.out (deflated 77%)
+#20 36.88   adding: tests/msnlb.out (deflated 50%)
+#20 36.88   adding: tests/unsupported-link-type-dbus.pcap (deflated 42%)
+#20 36.88   adding: tests/of10_p3295-vv.out (deflated 91%)
+#20 36.88   adding: tests/dsa.out (deflated 74%)
+#20 36.88   adding: tests/status_code-51.pcap (deflated 17%)
+#20 36.88   adding: tests/spb_bpduv4.out (deflated 85%)
+#20 36.88   adding: tests/aarp-heapoverflow-2.out (deflated 3%)
+#20 36.88   adding: tests/tok2str-oobr-1.pcap (deflated 40%)
+#20 36.88   adding: tests/hoobr_ripng_print.pcap (deflated 45%)
+#20 36.88   adding: tests/ikev2pI2-segfault-v.out (deflated 40%)
+#20 36.88   adding: tests/kh-timed-002-oobr.out (deflated 18%)
+#20 36.88   adding: tests/tftp-T.out (deflated 72%)
+#20 36.88   adding: tests/ikev2pI2.out (deflated 68%)
+#20 36.88   adding: tests/esis_snpa_asan-2.pcap (deflated 24%)
+#20 36.88   adding: tests/rpl-dao-oobr.pcap (deflated 39%)
+#20 36.88   adding: tests/igmpv2.out (deflated 76%)
+#20 36.88   adding: tests/reason_code-31.pcap (deflated 16%)
+#20 36.88   adding: tests/mobility_opt_asan_5.pcap (deflated 10%)
+#20 36.88   adding: tests/status_code-4.pcap (deflated 18%)
+#20 36.88   adding: tests/status_code-11.pcap (deflated 17%)
+#20 36.88   adding: tests/hoobr_aodv_extension.pcap (deflated 59%)
+#20 36.88   adding: tests/reason_code-42.pcap (deflated 16%)
+#20 36.88   adding: tests/hoobr_juniper2.pcap (deflated 40%)
+#20 36.88   adding: tests/ospf3_bc-vv.out (deflated 92%)
+#20 36.88   adding: tests/slip-compressed_sl_print-oobr.pcap (stored 0%)
+#20 36.88   adding: tests/dhcpv6-ia-ta.out (deflated 71%)
+#20 36.88   adding: tests/mpbgp-linklocal-nexthop.out (deflated 38%)
+#20 36.88   adding: tests/isis_stlv_asan-2.pcap (deflated 35%)
+#20 36.88   adding: tests/chdlc-slarp-short.pcap (deflated 21%)
+#20 36.88   adding: tests/pgmv.out (deflated 88%)
+#20 36.88   adding: tests/dccp_partial_csum_v6_simple.out (deflated 74%)
+#20 36.88   adding: tests/isis_1.out (deflated 81%)
+#20 36.88   adding: tests/bad-ipv4-version-pgm-heapoverflow.out (stored 0%)
+#20 36.88   adding: tests/lldp_cdp-ev.out (deflated 90%)
+#20 36.88   adding: tests/bgp-link-bw-extcommunity.pcapng (deflated 59%)
+#20 36.88   adding: tests/vrrp-vrrp_print-oobr-2.pcap (deflated 76%)
+#20 36.88   adding: tests/ppp_ccp_config_deflate_option_asan.out (deflated 19%)
+#20 36.88   adding: tests/reason_code-62.pcap (deflated 16%)
+#20 36.88   adding: tests/reason_code-56.pcap (deflated 16%)
+#20 36.88   adding: tests/status_code-94.pcap (deflated 17%)
+#20 36.88   adding: tests/pktap-heap-overflow.out (deflated 9%)
+#20 36.88   adding: tests/status_code-10.pcap (deflated 17%)
+#20 36.88   adding: tests/ip_printroute_asan.out (deflated 26%)
+#20 36.88   adding: tests/isis_stlv_asan.pcap (deflated 71%)
+#20 36.88   adding: tests/ipv6-next-header-oobr-1.out (deflated 53%)
+#20 36.88   adding: tests/status_code-106.pcap (deflated 17%)
+#20 36.88   adding: tests/hoobr_nfs_xid_map_enter.out (deflated 93%)
+#20 36.88   adding: tests/espudp1.pcap (deflated 26%)
+#20 36.88   adding: tests/dns_tcp_8053-T.out (deflated 75%)
+#20 36.88   adding: tests/dcb_ets.pcap (deflated 90%)
+#20 36.89   adding: tests/status_code-76.pcap (deflated 17%)
+#20 36.89   adding: tests/cfm_sender_id-oobr.out (deflated 35%)
+#20 36.89   adding: tests/ssh.out (deflated 85%)
+#20 36.89   adding: tests/of10_s4810.pcap (deflated 83%)
+#20 36.89   adding: tests/dns_tcp.out (deflated 72%)
+#20 36.89   adding: tests/stp-v4-length-sigsegv.pcap (deflated 80%)
+#20 36.89   adding: tests/lspping-fec-ldp-vv.out (deflated 86%)
+#20 36.89   adding: tests/status_code-73.pcap (deflated 17%)
+#20 36.89   adding: tests/ospf3_ah-vv.out (deflated 91%)
+#20 36.89   adding: tests/lspping-fec-ldp.out (deflated 76%)
+#20 36.89   adding: tests/HSRP_coup.pcap (deflated 85%)
+#20 36.89   adding: tests/reason_code-34.pcap (deflated 16%)
+#20 36.89   adding: tests/cve2015-0261-ipv6.pcap (deflated 72%)
+#20 36.89   adding: tests/dhcpv6-ia-na.out (deflated 71%)
+#20 36.89   adding: tests/ip6_frag_asan.pcap (deflated 14%)
+#20 36.89   adding: tests/esp-secrets.txt (deflated 57%)
+#20 36.89   adding: tests/isakmp-no-none-np.out (deflated 97%)
+#20 36.89   adding: tests/isis-extd-isreach-oobr.pcap (deflated 53%)
+#20 36.89   adding: tests/isis_stlv_asan-2.out (deflated 55%)
+#20 36.89   adding: tests/ipv6-srh-ext-header.out (deflated 38%)
+#20 36.89   adding: tests/dns_udp_8053.out (deflated 47%)
+#20 36.89   adding: tests/icmp-cksum-oobr-1.out (deflated 40%)
+#20 36.89   adding: tests/status_code-99.pcap (deflated 17%)
+#20 36.89   adding: tests/stp-heapoverflow-4.out (deflated 92%)
+#20 36.89   adding: tests/of10_7050q.pcapng (deflated 43%)
+#20 36.89   adding: tests/bad-ipv4-version-pgm-heapoverflow.pcap (deflated 51%)
+#20 36.89   adding: tests/bfd-lag.pcap (deflated 73%)
+#20 36.89   adding: tests/icmpv6-length-zero.pcapng (deflated 41%)
+#20 36.89   adding: tests/status_code-65.pcap (deflated 17%)
+#20 36.89   adding: tests/isakmp-3948-oobr-2.out (deflated 21%)
+#20 36.89   adding: tests/isup.pcap (deflated 44%)
+#20 36.89   adding: tests/icmpv6.out (deflated 64%)
+#20 36.89   adding: tests/dcb_qcn.pcap (deflated 84%)
+#20 36.89   adding: tests/eapon1-nosmb.out (deflated 83%)
+#20 36.89   adding: tests/ikev1_id_ipv6_addr_subnet-oobr.pcap (deflated 19%)
+#20 36.89   adding: tests/nsh.pcap (deflated 18%)
+#20 36.89   adding: tests/pim_header_asan-3.pcap (deflated 17%)
+#20 36.89   adding: tests/edsa.out (deflated 76%)
+#20 36.89   adding: tests/otv-heapoverflow-1.out (deflated 71%)
+#20 36.89   adding: tests/isis_stlv_asan-4.out (deflated 57%)
+#20 36.89   adding: tests/status_code-36.pcap (deflated 17%)
+#20 36.89   adding: tests/pgm_opts_asan_3.pcap (deflated 11%)
+#20 36.89   adding: tests/babel_auth.out (deflated 39%)
+#20 36.89   adding: tests/bfd-multihop.pcap (deflated 80%)
+#20 36.89   adding: tests/ipv6-srh-insert-cksum.out (deflated 20%)
+#20 36.89   adding: tests/mptcp-v1.pcap (deflated 5%)
+#20 36.89   adding: tests/atm-oam-heapoverflow.pcap (deflated 36%)
+#20 36.89   adding: tests/status_code-35.pcap (deflated 17%)
+#20 36.89   adding: tests/radius-rfc5176-v.out (deflated 71%)
+#20 36.89   adding: tests/rtp-seg-fault-2.pcapng (deflated 35%)
+#20 36.89   adding: tests/mptcp-tcprst.pcap (deflated 44%)
+#20 36.89   adding: tests/lisp_ipv6.out (deflated 73%)
+#20 36.89   adding: tests/resp_1.out (deflated 92%)
+#20 36.89   adding: tests/snmp-heapoverflow-1.out (deflated 89%)
+#20 36.89   adding: tests/of13_ericsson-vv.out (deflated 85%)
+#20 36.90   adding: tests/dnssec.pcap (deflated 25%)
+#20 36.90   adding: tests/ptp.pcap (deflated 52%)
+#20 36.90   adding: tests/hoobr_juniper4.out (stored 0%)
+#20 36.90   adding: tests/edns-opts-vv.out (deflated 84%)
+#20 36.90   adding: tests/bfd-raw-auth-sha1.out (deflated 92%)
+#20 36.90   adding: tests/reason_code-59.pcap (deflated 16%)
+#20 36.90   adding: tests/stp-heapoverflow-1.pcap (deflated 92%)
+#20 36.90   adding: tests/isis-extd-ipreach-oobr.pcap (deflated 100%)
+#20 36.90   adding: tests/hoobr_juniper2.out (stored 0%)
+#20 36.90   adding: tests/kday1.pcap (deflated 20%)
+#20 36.90   adding: tests/status_code-15.pcap (deflated 17%)
+#20 36.90   adding: tests/heapoverflow-atalk_print.out (stored 0%)
+#20 36.90   adding: tests/isis_sr.pcapng (deflated 23%)
+#20 36.90   adding: tests/bgp-aigp-oobr-ssl.out (deflated 99%)
+#20 36.90   adding: tests/forces2v.out (stored 0%)
+#20 36.90   adding: tests/reason_code-3.pcap (deflated 16%)
+#20 36.90   adding: tests/reason_code-41.pcap (deflated 16%)
+#20 36.90   adding: tests/lisp_eid_register.pcap (deflated 53%)
+#20 36.90   adding: tests/ipoib-e.out (deflated 83%)
+#20 36.90   adding: tests/mpls-over-udp.out (deflated 49%)
+#20 36.90   adding: tests/zmtp1-inf-loop-1.out (deflated 20%)
+#20 36.90   adding: tests/mtrace.pcap (deflated 36%)
+#20 36.90   adding: tests/bfd-lag-v.out (deflated 85%)
+#20 36.90   adding: tests/ieee802.11_meshid.pcap (deflated 46%)
+#20 36.90   adding: tests/rx.out (deflated 87%)
+#20 36.90   adding: tests/lsp-ping-timestamp.out (deflated 37%)
+#20 36.90   adding: tests/dhcp-rfc3004.pcap (deflated 82%)
+#20 36.91   adding: tests/lspping-fec-rsvp-vv.out (deflated 88%)
+#20 36.91   adding: tests/mrinfo_query.pcap (deflated 32%)
+#20 36.91   adding: tests/bgp-link-bw-extcommunity.out (deflated 83%)
+#20 36.91   adding: tests/babel_pad1.out (deflated 48%)
+#20 36.91   adding: tests/isoclns-heapoverflow-2.out (deflated 19%)
+#20 36.91   adding: tests/hoobr_juniper3.out (deflated 3%)
+#20 36.91   adding: tests/reason_code-61.pcap (deflated 16%)
+#20 36.91   adding: tests/status_code-104.pcap (deflated 17%)
+#20 36.91   adding: tests/mpls-ldp-hello.pcap (deflated 16%)
+#20 36.91   adding: tests/status_code-79.pcap (deflated 17%)
+#20 36.91   adding: tests/reason_code-63.pcap (deflated 16%)
+#20 36.91   adding: tests/nfs-write-verf-cookie.out (deflated 49%)
+#20 36.91   adding: tests/rsvp_uni-oobr-3.out (deflated 60%)
+#20 36.91   adding: tests/quic_handshake.out (deflated 84%)
+#20 36.91   adding: tests/status_code-52.pcap (deflated 17%)
+#20 36.91   adding: tests/icmpv6-length-zero.out (deflated 6%)
+#20 36.91   adding: tests/heap-overflow-1.pcap (deflated 39%)
+#20 36.91   adding: tests/bgp_mp_reach_nlri-oobr.pcap (deflated 80%)
+#20 36.91   adding: tests/isis_cap_tlv.pcap (deflated 52%)
+#20 36.91   adding: tests/status_code-40.pcap (deflated 17%)
+#20 36.91   adding: tests/mptcp-aa-v1.out (deflated 82%)
+#20 36.91   adding: tests/ikev2pI2.pcap (deflated 26%)
+#20 36.91   adding: tests/udld-v.out (deflated 94%)
+#20 36.91   adding: tests/status_code-1.pcap (deflated 17%)
+#20 36.91   adding: tests/arp-oobr.out (deflated 92%)
+#20 36.92   adding: tests/kday7.pcap (deflated 71%)
+#20 36.92   adding: tests/unsupported-link-type-160.pcap (deflated 30%)
+#20 36.92   adding: tests/esp5.out (deflated 85%)
+#20 36.92   adding: tests/reason_code-58.pcap (deflated 16%)
+#20 36.92   adding: tests/arp-oobr.pcap (deflated 86%)
+#20 36.92   adding: tests/hoobr_pimv1.pcap (deflated 91%)
+#20 36.92   adding: tests/hoobr_parse_field.pcap (deflated 74%)
+#20 36.92   adding: tests/kday8.pcap (deflated 43%)
+#20 36.92   adding: tests/mstp-v.out (deflated 93%)
+#20 36.92   adding: tests/macsec-changed.pcap (deflated 15%)
+#20 36.92   adding: tests/ldp_tlv_print-oobr.pcap (deflated 48%)
+#20 36.92   adding: tests/tok2str-oobr-1.out (deflated 64%)
+#20 36.92   adding: tests/rpl-19-pickdag.pcap (deflated 38%)
+#20 36.92   adding: tests/vrrp.pcap (deflated 90%)
+#20 36.92   adding: tests/igmpv3-queries.out (deflated 70%)
+#20 36.92   adding: tests/isis_stlv_asan.out (deflated 58%)
+#20 36.92   adding: tests/sflow_print-segv.out (deflated 19%)
+#20 36.92   adding: tests/pcapng-invalid-vers-2.out.stderr (stored 0%)
+#20 36.92   adding: tests/l2tp-avp-overflow.pcap (deflated 87%)
+#20 36.92   adding: tests/pimv2-oobr-3.pcap (deflated 99%)
+#20 36.92   adding: tests/ldp-ldp_tlv_print-oobr.out (deflated 38%)
+#20 36.92   adding: tests/nbns-valgrind.pcap (deflated 18%)
+#20 36.92   adding: tests/isis_sid.out (deflated 80%)
+#20 36.93   adding: tests/status_code-105.pcap (deflated 17%)
+#20 36.93   adding: tests/stp-heapoverflow-3.out (deflated 93%)
+#20 36.93   adding: tests/isakmp-ikev1_n_print-oobr.pcap (deflated 42%)
+#20 36.93   adding: tests/isis-infinite-loop.pcap (deflated 70%)
+#20 36.93   adding: tests/igrp-oobr.out (deflated 28%)
+#20 36.93   adding: tests/lmp-lmp_print_data_link_subobjs-oobr.out (deflated 67%)
+#20 36.93   adding: tests/chdlc-slarp.pcap (deflated 19%)
+#20 36.93   adding: tests/dns_udp.pcap (deflated 30%)
+#20 36.93   adding: tests/bgp-bgp_capabilities_print-oobr-2.pcap (deflated 24%)
+#20 36.93   adding: tests/bgp-4byte-asn.out (deflated 87%)
+#20 36.93   adding: tests/tcp-auth-heapoverflow.out (deflated 34%)
+#20 36.93   adding: tests/kday3.pcap (deflated 55%)
+#20 36.93   adding: tests/lisp_eid_notify.pcap (deflated 72%)
+#20 36.93   adding: tests/tok2str-oobr-2.out (deflated 48%)
+#20 36.93   adding: tests/pim_header_asan.pcap (deflated 19%)
+#20 36.93   adding: tests/of10_p3295.pcap (deflated 84%)
+#20 36.93   adding: tests/bgp-bgp_capabilities_print-oobr-2.out (deflated 52%)
+#20 36.93   adding: tests/olsr-oobr-1.pcap (deflated 61%)
+#20 36.93   adding: tests/msnlb2.pcapng (deflated 46%)
+#20 36.93   adding: tests/isis_stlv_asan-4.pcap (deflated 54%)
+#20 36.93   adding: tests/macsec-snap.pcap (deflated 22%)
+#20 36.93   adding: tests/lldp-app-priority.out (deflated 61%)
+#20 36.93   adding: tests/kday8.out (deflated 60%)
+#20 36.93   adding: tests/slip-sliplink_print-oobr.pcap (stored 0%)
+#20 36.93   adding: tests/tcp-auth-heapoverflow.pcap (deflated 59%)
+#20 36.93   adding: tests/isoclns-heapoverflow.pcap (deflated 45%)
+#20 36.93   adding: tests/decnet-shorthdr-oobr.pcap (deflated 93%)
+#20 36.93   adding: tests/telnet-iac-check-oobr.pcap (deflated 99%)
+#20 36.93   adding: tests/spb.out (deflated 84%)
+#20 36.93   adding: tests/hdlc_slarp.pcapng (deflated 57%)
+#20 36.93   adding: tests/rtp-seg-fault-2.out (deflated 19%)
+#20 36.93   adding: tests/dns-badlabel.pcap (deflated 100%)
+#20 36.93   adding: tests/pimv2_dm-v.out (deflated 92%)
+#20 36.93   adding: tests/nfs-write-verf-cookie.pcapng (deflated 39%)
+#20 36.93   adding: tests/reason_code-15.pcap (deflated 16%)
+#20 36.93   adding: tests/decnet.out (deflated 83%)
+#20 36.93   adding: tests/eigrp5.out (deflated 4%)
+#20 36.93   adding: tests/bgp-bgp_capabilities_print-oobr-1.pcap (deflated 23%)
+#20 36.93   adding: tests/nsh.out (deflated 13%)
+#20 36.93   adding: tests/esis_snpa_asan-4.out (deflated 67%)
+#20 36.93   adding: tests/bfd-sbfd-v.out (deflated 92%)
+#20 36.93   adding: tests/someip2.out (deflated 20%)
+#20 36.93   adding: tests/ptp_ethernet.pcap (deflated 85%)
+#20 36.93   adding: tests/status_code-58.pcap (deflated 17%)
+#20 36.93   adding: tests/status_code-6.pcap (deflated 17%)
+#20 36.93   adding: tests/dccp_partial_csum_v4_simple.out (deflated 76%)
+#20 36.93   adding: tests/reason_code-16.pcap (deflated 16%)
+#20 36.93   adding: tests/vtp_asan-2.out (deflated 12%)
+#20 36.93   adding: tests/bgp-aigp-oobr-nossl.out (deflated 99%)
+#20 36.94   adding: tests/mpbgp-linklocal-nexthop.pcap (deflated 27%)
+#20 36.94   adding: tests/mpls-over-udp-v.out (deflated 62%)
+#20 36.94   adding: tests/dccp_partial_csum_v4_longer.out (deflated 83%)
+#20 36.94   adding: tests/ieee802.11_rates_oobr.out (deflated 19%)
+#20 36.94   adding: tests/status_code-72.pcap (deflated 17%)
+#20 36.94   adding: tests/reason_code-26.pcap (deflated 16%)
+#20 36.94   adding: tests/lmpv1_busyloop.pcap (deflated 87%)
+#20 36.94   adding: tests/pgm_opts_asan.out (deflated 27%)
+#20 36.94   adding: tests/forces1vvv.out (deflated 86%)
+#20 36.94   adding: tests/ISAKMP_sa_setup.pcap (deflated 30%)
+#20 36.94   adding: tests/eap_extract_read2_asan.out (stored 0%)
+#20 36.94   adding: tests/quic_retry.pcap (deflated 16%)
+#20 36.94   adding: tests/dtp-v.out (deflated 87%)
+#20 36.94   adding: tests/getname_2_read4_asan.pcap (deflated 16%)
+#20 36.94   adding: tests/kday2.out (deflated 60%)
+#20 36.94   adding: tests/status_code-83.pcap (deflated 17%)
+#20 36.94   adding: tests/dns_udp-vvv.out (deflated 52%)
+#20 36.94   adding: tests/mobility_opt_asan_5.out (deflated 21%)
+#20 36.94   adding: tests/status_code-100.pcap (deflated 17%)
+#20 36.94   adding: tests/isis_iid_tlv.out (deflated 95%)
+#20 36.94   adding: tests/OSPFv3_with_AH.pcap (deflated 75%)
+#20 36.94   adding: tests/pppoe.pcap (deflated 18%)
+#20 36.94   adding: tests/ospf2-seg-fault-1.pcapng (deflated 34%)
+#20 36.94   adding: tests/vsock-1.out (deflated 71%)
+#20 36.94   adding: tests/non-bsd.tests (deflated 39%)
+#20 36.94   adding: tests/isakmp4500.pcap (deflated 48%)
+#20 36.94   adding: tests/status_code-84.pcap (deflated 17%)
+#20 36.94   adding: tests/smb_print_trans-oobr1-nosmb.out (deflated 67%)
+#20 36.94   adding: tests/mptcp-aa-v1.pcap (deflated 64%)
+#20 36.94   adding: tests/q933-heapoverflow-2.pcap (deflated 23%)
+#20 36.94   adding: tests/hoobr_rt6_print.out (deflated 61%)
+#20 36.94   adding: tests/tcp-handshake-nano-t.out (deflated 56%)
+#20 36.94   adding: tests/heapoverflow-in_checksum.out (deflated 29%)
+#20 36.94   adding: tests/lldp-infinite-loop-2.out (deflated 84%)
+#20 36.94   adding: tests/zephyr-oobr.out (deflated 25%)
+#20 36.94   adding: tests/udld-inf-loop-1.pcapng (deflated 24%)
+#20 36.94   adding: tests/quic_handshake_truncated.pcap (deflated 34%)
+#20 36.94   adding: tests/dns_tcp_8053.out (deflated 79%)
+#20 36.94   adding: tests/hoobr_lookup_nsap.out (deflated 91%)
+#20 36.94   adding: tests/pim-packet-assortment-v.out (deflated 92%)
+#20 36.95   adding: tests/vrrp.out (deflated 91%)
+#20 36.95   adding: tests/ntp-mode7--vvv.out (deflated 80%)
+#20 36.95   adding: tests/pcapng-invalid-vers-1.out (deflated 3%)
+#20 36.95   adding: tests/pppoes_id.out (deflated 1%)
+#20 36.95   adding: tests/heapoverflow-sl_if_print.pcap (deflated 52%)
+#20 36.95   adding: tests/pcapng-invalid-vers-1.out.stderr (stored 0%)
+#20 36.95   adding: tests/spb_bpduv4.pcap (deflated 94%)
+#20 36.95   adding: tests/bfd-multihop-v.out (deflated 95%)
+#20 36.95   adding: tests/pptp.out (deflated 77%)
+#20 36.95   adding: tests/status_code-74.pcap (deflated 17%)
+#20 36.95   adding: tests/ipv6-next-header-oobr-2.out (deflated 53%)
+#20 36.95   adding: tests/resp_2.out (deflated 83%)
+#20 36.95   adding: tests/olsr-oobr-2.pcap (deflated 22%)
+#20 36.95   adding: tests/radiotap-heapoverflow.out (stored 0%)
+#20 36.95   adding: tests/bfd-raw-auth-sha1-v.out (deflated 96%)
+#20 36.95   adding: tests/resp_2_inline.pcap (deflated 77%)
+#20 36.95   adding: tests/rx-v.out (deflated 90%)
+#20 36.95   adding: tests/reason_code-64.pcap (deflated 16%)
+#20 36.95   adding: tests/reason_code-66.pcap (deflated 16%)
+#20 36.95   adding: tests/hoobr_aodv_extension.out (deflated 35%)
+#20 36.95   adding: tests/ipv6-next-header-oobr-2.pcap (deflated 63%)
+#20 36.95   adding: tests/status_code-48.pcap (deflated 17%)
+#20 36.95   adding: tests/pppoe.out (deflated 3%)
+#20 36.95   adding: tests/status_code-50.pcap (deflated 17%)
+#20 36.95   adding: tests/lldp_8021_linkagg-vv.out (deflated 57%)
+#20 36.95   adding: tests/stp-heapoverflow-3.pcap (deflated 92%)
+#20 36.95   adding: tests/lldp_asan.pcap (deflated 18%)
+#20 36.95   adding: tests/kh-timed-004-oobr.out (deflated 57%)
+#20 36.95   adding: tests/smb_print_trans-oobr2.pcap (deflated 28%)
+#20 36.95   adding: tests/bgp-aigp.out (deflated 52%)
+#20 36.95   adding: tests/otv-heapoverflow-2.pcap (deflated 51%)
+#20 36.95   adding: tests/mobility_opt_asan.out (deflated 51%)
+#20 36.95   adding: tests/icmpv6_opt24.pcap (deflated 65%)
+#20 36.95   adding: tests/rpl-26-senddaoack.pcap (deflated 20%)
+#20 36.95   adding: tests/quic_vn.pcap (deflated 24%)
+#20 36.96   adding: tests/esp1.out (deflated 85%)
+#20 36.96   adding: tests/rsvp_uni-oobr-2.out (deflated 28%)
+#20 36.96   adding: tests/juniper_es_oobr.out (deflated 2%)
+#20 36.96   adding: tests/juniper_header-heapoverflow.out (stored 0%)
+#20 36.96   adding: tests/lspping-fec-rsvp-v.out (deflated 88%)
+#20 36.96   adding: tests/reason_code-47.pcap (deflated 16%)
+#20 36.96   adding: tests/reason_code-57.pcap (deflated 16%)
+#20 36.96   adding: tests/arista_ether-e.out (deflated 88%)
+#20 36.96   adding: tests/tcp_header_heapoverflow.pcap (deflated 57%)
+#20 36.96   adding: tests/reason_code-13.pcap (deflated 16%)
+#20 36.96   adding: tests/geneve-tcp.out (deflated 87%)
+#20 36.96   adding: tests/babel_auth.pcap (deflated 1%)
+#20 36.96   adding: tests/bgp_vpn_attrset.pcap (deflated 22%)
+#20 36.96   adding: tests/reason_code-17.pcap (deflated 16%)
+#20 36.96   adding: tests/bfd-raw-auth-md5.pcap (deflated 84%)
+#20 36.96   adding: tests/status_code-7.pcap (deflated 17%)
+#20 36.96   adding: tests/bfd-sbfd.out (deflated 88%)
+#20 36.96   adding: tests/mobility_opt_asan_8.out (deflated 24%)
+#20 36.96   adding: tests/ipv6hdr-heapoverflow.pcap (deflated 64%)
+#20 36.96   adding: tests/hncp_prefix-oobr.pcap (deflated 56%)
+#20 36.96   adding: tests/QinQpacket.out (deflated 95%)
+#20 36.96   adding: tests/dns-zlip-2.out (deflated 9%)
+#20 36.96   adding: tests/status_code-57.pcap (deflated 17%)
+#20 36.96   adding: tests/pimv2-oobr-1.pcap (deflated 99%)
+#20 36.96   adding: tests/huge-tipc-messages.out (deflated 82%)
+#20 36.96   adding: tests/ipcomp-heapoverflow.out (deflated 21%)
+#20 36.96   adding: tests/pgm_zmtp1.pcap (deflated 87%)
+#20 36.96   adding: tests/ospf3_mp-vv.out (deflated 94%)
+#20 36.96   adding: tests/hoobr_juniper3.pcap (deflated 35%)
+#20 36.96   adding: tests/of13_ericsson.out (deflated 84%)
+#20 36.96   adding: tests/sflow_multiple_counter_30_pdus-nv.out (deflated 87%)
+#20 36.96   adding: tests/bfd-raw-auth-simple-v.out (deflated 94%)
+#20 36.96   adding: tests/trunc_aack.out (deflated 2%)
+#20 36.96   adding: tests/mpls-traceroute.pcap (deflated 78%)
+#20 36.96   adding: tests/isoclns-oobr.pcap (deflated 42%)
+#20 36.96   adding: tests/dns-uri.pcap (deflated 44%)
+#20 36.96   adding: tests/reason_code-33.pcap (deflated 16%)
+#20 36.96   adding: tests/forces2.pcap (deflated 72%)
+#20 36.96   adding: tests/status_code-27.pcap (deflated 17%)
+#20 36.96   adding: tests/mobility_opt_asan_4.out (deflated 24%)
+#20 36.96   adding: tests/pcapng-invalid-vers-2.out (deflated 3%)
+#20 36.96   adding: tests/relts-0x80000000.out (deflated 29%)
+#20 36.96   adding: tests/macsec-short-longer.out (deflated 25%)
+#20 36.96   adding: tests/igmpv3-queries.pcap (deflated 70%)
+#20 36.96   adding: tests/spb.pcap (deflated 98%)
+#20 36.96   adding: tests/bcm-li.out (deflated 94%)
+#20 36.96   adding: tests/mptcp-fclose.out (deflated 73%)
+#20 36.96   adding: tests/icmp-cksum-oobr-1.pcap (deflated 11%)
+#20 36.97   adding: tests/zmtp1.out (deflated 81%)
+#20 36.97   adding: tests/mpls-traceroute.out (deflated 81%)
+#20 36.97   adding: tests/rpvstp-trunk-native-vid5.pcap (deflated 79%)
+#20 36.97   adding: tests/ikev2fourv.out (deflated 65%)
+#20 36.97   adding: tests/status_code-97.pcap (deflated 17%)
+#20 36.97   adding: tests/radius-rfc5447-v.out (deflated 33%)
+#20 36.97   adding: tests/reason_code-65.pcap (deflated 16%)
+#20 36.97   adding: tests/pim_header_asan-4.out (deflated 45%)
+#20 36.97   adding: tests/igrp-oobr.pcap (deflated 58%)
+#20 36.97   adding: tests/bgp-evpn.pcap (deflated 22%)
+#20 36.97   adding: tests/frf15-heapoverflow.out (stored 0%)
+#20 36.97   adding: tests/isis-seg-fault-1-v.out (deflated 81%)
+#20 36.97   adding: tests/mobility_opt_asan_6.out (deflated 51%)
+#20 36.97   adding: tests/macsec-short-shorter.out (deflated 14%)
+#20 36.97   adding: tests/otv-heapoverflow-1.pcap (deflated 51%)
+#20 36.97   adding: tests/reason_code-53.pcap (deflated 16%)
+#20 36.97   adding: tests/lldp_8023_mtu-oobr.pcap (deflated 3%)
+#20 36.97   adding: tests/tcp-handshake-micro-ttt.out (deflated 57%)
+#20 36.97   adding: tests/isakmp-no-none-np.pcapng (deflated 93%)
+#20 36.97   adding: tests/ntp-time--vvv.out (deflated 64%)
+#20 36.97   adding: tests/tcp_rst_data-trunc.pcap (deflated 5%)
+#20 36.97   adding: tests/gre-heapoverflow-1.pcap (deflated 80%)
+#20 36.97   adding: tests/snmp-heapoverflow-1.pcap (deflated 86%)
+#20 36.97   adding: tests/scps_invalid.out (deflated 47%)
+#20 36.97   adding: tests/macsec-encrypted.pcap (deflated 6%)
+#20 36.97   adding: tests/macsec-snap.out (deflated 7%)
+#20 36.97   adding: tests/nflog.pcap (deflated 60%)
+#20 36.97   adding: tests/ldp-ldp_tlv_print-oobr.pcap (deflated 10%)
+#20 36.97   adding: tests/unsupported-link-type-dbus.out (deflated 62%)
+#20 36.97   adding: tests/icmpv6-rfc7112.pcap (deflated 36%)
+#20 36.97   adding: tests/reason_code-36.pcap (deflated 16%)
+#20 36.97   adding: tests/isis_stlv_asan-3.pcap (deflated 42%)
+#20 36.97   adding: tests/isakmp-ikev1_n_print-oobr.out (deflated 55%)
+#20 36.97   adding: tests/ntp-control--vv.out (deflated 88%)
+#20 36.97   adding: tests/smb_print_trans-oobr1.pcap (deflated 59%)
+#20 36.97   adding: tests/isakmp4.out (deflated 87%)
+#20 36.97   adding: tests/ieee802.11_tim_ie_oobr.pcap (deflated 87%)
+#20 36.97   adding: tests/aoe-oobr-1.out (deflated 18%)
+#20 36.97   adding: tests/ipoib.out (deflated 81%)
+#20 36.97   adding: tests/kh-timed-002-oobr.pcap (deflated 56%)
+#20 36.97   adding: tests/isakmp-various-oobr.pcap (deflated 30%)
+#20 36.97   adding: tests/lldp_mudurl.pcap (deflated 53%)
+#20 36.97   adding: tests/ripv1v2.pcap (deflated 57%)
+#20 36.97   adding: tests/smb_data_print-oobr.pcapng (deflated 42%)
+#20 36.97   adding: tests/ldp_infloop.out (deflated 59%)
+#20 36.97   adding: tests/rsvp-rsvp_obj_print-oobr.out (deflated 32%)
+#20 36.97   adding: tests/aarp-heapoverflow-2.pcap (deflated 45%)
+#20 36.97   adding: tests/mobility_opt_asan_3.out (deflated 48%)
+#20 36.97   adding: tests/pcap-invalid-version-2.pcap (deflated 1%)
+#20 36.97   adding: tests/vxlan.out (deflated 86%)
+#20 36.97   adding: tests/kh-timed-004-oobr.pcap (deflated 69%)
+#20 36.97   adding: tests/snmp-heapoverflow-2.out (deflated 25%)
+#20 36.97   adding: tests/arista_ether.out (deflated 85%)
+#20 36.97   adding: tests/kday5.out (deflated 60%)
+#20 36.97   adding: tests/lisp_eid_register.out (deflated 75%)
+#20 36.97   adding: tests/ripv2-invalid-length.out (deflated 64%)
+#20 36.97   adding: tests/radius-port1700-v.out (deflated 24%)
+#20 36.97   adding: tests/status_code-47.pcap (deflated 17%)
+#20 36.97   adding: tests/bgp_vpn_rt-oobr.out (deflated 41%)
+#20 36.97   adding: tests/ipx-nosmb.out (deflated 89%)
+#20 36.97   adding: tests/aarp-heapoverflow-1.pcap (deflated 46%)
+#20 36.97   adding: tests/ntp-mode7.out (deflated 77%)
+#20 36.97   adding: tests/calm-fast-mac-lookup-heapoverflow.pcap (deflated 83%)
+#20 36.97   adding: tests/icmp6_nodeinfo_oobr.pcap (deflated 25%)
+#20 36.97   adding: tests/MSTP_Intra-Region_BPDUs.pcap (deflated 85%)
+#20 36.97   adding: tests/rsvp_fast_reroute-oobr.pcap (deflated 19%)
+#20 36.97   adding: tests/lldp_asan.out (deflated 64%)
+#20 36.97   adding: tests/ospf6_print_lshdr-oobr.out (deflated 84%)
+#20 36.97   adding: tests/ipv6-bad-version.pcap (deflated 61%)
+#20 36.97   adding: tests/lldp_mudurl-v.out (deflated 76%)
+#20 36.97   adding: tests/udp-length-heapoverflow.pcap (deflated 53%)
+#20 36.97   adding: tests/lsp-ping-timestamp.pcap (deflated 19%)
+#20 36.97   adding: tests/bgp-llgr.out (deflated 60%)
+#20 36.97   adding: tests/mptcp-fclose.pcap (deflated 50%)
+#20 36.97   adding: tests/nfs-cannot-pad-32-bit.pcap (deflated 41%)
+#20 36.97   adding: tests/bfd-raw-auth-simple.out (deflated 90%)
+#20 36.97   adding: tests/tfo.out (deflated 79%)
+#20 36.97   adding: tests/truncated-aack.pcap (deflated 24%)
+#20 36.97   adding: tests/brcm-tag-prepend.pcap (deflated 72%)
+#20 36.97   adding: tests/rpl-dao-oobr.out (deflated 30%)
+#20 36.97   adding: tests/of10_pf5240.pcap (deflated 75%)
+#20 36.97   adding: tests/pim-packet-assortment.out (deflated 85%)
+#20 36.97   adding: tests/quic_vn.out (deflated 86%)
+#20 36.98   adding: tests/ipv6-rthdr-oobr.out (deflated 42%)
+#20 36.98   adding: tests/dns-badcookie.pcap (deflated 44%)
+#20 36.98   adding: tests/rx_ubik-oobr.pcap (deflated 12%)
+#20 36.98   adding: tests/espudp1.out (deflated 82%)
+#20 36.98   adding: tests/dnssec-vv.out (deflated 78%)
+#20 36.98   adding: tests/isis-extd-isreach-oobr.out (deflated 71%)
+#20 36.98   adding: tests/isakmp2.out (deflated 16%)
+#20 36.98   adding: tests/pimv2_sm-v.out (deflated 93%)
+#20 36.98   adding: tests/ikev2pI2-segfault.out (deflated 18%)
+#20 36.98   adding: tests/dns-badlabel.out (deflated 77%)
+#20 36.98   adding: tests/icmp-cksum-oobr-4.out (deflated 38%)
+#20 36.98   adding: tests/forces1.out (deflated 82%)
+#20 36.98   adding: tests/print-x.out (deflated 70%)
+#20 36.98   adding: tests/of10_7050q-v.out (deflated 69%)
+#20 36.98   adding: tests/pptp-v.out (deflated 81%)
+#20 36.98   adding: tests/bgp-evpn.out (deflated 60%)
+#20 36.98   adding: tests/nbns-valgrind.out (deflated 26%)
+#20 36.98   adding: tests/nbns-valgrind-nosmb.out (deflated 26%)
+#20 36.98   adding: tests/aoe_1-v.out (deflated 94%)
+#20 36.98   adding: tests/icmp6_mobileprefix_asan.out (deflated 25%)
+#20 36.98   adding: tests/rsvp_fast_reroute-oobr.out (deflated 41%)
+#20 36.98   adding: tests/mpls-traceroute-v.out (deflated 88%)
+#20 36.98   adding: tests/sflow_multiple_counter_30_pdus.pcap (deflated 79%)
+#20 36.98   adding: tests/reason_code-51.pcap (deflated 16%)
+#20 36.98   adding: tests/kday3.out (deflated 74%)
+#20 36.98   adding: tests/dccp_partial_csum_v6_longer.pcap (deflated 64%)
+#20 36.98   adding: tests/hdlc3.out (deflated 83%)
+#20 36.98   adding: tests/getname_2_read4_asan.out (deflated 18%)
+#20 36.98   adding: tests/hoobr_safeputs.out (deflated 9%)
+#20 36.98   adding: tests/macsec-integonly.pcap (deflated 15%)
+#20 36.98   adding: tests/reason_code-1.pcap (deflated 16%)
+#20 36.98   adding: tests/babel_update_oobr.pcap (deflated 89%)
+#20 36.98   adding: tests/esp4.gdbinit (deflated 5%)
+#20 36.98   adding: tests/babel_update_oobr.out (deflated 87%)
+#20 36.98   adding: tests/isis_iid_tlv.pcap (deflated 97%)
+#20 36.98   adding: tests/ppp-invalid-lengths.out (deflated 97%)
+#20 36.98   adding: tests/isakmp-delete-segfault.pcap (deflated 86%)
+#20 36.98   adding: tests/scps_invalid.pcap (deflated 43%)
+#20 36.98   adding: tests/bcm-li.pcap (deflated 75%)
+#20 36.98   adding: tests/cve2015-0261-crash.pcap (deflated 77%)
+#20 36.98   adding: tests/llc-xid-heapoverflow.out (deflated 1%)
+#20 36.98   adding: tests/icmp-icmp_print-oobr-1.out (deflated 43%)
+#20 36.98   adding: tests/tcp_rst_data.out (deflated 22%)
+#20 36.98   adding: tests/status_code-18.pcap (deflated 17%)
+#20 36.98   adding: tests/dccp_options-oobr.out (deflated 69%)
+#20 36.98   adding: tests/bgp-rt-prefix.out (deflated 85%)
+#20 36.98   adding: tests/reason_code-48.pcap (deflated 16%)
+#20 36.98   adding: tests/AoE_Linux.pcap (deflated 97%)
+#20 36.99   adding: tests/ipx-invalid-length.pcap (deflated 18%)
+#20 36.99   adding: tests/ospf3_auth.pcapng (deflated 29%)
+#20 36.99   adding: tests/mptcp-dss-oobr.pcap (deflated 25%)
+#20 36.99   adding: tests/hoobr_bfd_print.pcap (deflated 76%)
+#20 36.99   adding: tests/dhcp-rfc5859-v.out (deflated 78%)
+#20 36.99   adding: tests/status_code-67.pcap (deflated 17%)
+#20 36.99   adding: tests/vtp_asan-3.out (deflated 15%)
+#20 36.99   adding: tests/quic_handshake_truncated.out (deflated 84%)
+#20 36.99   adding: tests/isis-seg-fault-2-v.out (deflated 89%)
+#20 36.99   adding: tests/HSRP_election.pcap (deflated 85%)
+#20 36.99   adding: tests/mpls-label-heapoverflow.pcap (deflated 48%)
+#20 36.99   adding: tests/dhcpv6-mud.pcap (deflated 77%)
+#20 36.99   adding: tests/forces2vv.out (deflated 90%)
+#20 36.99   adding: tests/isis_infloop-v.out (deflated 82%)
+#20 36.99   adding: tests/dhcp-mud.pcap (deflated 58%)
+#20 36.99   adding: tests/atm-oam-heapoverflow.out (stored 0%)
+#20 36.99   adding: tests/dsa-high-vid.pcap (deflated 58%)
+#20 36.99   adding: tests/hoobr_juniper.out (stored 0%)
+#20 36.99   adding: tests/ntp-v.out (deflated 79%)
+#20 36.99   adding: tests/status_code-87.pcap (deflated 17%)
+#20 36.99   adding: tests/bgp-as-path-oobr.pcap (deflated 98%)
+#20 36.99   adding: tests/status_code-37.pcap (deflated 17%)
+#20 36.99   adding: tests/ISIS_p2p_adjacency.pcap (deflated 97%)
+#20 36.99   adding: tests/print-xx.out (deflated 71%)
+#20 36.99   adding: tests/isis-seg-fault-3-v.out (deflated 49%)
+#20 36.99   adding: tests/eapon1-v.out (deflated 89%)
+#20 36.99   adding: tests/hsrp_2-v.out (deflated 93%)
+#20 36.99   adding: tests/bgp-extended-optional-parameters-length.pcap (deflated 27%)
+#20 36.99   adding: tests/status_code-25.pcap (deflated 17%)
+#20 36.99   adding: tests/geneve-vv.out (deflated 88%)
+#20 36.99   adding: tests/dccp_options-oobr.pcap (deflated 54%)
+#20 36.99   adding: tests/isakmp-pointer-loop.pcap (deflated 27%)
+#20 36.99   adding: tests/radius_attr_asan.pcap (deflated 24%)
+#20 36.99   adding: tests/msnlb.pcap (deflated 46%)
+#20 36.99   adding: tests/pimv2_hellos-v.out (deflated 85%)
+#20 36.99   adding: tests/pgm_opts_asan_2.pcap (deflated 16%)
+#20 36.99   adding: tests/vrrp-vrrp_print-oobr.pcap (deflated 52%)
+#20 36.99   adding: tests/bgp-enhanced-route-refresh.pcapng (deflated 20%)
+#20 36.99   adding: tests/bfd-raw-auth-sha1.pcap (deflated 84%)
+#20 36.99   adding: tests/eigrp-tlv-oobr.pcap (deflated 100%)
+#20 36.99   adding: tests/loopback.out (deflated 68%)
+#20 36.99   adding: tests/heapoverflow-q933_printq.pcap (deflated 67%)
+#20 36.99   adding: tests/atm-heapoverflow.pcap (deflated 20%)
+#20 36.99   adding: tests/tcp-handshake-nano-tttt.out (deflated 58%)
+#20 36.99   adding: tests/hoobr_pimv1.out (deflated 91%)
+#20 36.99   adding: tests/telnet-iac-check-oobr.out (deflated 99%)
+#20 37.00   adding: tests/status_code-49.pcap (deflated 17%)
+#20 37.00   adding: tests/rx_serviceid_oobr.out (deflated 20%)
+#20 37.00   adding: tests/nfs-cannot-pad-32-bit.out (deflated 36%)
+#20 37.00   adding: tests/e1000g-e.out (deflated 89%)
+#20 37.00   adding: tests/ip_ts_opts_asan.out (deflated 18%)
+#20 37.00   adding: tests/radius_attr_asan.out (deflated 51%)
+#20 37.00   adding: tests/dns-zlip-1.out (deflated 9%)
+#20 37.00   adding: tests/of10_inv_OFPST_FLOW-v.out (deflated 71%)
+#20 37.00   adding: tests/ipv6-mobility-header-oobr.out (deflated 50%)
+#20 37.00   adding: tests/sflow-print-v6.out (deflated 96%)
+#20 37.00   adding: tests/ikev1_id_ipv6_addr_subnet-oobr.out (deflated 24%)
+#20 37.00   adding: tests/reason_code-14.pcap (deflated 16%)
+#20 37.00   adding: tests/status_code-85.pcap (deflated 17%)
+#20 37.00   adding: tests/hoobr_juniper4.pcap (deflated 38%)
+#20 37.00   adding: tests/ieee802.11_rx-stbc.out (deflated 54%)
+#20 37.00   adding: tests/isis-seg-fault-3.pcapng (deflated 28%)
+#20 37.00   adding: tests/forces1.pcap (deflated 63%)
+#20 37.00   adding: tests/dsa-high-vid.out (deflated 67%)
+#20 37.00   adding: tests/pcapng-invalid-vers-2.pcapng (deflated 28%)
+#20 37.00   adding: tests/ospf6_decode_v3_asan.pcap (deflated 12%)
+#20 37.00   adding: tests/lspping-fec-ldp.pcap (deflated 57%)
+#20 37.00   adding: tests/quic_retry.out (deflated 85%)
+#20 37.00   adding: tests/icmp-cksum-oobr-3.pcapng (deflated 32%)
+#20 37.00   adding: tests/nsh-over-vxlan-gpe.pcap (deflated 22%)
+#20 37.00   adding: tests/isis-seg-fault-1.pcapng (deflated 79%)
+#20 37.00   adding: tests/unaligned-nfs-1.out (deflated 27%)
+#20 37.00   adding: tests/stp-heapoverflow-4.pcap (deflated 93%)
+#20 37.00   adding: tests/bgp-extended-shutdown-msg.pcap (deflated 45%)
+#20 37.00   adding: tests/dsa-e.out (deflated 82%)
+#20 37.00   adding: tests/isis_sysid_asan.pcap (deflated 42%)
+#20 37.00   adding: tests/rpl-14-daovvv.out (deflated 18%)
+#20 37.00   adding: tests/reason_code-55.pcap (deflated 16%)
+#20 37.00   adding: tests/calm-fast-mac-lookup-heapoverflow.out (deflated 59%)
+#20 37.00   adding: tests/IGMP_V2.pcap (deflated 70%)
+#20 37.00   adding: tests/bootp_asan-2.out (deflated 21%)
+#20 37.00   adding: tests/status_code-62.pcap (deflated 17%)
+#20 37.00   adding: tests/bgp_vpn_attrset.out (deflated 51%)
+#20 37.00   adding: tests/someip1.out (deflated 66%)
+#20 37.00   adding: tests/print-flags.pcap (deflated 53%)
+#20 37.00   adding: tests/reason_code-5.pcap (deflated 16%)
+#20 37.00   adding: tests/icmp-rfc5837.out (deflated 42%)
+#20 37.00   adding: tests/ospf-nssa-bitnt.out (deflated 42%)
+#20 37.00   adding: tests/ISIS_level2_adjacency.pcap (deflated 98%)
+#20 37.00   adding: tests/esp2.out (deflated 88%)
+#20 37.00   adding: tests/kday6.pcap (deflated 83%)
+#20 37.00   adding: tests/of10_7050sx_bsn-oobr.out (deflated 66%)
+#20 37.00   adding: tests/reason_code-25.pcap (deflated 16%)
+#20 37.00   adding: tests/vtp_asan-3.pcap (deflated 55%)
+#20 37.00   adding: tests/slip-sliplink_print-oobr.out (stored 0%)
+#20 37.00   adding: tests/macsec-integonly.out (deflated 26%)
+#20 37.00   adding: tests/icmp-cksum-oobr-4.pcapng (deflated 49%)
+#20 37.00   adding: tests/rpl-19-pickdag.out (deflated 35%)
+#20 37.00   adding: tests/pimv2_bootstrap-v.out (deflated 81%)
+#20 37.00   adding: tests/pgm_group_addr_asan.pcap (deflated 11%)
+#20 37.00   adding: tests/aoe_1.out (deflated 88%)
+#20 37.00   adding: tests/ntp-control--v.out (deflated 88%)
+#20 37.01   adding: tests/ipv6-srh-ext-header.pcap (deflated 37%)
+#20 37.01   adding: tests/status_code-69.pcap (deflated 17%)
+#20 37.01   adding: tests/isis_1-v.out (deflated 91%)
+#20 37.01   adding: tests/edsa.pcap (deflated 68%)
+#20 37.01   adding: tests/lldp_mgmt_addr_tlv_asan.pcap (deflated 17%)
+#20 37.01   adding: tests/ipx.out (deflated 87%)
+#20 37.01   adding: tests/RADIUS-RFC5580.pcap (deflated 25%)
+#20 37.01   adding: tests/mpls-over-udp.pcap (deflated 37%)
+#20 37.01   adding: tests/cve-2014-8769-AODV.pcap (deflated 36%)
+#20 37.01   adding: tests/sflow_multiple_counter_30_pdus.out (deflated 92%)
+#20 37.01   adding: tests/isis_4-v.out (deflated 93%)
+#20 37.01   adding: tests/kday4.pcap (deflated 71%)
+#20 37.01   adding: tests/pcap-invalid-version-1.out (deflated 3%)
+#20 37.01   adding: tests/dns_fwdptr.pcap (deflated 100%)
+#20 37.01   adding: tests/bgp-shutdown-communication.out (deflated 62%)
+#20 37.01   adding: tests/reason_code-18.pcap (deflated 16%)
+#20 37.01   adding: tests/lldp_8023_mtu-oobr.out (deflated 11%)
+#20 37.01   adding: tests/tftp.out (deflated 72%)
+#20 37.01   adding: tests/status_code-61.pcap (deflated 17%)
+#20 37.01   adding: tests/tcp_header_heapoverflow.out (deflated 23%)
+#20 37.01   adding: tests/hncp_dhcpv4data-oobr.out (deflated 18%)
+#20 37.01   adding: tests/ldp_tlv_print-oobr.out (deflated 45%)
+#20 37.01   adding: tests/lldp_mgmt_addr_tlv_asan.out (deflated 38%)
+#20 37.01   adding: tests/isakmp-rfc3948-oobr.out (deflated 96%)
+#20 37.01   adding: tests/gre-heapoverflow-2.pcap (deflated 74%)
+#20 37.01   adding: tests/ntp-control.pcap (deflated 77%)
+#20 37.01   adding: tests/status_code-29.pcap (deflated 17%)
+#20 37.01   adding: tests/tcp_rst_data-trunc.out (deflated 21%)
+#20 37.01   adding: tests/dhcpv6-sip-server-d.out (deflated 33%)
+#20 37.01   adding: tests/otv-heapoverflow-2.out (deflated 70%)
+#20 37.01   adding: tests/hncp.pcap (deflated 61%)
+#20 37.01   adding: tests/hncp_dhcpv6data-oobr.pcap (deflated 11%)
+#20 37.01   adding: tests/crypto.tests (deflated 82%)
+#20 37.01   adding: tests/dvmrp.out (deflated 40%)
+#20 37.01   adding: tests/PIM-DM_pruning.pcap (deflated 92%)
+#20 37.01   adding: tests/pim_header_asan-2.out (deflated 31%)
+#20 37.01   adding: tests/vsock-1.pcapng (deflated 66%)
+#20 37.01   adding: tests/smb.tests (deflated 84%)
+#20 37.01   adding: tests/reason_code-10.pcap (deflated 16%)
+#20 37.01   adding: tests/status_code-55.pcap (deflated 17%)
+#20 37.01   adding: tests/esis_snpa_asan-5.pcap (deflated 34%)
+#20 37.01   adding: tests/vtp_asan.out (deflated 41%)
+#20 37.01   adding: tests/ripv2_auth.pcap (deflated 54%)
+#20 37.01   adding: tests/mptcp-v0.pcap (deflated 46%)
+#20 37.01   adding: tests/dhcpv6-AFTR-Name-RFC6334.pcap (deflated 59%)
+#20 37.01   adding: tests/geonet_and_calm_fast.out (deflated 87%)
+#20 37.02   adding: tests/rsvp_uni-oobr-1.pcap (deflated 1%)
+#20 37.02   adding: tests/reason_code-2.pcap (deflated 16%)
+#20 37.02   adding: tests/ppp-invalid-lengths.pcap (deflated 97%)
+#20 37.02   adding: tests/status_code-44.pcap (deflated 17%)
+#20 37.02   adding: tests/bgp-large-community.out (deflated 76%)
+#20 37.02   adding: tests/aarp-heapoverflow-1.out (deflated 3%)
+#20 37.02   adding: tests/RADIUS-RFC5447.pcap (deflated 22%)
+#20 37.02   adding: tests/ipv6-mobility-header-oobr.pcap (deflated 61%)
+#20 37.02   adding: tests/bgp-4byte-asn.pcap (deflated 69%)
+#20 37.02   adding: tests/reason_code-43.pcap (deflated 16%)
+#20 37.02   adding: tests/geneve-vni.out (deflated 85%)
+#20 37.02   adding: tests/dccp_partial_csum_v6_longer.out (deflated 78%)
+#20 37.02   adding: tests/PIMv2_bootstrap.pcap (deflated 64%)
+#20 37.02   adding: tests/status_code-22.pcap (deflated 17%)
+#20 37.02   adding: tests/status_code-12.pcap (deflated 17%)
+#20 37.02   adding: tests/ieee802.11_meshhdr-oobr.out (deflated 12%)
+#20 37.02   adding: tests/status_code-102.pcap (deflated 17%)
+#20 37.02   adding: tests/edsa-high-vid.out (deflated 68%)
+#20 37.02   adding: tests/status_code-91.pcap (deflated 17%)
+#20 37.02   adding: tests/llc-xid-heapoverflow.pcap (deflated 56%)
+#20 37.02   adding: tests/oobr_parse_elements.out (stored 0%)
+#20 37.02   adding: tests/geonet-mac-lookup-heapoverflow.pcap (deflated 53%)
+#20 37.02   adding: tests/status_code-77.pcap (deflated 17%)
+#20 37.02   adding: tests/isis-areaaddr-oobr-1.pcap (deflated 99%)
+#20 37.02   adding: tests/stp-heapoverflow-2.pcap (deflated 93%)
+#20 37.02   adding: tests/dns_fwdptr.out (deflated 31%)
+#20 37.02   adding: tests/esis_opt_prot-oobr.pcap (deflated 6%)
+#20 37.02   adding: tests/arp-too-long-tha.out (deflated 34%)
+#20 37.02   adding: tests/print-AA.out (deflated 61%)
+#20 37.02   adding: tests/rsvp-rsvp_obj_print-oobr.pcap (deflated 23%)
+#20 37.02   adding: tests/someip1.pcap (deflated 52%)
+#20 37.02   adding: tests/smb_data_print-segv-nosmb.out (deflated 65%)
+#20 37.02   adding: tests/lldp_8021_linkagg-v.out (deflated 57%)
+#20 37.02   adding: tests/snmp-heapoverflow-2.pcap (deflated 45%)
+#20 37.02   adding: tests/dns-badvers.out (deflated 55%)
+#20 37.02   adding: tests/ripv1v2.out (deflated 68%)
+#20 37.02   adding: tests/tcp-handshake-nano-ttttt.out (deflated 57%)
+#20 37.02   adding: tests/stp-v4-length-sigsegv.out (deflated 2%)
+#20 37.02   adding: tests/ipv6hdr-heapoverflow-v.out (deflated 37%)
+#20 37.02   adding: tests/lmp-v.tests (deflated 50%)
+#20 37.02   adding: tests/hsrp_3-v.out (deflated 93%)
+#20 37.02   adding: tests/reason_code-30.pcap (deflated 16%)
+#20 37.02   adding: tests/status_code-89.pcap (deflated 17%)
+#20 37.02   adding: tests/hoobr_rt6_print.pcap (deflated 82%)
+#20 37.02   adding: tests/arista_ether.pcap (deflated 79%)
+#20 37.02   adding: tests/reason_code-12.pcap (deflated 16%)
+#20 37.02   adding: tests/tftp.pcap (deflated 48%)
+#20 37.02   adding: tests/afs.pcap (deflated 69%)
+#20 37.05   adding: tests/bgp-bgp_capabilities_print-oobr-1.out (deflated 53%)
+#20 37.05   adding: tests/nsh-vvv.out (deflated 42%)
+#20 37.05   adding: tests/babel1.out (deflated 80%)
+#20 37.05   adding: tests/resp_3_malicious.pcap (deflated 75%)
+#20 37.05   adding: tests/macsec-short-valid.pcap (deflated 13%)
+#20 37.05   adding: tests/ieee802.11_exthdr.pcap (deflated 76%)
+#20 37.05   adding: tests/lisp_ipv6.pcap (deflated 52%)
+#20 37.05   adding: tests/status_code-59.pcap (deflated 17%)
+#20 37.05   adding: tests/lldp-app-priority.pcap (deflated 20%)
+#20 37.05   adding: tests/epgm_zmtp1v.out (deflated 80%)
+#20 37.05   adding: tests/bgp-extended-msg.pcapng (deflated 20%)
+#20 37.05   adding: tests/isakmp1.out (deflated 26%)
+#20 37.05   adding: tests/rsvp-inf-loop-2-v.out (deflated 52%)
+#20 37.05   adding: tests/isoclns-heapoverflow-2.pcap (deflated 39%)
+#20 37.05   adding: tests/bgp-addpath.pcap (deflated 40%)
+#20 37.05   adding: tests/cdp-v.out (deflated 82%)
+#20 37.05   adding: tests/dcb_ets.out (deflated 97%)
+#20 37.05   adding: tests/forces3.pcap (deflated 76%)
+#20 37.05   adding: tests/02-sunrise-sunset-esp.pcap (deflated 26%)
+#20 37.05   adding: tests/PIMv2_hellos.pcap (deflated 65%)
+#20 37.05   adding: tests/dhcp6_reconf_asan.out (deflated 25%)
+#20 37.05   adding: tests/heapoverflow-ip_demux_print.pcap (deflated 74%)
+#20 37.05   adding: tests/empty.out (stored 0%)
+#20 37.05   adding: tests/hoobr_lookup_nsap.pcap (deflated 89%)
+#20 37.05   adding: tests/status_code-66.pcap (deflated 17%)
+#20 37.05   adding: tests/ptp.out (deflated 74%)
+#20 37.05   adding: tests/resp_3.out (deflated 88%)
+#20 37.05   adding: tests/dhcp-rfc4388.out (deflated 91%)
+#20 37.05   adding: tests/dns-badvers.pcap (deflated 38%)
+#20 37.05   adding: tests/of10_7050sx_bsn-oobr.pcap (deflated 35%)
+#20 37.05   adding: tests/smb_data_print-segv.pcapng (deflated 42%)
+#20 37.05   adding: tests/radius-rfc4675-v.out (deflated 75%)
+#20 37.05   adding: tests/pim-packet-assortment-vv.out (deflated 92%)
+#20 37.05   adding: tests/ntp-time.pcap (deflated 33%)
+#20 37.05   adding: tests/empty.pcapng (deflated 38%)
+#20 37.05   adding: tests/reason_code-9.pcap (deflated 16%)
+#20 37.05   adding: tests/reason_code-11.pcap (deflated 16%)
+#20 37.05   adding: tests/icmp-rfc5837.pcap (deflated 43%)
+#20 37.05   adding: tests/ntp-mode7--vv.out (deflated 80%)
+#20 37.05   adding: tests/ospf3_auth-vv.out (deflated 39%)
+#20 37.05   adding: tests/QinQpacket.pcap (deflated 94%)
+#20 37.06   adding: tests/ipv6-next-header-oobr-1.pcap (deflated 63%)
+#20 37.06   adding: tests/rtp-seg-fault-1.pcapng (deflated 79%)
+#20 37.06   adding: tests/pim_header_asan-4.pcap (deflated 23%)
+#20 37.06   adding: tests/eapon1.gdbinit (stored 0%)
+#20 37.06   adding: tests/status_code-32.pcap (deflated 17%)
+#20 37.06   adding: tests/mlppp-oobr.out (stored 0%)
+#20 37.06   adding: tests/vxlan.pcap (deflated 70%)
+#20 37.06   adding: tests/isis-seg-fault-2.pcapng (deflated 86%)
+#20 37.06   adding: tests/dhcpv6-ia-na.pcap (deflated 60%)
+#20 37.06   adding: tests/dns-zlip-1.pcap (deflated 15%)
+#20 37.06   adding: tests/brcm-tag.pcap (deflated 80%)
+#20 37.06   adding: tests/eigrp4-v.out (deflated 89%)
+#20 37.06   adding: tests/pim-packet-assortment.pcap (deflated 98%)
+#20 37.06   adding: tests/rpl-14-dao.pcap (deflated 20%)
+#20 37.06   adding: tests/tftp-heapoverflow.out (deflated 24%)
+#20 37.06   adding: tests/vqp-oobr.out (deflated 21%)
+#20 37.06   adding: tests/isoclns-heapoverflow-3.pcap (deflated 39%)
+#20 37.06   adding: tests/bgp-enhanced-route-refresh.out (deflated 61%)
+#20 37.06   adding: tests/mobility_opt_asan_2.pcap (deflated 19%)
+#20 37.06   adding: tests/of13_ericsson-v.out (deflated 85%)
+#20 37.07   adding: tests/kday2.pcap (deflated 43%)
+#20 37.07   adding: tests/status_code-33.pcap (deflated 17%)
+#20 37.07   adding: tests/ntp-mode7.pcap (deflated 75%)
+#20 37.07   adding: tests/cve-2014-8769-AODV.out (deflated 18%)
+#20 37.07   adding: tests/nsh-over-vxlan-gpe.out (deflated 28%)
+#20 37.07   adding: tests/rtp-seg-fault-1.out (deflated 18%)
+#20 37.07   adding: tests/ntp.pcap (deflated 43%)
+#20 37.07   adding: tests/hoobr_ripng_print.out (deflated 21%)
+#20 37.07   adding: tests/OSPFv3_multipoint_adjacencies.pcap (deflated 81%)
+#20 37.07   adding: tests/ntp-control--vvv.out (deflated 88%)
+#20 37.07   adding: tests/cve-2014-8767-OLSR.out (deflated 25%)
+#20 37.07   adding: tests/dhcpv6-ia-ta.pcap (deflated 59%)
+#20 37.07   adding: tests/ssh.pcap (deflated 33%)
+#20 37.07   adding: tests/tcp-handshake-micro-tttt.out (deflated 59%)
+#20 37.07   adding: tests/mobility_opt_asan.pcap (deflated 37%)
+#20 37.07   adding: tests/geonet-mac-lookup-heapoverflow.out (deflated 12%)
+#20 37.07   adding: tests/rpl-19-pickdagvvv.out (deflated 38%)
+#20 37.07   adding: tests/smb_print_trans-oobr1.out (deflated 60%)
+#20 37.07   adding: tests/frf16_magic_ie-oobr.pcap (deflated 27%)
+#20 37.07   adding: tests/cfm_sender_id-oobr.pcap (deflated 15%)
+#20 37.07   adding: tests/status_code-64.pcap (deflated 17%)
+#20 37.07   adding: tests/frf15-heapoverflow.pcap (deflated 36%)
+#20 37.07   adding: tests/status_code-43.pcap (deflated 17%)
+#20 37.07   adding: tests/bgp_mvpn_6_and_7_oobr.out (deflated 24%)
+#20 37.07   adding: tests/beep-oobr.pcap (deflated 77%)
+#20 37.07   adding: tests/status_code-82.pcap (deflated 17%)
+#20 37.07   adding: tests/of10_7050sx_bsn-vv.out (deflated 87%)
+#20 37.07   adding: tests/status_code-45.pcap (deflated 17%)
+#20 37.07   adding: tests/edns-opts-v.out (deflated 85%)
+#20 37.07   adding: tests/lldp-infinite-loop-2.pcap (deflated 94%)
+#20 37.07   adding: tests/hncp_prefix-oobr.out (deflated 63%)
+#20 37.07   adding: tests/pimv2-oobr-2.pcap (deflated 99%)
+#20 37.07   adding: tests/reason_code-49.pcap (deflated 16%)
+#20 37.07   adding: tests/bgp-large-community.pcap (deflated 62%)
+#20 37.07   adding: tests/macsec-changed.out (deflated 38%)
+#20 37.07   adding: tests/heapoverflow-tcp_print.out (deflated 35%)
+#20 37.07   adding: tests/status_code-21.pcap (deflated 17%)
+#20 37.07   adding: tests/zephyr-oobr.pcap (deflated 99%)
+#20 37.07   adding: tests/kday5.pcap (deflated 52%)
+#20 37.07   adding: tests/pim_header_asan-2.pcap (deflated 24%)
+#20 37.07   adding: tests/print-sampling.out (deflated 59%)
+#20 37.07   adding: tests/lldp-infinite-loop-1.pcap (deflated 93%)
+#20 37.07   adding: tests/lmp-v-fptype1.out (deflated 87%)
+#20 37.07   adding: tests/heap-overflow-2.out (stored 0%)
+#20 37.07   adding: tests/reason_code-4.pcap (deflated 16%)
+#20 37.07   adding: tests/esis_snpa_asan.out (deflated 47%)
+#20 37.07   adding: tests/arp-too-long-tha.pcap (deflated 58%)
+#20 37.07   adding: tests/reason_code-28.pcap (deflated 16%)
+#20 37.07   adding: tests/pgm_opts_asan_3.out (deflated 29%)
+#20 37.07   adding: tests/edsa-high-vid-e.out (deflated 74%)
+#20 37.07   adding: tests/babel1v.out (deflated 85%)
+#20 37.07   adding: tests/bgp-infinite-loop.pcap (deflated 60%)
+#20 37.07   adding: tests/ikev2four.out (deflated 85%)
+#20 37.07   adding: tests/ipv6-bad-version.out (deflated 54%)
+#20 37.07   adding: tests/tcp-handshake-micro-t.out (deflated 56%)
+#20 37.08   adding: tests/ieee802.11_exthdr.out (deflated 82%)
+#20 37.08   adding: tests/smb_data_print-oobr.out (deflated 73%)
+#20 37.08   adding: tests/status_code-46.pcap (deflated 17%)
+#20 37.08   adding: tests/nfs-seg-fault-1.out (deflated 38%)
+#20 37.08   adding: tests/heap-overflow-1.out (stored 0%)
+#20 37.08   adding: tests/bgp-extended-optional-parameters-length.out (deflated 65%)
+#20 37.08   adding: tests/ntp.out (deflated 72%)
+#20 37.08   adding: tests/macsec-encrypted.out (deflated 37%)
+#20 37.08   adding: tests/nfs-attr-oobr.pcap (deflated 97%)
+#20 37.08   adding: tests/pgm_poll_polr.pcap (deflated 76%)
+#20 37.08   adding: tests/dns_udp_8053.pcap (deflated 28%)
+#20 37.08   adding: tests/vrrp-v.out (deflated 94%)
+#20 37.08   adding: tests/heapoverflow-ip_demux_print.out (deflated 53%)
+#20 37.08   adding: tests/RADIUS-port1700.pcap (deflated 21%)
+#20 37.08   adding: tests/pimv2-oobr-1.out (deflated 45%)
+#20 37.08   adding: tests/status_code-90.pcap (deflated 17%)
+#20 37.08   adding: tests/whois.out (deflated 72%)
+#20 37.08   adding: tests/dhcpv6-AFTR-Name-RFC6334.out (deflated 71%)
+#20 37.08   adding: tests/vqp-oobr.pcap (deflated 5%)
+#20 37.08   adding: tests/bgp-shutdown-communication.pcapng (deflated 46%)
+#20 37.08   adding: tests/smb_print_trans-oobr2-nosmb.out (deflated 21%)
+#20 37.08   adding: tests/status_code-56.pcap (deflated 17%)
+#20 37.08   adding: tests/slip-compressed_sl_print-oobr.out (stored 0%)
+#20 37.08   adding: tests/print-capXX.out (deflated 65%)
+#20 37.08   adding: tests/stp-heapoverflow-2.out (deflated 93%)
+#20 37.08   adding: tests/isis_poi2.out (deflated 38%)
+#20 37.08   adding: tests/dns-zlip-3.out (deflated 7%)
+#20 37.08   adding: tests/isis_sysid_asan.out (deflated 57%)
+#20 37.08   adding: tests/decnet-shorthdr-oobr.out (deflated 93%)
+#20 37.08   adding: tests/rsvp-inf-loop-2.pcapng (deflated 30%)
+#20 37.08   adding: tests/ppp_ccp_config_deflate_option_asan.pcap (deflated 8%)
+#20 37.08   adding: tests/08-sunrise-sunset-esp2.pcap (deflated 17%)
+#20 37.08   adding: tests/kh-timed-001-oobr.out (deflated 84%)
+#20 37.08   adding: tests/mptcp-dss-oobr.out (deflated 21%)
+#20 37.08   adding: tests/mpls-label-heapoverflow.out (deflated 18%)
+#20 37.08   adding: tests/reason_code-52.pcap (deflated 16%)
+#20 37.08   adding: tests/icmp-cksum-oobr-3.out (deflated 49%)
+#20 37.08   adding: tests/status_code-103.pcap (deflated 17%)
+#20 37.08   adding: tests/hncp_dhcpv4data-oobr.pcap (deflated 8%)
+#20 37.08   adding: tests/msnlb2.out (deflated 35%)
+#20 37.08   adding: tests/lldp-infinite-loop-1.out (deflated 90%)
+#20 37.08   adding: tests/pimv2-oobr-4.pcap (deflated 99%)
+#20 37.08   adding: tests/babel_rtt.out (deflated 78%)
+#20 37.08   adding: tests/bgp-as-path-oobr-nossl.out (deflated 99%)
+#20 37.09   adding: tests/mobility_opt_asan_7.pcap (deflated 30%)
+#20 37.09   adding: tests/dns-zlip-2.pcap (deflated 15%)
+#20 37.09   adding: tests/ikev2pI2-secrets.txt (deflated 41%)
+#20 37.09   adding: tests/lspping-fec-rsvp.out (deflated 80%)
+#20 37.09   adding: tests/ahcp.pcapng (deflated 73%)
+#20 37.09   adding: tests/lacp-ev.out (deflated 94%)
+#20 37.09   adding: tests/reason_code-6.pcap (deflated 16%)
+#20 37.09   adding: tests/gre-heapoverflow-1.out (deflated 74%)
+#20 37.09   adding: tests/802_15_4_beacon.out (deflated 15%)
+#20 37.09   adding: tests/decnet-oobr.out (deflated 71%)
+#20 37.09   adding: tests/ieee802.11_tim_ie_oobr.out (deflated 66%)
+#20 37.09   adding: tests/tcp-handshake-micro-tt.out (deflated 56%)
+#20 37.09   adding: tests/edsa-high-vid.pcap (deflated 58%)
+#20 37.09   adding: tests/DTP.pcap (deflated 81%)
+#20 37.09   adding: tests/icmp6_nodeinfo_oobr.out (deflated 12%)
+#20 37.09   adding: tests/ipcomp-heapoverflow.pcap (deflated 51%)
+#20 37.09   adding: tests/status_code-93.pcap (deflated 17%)
+#20 37.09   adding: tests/HSRP_failover.pcap (deflated 84%)
+#20 37.09   adding: tests/dns_tcp.pcap (deflated 49%)
+#20 37.09   adding: tests/status_code-39.pcap (deflated 17%)
+#20 37.09   adding: tests/status_code-5.pcap (deflated 17%)
+#20 37.09   adding: tests/status_code-60.pcap (deflated 17%)
+#20 37.09   adding: tests/ripv2-invalid-length.pcap (deflated 50%)
+#20 37.09   adding: tests/gre-heapoverflow-2.out (deflated 54%)
+#20 37.09   adding: tests/esis_opt_prot-oobr.out (deflated 19%)
+#20 37.09   adding: tests/spb_bpduv4-v.out (deflated 96%)
+#20 37.09   adding: tests/q933-heapoverflow-2.out (deflated 78%)
+#20 37.09   adding: tests/esp0.out (deflated 83%)
+#20 37.09   adding: tests/reason_code-39.pcap (deflated 16%)
+#20 37.09   adding: tests/QinQpacketv.out (deflated 97%)
+#20 37.09   adding: tests/gquic.out (deflated 20%)
+#20 37.09   adding: tests/bgp-extended-msg.out (deflated 61%)
+#20 37.09   adding: tests/ikev2pI2-segfault.pcapng (deflated 76%)
+#20 37.09   adding: tests/status_code-86.pcap (deflated 17%)
+#20 37.09   adding: tests/tcp-handshake-nano-tt.out (deflated 56%)
+#20 37.09   adding: tests/isis_cap_tlv.out (deflated 81%)
+#20 37.09   adding: tests/brcm-tag-prepend.out (deflated 86%)
+#20 37.09   adding: tests/ipv6-routing-header.pcap (deflated 66%)
+#20 37.09   adding: tests/dns_tcp-vv.out (deflated 75%)
+#20 37.09   adding: tests/reason_code-35.pcap (deflated 16%)
+#20 37.09   adding: tests/status_code-31.pcap (deflated 17%)
+#20 37.09   adding: tests/hoobr_nfs_printfh.out (deflated 95%)
+#20 37.09   adding: tests/tftp-heapoverflow.pcap (deflated 47%)
+#20 37.09   adding: tests/isis-areaaddr-oobr-2.out (deflated 35%)
+#20 37.09   adding: tests/mptcp-aa-echo.pcap (deflated 13%)
+#20 37.09   adding: tests/mptcp-v0.out (deflated 85%)
+#20 37.09   adding: tests/hdlc4.out (deflated 72%)
+#20 37.09   adding: tests/hsrp_1-v.out (deflated 93%)
+#20 37.09   adding: tests/lisp_eid_notify.out (deflated 87%)
+#20 37.09   adding: tests/esp5.gdbinit (deflated 8%)
+#20 37.09   adding: tests/status_code-81.pcap (deflated 17%)
+#20 37.10   adding: tests/zmtp1.pcap (deflated 71%)
+#20 37.10   adding: tests/dns_udp-v.out (deflated 47%)
+#20 37.10   adding: tests/bfd-lag.out (deflated 73%)
+#20 37.10   adding: tests/ospf-gmpls.out (deflated 80%)
+#20 37.10   adding: tests/bfd-raw-auth-md5-v.out (deflated 96%)
+#20 37.10   adding: tests/ipv6hdr-heapoverflow.out (deflated 53%)
+#20 37.10   adding: tests/kday6.out (deflated 88%)
+#20 37.10   adding: tests/dcb_qcn.out (deflated 91%)
+#20 37.10   adding: tests/pcapng-invalid-vers-1.pcapng (deflated 28%)
+#20 37.10   adding: tests/reason_code-50.pcap (deflated 16%)
+#20 37.10   adding: tests/bgp-aigp-2.pcap (deflated 19%)
+#20 37.10   adding: tests/bgp-extended-shutdown-msg.out (deflated 44%)
+#20 37.10   adding: tests/802.1D_spanning_tree.pcap (deflated 84%)
+#20 37.10   adding: tests/status_code-28.pcap (deflated 17%)
+#20 37.10   adding: tests/bgp-lu-multiple-labels.pcap (deflated 68%)
+#20 37.10   adding: tests/mpls-ldp-hello.out (deflated 51%)
+#20 37.10   adding: tests/status_code-24.pcap (deflated 18%)
+#20 37.10   adding: tests/juniper_es_oobr.pcap (deflated 31%)
+#20 37.10   adding: tests/status_code-19.pcap (deflated 17%)
+#20 37.10   adding: tests/tcp-handshake-nano.out (deflated 55%)
+#20 37.10   adding: tests/dcb_pfc.pcap (deflated 72%)
+#20 37.10   adding: tests/isakmp-identification-segfault.pcap (deflated 78%)
+#20 37.10   adding: tests/ip6_frag_asan.out (deflated 19%)
+#20 37.10   adding: tests/dhcp-rfc5859.pcap (deflated 86%)
+#20 37.10   adding: tests/reason_code-27.pcap (deflated 16%)
+#20 37.10   adding: tests/status_code-95.pcap (deflated 17%)
+#20 37.10   adding: tests/rpki-rtr-oobr.pcap (deflated 10%)
+#20 37.10   adding: tests/huge-tipc-messages.pcap (deflated 100%)
+#20 37.10   adding: tests/pim_header_asan-3.out (deflated 20%)
+#20 37.10   adding: tests/nfs-seg-fault-1.pcapng (deflated 97%)
+#20 37.10   adding: tests/ISIS_level1_adjacency.pcap (deflated 97%)
+#20 37.10   adding: tests/dhcp6_reconf_asan.pcap (deflated 11%)
+#20 37.10   adding: tests/juniper_atm1_oobr.out (deflated 11%)
+#20 37.10   adding: tests/pimv2-oobr-4.out (deflated 43%)
+#20 37.10   adding: tests/EIGRP_subnet_down.pcap (deflated 77%)
+#20 37.10   adding: tests/status_code-92.pcap (deflated 17%)
+#20 37.10   adding: tests/of13_ericsson.pcapng (deflated 92%)
+#20 37.10   adding: tests/dsa-high-vid-e.out (deflated 73%)
+#20 37.10   adding: tests/rsvp_cap.pcap (deflated 21%)
+#20 37.10   adding: tests/mptcp-aa-echo.out (deflated 45%)
+#20 37.10   adding: tests/macsec-short-longer.pcap (deflated 12%)
+#20 37.10   adding: tests/hoobr_chdlc_print.out (deflated 90%)
+#20 37.10   adding: tests/bgp-enhanced-route-refresh-subtype.out (deflated 76%)
+#20 37.10   adding: tests/bootp_asan.out (deflated 21%)
+#20 37.10   adding: tests/ospf6_decode_v3_asan.out (deflated 20%)
+#20 37.11 + cp fuzz_pcap_seed_corpus.zip /out/
+#20 37.11 + cd /src/libpcap/testprogs/BPF
+#20 37.11 + mkdir corpus
+#20 37.11 + ls 1.txt 2.txt 3.txt 4.txt 5.txt 6.txt 7.txt
+#20 37.11 + read i
+#20 37.11 + tail -1 1.txt
+#20 37.12 + read i
+#20 37.12 + tail -1 2.txt
+#20 37.12 + read i
+#20 37.12 + tail -1 3.txt
+#20 37.12 + read i
+#20 37.12 + tail -1 4.txt
+#20 37.12 + read i
+#20 37.12 + tail -1 5.txt
+#20 37.12 + read i
+#20 37.12 + tail -1 6.txt
+#20 37.12 + read i
+#20 37.12 + tail -1 7.txt
+#20 37.12 + read i
+#20 37.13 + zip -r fuzz_filter_seed_corpus.zip corpus/
+#20 37.13   adding: corpus/ (stored 0%)
+#20 37.13   adding: corpus/1.txt (stored 0%)
+#20 37.13   adding: corpus/3.txt (deflated 51%)
+#20 37.13   adding: corpus/6.txt (deflated 43%)
+#20 37.13   adding: corpus/2.txt (stored 0%)
+#20 37.13   adding: corpus/5.txt (stored 0%)
+#20 37.13   adding: corpus/7.txt (stored 0%)
+#20 37.13   adding: corpus/4.txt (deflated 49%)
+#20 37.13 + cp fuzz_filter_seed_corpus.zip /out/
+#20 37.13 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 37.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:9a4ee7cf1349eee17bedd9b7f8de63f72be8a85111ea753db2571f82d45bfb8a
+#21 writing image sha256:9a4ee7cf1349eee17bedd9b7f8de63f72be8a85111ea753db2571f82d45bfb8a 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/libpcap_libpcap done
+#21 DONE 0.4s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libpcap_libpcap:
+------
+#2 [internal] load .dockerignore
+#2 sha256:2ecc2c2bc8ec85aeacce0e35ffd4580aa21280c570167a38572812d422765324
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:cdcba2103d420e2428e9caada2662ff6b0f3a50c6ae5c05247451ef195e4b781
+#1 transferring dockerfile: 656B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate
+#5 sha256:6007dc528c855ab355390d6cfc452177e30864c206008c1bbe9f74946166249b
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate 0.0s done
+#6 DONE 0.2s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5fb834abe87cdab1b016cab7c2f7012afe5bfc577df38f2e95a7c641bbb8756a
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:9aed3708fbb63445a81c56b001fdf8af29d6a843f0c9fd7c00220b0d6d1ae1b0
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate:latest
+#3 sha256:a4298ffeb43e5f1bd3062e4bdb056b4f3c16ccbd46fedd78a10c0b13312f3e6f
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libpcap_libpcap:latest
+#4 sha256:6d5da0c597f756b1f24a72ed6183f7e3885d1a4a334fdb01970dcfad8d6209dc
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2c00d54c2c1bff02ab2e379bb9eca6dad23170e3098b3c702e52ceff19360a1e
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate
+#6 sha256:23be007b27568873e5d0a1da50b39ebe22d4b706515f5f4e2833d268bf57b3b7
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libpcap_libpcap
+#10 sha256:374ff7d1309e861f600c5a5a7d84658026ee79eeea908152258c6c2ca91aae7b
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libpcap_libpcap
+#5 sha256:f498578cd98fc10074749eb6c4bed76c447aaf016dca7e3f9658637374305a56
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libpcap_libpcap:latest: not found
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate
+#6 sha256:23be007b27568873e5d0a1da50b39ebe22d4b706515f5f4e2833d268bf57b3b7
+#6 CACHED
+
+#12 [internal] load build context
+#12 sha256:2c00d54c2c1bff02ab2e379bb9eca6dad23170e3098b3c702e52ceff19360a1e
+#12 transferring context: 17.58MB 0.7s done
+#12 DONE 0.9s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:bd70700abfb85cbea0284ab24ec48e79c2083055f8a54990ef11f4114b5bbac4
+#7 0.770 Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
+#7 0.771 Get:2 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [99.8 kB]
+#7 0.856 Get:3 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [97.4 kB]
+#7 0.872 Hit:4 https://packages.cloud.google.com/apt cloud-sdk-xenial InRelease
+#7 0.885 Get:5 http://security.ubuntu.com/ubuntu xenial-security InRelease [99.8 kB]
+#7 ...
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libpcap_libpcap
+#10 sha256:374ff7d1309e861f600c5a5a7d84658026ee79eeea908152258c6c2ca91aae7b
+#10 DONE 1.3s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:bd70700abfb85cbea0284ab24ec48e79c2083055f8a54990ef11f4114b5bbac4
+#7 1.402 Fetched 297 kB in 0s (416 kB/s)
+#7 1.402 Reading package lists...
+#7 2.803 Reading package lists...
+#7 4.141 Building dependency tree...
+#7 4.303 Reading state information...
+#7 4.437 The following additional packages will be installed:
+#7 4.437   libglib2.0-data libgmp-dev libgmpxx4ldbl libgnutls-dev libgnutls-openssl27
+#7 4.437   libgnutls28-dev libgnutlsxx28 libicu55 libidn11-dev liblzo2-2 libp11-kit-dev
+#7 4.438   libshishi-dev libshishi0 libtasn1-6-dev libtasn1-doc nettle-dev pkg-config
+#7 4.438   sgml-base shared-mime-info shishi-common xdg-user-dirs xml-core
+#7 4.439 Suggested packages:
+#7 4.439   lrzip gmp-doc libgmp10-doc libmpfr-dev gnutls-doc gnutls-bin guile-gnutls
+#7 4.439   shishi sgml-base-doc debhelper
+#7 4.440 The following NEW packages will be installed:
+#7 4.441   libarchive13 libglib2.0-0 libglib2.0-data libgmp-dev libgmpxx4ldbl
+#7 4.441   libgnutls-dev libgnutls-openssl27 libgnutls28-dev libgnutlsxx28 libgss3
+#7 4.441   libicu55 libidn11-dev liblzo2-2 libp11-kit-dev libshishi-dev libshishi0
+#7 4.441   libtasn1-6-dev libtasn1-doc libxml2 nettle-dev pkg-config sgml-base
+#7 4.441   shared-mime-info shishi-common xdg-user-dirs xml-core
+#7 4.669 0 upgraded, 26 newly installed, 0 to remove and 0 not upgraded.
+#7 4.669 Need to get 13.7 MB of archives.
+#7 4.669 After this operation, 52.9 MB of additional disk space will be used.
+#7 4.669 Get:1 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libglib2.0-0 amd64 2.48.2-0ubuntu4.8 [1120 kB]
+#7 4.871 Get:2 http://archive.ubuntu.com/ubuntu xenial/main amd64 sgml-base all 1.26+nmu4ubuntu1 [12.5 kB]
+#7 4.906 Get:3 http://archive.ubuntu.com/ubuntu xenial/main amd64 liblzo2-2 amd64 2.08-1.2 [48.7 kB]
+#7 4.907 Get:4 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls-openssl27 amd64 3.4.10-4ubuntu1.9 [21.9 kB]
+#7 4.908 Get:5 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libglib2.0-data all 2.48.2-0ubuntu4.8 [131 kB]
+#7 4.911 Get:6 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libicu55 amd64 55.1-7ubuntu0.5 [7650 kB]
+#7 5.550 Get:7 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libxml2 amd64 2.9.3+dfsg1-1ubuntu0.7 [698 kB]
+#7 5.576 Get:8 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 shared-mime-info amd64 1.5-2ubuntu0.2 [405 kB]
+#7 5.606 Get:9 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 xdg-user-dirs amd64 0.15-2ubuntu6.16.04.1 [61.8 kB]
+#7 5.610 Get:10 http://archive.ubuntu.com/ubuntu xenial/main amd64 xml-core all 0.13+nmu2 [23.3 kB]
+#7 5.612 Get:11 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libarchive13 amd64 3.1.2-11ubuntu0.16.04.8 [262 kB]
+#7 5.632 Get:12 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgmpxx4ldbl amd64 2:6.1.0+dfsg-2 [8948 B]
+#7 5.632 Get:13 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgmp-dev amd64 2:6.1.0+dfsg-2 [314 kB]
+#7 5.656 Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutlsxx28 amd64 3.4.10-4ubuntu1.9 [13.8 kB]
+#7 5.657 Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 nettle-dev amd64 3.2-1ubuntu0.16.04.2 [938 kB]
+#7 5.727 Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libtasn1-6-dev amd64 4.7-3ubuntu0.16.04.3 [85.9 kB]
+#7 5.733 Get:17 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libp11-kit-dev amd64 0.23.2-5~ubuntu16.04.2 [56.6 kB]
+#7 5.738 Get:18 http://archive.ubuntu.com/ubuntu xenial/main amd64 pkg-config amd64 0.29.1-0ubuntu1 [45.0 kB]
+#7 5.741 Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libidn11-dev amd64 1.32-3ubuntu1.2 [518 kB]
+#7 5.780 Get:20 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls-dev amd64 3.4.10-4ubuntu1.9 [553 kB]
+#7 5.821 Get:21 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls28-dev amd64 3.4.10-4ubuntu1.9 [8156 B]
+#7 5.822 Get:22 http://archive.ubuntu.com/ubuntu xenial/universe amd64 shishi-common all 1.0.2-6build1 [60.6 kB]
+#7 5.826 Get:23 http://archive.ubuntu.com/ubuntu xenial/universe amd64 libshishi0 amd64 1.0.2-6build1 [159 kB]
+#7 5.838 Get:24 http://archive.ubuntu.com/ubuntu xenial/universe amd64 libshishi-dev amd64 1.0.2-6build1 [157 kB]
+#7 5.850 Get:25 http://archive.ubuntu.com/ubuntu xenial/universe amd64 libgss3 amd64 1.0.3-2 [65.2 kB]
+#7 5.855 Get:26 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libtasn1-doc all 4.7-3ubuntu0.16.04.3 [299 kB]
+#7 6.033 debconf: delaying package configuration, since apt-utils is not installed
+#7 6.091 Fetched 13.7 MB in 1s (10.9 MB/s)
+#7 6.207 Selecting previously unselected package libglib2.0-0:amd64.
+#7 6.207 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 49411 files and directories currently installed.)
+#7 6.242 Preparing to unpack .../libglib2.0-0_2.48.2-0ubuntu4.8_amd64.deb ...
+#7 6.318 Unpacking libglib2.0-0:amd64 (2.48.2-0ubuntu4.8) ...
+#7 6.667 Selecting previously unselected package sgml-base.
+#7 6.672 Preparing to unpack .../sgml-base_1.26+nmu4ubuntu1_all.deb ...
+#7 6.695 Unpacking sgml-base (1.26+nmu4ubuntu1) ...
+#7 6.858 Selecting previously unselected package liblzo2-2:amd64.
+#7 6.864 Preparing to unpack .../liblzo2-2_2.08-1.2_amd64.deb ...
+#7 6.882 Unpacking liblzo2-2:amd64 (2.08-1.2) ...
+#7 7.076 Selecting previously unselected package libgnutls-openssl27:amd64.
+#7 7.081 Preparing to unpack .../libgnutls-openssl27_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 7.105 Unpacking libgnutls-openssl27:amd64 (3.4.10-4ubuntu1.9) ...
+#7 7.248 Selecting previously unselected package libglib2.0-data.
+#7 7.253 Preparing to unpack .../libglib2.0-data_2.48.2-0ubuntu4.8_all.deb ...
+#7 7.275 Unpacking libglib2.0-data (2.48.2-0ubuntu4.8) ...
+#7 7.378 Selecting previously unselected package libicu55:amd64.
+#7 7.383 Preparing to unpack .../libicu55_55.1-7ubuntu0.5_amd64.deb ...
+#7 7.388 Unpacking libicu55:amd64 (55.1-7ubuntu0.5) ...
+#7 8.245 Selecting previously unselected package libxml2:amd64.
+#7 8.250 Preparing to unpack .../libxml2_2.9.3+dfsg1-1ubuntu0.7_amd64.deb ...
+#7 8.254 Unpacking libxml2:amd64 (2.9.3+dfsg1-1ubuntu0.7) ...
+#7 8.435 Selecting previously unselected package shared-mime-info.
+#7 8.439 Preparing to unpack .../shared-mime-info_1.5-2ubuntu0.2_amd64.deb ...
+#7 8.445 Unpacking shared-mime-info (1.5-2ubuntu0.2) ...
+#7 8.539 Selecting previously unselected package xdg-user-dirs.
+#7 8.544 Preparing to unpack .../xdg-user-dirs_0.15-2ubuntu6.16.04.1_amd64.deb ...
+#7 8.547 Unpacking xdg-user-dirs (0.15-2ubuntu6.16.04.1) ...
+#7 8.663 Selecting previously unselected package xml-core.
+#7 8.668 Preparing to unpack .../xml-core_0.13+nmu2_all.deb ...
+#7 8.674 Unpacking xml-core (0.13+nmu2) ...
+#7 8.730 Selecting previously unselected package libarchive13:amd64.
+#7 8.735 Preparing to unpack .../libarchive13_3.1.2-11ubuntu0.16.04.8_amd64.deb ...
+#7 8.740 Unpacking libarchive13:amd64 (3.1.2-11ubuntu0.16.04.8) ...
+#7 8.824 Selecting previously unselected package libgmpxx4ldbl:amd64.
+#7 8.829 Preparing to unpack .../libgmpxx4ldbl_2%3a6.1.0+dfsg-2_amd64.deb ...
+#7 8.835 Unpacking libgmpxx4ldbl:amd64 (2:6.1.0+dfsg-2) ...
+#7 8.878 Selecting previously unselected package libgmp-dev:amd64.
+#7 8.882 Preparing to unpack .../libgmp-dev_2%3a6.1.0+dfsg-2_amd64.deb ...
+#7 8.888 Unpacking libgmp-dev:amd64 (2:6.1.0+dfsg-2) ...
+#7 8.979 Selecting previously unselected package libgnutlsxx28:amd64.
+#7 8.984 Preparing to unpack .../libgnutlsxx28_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 8.989 Unpacking libgnutlsxx28:amd64 (3.4.10-4ubuntu1.9) ...
+#7 9.034 Selecting previously unselected package nettle-dev.
+#7 9.039 Preparing to unpack .../nettle-dev_3.2-1ubuntu0.16.04.2_amd64.deb ...
+#7 9.042 Unpacking nettle-dev (3.2-1ubuntu0.16.04.2) ...
+#7 9.347 Selecting previously unselected package libtasn1-6-dev:amd64.
+#7 9.352 Preparing to unpack .../libtasn1-6-dev_4.7-3ubuntu0.16.04.3_amd64.deb ...
+#7 9.365 Unpacking libtasn1-6-dev:amd64 (4.7-3ubuntu0.16.04.3) ...
+#7 9.526 Selecting previously unselected package libp11-kit-dev:amd64.
+#7 9.531 Preparing to unpack .../libp11-kit-dev_0.23.2-5~ubuntu16.04.2_amd64.deb ...
+#7 9.551 Unpacking libp11-kit-dev:amd64 (0.23.2-5~ubuntu16.04.2) ...
+#7 9.694 Selecting previously unselected package pkg-config.
+#7 9.699 Preparing to unpack .../pkg-config_0.29.1-0ubuntu1_amd64.deb ...
+#7 9.722 Unpacking pkg-config (0.29.1-0ubuntu1) ...
+#7 9.821 Selecting previously unselected package libidn11-dev.
+#7 9.826 Preparing to unpack .../libidn11-dev_1.32-3ubuntu1.2_amd64.deb ...
+#7 9.829 Unpacking libidn11-dev (1.32-3ubuntu1.2) ...
+#7 9.965 Selecting previously unselected package libgnutls-dev:amd64.
+#7 9.970 Preparing to unpack .../libgnutls-dev_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 9.992 Unpacking libgnutls-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 10.16 Selecting previously unselected package libgnutls28-dev:amd64.
+#7 10.17 Preparing to unpack .../libgnutls28-dev_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 10.18 Unpacking libgnutls28-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 10.31 Selecting previously unselected package shishi-common.
+#7 10.31 Preparing to unpack .../shishi-common_1.0.2-6build1_all.deb ...
+#7 10.33 Unpacking shishi-common (1.0.2-6build1) ...
+#7 10.45 Selecting previously unselected package libshishi0.
+#7 10.46 Preparing to unpack .../libshishi0_1.0.2-6build1_amd64.deb ...
+#7 10.47 Unpacking libshishi0 (1.0.2-6build1) ...
+#7 10.59 Selecting previously unselected package libshishi-dev.
+#7 10.60 Preparing to unpack .../libshishi-dev_1.0.2-6build1_amd64.deb ...
+#7 10.62 Unpacking libshishi-dev (1.0.2-6build1) ...
+#7 10.77 Selecting previously unselected package libgss3.
+#7 10.78 Preparing to unpack .../libgss3_1.0.3-2_amd64.deb ...
+#7 10.79 Unpacking libgss3 (1.0.3-2) ...
+#7 10.91 Selecting previously unselected package libtasn1-doc.
+#7 10.91 Preparing to unpack .../libtasn1-doc_4.7-3ubuntu0.16.04.3_all.deb ...
+#7 10.92 Unpacking libtasn1-doc (4.7-3ubuntu0.16.04.3) ...
+#7 11.01 Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+#7 11.12 Setting up libglib2.0-0:amd64 (2.48.2-0ubuntu4.8) ...
+#7 11.16 No schema files found: doing nothing.
+#7 11.16 Setting up sgml-base (1.26+nmu4ubuntu1) ...
+#7 11.23 Setting up liblzo2-2:amd64 (2.08-1.2) ...
+#7 11.25 Setting up libgnutls-openssl27:amd64 (3.4.10-4ubuntu1.9) ...
+#7 11.27 Setting up libglib2.0-data (2.48.2-0ubuntu4.8) ...
+#7 11.28 Setting up libicu55:amd64 (55.1-7ubuntu0.5) ...
+#7 11.30 Setting up libxml2:amd64 (2.9.3+dfsg1-1ubuntu0.7) ...
+#7 11.31 Setting up shared-mime-info (1.5-2ubuntu0.2) ...
+#7 14.70 Setting up xdg-user-dirs (0.15-2ubuntu6.16.04.1) ...
+#7 14.72 Setting up xml-core (0.13+nmu2) ...
+#7 15.04 Setting up libarchive13:amd64 (3.1.2-11ubuntu0.16.04.8) ...
+#7 15.06 Setting up libgmpxx4ldbl:amd64 (2:6.1.0+dfsg-2) ...
+#7 15.07 Setting up libgmp-dev:amd64 (2:6.1.0+dfsg-2) ...
+#7 15.08 Setting up libgnutlsxx28:amd64 (3.4.10-4ubuntu1.9) ...
+#7 15.09 Setting up nettle-dev (3.2-1ubuntu0.16.04.2) ...
+#7 15.10 Setting up libtasn1-6-dev:amd64 (4.7-3ubuntu0.16.04.3) ...
+#7 15.12 Setting up libp11-kit-dev:amd64 (0.23.2-5~ubuntu16.04.2) ...
+#7 15.13 Setting up pkg-config (0.29.1-0ubuntu1) ...
+#7 15.19 Setting up libidn11-dev (1.32-3ubuntu1.2) ...
+#7 15.21 Setting up libgnutls-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 15.22 Setting up libgnutls28-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 15.23 Setting up shishi-common (1.0.2-6build1) ...
+#7 15.25 Setting up libshishi0 (1.0.2-6build1) ...
+#7 15.26 Setting up libshishi-dev (1.0.2-6build1) ...
+#7 15.28 Setting up libgss3 (1.0.3-2) ...
+#7 15.30 Setting up libtasn1-doc (4.7-3ubuntu0.16.04.3) ...
+#7 15.32 Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+#7 15.34 Processing triggers for sgml-base (1.26+nmu4ubuntu1) ...
+#7 DONE 15.8s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:d4e8d955e0ea3c40c7ea7bdfb159e0e4b64c7c083da4cda773c1477f6fe26d57
+#8 DONE 0.8s
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:bcb21a824b14c4821a2c0f95e271f8983f244db69e99f25ea0de9d4a69055fed
+#9 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:c47f229de32aa1a84acf9f57e590c1db8b15bbab96feb70e26d4c575aac86351
+#11 DONE 0.3s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:39bf1af3f123c05a1d9d1ff87fbeafd9e422d6d1a004c255f35965a0ef813a73
+#13 DONE 0.9s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:e5109b7f48749a032862abb5cde3d7f8c58d5b797a62140268f42fd65626b8d7
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:3df27ddd5711b66d1282475fdf06c239f96ef6a0a5500ed655a2a773acac6124
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:8d5629169896157252936aafbf1cd97cc9ca654054ed52115df51fa1b2f39bcc
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:d17eeb5b010eb247fe6228ffa62fb2ced498f243e66f6fa670b0c067a1aaa8a6
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:08ce3000b80f3b4455e86ce474beff82a3b967749de2d4006c540f31d26aae9d
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:9c6dbe68e78931c142a16d0db400f83c222874c8ba724d1a4e673d862adb5893
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:b5b7672c63e91fc169614bc862050ae423a751e3a2244beaa593a08a1807fb07
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:817e82fb8f2df258b823c3166d65a8e71ad3fde7a3b2c5c8223a6ead3ab5c8dc done
+#21 naming to gcr.io/fuzzbench/runners/afl/libpcap_libpcap done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libpcap_libpcap:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fc6e1ef5f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:0c234495b9ddd80e74b4569c802b28766d686dbc86a24644ba570176be9d5292
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:dac1440d95f90cf9aaacd4262d09ec0dcd4aa755504cb4559dd1be7f9e3545d1
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap
+#4 sha256:2aa280c792499dca5ff43204348e7b2645c89646558dc667bf7f550560a3e995
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:8223eaf0ca92318d336ef9243f82f92fff290d84c22291c4de7a0791b502ccbf
+#10 transferring context: 30B done
+#10 DONE 0.1s
+
+#8 [4/6] RUN git clone --depth=1 https://github.com/the-tcpdump-group/tcpdump.git tcpdump
+#8 sha256:7282f5fdec7f9fea802be57b838fc3b47b91050654d1456f3e1d6ecc4f1e532a
+#8 CACHED
+
+#9 [5/6] WORKDIR /src
+#9 sha256:274e5ba6725f7d51b4397de1ed66fa5b95ff352a720874c4e77ecac73dadda65
+#9 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y make cmake flex bison
+#6 sha256:52435ce0b5ed70ac5eb22aeadb5a9a05ed2c063e2307188ebc9c46b9b266dcb6
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/the-tcpdump-group/libpcap.git libpcap
+#7 sha256:6be1c5310f0ddffed9a58551035adc3ac7417371904b93431df7b111c5f8ceae
+#7 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:c86f9eeae4e11cb8aa217e53c11b6ba724c3d78e09f50f9308a45f9e2da14177
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:41f8544132e56f010e80d1361c5c1b2bd1d8dc04432ed48a51a731652f01181d 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:c98ed9194ad9b5a883e09da7e6cd9c5d5880bbb117d82a6ed8d4f50c2970bbfb
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:4050e81fc238ef0ab7dc95de4b69162e7129d014d4ba54df3f15252b1a0e10ec
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap:latest
+#3 sha256:56df2e20fea9da0eef4cbf8b60264d4f36e01bd334a18b7a6cdc20b86e007b83
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate
+#4 sha256:663fa657d43daea810a524bc995d6d944b0d3f597fec779e646106d74a8f0d0b
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libpcap_libpcap
+#5 sha256:1391a3cbc0c3e1602fb515d72f5c72cee3b8663c12304be5df8ccc21ccac04d7
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a40312cdd85912acc5ecf9b4b52ef5957333365617f8209d50713b60d88d0a59
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:933d2137840812a0b72a3fe5e4d74bab81f44f861d231d701f6572a06982de6b
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3ac93ad6683ee9eca1d1c16a6877ec00a58e9a58971c6340cf0bc04fb5548db5 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate done
+#8 DONE 1.0s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:aee62b2549bb6e5d9255584a5ec0552df899c376d70304d9f1375177972e2c45
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5891ead164de65e758f6f62422b3b4ce89564b4e37b0e97cedf1f85fbda762cb
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:9e4d0829745e37daa2fad0f980f7e01f659f5c926cabbd695c3c7350844ee613
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.3s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:f208112165b8d04a3e9612d6a2b1ea4d0865c4757fcc86d0372ba8a893a20a0a
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:4d11ec19a7d2c5ac604e200bcaace554c225650169db4f8c2618d9bd25cb39a2
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:6c80cea628d99bf27a8a779a51e0aba7af8bc9d6fa9f55c5117f333ed90ff8b1
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:bcbdfa2627808cd246f0c70bf0b3a99aeabd1e34f3190523b9d46b56e4183771
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:cc0ffb578d6cf2b5ec61d8c3156873754fa6dc2a58e6addbcbe5f157173f33b7
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:02e1e7c6fe46a577010bd13def90bd7f255b482c68e918aec1470bedef6b89b3
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate:latest
+#3 sha256:673ae6c229a44afd51f367b25b4a460ee8361cd080b3615e569472a5cabf29e5
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libpcap_libpcap-intermediate
+#6 sha256:fe0f342526391a5862369003f66e141043ae5223b393bad701824c86aae086d4
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libpcap_libpcap
+#5 sha256:f8ca330aac2c15e72e171fd2782203b97494b5222dd5ee990a18ca4bad04c277
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:81fff25e8e4b81705b59cd8f2730b71ebe7417122cacae1ea1597111d1b6cdb4
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:f8b8f57b5f601044520173d7df81e38117e47ce489ad9cc74f22e6cc62f1b423
+#10 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:3120f4e02c6e2df0edbe031c3df463bf6941bf9a65172c011f7f67f9f4dd61e2
+#8 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:21072331eeb8549c8c3370660b23156d30a89b4ae111ced06d84d2bf2c0c8d32
+#18 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:8a5741954e7fb7eef1cab69051cde959682da9d58bae4da4558497e689984d6f
+#19 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libpcap_libpcap/benchmark.yaml /
+#15 sha256:b622087cc772f398243791456853ae230f0d9fc754b8254febaf5d6c87aa3b8c
+#15 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:09c9b8a3ad33a37667175b6cca562f7812880a9f61c8753f6b4e27d0ef2fa8fc
+#13 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:6dcc70096ef06d3bc4e992855615b79fd6e6ba724336b7c20de208c319c2db20
+#17 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:aaf888a642a14956ba7d56da774f11045fa28459056c2740abc9a86defbbcbf3
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:a03fa169bca7c6a430234929a295b7a1c2cafd212b031207c14e2e2c0d923fa2
+#14 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:2ea8ef09a3ed08b2835198a5b3e57c1d68ff49fb52db267044771b68d599d154
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:cda83db49681c15a8e854fcdfb913b023a3d9546f8970e93ba04b87aec0911dd
+#16 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f86b81c770a49216e5cc9a484149a97ca485488441d6b2bf61c86b7840c20080
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:9a4ee7cf1349eee17bedd9b7f8de63f72be8a85111ea753db2571f82d45bfb8a
+#21 writing image sha256:9a4ee7cf1349eee17bedd9b7f8de63f72be8a85111ea753db2571f82d45bfb8a 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/libpcap_libpcap done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:9f641ae18caea375872af05423b650be46fd1663cfb22b680da14d2e0a6ff360
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:76de94d845e761089c4a6c1465053a1c0e8758a764ab5ecec9d6639c535b0984
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate
+#5 sha256:6007dc528c855ab355390d6cfc452177e30864c206008c1bbe9f74946166249b
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:dffbff9b4f7fe349c64139107d77646497d11e30d1bd07280a824d3c4499df49
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1e31cfb4a70ff8426e7951701053528832d675dee6a24301d10ef31d28259b83
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate:latest
+#4 sha256:a4298ffeb43e5f1bd3062e4bdb056b4f3c16ccbd46fedd78a10c0b13312f3e6f
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libpcap_libpcap:latest
+#3 sha256:6d5da0c597f756b1f24a72ed6183f7e3885d1a4a334fdb01970dcfad8d6209dc
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libpcap_libpcap-intermediate
+#6 sha256:23be007b27568873e5d0a1da50b39ebe22d4b706515f5f4e2833d268bf57b3b7
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libpcap_libpcap
+#5 sha256:f498578cd98fc10074749eb6c4bed76c447aaf016dca7e3f9658637374305a56
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libpcap_libpcap
+#10 sha256:374ff7d1309e861f600c5a5a7d84658026ee79eeea908152258c6c2ca91aae7b
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:14260acfef9698fb93cdfe415cfa55d6a11f398023b4f691a24022b3a5514ab9
+#12 transferring context: 17.58MB 0.6s done
+#12 DONE 0.7s
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:c47f229de32aa1a84acf9f57e590c1db8b15bbab96feb70e26d4c575aac86351
+#11 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:4fd1a2f9ca92589ef882508d4f5383eb5da37b8e7fb97e408ce2e7a485faf0fe
+#15 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:0db0ab8e0bb9442b37c29132fe0497afcdf6f1d9d027cb9f592b90a4e597cee7
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:2a15622bb269021255efd5b691613e0296ea1435d99296e30517a9bf3758150d
+#19 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:8a432b3c91adbf24844ee7d01914c9ef98c6741c06a69202d7a789093cb73fef
+#16 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:bd70700abfb85cbea0284ab24ec48e79c2083055f8a54990ef11f4114b5bbac4
+#7 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:bcb21a824b14c4821a2c0f95e271f8983f244db69e99f25ea0de9d4a69055fed
+#9 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:2e248133ceeef84682182919d2c029ed30c9dd14aa9de65d5840be62fd16bfc0
+#14 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:65d3d937ab0976ab0dec0b2ad765839b529a6487a87fec30ba0c8cc90542a95d
+#18 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:06608d0a5aa75567bfe2225d62324271e44df1bdb1517a9a06a2af05ef722345
+#13 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:d4e8d955e0ea3c40c7ea7bdfb159e0e4b64c7c083da4cda773c1477f6fe26d57
+#8 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:948ced5b7fa119e4f4a2df4da4f9b6adb46fb52a87cdd630ebe83a0c172789ef
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:817e82fb8f2df258b823c3166d65a8e71ad3fde7a3b2c5c8223a6ead3ab5c8dc 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/libpcap_libpcap done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f9f66c20f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

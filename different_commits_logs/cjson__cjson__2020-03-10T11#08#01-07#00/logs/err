@@ -1,0 +1,959 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: cjson_cjson.
+INFO:root:Please run "make test-run-afl-cjson_cjson" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:ac7284f21ea2f3b2f8a94f97668e55438510969f8663320d73848c5959c5a6c1
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b6d13597d0ef1eb9dfded9b4b135711fd86b6a4c73269f76fa3f0cdaf95810c0
+#1 transferring dockerfile: 944B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:3f250df840f151536d78c4c6a177392fc2d174dbc343d32df4acaf1d07a2ddda
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/cjson_cjson
+#4 sha256:f1b7d88855476cb21adb878937cc687f4bd259050743f8ddedad7185759b71a8
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/cjson_cjson:latest: not found
+
+#9 [internal] load build context
+#9 sha256:3f250df840f151536d78c4c6a177392fc2d174dbc343d32df4acaf1d07a2ddda
+#9 transferring context: 30B done
+#9 DONE 0.8s
+
+#6 [2/5] RUN apt-get update && apt-get install -y cmake
+#6 sha256:c41efadccd456f2e226cd78e766538015e031312db1bb5ea4d112c239de6cb0d
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/DaveGamble/cJSON.git cjson
+#7 sha256:402253c2c2806b4c3b63d19d1ad098b22eecf96fee112f994df1e1e326fe745f
+#7 CACHED
+
+#8 [4/5] WORKDIR cjson
+#8 sha256:94ac96f085c92d989e3491400ea2e7a585497727c0284bd68d5866262e7f495a
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:039e3e4b52e2d249cffb3ac2b52e37dbb632d8aa28d4fab20c670421bf7412af
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:923fb2d868d0b0d441e279a7de34f3b476c50e262da1b3d78e344f02b2f655bd 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/cjson_cjson done
+#11 DONE 3.0s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/cjson_cjson:
+------
+#2 [internal] load .dockerignore
+#2 sha256:f5dda7457ecddfb4f4480956fe457858005a2c3828c3adc86bdd2e08d744c213
+#2 ...
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:d702fbc7375f5568433736515f2b97bbc85f7e462e3557833802b02f6ee72b31
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.7s
+
+#2 [internal] load .dockerignore
+#2 sha256:f5dda7457ecddfb4f4480956fe457858005a2c3828c3adc86bdd2e08d744c213
+#2 transferring context: 2B done
+#2 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/cjson_cjson:latest
+#3 sha256:37ede9f3da15a117410b48197b6d39e09feb654de88208488f0675a11e4411cb
+#3 DONE 0.0s
+
+#4 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/cjson_cjson
+#4 sha256:e67678847d9b608b0b322fed841f6188330ab1c8cd572f5ea900f8fec88c5fd5
+#4 DONE 0.0s
+
+#7 importing cache manifest from gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate
+#7 sha256:102f443df050a03e6e020f711e1e667e07e9c10d9cee2f377a83a1b1beb4bc87
+#7 ERROR: gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:020a596db2e7bb83fc7ca994e6a2782fae237dff52a2ff1d770012479abed60c
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:b89c4b999bd39612cd2c937aebb8474009af6954f86884bdaf429bd40e1a9df5
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:e972c625bf9b7293f299d234eb62a277c3843af12223fa45a22cedd6ade5123a done
+#8 naming to gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:92e0803f2d8e8332ebdee1f93b827214c8ac16674da1f7fecc4a21bc97a53bea
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a08e5eeb3633853579ee02f40379a6a936d5a4fcceb719813e6620874a62b5e9
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:4b88b7c4bad6da761998ceddc6dcc2c8136f97a1ae698efdd970387d5656b5ad
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.3s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3c8e83618b5f40fce468ef73b483f6a3347cd83468a04457ab2da76c0ef69880
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:7bb016c7a1aacffc9cb1559bbef643ec8431292bf711e5b52fddb8af95e2bc89
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:311e39c15dab43e16e73bff5b25abd826e532286a8ecceba2feed02983b4ffdf
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:a7721f2bca2d00b3425537a4eaace53fb82fc08d158697771d9148b06ef133be
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:ef0e87506e02e8309334e3a5cc106b4cd4043dd187be24e173eb28546ac98029 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a0822dd94f9cee195d30c0a5ddf9d5a96f69a5787170f54fad6ab0e41cd4e79e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:df47b3970b9fdf2591de7096035b9803679743c21b5ba6d3927404d70e3c9a56
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate:latest
+#3 sha256:6d6a4b402d040785610e1d37edc11199630105052eaa4cb7ec80e0f19ea58414
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:eef1f5c9acf3ec6ef9da94980ee48fa7fe46921b2073782fa8da4349ea327689
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate
+#6 sha256:55903ce1409c92e9b6f4024765626b69fe8527f96d648242ac9689c93f72496a
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/cjson_cjson
+#5 sha256:b5b1974189fd799fc0aaac8d331cfd6522829ecb11e1c3ff9e259383be8949fe
+#5 ERROR: gcr.io/fuzzbench/builders/afl/cjson_cjson:latest: not found
+
+#12 [internal] load build context
+#12 sha256:eef1f5c9acf3ec6ef9da94980ee48fa7fe46921b2073782fa8da4349ea327689
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:08652c142f70347503580a6fa11709bb1f5775460ae883c9f9038104c320a2d3
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:72aa1af9f4f3b3d97b3851645b862fd3c24f9023d14ec48b326c07e0e1e59e1d
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:d467b1c4eac40009f3b2aedbd218afc27d1bb3ce8c534168370104562cddbc41
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:a8557d2fd862049c8b0472d61ddf1472ea7f72e1ee7bb512653e48c10ab7a1c1
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:b441b5d1f0044756d148d841d97b6b6e37fc82496a98cc4f37c114946368938a
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:8af3fdd1c17cf087de3055b804aee52677cf4f582a856c5b4a3fbf1674de704d
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/cjson_cjson/benchmark.yaml /
+#15 sha256:8a5472fd9d0ea8d101feca879a7d380d037ecf8d5cfd0c3dc4eb29a4bd0ed059
+#15 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:fc44dd30463e69e23bc9e53ba0c4ba15b046406427da301693bd6629d1d1155d
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:9e18a4e46d63b0fcda49df0901ca90798c7933df7cf0d4b5046b6f60936a92ae
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:49713fb22932b84e1bd73bd28068622e28bd811a5780505795688b9cc90633f3
+#18 0.458 Checking out commit 71f4914c
+#18 2.209 From https://github.com/DaveGamble/cJSON
+#18 2.209  * [new tag]         v0.0.0     -> v0.0.0
+#18 2.209  * [new tag]         v1.0.0     -> v1.0.0
+#18 2.210  * [new tag]         v1.0.1     -> v1.0.1
+#18 2.210  * [new tag]         v1.0.2     -> v1.0.2
+#18 2.210  * [new tag]         v1.1.0     -> v1.1.0
+#18 2.210  * [new tag]         v1.2.0     -> v1.2.0
+#18 2.211  * [new tag]         v1.2.1     -> v1.2.1
+#18 2.211  * [new tag]         v1.3.0     -> v1.3.0
+#18 2.211  * [new tag]         v1.3.1     -> v1.3.1
+#18 2.212  * [new tag]         v1.3.2     -> v1.3.2
+#18 2.212  * [new tag]         v1.4.0     -> v1.4.0
+#18 2.212  * [new tag]         v1.4.1     -> v1.4.1
+#18 2.213  * [new tag]         v1.4.2     -> v1.4.2
+#18 2.213  * [new tag]         v1.4.3     -> v1.4.3
+#18 2.213  * [new tag]         v1.4.4     -> v1.4.4
+#18 2.214  * [new tag]         v1.4.5     -> v1.4.5
+#18 2.214  * [new tag]         v1.4.6     -> v1.4.6
+#18 2.214  * [new tag]         v1.4.7     -> v1.4.7
+#18 2.215  * [new tag]         v1.5.0     -> v1.5.0
+#18 2.215  * [new tag]         v1.5.1     -> v1.5.1
+#18 2.215  * [new tag]         v1.5.2     -> v1.5.2
+#18 2.215  * [new tag]         v1.5.3     -> v1.5.3
+#18 2.216  * [new tag]         v1.5.4     -> v1.5.4
+#18 2.216  * [new tag]         v1.5.5     -> v1.5.5
+#18 2.216  * [new tag]         v1.5.6     -> v1.5.6
+#18 2.217  * [new tag]         v1.5.7     -> v1.5.7
+#18 2.217  * [new tag]         v1.5.8     -> v1.5.8
+#18 2.217  * [new tag]         v1.5.9     -> v1.5.9
+#18 2.218  * [new tag]         v1.6.0     -> v1.6.0
+#18 2.218  * [new tag]         v1.7.0     -> v1.7.0
+#18 2.219  * [new tag]         v1.7.1     -> v1.7.1
+#18 2.219  * [new tag]         v1.7.10    -> v1.7.10
+#18 2.219  * [new tag]         v1.7.11    -> v1.7.11
+#18 2.220  * [new tag]         v1.7.12    -> v1.7.12
+#18 2.220  * [new tag]         v1.7.13    -> v1.7.13
+#18 2.220  * [new tag]         v1.7.14    -> v1.7.14
+#18 2.221  * [new tag]         v1.7.15    -> v1.7.15
+#18 2.221  * [new tag]         v1.7.2     -> v1.7.2
+#18 2.221  * [new tag]         v1.7.3     -> v1.7.3
+#18 2.221  * [new tag]         v1.7.4     -> v1.7.4
+#18 2.221  * [new tag]         v1.7.5     -> v1.7.5
+#18 2.222  * [new tag]         v1.7.6     -> v1.7.6
+#18 2.222  * [new tag]         v1.7.7     -> v1.7.7
+#18 2.222  * [new tag]         v1.7.8     -> v1.7.8
+#18 2.222  * [new tag]         v1.7.9     -> v1.7.9
+#18 2.229 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 2.241 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 2.247 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 2.291 Checkout unsuccessful.
+#18 DONE 2.5s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:5a7dbe004c28fba536cd90adf8b38a2802e241153f476093433d6cb97db7dd91
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:b8dc6e71e3252bccbd87d62b9807523161847b2d45f88147939bf4e3592b4824
+#20 0.489 Run fuzzer_build to build the target
+#20 0.600 FUZZ_TARGET = cjson
+#20 0.600 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.600 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.605 Building benchmark cjson_cjson with fuzzer afl
+#20 0.609 + /src/cjson/fuzzing/ossfuzz.sh
+#20 0.895 -- The C compiler identification is Clang 14.0.0
+#20 0.910 -- Detecting C compiler ABI info
+#20 1.067 -- Detecting C compiler ABI info - done
+#20 1.118 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.118 -- Detecting C compile features
+#20 1.119 -- Detecting C compile features - done
+#20 1.132 -- Performing Test FLAG_SUPPORTED_stdc89
+#20 1.287 -- Performing Test FLAG_SUPPORTED_stdc89 - Success
+#20 1.290 -- Performing Test FLAG_SUPPORTED_pedantic
+#20 1.434 -- Performing Test FLAG_SUPPORTED_pedantic - Success
+#20 1.437 -- Performing Test FLAG_SUPPORTED_Wall
+#20 1.584 -- Performing Test FLAG_SUPPORTED_Wall - Success
+#20 1.587 -- Performing Test FLAG_SUPPORTED_Wextra
+#20 1.733 -- Performing Test FLAG_SUPPORTED_Wextra - Success
+#20 1.736 -- Performing Test FLAG_SUPPORTED_Werror
+#20 1.887 -- Performing Test FLAG_SUPPORTED_Werror - Success
+#20 1.889 -- Performing Test FLAG_SUPPORTED_Wstrictprototypes
+#20 2.038 -- Performing Test FLAG_SUPPORTED_Wstrictprototypes - Success
+#20 2.041 -- Performing Test FLAG_SUPPORTED_Wwritestrings
+#20 2.191 -- Performing Test FLAG_SUPPORTED_Wwritestrings - Success
+#20 2.193 -- Performing Test FLAG_SUPPORTED_Wshadow
+#20 2.345 -- Performing Test FLAG_SUPPORTED_Wshadow - Success
+#20 2.348 -- Performing Test FLAG_SUPPORTED_Winitself
+#20 2.493 -- Performing Test FLAG_SUPPORTED_Winitself - Success
+#20 2.495 -- Performing Test FLAG_SUPPORTED_Wcastalign
+#20 2.641 -- Performing Test FLAG_SUPPORTED_Wcastalign - Success
+#20 2.644 -- Performing Test FLAG_SUPPORTED_Wformat2
+#20 2.785 -- Performing Test FLAG_SUPPORTED_Wformat2 - Success
+#20 2.787 -- Performing Test FLAG_SUPPORTED_Wmissingprototypes
+#20 2.942 -- Performing Test FLAG_SUPPORTED_Wmissingprototypes - Success
+#20 2.944 -- Performing Test FLAG_SUPPORTED_Wstrictoverflow2
+#20 3.092 -- Performing Test FLAG_SUPPORTED_Wstrictoverflow2 - Success
+#20 3.095 -- Performing Test FLAG_SUPPORTED_Wcastqual
+#20 3.250 -- Performing Test FLAG_SUPPORTED_Wcastqual - Success
+#20 3.253 -- Performing Test FLAG_SUPPORTED_Wundef
+#20 3.403 -- Performing Test FLAG_SUPPORTED_Wundef - Success
+#20 3.406 -- Performing Test FLAG_SUPPORTED_Wswitchdefault
+#20 3.551 -- Performing Test FLAG_SUPPORTED_Wswitchdefault - Success
+#20 3.555 -- Performing Test FLAG_SUPPORTED_Wconversion
+#20 3.704 -- Performing Test FLAG_SUPPORTED_Wconversion - Success
+#20 3.707 -- Performing Test FLAG_SUPPORTED_Wccompat
+#20 3.855 -- Performing Test FLAG_SUPPORTED_Wccompat - Success
+#20 3.858 -- Performing Test FLAG_SUPPORTED_fstackprotectorstrong
+#20 4.006 -- Performing Test FLAG_SUPPORTED_fstackprotectorstrong - Success
+#20 4.009 -- Performing Test FLAG_SUPPORTED_Wcomma
+#20 4.157 -- Performing Test FLAG_SUPPORTED_Wcomma - Success
+#20 4.160 -- Performing Test FLAG_SUPPORTED_Wdoublepromotion
+#20 4.317 -- Performing Test FLAG_SUPPORTED_Wdoublepromotion - Success
+#20 4.320 -- Performing Test FLAG_SUPPORTED_Wparentheses
+#20 4.465 -- Performing Test FLAG_SUPPORTED_Wparentheses - Success
+#20 4.467 -- Performing Test FLAG_SUPPORTED_Wformatoverflow
+#20 4.509 -- Performing Test FLAG_SUPPORTED_Wformatoverflow - Failed
+#20 4.512 -- Performing Test FLAG_SUPPORTED_Wunusedmacros
+#20 4.665 -- Performing Test FLAG_SUPPORTED_Wunusedmacros - Success
+#20 4.667 -- Performing Test FLAG_SUPPORTED_Wmissingvariabledeclarations
+#20 4.897 -- Performing Test FLAG_SUPPORTED_Wmissingvariabledeclarations - Success
+#20 4.901 -- Performing Test FLAG_SUPPORTED_Wusedbutmarkedunused
+#20 5.185 -- Performing Test FLAG_SUPPORTED_Wusedbutmarkedunused - Success
+#20 5.187 -- Performing Test FLAG_SUPPORTED_Wswitchenum
+#20 5.331 -- Performing Test FLAG_SUPPORTED_Wswitchenum - Success
+#20 5.334 -- Performing Test FLAG_SUPPORTED_fvisibilityhidden
+#20 5.485 -- Performing Test FLAG_SUPPORTED_fvisibilityhidden - Success
+#20 5.491 -- Configuring done
+#20 5.499 -- Generating done
+#20 5.501 -- Build files have been written to: /src/cjson/build
+#20 5.529 [ 50%] Building C object CMakeFiles/cjson.dir/cJSON.c.o
+#20 6.419 [100%] Linking C static library libcjson.a
+#20 6.924 [100%] Built target cjson
+#20 6.938 clang-14: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+#20 7.230   adding: src/cjson/fuzzing/inputs/ (stored 0%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test5 (deflated 71%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test8 (deflated 29%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test6 (deflated 43%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test9 (deflated 37%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test3.uu (deflated 57%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test2 (deflated 47%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test10 (deflated 38%)
+#20 7.230   adding: src/cjson/fuzzing/inputs/test7 (deflated 54%)
+#20 7.231   adding: src/cjson/fuzzing/inputs/test3.bu (deflated 57%)
+#20 7.231   adding: src/cjson/fuzzing/inputs/test3.uf (deflated 57%)
+#20 7.231   adding: src/cjson/fuzzing/inputs/test11 (deflated 20%)
+#20 7.231   adding: src/cjson/fuzzing/inputs/test4 (deflated 70%)
+#20 7.231   adding: src/cjson/fuzzing/inputs/test3 (deflated 57%)
+#20 7.231   adding: src/cjson/fuzzing/inputs/test1 (deflated 55%)
+#20 7.234 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 7.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:f8a89f75c6b236ab08526620a25b42b8677d258f11eaf903b3d14ae39f3ffa71 done
+#21 naming to gcr.io/fuzzbench/builders/afl/cjson_cjson done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/cjson_cjson:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:bab06062f0ef8e61aa6c04cfd078aa259e424e665b43d39271dea01fa2d9a10f
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:0888863dd8cbf6018e9957be9453b5963744655bb4a6492014ce1c25a611dd07
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate
+#5 sha256:ed07e687033a25f569116be7ac7a8d277a020cca4fdf6fbbe552d78f98c57846
+#5 ERROR: gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:1bbac81dd24d178a85e6f40a81697334e100ff78f25f92131a3470403d610d33
+#6 writing image sha256:1bbac81dd24d178a85e6f40a81697334e100ff78f25f92131a3470403d610d33 done
+#6 naming to gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:18882b69e8fcda1807d1912c0104597aaf371eab90d5cb188a2198499f324bca
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6e897ff62d160c4213e4577c1172dd5652fd0f920859d0da66fec278f4cc9638
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/cjson_cjson:latest
+#4 sha256:6a974683dd9c89be30dbff0ca6e2b2cbbc0db9cfb8fcec6f829e035b85299766
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate:latest
+#3 sha256:27dcc9f49a75ee0989048497b308eecabb759bfc9bb086cc413046a1136d69b8
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:0e0b70fd55872163ae2f20bfa86861fd2686d779f9b204a9fd9ff9deebc3e73a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate
+#6 sha256:206eb9a52bd449e7c992ffbb12dc8508ee4e9332953bf6e8851d98df5d67f911
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/cjson_cjson
+#10 sha256:b3fc4dc2fca8d3c2e74cc8470e8d17658cab2b7db64e758c57d4dc11a4976a39
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/cjson_cjson
+#5 sha256:3022c46d28ccd7d35af76db94b26d5dc52e1488db860e76f452cd36a79794646
+#5 ERROR: gcr.io/fuzzbench/runners/afl/cjson_cjson:latest: not found
+
+#12 [internal] load build context
+#12 sha256:0e0b70fd55872163ae2f20bfa86861fd2686d779f9b204a9fd9ff9deebc3e73a
+#12 transferring context: 19.00MB 0.7s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/cjson_cjson
+#10 sha256:b3fc4dc2fca8d3c2e74cc8470e8d17658cab2b7db64e758c57d4dc11a4976a39
+#10 DONE 0.8s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:ce6bb8c8687f9676896553256222849b3adf4216c8e42b48a791ebe3c3ecad1f
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:93058f93f88106f506bfe32621ab170b38ba73b24d71599bef23bbbdb2eb868f
+#9 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:65f3c0957d38ada94eab6251257bef9842fb106ec44b62d8759dc363f52a1349
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:f2575074df0351cc7beb84d5b6234d8ac515bb50b1d2ca19fde6e735725bb244
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:514399014e47105d78f76642a40dad5c77d96cf88abc7dc98ca81c6be43939c5
+#13 DONE 1.5s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:94910698bfc630b9f5d8a9745691edd20883429bfc6b931df184080ebed374f1
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:d69b260c1b82303aac11151fcb752c4ac2245cc69297047366131fb7b05fb781
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:ba053b2258fac377a7af15dff13c00e08b1db0d463048fd32ab3759e47679592
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:cb1ec7bdb8111c964b5db79d29eb19762c4802a19d7b1d6c49dd56c1a68bfc54
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:58a40430af67e3f6687ba69248baa87b170c000871be65a3f75b0850bce4fa00
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:f93ea8e2a3a2ee807a78a054644e27d30a42c2ee1c95239bb141afa0ed3e6319
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:33e567a06179eebeda72f28cb4941a6aea33f189882e11277ddce2c284666560
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:1f787f3e0f38971171c3860397e530cf45a474087c148f78cb1ac70b8eaf8a1a done
+#21 naming to gcr.io/fuzzbench/runners/afl/cjson_cjson
+#21 naming to gcr.io/fuzzbench/runners/afl/cjson_cjson done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/cjson_cjson:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f6b45492ee0> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:bf2ffc57526c6603b635409914b21ef95feb70e5c5af954c292111a7dbeca0c4
+#1 transferring dockerfile:
+#1 transferring dockerfile: 32B done
+#1 ...
+
+#2 [internal] load .dockerignore
+#2 sha256:e4812990a55a1a733bfb9fbc999f1a5f67644ac21430c7c639e60728a1580861
+#2 transferring context: 2B done
+#2 DONE 0.9s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:bf2ffc57526c6603b635409914b21ef95feb70e5c5af954c292111a7dbeca0c4
+#1 DONE 1.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/cjson_cjson
+#4 sha256:f1b7d88855476cb21adb878937cc687f4bd259050743f8ddedad7185759b71a8
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:e258f047dd49967224bb293304bb86f792c855b0ceef734369d09aa6c1b2f634
+#9 transferring context: 30B done
+#9 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y cmake
+#6 sha256:c41efadccd456f2e226cd78e766538015e031312db1bb5ea4d112c239de6cb0d
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/DaveGamble/cJSON.git cjson
+#7 sha256:402253c2c2806b4c3b63d19d1ad098b22eecf96fee112f994df1e1e326fe745f
+#7 CACHED
+
+#8 [4/5] WORKDIR cjson
+#8 sha256:94ac96f085c92d989e3491400ea2e7a585497727c0284bd68d5866262e7f495a
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:046791163559e51150714cb26be266e99259f34c441a6b6ca8fea4af34fa62c8
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:923fb2d868d0b0d441e279a7de34f3b476c50e262da1b3d78e344f02b2f655bd done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/cjson_cjson done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:7d8f53f136db1d48a50d2d82d24a3eef75dbbd515f5020e111afbc1192590609
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:fd63f3d7d32340f9aed10e51530c518672392c9d7438f5eea9e4ee736227a7e6
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/cjson_cjson:latest
+#3 sha256:37ede9f3da15a117410b48197b6d39e09feb654de88208488f0675a11e4411cb
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate
+#4 sha256:102f443df050a03e6e020f711e1e667e07e9c10d9cee2f377a83a1b1beb4bc87
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/cjson_cjson
+#5 sha256:e67678847d9b608b0b322fed841f6188330ab1c8cd572f5ea900f8fec88c5fd5
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:020a596db2e7bb83fc7ca994e6a2782fae237dff52a2ff1d770012479abed60c
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:b89c4b999bd39612cd2c937aebb8474009af6954f86884bdaf429bd40e1a9df5
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:e972c625bf9b7293f299d234eb62a277c3843af12223fa45a22cedd6ade5123a done
+#8 naming to gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5394a839e09cc283995fa6d0cd62e6fd71a722f256106005b07f691fd3304d88
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9224c70373742a07088e7f7cce5933ef8466df86465f53dafff85c7be2a386e7
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:4f50ff0cb28dae266a18f25e0c07946dfd00c6797b56d9b0a41594bc6509f1db
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3e016732fe737436f8f47bb034a86e19c33ccd49b7f86490dd11d5cd4cd85c6c
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:04332d28dc9c58c0f0c32fde507796c363ff840d72778d7935ca945b6fa39570
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:2879f66cce7ed0e4efe8c4f96ad556d9549dc76d7e0e0ad3ba8ceda83bbd9f31
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:e6ac64452f8ca87660d8ee3675aa6cee9064c51e00298df957a48b77b203736c
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:ef0e87506e02e8309334e3a5cc106b4cd4043dd187be24e173eb28546ac98029 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d06f389ab1b399f1e4ccbbc47bf35f8a9afdce570df18aa6837bef0bd70157a4
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b251f55b3a9b39511840949e8e8998544fb5fa63e02a9900774a06a6be5cf50b
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate:latest
+#3 sha256:6d6a4b402d040785610e1d37edc11199630105052eaa4cb7ec80e0f19ea58414
+#3 DONE 0.0s
+
+#6 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#6 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#6 DONE 0.0s
+
+#5 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/cjson_cjson-intermediate
+#5 sha256:55903ce1409c92e9b6f4024765626b69fe8527f96d648242ac9689c93f72496a
+#5 DONE 0.0s
+
+#20 importing cache manifest from gcr.io/fuzzbench/builders/afl/cjson_cjson
+#20 sha256:b5b1974189fd799fc0aaac8d331cfd6522829ecb11e1c3ff9e259383be8949fe
+#20 DONE 0.0s
+
+#11 [internal] load build context
+#11 sha256:2f861ad8d6a5a781bf46ee8e2043fa115044fb74e9f40802d3d053c144961d25
+#11 transferring context: 669.86kB 0.1s done
+#11 DONE 0.1s
+
+#9 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#9 sha256:a8557d2fd862049c8b0472d61ddf1472ea7f72e1ee7bb512653e48c10ab7a1c1
+#9 CACHED
+
+#12 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#12 sha256:a4f3fca1d3e449e90fe0bf054367be36e6403845c653c63f9299762246866a09
+#12 CACHED
+
+#18 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#18 sha256:094fd06379a1e0558398d0708b6938320e53c25a5e1b0d0255bef5688d18ba3b
+#18 CACHED
+
+#15 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#15 sha256:6860d9deaff9b9b6c07c06ef1a34212319f43e6496f9ed0acb560147c2b27895
+#15 CACHED
+
+#17 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#17 sha256:534caf483c57ad3336858109405e9c3cc6ea7ef18952b6b009c3947aaedc341d
+#17 CACHED
+
+#13 [stage-1  7/13] RUN touch /src/__init__.py
+#13 sha256:06095a3c67a226ebb1d98cb0abcbce15daca1fb5053d35cfb4c2dc735c8cff7d
+#13 CACHED
+
+#16 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#16 sha256:576edf9d7d2de0942bc245f8b07c0a71581a1b4dc941367dc06481598e0fe611
+#16 CACHED
+
+#14 [stage-1  8/13] COPY benchmarks/cjson_cjson/benchmark.yaml /
+#14 sha256:7a4c0ce4238e601264a0346f24cbfc9a89b68764180745360940d94a7af6d05e
+#14 CACHED
+
+#7 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#7 sha256:72aa1af9f4f3b3d97b3851645b862fd3c24f9023d14ec48b326c07e0e1e59e1d
+#7 CACHED
+
+#8 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#8 sha256:d467b1c4eac40009f3b2aedbd218afc27d1bb3ce8c534168370104562cddbc41
+#8 CACHED
+
+#10 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#10 sha256:b441b5d1f0044756d148d841d97b6b6e37fc82496a98cc4f37c114946368938a
+#10 CACHED
+
+#19 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#19 sha256:e92a9a10a4f6e9eb8b4b7c0316be832245a51fa636d0957968d124d4f71b9d83
+#19 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:f8a89f75c6b236ab08526620a25b42b8677d258f11eaf903b3d14ae39f3ffa71 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/cjson_cjson done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:13580339232cc6e3ac9fa482b76d19a0a77707419534f222620658bcd3b654db
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:8aa866f90d82a9ddeb3680c215424e83cfd76308d07727213278676bdd100591
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate
+#5 sha256:ed07e687033a25f569116be7ac7a8d277a020cca4fdf6fbbe552d78f98c57846
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:1bbac81dd24d178a85e6f40a81697334e100ff78f25f92131a3470403d610d33
+#6 writing image sha256:1bbac81dd24d178a85e6f40a81697334e100ff78f25f92131a3470403d610d33 done
+#6 naming to gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2f440a74303c4dc61fdd23a3b0d6edb3bb37fee09d569740e8f0de48e960f404
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e9342250603e7a269d90bdefbd09265db9662c04863818b7ba2c1c0786d8fef3
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate:latest
+#3 sha256:27dcc9f49a75ee0989048497b308eecabb759bfc9bb086cc413046a1136d69b8
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/cjson_cjson:latest
+#4 sha256:6a974683dd9c89be30dbff0ca6e2b2cbbc0db9cfb8fcec6f829e035b85299766
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/cjson_cjson-intermediate
+#6 sha256:206eb9a52bd449e7c992ffbb12dc8508ee4e9332953bf6e8851d98df5d67f911
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/cjson_cjson
+#5 sha256:3022c46d28ccd7d35af76db94b26d5dc52e1488db860e76f452cd36a79794646
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/cjson_cjson
+#10 sha256:b3fc4dc2fca8d3c2e74cc8470e8d17658cab2b7db64e758c57d4dc11a4976a39
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:bacbed791b53d1db4741fbd69b303968dfd3defc1294d99b1d36a7cbb0ae99da
+#12 transferring context: 19.00MB 0.7s done
+#12 DONE 0.9s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:65f3c0957d38ada94eab6251257bef9842fb106ec44b62d8759dc363f52a1349
+#7 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:0f9ee2b147b30105b00d09cab6481e85cf628c5a7e0cd037915fd3fc87b01136
+#16 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:24c6cf2453a995496973afc905d7749c8f21d5d786268b2791c1e8e1a995770f
+#13 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:93058f93f88106f506bfe32621ab170b38ba73b24d71599bef23bbbdb2eb868f
+#9 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:3d319aa7e54ddba0d4052c6a9a981b13e4007c8687cb20ff912bd22d2c6c045d
+#14 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:e4b96c9b7af622584b5c62e796aa1d894973b637c11aa011b6ee1b14e63b5f69
+#15 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:ace1271d5089fdeaec7508d312d45cf98ffb5f486c6e675cbe540b8a89219f97
+#18 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:ce6bb8c8687f9676896553256222849b3adf4216c8e42b48a791ebe3c3ecad1f
+#8 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:b3d6497a7bdde5f484a90db8b11e301f7691ca07ba50b88c2688efd336330b22
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:4ea718e150f06b11d6d5a52da0f7db26d9c369ae4bd9750cc836ee441e73a7ee
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:f2575074df0351cc7beb84d5b6234d8ac515bb50b1d2ca19fde6e735725bb244
+#11 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:a016c70cf9b39084b44e4969cb8a0066011fca5ee715a0cb8a680b9f0185d1df
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:1f787f3e0f38971171c3860397e530cf45a474087c148f78cb1ac70b8eaf8a1a 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/cjson_cjson done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fdccd181ee0> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

@@ -1,0 +1,716 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: htslib_htslib.
+INFO:root:Please run "make test-run-afl-htslib_htslib" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:edfb0caebcc406364d3082db98ff29741ff606e1c2519df7669c7a95d6ea215c
+#1 transferring dockerfile:
+#1 transferring dockerfile: 972B done
+#1 DONE 1.6s
+
+#2 [internal] load .dockerignore
+#2 sha256:52e44bfdc331e4fe67273aa765f6e8f30600fc65a799d4d2961e595922b231ca
+#2 transferring context: 2B done
+#2 DONE 2.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 1.3s
+
+#9 [internal] load build context
+#9 sha256:65fa3eccef3c09d3dce96441a738c5d99d60e05ef32ebbafc89979ab925195a3
+#9 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/htslib_htslib
+#4 sha256:a4c0045a93fd3222dffbadb552dd4856824f7c942512898e5b3cdcb2d033d59c
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/htslib_htslib:latest: not found
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:65fa3eccef3c09d3dce96441a738c5d99d60e05ef32ebbafc89979ab925195a3
+#9 transferring context: 30B done
+#9 DONE 0.2s
+
+#8 [4/5] WORKDIR htslib
+#8 sha256:d9c3197e663d72fbb7c1bc31f414fc4d7c46e6d93d8992114f49f1eb9d21d9f5
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake zlib1g-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev libssl-dev
+#6 sha256:e76b65d89b3ae0ddc8ff5eac1a09700ed7c415d02b99ce05d2610646d80de336
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/samtools/htslib.git htslib
+#7 sha256:b6fb46a6088f5507c14a7c7527bfa5b398f0581f54e5adbb46f9c3fe5308ccbf
+#7 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:4c9f5d7a6025a09827a05f98a6af475e9270683ffdc8ad1ca915b8a0e08810f7
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:4d3578aa61e4d03756611367765701bd07225acee1444e614b7ac4fea0669cd1 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/htslib_htslib 0.0s done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/htslib_htslib:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:ebb2473e50ae3d4ea57979d09f86f99faa31156803ed3d81c94a1dd6abcc7308
+#1 transferring dockerfile: 46B done
+#1 DONE 0.8s
+
+#2 [internal] load .dockerignore
+#2 sha256:63f0b076cd896b8e8e07cda1da57c36d621a7b53ca6ca9ef6559cf48c28ab376
+#2 transferring context: 2B done
+#2 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/htslib_htslib:latest
+#3 sha256:9f05841540f234ac5a76e1653e248715cbbc4f587bc4f3a87da27d321dc9f93b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate
+#4 sha256:43042e381169cbd3a3efc487f7180bb4489fa2f5374bfb75a4b9a7f21487f06f
+#4 ...
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/htslib_htslib
+#5 sha256:41e6733868a79b013438aeaabe7c602478d0570651eab60b3569ceef128aa42a
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate
+#4 sha256:43042e381169cbd3a3efc487f7180bb4489fa2f5374bfb75a4b9a7f21487f06f
+#4 ERROR: gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:6c046ebdc58cd7677acf5df263ba018aef81182b87b4ba661c4313a9a26fea37
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:5f78713e5edf18e15480eaa17c4b791d793f9926a32cf6ad852eeee26ba523f2
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:5e39ce1b0c0426cc704021a719472c3ae6ff23d8f786cbec6e6aa9ce6cf0f20e 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:2a4015c0f223fb78ace0b4743bb5fdbfa30098491e2e27dc35571e3e86b9d790
+#2 transferring context: 34B done
+#2 DONE 0.4s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7355b4b372c3d83a7a82dbd3946a463e917e0db1ed44d0ee51f7cb59d07a074b
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.3s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:23f1a10646c4bb41903c18d878211374d39478f36290bb70d20b97ad9613eb3d
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:ec3d1bad6921cdd0d7945dd7d7e1d261e1520e73086a2e17bf126fb1053822c7
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:fc54d129aa92598579c475faf10ec0a42b651d941fa310408cf961bfe018175c
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ae3058f01cfb675d800fef3334abdb4658996168839bee5f9cff3a2832814202
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:92ca011313af336d430d44c1af1446d6cde50aa63b0f4d9e04366768a6488d60
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:ccaab23fee99e2873558246c9af16a799fa9bb41f3c8ca1abfa401c679b4444f
+#13 writing image sha256:ccaab23fee99e2873558246c9af16a799fa9bb41f3c8ca1abfa401c679b4444f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:915cfce9d40be0a6d795fed3ddcbb9bc72daca67bc37e435d53997991068a769
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:e0b474ee228b63f647c8d276789a99e0b79d2a79deae5ee8ec33737602f2714e
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate:latest
+#3 sha256:30e53f910329e6131e8e5c66b2864fa7117d3b98deefb50466c33616b10ca591
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:95e0beafdffee8ebb90e12de466aefd54b08bf758c1cc22e374683ebbcc5e109
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate
+#6 sha256:1218d125b1db2b6bbd0f00d3a6a7e7b71f0b8c7c46b9be32c759570ff82dce62
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib
+#5 sha256:8a88bcf942984a8742bfa782e59d2278348d377a46ec27eeae576006e30243c9
+#5 ERROR: gcr.io/fuzzbench/builders/afl/htslib_htslib:latest: not found
+
+#12 [internal] load build context
+#12 sha256:95e0beafdffee8ebb90e12de466aefd54b08bf758c1cc22e374683ebbcc5e109
+#12 transferring context: 669.86kB 0.2s done
+#12 DONE 0.3s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:dd6f4f3170c7df003adac37f1d11d2f081a536f68e34bc5804f9d4f750c36bb7
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:085902bc47d8914e6eef37d35c2bac10edf3b1d5d2d467ed48cb6c6af70afac7
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d86e1f415155b0e7ef03bd8466137b9ad2993e0a3177f20932f4584d6fea410b
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:c63dbfbaab8f855bc2ef422b0a7312e9c34770de72694f87ba1ef3df8f7b9ce5
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:bb36f442781dac5a9a4fb833aebbc2ebe370e95bb87ecd9bf8b1f400ac8197a5
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:8e7b3952384e8f72067dcb13a6a291b0aafcccfe00be0c9e2542de1a7a1928db
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/htslib_htslib/benchmark.yaml /
+#15 sha256:da9f947909ef3f096dd1b51f783118d837877c4392ebd607d1e130c5cec94c3a
+#15 DONE 0.9s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:7f94d582cc5f6041f640629d38e7fbe28d6d3e69f220a15bd42de0c0eb9edcf3
+#16 DONE 1.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:5d3ccfd61bcdedb3ceb4f6aef0cad042f8aac737db306f5ed16dd44b54b6f5fa
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:f2a3590126bf4d668005400c8f56e0219b9e90eef323f89af8dd7393c089d17c
+#18 1.753 Checking out commit 84faf557
+#18 8.531 From https://github.com/samtools/htslib
+#18 8.532  * [new tag]         0.2.0-rc1        -> 0.2.0-rc1
+#18 8.533  * [new tag]         0.2.0-rc10       -> 0.2.0-rc10
+#18 8.533  * [new tag]         0.2.0-rc11       -> 0.2.0-rc11
+#18 8.534  * [new tag]         0.2.0-rc12       -> 0.2.0-rc12
+#18 8.535  * [new tag]         0.2.0-rc2        -> 0.2.0-rc2
+#18 8.536  * [new tag]         0.2.0-rc3        -> 0.2.0-rc3
+#18 8.536  * [new tag]         0.2.0-rc4        -> 0.2.0-rc4
+#18 8.537  * [new tag]         0.2.0-rc5        -> 0.2.0-rc5
+#18 8.538  * [new tag]         0.2.0-rc6        -> 0.2.0-rc6
+#18 8.539  * [new tag]         0.2.0-rc7        -> 0.2.0-rc7
+#18 8.540  * [new tag]         0.2.0-rc8        -> 0.2.0-rc8
+#18 8.540  * [new tag]         0.2.0-rc9        -> 0.2.0-rc9
+#18 8.541  * [new tag]         1.0              -> 1.0
+#18 8.542  * [new tag]         1.1              -> 1.1
+#18 8.543  * [new tag]         1.10             -> 1.10
+#18 8.543  * [new tag]         1.10.1           -> 1.10.1
+#18 8.544  * [new tag]         1.10.2           -> 1.10.2
+#18 8.545  * [new tag]         1.11             -> 1.11
+#18 8.546  * [new tag]         1.11.0           -> 1.11.0
+#18 8.546  * [new tag]         1.12             -> 1.12
+#18 8.547  * [new tag]         1.13             -> 1.13
+#18 8.548  * [new tag]         1.14             -> 1.14
+#18 8.549  * [new tag]         1.2              -> 1.2
+#18 8.550  * [new tag]         1.2.1            -> 1.2.1
+#18 8.550  * [new tag]         1.3              -> 1.3
+#18 8.551  * [new tag]         1.3.1            -> 1.3.1
+#18 8.552  * [new tag]         1.3.2            -> 1.3.2
+#18 8.552  * [new tag]         1.4              -> 1.4
+#18 8.553  * [new tag]         1.4.1            -> 1.4.1
+#18 8.554  * [new tag]         1.5              -> 1.5
+#18 8.554  * [new tag]         1.6              -> 1.6
+#18 8.555  * [new tag]         1.7              -> 1.7
+#18 8.555  * [new tag]         1.8              -> 1.8
+#18 8.556  * [new tag]         1.9              -> 1.9
+#18 8.556  * [new tag]         stable1          -> stable1
+#18 8.557  * [new tag]         stable2          -> stable2
+#18 8.557  * [new tag]         vcf-direct-final -> vcf-direct-final
+#18 8.944 error: pathspec '84faf557' did not match any file(s) known to git
+#18 8.950 error: pathspec '84faf557' did not match any file(s) known to git
+#18 8.961 error: pathspec '84faf557' did not match any file(s) known to git
+#18 8.992 error: pathspec '84faf557' did not match any file(s) known to git
+#18 9.071 Checkout unsuccessful.
+#18 DONE 9.9s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:928d6aa0d80c010f81ad0ca944be60b9dc6f1f88b191c5a31991268c0051e70f
+#19 DONE 1.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:700fb1942352558cfe7c4f9f127a72a50649ad3508e4a859476b57bbdc8fc522
+#20 1.398 Run fuzzer_build to build the target
+#20 1.651 FUZZ_TARGET = htslib
+#20 1.651 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.651 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.662 Building benchmark htslib_htslib with fuzzer afl
+#20 1.666 + autoconf
+#20 3.629 + autoheader
+#20 4.155 + ./configure
+#20 4.900 checking for gcc... clang
+#20 5.071 checking whether the C compiler works... yes
+#20 5.335 checking for C compiler default output file name... a.out
+#20 5.338 checking for suffix of executables... 
+#20 5.585 checking whether we are cross compiling... no
+#20 5.854 checking for suffix of object files... o
+#20 5.914 checking whether we are using the GNU C compiler... yes
+#20 5.981 checking whether clang accepts -g... yes
+#20 6.016 checking for clang option to accept ISO C89... none needed
+#20 6.091 checking for ranlib... ranlib
+#20 6.093 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 6.101 checking for C compiler warning flags... -Wall
+#20 6.142 checking for pkg-config... no
+#20 6.147 checking for special C compiler options needed for large files... no
+#20 6.148 checking for _FILE_OFFSET_BITS value needed for large files... no
+#20 6.207 checking shared library type for unknown-Linux... plain .so
+#20 6.210 checking whether the compiler accepts -fvisibility=hidden... yes
+#20 6.444 checking how to run the C preprocessor... clang -E
+#20 6.580 checking for egrep... /usr/bin/grep -E
+#20 6.586 checking for ANSI C header files... yes
+#20 7.028 checking for sys/types.h... yes
+#20 7.137 checking for sys/stat.h... yes
+#20 7.293 checking for stdlib.h... yes
+#20 7.457 checking for string.h... yes
+#20 7.629 checking for memory.h... yes
+#20 7.773 checking for strings.h... yes
+#20 7.945 checking for inttypes.h... yes
+#20 8.113 checking for stdint.h... yes
+#20 8.265 checking for unistd.h... yes
+#20 8.437 checking for stdlib.h... (cached) yes
+#20 8.505 checking for unistd.h... (cached) yes
+#20 8.538 checking for sys/param.h... yes
+#20 8.657 checking for getpagesize... yes
+#20 8.908 checking for working mmap... yes
+#20 9.312 checking for gmtime_r... yes
+#20 9.621 checking for fsync... yes
+#20 9.949 checking for drand48... yes
+#20 10.30 checking for srand48_deterministic... no
+#20 10.66 checking whether fdatasync is declared... yes
+#20 10.80 checking for fdatasync... yes
+#20 11.07 checking for library containing log... none required
+#20 11.32 checking for zlib.h... yes
+#20 11.39 checking for inflate in -lz... yes
+#20 11.67 checking for library containing recv... none required
+#20 11.95 checking for bzlib.h... yes
+#20 12.03 checking for BZ2_bzBuffToBuffCompress in -lbz2... yes
+#20 12.32 checking for lzma.h... yes
+#20 12.39 checking for lzma_easy_buffer_encode in -llzma... yes
+#20 12.64 checking whether htscodecs files are present... no
+#20 12.64 configure: error: htscodecs submodule files not present.
+#20 12.64 
+#20 12.64 HTSlib uses some functions from the htscodecs project, which is normally
+#20 12.64 included as a submodule.  Try running:
+#20 12.64 
+#20 12.64   git submodule update --init --recursive
+#20 12.64 
+#20 12.64 in  the top-level htslib directory to update it, and then re-run configure.
+#20 12.64 
+#20 12.78 Traceback (most recent call last):
+#20 12.78   File "<string>", line 1, in <module>
+#20 12.78   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 12.78     utils.build_benchmark()
+#20 12.78   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 12.78     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 12.78   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 12.79     raise CalledProcessError(retcode, cmd)
+#20 12.79 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2831903: .afl-htslib_htslib-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:73594cbdb90661404f59b67679bf1287af822116dcab0f69ef87a80273ef6c1c
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:04d728471d06032aab13796f3de5dd9465df4e402b6dca013d5605f3255f039b
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#9 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#9 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/htslib_htslib
+#4 sha256:a4c0045a93fd3222dffbadb552dd4856824f7c942512898e5b3cdcb2d033d59c
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:c7a5feb3df09e8cf180a77413db7786060fa8ba023889686140d621454925264
+#10 transferring context: 30B done
+#10 DONE 0.1s
+
+#5 [2/5] RUN apt-get update && apt-get install -y make autoconf automake zlib1g-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev libssl-dev
+#5 sha256:e76b65d89b3ae0ddc8ff5eac1a09700ed7c415d02b99ce05d2610646d80de336
+#5 CACHED
+
+#6 [3/5] RUN git clone --depth 1 https://github.com/samtools/htslib.git htslib
+#6 sha256:b6fb46a6088f5507c14a7c7527bfa5b398f0581f54e5adbb46f9c3fe5308ccbf
+#6 CACHED
+
+#7 [4/5] WORKDIR htslib
+#7 sha256:d9c3197e663d72fbb7c1bc31f414fc4d7c46e6d93d8992114f49f1eb9d21d9f5
+#7 CACHED
+
+#8 [5/5] COPY build.sh /src/
+#8 sha256:df01d482ec0eb8f4e65de09eb40775a179918d75ba1114fb130736377a3e4316
+#8 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:4d3578aa61e4d03756611367765701bd07225acee1444e614b7ac4fea0669cd1 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/htslib_htslib done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:5050d9858d1c9ce868ce16f2480964673d0f8a637d0db5bc15c7db1cc4a69d9b
+#1 transferring dockerfile: 46B done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:383e4a73180aadee8241a4f546cdc57db523b2f0ff6af0df048d390d5aa1a429
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/htslib_htslib:latest
+#3 sha256:9f05841540f234ac5a76e1653e248715cbbc4f587bc4f3a87da27d321dc9f93b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate
+#4 sha256:43042e381169cbd3a3efc487f7180bb4489fa2f5374bfb75a4b9a7f21487f06f
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/htslib_htslib
+#5 sha256:41e6733868a79b013438aeaabe7c602478d0570651eab60b3569ceef128aa42a
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:6c046ebdc58cd7677acf5df263ba018aef81182b87b4ba661c4313a9a26fea37
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:5f78713e5edf18e15480eaa17c4b791d793f9926a32cf6ad852eeee26ba523f2
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:5e39ce1b0c0426cc704021a719472c3ae6ff23d8f786cbec6e6aa9ce6cf0f20e 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a53b2372c45857861a1b5f826f96a106541524643c4244bb87727380f8d47115
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7e6e8df0affc21cec117ab0397a13f398646af6c912539a95b92ecae7d5fd2fa
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#11 [1/7] FROM docker.io/library/ubuntu:xenial
+#11 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#11 DONE 0.0s
+
+#12 importing cache manifest from gcr.io/fuzzbench/base-image
+#12 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#12 DONE 0.0s
+
+#6 [internal] load build context
+#6 sha256:fd67bf26b46e6c5a3331c017cf30a98167aef89227250a7b97df8604fc501be6
+#6 transferring context: 559B 0.0s done
+#6 DONE 0.1s
+
+#8 [5/7] RUN pip3 install -r /requirements.txt
+#8 sha256:06c6bd2ff321cd44015c147d74d3bd089bf3a5661fcee3f8ba2d4f081a7a2625
+#8 CACHED
+
+#9 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#9 sha256:a12b558020bc136bb0e7ff25e2079a5c44a4084b6ea6446db82c6cddd7c47f0b
+#9 CACHED
+
+#4 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#4 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#4 CACHED
+
+#5 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#5 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#5 CACHED
+
+#7 [4/7] COPY ./requirements.txt /
+#7 sha256:b18197b33fc6ce38678e35bc86d0e055aa5e9e33b52521e84689faae5b34c9eb
+#7 CACHED
+
+#10 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#10 sha256:92389d4713948ade847d9978724d529e2aaa175bc743a86bfeafd7f8b1d2adc8
+#10 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:ccaab23fee99e2873558246c9af16a799fa9bb41f3c8ca1abfa401c679b4444f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:cd711d88e16eea68b1f4f5a29720e69e48a524a4658421a54b55b3bb57136216
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:272f8f9946ad1ccc3e82c494bd79509b98c2a237c2402f7825c7b403e459f1a2
+#2 transferring context: 34B 0.0s done
+#2 DONE 0.2s
+
+#6 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#6 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#6 CACHED
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate:latest
+#4 sha256:30e53f910329e6131e8e5c66b2864fa7117d3b98deefb50466c33616b10ca591
+#4 DONE 0.0s
+
+#5 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/htslib_htslib-intermediate
+#5 sha256:1218d125b1db2b6bbd0f00d3a6a7e7b71f0b8c7c46b9be32c759570ff82dce62
+#5 DONE 0.0s
+
+#11 [internal] load build context
+#11 sha256:55b7dded4010640da785812bb4d31fb2f65bbf2ada99aeafa2ab28a6be5445d7
+#11 DONE 0.0s
+
+#20 importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib
+#20 sha256:8a88bcf942984a8742bfa782e59d2278348d377a46ec27eeae576006e30243c9
+#20 ERROR: gcr.io/fuzzbench/builders/afl/htslib_htslib:latest: not found
+
+#11 [internal] load build context
+#11 sha256:55b7dded4010640da785812bb4d31fb2f65bbf2ada99aeafa2ab28a6be5445d7
+#11 transferring context: 669.86kB 0.2s done
+#11 DONE 0.3s
+
+#13 [stage-1  7/13] RUN touch /src/__init__.py
+#13 sha256:c620fc508cf53b0ec509e08a56efd2a1f6690c1783566b61950e3c2e54b3b5e8
+#13 CACHED
+
+#7 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#7 sha256:d86e1f415155b0e7ef03bd8466137b9ad2993e0a3177f20932f4584d6fea410b
+#7 CACHED
+
+#14 [stage-1  8/13] COPY benchmarks/htslib_htslib/benchmark.yaml /
+#14 sha256:0c6d91c4073036ce72faa877cf860a338d91065acf7c6f402ee256abc25eb105
+#14 CACHED
+
+#15 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#15 sha256:31ad8a0a359dfe5e5ac6537477090b5a1bc2109f5b7a0f349f69f4ef111aa39a
+#15 CACHED
+
+#8 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#8 sha256:c63dbfbaab8f855bc2ef422b0a7312e9c34770de72694f87ba1ef3df8f7b9ce5
+#8 CACHED
+
+#12 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#12 sha256:cc470526677569ebd9b27bba6e0bdd1966d7d0ea924b74d7799ac3a5927ebf6e
+#12 CACHED
+
+#16 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#16 sha256:900f08c4441c6760873fb942152674111bc5320d828fac32596f2cb561108bcd
+#16 CACHED
+
+#17 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#17 sha256:1b0ccc34b8b60b41075a1f0b69ff1083358d23182f4c036e1c0539fa5542ca34
+#17 CACHED
+
+#9 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#9 sha256:bb36f442781dac5a9a4fb833aebbc2ebe370e95bb87ecd9bf8b1f400ac8197a5
+#9 CACHED
+
+#10 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#10 sha256:dd6f4f3170c7df003adac37f1d11d2f081a536f68e34bc5804f9d4f750c36bb7
+#10 CACHED
+
+#18 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#18 sha256:6f5a6230b3dfb4eb9fd72183eeaf6d6c0825a86e02b036bceb1662f934e1bb66
+#18 CACHED
+
+#19 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#19 sha256:32f30dbec30833395251806c6129fb62b7bf53cbd72baab3a4870dc26f67f6c4
+#19 1.238 Run fuzzer_build to build the target
+#19 1.483 FUZZ_TARGET = htslib
+#19 1.484 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#19 1.484 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#19 1.494 Building benchmark htslib_htslib with fuzzer afl
+#19 1.499 + autoconf
+#19 2.590 + autoheader
+#19 3.149 + ./configure
+#19 4.265 checking for gcc... clang
+#19 4.444 checking whether the C compiler works... yes
+#19 4.697 checking for C compiler default output file name... a.out
+#19 4.700 checking for suffix of executables... 
+#19 4.939 checking whether we are cross compiling... no
+#19 5.222 checking for suffix of object files... o
+#19 5.281 checking whether we are using the GNU C compiler... yes
+#19 5.350 checking whether clang accepts -g... yes
+#19 5.399 checking for clang option to accept ISO C89... none needed
+#19 5.505 checking for ranlib... ranlib
+#19 5.506 checking for grep that handles long lines and -e... /usr/bin/grep
+#19 5.522 checking for C compiler warning flags... -Wall
+#19 5.585 checking for pkg-config... no
+#19 5.587 checking for special C compiler options needed for large files... no
+#19 5.588 checking for _FILE_OFFSET_BITS value needed for large files... no
+#19 5.645 checking shared library type for unknown-Linux... plain .so
+#19 5.647 checking whether the compiler accepts -fvisibility=hidden... yes
+#19 5.913 checking how to run the C preprocessor... clang -E
+#19 6.117 checking for egrep... /usr/bin/grep -E
+#19 6.123 checking for ANSI C header files... yes
+#19 6.627 checking for sys/types.h... yes
+#19 6.736 checking for sys/stat.h... yes
+#19 6.889 checking for stdlib.h... yes
+#19 7.041 checking for string.h... yes
+#19 7.217 checking for memory.h... yes
+#19 7.380 checking for strings.h... yes
+#19 7.549 checking for inttypes.h... yes
+#19 7.716 checking for stdint.h... yes
+#19 7.848 checking for unistd.h... yes
+#19 7.971 checking for stdlib.h... (cached) yes
+#19 7.991 checking for unistd.h... (cached) yes
+#19 8.009 checking for sys/param.h... yes
+#19 8.129 checking for getpagesize... yes
+#19 8.376 checking for working mmap... yes
+#19 8.791 checking for gmtime_r... yes
+#19 9.088 checking for fsync... yes
+#19 9.425 checking for drand48... yes
+#19 9.776 checking for srand48_deterministic... no
+#19 10.15 checking whether fdatasync is declared... yes
+#19 10.28 checking for fdatasync... yes
+#19 10.55 checking for library containing log... none required
+#19 10.83 checking for zlib.h... yes
+#19 10.89 checking for inflate in -lz... yes
+#19 11.14 checking for library containing recv... none required
+#19 11.40 checking for bzlib.h... yes
+#19 11.47 checking for BZ2_bzBuffToBuffCompress in -lbz2... yes
+#19 11.75 checking for lzma.h... yes
+#19 11.81 checking for lzma_easy_buffer_encode in -llzma... yes
+#19 12.06 checking whether htscodecs files are present... no
+#19 12.07 configure: error: htscodecs submodule files not present.
+#19 12.07 
+#19 12.07 HTSlib uses some functions from the htscodecs project, which is normally
+#19 12.07 included as a submodule.  Try running:
+#19 12.07 
+#19 12.07   git submodule update --init --recursive
+#19 12.07 
+#19 12.07 in  the top-level htslib directory to update it, and then re-run configure.
+#19 12.07 
+#19 12.17 Traceback (most recent call last):
+#19 12.17   File "<string>", line 1, in <module>
+#19 12.17   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#19 12.17     utils.build_benchmark()
+#19 12.17   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#19 12.17     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#19 12.17   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#19 12.17     raise CalledProcessError(retcode, cmd)
+#19 12.17 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#19 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/htslib_htslib:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2831903: .afl-htslib_htslib-builder] Error 1

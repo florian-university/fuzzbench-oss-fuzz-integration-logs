@@ -1,0 +1,1781 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: readstat_readstat.
+INFO:root:Please run "make test-run-afl-readstat_readstat" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:deffc3667d714ccbe5a6b2d2fe41cf9d1106e7233730004ab249e9099db3aa8e
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:92aff09bf86ce9bf23d0f8b3549f288055c6686b33118ee677a15595fa4e7c81
+#1 transferring dockerfile: 942B done
+#1 DONE 0.5s
+
+#2 [internal] load .dockerignore
+#2 sha256:deffc3667d714ccbe5a6b2d2fe41cf9d1106e7233730004ab249e9099db3aa8e
+#2 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:de166ef3af8414f61cdedcd071513620b94bacfcd388802c604652d94d60bcb8
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/readstat_readstat
+#4 sha256:246212ac2ef0c7c5015b096d1db2c1bb1166207007549be72a07b60aa5ea6246
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/readstat_readstat:latest: not found
+
+#9 [internal] load build context
+#9 sha256:de166ef3af8414f61cdedcd071513620b94bacfcd388802c604652d94d60bcb8
+#9 transferring context: 1.95kB done
+#9 DONE 0.0s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/WizardMac/ReadStat readstat
+#7 sha256:e98eb74936e7ba85be8d022bcebbffd95e4d687b57d5077797f89097e4c8b886
+#7 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake gettext libtool zip zlib1g-dev
+#6 sha256:36caecc5654f061474ecc243c27391aeb040645b47540123c70d9aaf0c881a72
+#6 CACHED
+
+#8 [4/5] WORKDIR readstat
+#8 sha256:46625f2a7524c7aa14a3052eb39affd3400838aa0b185c9dc1e4f1f7d6abe337
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:b22368e42c7f36d6c34e06bea6a1bddd0ecad09ae8cf6d25dd31cb90f3a261f7
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:3c448584c14168a9be3d7c572b68ea7723b1fb9f04b6c93a575d62f605673d03
+#11 writing image sha256:3c448584c14168a9be3d7c572b68ea7723b1fb9f04b6c93a575d62f605673d03 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/readstat_readstat done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/readstat_readstat:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:7979941dbe678a453b4d6256658fa0c4cfc320a76c1ade56f047cb743b55d4ba
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:852cc1ad6e986a11afda37910d5912f2dd291d2e7dd105e332d757c152026bf5
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/readstat_readstat:latest
+#3 sha256:147dc20a2ebe653684f92f6994e0d22fae0fdafcb4348756c4c857b5504d3951
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/readstat_readstat
+#5 sha256:403020ec7efd13d644ca4976c3bb0e6215c1fd4c67f671868543912d31e5ba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate
+#4 sha256:df4aa04f3c90e9106871546a1c43541beb6483e6e53d9f77ea99acc7e5e3fabc
+#4 ERROR: gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/readstat_readstat
+#5 sha256:403020ec7efd13d644ca4976c3bb0e6215c1fd4c67f671868543912d31e5ba29
+#5 DONE 0.2s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:cb3ff1bc56498c5d58603fb4e3e22778e2bc5a1433db79ecfc7bf8ee4528b1a3
+#6 0.353 Cloning into '/afl'...
+#6 1.284 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.284 
+#6 1.284 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.284 changes and commit them, and you can discard any commits you make in this
+#6 1.284 state without impacting any branches by switching back to a branch.
+#6 1.284 
+#6 1.284 If you want to create a new branch to retain commits you create, you may
+#6 1.284 do so (now or later) by using -c with the switch command. Example:
+#6 1.284 
+#6 1.284   git switch -c <new-branch-name>
+#6 1.284 
+#6 1.284 Or undo this operation with:
+#6 1.284 
+#6 1.284   git switch -
+#6 1.284 
+#6 1.284 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.284 
+#6 1.284 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.297 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.297 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.465 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.469 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.956 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.267 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.706 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.846 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.243 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.477 ln -sf afl-as as
+#6 5.478 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.480 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.480 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.6s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c9f9e9f089a2e0464224d2d08c31cf891a3cb55d051f99bcacffffc4d02e1345
+#7 0.763 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.764 Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.764 Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 0.764 Hit:4 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.784 Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.414 Reading package lists...
+#7 3.589 Reading package lists...
+#7 5.082 Building dependency tree...
+#7 5.307 Reading state information...
+#7 5.591 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.591 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+#7 5.611 --2022-02-15 17:36:33--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.612 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.109.133, 185.199.108.133, ...
+#7 5.614 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+#7 5.637 HTTP request sent, awaiting response... 200 OK
+#7 5.672 Length: 9177 (9.0K) [text/plain]
+#7 5.672 Saving to: '/afl/afl_driver.cpp'
+#7 5.672 
+#7 5.672      0K ........                                              100% 12.3M=0.001s
+#7 5.672 
+#7 5.672 2022-02-15 17:36:33 (12.3 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.672 
+#7 7.472 ar: creating /libAFL.a
+#7 DONE 8.1s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:949022d99d4435c5ee97c260fbdf8f9842d0b63cf2d24ada21eae91db883fa69 done
+#8 naming to gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5e715acf46279dc5fbc3b4d53822cd4629fe46fb0d37e80339da8f23c50e7416
+#1 DONE 0.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5e715acf46279dc5fbc3b4d53822cd4629fe46fb0d37e80339da8f23c50e7416
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1708ade856247ef4e6e72a23a506127bae6a52eb59542e804e00ec14650da0f5
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:9fb394f06217d2d276a66fa9b07031a8c7d0959d62d11bf1e88e1fd6b421abe9
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.0s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ca10430759f45b2124c54724e95ac2fa2f0e6a13998b9f79ead9d11e6794c0bf
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:369028139c2f44a1435b16a6197a3e44acc50398afce77820c28c9ff10365727
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:d3c6df3de527eae30b033060cde524515794c97fca71fe5e91cf45cce46afb52
+#10 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:6a0e963d5afd744e19d41c62d8be431b90d4d1d1b209a978e1fbfae2df247a82
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5bcafeca90d09e5a030feed2ced83edfc14622deae3e4a98f2d89504ec6deb0e done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:65b587a097fd13ec1e4a3423308b1fabdfc129d8ad3729ea20380e93f833a99a
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:5a563ef6f02f531777c827089ecf2ab1f680ea4d62a7d96b0762ad37da564f01
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate:latest
+#3 sha256:05055a9f7320b30a5b5d7116802b126da75656c203394cd7b6bbaa2dec0ad410
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate
+#6 sha256:db53a97a7f4d9fe299d55fb068481a1c369c8344a0a416c12488458b1d8475ed
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:067091dc0a8831ce34a3c604eb16b3e0a3af505cbdcf04c607cf7b3e4f64183e
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/readstat_readstat
+#5 sha256:d13ebe9fcac33c56aaf2e637fccaba6c877955863245a87863f7ef6716287403
+#5 ERROR: gcr.io/fuzzbench/builders/afl/readstat_readstat:latest: not found
+
+#12 [internal] load build context
+#12 sha256:067091dc0a8831ce34a3c604eb16b3e0a3af505cbdcf04c607cf7b3e4f64183e
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate
+#6 sha256:db53a97a7f4d9fe299d55fb068481a1c369c8344a0a416c12488458b1d8475ed
+#6 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:e12258187f94e69ad64cf0e47f420d0e2d5edbe472b9434c95663766c9dee743
+#8 DONE 0.3s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4990a6d9a8fff53df3ec11353299fad06368398c8ef6a6ccee489026f0a91316
+#9 DONE 13.6s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:cf9fb3cee3c0b47d42d97316a0f095c32c42b715a9cd66e462228076b81162a5
+#10 DONE 0.5s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:760e9d859f14e77c3cc629c941a7b625d74cea7d64e167d836bb6aa3df8d1671
+#11 DONE 18.7s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:a12ffcbe1133fd791a405c571804f56d623e5426b4a4acf9e06b95923667f69d
+#13 DONE 0.2s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:72724445083405415c165f89f2d4eb1e9925cf012372aa22151052bfda754c23
+#14 DONE 0.7s
+
+#15 [stage-1  8/13] COPY benchmarks/readstat_readstat/benchmark.yaml /
+#15 sha256:8a2a6ad423c42f3e8bbb3e422901334eb673a43eae919ee01aa7416ac9676a88
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:724483ac497503d054a9ea4ee19ea4b4e3e33ebf52e48771330539f56a27a809
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:aee1766f53317cd7eb814407b1d858a676efc56f90cedb92d77f009589b64c56
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:563628e1320d3906a3972fe878f71c2c93f91893540ef441fb70acf70181c33f
+#18 0.431 Checking out commit e315e8c0
+#18 2.369 From https://github.com/WizardMac/ReadStat
+#18 2.369  * [new tag]         v0.1.0     -> v0.1.0
+#18 2.369  * [new tag]         v0.1.1     -> v0.1.1
+#18 2.369  * [new tag]         v1.0.0     -> v1.0.0
+#18 2.370  * [new tag]         v1.0.0-rc0 -> v1.0.0-rc0
+#18 2.370  * [new tag]         v1.0.0-rc1 -> v1.0.0-rc1
+#18 2.370  * [new tag]         v1.0.0-rc2 -> v1.0.0-rc2
+#18 2.370  * [new tag]         v1.0.0-rc3 -> v1.0.0-rc3
+#18 2.371  * [new tag]         v1.0.0-rc4 -> v1.0.0-rc4
+#18 2.371  * [new tag]         v1.0.0-rc5 -> v1.0.0-rc5
+#18 2.371  * [new tag]         v1.0.0-rc6 -> v1.0.0-rc6
+#18 2.372  * [new tag]         v1.0.0-rc7 -> v1.0.0-rc7
+#18 2.372  * [new tag]         v1.0.1     -> v1.0.1
+#18 2.372  * [new tag]         v1.0.1-rc0 -> v1.0.1-rc0
+#18 2.372  * [new tag]         v1.0.2     -> v1.0.2
+#18 2.373  * [new tag]         v1.0.2-rc0 -> v1.0.2-rc0
+#18 2.373  * [new tag]         v1.1.0     -> v1.1.0
+#18 2.373  * [new tag]         v1.1.0-rc0 -> v1.1.0-rc0
+#18 2.374  * [new tag]         v1.1.1     -> v1.1.1
+#18 2.374  * [new tag]         v1.1.1-rc0 -> v1.1.1-rc0
+#18 2.374  * [new tag]         v1.1.1-rc1 -> v1.1.1-rc1
+#18 2.375  * [new tag]         v1.1.2     -> v1.1.2
+#18 2.375  * [new tag]         v1.1.2-rc0 -> v1.1.2-rc0
+#18 2.375  * [new tag]         v1.1.2-rc1 -> v1.1.2-rc1
+#18 2.375  * [new tag]         v1.1.2-rc2 -> v1.1.2-rc2
+#18 2.376  * [new tag]         v1.1.3     -> v1.1.3
+#18 2.376  * [new tag]         v1.1.3-rc0 -> v1.1.3-rc0
+#18 2.376  * [new tag]         v1.1.3-rc1 -> v1.1.3-rc1
+#18 2.377  * [new tag]         v1.1.4     -> v1.1.4
+#18 2.377  * [new tag]         v1.1.4-rc0 -> v1.1.4-rc0
+#18 2.377  * [new tag]         v1.1.5     -> v1.1.5
+#18 2.378  * [new tag]         v1.1.5-rc0 -> v1.1.5-rc0
+#18 2.378  * [new tag]         v1.1.5-rc1 -> v1.1.5-rc1
+#18 2.378  * [new tag]         v1.1.5-rc2 -> v1.1.5-rc2
+#18 2.378  * [new tag]         v1.1.6     -> v1.1.6
+#18 2.379  * [new tag]         v1.1.6-rc0 -> v1.1.6-rc0
+#18 2.379  * [new tag]         v1.1.6-rc1 -> v1.1.6-rc1
+#18 2.379  * [new tag]         v1.1.7-rc0 -> v1.1.7-rc0
+#18 2.380  * [new tag]         v1.1.7-rc1 -> v1.1.7-rc1
+#18 2.390 error: pathspec 'e315e8c0' did not match any file(s) known to git
+#18 2.400 error: pathspec 'e315e8c0' did not match any file(s) known to git
+#18 2.405 error: pathspec 'e315e8c0' did not match any file(s) known to git
+#18 2.459 Checkout unsuccessful.
+#18 DONE 2.9s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:32b8ed252e18301f9674855cb4b31d9148e2af56cbbc0fcbc579c0ca7290d78b
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:41d8f7f02588efd33ba5ca674e68f644307cf33943fc3b34bb43c4e4c2eb31f2
+#20 0.650 Run fuzzer_build to build the target
+#20 0.777 FUZZ_TARGET = readstat
+#20 0.777 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.777 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.790 Building benchmark readstat_readstat with fuzzer afl
+#20 0.793 + ./autogen.sh
+#20 4.907 libtoolize: putting auxiliary files in '.'.
+#20 4.907 libtoolize: copying file './ltmain.sh'
+#20 5.061 libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+#20 5.061 libtoolize: and rerunning libtoolize and aclocal.
+#20 5.061 libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+#20 7.531 configure.ac:20: installing './compile'
+#20 7.534 configure.ac:20: installing './config.guess'
+#20 7.537 configure.ac:20: installing './config.sub'
+#20 7.540 configure.ac:3: installing './install-sh'
+#20 7.543 configure.ac:3: installing './missing'
+#20 7.649 Makefile.am: installing './depcomp'
+#20 8.010 parallel-tests: installing './test-driver'
+#20 8.078 + ./configure --enable-static
+#20 8.257 checking for a BSD-compatible install... /usr/bin/install -c
+#20 8.267 checking whether build environment is sane... yes
+#20 8.278 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 8.281 checking for gawk... no
+#20 8.282 checking for mawk... mawk
+#20 8.282 checking whether make sets $(MAKE)... yes
+#20 8.294 checking whether make supports nested variables... yes
+#20 8.308 checking whether make supports nested variables... (cached) yes
+#20 8.323 checking build system type... x86_64-pc-linux-gnu
+#20 8.389 checking host system type... x86_64-pc-linux-gnu
+#20 8.390 checking how to print strings... printf
+#20 8.440 checking whether make supports the include directive... yes (GNU style)
+#20 8.450 checking for gcc... clang
+#20 8.502 checking whether the C compiler works... yes
+#20 8.615 checking for C compiler default output file name... a.out
+#20 8.616 checking for suffix of executables... 
+#20 8.732 checking whether we are cross compiling... no
+#20 8.858 checking for suffix of object files... o
+#20 8.880 checking whether we are using the GNU C compiler... yes
+#20 8.905 checking whether clang accepts -g... yes
+#20 8.923 checking for clang option to accept ISO C89... none needed
+#20 8.962 checking whether clang understands -c and -o together... yes
+#20 8.996 checking dependency style of clang... gcc3
+#20 9.038 checking for a sed that does not truncate output... /usr/bin/sed
+#20 9.045 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 9.048 checking for egrep... /usr/bin/grep -E
+#20 9.050 checking for fgrep... /usr/bin/grep -F
+#20 9.052 checking for ld used by clang... /usr/bin/ld
+#20 9.065 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 9.069 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 9.074 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 9.100 checking whether ln -s works... yes
+#20 9.101 checking the maximum length of command line arguments... 1572864
+#20 9.135 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 9.135 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 9.136 checking for /usr/bin/ld option to reload object files... -r
+#20 9.137 checking for objdump... objdump
+#20 9.137 checking how to recognize dependent libraries... pass_all
+#20 9.139 checking for dlltool... no
+#20 9.139 checking how to associate runtime and link libraries... printf %s\n
+#20 9.140 checking for ar... ar
+#20 9.141 checking for archiver @FILE support... @
+#20 9.171 checking for strip... strip
+#20 9.172 checking for ranlib... ranlib
+#20 9.172 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 9.337 checking for sysroot... no
+#20 9.337 checking for a working dd... /usr/bin/dd
+#20 9.347 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 9.370 checking for mt... no
+#20 9.370 checking if : is a manifest tool... no
+#20 9.377 checking how to run the C preprocessor... clang -E
+#20 9.465 checking for ANSI C header files... yes
+#20 9.687 checking for sys/types.h... yes
+#20 9.730 checking for sys/stat.h... yes
+#20 9.777 checking for stdlib.h... yes
+#20 9.824 checking for string.h... yes
+#20 9.874 checking for memory.h... yes
+#20 9.926 checking for strings.h... yes
+#20 9.975 checking for inttypes.h... yes
+#20 10.03 checking for stdint.h... yes
+#20 10.08 checking for unistd.h... yes
+#20 10.13 checking for dlfcn.h... yes
+#20 10.18 checking for objdir... .libs
+#20 10.34 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 10.36 checking for clang option to produce PIC... -fPIC -DPIC
+#20 10.36 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 10.38 checking if clang static flag -static works... yes
+#20 10.55 checking if clang supports -c -o file.o... yes
+#20 10.58 checking if clang supports -c -o file.o... (cached) yes
+#20 10.58 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 10.60 checking whether -lc should be explicitly linked in... no
+#20 10.65 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 10.79 checking how to hardcode library paths into programs... immediate
+#20 10.80 checking whether stripping libraries is possible... yes
+#20 10.80 checking if libtool supports shared libraries... yes
+#20 10.80 checking whether to build shared libraries... yes
+#20 10.80 checking whether to build static libraries... yes
+#20 10.80 checking for gcc... (cached) clang
+#20 10.85 checking whether we are using the GNU C compiler... (cached) yes
+#20 10.85 checking whether clang accepts -g... (cached) yes
+#20 10.85 checking for clang option to accept ISO C89... (cached) none needed
+#20 10.85 checking whether clang understands -c and -o together... (cached) yes
+#20 10.85 checking dependency style of clang... (cached) gcc3
+#20 10.90 checking whether we are using the GNU C++ compiler... yes
+#20 10.92 checking whether clang++ accepts -g... yes
+#20 10.94 checking dependency style of clang++... gcc3
+#20 10.99 checking how to run the C++ preprocessor... clang++ -E
+#20 11.25 checking for ld used by clang++... /usr/bin/ld -m elf_x86_64
+#20 11.26 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 11.27 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 11.38 checking for clang++ option to produce PIC... -fPIC -DPIC
+#20 11.38 checking if clang++ PIC flag -fPIC -DPIC works... yes
+#20 11.41 checking if clang++ static flag -static works... yes
+#20 11.63 checking if clang++ supports -c -o file.o... yes
+#20 11.66 checking if clang++ supports -c -o file.o... (cached) yes
+#20 11.66 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 11.66 checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+#20 11.66 checking how to hardcode library paths into programs... immediate
+#20 11.67 checking for ld used by clang... /usr/bin/ld -m elf_x86_64
+#20 11.68 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 11.68 checking for shared library run path origin... done
+#20 11.71 checking for iconv... yes
+#20 11.83 checking for working iconv... yes
+#20 11.99 checking for iconv declaration... 
+#20 12.02          extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+#20 12.03 checking for ragel... true
+#20 12.03 checking for workbook_new in -lxlsxwriter... no
+#20 12.08 checking for csv_parse in -lcsv... no
+#20 12.14 checking for deflate in -lz... yes
+#20 12.31 checking that generated files are newer than configure... done
+#20 12.31 configure: creating ./config.status
+#20 13.06 config.status: creating Makefile
+#20 13.08 config.status: executing depfiles commands
+#20 13.67 config.status: executing libtool commands
+#20 13.69 
+#20 13.69 Configuration:
+#20 13.69 
+#20 13.69 C compiler: clang
+#20 13.69 CFLAGS: -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard
+#20 13.69 LD: /usr/bin/ld -m elf_x86_64
+#20 13.69 
+#20 13.69 C++ compiler: clang++
+#20 13.69 CXXFLAGS: -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard
+#20 13.69 CXXLD: 
+#20 13.69 
+#20 13.69 Host: x86_64-pc-linux-gnu
+#20 13.69 Extra warnings: 
+#20 13.69 Extra libs: -lm
+#20 13.69 Extra ld flags: 
+#20 13.69 
+#20 13.69 Fuzzing engine: /libAFL.a
+#20 13.69 
+#20 13.69 Ragel: true
+#20 13.69 Ragel flags: 
+#20 13.75 + make clean
+#20 13.76  rm -f extract_metadata readstat
+#20 13.76  rm -f test_readstat test_dta_days test_sav_date test_double_decimals
+#20 13.76 test -z "libreadstat.la" || rm -f libreadstat.la
+#20 13.77 rm -f ./so_locations
+#20 13.77 rm -rf .libs _libs
+#20 13.77 rm -rf src/.libs src/_libs
+#20 13.78 rm -rf src/sas/.libs src/sas/_libs
+#20 13.78 rm -rf src/spss/.libs src/spss/_libs
+#20 13.78 rm -rf src/stata/.libs src/stata/_libs
+#20 13.78 rm -rf src/txt/.libs src/txt/_libs
+#20 13.78 rm -f *.o
+#20 13.79 rm -f src/*.o
+#20 13.79 rm -f src/*.lo
+#20 13.79 rm -f src/bin/*.o
+#20 13.79 rm -f src/bin/read_csv/*.o
+#20 13.79 rm -f src/bin/util/*.o
+#20 13.80 rm -f src/bin/write/*.o
+#20 13.80 rm -f src/bin/write/json/*.o
+#20 13.80 rm -f src/fuzz/*.o
+#20 13.80 rm -f src/sas/*.o
+#20 13.80 rm -f src/sas/*.lo
+#20 13.81 rm -f src/spss/*.o
+#20 13.81 rm -f src/spss/*.lo
+#20 13.81 rm -f src/stata/*.o
+#20 13.81 rm -f src/stata/*.lo
+#20 13.81 rm -f src/test/*.o
+#20 13.82 rm -f src/txt/*.o
+#20 13.82 rm -f src/txt/*.lo
+#20 13.82 test -z "test_readstat.log test_dta_days.log test_sav_date.log test_double_decimals.log" || rm -f test_readstat.log test_dta_days.log test_sav_date.log test_double_decimals.log
+#20 13.82 test -z "test_readstat.trs test_dta_days.trs test_sav_date.trs test_double_decimals.trs" || rm -f test_readstat.trs test_dta_days.trs test_sav_date.trs test_double_decimals.trs
+#20 13.82 test -z "test-suite.log" || rm -f test-suite.log
+#20 13.83 rm -f *.lo
+#20 13.83 + make
+#20 13.85   CC       src/bin/extract_metadata-extract_metadata.o
+#20 14.05   CC       src/bin/write/json/extract_metadata-write_missing_values.o
+#20 14.16   CC       src/bin/write/json/extract_metadata-write_value_labels.o
+#20 14.29   CC       src/bin/util/extract_metadata-file_format.o
+#20 14.37   CC       src/bin/util/extract_metadata-quote_and_escape.o
+#20 14.41   CC       src/bin/util/extract_metadata-readstat_dta_days.o
+#20 14.52   CC       src/bin/util/extract_metadata-readstat_sav_date.o
+#20 14.63   CC       src/libreadstat_la-CKHashTable.lo
+#20 15.21   CC       src/libreadstat_la-readstat_bits.lo
+#20 15.54   CC       src/libreadstat_la-readstat_convert.lo
+#20 15.89   CC       src/libreadstat_la-readstat_error.lo
+#20 16.24   CC       src/libreadstat_la-readstat_io_unistd.lo
+#20 16.62   CC       src/libreadstat_la-readstat_malloc.lo
+#20 16.91   CC       src/libreadstat_la-readstat_metadata.lo
+#20 17.25   CC       src/libreadstat_la-readstat_parser.lo
+#20 17.63   CC       src/libreadstat_la-readstat_value.lo
+#20 18.11   CC       src/libreadstat_la-readstat_variable.lo
+#20 18.51   CC       src/libreadstat_la-readstat_writer.lo
+#20 19.44   CC       src/sas/libreadstat_la-ieee.lo
+#20 19.91   CC       src/sas/libreadstat_la-readstat_sas.lo
+#20 20.49   CC       src/sas/libreadstat_la-readstat_sas7bcat_read.lo
+#20 21.20   CC       src/sas/libreadstat_la-readstat_sas7bcat_write.lo
+#20 21.66   CC       src/sas/libreadstat_la-readstat_sas7bdat_read.lo
+#20 23.10   CC       src/sas/libreadstat_la-readstat_sas7bdat_write.lo
+#20 24.12   CC       src/sas/libreadstat_la-readstat_sas_rle.lo
+#20 24.65   CC       src/sas/libreadstat_la-readstat_xport.lo
+#20 24.91   CC       src/sas/libreadstat_la-readstat_xport_read.lo
+#20 25.78   CC       src/sas/libreadstat_la-readstat_xport_write.lo
+#20 26.55   CC       src/spss/libreadstat_la-readstat_por.lo
+#20 26.97   CC       src/spss/libreadstat_la-readstat_por_parse.lo
+#20 27.43   CC       src/spss/libreadstat_la-readstat_por_read.lo
+#20 28.81   CC       src/spss/libreadstat_la-readstat_por_write.lo
+#20 29.97   CC       src/spss/libreadstat_la-readstat_sav.lo
+#20 30.36   CC       src/spss/libreadstat_la-readstat_sav_compress.lo
+#20 30.77   CC       src/spss/libreadstat_la-readstat_sav_parse.lo
+#20 31.44   CC       src/spss/libreadstat_la-readstat_sav_parse_timestamp.lo
+#20 31.96   CC       src/spss/libreadstat_la-readstat_sav_read.lo
+#20 33.56   CC       src/spss/libreadstat_la-readstat_sav_write.lo
+#20 35.13   CC       src/spss/libreadstat_la-readstat_spss.lo
+#20 35.61   CC       src/spss/libreadstat_la-readstat_spss_parse.lo
+#20 36.29   CC       src/stata/libreadstat_la-readstat_dta.lo
+#20 36.76   CC       src/stata/libreadstat_la-readstat_dta_parse_timestamp.lo
+#20 37.17   CC       src/stata/libreadstat_la-readstat_dta_read.lo
+#20 38.65   CC       src/stata/libreadstat_la-readstat_dta_write.lo
+#20 40.16   CC       src/txt/libreadstat_la-commands_util.lo
+#20 40.55   CC       src/txt/libreadstat_la-readstat_copy.lo
+#20 40.93   CC       src/txt/libreadstat_la-readstat_sas_commands_read.lo
+#20 41.63   CC       src/txt/libreadstat_la-readstat_spss_commands_read.lo
+#20 42.27   CC       src/txt/libreadstat_la-readstat_schema.lo
+#20 42.60   CC       src/txt/libreadstat_la-readstat_stata_dictionary_read.lo
+#20 43.12   CC       src/txt/libreadstat_la-readstat_txt_read.lo
+#20 43.79   CC       src/spss/libreadstat_la-readstat_zsav_compress.lo
+#20 44.15   CC       src/spss/libreadstat_la-readstat_zsav_read.lo
+#20 44.65   CC       src/spss/libreadstat_la-readstat_zsav_write.lo
+#20 45.08   CCLD     libreadstat.la
+#20 45.68   CCLD     extract_metadata
+#20 45.96   CC       src/bin/readstat-readstat.o
+#20 46.15   CC       src/bin/read_csv/readstat-jsmn.o
+#20 46.28   CC       src/bin/read_csv/readstat-json_metadata.o
+#20 46.49   CC       src/bin/read_csv/readstat-mod_csv.o
+#20 46.56   CC       src/bin/read_csv/readstat-mod_dta.o
+#20 47.14   CC       src/bin/read_csv/readstat-mod_sav.o
+#20 47.40   CC       src/bin/read_csv/readstat-value.o
+#20 47.69   CC       src/bin/write/readstat-double_decimals.o
+#20 47.82   CC       src/bin/write/readstat-mod_csv.o
+#20 47.92   CC       src/bin/write/readstat-mod_readstat.o
+#20 48.04   CC       src/bin/write/readstat-module_util.o
+#20 48.07   CC       src/bin/util/readstat-file_format.o
+#20 48.15   CC       src/bin/util/readstat-quote_and_escape.o
+#20 48.19   CC       src/bin/util/readstat-readstat_dta_days.o
+#20 48.31   CC       src/bin/util/readstat-readstat_sav_date.o
+#20 48.41   CCLD     readstat
+#20 48.67 + make generate_corpus
+#20 48.71   CC       src/fuzz/generate_corpus-generate_corpus.o
+#20 48.85   CC       src/test/generate_corpus-test_buffer.o
+#20 48.89   CC       src/test/generate_corpus-test_write.o
+#20 49.07   CC       src/test/generate_corpus-test_read.o
+#20 49.24   CC       src/test/generate_corpus-test_buffer_io.o
+#20 49.32   CC       src/test/generate_corpus-test_error.o
+#20 49.46   CC       src/test/generate_corpus-test_dta.o
+#20 49.52   CC       src/test/generate_corpus-test_sas.o
+#20 49.58   CC       src/test/generate_corpus-test_sav.o
+#20 49.66   CCLD     generate_corpus
+#20 49.89 + ./generate_corpus
+#20 49.95 Generated 499 corpus files (97 test cases)
+#20 49.95 + zip /out/fuzz_format_dta_seed_corpus.zip ./fuzz/corpus/dta104/test-case-011 ./fuzz/corpus/dta104/test-case-012 ./fuzz/corpus/dta104/test-case-031 ./fuzz/corpus/dta104/test-case-039 ./fuzz/corpus/dta104/test-case-058 ./fuzz/corpus/dta104/test-case-069 ./fuzz/corpus/dta104/test-case-071 ./fuzz/corpus/dta104/test-case-073 ./fuzz/corpus/dta104/test-case-095 ./fuzz/corpus/dta104/test-case-096 ./fuzz/corpus/dta105/test-case-002 ./fuzz/corpus/dta105/test-case-011 ./fuzz/corpus/dta105/test-case-012 ./fuzz/corpus/dta105/test-case-031 ./fuzz/corpus/dta105/test-case-039 ./fuzz/corpus/dta105/test-case-058 ./fuzz/corpus/dta105/test-case-059 ./fuzz/corpus/dta105/test-case-069 ./fuzz/corpus/dta105/test-case-071 ./fuzz/corpus/dta105/test-case-073 ./fuzz/corpus/dta105/test-case-080 ./fuzz/corpus/dta105/test-case-081 ./fuzz/corpus/dta105/test-case-082 ./fuzz/corpus/dta105/test-case-083 ./fuzz/corpus/dta105/test-case-084 ./fuzz/corpus/dta105/test-case-085 ./fuzz/corpus/dta105/test-case-086 ./fuzz/corpus/dta105/test-case-087 ./fuzz/corpus/dta105/test-case-088 ./fuzz/corpus/dta105/test-case-089 ./fuzz/corpus/dta105/test-case-090 ./fuzz/corpus/dta105/test-case-091 ./fuzz/corpus/dta105/test-case-095 ./fuzz/corpus/dta105/test-case-096 ./fuzz/corpus/dta108/test-case-002 ./fuzz/corpus/dta108/test-case-011 ./fuzz/corpus/dta108/test-case-012 ./fuzz/corpus/dta108/test-case-031 ./fuzz/corpus/dta108/test-case-039 ./fuzz/corpus/dta108/test-case-058 ./fuzz/corpus/dta108/test-case-059 ./fuzz/corpus/dta108/test-case-069 ./fuzz/corpus/dta108/test-case-071 ./fuzz/corpus/dta108/test-case-073 ./fuzz/corpus/dta108/test-case-080 ./fuzz/corpus/dta108/test-case-081 ./fuzz/corpus/dta108/test-case-082 ./fuzz/corpus/dta108/test-case-083 ./fuzz/corpus/dta108/test-case-084 ./fuzz/corpus/dta108/test-case-085 ./fuzz/corpus/dta108/test-case-086 ./fuzz/corpus/dta108/test-case-087 ./fuzz/corpus/dta108/test-case-088 ./fuzz/corpus/dta108/test-case-089 ./fuzz/corpus/dta108/test-case-090 ./fuzz/corpus/dta108/test-case-091 ./fuzz/corpus/dta108/test-case-095 ./fuzz/corpus/dta108/test-case-096 ./fuzz/corpus/dta110/test-case-002 ./fuzz/corpus/dta110/test-case-011 ./fuzz/corpus/dta110/test-case-012 ./fuzz/corpus/dta110/test-case-031 ./fuzz/corpus/dta110/test-case-039 ./fuzz/corpus/dta110/test-case-058 ./fuzz/corpus/dta110/test-case-059 ./fuzz/corpus/dta110/test-case-069 ./fuzz/corpus/dta110/test-case-071 ./fuzz/corpus/dta110/test-case-073 ./fuzz/corpus/dta110/test-case-080 ./fuzz/corpus/dta110/test-case-081 ./fuzz/corpus/dta110/test-case-082 ./fuzz/corpus/dta110/test-case-083 ./fuzz/corpus/dta110/test-case-084 ./fuzz/corpus/dta110/test-case-085 ./fuzz/corpus/dta110/test-case-086 ./fuzz/corpus/dta110/test-case-087 ./fuzz/corpus/dta110/test-case-088 ./fuzz/corpus/dta110/test-case-089 ./fuzz/corpus/dta110/test-case-090 ./fuzz/corpus/dta110/test-case-091 ./fuzz/corpus/dta110/test-case-095 ./fuzz/corpus/dta110/test-case-096 ./fuzz/corpus/dta111/test-case-002 ./fuzz/corpus/dta111/test-case-011 ./fuzz/corpus/dta111/test-case-012 ./fuzz/corpus/dta111/test-case-031 ./fuzz/corpus/dta111/test-case-039 ./fuzz/corpus/dta111/test-case-058 ./fuzz/corpus/dta111/test-case-059 ./fuzz/corpus/dta111/test-case-069 ./fuzz/corpus/dta111/test-case-071 ./fuzz/corpus/dta111/test-case-073 ./fuzz/corpus/dta111/test-case-080 ./fuzz/corpus/dta111/test-case-081 ./fuzz/corpus/dta111/test-case-082 ./fuzz/corpus/dta111/test-case-083 ./fuzz/corpus/dta111/test-case-084 ./fuzz/corpus/dta111/test-case-085 ./fuzz/corpus/dta111/test-case-086 ./fuzz/corpus/dta111/test-case-087 ./fuzz/corpus/dta111/test-case-088 ./fuzz/corpus/dta111/test-case-089 ./fuzz/corpus/dta111/test-case-090 ./fuzz/corpus/dta111/test-case-091 ./fuzz/corpus/dta111/test-case-095 ./fuzz/corpus/dta111/test-case-096 ./fuzz/corpus/dta114/test-case-002 ./fuzz/corpus/dta114/test-case-011 ./fuzz/corpus/dta114/test-case-012 ./fuzz/corpus/dta114/test-case-031 ./fuzz/corpus/dta114/test-case-039 ./fuzz/corpus/dta114/test-case-050 ./fuzz/corpus/dta114/test-case-051 ./fuzz/corpus/dta114/test-case-052 ./fuzz/corpus/dta114/test-case-053 ./fuzz/corpus/dta114/test-case-054 ./fuzz/corpus/dta114/test-case-058 ./fuzz/corpus/dta114/test-case-059 ./fuzz/corpus/dta114/test-case-060 ./fuzz/corpus/dta114/test-case-075 ./fuzz/corpus/dta114/test-case-077 ./fuzz/corpus/dta114/test-case-079 ./fuzz/corpus/dta114/test-case-080 ./fuzz/corpus/dta114/test-case-081 ./fuzz/corpus/dta114/test-case-082 ./fuzz/corpus/dta114/test-case-083 ./fuzz/corpus/dta114/test-case-084 ./fuzz/corpus/dta114/test-case-085 ./fuzz/corpus/dta114/test-case-086 ./fuzz/corpus/dta114/test-case-087 ./fuzz/corpus/dta114/test-case-088 ./fuzz/corpus/dta114/test-case-089 ./fuzz/corpus/dta114/test-case-090 ./fuzz/corpus/dta114/test-case-091 ./fuzz/corpus/dta114/test-case-095 ./fuzz/corpus/dta114/test-case-096 ./fuzz/corpus/dta117/test-case-002 ./fuzz/corpus/dta117/test-case-008 ./fuzz/corpus/dta117/test-case-010 ./fuzz/corpus/dta117/test-case-011 ./fuzz/corpus/dta117/test-case-012 ./fuzz/corpus/dta117/test-case-031 ./fuzz/corpus/dta117/test-case-039 ./fuzz/corpus/dta117/test-case-050 ./fuzz/corpus/dta117/test-case-051 ./fuzz/corpus/dta117/test-case-052 ./fuzz/corpus/dta117/test-case-053 ./fuzz/corpus/dta117/test-case-054 ./fuzz/corpus/dta117/test-case-058 ./fuzz/corpus/dta117/test-case-059 ./fuzz/corpus/dta117/test-case-060 ./fuzz/corpus/dta117/test-case-075 ./fuzz/corpus/dta117/test-case-077 ./fuzz/corpus/dta117/test-case-079 ./fuzz/corpus/dta117/test-case-080 ./fuzz/corpus/dta117/test-case-081 ./fuzz/corpus/dta117/test-case-082 ./fuzz/corpus/dta117/test-case-083 ./fuzz/corpus/dta117/test-case-084 ./fuzz/corpus/dta117/test-case-085 ./fuzz/corpus/dta117/test-case-086 ./fuzz/corpus/dta117/test-case-087 ./fuzz/corpus/dta117/test-case-088 ./fuzz/corpus/dta117/test-case-089 ./fuzz/corpus/dta117/test-case-090 ./fuzz/corpus/dta117/test-case-091 ./fuzz/corpus/dta117/test-case-095 ./fuzz/corpus/dta117/test-case-096 ./fuzz/corpus/dta118/test-case-002 ./fuzz/corpus/dta118/test-case-008 ./fuzz/corpus/dta118/test-case-010 ./fuzz/corpus/dta118/test-case-011 ./fuzz/corpus/dta118/test-case-012 ./fuzz/corpus/dta118/test-case-013 ./fuzz/corpus/dta118/test-case-015 ./fuzz/corpus/dta118/test-case-016 ./fuzz/corpus/dta118/test-case-031 ./fuzz/corpus/dta118/test-case-039 ./fuzz/corpus/dta118/test-case-050 ./fuzz/corpus/dta118/test-case-051 ./fuzz/corpus/dta118/test-case-052 ./fuzz/corpus/dta118/test-case-053 ./fuzz/corpus/dta118/test-case-054 ./fuzz/corpus/dta118/test-case-058 ./fuzz/corpus/dta118/test-case-059 ./fuzz/corpus/dta118/test-case-060 ./fuzz/corpus/dta118/test-case-075 ./fuzz/corpus/dta118/test-case-077 ./fuzz/corpus/dta118/test-case-079 ./fuzz/corpus/dta118/test-case-080 ./fuzz/corpus/dta118/test-case-081 ./fuzz/corpus/dta118/test-case-082 ./fuzz/corpus/dta118/test-case-083 ./fuzz/corpus/dta118/test-case-084 ./fuzz/corpus/dta118/test-case-085 ./fuzz/corpus/dta118/test-case-086 ./fuzz/corpus/dta118/test-case-087 ./fuzz/corpus/dta118/test-case-088 ./fuzz/corpus/dta118/test-case-089 ./fuzz/corpus/dta118/test-case-090 ./fuzz/corpus/dta118/test-case-091 ./fuzz/corpus/dta118/test-case-095 ./fuzz/corpus/dta118/test-case-096 ./fuzz/corpus/dta119/test-case-002 ./fuzz/corpus/dta119/test-case-008 ./fuzz/corpus/dta119/test-case-010 ./fuzz/corpus/dta119/test-case-011 ./fuzz/corpus/dta119/test-case-012 ./fuzz/corpus/dta119/test-case-013 ./fuzz/corpus/dta119/test-case-015 ./fuzz/corpus/dta119/test-case-016 ./fuzz/corpus/dta119/test-case-031 ./fuzz/corpus/dta119/test-case-039 ./fuzz/corpus/dta119/test-case-050 ./fuzz/corpus/dta119/test-case-051 ./fuzz/corpus/dta119/test-case-052 ./fuzz/corpus/dta119/test-case-053 ./fuzz/corpus/dta119/test-case-054 ./fuzz/corpus/dta119/test-case-058 ./fuzz/corpus/dta119/test-case-059 ./fuzz/corpus/dta119/test-case-060 ./fuzz/corpus/dta119/test-case-075 ./fuzz/corpus/dta119/test-case-077 ./fuzz/corpus/dta119/test-case-079 ./fuzz/corpus/dta119/test-case-080 ./fuzz/corpus/dta119/test-case-081 ./fuzz/corpus/dta119/test-case-082 ./fuzz/corpus/dta119/test-case-083 ./fuzz/corpus/dta119/test-case-084 ./fuzz/corpus/dta119/test-case-085 ./fuzz/corpus/dta119/test-case-086 ./fuzz/corpus/dta119/test-case-087 ./fuzz/corpus/dta119/test-case-088 ./fuzz/corpus/dta119/test-case-089 ./fuzz/corpus/dta119/test-case-090 ./fuzz/corpus/dta119/test-case-091 ./fuzz/corpus/dta119/test-case-095 ./fuzz/corpus/dta119/test-case-096
+#20 49.96   adding: fuzz/corpus/dta104/test-case-011 (deflated 34%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-012 (deflated 41%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-031 (deflated 75%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-039 (deflated 71%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-058 (deflated 60%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-069 (deflated 44%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-071 (deflated 46%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-073 (deflated 47%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-095 (deflated 60%)
+#20 49.96   adding: fuzz/corpus/dta104/test-case-096 (deflated 63%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-002 (deflated 42%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-011 (deflated 34%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-012 (deflated 38%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-031 (deflated 73%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-039 (deflated 66%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-058 (deflated 60%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-059 (deflated 50%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-069 (deflated 41%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-071 (deflated 43%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-073 (deflated 44%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-080 (deflated 56%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-081 (deflated 55%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-082 (deflated 57%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-083 (deflated 57%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-084 (deflated 58%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-085 (deflated 58%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-086 (deflated 58%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-087 (deflated 57%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-088 (deflated 55%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-089 (deflated 55%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-090 (deflated 55%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-091 (deflated 55%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-095 (deflated 60%)
+#20 49.96   adding: fuzz/corpus/dta105/test-case-096 (deflated 62%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-002 (deflated 60%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-011 (deflated 55%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-012 (deflated 58%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-031 (deflated 84%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-039 (deflated 80%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-058 (deflated 74%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-059 (deflated 65%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-069 (deflated 65%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-071 (deflated 66%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-073 (deflated 66%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-080 (deflated 75%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-081 (deflated 73%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-082 (deflated 75%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-083 (deflated 75%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-084 (deflated 76%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-085 (deflated 75%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-086 (deflated 75%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-087 (deflated 75%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-088 (deflated 73%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-089 (deflated 74%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-090 (deflated 74%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-091 (deflated 73%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-095 (deflated 73%)
+#20 49.96   adding: fuzz/corpus/dta108/test-case-096 (deflated 78%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-002 (deflated 72%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-011 (deflated 60%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-012 (deflated 64%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-031 (deflated 88%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-039 (deflated 84%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-058 (deflated 78%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-059 (deflated 70%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-069 (deflated 71%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-071 (deflated 71%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-073 (deflated 72%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-080 (deflated 79%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-081 (deflated 78%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-082 (deflated 79%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-083 (deflated 79%)
+#20 49.96   adding: fuzz/corpus/dta110/test-case-084 (deflated 80%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-085 (deflated 80%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-086 (deflated 80%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-087 (deflated 79%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-088 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-089 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-090 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-091 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-095 (deflated 79%)
+#20 49.97   adding: fuzz/corpus/dta110/test-case-096 (deflated 83%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-002 (deflated 72%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-011 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-012 (deflated 64%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-031 (deflated 88%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-039 (deflated 84%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-058 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-059 (deflated 70%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-069 (deflated 71%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-071 (deflated 71%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-073 (deflated 72%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-080 (deflated 79%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-081 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-082 (deflated 79%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-083 (deflated 79%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-084 (deflated 80%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-085 (deflated 80%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-086 (deflated 80%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-087 (deflated 79%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-088 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-089 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-090 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-091 (deflated 78%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-095 (deflated 79%)
+#20 49.97   adding: fuzz/corpus/dta111/test-case-096 (deflated 83%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-002 (deflated 74%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-011 (deflated 64%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-012 (deflated 67%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-031 (deflated 89%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-039 (deflated 86%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-050 (deflated 71%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-051 (deflated 70%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-052 (deflated 70%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-053 (deflated 71%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-054 (deflated 73%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-058 (deflated 81%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-059 (deflated 72%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-060 (deflated 72%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-075 (deflated 74%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-077 (deflated 74%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-079 (deflated 75%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-080 (deflated 81%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-081 (deflated 81%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-082 (deflated 82%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-083 (deflated 82%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-084 (deflated 82%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-085 (deflated 82%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-086 (deflated 82%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-087 (deflated 82%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-088 (deflated 80%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-089 (deflated 81%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-090 (deflated 81%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-091 (deflated 81%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-095 (deflated 82%)
+#20 49.97   adding: fuzz/corpus/dta114/test-case-096 (deflated 85%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-002 (deflated 62%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-008 (deflated 68%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-010 (deflated 65%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-011 (deflated 56%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-012 (deflated 57%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-031 (deflated 74%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-039 (deflated 66%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-050 (deflated 58%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-051 (deflated 57%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-052 (deflated 57%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-053 (deflated 57%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-054 (deflated 58%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-058 (deflated 65%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-059 (deflated 59%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-060 (deflated 58%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-075 (deflated 58%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-077 (deflated 58%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-079 (deflated 59%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-080 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-081 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-082 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-083 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-084 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-085 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-086 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-087 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-088 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-089 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-090 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-091 (deflated 60%)
+#20 49.97   adding: fuzz/corpus/dta117/test-case-095 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta117/test-case-096 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-002 (deflated 79%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-008 (deflated 77%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-010 (deflated 80%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-011 (deflated 70%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-012 (deflated 71%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-013 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-015 (deflated 73%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-016 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-031 (deflated 88%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-039 (deflated 82%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-050 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-051 (deflated 71%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-052 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-053 (deflated 71%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-054 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-058 (deflated 81%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-059 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-060 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-075 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-077 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-079 (deflated 73%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-080 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-081 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-082 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-083 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-084 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-085 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-086 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-087 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-088 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-089 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-090 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-091 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-095 (deflated 89%)
+#20 49.98   adding: fuzz/corpus/dta118/test-case-096 (deflated 88%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-002 (deflated 78%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-008 (deflated 76%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-010 (deflated 80%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-011 (deflated 70%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-012 (deflated 71%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-013 (deflated 73%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-015 (deflated 73%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-016 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-031 (deflated 88%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-039 (deflated 82%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-050 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-051 (deflated 71%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-052 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-053 (deflated 71%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-054 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-058 (deflated 81%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-059 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-060 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-075 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-077 (deflated 72%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-079 (deflated 73%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-080 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-081 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-082 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-083 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-084 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-085 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-086 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-087 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-088 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-089 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-090 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-091 (deflated 74%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-095 (deflated 89%)
+#20 49.98   adding: fuzz/corpus/dta119/test-case-096 (deflated 88%)
+#20 49.99 + zip /out/fuzz_format_por_seed_corpus.zip ./fuzz/corpus/por/test-case-002 ./fuzz/corpus/por/test-case-011 ./fuzz/corpus/por/test-case-012 ./fuzz/corpus/por/test-case-031 ./fuzz/corpus/por/test-case-032 ./fuzz/corpus/por/test-case-034 ./fuzz/corpus/por/test-case-035 ./fuzz/corpus/por/test-case-036 ./fuzz/corpus/por/test-case-037 ./fuzz/corpus/por/test-case-038 ./fuzz/corpus/por/test-case-042 ./fuzz/corpus/por/test-case-043 ./fuzz/corpus/por/test-case-045 ./fuzz/corpus/por/test-case-062 ./fuzz/corpus/por/test-case-063 ./fuzz/corpus/por/test-case-064 ./fuzz/corpus/por/test-case-065 ./fuzz/corpus/por/test-case-080 ./fuzz/corpus/por/test-case-081 ./fuzz/corpus/por/test-case-082 ./fuzz/corpus/por/test-case-083 ./fuzz/corpus/por/test-case-084 ./fuzz/corpus/por/test-case-085 ./fuzz/corpus/por/test-case-086 ./fuzz/corpus/por/test-case-087 ./fuzz/corpus/por/test-case-088 ./fuzz/corpus/por/test-case-089 ./fuzz/corpus/por/test-case-090 ./fuzz/corpus/por/test-case-091 ./fuzz/corpus/por/test-case-092 ./fuzz/corpus/por/test-case-095 ./fuzz/corpus/por/test-case-096
+#20 49.99   adding: fuzz/corpus/por/test-case-002 (deflated 54%)
+#20 49.99   adding: fuzz/corpus/por/test-case-011 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-012 (deflated 51%)
+#20 49.99   adding: fuzz/corpus/por/test-case-031 (deflated 56%)
+#20 49.99   adding: fuzz/corpus/por/test-case-032 (deflated 57%)
+#20 49.99   adding: fuzz/corpus/por/test-case-034 (deflated 58%)
+#20 49.99   adding: fuzz/corpus/por/test-case-035 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-036 (deflated 59%)
+#20 49.99   adding: fuzz/corpus/por/test-case-037 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-038 (deflated 58%)
+#20 49.99   adding: fuzz/corpus/por/test-case-042 (deflated 55%)
+#20 49.99   adding: fuzz/corpus/por/test-case-043 (deflated 59%)
+#20 49.99   adding: fuzz/corpus/por/test-case-045 (deflated 56%)
+#20 49.99   adding: fuzz/corpus/por/test-case-062 (deflated 59%)
+#20 49.99   adding: fuzz/corpus/por/test-case-063 (deflated 57%)
+#20 49.99   adding: fuzz/corpus/por/test-case-064 (deflated 55%)
+#20 49.99   adding: fuzz/corpus/por/test-case-065 (deflated 61%)
+#20 49.99   adding: fuzz/corpus/por/test-case-080 (deflated 61%)
+#20 49.99   adding: fuzz/corpus/por/test-case-081 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-082 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-083 (deflated 61%)
+#20 49.99   adding: fuzz/corpus/por/test-case-084 (deflated 61%)
+#20 49.99   adding: fuzz/corpus/por/test-case-085 (deflated 61%)
+#20 49.99   adding: fuzz/corpus/por/test-case-086 (deflated 61%)
+#20 49.99   adding: fuzz/corpus/por/test-case-087 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-088 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-089 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-090 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-091 (deflated 60%)
+#20 49.99   adding: fuzz/corpus/por/test-case-092 (deflated 56%)
+#20 49.99   adding: fuzz/corpus/por/test-case-095 (deflated 57%)
+#20 49.99   adding: fuzz/corpus/por/test-case-096 (deflated 57%)
+#20 49.99 + zip /out/fuzz_format_sav_seed_corpus.zip ./fuzz/corpus/sav/test-case-002 ./fuzz/corpus/sav/test-case-007 ./fuzz/corpus/sav/test-case-008 ./fuzz/corpus/sav/test-case-011 ./fuzz/corpus/sav/test-case-012 ./fuzz/corpus/sav/test-case-013 ./fuzz/corpus/sav/test-case-014 ./fuzz/corpus/sav/test-case-015 ./fuzz/corpus/sav/test-case-031 ./fuzz/corpus/sav/test-case-032 ./fuzz/corpus/sav/test-case-034 ./fuzz/corpus/sav/test-case-035 ./fuzz/corpus/sav/test-case-036 ./fuzz/corpus/sav/test-case-037 ./fuzz/corpus/sav/test-case-038 ./fuzz/corpus/sav/test-case-042 ./fuzz/corpus/sav/test-case-043 ./fuzz/corpus/sav/test-case-045 ./fuzz/corpus/sav/test-case-062 ./fuzz/corpus/sav/test-case-063 ./fuzz/corpus/sav/test-case-064 ./fuzz/corpus/sav/test-case-065 ./fuzz/corpus/sav/test-case-080 ./fuzz/corpus/sav/test-case-081 ./fuzz/corpus/sav/test-case-082 ./fuzz/corpus/sav/test-case-083 ./fuzz/corpus/sav/test-case-084 ./fuzz/corpus/sav/test-case-085 ./fuzz/corpus/sav/test-case-086 ./fuzz/corpus/sav/test-case-087 ./fuzz/corpus/sav/test-case-088 ./fuzz/corpus/sav/test-case-089 ./fuzz/corpus/sav/test-case-090 ./fuzz/corpus/sav/test-case-091 ./fuzz/corpus/sav/test-case-092 ./fuzz/corpus/sav/test-case-095 ./fuzz/corpus/sav/test-case-096 ./fuzz/corpus/savrow/test-case-002 ./fuzz/corpus/savrow/test-case-004 ./fuzz/corpus/savrow/test-case-005 ./fuzz/corpus/savrow/test-case-007 ./fuzz/corpus/savrow/test-case-008 ./fuzz/corpus/savrow/test-case-011 ./fuzz/corpus/savrow/test-case-012 ./fuzz/corpus/savrow/test-case-013 ./fuzz/corpus/savrow/test-case-014 ./fuzz/corpus/savrow/test-case-015 ./fuzz/corpus/savrow/test-case-031 ./fuzz/corpus/savrow/test-case-032 ./fuzz/corpus/savrow/test-case-034 ./fuzz/corpus/savrow/test-case-035 ./fuzz/corpus/savrow/test-case-036 ./fuzz/corpus/savrow/test-case-037 ./fuzz/corpus/savrow/test-case-038 ./fuzz/corpus/savrow/test-case-042 ./fuzz/corpus/savrow/test-case-043 ./fuzz/corpus/savrow/test-case-045 ./fuzz/corpus/savrow/test-case-062 ./fuzz/corpus/savrow/test-case-063 ./fuzz/corpus/savrow/test-case-064 ./fuzz/corpus/savrow/test-case-065 ./fuzz/corpus/savrow/test-case-080 ./fuzz/corpus/savrow/test-case-081 ./fuzz/corpus/savrow/test-case-082 ./fuzz/corpus/savrow/test-case-083 ./fuzz/corpus/savrow/test-case-084 ./fuzz/corpus/savrow/test-case-085 ./fuzz/corpus/savrow/test-case-086 ./fuzz/corpus/savrow/test-case-087 ./fuzz/corpus/savrow/test-case-088 ./fuzz/corpus/savrow/test-case-089 ./fuzz/corpus/savrow/test-case-090 ./fuzz/corpus/savrow/test-case-091 ./fuzz/corpus/savrow/test-case-092 ./fuzz/corpus/savrow/test-case-095 ./fuzz/corpus/savrow/test-case-096 ./fuzz/corpus/zsav/test-case-002 ./fuzz/corpus/zsav/test-case-004 ./fuzz/corpus/zsav/test-case-005 ./fuzz/corpus/zsav/test-case-007 ./fuzz/corpus/zsav/test-case-008 ./fuzz/corpus/zsav/test-case-011 ./fuzz/corpus/zsav/test-case-012 ./fuzz/corpus/zsav/test-case-013 ./fuzz/corpus/zsav/test-case-014 ./fuzz/corpus/zsav/test-case-015 ./fuzz/corpus/zsav/test-case-031 ./fuzz/corpus/zsav/test-case-032 ./fuzz/corpus/zsav/test-case-034 ./fuzz/corpus/zsav/test-case-035 ./fuzz/corpus/zsav/test-case-036 ./fuzz/corpus/zsav/test-case-037 ./fuzz/corpus/zsav/test-case-038 ./fuzz/corpus/zsav/test-case-042 ./fuzz/corpus/zsav/test-case-043 ./fuzz/corpus/zsav/test-case-045 ./fuzz/corpus/zsav/test-case-062 ./fuzz/corpus/zsav/test-case-063 ./fuzz/corpus/zsav/test-case-064 ./fuzz/corpus/zsav/test-case-065 ./fuzz/corpus/zsav/test-case-080 ./fuzz/corpus/zsav/test-case-081 ./fuzz/corpus/zsav/test-case-082 ./fuzz/corpus/zsav/test-case-083 ./fuzz/corpus/zsav/test-case-084 ./fuzz/corpus/zsav/test-case-085 ./fuzz/corpus/zsav/test-case-086 ./fuzz/corpus/zsav/test-case-087 ./fuzz/corpus/zsav/test-case-088 ./fuzz/corpus/zsav/test-case-089 ./fuzz/corpus/zsav/test-case-090 ./fuzz/corpus/zsav/test-case-091 ./fuzz/corpus/zsav/test-case-092 ./fuzz/corpus/zsav/test-case-095 ./fuzz/corpus/zsav/test-case-096
+#20 49.99   adding: fuzz/corpus/sav/test-case-002 (deflated 56%)
+#20 49.99   adding: fuzz/corpus/sav/test-case-007 (deflated 94%)
+#20 49.99   adding: fuzz/corpus/sav/test-case-008 (deflated 84%)
+#20 49.99   adding: fuzz/corpus/sav/test-case-011 (deflated 49%)
+#20 49.99   adding: fuzz/corpus/sav/test-case-012 (deflated 44%)
+#20 49.99   adding: fuzz/corpus/sav/test-case-013 (deflated 47%)
+#20 49.99   adding: fuzz/corpus/sav/test-case-014 (deflated 49%)
+#20 49.99   adding: fuzz/corpus/sav/test-case-015 (deflated 45%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-031 (deflated 54%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-032 (deflated 52%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-034 (deflated 61%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-035 (deflated 56%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-036 (deflated 59%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-037 (deflated 57%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-038 (deflated 61%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-042 (deflated 52%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-043 (deflated 54%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-045 (deflated 52%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-062 (deflated 52%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-063 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-064 (deflated 47%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-065 (deflated 56%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-080 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-081 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-082 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-083 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-084 (deflated 51%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-085 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-086 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-087 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-088 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-089 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-090 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-091 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-092 (deflated 43%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-095 (deflated 62%)
+#20 50.00   adding: fuzz/corpus/sav/test-case-096 (deflated 58%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-002 (deflated 56%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-004 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-005 (deflated 45%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-007 (deflated 94%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-008 (deflated 83%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-011 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-012 (deflated 50%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-013 (deflated 47%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-014 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-015 (deflated 45%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-031 (deflated 54%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-032 (deflated 52%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-034 (deflated 60%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-035 (deflated 56%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-036 (deflated 59%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-037 (deflated 57%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-038 (deflated 60%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-042 (deflated 52%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-043 (deflated 54%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-045 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-062 (deflated 52%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-063 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-064 (deflated 47%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-065 (deflated 56%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-080 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-081 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-082 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-083 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-084 (deflated 50%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-085 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-086 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-087 (deflated 49%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-088 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-089 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-090 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-091 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-092 (deflated 43%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-095 (deflated 54%)
+#20 50.00   adding: fuzz/corpus/savrow/test-case-096 (deflated 58%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-002 (deflated 57%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-004 (deflated 46%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-005 (deflated 44%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-007 (deflated 92%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-008 (deflated 78%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-011 (deflated 45%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-012 (deflated 40%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-013 (deflated 48%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-014 (deflated 51%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-015 (deflated 47%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-031 (deflated 55%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-032 (deflated 53%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-034 (deflated 61%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-035 (deflated 57%)
+#20 50.00   adding: fuzz/corpus/zsav/test-case-036 (deflated 59%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-037 (deflated 58%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-038 (deflated 60%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-042 (deflated 53%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-043 (deflated 55%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-045 (deflated 46%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-062 (deflated 53%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-063 (deflated 50%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-064 (deflated 49%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-065 (deflated 56%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-080 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-081 (deflated 50%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-082 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-083 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-084 (deflated 52%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-085 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-086 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-087 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-088 (deflated 50%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-089 (deflated 50%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-090 (deflated 50%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-091 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-092 (deflated 46%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-095 (deflated 51%)
+#20 50.01   adding: fuzz/corpus/zsav/test-case-096 (deflated 56%)
+#20 50.01 + zip /out/fuzz_format_sas7bcat_seed_corpus.zip ./fuzz/corpus/sas7bcat/test-case-055 ./fuzz/corpus/sas7bcat/test-case-056
+#20 50.01   adding: fuzz/corpus/sas7bcat/test-case-055 (deflated 99%)
+#20 50.01   adding: fuzz/corpus/sas7bcat/test-case-056 (deflated 99%)
+#20 50.01 + zip /out/fuzz_format_sas7bdat_seed_corpus.zip ./fuzz/corpus/sas7bdat32/test-case-008 ./fuzz/corpus/sas7bdat32/test-case-009 ./fuzz/corpus/sas7bdat32/test-case-011 ./fuzz/corpus/sas7bdat32/test-case-012 ./fuzz/corpus/sas7bdat32/test-case-013 ./fuzz/corpus/sas7bdat32/test-case-015 ./fuzz/corpus/sas7bdat32/test-case-040 ./fuzz/corpus/sas7bdat32/test-case-041 ./fuzz/corpus/sas7bdat32/test-case-049 ./fuzz/corpus/sas7bdat32/test-case-080 ./fuzz/corpus/sas7bdat32/test-case-081 ./fuzz/corpus/sas7bdat32/test-case-082 ./fuzz/corpus/sas7bdat32/test-case-083 ./fuzz/corpus/sas7bdat32/test-case-084 ./fuzz/corpus/sas7bdat32/test-case-085 ./fuzz/corpus/sas7bdat32/test-case-086 ./fuzz/corpus/sas7bdat32/test-case-087 ./fuzz/corpus/sas7bdat32/test-case-088 ./fuzz/corpus/sas7bdat32/test-case-089 ./fuzz/corpus/sas7bdat32/test-case-090 ./fuzz/corpus/sas7bdat32/test-case-091 ./fuzz/corpus/sas7bdat32/test-case-095 ./fuzz/corpus/sas7bdat32/test-case-096 ./fuzz/corpus/sas7bdat32row/test-case-006 ./fuzz/corpus/sas7bdat32row/test-case-008 ./fuzz/corpus/sas7bdat32row/test-case-009 ./fuzz/corpus/sas7bdat32row/test-case-011 ./fuzz/corpus/sas7bdat32row/test-case-012 ./fuzz/corpus/sas7bdat32row/test-case-013 ./fuzz/corpus/sas7bdat32row/test-case-015 ./fuzz/corpus/sas7bdat32row/test-case-040 ./fuzz/corpus/sas7bdat32row/test-case-041 ./fuzz/corpus/sas7bdat32row/test-case-049 ./fuzz/corpus/sas7bdat32row/test-case-080 ./fuzz/corpus/sas7bdat32row/test-case-081 ./fuzz/corpus/sas7bdat32row/test-case-082 ./fuzz/corpus/sas7bdat32row/test-case-083 ./fuzz/corpus/sas7bdat32row/test-case-084 ./fuzz/corpus/sas7bdat32row/test-case-085 ./fuzz/corpus/sas7bdat32row/test-case-086 ./fuzz/corpus/sas7bdat32row/test-case-087 ./fuzz/corpus/sas7bdat32row/test-case-088 ./fuzz/corpus/sas7bdat32row/test-case-089 ./fuzz/corpus/sas7bdat32row/test-case-090 ./fuzz/corpus/sas7bdat32row/test-case-091 ./fuzz/corpus/sas7bdat32row/test-case-095 ./fuzz/corpus/sas7bdat32row/test-case-096 ./fuzz/corpus/sas7bdat64/test-case-008 ./fuzz/corpus/sas7bdat64/test-case-009 ./fuzz/corpus/sas7bdat64/test-case-011 ./fuzz/corpus/sas7bdat64/test-case-012 ./fuzz/corpus/sas7bdat64/test-case-013 ./fuzz/corpus/sas7bdat64/test-case-015 ./fuzz/corpus/sas7bdat64/test-case-040 ./fuzz/corpus/sas7bdat64/test-case-041 ./fuzz/corpus/sas7bdat64/test-case-049 ./fuzz/corpus/sas7bdat64/test-case-080 ./fuzz/corpus/sas7bdat64/test-case-081 ./fuzz/corpus/sas7bdat64/test-case-082 ./fuzz/corpus/sas7bdat64/test-case-083 ./fuzz/corpus/sas7bdat64/test-case-084 ./fuzz/corpus/sas7bdat64/test-case-085 ./fuzz/corpus/sas7bdat64/test-case-086 ./fuzz/corpus/sas7bdat64/test-case-087 ./fuzz/corpus/sas7bdat64/test-case-088 ./fuzz/corpus/sas7bdat64/test-case-089 ./fuzz/corpus/sas7bdat64/test-case-090 ./fuzz/corpus/sas7bdat64/test-case-091 ./fuzz/corpus/sas7bdat64/test-case-095 ./fuzz/corpus/sas7bdat64/test-case-096 ./fuzz/corpus/sas7bdat64row/test-case-006 ./fuzz/corpus/sas7bdat64row/test-case-008 ./fuzz/corpus/sas7bdat64row/test-case-009 ./fuzz/corpus/sas7bdat64row/test-case-011 ./fuzz/corpus/sas7bdat64row/test-case-012 ./fuzz/corpus/sas7bdat64row/test-case-013 ./fuzz/corpus/sas7bdat64row/test-case-015 ./fuzz/corpus/sas7bdat64row/test-case-040 ./fuzz/corpus/sas7bdat64row/test-case-041 ./fuzz/corpus/sas7bdat64row/test-case-049 ./fuzz/corpus/sas7bdat64row/test-case-080 ./fuzz/corpus/sas7bdat64row/test-case-081 ./fuzz/corpus/sas7bdat64row/test-case-082 ./fuzz/corpus/sas7bdat64row/test-case-083 ./fuzz/corpus/sas7bdat64row/test-case-084 ./fuzz/corpus/sas7bdat64row/test-case-085 ./fuzz/corpus/sas7bdat64row/test-case-086 ./fuzz/corpus/sas7bdat64row/test-case-087 ./fuzz/corpus/sas7bdat64row/test-case-088 ./fuzz/corpus/sas7bdat64row/test-case-089 ./fuzz/corpus/sas7bdat64row/test-case-090 ./fuzz/corpus/sas7bdat64row/test-case-091 ./fuzz/corpus/sas7bdat64row/test-case-095 ./fuzz/corpus/sas7bdat64row/test-case-096
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-008 (deflated 96%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-009 (deflated 98%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-011 (deflated 96%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-012 (deflated 96%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-013 (deflated 97%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-015 (deflated 94%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-040 (deflated 94%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-041 (deflated 94%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-049 (deflated 96%)
+#20 50.01   adding: fuzz/corpus/sas7bdat32/test-case-080 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-081 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-082 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-083 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-084 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-085 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-086 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-087 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-088 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-089 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-090 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-091 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-095 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32/test-case-096 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-006 (deflated 88%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-008 (deflated 93%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-009 (deflated 96%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-011 (deflated 93%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-012 (deflated 92%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-013 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-015 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-040 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-041 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-049 (deflated 93%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-080 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-081 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-082 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-083 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-084 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-085 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-086 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-087 (deflated 95%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-088 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-089 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-090 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-091 (deflated 94%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-095 (deflated 88%)
+#20 50.02   adding: fuzz/corpus/sas7bdat32row/test-case-096 (deflated 92%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-008 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-009 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-011 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-012 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-013 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-015 (deflated 97%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-040 (deflated 97%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-041 (deflated 97%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-049 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-080 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-081 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-082 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-083 (deflated 98%)
+#20 50.02   adding: fuzz/corpus/sas7bdat64/test-case-084 (deflated 98%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-085 (deflated 98%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-086 (deflated 98%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-087 (deflated 98%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-088 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-089 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-090 (deflated 98%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-091 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-095 (deflated 96%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64/test-case-096 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-006 (deflated 95%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-008 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-009 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-011 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-012 (deflated 96%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-013 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-015 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-040 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-041 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-049 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-080 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-081 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-082 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-083 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-084 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-085 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-086 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-087 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-088 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-089 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-090 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-091 (deflated 97%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-095 (deflated 95%)
+#20 50.03   adding: fuzz/corpus/sas7bdat64row/test-case-096 (deflated 96%)
+#20 50.03 + zip /out/fuzz_format_xport_seed_corpus.zip ./fuzz/corpus/xpt5/test-case-000 ./fuzz/corpus/xpt5/test-case-011 ./fuzz/corpus/xpt5/test-case-012 ./fuzz/corpus/xpt5/test-case-031 ./fuzz/corpus/xpt5/test-case-040 ./fuzz/corpus/xpt5/test-case-049 ./fuzz/corpus/xpt5/test-case-095 ./fuzz/corpus/xpt5/test-case-096 ./fuzz/corpus/xpt8/test-case-000 ./fuzz/corpus/xpt8/test-case-011 ./fuzz/corpus/xpt8/test-case-012 ./fuzz/corpus/xpt8/test-case-030 ./fuzz/corpus/xpt8/test-case-031 ./fuzz/corpus/xpt8/test-case-040 ./fuzz/corpus/xpt8/test-case-041 ./fuzz/corpus/xpt8/test-case-049 ./fuzz/corpus/xpt8/test-case-095 ./fuzz/corpus/xpt8/test-case-096
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-000 (deflated 76%)
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-011 (deflated 73%)
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-012 (deflated 73%)
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-031 (deflated 82%)
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-040 (deflated 80%)
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-049 (deflated 77%)
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-095 (deflated 79%)
+#20 50.04   adding: fuzz/corpus/xpt5/test-case-096 (deflated 80%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-000 (deflated 76%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-011 (deflated 72%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-012 (deflated 73%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-030 (deflated 75%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-031 (deflated 80%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-040 (deflated 79%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-041 (deflated 78%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-049 (deflated 76%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-095 (deflated 78%)
+#20 50.04   adding: fuzz/corpus/xpt8/test-case-096 (deflated 79%)
+#20 50.04 + cp ./fuzz/dict/fuzz_format_spss_commands.dict /out/fuzz_format_spss_commands.dict
+#20 50.05 + cp ./fuzz/dict/fuzz_format_stata_commands.dict /out/fuzz_format_stata_commands.dict
+#20 50.05 + cp ./fuzz/dict/fuzz_format_sas_commands.dict /out/fuzz_format_sas_commands.dict
+#20 50.05 + READSTAT_FUZZERS='
+#20 50.05     fuzz_compression_sav     fuzz_grammar_spss_format     fuzz_format_sas_commands     fuzz_format_spss_commands     fuzz_format_stata_dictionary     fuzz_format_dta     fuzz_format_por     fuzz_format_sav     fuzz_format_sas7bcat     fuzz_format_sas7bdat     fuzz_format_xport'
+#20 50.05 + for fuzzer in $READSTAT_FUZZERS
+#20 50.05 + make fuzz_compression_sav
+#20 50.08   CC       src/fuzz/fuzz_compression_sav-fuzz_compression_sav.o
+#20 50.16   CXXLD    fuzz_compression_sav
+#20 50.61 + cp fuzz_compression_sav /out/fuzz_compression_sav
+#20 50.61 + for fuzzer in $READSTAT_FUZZERS
+#20 50.61 + make fuzz_grammar_spss_format
+#20 50.64   CC       src/fuzz/fuzz_grammar_spss_format-fuzz_grammar_spss_format.o
+#20 50.71   CXXLD    fuzz_grammar_spss_format
+#20 51.14 + cp fuzz_grammar_spss_format /out/fuzz_grammar_spss_format
+#20 51.14 + for fuzzer in $READSTAT_FUZZERS
+#20 51.14 + make fuzz_format_sas_commands
+#20 51.16   CC       src/fuzz/fuzz_format_sas_commands-fuzz_format.o
+#20 51.25   CC       src/fuzz/fuzz_format_sas_commands-fuzz_format_sas_commands.o
+#20 51.37   CC       src/test/fuzz_format_sas_commands-test_buffer_io.o
+#20 51.46   CXXLD    fuzz_format_sas_commands
+#20 51.83 + cp fuzz_format_sas_commands /out/fuzz_format_sas_commands
+#20 51.83 + for fuzzer in $READSTAT_FUZZERS
+#20 51.83 + make fuzz_format_spss_commands
+#20 51.86   CC       src/fuzz/fuzz_format_spss_commands-fuzz_format.o
+#20 51.93   CC       src/fuzz/fuzz_format_spss_commands-fuzz_format_spss_commands.o
+#20 52.01   CC       src/test/fuzz_format_spss_commands-test_buffer_io.o
+#20 52.09   CXXLD    fuzz_format_spss_commands
+#20 52.47 + cp fuzz_format_spss_commands /out/fuzz_format_spss_commands
+#20 52.47 + for fuzzer in $READSTAT_FUZZERS
+#20 52.47 + make fuzz_format_stata_dictionary
+#20 52.50   CC       src/fuzz/fuzz_format_stata_dictionary-fuzz_format.o
+#20 52.57   CC       src/fuzz/fuzz_format_stata_dictionary-fuzz_format_stata_dictionary.o
+#20 52.64   CC       src/test/fuzz_format_stata_dictionary-test_buffer_io.o
+#20 52.73   CXXLD    fuzz_format_stata_dictionary
+#20 53.09 + cp fuzz_format_stata_dictionary /out/fuzz_format_stata_dictionary
+#20 53.10 + for fuzzer in $READSTAT_FUZZERS
+#20 53.10 + make fuzz_format_dta
+#20 53.12   CC       src/fuzz/fuzz_format_dta-fuzz_format.o
+#20 53.19   CC       src/fuzz/fuzz_format_dta-fuzz_format_dta.o
+#20 53.86   CC       src/test/fuzz_format_dta-test_buffer_io.o
+#20 53.95   CXXLD    fuzz_format_dta
+#20 54.33 + cp fuzz_format_dta /out/fuzz_format_dta
+#20 54.33 + for fuzzer in $READSTAT_FUZZERS
+#20 54.33 + make fuzz_format_por
+#20 54.36   CC       src/fuzz/fuzz_format_por-fuzz_format.o
+#20 54.43   CC       src/fuzz/fuzz_format_por-fuzz_format_por.o
+#20 54.56   CC       src/test/fuzz_format_por-test_buffer_io.o
+#20 54.65   CXXLD    fuzz_format_por
+#20 55.03 + cp fuzz_format_por /out/fuzz_format_por
+#20 55.04 + for fuzzer in $READSTAT_FUZZERS
+#20 55.04 + make fuzz_format_sav
+#20 55.06   CC       src/fuzz/fuzz_format_sav-fuzz_format.o
+#20 55.13   CC       src/fuzz/fuzz_format_sav-fuzz_format_sav.o
+#20 55.28   CC       src/test/fuzz_format_sav-test_buffer_io.o
+#20 55.37   CXXLD    fuzz_format_sav
+#20 55.76 + cp fuzz_format_sav /out/fuzz_format_sav
+#20 55.77 + for fuzzer in $READSTAT_FUZZERS
+#20 55.77 + make fuzz_format_sas7bcat
+#20 55.79   CC       src/fuzz/fuzz_format_sas7bcat-fuzz_format.o
+#20 55.87   CC       src/fuzz/fuzz_format_sas7bcat-fuzz_format_sas7bcat.o
+#20 56.02   CC       src/test/fuzz_format_sas7bcat-test_buffer_io.o
+#20 56.11   CXXLD    fuzz_format_sas7bcat
+#20 56.49 + cp fuzz_format_sas7bcat /out/fuzz_format_sas7bcat
+#20 56.49 + for fuzzer in $READSTAT_FUZZERS
+#20 56.49 + make fuzz_format_sas7bdat
+#20 56.52   CC       src/fuzz/fuzz_format_sas7bdat-fuzz_format.o
+#20 56.59   CC       src/fuzz/fuzz_format_sas7bdat-fuzz_format_sas7bdat.o
+#20 56.66   CC       src/test/fuzz_format_sas7bdat-test_buffer_io.o
+#20 56.75   CXXLD    fuzz_format_sas7bdat
+#20 57.14 + cp fuzz_format_sas7bdat /out/fuzz_format_sas7bdat
+#20 57.14 + for fuzzer in $READSTAT_FUZZERS
+#20 57.14 + make fuzz_format_xport
+#20 57.17   CC       src/fuzz/fuzz_format_xport-fuzz_format.o
+#20 57.24   CC       src/fuzz/fuzz_format_xport-fuzz_format_xport.o
+#20 57.31   CC       src/test/fuzz_format_xport-test_buffer_io.o
+#20 57.40   CXXLD    fuzz_format_xport
+#20 57.78 + cp fuzz_format_xport /out/fuzz_format_xport
+#20 57.79 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 60.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:83b6b5fb40fa7b373c03e88d093ca70eb63e1178e0858af0ce4125800c660b0b 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/readstat_readstat done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/readstat_readstat:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:3e847547a3372185c1c3a6d8e9157a9fa70200cc42ccddeead05c03695848312
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:080203234ad74febd59a398dc01cd1c41d20081283dfeb7263105f325e08ce4a
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:dd1d95e8ee3ec4246ab0212c5691e6933313902b2a55956f7023874c5243dabe done
+#6 naming to gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate
+#5 sha256:d968ab1ce89547186f989c8ecb61d10d57cb94b9d9dbfd89660f74b5709599b6
+#5 ERROR: gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate:latest: not found
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a5578ff8e70edd5d27300d58ace5ba5ad31b1ad4eb3d12485d2c4e32818e7ad7
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:81167fde4b0d10c022f021a7b80a9d4d9b8c82609690a2b9f07f106e25806939
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate:latest
+#3 sha256:4e31f86b2fbc859083d259e2edde022416d80a8bd6bad4e486e09d559bd54be9
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/readstat_readstat:latest
+#4 sha256:9d7c527e21a82d903a1fb575be831866451a86fef681a072b0108aed16be4f13
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/readstat_readstat
+#5 sha256:246936262ba6870882cf9b54eb892ddb2689f165bb6451f22f73d7f5b15b43df
+#5 ...
+
+#12 [internal] load build context
+#12 sha256:907d232c98e27dac942780ef16079a0adb9f38bd30a78ab67eb592d30c79fa2a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate
+#6 sha256:8463e7bebd249128b0251684fb0ce1ead0c1286db5af74ba9afb3b5e2a4dce23
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/readstat_readstat
+#10 sha256:c6211a36abb7c320064218b0447445d8323c86a9af2c173e0f3f04e9559c7b45
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/readstat_readstat
+#5 sha256:246936262ba6870882cf9b54eb892ddb2689f165bb6451f22f73d7f5b15b43df
+#5 ERROR: gcr.io/fuzzbench/runners/afl/readstat_readstat:latest: not found
+
+#12 [internal] load build context
+#12 sha256:907d232c98e27dac942780ef16079a0adb9f38bd30a78ab67eb592d30c79fa2a
+#12 transferring context: 17.55MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/readstat_readstat
+#10 sha256:c6211a36abb7c320064218b0447445d8323c86a9af2c173e0f3f04e9559c7b45
+#10 DONE 2.5s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:93695f132eca9542a690dbdba64cd4ea42cdcc39f4ed0509c191f3493d06f36a
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:347a5e524454ba23d34ac20e4c13d58429ed743cfc53234d53650da0c1bcad1f
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:833083428b5bf4cbe18ca3f12a5dfe2155d8f23c8f2eb8f5738fc26035d452c7
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:257001226277e7fec053db25636205fe5c875a39da68833205afbc0256701e62
+#11 DONE 0.3s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:bb1165a5ee3ba7647df9598db9bfa3362e0dd0f05506a0280974b90d38f4036d
+#13 DONE 0.9s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:945fcb10d589486e9fa23fa4bbe49416b1a35d7525da07f8a5435936464b846d
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:3eabfc418e9fb507ac07fd9fe26240f731fed8c3de583c8aba2f608aa450756a
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:4f0f96b5fb2daa6f774452c918ba65fb005e132631ba5921e511aba72c3e09db
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:8f87c4fcefb83130a3ddbff9a90771d998bc6ce7e2d3028fc794e3dbf0203d68
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:5fb09359e0f3766c553068a61c6b313078c7f9d1dcd25c7468ef1020d1fc3ceb
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:0d486da506d1fc725bf195bee636c16254f6dd8a15e5aa588453a45c69c9bb54
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:994e87f66ab4492a23acb2004efa9cf0b2d32a06f7500b8a218e93e3e71f45a1
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:7fd7411f1090466767ba9930bc43b7a29dfe2912b8bd5dfe1f459c3d168f1bfe
+#21 writing image sha256:7fd7411f1090466767ba9930bc43b7a29dfe2912b8bd5dfe1f459c3d168f1bfe done
+#21 naming to gcr.io/fuzzbench/runners/afl/readstat_readstat done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/readstat_readstat:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7ff8cb521f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:44b72ba1653df5779b921f05cabeb72c293dfd53682662421099d9585600a9b4
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:abd914cddd1a1b13f299fd00286763dfbabf162c0c2f8c6867045fb56484cd57
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/readstat_readstat
+#4 sha256:246212ac2ef0c7c5015b096d1db2c1bb1166207007549be72a07b60aa5ea6246
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:6253054bf3ce14674e4e8c02d542e1ba1abf0c5513f1f42452c9f3d8a2a2c5ce
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake gettext libtool zip zlib1g-dev
+#6 sha256:36caecc5654f061474ecc243c27391aeb040645b47540123c70d9aaf0c881a72
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/WizardMac/ReadStat readstat
+#7 sha256:e98eb74936e7ba85be8d022bcebbffd95e4d687b57d5077797f89097e4c8b886
+#7 CACHED
+
+#8 [4/5] WORKDIR readstat
+#8 sha256:46625f2a7524c7aa14a3052eb39affd3400838aa0b185c9dc1e4f1f7d6abe337
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:d1651770e7db03b8ed1a3a63873052581fe73b7b7c43e8522d87512effe2f722
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:3c448584c14168a9be3d7c572b68ea7723b1fb9f04b6c93a575d62f605673d03 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/readstat_readstat done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:f9b16d03c3545c9b7b47c281e6fb787441ec8d746fcacc6260b4d700d0139861
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b90743c0c8c9344da36e3d1787fb16658d454ca50a08835833999153122ecdae
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/readstat_readstat:latest
+#3 sha256:147dc20a2ebe653684f92f6994e0d22fae0fdafcb4348756c4c857b5504d3951
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/readstat_readstat
+#5 sha256:403020ec7efd13d644ca4976c3bb0e6215c1fd4c67f671868543912d31e5ba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate
+#4 sha256:df4aa04f3c90e9106871546a1c43541beb6483e6e53d9f77ea99acc7e5e3fabc
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:cb3ff1bc56498c5d58603fb4e3e22778e2bc5a1433db79ecfc7bf8ee4528b1a3
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c9f9e9f089a2e0464224d2d08c31cf891a3cb55d051f99bcacffffc4d02e1345
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:949022d99d4435c5ee97c260fbdf8f9842d0b63cf2d24ada21eae91db883fa69
+#8 writing image sha256:949022d99d4435c5ee97c260fbdf8f9842d0b63cf2d24ada21eae91db883fa69 done
+#8 naming to gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:3204759f4777feb727af066aafbfa372441da0f2c51ddf2dc35c4ee00e3bd49c
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4ed46d03cbe7a049b343df15fdbef623c5dbae68215b5550c85017002f3e2934
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:cadf9aaf5c8d9829647a7b9d0b3a83460680d3f773a1067ece8462a794d03463
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:e93f14bf95dbf9e001b48322336f68aa9843aacc089da525d35cb838920f3d2b
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:31949fdbde7baaabd778fbc84ba5ed98d5de6795f2686d33cddc72c326fa4170
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:0dffb7c964c8caf439111f27e5d381b941d36f3f383231d44a7d73f8e50f8985
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:8e44c664b85cbe35a7e415b468509f132de052bd466588f8ff7ef72a4024e2a7
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5bcafeca90d09e5a030feed2ced83edfc14622deae3e4a98f2d89504ec6deb0e done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:86ff26616feca8faebf278e1d95f478b0a76ac086920d43db4a445c00f11f333
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:74d3f376cc19669f11cfeb75c41ee3525853bca332d5bb7d29d9e7b2c3041e22
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate:latest
+#3 sha256:05055a9f7320b30a5b5d7116802b126da75656c203394cd7b6bbaa2dec0ad410
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/readstat_readstat-intermediate
+#6 sha256:db53a97a7f4d9fe299d55fb068481a1c369c8344a0a416c12488458b1d8475ed
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/readstat_readstat
+#5 sha256:d13ebe9fcac33c56aaf2e637fccaba6c877955863245a87863f7ef6716287403
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:cf8cd08d82fb736b8ca4dd02fabb301a4dec0989d8456fab2d6468281bdbffce
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:d07279917180dc409c8d3177e9ff055c051b4afc216b301c1646795e46542b7f
+#14 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:cf9fb3cee3c0b47d42d97316a0f095c32c42b715a9cd66e462228076b81162a5
+#10 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:6f0cd6f3bed5e01c982becc888779438bc3515a7e40139aade457a3643871379
+#19 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4990a6d9a8fff53df3ec11353299fad06368398c8ef6a6ccee489026f0a91316
+#9 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:bf44d41d1f4916ee3914872a3f4b334d59c9800d20e31508084ce4616eaf02d5
+#17 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:1f9caeb8ef09d22e73ebc4d2326e388daac4a660b3b9665259d190e54446a5cd
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3097cf7a0fbedc0b3251932af276d3b87b4d9f76e01a90fba0061800337baba7
+#18 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:e12258187f94e69ad64cf0e47f420d0e2d5edbe472b9434c95663766c9dee743
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:705b6ddb5c7c8748cb6041ba272a2aa79757267ea5c043f5eaaac43306044eb9
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/readstat_readstat/benchmark.yaml /
+#15 sha256:90e18710752d891fad1680680313a7bfa95fba105b9d5d3dafe5d949341fa8e6
+#15 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:760e9d859f14e77c3cc629c941a7b625d74cea7d64e167d836bb6aa3df8d1671
+#11 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:cc22434f735c00bc84d0e7a7619e69ee1886ac51f0e0d1e073d6db57204fe937
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:83b6b5fb40fa7b373c03e88d093ca70eb63e1178e0858af0ce4125800c660b0b done
+#21 naming to gcr.io/fuzzbench/builders/afl/readstat_readstat done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:4a421500b3bd2147f82f4e5fcd1480f3a4eb5701ed040260639eaaeccbf3833a
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:aa738a5cb40ef74041bd46baec3ecc1d571d01885acb7ed46bf2188991f2a46d
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate
+#5 sha256:d968ab1ce89547186f989c8ecb61d10d57cb94b9d9dbfd89660f74b5709599b6
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:dd1d95e8ee3ec4246ab0212c5691e6933313902b2a55956f7023874c5243dabe
+#6 writing image sha256:dd1d95e8ee3ec4246ab0212c5691e6933313902b2a55956f7023874c5243dabe done
+#6 naming to gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:972f4f38c635e7b6e6ab93a1cbd79191fa8581f1229693e723479faa428fb9b4
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:0527624f607c6eee3d1b285d89c83411ae974a9598263a4b8242f9c945a599bb
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate:latest
+#3 sha256:4e31f86b2fbc859083d259e2edde022416d80a8bd6bad4e486e09d559bd54be9
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/readstat_readstat:latest
+#4 sha256:9d7c527e21a82d903a1fb575be831866451a86fef681a072b0108aed16be4f13
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/readstat_readstat-intermediate
+#6 sha256:8463e7bebd249128b0251684fb0ce1ead0c1286db5af74ba9afb3b5e2a4dce23
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/readstat_readstat
+#5 sha256:246936262ba6870882cf9b54eb892ddb2689f165bb6451f22f73d7f5b15b43df
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/readstat_readstat
+#10 sha256:c6211a36abb7c320064218b0447445d8323c86a9af2c173e0f3f04e9559c7b45
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1060cc9db9ecabcf7077546a08f87c9a52a72e8bcbabe0a765182ffb7dd6ba25
+#12 transferring context: 17.55MB 0.6s done
+#12 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:13264bd1c9e00bbbb427ddf4654e962a425407ec556156bc23888fb74fb71fe3
+#16 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:a697dc456e901d75803eef5a7850dc7089f9a85235ccd11b9fc168e8382f69ed
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:78cd4be1a6a3f2b4444420fade577fbec219c86eec24eddd90edfb70cd941873
+#19 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:833083428b5bf4cbe18ca3f12a5dfe2155d8f23c8f2eb8f5738fc26035d452c7
+#9 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:29e52d6d278f8a39115bffd54c9872d52c5c134282ecfae4747a67eec1acf542
+#13 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:f09f1a769199ab8dbfbcf58565c56ca33917f7d37d853a45f647daeaf952780a
+#18 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:257001226277e7fec053db25636205fe5c875a39da68833205afbc0256701e62
+#11 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:1a880c9199d57b893aa462e5fba2b132a578e48e8551f46cd748d486ff58e610
+#15 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:4a98c2cf6018ba8a087e9c59283967c807c8ea48ba8a3015d791b4c9a887db5a
+#14 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:93695f132eca9542a690dbdba64cd4ea42cdcc39f4ed0509c191f3493d06f36a
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:347a5e524454ba23d34ac20e4c13d58429ed743cfc53234d53650da0c1bcad1f
+#8 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:31e760e08e79db5e81f80cf98cc8681352cff6f4d80f093b73e2a51295309ccd
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:7fd7411f1090466767ba9930bc43b7a29dfe2912b8bd5dfe1f459c3d168f1bfe 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/readstat_readstat done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f5d26562f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

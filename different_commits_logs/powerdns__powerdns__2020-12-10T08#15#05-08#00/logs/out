@@ -1,0 +1,1234 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: powerdns_powerdns.
+INFO:root:Please run "make test-run-afl-powerdns_powerdns" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:0179b85781b96b84891e83bce36fa9ee3f45591adecae99acf35195196136996
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0152133d546a1f0f4e6571807562c9bc1ac200daba090c4ca25ded1d6b51f455
+#1 transferring dockerfile: 1.29kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:82955ca5c36e15620069014d30dee5564b9ba7f3d16dc3fd90204f547913b2d7
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns
+#4 sha256:fa4ad251623579eb8be117c9858447f45614f2277d5dc70da96f09534eb00816
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns:latest: not found
+
+#9 [internal] load build context
+#9 sha256:82955ca5c36e15620069014d30dee5564b9ba7f3d16dc3fd90204f547913b2d7
+#9 transferring context: 30B done
+#9 DONE 0.0s
+
+#7 [3/5] RUN git clone https://github.com/PowerDNS/pdns.git pdns
+#7 sha256:6dcce47b9b9bbb7536f0d121b17a73ffaf0172189ac844d77e2239fc182592fb
+#7 CACHED
+
+#8 [4/5] WORKDIR pdns
+#8 sha256:bb97d2f8526594598f6cd32e1b2e8c941e7bc63e54e7ae745cea3c60fa340c90
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y autoconf automake bison dh-autoreconf flex libboost-all-dev libluajit-5.1-dev libedit-dev libprotobuf-dev libssl-dev libtool make pkg-config protobuf-compiler ragel
+#6 sha256:a4511c2738063aecaf0b3f4d7b5994d38907f03af4381f9ba90db2273610ca76
+#6 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:e29cc3b15283afaa4e381a708bc37dc4499b183bb5a082b996bd04536744d109
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:8496f2d5b7c1cb12dace31872ada20e3b4508331fcf5ce15d2fd392f42f8cd76 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:0b11bec5de9986b6e2a4a4e953a1e7b9773fd872d2fe8cfd667c722b4776ca6d
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:7fb88403ad7ed0fc975f21c323d5f3683730e294313584181940fc51054b6fb5
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns:latest
+#3 sha256:2b602c74a204a217e420147de9ef2244e5ea58c2b7efaed0ea3dbdf3e6eeb0e8
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns
+#5 sha256:2a49a4774849eec4dbeffea0da52b215f53ab913d1c2a26f4596a66f03efbec6
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate
+#4 sha256:11f55936b1d64b2a4b9ff3763c61ffbeed32c669b0930816f417fb28b2dc8b30
+#4 ERROR: gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b91adaa8d087c70b1cefa6becf1c7bfacb9a3a3946bb911fbf518cd5269f1b3f
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:a29d4bd7a3f10290bc0aed474af937cad90aaa372b6771d14e4c5258f147e84d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:16a8866cef7fbe37cb875107b2645177b405ebac233d5f5c615d901300705e66 done
+#8 naming to gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:90ac58c754d947358477442987dfae6953b4dc7ea12e9a64b6c34aec089a38e2
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:6a96c20175f6632abc2d6b7685ca45d56a10665ec84cbe7f3b9e0c77fe18591c
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:5880e557af637ef0e5fc8865ee90c6386bc898fd80ee2d4b0b1a0b3bc60c426a
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:6bc7c0f161774e63ad5ea405f2773d66f5746a4908f6ad1cd26625a63f33e2d0
+#9 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:19f97ef3a9f0babd72bbacc8ba2eaf149311e0b91ae80bf7e03f33e77ae7aa1b
+#11 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:00ea63a485bb256d89a322ad17b144f13a50c55379b1826881d13105e87a00c1
+#10 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:9d609dd9ef68df7cee7ac0c5f671d4578eb310da8a9946d252afa85c2bb315b2
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:1767a868d7a3dc63eff4e494738001fc7d535f0e549d54d5dfe441da8cd8c73d
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6f6f083c013668bd323e25cffcc85d916c220b6763d540b03f49e003a9f0bc9c
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate:latest
+#3 sha256:8eb20057668f817466e49c4acc2ab1603d041b937f31d89f50dd7ed1b07bf758
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:75cfde02467db18edc144b6ecae9d0c175582de32739e3a6f3b6be06ad91c9bf
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate
+#6 sha256:52c577c8092119292f50cc0aeb5a69c8ff24c6219f885e064518ddca1db02788
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/powerdns_powerdns
+#5 sha256:ae27ece60e2d5228a63e48e7ad0ec9cb726397046c75aa49b860535c1962f053
+#5 ERROR: gcr.io/fuzzbench/builders/afl/powerdns_powerdns:latest: not found
+
+#12 [internal] load build context
+#12 sha256:75cfde02467db18edc144b6ecae9d0c175582de32739e3a6f3b6be06ad91c9bf
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:44d2148961eb9fa76f10b1393cd7dffde8d8ab49f3873c66ac6f76de3640ef3f
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:14fdbb5bf0d040261d5bf5b1188eead4d218abca73d03d52ebdbc0c12fddcd07
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:03a5479f483fbdfe9bee841ddb7fb0978bc546de0b59199d8a9790a1f801c4f3
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:e0883c9718f2b49b3c9387c726739bddac44de4f79b7fea6dd9b4f1e447c84c3
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:69485335cf367af64d183e0c85d7d0f1f2cb52914fd83542f7f253d1c6e81614
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:509cc2efbbf7a1cc5db7600067b3b0fe3dcdeb0efbfaf3a9370b4d0a598d65bc
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/powerdns_powerdns/benchmark.yaml /
+#15 sha256:a420376cb42ed778e9020a64f7aa4e0857c0d69220bb45edb72de2ceaa9e31cb
+#15 DONE 0.3s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:42411aab7b25bbc0b22d95a1b7e443124c3942ed977fe1c1e5530be5e3adffbb
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:db3d1c45ad438a85f929cb117e1dd92dc1393cd659bc2fa54eaacac62147afeb
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:645059fe1e8c47c1a1fef322ebde98d2b7e3b8c47450fa932bb918b66885ffa3
+#18 0.453 Checking out commit 95a7b675
+#18 0.459 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.463 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.469 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.487 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.584 Checkout unsuccessful.
+#18 DONE 0.7s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:9ed5395f9bfdb6bc3eb6d732cc1f618a206d2d38a5d0fefe5fa88f601d6ef868
+#19 DONE 0.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f55475b7e5454557ecd40db0490f97ef3e73d547a8ccb1d47fb2b5847fb5ff9c
+#20 0.503 Run fuzzer_build to build the target
+#20 0.618 FUZZ_TARGET = powerdns
+#20 0.618 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.618 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.622 Building benchmark powerdns_powerdns with fuzzer afl
+#20 0.626 + sed -i 's/BOOST_PROGRAM_OPTIONS(\[mt\])//' configure.ac
+#20 0.629 + sed -i 's/AC_MSG_ERROR(\[Boost Program Options library not found\])/AC_MSG_NOTICE(\[Boost Program Options library not found\])/' configure.ac
+#20 0.633 + sed -i s/AC_CC_PIE// configure.ac
+#20 0.635 + autoreconf -vi
+#20 0.981 autoreconf: Entering directory `.'
+#20 0.983 autoreconf: configure.ac: not using Gettext
+#20 1.983 autoreconf: running: aclocal -I m4
+#20 6.608 autoreconf: configure.ac: tracing
+#20 7.853 autoreconf: running: libtoolize --copy
+#20 9.287 libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+#20 9.287 libtoolize: copying file 'build-aux/ltmain.sh'
+#20 9.879 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 9.879 libtoolize: copying file 'm4/libtool.m4'
+#20 10.17 libtoolize: copying file 'm4/ltoptions.m4'
+#20 10.45 libtoolize: copying file 'm4/ltsugar.m4'
+#20 10.74 libtoolize: copying file 'm4/ltversion.m4'
+#20 11.03 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 16.05 autoreconf: running: /usr/bin/autoconf
+#20 17.88 autoreconf: running: /usr/bin/autoheader
+#20 18.20 autoreconf: running: automake --add-missing --copy --no-force
+#20 19.71 configure.ac:10: installing 'build-aux/compile'
+#20 19.72 configure.ac:13: installing 'build-aux/config.guess'
+#20 19.72 configure.ac:13: installing 'build-aux/config.sub'
+#20 19.72 configure.ac:5: installing 'build-aux/install-sh'
+#20 19.73 configure.ac:5: installing 'build-aux/missing'
+#20 19.95 ext/ipcrypt/Makefile.am: installing 'build-aux/depcomp'
+#20 20.92 parallel-tests: installing 'build-aux/test-driver'
+#20 21.31 configure.ac: installing 'build-aux/ylwrap'
+#20 21.41 autoreconf: Leaving directory `.'
+#20 21.42 + ./configure --without-dynmodules --with-modules= --disable-lua-records --disable-ixfrdist --enable-fuzz-targets --disable-dependency-tracking --disable-silent-rules
+#20 21.68 checking for a BSD-compatible install... /usr/bin/install -c
+#20 21.69 checking whether build environment is sane... yes
+#20 21.71 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 21.72 checking for gawk... no
+#20 21.72 checking for mawk... mawk
+#20 21.72 checking whether make sets $(MAKE)... yes
+#20 21.73 checking whether make supports nested variables... yes
+#20 21.75 checking whether UID '0' is supported by ustar format... yes
+#20 21.75 checking whether GID '0' is supported by ustar format... yes
+#20 21.75 checking how to create a ustar tar archive... gnutar
+#20 21.78 checking whether make supports nested variables... (cached) yes
+#20 21.78 checking whether make supports the include directive... yes (GNU style)
+#20 21.80 checking for gcc... clang
+#20 21.87 checking whether the C compiler works... yes
+#20 21.99 checking for C compiler default output file name... a.out
+#20 21.99 checking for suffix of executables... 
+#20 22.11 checking whether we are cross compiling... no
+#20 22.25 checking for suffix of object files... o
+#20 22.28 checking whether we are using the GNU C compiler... yes
+#20 22.30 checking whether clang accepts -g... yes
+#20 22.33 checking for clang option to accept ISO C89... none needed
+#20 22.37 checking whether clang understands -c and -o together... yes
+#20 22.41 checking dependency style of clang... none
+#20 22.41 checking how to run the C preprocessor... clang -E
+#20 22.51 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 22.51 checking for egrep... /usr/bin/grep -E
+#20 22.52 checking for ANSI C header files... yes
+#20 22.77 checking for sys/types.h... yes
+#20 22.82 checking for sys/stat.h... yes
+#20 22.88 checking for stdlib.h... yes
+#20 22.93 checking for string.h... yes
+#20 22.99 checking for memory.h... yes
+#20 23.05 checking for strings.h... yes
+#20 23.11 checking for inttypes.h... yes
+#20 23.17 checking for stdint.h... yes
+#20 23.23 checking for unistd.h... yes
+#20 23.29 checking minix/config.h usability... no
+#20 23.36 checking minix/config.h presence... no
+#20 23.39 checking for minix/config.h... no
+#20 23.39 checking whether it is safe to define __EXTENSIONS__... yes
+#20 23.47 checking build system type... x86_64-pc-linux-gnu
+#20 23.53 checking host system type... x86_64-pc-linux-gnu
+#20 23.54 checking for gcc... (cached) clang
+#20 23.61 checking whether we are using the GNU C compiler... (cached) yes
+#20 23.61 checking whether clang accepts -g... (cached) yes
+#20 23.61 checking for clang option to accept ISO C89... (cached) none needed
+#20 23.61 checking whether clang understands -c and -o together... (cached) yes
+#20 23.61 checking dependency style of clang... (cached) none
+#20 23.68 checking whether we are using the GNU C++ compiler... yes
+#20 23.71 checking whether clang++ accepts -g... yes
+#20 23.73 checking dependency style of clang++... none
+#20 23.73 checking size of time_t... 8
+#20 23.81 checking whether time_t is signed... yes
+#20 23.86 checking for bison... bison -y
+#20 23.86 checking if bison is the parser generator... yes
+#20 23.86 checking for flex... flex
+#20 23.88 checking lex output file root... lex.yy
+#20 23.88 checking lex library... none needed
+#20 24.19 checking whether yytext is a pointer... no
+#20 24.30 checking if the lexer is flex... yes
+#20 24.31 checking whether clang++ supports C++17 features with -std=c++17... yes
+#20 24.53 checking how to print strings... printf
+#20 24.59 checking for a sed that does not truncate output... /usr/bin/sed
+#20 24.60 checking for fgrep... /usr/bin/grep -F
+#20 24.60 checking for ld used by clang... /usr/bin/ld
+#20 24.62 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 24.63 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 24.63 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 24.67 checking whether ln -s works... yes
+#20 24.67 checking the maximum length of command line arguments... 1572864
+#20 24.68 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 24.68 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 24.68 checking for /usr/bin/ld option to reload object files... -r
+#20 24.68 checking for objdump... objdump
+#20 24.68 checking how to recognize dependent libraries... pass_all
+#20 24.68 checking for dlltool... no
+#20 24.69 checking how to associate runtime and link libraries... printf %s\n
+#20 24.69 checking for ar... ar
+#20 24.69 checking for archiver @FILE support... @
+#20 24.73 checking for strip... strip
+#20 24.73 checking for ranlib... ranlib
+#20 24.73 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 24.95 checking for sysroot... no
+#20 24.95 checking for a working dd... /usr/bin/dd
+#20 24.95 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 24.99 checking for mt... no
+#20 24.99 checking if : is a manifest tool... no
+#20 25.00 checking for dlfcn.h... yes
+#20 25.08 checking for objdir... .libs
+#20 25.25 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 25.29 checking for clang option to produce PIC... -fPIC -DPIC
+#20 25.29 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 25.32 checking if clang static flag -static works... yes
+#20 25.50 checking if clang supports -c -o file.o... yes
+#20 25.55 checking if clang supports -c -o file.o... (cached) yes
+#20 25.55 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 25.57 checking whether -lc should be explicitly linked in... no
+#20 25.63 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 25.81 checking how to hardcode library paths into programs... immediate
+#20 25.81 checking for shl_load... no
+#20 25.94 checking for shl_load in -ldld... no
+#20 26.02 checking for dlopen... yes
+#20 26.14 checking whether a program can dlopen itself... yes
+#20 26.29 checking whether a statically linked program can dlopen itself... no
+#20 26.67 checking whether stripping libraries is possible... yes
+#20 26.68 checking if libtool supports shared libraries... yes
+#20 26.68 checking whether to build shared libraries... yes
+#20 26.68 checking whether to build static libraries... no
+#20 26.68 checking how to run the C++ preprocessor... clang++ -std=c++17 -E
+#20 26.99 checking for ld used by clang++ -std=c++17... /usr/bin/ld -m elf_x86_64
+#20 27.00 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 27.02 checking whether the clang++ -std=c++17 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 27.17 checking for clang++ -std=c++17 option to produce PIC... -fPIC -DPIC
+#20 27.17 checking if clang++ -std=c++17 PIC flag -fPIC -DPIC works... yes
+#20 27.21 checking if clang++ -std=c++17 static flag -static works... yes
+#20 27.42 checking if clang++ -std=c++17 supports -c -o file.o... yes
+#20 27.46 checking if clang++ -std=c++17 supports -c -o file.o... (cached) yes
+#20 27.46 checking whether the clang++ -std=c++17 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 27.46 checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+#20 27.47 checking how to hardcode library paths into programs... immediate
+#20 27.47 checking whether -latomic is needed for __atomic builtins... no
+#20 27.64 checking for pthread_np.h... no
+#20 27.69 checking for 2-arg pthread_setname_np... yes
+#20 27.87 checking for pkg-config... /usr/bin/pkg-config
+#20 27.87 checking pkg-config is at least version 0.9.0... yes
+#20 27.87 checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+#20 27.87 checking which Lua implementation to use... auto
+#20 27.88 checking for LUA... yes
+#20 27.89 checking lua.hpp usability... yes
+#20 27.97 checking lua.hpp presence... yes
+#20 28.00 checking for lua.hpp... yes
+#20 28.00 checking whether we will enable compiler security checks... yes
+#20 28.00 checking whether C++ compiler handles -fstack-protector... yes
+#20 28.16 checking whether C++ compiler handles --param ssp-buffer-size=4... yes
+#20 28.33 checking whether C++ compiler handles -D_FORTIFY_SOURCE=2... yes
+#20 28.51 checking for how to force completely read-only GOT table... -Wl,-z -Wl,relro -Wl,-z -Wl,now
+#20 28.52 checking for library containing inet_aton... none required
+#20 28.70 checking for library containing gethostbyname... none required
+#20 28.87 checking for library containing socket... none required
+#20 29.02 checking for library containing gethostent... none required
+#20 29.19 checking for recvmmsg... yes
+#20 29.37 checking for sendmmsg... yes
+#20 29.55 checking for accept4... yes
+#20 29.73 checking whether getifaddrs is declared... yes
+#20 29.77 checking whether struct tm is in sys/time.h or time.h... time.h
+#20 29.81 checking for tm_gmtoff in struct tm... 
+#20 29.85 checking for pkg-config... (cached) /usr/bin/pkg-config
+#20 29.85 checking pkg-config is at least version 0.9.0... yes
+#20 29.86 checking sys/mman.h usability... yes
+#20 29.95 checking sys/mman.h presence... yes
+#20 29.97 checking for sys/mman.h... yes
+#20 29.98 checking for mmap... yes
+#20 30.14 checking whether we will be linking in libsodium... auto
+#20 30.15 checking for LIBSODIUM... no
+#20 30.16 checking whether we will be linking in libdecaf... no
+#20 30.16 checking for pkg-config... /usr/bin/pkg-config
+#20 30.18 checking whether compiling and linking against OpenSSL's libcrypto works... yes
+#20 30.46 checking for RAND_bytes... yes
+#20 30.68 checking for RAND_pseudo_bytes... yes
+#20 30.91 checking for CRYPTO_memcmp... yes
+#20 31.12 checking for OPENSSL_init_crypto... yes
+#20 31.34 checking for EVP_MD_CTX_new... yes
+#20 31.56 checking for EVP_MD_CTX_free... yes
+#20 31.77 checking for RSA_get0_key... yes
+#20 31.99 checking whether EVP_PKEY_CTX_set1_scrypt_salt is declared... yes
+#20 32.03 checking /usr/include/openssl/ecdsa.h usability... yes
+#20 32.21 checking /usr/include/openssl/ecdsa.h presence... yes
+#20 32.26 checking for /usr/include/openssl/ecdsa.h... yes
+#20 32.27 checking whether NID_X9_62_prime256v1 is declared... yes
+#20 32.47 checking whether NID_secp384r1 is declared... yes
+#20 32.69 checking whether NID_ED25519 is declared... yes
+#20 32.90 checking whether NID_ED448 is declared... yes
+#20 33.10 checking whether to enable DNS over TLS support... no
+#20 33.10 checking whether to enable ipcipher support... auto
+#20 33.11 checking for ragel... ragel
+#20 33.11 checking for library containing clock_gettime... none required
+#20 33.28 checking for Boost headers version >= 1.42.0... yes
+#20 33.31 checking for Boost's header version... 1_71
+#20 33.34 checking for the toolset name used by Boost for clang++ -std=c++17... gcc42 -gcc
+#20 36.70 checking whether to enable unit test building... no
+#20 36.71 checking whether to enable backend unit test building... no
+#20 36.71 checking whether to enable reproducible builds.... no
+#20 36.72 checking whether to enable fuzzing targets... yes
+#20 36.72 checking whether user requires sqlite3... no
+#20 36.72 checking for a Python interpreter with version >= 3.6... python
+#20 36.75 checking for python... /usr/bin/python
+#20 36.75 checking for python version... 3.8
+#20 36.77 checking for python platform... linux
+#20 36.80 checking for python script directory... ${prefix}/lib/python3.8/site-packages
+#20 36.84 checking for python extension module directory... ${exec_prefix}/lib/python3.8/site-packages
+#20 36.89 checking python module: venv... yes
+#20 36.95 checking for strcasestr... yes
+#20 37.14 checking for localtime_r... yes
+#20 37.34 checking for gmtime_r... yes
+#20 37.52 checking for recvmmsg... (cached) yes
+#20 37.54 checking for sched_setscheduler... yes
+#20 37.73 checking for getrandom... yes
+#20 37.91 checking for arc4random... no
+#20 38.10 checking whether to enable verbose logging... no
+#20 38.10 checking whether to enable PKCS11 support... no
+#20 38.12 checking whether to enable ZeroMQ connector in remotebackend... no
+#20 38.12 checking for gawk... (cached) mawk
+#20 38.12 checking for curl-config... no
+#20 38.12 checking whether libcurl is usable... no
+#20 38.17 checking whether we will be building and installing the extra tools... no
+#20 38.17 checking whether we will be building ixfrdist... no
+#20 38.17 checking whether we will enable LUA records... no
+#20 38.17 checking systemd/sd-daemon.h usability... no
+#20 38.27 checking systemd/sd-daemon.h presence... no
+#20 38.30 checking for systemd/sd-daemon.h... no
+#20 38.30 checking What user and group will be used by service... pdns
+#20 38.30 checking whether to enable code coverage... no
+#20 38.31 checking whether C++ compiler handles -Werror -Wunknown-warning-option... yes
+#20 38.48 checking whether to enable AddressSanitizer... no
+#20 38.48 checking whether to enable MemorySanitizer... no
+#20 38.49 checking whether to enable ThreadSanitizer... no
+#20 38.49 checking whether to enable LeakSanitizer... no
+#20 38.49 checking whether to enable Undefined Behaviour Sanitizer... no
+#20 38.49 checking whether to enable code malloc-trace... no
+#20 38.56 checking that generated files are newer than configure... done
+#20 38.57 configure: creating ./config.status
+#20 39.64 config.status: creating Makefile
+#20 39.66 config.status: creating modules/Makefile
+#20 39.69 config.status: creating pdns/Makefile
+#20 39.73 config.status: creating codedocs/Makefile
+#20 39.75 config.status: creating docs/Makefile
+#20 39.78 config.status: creating pdns/pdns.init
+#20 39.81 config.status: creating ext/Makefile
+#20 39.83 config.status: creating ext/ipcrypt/Makefile
+#20 39.86 config.status: creating ext/yahttp/Makefile
+#20 39.89 config.status: creating ext/yahttp/yahttp/Makefile
+#20 39.92 config.status: creating ext/json11/Makefile
+#20 39.95 config.status: creating modules/bindbackend/Makefile
+#20 39.97 config.status: creating modules/geoipbackend/Makefile
+#20 40.00 config.status: creating modules/gmysqlbackend/Makefile
+#20 40.03 config.status: creating modules/godbcbackend/Makefile
+#20 40.06 config.status: creating modules/gpgsqlbackend/Makefile
+#20 40.08 config.status: creating modules/gsqlite3backend/Makefile
+#20 40.11 config.status: creating modules/ldapbackend/Makefile
+#20 40.14 config.status: creating modules/lmdbbackend/Makefile
+#20 40.16 config.status: creating modules/lua2backend/Makefile
+#20 40.19 config.status: creating modules/pipebackend/Makefile
+#20 40.22 config.status: creating modules/remotebackend/Makefile
+#20 40.25 config.status: creating modules/tinydnsbackend/Makefile
+#20 40.27 config.status: creating config.h
+#20 40.29 config.status: executing depfiles commands
+#20 40.29 config.status: executing libtool commands
+#20 40.31 configure: 
+#20 40.31 configure: Configuration summary
+#20 40.31 configure: =====================
+#20 40.31 configure: 
+#20 40.31 configure: Configured with:  '--without-dynmodules' '--with-modules=' '--disable-lua-records' '--disable-ixfrdist' '--enable-fuzz-targets' '--disable-dependency-tracking' '--disable-silent-rules' 'CC=clang' 'CFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard' 'CXX=clang++' 'CXXFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard' 'CCC=clang++'
+#20 40.31 configure: 
+#20 40.32 configure: CC: clang
+#20 40.32 configure: CXX: clang++ -std=c++17
+#20 40.32 configure: LD: /usr/bin/ld -m elf_x86_64
+#20 40.32 configure: CFLAGS:   -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard
+#20 40.32 configure: CPPFLAGS: 
+#20 40.32 configure: CXXFLAGS:   -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard
+#20 40.32 configure: LDFLAGS: -Wl,-z -Wl,relro -Wl,-z -Wl,now 
+#20 40.32 configure: LIBS: 
+#20 40.32 configure: BOOST_CPPFLAGS: 
+#20 40.32 configure: 
+#20 40.32 configure: Extras enabled
+#20 40.32 configure: --------------
+#20 40.32 configure: Tools: no
+#20 40.32 configure: ixfrdist: no
+#20 40.32 configure: 
+#20 40.32 configure: Server Features enabled
+#20 40.32 configure: -----------------------
+#20 40.32 configure: Built-in modules: 
+#20 40.32 configure: Dynamic modules: 
+#20 40.32 configure: 
+#20 40.32 configure: OpenSSL ecdsa: yes
+#20 40.32 configure: ed25519: yes
+#20 40.32 configure: ed448: yes
+#20 40.33 configure: SQLite3: no
+#20 40.33 configure: Lua: luajit
+#20 40.33 configure: systemd: no
+#20 40.33 configure: 
+#20 40.46 + cd pdns
+#20 40.46 ++ nproc
+#20 40.47 + make -j8 fuzz_targets
+#20 40.48 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dns.o dns.cc
+#20 40.48 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnsdist-cache.o dnsdist-cache.cc
+#20 40.48 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnsdist-ecs.o dnsdist-ecs.cc
+#20 40.48 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnsdist-protocols.o dnsdist-protocols.cc
+#20 40.48 ragel dnslabeltext.rl -o dnslabeltext.cc
+#20 40.48 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnsname.o dnsname.cc
+#20 40.48 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnsparser.o dnsparser.cc
+#20 40.48 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnswriter.o dnswriter.cc
+#20 40.49 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o ednsoptions.o ednsoptions.cc
+#20 42.44 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o ednssubnet.o ednssubnet.cc
+#20 46.79 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o fuzz_dnsdistcache.o fuzz_dnsdistcache.cc
+#20 47.91 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o iputils.o iputils.cc
+#20 48.11 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o misc.o misc.cc
+#20 49.49 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o qtype.o qtype.cc
+#20 52.84 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o svc-records.o svc-records.cc
+#20 53.47 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o standalone_fuzz_target_runner.o standalone_fuzz_target_runner.cc
+#20 57.10 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o base32.o base32.cc
+#20 57.39 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o base64.o base64.cc
+#20 58.04 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnsrecords.o dnsrecords.cc
+#20 58.86 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o fuzz_moadnsparser.o fuzz_moadnsparser.cc
+#20 59.38 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o logger.o logger.cc
+#20 60.01 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o nsecrecords.o nsecrecords.cc
+#20 60.07 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o rcpgenerator.o rcpgenerator.cc
+#20 60.25 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o sillyrecords.o sillyrecords.cc
+#20 61.17 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o statbag.o statbag.cc
+#20 66.74 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o unix_utility.o unix_utility.cc
+#20 67.01 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o fuzz_packetcache.o fuzz_packetcache.cc
+#20 67.30 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o fuzz_proxyprotocol.o fuzz_proxyprotocol.cc
+#20 70.40 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o proxy-protocol.o proxy-protocol.cc
+#20 72.72 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o fuzz_zoneparsertng.o fuzz_zoneparsertng.cc
+#20 73.61 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o zoneparser-tng.o zoneparser-tng.cc
+#20 73.85 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o fuzz_dnslabeltext_parseRFC1035CharString.o fuzz_dnslabeltext_parseRFC1035CharString.cc
+#20 74.97 clang++ -std=c++17 -DHAVE_CONFIG_H -I. -I..  -I.. -I.. -pthread  -I../ext/json11 -I../ext/yahttp     -I../ext/protozero/include -DBOOST_CONTAINER_USE_STD_EXCEPTIONS   -I/usr/include/luajit-2.1   -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -c -o dnslabeltext.o dnslabeltext.cc
+#20 77.56 /bin/bash ../libtool  --tag=CXX   --mode=link clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard  -lcrypto -pthread -export-dynamic   -Wl,-z -Wl,relro -Wl,-z -Wl,now  -o fuzz_target_proxyprotocol fuzz_proxyprotocol.o proxy-protocol.o -lcrypto /libAFL.a 
+#20 77.99 libtool: link: clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pthread -Wl,-z -Wl,relro -Wl,-z -Wl,now -o fuzz_target_proxyprotocol fuzz_proxyprotocol.o proxy-protocol.o -Wl,--export-dynamic  -lcrypto /libAFL.a -pthread
+#20 82.09 /bin/bash ../libtool  --tag=CXX   --mode=link clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard  -lcrypto -pthread -export-dynamic   -Wl,-z -Wl,relro -Wl,-z -Wl,now  -o fuzz_target_packetcache dnslabeltext.o dnsname.o ednsoptions.o fuzz_packetcache.o misc.o qtype.o statbag.o svc-records.o -lcrypto /libAFL.a 
+#20 82.09 /bin/bash ../libtool  --tag=CXX   --mode=link clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard  -lcrypto -pthread -export-dynamic   -Wl,-z -Wl,relro -Wl,-z -Wl,now  -o fuzz_target_dnsdistcache dns.o dnsdist-cache.o dnsdist-ecs.o dnsdist-protocols.o dnslabeltext.o dnsname.o dnsparser.o dnswriter.o ednsoptions.o ednssubnet.o fuzz_dnsdistcache.o iputils.o misc.o qtype.o svc-records.o -lcrypto /libAFL.a 
+#20 82.09 /bin/bash ../libtool  --tag=CXX   --mode=link clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard  -lcrypto -pthread -export-dynamic   -Wl,-z -Wl,relro -Wl,-z -Wl,now  -o fuzz_target_dnslabeltext_parseRFC1035CharString dnslabeltext.o fuzz_dnslabeltext_parseRFC1035CharString.o -lcrypto /libAFL.a 
+#20 82.38 libtool: link: clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pthread -Wl,-z -Wl,relro -Wl,-z -Wl,now -o fuzz_target_dnsdistcache dns.o dnsdist-cache.o dnsdist-ecs.o dnsdist-protocols.o dnslabeltext.o dnsname.o dnsparser.o dnswriter.o ednsoptions.o ednssubnet.o fuzz_dnsdistcache.o iputils.o misc.o qtype.o svc-records.o -Wl,--export-dynamic  -lcrypto /libAFL.a -pthread
+#20 82.44 libtool: link: clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pthread -Wl,-z -Wl,relro -Wl,-z -Wl,now -o fuzz_target_dnslabeltext_parseRFC1035CharString dnslabeltext.o fuzz_dnslabeltext_parseRFC1035CharString.o -Wl,--export-dynamic  -lcrypto /libAFL.a -pthread
+#20 82.45 libtool: link: clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pthread -Wl,-z -Wl,relro -Wl,-z -Wl,now -o fuzz_target_packetcache dnslabeltext.o dnsname.o ednsoptions.o fuzz_packetcache.o misc.o qtype.o statbag.o svc-records.o -Wl,--export-dynamic  -lcrypto /libAFL.a -pthread
+#20 85.96 /bin/bash ../libtool  --tag=CXX   --mode=link clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard  -lcrypto -pthread -export-dynamic   -Wl,-z -Wl,relro -Wl,-z -Wl,now  -o fuzz_target_moadnsparser base32.o base64.o dnslabeltext.o dnsname.o dnsparser.o dnsrecords.o dnswriter.o fuzz_moadnsparser.o logger.o misc.o nsecrecords.o qtype.o rcpgenerator.o sillyrecords.o statbag.o svc-records.o unix_utility.o -lcrypto /libAFL.a 
+#20 85.96 /bin/bash ../libtool  --tag=CXX   --mode=link clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard  -lcrypto -pthread -export-dynamic   -Wl,-z -Wl,relro -Wl,-z -Wl,now  -o fuzz_target_zoneparsertng base32.o base64.o dnslabeltext.o dnsname.o dnsparser.o dnsrecords.o dnswriter.o fuzz_zoneparsertng.o logger.o misc.o nsecrecords.o qtype.o rcpgenerator.o sillyrecords.o statbag.o svc-records.o unix_utility.o zoneparser-tng.o -lcrypto /libAFL.a 
+#20 86.23 libtool: link: clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pthread -Wl,-z -Wl,relro -Wl,-z -Wl,now -o fuzz_target_zoneparsertng base32.o base64.o dnslabeltext.o dnsname.o dnsparser.o dnsrecords.o dnswriter.o fuzz_zoneparsertng.o logger.o misc.o nsecrecords.o qtype.o rcpgenerator.o sillyrecords.o statbag.o svc-records.o unix_utility.o zoneparser-tng.o -Wl,--export-dynamic  -lcrypto /libAFL.a -pthread
+#20 86.23 libtool: link: clang++ -std=c++17 -DSYSCONFDIR=\"/usr/local/etc\" -DPKGLIBDIR=\"/usr/local/lib/pdns\" -DLOCALSTATEDIR=\"/var/run\" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 --param ssp-buffer-size=4 -fstack-protector -g -O2 -Wall -Wextra -Wshadow -Wno-unused-parameter -Wmissing-declarations -Wredundant-decls -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pthread -Wl,-z -Wl,relro -Wl,-z -Wl,now -o fuzz_target_moadnsparser base32.o base64.o dnslabeltext.o dnsname.o dnsparser.o dnsrecords.o dnswriter.o fuzz_moadnsparser.o logger.o misc.o nsecrecords.o qtype.o rcpgenerator.o sillyrecords.o statbag.o svc-records.o unix_utility.o -Wl,--export-dynamic  -lcrypto /libAFL.a -pthread
+#20 86.85 + cp fuzz_target_dnsdistcache fuzz_target_dnslabeltext_parseRFC1035CharString fuzz_target_moadnsparser fuzz_target_packetcache fuzz_target_proxyprotocol fuzz_target_zoneparsertng /out/
+#20 86.91 + cp ../regression-tests/zones/2.0.192.in-addr.arpa ../regression-tests/zones/addzone.com ../regression-tests/zones/cdnskey-cds-test.com ../regression-tests/zones/cryptokeys.org ../regression-tests/zones/delegated.dnssec-parent.com ../regression-tests/zones/dnssec-parent.com ../regression-tests/zones/example.com ../regression-tests/zones/hiddencryptokeys.org ../regression-tests/zones/insecure.dnssec-parent.com ../regression-tests/zones/minimal.com ../regression-tests/zones/nztest.com ../regression-tests/zones/powerdnssec.org ../regression-tests/zones/secure-delegated.dnssec-parent.com ../regression-tests/zones/stest.com ../regression-tests/zones/sub.test.dyndns.orig ../regression-tests/zones/test.com ../regression-tests/zones/test.dyndns.orig ../regression-tests/zones/tsig.com ../regression-tests/zones/unit.test ../regression-tests/zones/unit2.test ../regression-tests/zones/wtest.com ../regression-tests/zones/zonemd-allunsup.zone ../regression-tests/zones/zonemd-duplicate.zone ../regression-tests/zones/zonemd-invalid.zone ../regression-tests/zones/zonemd-nozonemd.zone ../regression-tests/zones/zonemd-serialmismatch.zone ../regression-tests/zones/zonemd-sha512.zone ../regression-tests/zones/zonemd-syntax.zone ../regression-tests/zones/zonemd1.zone ../regression-tests/zones/zonemd2.zone ../regression-tests/zones/zonemd3.zone ../regression-tests/zones/zonemd4.zone ../regression-tests/zones/zonemd5.zone ../fuzzing/corpus/zones/
+#20 86.91 + zip -j /out/fuzz_target_dnsdistcache_seed_corpus.zip ../fuzzing/corpus/raw-dns-packets/basic.raw ../fuzzing/corpus/raw-dns-packets/ecs.raw ../fuzzing/corpus/raw-dns-packets/powerdns-ds.raw ../fuzzing/corpus/raw-dns-packets/powerdns-referral-com.raw ../fuzzing/corpus/raw-dns-packets/root-ns-answer.raw
+#20 86.92   adding: basic.raw (deflated 10%)
+#20 86.92   adding: ecs.raw (deflated 14%)
+#20 86.92   adding: powerdns-ds.raw (deflated 41%)
+#20 86.92   adding: powerdns-referral-com.raw (deflated 44%)
+#20 86.92   adding: root-ns-answer.raw (deflated 45%)
+#20 86.92 + zip -j /out/fuzz_target_moadnsparser_seed_corpus.zip ../fuzzing/corpus/raw-dns-packets/basic.raw ../fuzzing/corpus/raw-dns-packets/ecs.raw ../fuzzing/corpus/raw-dns-packets/powerdns-ds.raw ../fuzzing/corpus/raw-dns-packets/powerdns-referral-com.raw ../fuzzing/corpus/raw-dns-packets/root-ns-answer.raw
+#20 86.92   adding: basic.raw (deflated 10%)
+#20 86.92   adding: ecs.raw (deflated 14%)
+#20 86.92   adding: powerdns-ds.raw (deflated 41%)
+#20 86.92   adding: powerdns-referral-com.raw (deflated 44%)
+#20 86.92   adding: root-ns-answer.raw (deflated 45%)
+#20 86.92 + zip -j /out/fuzz_target_packetcache_seed_corpus.zip ../fuzzing/corpus/raw-dns-packets/basic.raw ../fuzzing/corpus/raw-dns-packets/ecs.raw ../fuzzing/corpus/raw-dns-packets/powerdns-ds.raw ../fuzzing/corpus/raw-dns-packets/powerdns-referral-com.raw ../fuzzing/corpus/raw-dns-packets/root-ns-answer.raw
+#20 86.92   adding: basic.raw (deflated 10%)
+#20 86.92   adding: ecs.raw (deflated 14%)
+#20 86.92   adding: powerdns-ds.raw (deflated 41%)
+#20 86.92   adding: powerdns-referral-com.raw (deflated 44%)
+#20 86.92   adding: root-ns-answer.raw (deflated 45%)
+#20 86.92 + zip -j /out/fuzz_target_zoneparsertng_seed_corpus.zip ../fuzzing/corpus/zones/2.0.192.in-addr.arpa ../fuzzing/corpus/zones/addzone.com ../fuzzing/corpus/zones/basic.rpz ../fuzzing/corpus/zones/cdnskey-cds-test.com ../fuzzing/corpus/zones/cryptokeys.org ../fuzzing/corpus/zones/delegated.dnssec-parent.com ../fuzzing/corpus/zones/dnssec-parent.com ../fuzzing/corpus/zones/example.com ../fuzzing/corpus/zones/hiddencryptokeys.org ../fuzzing/corpus/zones/insecure.dnssec-parent.com ../fuzzing/corpus/zones/minimal.com ../fuzzing/corpus/zones/nztest.com ../fuzzing/corpus/zones/powerdnssec.org ../fuzzing/corpus/zones/secure-delegated.dnssec-parent.com ../fuzzing/corpus/zones/stest.com ../fuzzing/corpus/zones/sub.test.dyndns.orig ../fuzzing/corpus/zones/test.com ../fuzzing/corpus/zones/test.dyndns.orig ../fuzzing/corpus/zones/tsig.com ../fuzzing/corpus/zones/unit.test ../fuzzing/corpus/zones/unit2.test ../fuzzing/corpus/zones/wtest.com ../fuzzing/corpus/zones/zonemd-allunsup.zone ../fuzzing/corpus/zones/zonemd-duplicate.zone ../fuzzing/corpus/zones/zonemd-invalid.zone ../fuzzing/corpus/zones/zonemd-nozonemd.zone ../fuzzing/corpus/zones/zonemd-serialmismatch.zone ../fuzzing/corpus/zones/zonemd-sha512.zone ../fuzzing/corpus/zones/zonemd-syntax.zone ../fuzzing/corpus/zones/zonemd1.zone ../fuzzing/corpus/zones/zonemd2.zone ../fuzzing/corpus/zones/zonemd3.zone ../fuzzing/corpus/zones/zonemd4.zone ../fuzzing/corpus/zones/zonemd5.zone
+#20 86.92   adding: 2.0.192.in-addr.arpa (deflated 33%)
+#20 86.92   adding: addzone.com (deflated 57%)
+#20 86.92   adding: basic.rpz (deflated 64%)
+#20 86.92   adding: cdnskey-cds-test.com (deflated 33%)
+#20 86.93   adding: cryptokeys.org (deflated 57%)
+#20 86.93   adding: delegated.dnssec-parent.com (deflated 34%)
+#20 86.93   adding: dnssec-parent.com (deflated 59%)
+#20 86.93   adding: example.com (deflated 85%)
+#20 86.95   adding: hiddencryptokeys.org (deflated 55%)
+#20 86.95   adding: insecure.dnssec-parent.com (deflated 35%)
+#20 86.95   adding: minimal.com (deflated 35%)
+#20 86.95   adding: nztest.com (deflated 42%)
+#20 86.95   adding: powerdnssec.org (deflated 57%)
+#20 86.95   adding: secure-delegated.dnssec-parent.com (deflated 36%)
+#20 86.95   adding: stest.com (deflated 35%)
+#20 86.95   adding: sub.test.dyndns.orig (deflated 33%)
+#20 86.95   adding: test.com (deflated 57%)
+#20 86.95   adding: test.dyndns.orig (deflated 60%)
+#20 86.95   adding: tsig.com (deflated 35%)
+#20 86.95   adding: unit.test (deflated 58%)
+#20 86.95   adding: unit2.test (deflated 6%)
+#20 86.95   adding: wtest.com (deflated 42%)
+#20 86.95   adding: zonemd-allunsup.zone (deflated 64%)
+#20 86.95   adding: zonemd-duplicate.zone (deflated 74%)
+#20 86.95   adding: zonemd-invalid.zone (deflated 65%)
+#20 86.95   adding: zonemd-nozonemd.zone (deflated 56%)
+#20 86.95   adding: zonemd-serialmismatch.zone (deflated 50%)
+#20 86.95   adding: zonemd-sha512.zone (deflated 72%)
+#20 86.95   adding: zonemd-syntax.zone (deflated 81%)
+#20 86.95   adding: zonemd1.zone (deflated 65%)
+#20 86.95   adding: zonemd2.zone (deflated 70%)
+#20 86.95   adding: zonemd3.zone (deflated 69%)
+#20 86.95   adding: zonemd4.zone (deflated 50%)
+#20 86.95   adding: zonemd5.zone (deflated 81%)
+#20 86.95 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 87.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:84cc2e27e848b3d8182a52c38c1cdb9091753ae1d0b2c9eebebe56f25c5faa19 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/powerdns_powerdns 0.0s done
+#21 DONE 0.4s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/powerdns_powerdns:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:d715f7477a10be978f23a8efd874ae7ceb57ab8c85f9ad741a0923f28f07096f
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:aafa6df47f1e8725db7d9bd482f0c447d14dcf1518776b68a2be070b2b908280
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate
+#5 sha256:284f05831f9082e891b6195105f7a412890dd7ff4265eea38dc158b2cd70dfd2
+#5 ERROR: gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate
+#6 naming to gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate 0.0s done
+#6 DONE 0.4s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:33d494fff0dcc44a09113f39ae7c78d35c4a2a9108cf3572f309a0d51fbcc304
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:0590e809cfe811d6f5702675f3a657b6866f021006b3cbbfe1c095faaaae503b
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate:latest
+#3 sha256:5469850839ca132063a81ec7f7b3189bee12f7313fd2d3cb5cfd2928f5badcea
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/powerdns_powerdns:latest
+#4 sha256:f653217ffba4189c4df4adfcdce4f80b6d0d5b85ee91f6dd19a964fd0352fbb0
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:16955323f1fdab6a04ddfb679ba62e3dc688aad03b90d8d37fa0cedeaa8ada9f
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate
+#6 sha256:90143da353bce63560a1e47eba746137cf4a5f42d9e3abae3e77d48600de17ee
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/powerdns_powerdns
+#10 sha256:f7aeca7de5082cfeff953bb86b589c823f236b714dbb6499f7262a9d25ae0d18
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/powerdns_powerdns
+#5 sha256:c3158ca6ed04dad116a7446aa7cd7f436f71ea73de61d60280da5b53faf28b2b
+#5 ERROR: gcr.io/fuzzbench/runners/afl/powerdns_powerdns:latest: not found
+
+#12 [internal] load build context
+#12 sha256:16955323f1fdab6a04ddfb679ba62e3dc688aad03b90d8d37fa0cedeaa8ada9f
+#12 transferring context: 17.56MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/powerdns_powerdns
+#10 sha256:f7aeca7de5082cfeff953bb86b589c823f236b714dbb6499f7262a9d25ae0d18
+#10 DONE 1.4s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:8e541797dcbf1c72626c9901ed191a6eca1bf272c9da8f1d6eed5fefb4af95a1
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:c54eef3daf48d3bac3315fe24c448e308142b703ea6d2efbd974889ac31013ff
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:53d636660a124d8dcf5e55e701fbc279371360e0d3964a5c3d0efff9345edb99
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:6b7375d08b89a2c518bffb91efdfd298b1c2224b64f853ba2e7cf4ffaeb1c0bf
+#11 DONE 0.4s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:1899fb14327122005b2f80f0505931b900dffea110deb984c91918c4a8cb5442
+#13 DONE 0.7s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:b6a87fdd67c4ae5f86dc37671730b241aca8e1796a86c8dd26f31c71346f12d7
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:ad22f12c979f6221f1fc47f10929b12946428c79ef9238de55129bf06e1e5d44
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:3f9b82b0f4fff9ff7f61ff10d1f71f74315ad5089a34b8872967712941ee660d
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:427a79a432000900afc3a7ea0b29fe73bb139a71c4924ccc24a91443ea57883a
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:a7ec089a16d8b2cb037ff68e92dd0a43db4dfb88602e5fb7db10a0b103ece96a
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:5914eb136fbc07c096ce434ba802e33e97eae765db77e4ac87b5df4394d29b1a
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:46252047a26622478e0e9141dca5b3b13434d3c488e477ac1d82c7c75a3b8170
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:130b48cc386fca914b2a604fc175ddc5e2e3ac480f99bef9f751850c0511b74e done
+#21 naming to gcr.io/fuzzbench/runners/afl/powerdns_powerdns done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/powerdns_powerdns:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7efc6c28ff70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:84a0338109c2b9a1453add5c6abd84d9427a850cabaf1ea5358d415f519d26cb
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:d98fbcd0870e9bc9941fc8091b8d9b1f5a729f424b37279eeb6573a93a951f9f
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns
+#4 sha256:fa4ad251623579eb8be117c9858447f45614f2277d5dc70da96f09534eb00816
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:e9950259ad9aa44069bec090749c1de5a7d053ea093be36a9d8f835524abff51
+#9 transferring context: 30B done
+#9 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y autoconf automake bison dh-autoreconf flex libboost-all-dev libluajit-5.1-dev libedit-dev libprotobuf-dev libssl-dev libtool make pkg-config protobuf-compiler ragel
+#6 sha256:a4511c2738063aecaf0b3f4d7b5994d38907f03af4381f9ba90db2273610ca76
+#6 CACHED
+
+#7 [3/5] RUN git clone https://github.com/PowerDNS/pdns.git pdns
+#7 sha256:6dcce47b9b9bbb7536f0d121b17a73ffaf0172189ac844d77e2239fc182592fb
+#7 CACHED
+
+#8 [4/5] WORKDIR pdns
+#8 sha256:bb97d2f8526594598f6cd32e1b2e8c941e7bc63e54e7ae745cea3c60fa340c90
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:04a90bdc1a21820da8bf028370d7726be60c852da00e00fa3b7d05592b567eda
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:8496f2d5b7c1cb12dace31872ada20e3b4508331fcf5ce15d2fd392f42f8cd76 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:5c7773b3ead3879ba9b8921d28f48d14860b9d35692eeed39eff9dcc4f7795a1
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f7e15a8870c415ac30944c8662d5bb1728fc9826a5f74b57af7dbc29665755ff
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns:latest
+#3 sha256:2b602c74a204a217e420147de9ef2244e5ea58c2b7efaed0ea3dbdf3e6eeb0e8
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/powerdns_powerdns
+#5 sha256:2a49a4774849eec4dbeffea0da52b215f53ab913d1c2a26f4596a66f03efbec6
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate
+#4 sha256:11f55936b1d64b2a4b9ff3763c61ffbeed32c669b0930816f417fb28b2dc8b30
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b91adaa8d087c70b1cefa6becf1c7bfacb9a3a3946bb911fbf518cd5269f1b3f
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:a29d4bd7a3f10290bc0aed474af937cad90aaa372b6771d14e4c5258f147e84d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:16a8866cef7fbe37cb875107b2645177b405ebac233d5f5c615d901300705e66
+#8 writing image sha256:16a8866cef7fbe37cb875107b2645177b405ebac233d5f5c615d901300705e66 done
+#8 naming to gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:70503a4839feb6181eb8a813ee9b8e09ebc67876254a024f6a9e2a58a7c52e41
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ea30c488a96348a2e7c19a1164c7053005fa6ab0f0b5377a411004398b21122f
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:5c03f568acafa69e15f2490cc4ff7434c86e76ba350b32aa0e2278d598dd5fee
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:4a06aaa927792b89fbde2a8a6ebd9e45cf2c357d532d21f22ccd0098d68c85d6
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:7e31e81cfd33c4bd675803d22a8c2fb10b1c3c653820b4fd0e15db338efa9a78
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:841091366a012088d3f3f02e361db8a2a343107c021e5bef50cda2fb20c16886
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:1d42ca8e9fdf66e5c1a6dfadfc494c541ccb5b676ce8572031e4bf9001370d58
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d89d8ec8ed248d96e6e0c001dc00be4fe5e353ed1d15f9dd046f77b6b61423d5
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e2a7a4dfac668a9191862c8d72eb9d780170782a0878e49d048f93df5e28e2ff
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate:latest
+#3 sha256:8eb20057668f817466e49c4acc2ab1603d041b937f31d89f50dd7ed1b07bf758
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/powerdns_powerdns-intermediate
+#6 sha256:52c577c8092119292f50cc0aeb5a69c8ff24c6219f885e064518ddca1db02788
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/powerdns_powerdns
+#5 sha256:ae27ece60e2d5228a63e48e7ad0ec9cb726397046c75aa49b860535c1962f053
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:4423f305a4d214c4c142d0d6d4cefe94e44cafc3477050c568c4a75efe9b3799
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:e449fa4de8bb2d660fb894e0e6acce038ddd547514b06003fe1e2f5943aea405
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:40f7f1cf0e2c0b0cabfcf58ecd9cb4b1c4e009aaa61f92a6e1fc32e8732c0b93
+#19 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:44d2148961eb9fa76f10b1393cd7dffde8d8ab49f3873c66ac6f76de3640ef3f
+#8 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:03a5479f483fbdfe9bee841ddb7fb0978bc546de0b59199d8a9790a1f801c4f3
+#10 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:ebf71ca57bf819d2d0712468e9cc9ce9ff50648a90ceb39e8e1336e9f87228ec
+#16 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:ca12add1ac0515fb55fc50ee4361564609112502313ccc74c3c40ad69bccfc28
+#17 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:14fdbb5bf0d040261d5bf5b1188eead4d218abca73d03d52ebdbc0c12fddcd07
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:e0883c9718f2b49b3c9387c726739bddac44de4f79b7fea6dd9b4f1e447c84c3
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:25a1d6639890820f43059c982589be270f5365c365668f6385bba13173497ebc
+#14 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:0b666717fb3e6d3d95e7bcfd3334564989c1fa4cd6c63f4933f2eaa717f6420e
+#18 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/powerdns_powerdns/benchmark.yaml /
+#15 sha256:5191386ae85f482fb41dc180c0a1e88f63303f017d10cc95b045a9a023803033
+#15 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:00180f42f5824202646de750a35e72fe3767536e7009f13c3ceb2d2537bcf36d
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:84cc2e27e848b3d8182a52c38c1cdb9091753ae1d0b2c9eebebe56f25c5faa19 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/powerdns_powerdns done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:921cb577366b96d78cebc2b2e04e7d6f38028de4824ad78cd92d99f76f1726a5
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:c13cd6cfd2f43cd76236d6f2e03cb7dd6e2b48e01f5df26f01f27931e25ef991
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate
+#5 sha256:284f05831f9082e891b6195105f7a412890dd7ff4265eea38dc158b2cd70dfd2
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:166a32007da6c82b8c58b7d58ea0923e30b4dd024f56c9cfde3d1bbf0368c2d5
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:21463625f7f5380691c03bef609fb2881fec8fec30237ee435e34faa5abe6e49
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/powerdns_powerdns:latest
+#4 sha256:f653217ffba4189c4df4adfcdce4f80b6d0d5b85ee91f6dd19a964fd0352fbb0
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate:latest
+#3 sha256:5469850839ca132063a81ec7f7b3189bee12f7313fd2d3cb5cfd2928f5badcea
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/powerdns_powerdns-intermediate
+#6 sha256:90143da353bce63560a1e47eba746137cf4a5f42d9e3abae3e77d48600de17ee
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/powerdns_powerdns
+#5 sha256:c3158ca6ed04dad116a7446aa7cd7f436f71ea73de61d60280da5b53faf28b2b
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/powerdns_powerdns
+#10 sha256:f7aeca7de5082cfeff953bb86b589c823f236b714dbb6499f7262a9d25ae0d18
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:708f509fe28668b09e690d16affce94373faeb0f580d83fa911e5d07bce34615
+#12 transferring context: 17.56MB 0.6s done
+#12 DONE 0.6s
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:6b7375d08b89a2c518bffb91efdfd298b1c2224b64f853ba2e7cf4ffaeb1c0bf
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:1069f627a02903e3fb5fd01ecab311afe2f840a77f21c392e979bb1d51866a81
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:4d143cbf55bf757ad0b4b9b59e42683f0ee8b841be54017aadb0865ef502922a
+#18 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:53d636660a124d8dcf5e55e701fbc279371360e0d3964a5c3d0efff9345edb99
+#9 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:77cc8a42dba1fc0fae00abde875693eb7ffd894d2ba58cf5844be0c6a0b8d1bf
+#14 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:f0bdc71e92eba8fcbb04ccdee25e668f2e3c3c0078e3ebcc1d9c91159f690061
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:274f35e1bc39f7944ea0ead03d48e66101d05d5f4850f91f4dc193f4a7982131
+#19 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:8e541797dcbf1c72626c9901ed191a6eca1bf272c9da8f1d6eed5fefb4af95a1
+#7 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:4a102bc23d1fb472ced78d501f7503dc38046bec76d9d8a810afc41f40fd9264
+#13 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:c54eef3daf48d3bac3315fe24c448e308142b703ea6d2efbd974889ac31013ff
+#8 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:7fe21c2922bbea6f3b4db94b2c44694984dded0cea6453214c21b7743bbaaf6f
+#15 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:38c259c561d4d0a49eed5e389fb8f596b00f2468189fb9525bb67d6d7266a718
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:130b48cc386fca914b2a604fc175ddc5e2e3ac480f99bef9f751850c0511b74e 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/powerdns_powerdns done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7ffa38632f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

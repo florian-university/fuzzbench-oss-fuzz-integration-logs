@@ -1,0 +1,1452 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: arrow_arrow.
+INFO:root:Please run "make test-run-afl-arrow_arrow" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:675a8e207a9c42a1212c7097f4800312abb4df72dcceba9aa9da903e00a0ffef
+#1 transferring dockerfile: 1.14kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:00f8a94e765a195d014d0221842938dd916bdee582ca85ce892208b158492ee3
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:b2c7a5ce6297eb90e09bdc8552fed48282346e294bea728e16c7240be5f85583
+#8 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/arrow_arrow
+#4 sha256:52b8c4ac6a410079727c30037fea5ee309fa67e7f74f09300e9080158057aa8e
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/arrow_arrow:latest: not found
+
+#8 [internal] load build context
+#8 sha256:b2c7a5ce6297eb90e09bdc8552fed48282346e294bea728e16c7240be5f85583
+#8 transferring context: 2.03kB done
+#8 DONE 0.0s
+
+#6 [2/4] RUN apt-get update -y -q &&     apt-get update -y -q &&     apt-get install -y -q --no-install-recommends         bison         build-essential         cmake         flex         libboost-all-dev         ninja-build         python3
+#6 sha256:1d5367ae4dc4bb149dd8c570a647ca472074ec442b2497f7822c948aff7fd7a5
+#6 CACHED
+
+#7 [3/4] RUN git clone --depth=1 --recurse-submodules     https://github.com/apache/arrow.git /src/arrow
+#7 sha256:9e3c29812b7af98fed6bac31af121930a90f9567199b447495f5149ac8fe4386
+#7 CACHED
+
+#9 [4/4] COPY build.sh /src/
+#9 sha256:d3966d6c8f18b499397bc5c7d8c4018330e96bc9e6d00e70029dbd7fd2d78455
+#9 DONE 0.1s
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:2fe999da4388157bfc72ff94f58bd4f54d651ecac4d5977a43ca48064a04dc4b
+#10 writing image sha256:2fe999da4388157bfc72ff94f58bd4f54d651ecac4d5977a43ca48064a04dc4b done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/arrow_arrow done
+#10 DONE 0.1s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/arrow_arrow:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:d1de96244a504e45c36dacfaba0a997bb5a46f6400eb2245abdcdf9d1a12f50e
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:5c2fc4a380ecb1a84bfbddeee48f50e0ad912eb01fdfefd6cebbab5271d0f235
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/arrow_arrow:latest
+#3 sha256:c791f821c5a2390e1458185242c42fbc45669871d0f2714d44c84d757aac8c0f
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/arrow_arrow
+#7 sha256:3d396ea1521cdb01f8e77f21b1291e9b6db35a56849f508e9865ca3febf35e11
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate
+#4 sha256:612c95e9e3811d71d89f0ef8ee259029c0051e2b1e030bab4ed6d93133bf26ad
+#4 ERROR: gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate:latest: not found
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/arrow_arrow
+#7 sha256:3d396ea1521cdb01f8e77f21b1291e9b6db35a56849f508e9865ca3febf35e11
+#7 DONE 0.1s
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:87a23b288fc2a3c30b9afc79464377074dd989e166dd27479a347cbf7a7ad1f7
+#5 1.091 Cloning into '/afl'...
+#5 2.043 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#5 2.043 
+#5 2.043 You are in 'detached HEAD' state. You can look around, make experimental
+#5 2.043 changes and commit them, and you can discard any commits you make in this
+#5 2.043 state without impacting any branches by switching back to a branch.
+#5 2.043 
+#5 2.043 If you want to create a new branch to retain commits you create, you may
+#5 2.043 do so (now or later) by using -c with the switch command. Example:
+#5 2.043 
+#5 2.043   git switch -c <new-branch-name>
+#5 2.043 
+#5 2.043 Or undo this operation with:
+#5 2.043 
+#5 2.043   git switch -
+#5 2.043 
+#5 2.043 Turn off this advice by setting config variable advice.detachedHead to false
+#5 2.043 
+#5 2.043 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#5 2.108 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#5 2.114 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#5 2.468 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#5 2.478 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#5 7.918 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#5 8.564 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#5 9.476 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#5 9.760 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#5 10.59 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#5 11.08 ln -sf afl-as as
+#5 11.09 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#5 11.09 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#5 11.09 [+] All done! Be sure to review README - it's pretty short and useful.
+#5 DONE 11.2s
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:f9725b1c21330f7154e137d333189d4047b676390275c4d79aa526bc85367fca
+#6 1.531 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#6 1.661 Get:2 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+#6 2.536 Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease
+#6 2.557 Get:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#6 2.720 Get:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#6 3.733 Fetched 336 kB in 2s (147 kB/s)
+#6 3.733 Reading package lists...
+#6 7.308 Reading package lists...
+#6 10.54 Building dependency tree...
+#6 11.00 Reading state information...
+#6 11.66 wget is already the newest version (1.20.3-1ubuntu2).
+#6 11.66 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#6 11.66 --2022-02-18 08:34:11--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#6 11.67 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+#6 11.68 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+#6 11.70 HTTP request sent, awaiting response... 200 OK
+#6 11.90 Length: 9177 (9.0K) [text/plain]
+#6 11.90 Saving to: '/afl/afl_driver.cpp'
+#6 11.90 
+#6 11.90      0K ........                                              100% 7.93M=0.001s
+#6 11.90 
+#6 11.90 2022-02-18 08:34:12 (7.93 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#6 11.90 
+#6 15.44 ar: creating /libAFL.a
+#6 DONE 15.6s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:8ad3eae41bb370f1778185cb751c76461d4ac3371965db36ecf9cb7ebc9fa53a done
+#8 naming to gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:7ec36d37cff150165816d808a865664080da1e4853233241927117ceacc19362
+#2 transferring context: 143B done
+#2 DONE 0.6s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2d9c651781fd202ba4c5685064a979cd3cf195be55f9495a2f278af718fc6c62
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.7s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:f43a6d515de31008fde7b0a9e6ad45492d6ff3663829f058911cef03816306b8
+#8 transferring context: 559B done
+#8 DONE 0.0s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:03054ddfcd416769e6f1f2e616efb3530c84e5c855fb7dcab825965d4391fa8c
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:0eb5e4ec3a6732c52a765b1bc18846f6e9ddfe8fcb07252a0fd4ca5741c882e8
+#11 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:0ca067c4143547dff86d3c5091292f01d138d56359bd92790a5781d91a959940
+#9 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:a4b802acd42c2ddac7b8987e4512612edc19ea7e88a26bf4a0a49668f630c156
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:7c312afc0c92be055a6e596de5bde5bb2ff79522f51f5d5c5b849c01586f4ff7
+#13 writing image sha256:7c312afc0c92be055a6e596de5bde5bb2ff79522f51f5d5c5b849c01586f4ff7 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5be19e011660ac956b6dec2c87c06b117e4452844aeed4f3e4b66f8f6445c6e3
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:930d67dbaa4f83ffe21c0f8d3ac28f3214eca5e8911c3287fc1531539f0c828b
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate:latest
+#3 sha256:1f76ad463f9d8861547faadb7105ce0c99ca3c8fc00e6524c3d5c9d02c179ccf
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#6 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#6 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#6 CACHED
+
+#5 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate
+#5 sha256:709fd35d9144b867e2c2693fd1cf7c030e24ca311d5b97a3e7bee0aa35cb98e6
+#5 DONE 0.5s
+
+#7 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#7 sha256:92680b7f7d697f488a6c6db5ecd76cfef0f31a1f398cb4543b320ea229dc585c
+#7 DONE 0.6s
+
+#8 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#8 sha256:959676c46abe6e5dfbeefe64b4f9d8a51edac248f1da794be0f16e8b0cf078fc
+#8 DONE 14.7s
+
+#9 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#9 sha256:56f3668c581ebbfd178b77f1987e19cf64af45644f75afe2eae13a33a045a4e9
+#9 DONE 0.2s
+
+#10 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#10 sha256:94244727a380325e3d532e7e5f08f882d442be30a6cf9f1a79d6c0afb3817719
+#10 DONE 22.8s
+
+#11 [internal] load build context
+#11 sha256:f08ef8b1139d946b995516d085c5a21e9c65b35d1b81ad101237a82f99bd6bde
+#11 DONE 0.0s
+
+#20 importing cache manifest from gcr.io/fuzzbench/builders/afl/arrow_arrow
+#20 sha256:00b7629c0669f5746dd8f72499c93dec53c82621ce904c7868e96cab88164536
+#20 ERROR: gcr.io/fuzzbench/builders/afl/arrow_arrow:latest: not found
+
+#11 [internal] load build context
+#11 sha256:f08ef8b1139d946b995516d085c5a21e9c65b35d1b81ad101237a82f99bd6bde
+#11 transferring context: 669.86kB 0.2s done
+#11 DONE 0.2s
+
+#12 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#12 sha256:3453970b46a6cbe2084d67cb9e68f6a95d0e6119dac56273c14b831d73812014
+#12 CACHED
+
+#13 [stage-1  7/13] RUN touch /src/__init__.py
+#13 sha256:36b76ea5286e582c54186ca343ebbe9004f028631e1b03cd12bf7c92b9427ed2
+#13 CACHED
+
+#14 [stage-1  8/13] COPY benchmarks/arrow_arrow/benchmark.yaml /
+#14 sha256:874d06c08f5372dc01b3ba676b767d5e3468f962f41ffb8fa8200149032e589a
+#14 DONE 0.2s
+
+#15 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#15 sha256:979d65172d1c0abcedf4e92ea4a5a4ca5f428c9f8b7dbdd0b5c89f20875f8c98
+#15 DONE 1.2s
+
+#16 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#16 sha256:57e5cedf8d28e9a991c0fc1e1e9c57b313db54c5901ff3bd2b16204d0da9543a
+#16 DONE 0.1s
+
+#17 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#17 sha256:3e922b7660b828ecc43a6e107fd377c6ed43874536ea51320a0ae9aaf22d66bd
+#17 1.477 Checking out commit 84faf557
+#17 34.51 From https://github.com/apache/arrow
+#17 34.51  * [new tag]             apache-arrow-0.1.0     -> apache-arrow-0.1.0
+#17 34.51  * [new tag]             apache-arrow-0.10.0    -> apache-arrow-0.10.0
+#17 34.51  * [new tag]             apache-arrow-0.11.0    -> apache-arrow-0.11.0
+#17 34.52  * [new tag]             apache-arrow-0.12.0    -> apache-arrow-0.12.0
+#17 34.52  * [new tag]             apache-arrow-0.13.0    -> apache-arrow-0.13.0
+#17 34.52  * [new tag]             apache-arrow-0.14.0    -> apache-arrow-0.14.0
+#17 34.52  * [new tag]             apache-arrow-0.15.0    -> apache-arrow-0.15.0
+#17 34.52  * [new tag]             apache-arrow-0.16.0    -> apache-arrow-0.16.0
+#17 34.52  * [new tag]             apache-arrow-0.17.0    -> apache-arrow-0.17.0
+#17 34.52  * [new tag]             apache-arrow-0.2.0     -> apache-arrow-0.2.0
+#17 34.52  * [new tag]             apache-arrow-0.4.0     -> apache-arrow-0.4.0
+#17 34.52  * [new tag]             apache-arrow-0.4.1     -> apache-arrow-0.4.1
+#17 34.52  * [new tag]             apache-arrow-0.5.0     -> apache-arrow-0.5.0
+#17 34.52  * [new tag]             apache-arrow-0.6.0     -> apache-arrow-0.6.0
+#17 34.52  * [new tag]             apache-arrow-0.7.0     -> apache-arrow-0.7.0
+#17 34.52  * [new tag]             apache-arrow-0.7.1     -> apache-arrow-0.7.1
+#17 34.52  * [new tag]             apache-arrow-0.8.0     -> apache-arrow-0.8.0
+#17 34.52  * [new tag]             apache-arrow-0.9.0     -> apache-arrow-0.9.0
+#17 34.52  * [new tag]             apache-arrow-1.0.0     -> apache-arrow-1.0.0
+#17 34.52  * [new tag]             apache-arrow-2.0.0     -> apache-arrow-2.0.0
+#17 34.52  * [new tag]             apache-arrow-3.0.0     -> apache-arrow-3.0.0
+#17 34.52  * [new tag]             apache-arrow-5.0.0.dev -> apache-arrow-5.0.0.dev
+#17 34.52  * [new tag]             apache-arrow-6.0.0.dev -> apache-arrow-6.0.0.dev
+#17 34.52  * [new tag]             apache-arrow-7.0.0.dev -> apache-arrow-7.0.0.dev
+#17 34.52  * [new tag]             apache-arrow-8.0.0.dev -> apache-arrow-8.0.0.dev
+#17 34.53  * [new tag]             apache-arrow-js-0.2.0  -> apache-arrow-js-0.2.0
+#17 34.53  * [new tag]             apache-arrow-js-0.3.0  -> apache-arrow-js-0.3.0
+#17 34.53  * [new tag]             apache-arrow-js-0.4.0  -> apache-arrow-js-0.4.0
+#17 34.53  * [new tag]             apache-arrow-js-0.4.1  -> apache-arrow-js-0.4.1
+#17 37.15 Fetching submodule cpp/submodules/parquet-testing
+#17 37.63 Fetching submodule testing
+#17 39.64 From https://github.com/apache/arrow-testing
+#17 39.64  * branch            0beeda3a0b9dc28cf18b6bb09f706e5caa5160d1 -> FETCH_HEAD
+#17 42.31 From https://github.com/apache/parquet-testing
+#17 42.31  * branch            8f2a069ed2c58787e5be2a3ca8c68bc801b8eafa -> FETCH_HEAD
+#17 42.37 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.38 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.40 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.49 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.51 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.55 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.58 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.60 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.67 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.74 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.76 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.79 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.81 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.83 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.87 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.89 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.91 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.94 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.96 error: pathspec '84faf557' did not match any file(s) known to git
+#17 42.99 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.04 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.07 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.09 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.12 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.14 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.16 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.18 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.21 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.24 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.26 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.29 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.31 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.34 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.36 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.40 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.42 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.45 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.48 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.50 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.53 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.56 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.59 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.61 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.64 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.66 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.70 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.74 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.78 error: pathspec '84faf557' did not match any file(s) known to git
+#17 43.87 Checkout unsuccessful.
+#17 DONE 44.3s
+
+#18 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#18 sha256:6ef7029c5ddecbf056c1579a213ce174b342957637563ecb9ed7d88fc3c46232
+#18 DONE 1.9s
+
+#19 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#19 sha256:864339ead8423f2483d2e8c947cfa3f17859cc28db3617041936a5b9ba5b912e
+#19 1.266 Run fuzzer_build to build the target
+#19 1.516 FUZZ_TARGET = arrow
+#19 1.516 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#19 1.516 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#19 1.531 Building benchmark arrow_arrow with fuzzer afl
+#19 1.536 + set -ex
+#19 1.536 + ARROW=/src/arrow/cpp
+#19 1.537 + cd /work
+#19 1.537 + export ASAN_OPTIONS=detect_leaks=0
+#19 1.537 + ASAN_OPTIONS=detect_leaks=0
+#19 1.537 + cmake /src/arrow/cpp -GNinja -DCMAKE_BUILD_TYPE=Release -DARROW_DEPENDENCY_SOURCE=BUNDLED -DBOOST_SOURCE=SYSTEM '-DCMAKE_C_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard' '-DCMAKE_CXX_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard' -DARROW_EXTRA_ERROR_CONTEXT=off -DARROW_JEMALLOC=off -DARROW_MIMALLOC=off -DARROW_FILESYSTEM=off -DARROW_PARQUET=on -DARROW_BUILD_SHARED=off -DARROW_BUILD_STATIC=on -DARROW_BUILD_TESTS=off -DARROW_BUILD_INTEGRATION=off -DARROW_BUILD_BENCHMARKS=off -DARROW_BUILD_EXAMPLES=off -DARROW_BUILD_UTILITIES=off -DARROW_TEST_LINKAGE=static -DPARQUET_BUILD_EXAMPLES=off -DPARQUET_BUILD_EXECUTABLES=off -DPARQUET_REQUIRE_ENCRYPTION=off -DARROW_WITH_BROTLI=off -DARROW_WITH_BZ2=off -DARROW_WITH_LZ4=off -DARROW_WITH_SNAPPY=off -DARROW_WITH_ZLIB=off -DARROW_WITH_ZSTD=off -DARROW_USE_GLOG=off -DARROW_USE_ASAN=off -DARROW_USE_UBSAN=off -DARROW_USE_TSAN=off -DARROW_FUZZING=on
+#19 1.551 -- Building using CMake version: 3.21.1
+#19 1.983 -- The C compiler identification is Clang 14.0.0
+#19 2.498 -- The CXX compiler identification is Clang 14.0.0
+#19 2.523 -- Detecting C compiler ABI info
+#19 2.827 -- Detecting C compiler ABI info - done
+#19 2.933 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#19 2.934 -- Detecting C compile features
+#19 2.936 -- Detecting C compile features - done
+#19 2.951 -- Detecting CXX compiler ABI info
+#19 3.340 -- Detecting CXX compiler ABI info - done
+#19 3.477 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#19 3.479 -- Detecting CXX compile features
+#19 3.481 -- Detecting CXX compile features - done
+#19 3.484 -- Arrow version: 8.0.0 (full: '8.0.0-SNAPSHOT')
+#19 3.485 -- Arrow SO version: 800 (full: 800.0.0)
+#19 3.528 -- clang-tidy 12 not found
+#19 3.530 -- clang-format 12 not found
+#19 3.531 -- Could NOT find ClangTools (missing: CLANG_FORMAT_BIN CLANG_TIDY_BIN) 
+#19 3.532 -- infer not found
+#19 4.840 -- Found Python3: /usr/local/bin/python3.8 (found version "3.8.6") found components: Interpreter 
+#19 4.844 -- Found cpplint executable at /src/arrow/cpp/build-support/cpplint.py
+#19 4.855 -- System processor: x86_64
+#19 4.859 -- Performing Test CXX_SUPPORTS_SSE4_2
+#19 5.254 -- Performing Test CXX_SUPPORTS_SSE4_2 - Success
+#19 5.258 -- Performing Test CXX_SUPPORTS_AVX2
+#19 5.656 -- Performing Test CXX_SUPPORTS_AVX2 - Success
+#19 5.658 -- Performing Test CXX_SUPPORTS_AVX512
+#19 7.440 -- Performing Test CXX_SUPPORTS_AVX512 - Success
+#19 7.441 -- Arrow build warning level: PRODUCTION
+#19 7.461 Using ld linker
+#19 7.462 Configured for RELEASE build (set with cmake -DCMAKE_BUILD_TYPE={release,debug,...})
+#19 7.463 -- Build Type: RELEASE
+#19 7.470 -- Performing Test CXX_LINKER_SUPPORTS_VERSION_SCRIPT
+#19 7.851 -- Performing Test CXX_LINKER_SUPPORTS_VERSION_SCRIPT - Success
+#19 7.880 -- Using BUNDLED approach to find dependencies
+#19 7.885 -- ARROW_ABSL_BUILD_VERSION: 20210324.2
+#19 7.887 -- ARROW_ABSL_BUILD_SHA256_CHECKSUM: 59b862f50e710277f8ede96f083a5bb8d7c9595376146838b9580be90374ee1f
+#19 7.888 -- ARROW_AWSSDK_BUILD_VERSION: 1.8.133
+#19 7.889 -- ARROW_AWSSDK_BUILD_SHA256_CHECKSUM: d6c495bc06be5e21dac716571305d77437e7cfd62a2226b8fe48d9ab5785a8d6
+#19 7.889 -- ARROW_AWS_CHECKSUMS_BUILD_VERSION: v0.1.12
+#19 7.890 -- ARROW_AWS_CHECKSUMS_BUILD_SHA256_CHECKSUM: 394723034b81cc7cd528401775bc7aca2b12c7471c92350c80a0e2fb9d2909fe
+#19 7.891 -- ARROW_AWS_C_COMMON_BUILD_VERSION: v0.6.9
+#19 7.891 -- ARROW_AWS_C_COMMON_BUILD_SHA256_CHECKSUM: 928a3e36f24d1ee46f9eec360ec5cebfe8b9b8994fe39d4fa74ff51aebb12717
+#19 7.892 -- ARROW_AWS_C_EVENT_STREAM_BUILD_VERSION: v0.1.5
+#19 7.899 -- ARROW_AWS_C_EVENT_STREAM_BUILD_SHA256_CHECKSUM: f1b423a487b5d6dca118bfc0d0c6cc596dc476b282258a3228e73a8f730422d4
+#19 7.900 -- ARROW_BOOST_BUILD_VERSION: 1.75.0
+#19 7.900 -- ARROW_BOOST_BUILD_SHA256_CHECKSUM: 267e04a7c0bfe85daf796dedc789c3a27a76707e1c968f0a2a87bb96331e2b61
+#19 7.900 -- ARROW_BROTLI_BUILD_VERSION: v1.0.9
+#19 7.900 -- ARROW_BROTLI_BUILD_SHA256_CHECKSUM: f9e8d81d0405ba66d181529af42a3354f838c939095ff99930da6aa9cdf6fe46
+#19 7.901 -- ARROW_BZIP2_BUILD_VERSION: 1.0.8
+#19 7.901 -- ARROW_BZIP2_BUILD_SHA256_CHECKSUM: ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269
+#19 7.901 -- ARROW_CARES_BUILD_VERSION: 1.17.2
+#19 7.901 -- ARROW_CARES_BUILD_SHA256_CHECKSUM: 4803c844ce20ce510ef0eb83f8ea41fa24ecaae9d280c468c582d2bb25b3913d
+#19 7.902 -- ARROW_CRC32C_BUILD_VERSION: 1.1.2
+#19 7.902 -- ARROW_CRC32C_BUILD_SHA256_CHECKSUM: ac07840513072b7fcebda6e821068aa04889018f24e10e46181068fb214d7e56
+#19 7.902 -- ARROW_GBENCHMARK_BUILD_VERSION: v1.6.0
+#19 7.902 -- ARROW_GBENCHMARK_BUILD_SHA256_CHECKSUM: 1f71c72ce08d2c1310011ea6436b31e39ccab8c2db94186d26657d41747c85d6
+#19 7.902 -- ARROW_GFLAGS_BUILD_VERSION: v2.2.2
+#19 7.903 -- ARROW_GFLAGS_BUILD_SHA256_CHECKSUM: 34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf
+#19 7.903 -- ARROW_GLOG_BUILD_VERSION: v0.5.0
+#19 7.903 -- ARROW_GLOG_BUILD_SHA256_CHECKSUM: eede71f28371bf39aa69b45de23b329d37214016e2055269b3b5e7cfd40b59f5
+#19 7.903 -- ARROW_GOOGLE_CLOUD_CPP_BUILD_VERSION: v1.35.0
+#19 7.904 -- ARROW_GOOGLE_CLOUD_CPP_BUILD_SHA256_CHECKSUM: e4e9eac1e7999eff195db270bc2a719004660b3730ebb5d2f444f2d2057e49b2
+#19 7.904 -- ARROW_GRPC_BUILD_VERSION: v1.35.0
+#19 7.904 -- ARROW_GRPC_BUILD_SHA256_CHECKSUM: 27dd2fc5c9809ddcde8eb6fa1fa278a3486566dfc28335fca13eb8df8bd3b958
+#19 7.904 -- ARROW_GTEST_BUILD_VERSION: 1.11.0
+#19 7.904 -- ARROW_GTEST_BUILD_SHA256_CHECKSUM: b4870bf121ff7795ba20d20bcdd8627b8e088f2d1dab299a031c1034eddc93d5
+#19 7.904 -- ARROW_JEMALLOC_BUILD_VERSION: 5.2.1
+#19 7.905 -- ARROW_JEMALLOC_BUILD_SHA256_CHECKSUM: 34330e5ce276099e2e8950d9335db5a875689a4c6a56751ef3b1d8c537f887f6
+#19 7.905 -- ARROW_LZ4_BUILD_VERSION: 8f61d8eb7c6979769a484cde8df61ff7c4c77765
+#19 7.905 -- ARROW_LZ4_BUILD_SHA256_CHECKSUM: 5b072d848f2f93fddb97e1143e22c1bd7fa19fc8431ee69e21758190a88125b4
+#19 7.905 -- ARROW_MIMALLOC_BUILD_VERSION: v1.7.3
+#19 7.906 -- ARROW_MIMALLOC_BUILD_SHA256_CHECKSUM: 0f987bda01ca9df87ec90e9d98c63fa893ee61f3cca565e5ca5ed744fdcc5109
+#19 7.906 -- ARROW_NLOHMANN_JSON_BUILD_VERSION: v3.10.2
+#19 7.906 -- ARROW_NLOHMANN_JSON_BUILD_SHA256_CHECKSUM: 081ed0f9f89805c2d96335c3acfa993b39a0a5b4b4cef7edb68dd2210a13458c
+#19 7.906 -- ARROW_OPENTELEMETRY_BUILD_VERSION: v1.1.0
+#19 7.907 -- ARROW_OPENTELEMETRY_BUILD_SHA256_CHECKSUM: f8fd3adddd47be382dc79c19d7e7efcf86a0dfbb5a237db6e0618dbb7eb8e058
+#19 7.907 -- ARROW_OPENTELEMETRY_PROTO_BUILD_VERSION: v0.11.0
+#19 7.907 -- ARROW_OPENTELEMETRY_PROTO_BUILD_SHA256_CHECKSUM: 985367f8905e91018e636cbf0d83ab3f834b665c4f5899a27d10cae9657710e2
+#19 7.907 -- ARROW_ORC_BUILD_VERSION: 1.7.3
+#19 7.907 -- ARROW_ORC_BUILD_SHA256_CHECKSUM: 535c4d7588172e85b8fc941cd0575d67f2155a55e4cd65d87d5b194b0bb28a31
+#19 7.908 -- ARROW_PROTOBUF_BUILD_VERSION: v3.18.1
+#19 7.908 -- ARROW_PROTOBUF_BUILD_SHA256_CHECKSUM: b8ab9bbdf0c6968cf20060794bc61e231fae82aaf69d6e3577c154181991f576
+#19 7.908 -- ARROW_RAPIDJSON_BUILD_VERSION: 1a803826f1197b5e30703afe4b9c0e7dd48074f5
+#19 7.908 -- ARROW_RAPIDJSON_BUILD_SHA256_CHECKSUM: 0b6b780b6c534bfb0b23d29910bfe361e486bcfeaf106db8bc8995792072905a
+#19 7.909 -- ARROW_RE2_BUILD_VERSION: 2021-11-01
+#19 7.909 -- ARROW_RE2_BUILD_SHA256_CHECKSUM: 8c45f7fba029ab41f2a7e6545058d9eec94eef97ce70df58e92d85cfc08b4669
+#19 7.909 -- ARROW_SNAPPY_BUILD_VERSION: 1.1.9
+#19 7.909 -- ARROW_SNAPPY_BUILD_SHA256_CHECKSUM: 75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7
+#19 7.910 -- ARROW_SNAPPY_OLD_BUILD_VERSION: 1.1.8
+#19 7.910 -- ARROW_SNAPPY_OLD_BUILD_SHA256_CHECKSUM: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
+#19 7.910 -- ARROW_THRIFT_BUILD_VERSION: 0.13.0
+#19 7.910 -- ARROW_THRIFT_BUILD_SHA256_CHECKSUM: 7ad348b88033af46ce49148097afe354d513c1fca7c607b59c33ebb6064b5179
+#19 7.910 -- ARROW_UTF8PROC_BUILD_VERSION: v2.7.0
+#19 7.911 -- ARROW_UTF8PROC_BUILD_SHA256_CHECKSUM: 4bb121e297293c0fd55f08f83afab6d35d48f0af4ecc07523ad8ec99aa2b12a1
+#19 7.911 -- ARROW_XSIMD_BUILD_VERSION: aeec9c872c8b475dedd7781336710f2dd2666cb2
+#19 7.911 -- ARROW_XSIMD_BUILD_SHA256_CHECKSUM: 0a841e6c8acf216150e4fc19fca8e29fbab9614b56ac7b96e56019264ca27b26
+#19 7.911 -- ARROW_ZLIB_BUILD_VERSION: 1.2.11
+#19 7.911 -- ARROW_ZLIB_BUILD_SHA256_CHECKSUM: c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1
+#19 7.912 -- ARROW_ZSTD_BUILD_VERSION: v1.5.1
+#19 7.912 -- ARROW_ZSTD_BUILD_SHA256_CHECKSUM: dc05773342b28f11658604381afd22cb0a13e8ba17ff2bd7516df377060c18dd
+#19 7.921 -- Looking for pthread.h
+#19 8.275 -- Looking for pthread.h - found
+#19 8.276 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#19 8.634 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#19 8.638 -- Found Threads: TRUE  
+#19 8.645 -- Looking for _M_ARM64
+#19 8.739 -- Looking for _M_ARM64 - not found
+#19 8.740 -- Looking for __SIZEOF_INT128__
+#19 9.161 -- Looking for __SIZEOF_INT128__ - found
+#19 9.196 -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.58") found components: system filesystem 
+#19 9.200 -- Boost include dir: /usr/include
+#19 9.201 -- Boost libraries: Boost::system;Boost::filesystem
+#19 9.202 -- Building without OpenSSL support. Minimum OpenSSL version 1.0.2 required.
+#19 9.203 Building Apache Thrift from source
+#19 9.264 -- Building gtest from source
+#19 9.318 -- Building RapidJSON from source
+#19 9.372 -- Building xsimd from source
+#19 9.424 -- Building RE2 from source
+#19 9.477 -- Building utf8proc from source
+#19 9.527 -- Found hdfs.h at: /src/arrow/cpp/thirdparty/hadoop/include/hdfs.h
+#19 9.528 -- All bundled static libraries: thrift::thrift;re2::re2;utf8proc::utf8proc
+#19 9.530 -- CMAKE_C_FLAGS: -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Qunused-arguments -O3 -DNDEBUG  -Wall -Wno-unknown-warning-option -Wno-pass-failed -msse4.2 
+#19 9.530 -- CMAKE_CXX_FLAGS:  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -Qunused-arguments -fcolor-diagnostics -O3 -DNDEBUG  -Wall -Wno-unknown-warning-option -Wno-pass-failed -msse4.2  -fsanitize-coverage=pc-table,inline-8bit-counters,edge,no-prune,trace-cmp,trace-div,trace-gep
+#19 9.555 -- Looking for backtrace
+#19 9.893 -- Looking for backtrace - found
+#19 9.894 -- backtrace facility detected in default set of libraries
+#19 9.896 -- Found Backtrace: /usr/include  
+#19 9.898 -- Creating bundled static library target arrow_bundled_dependencies at /work/release/libarrow_bundled_dependencies.a
+#19 10.04 -- ---------------------------------------------------------------------
+#19 10.04 -- Arrow version:                                 8.0.0-SNAPSHOT
+#19 10.04 -- 
+#19 10.04 -- Build configuration summary:
+#19 10.04 --   Generator: Ninja
+#19 10.04 --   Build type: RELEASE
+#19 10.04 --   Source directory: /src/arrow/cpp
+#19 10.04 --   Install prefix: /usr/local
+#19 10.04 -- 
+#19 10.04 -- Compile and link options:
+#19 10.04 -- 
+#19 10.04 --   ARROW_CXXFLAGS="" [default=""]
+#19 10.04 --       Compiler flags to append when compiling Arrow
+#19 10.04 --   ARROW_BUILD_STATIC=on [default=ON]
+#19 10.04 --       Build static libraries
+#19 10.04 --   ARROW_BUILD_SHARED=off [default=ON]
+#19 10.04 --       Build shared libraries
+#19 10.05 --   ARROW_PACKAGE_KIND="" [default=""]
+#19 10.05 --       Arbitrary string that identifies the kind of package
+#19 10.05 --       (for informational purposes)
+#19 10.05 --   ARROW_GIT_ID=2a196601d520e7844f5cc70aa95f93a6fcb2d3bb [default=""]
+#19 10.05 --       The Arrow git commit id (if any)
+#19 10.05 --   ARROW_GIT_DESCRIPTION=apache-arrow-8.0.0.dev-94-g2a196601d [default=""]
+#19 10.05 --       The Arrow git commit description (if any)
+#19 10.05 --   ARROW_NO_DEPRECATED_API=OFF [default=OFF]
+#19 10.05 --       Exclude deprecated APIs from build
+#19 10.05 --   ARROW_USE_CCACHE=ON [default=ON]
+#19 10.05 --       Use ccache when compiling (if available)
+#19 10.05 --   ARROW_USE_LD_GOLD=OFF [default=OFF]
+#19 10.05 --       Use ld.gold for linking on Linux (if available)
+#19 10.05 --   ARROW_USE_PRECOMPILED_HEADERS=OFF [default=OFF]
+#19 10.05 --       Use precompiled headers when compiling
+#19 10.05 --   ARROW_SIMD_LEVEL=SSE4_2 [default=NONE|SSE4_2|AVX2|AVX512|NEON|DEFAULT]
+#19 10.05 --       Compile-time SIMD optimization level
+#19 10.05 --   ARROW_RUNTIME_SIMD_LEVEL=MAX [default=NONE|SSE4_2|AVX2|AVX512|MAX]
+#19 10.05 --       Max runtime SIMD optimization level
+#19 10.05 --   ARROW_ARMV8_ARCH=armv8-a [default=armv8-a|armv8-a+crc+crypto]
+#19 10.05 --       Arm64 arch and extensions
+#19 10.05 --   ARROW_ALTIVEC=ON [default=ON]
+#19 10.05 --       Build with Altivec if compiler has support
+#19 10.05 --   ARROW_RPATH_ORIGIN=OFF [default=OFF]
+#19 10.05 --       Build Arrow libraries with RATH set to $ORIGIN
+#19 10.05 --   ARROW_INSTALL_NAME_RPATH=ON [default=ON]
+#19 10.05 --       Build Arrow libraries with install_name set to @rpath
+#19 10.05 --   ARROW_GGDB_DEBUG=ON [default=ON]
+#19 10.05 --       Pass -ggdb flag to debug builds
+#19 10.05 -- 
+#19 10.05 -- Test and benchmark options:
+#19 10.05 -- 
+#19 10.05 --   ARROW_BUILD_EXAMPLES=off [default=OFF]
+#19 10.05 --       Build the Arrow examples
+#19 10.05 --   ARROW_BUILD_TESTS=off [default=OFF]
+#19 10.05 --       Build the Arrow googletest unit tests
+#19 10.05 --   ARROW_ENABLE_TIMING_TESTS=ON [default=ON]
+#19 10.05 --       Enable timing-sensitive tests
+#19 10.05 --   ARROW_BUILD_INTEGRATION=off [default=OFF]
+#19 10.05 --       Build the Arrow integration test executables
+#19 10.05 --   ARROW_BUILD_BENCHMARKS=off [default=OFF]
+#19 10.05 --       Build the Arrow micro benchmarks
+#19 10.05 --   ARROW_BUILD_BENCHMARKS_REFERENCE=OFF [default=OFF]
+#19 10.05 --       Build the Arrow micro reference benchmarks
+#19 10.05 --   ARROW_BUILD_OPENMP_BENCHMARKS=OFF [default=OFF]
+#19 10.05 --       Build the Arrow benchmarks that rely on OpenMP
+#19 10.05 --   ARROW_BUILD_DETAILED_BENCHMARKS=OFF [default=OFF]
+#19 10.05 --       Build benchmarks that do a longer exploration of performance
+#19 10.05 --   ARROW_TEST_LINKAGE=static [default=shared|static]
+#19 10.05 --       Linkage of Arrow libraries with unit tests executables.
+#19 10.05 --   ARROW_FUZZING=on [default=OFF]
+#19 10.05 --       Build Arrow Fuzzing executables
+#19 10.05 --   ARROW_LARGE_MEMORY_TESTS=OFF [default=OFF]
+#19 10.05 --       Enable unit tests which use large memory
+#19 10.05 -- 
+#19 10.05 -- Lint options:
+#19 10.05 -- 
+#19 10.05 --   ARROW_ONLY_LINT=OFF [default=OFF]
+#19 10.05 --       Only define the lint and check-format targets
+#19 10.05 --   ARROW_VERBOSE_LINT=OFF [default=OFF]
+#19 10.05 --       If off, 'quiet' flags will be passed to linting tools
+#19 10.06 --   ARROW_GENERATE_COVERAGE=OFF [default=OFF]
+#19 10.06 --       Build with C++ code coverage enabled
+#19 10.06 -- 
+#19 10.06 -- Checks options:
+#19 10.06 -- 
+#19 10.06 --   ARROW_TEST_MEMCHECK=OFF [default=OFF]
+#19 10.06 --       Run the test suite using valgrind --tool=memcheck
+#19 10.06 --   ARROW_USE_ASAN=off [default=OFF]
+#19 10.06 --       Enable Address Sanitizer checks
+#19 10.06 --   ARROW_USE_TSAN=off [default=OFF]
+#19 10.06 --       Enable Thread Sanitizer checks
+#19 10.06 --   ARROW_USE_UBSAN=off [default=OFF]
+#19 10.06 --       Enable Undefined Behavior sanitizer checks
+#19 10.06 -- 
+#19 10.06 -- Project component options:
+#19 10.06 -- 
+#19 10.06 --   ARROW_BUILD_UTILITIES=off [default=OFF]
+#19 10.06 --       Build Arrow commandline utilities
+#19 10.06 --   ARROW_COMPUTE=ON [default=OFF]
+#19 10.06 --       Build the Arrow Compute Modules
+#19 10.06 --   ARROW_CSV=OFF [default=OFF]
+#19 10.06 --       Build the Arrow CSV Parser Module
+#19 10.06 --   ARROW_CUDA=OFF [default=OFF]
+#19 10.06 --       Build the Arrow CUDA extensions (requires CUDA toolkit)
+#19 10.06 --   ARROW_DATASET=OFF [default=OFF]
+#19 10.06 --       Build the Arrow Dataset Modules
+#19 10.06 --   ARROW_ENGINE=OFF [default=OFF]
+#19 10.06 --       Build the Arrow Query Engine Module
+#19 10.06 --   ARROW_FILESYSTEM=off [default=OFF]
+#19 10.06 --       Build the Arrow Filesystem Layer
+#19 10.06 --   ARROW_FLIGHT=OFF [default=OFF]
+#19 10.06 --       Build the Arrow Flight RPC System (requires GRPC, Protocol Buffers)
+#19 10.06 --   ARROW_FLIGHT_SQL=OFF [default=OFF]
+#19 10.06 --       Build the Arrow Flight SQL extension
+#19 10.06 --   ARROW_GANDIVA=OFF [default=OFF]
+#19 10.06 --       Build the Gandiva libraries
+#19 10.06 --   ARROW_GCS=OFF [default=OFF]
+#19 10.06 --       Build Arrow with GCS support (requires the GCloud SDK for C++)
+#19 10.06 --   ARROW_HDFS=OFF [default=OFF]
+#19 10.06 --       Build the Arrow HDFS bridge
+#19 10.06 --   ARROW_HIVESERVER2=OFF [default=OFF]
+#19 10.06 --       Build the HiveServer2 client and Arrow adapter
+#19 10.06 --   ARROW_IPC=ON [default=ON]
+#19 10.06 --       Build the Arrow IPC extensions
+#19 10.06 --   ARROW_JEMALLOC=off [default=ON]
+#19 10.06 --       Build the Arrow jemalloc-based allocator
+#19 10.06 --   ARROW_JNI=OFF [default=OFF]
+#19 10.06 --       Build the Arrow JNI lib
+#19 10.06 --   ARROW_JSON=ON [default=OFF]
+#19 10.06 --       Build Arrow with JSON support (requires RapidJSON)
+#19 10.06 --   ARROW_MIMALLOC=off [default=OFF]
+#19 10.06 --       Build the Arrow mimalloc-based allocator
+#19 10.06 --   ARROW_PARQUET=on [default=OFF]
+#19 10.06 --       Build the Parquet libraries
+#19 10.06 --   ARROW_ORC=OFF [default=OFF]
+#19 10.06 --       Build the Arrow ORC adapter
+#19 10.06 --   ARROW_PLASMA=OFF [default=OFF]
+#19 10.06 --       Build the plasma object store along with Arrow
+#19 10.06 --   ARROW_PLASMA_JAVA_CLIENT=OFF [default=OFF]
+#19 10.06 --       Build the plasma object store java client
+#19 10.06 --   ARROW_PYTHON=OFF [default=OFF]
+#19 10.06 --       Build the Arrow CPython extensions
+#19 10.06 --   ARROW_S3=OFF [default=OFF]
+#19 10.06 --       Build Arrow with S3 support (requires the AWS SDK for C++)
+#19 10.06 --   ARROW_SKYHOOK=OFF [default=OFF]
+#19 10.06 --       Build the Skyhook libraries
+#19 10.06 --   ARROW_TENSORFLOW=OFF [default=OFF]
+#19 10.06 --       Build Arrow with TensorFlow support enabled
+#19 10.06 --   ARROW_TESTING=ON [default=OFF]
+#19 10.06 --       Build the Arrow testing libraries
+#19 10.06 -- 
+#19 10.06 -- Thirdparty toolchain options:
+#19 10.06 -- 
+#19 10.06 --   ARROW_DEPENDENCY_SOURCE=BUNDLED [default=AUTO|BUNDLED|SYSTEM|CONDA|VCPKG|BREW]
+#19 10.06 --       Method to use for acquiring arrow's build dependencies
+#19 10.06 --   ARROW_VERBOSE_THIRDPARTY_BUILD=OFF [default=OFF]
+#19 10.06 --       Show output from ExternalProjects rather than just logging to files
+#19 10.06 --   ARROW_DEPENDENCY_USE_SHARED=ON [default=ON]
+#19 10.07 --       Link to shared libraries
+#19 10.07 --   ARROW_BOOST_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on boost shared libraries where relevant
+#19 10.07 --   ARROW_BROTLI_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on Brotli shared libraries where relevant
+#19 10.07 --   ARROW_BZ2_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on Bz2 shared libraries where relevant
+#19 10.07 --   ARROW_GFLAGS_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on GFlags shared libraries where relevant
+#19 10.07 --   ARROW_GRPC_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on gRPC shared libraries where relevant
+#19 10.07 --   ARROW_LZ4_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on lz4 shared libraries where relevant
+#19 10.07 --   ARROW_OPENSSL_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on OpenSSL shared libraries where relevant
+#19 10.07 --   ARROW_PROTOBUF_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on Protocol Buffers shared libraries where relevant
+#19 10.07 --   ARROW_THRIFT_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on thrift shared libraries where relevant
+#19 10.07 --   ARROW_UTF8PROC_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on utf8proc shared libraries where relevant
+#19 10.07 --   ARROW_SNAPPY_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on snappy shared libraries where relevant
+#19 10.07 --   ARROW_UTF8PROC_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on utf8proc shared libraries where relevant
+#19 10.07 --   ARROW_ZSTD_USE_SHARED=ON [default=ON]
+#19 10.07 --       Rely on zstd shared libraries where relevant
+#19 10.07 --   ARROW_USE_GLOG=off [default=OFF]
+#19 10.07 --       Build libraries with glog support for pluggable logging
+#19 10.07 --   ARROW_WITH_BACKTRACE=ON [default=ON]
+#19 10.07 --       Build with backtrace support
+#19 10.07 --   ARROW_WITH_OPENTELEMETRY=OFF [default=OFF]
+#19 10.07 --       Build libraries with OpenTelemetry support for distributed tracing
+#19 10.07 --   ARROW_WITH_BROTLI=off [default=OFF]
+#19 10.07 --       Build with Brotli compression
+#19 10.07 --   ARROW_WITH_BZ2=off [default=OFF]
+#19 10.07 --       Build with BZ2 compression
+#19 10.07 --   ARROW_WITH_LZ4=off [default=OFF]
+#19 10.07 --       Build with lz4 compression
+#19 10.07 --   ARROW_WITH_SNAPPY=off [default=OFF]
+#19 10.07 --       Build with Snappy compression
+#19 10.07 --   ARROW_WITH_ZLIB=off [default=OFF]
+#19 10.07 --       Build with zlib compression
+#19 10.07 --   ARROW_WITH_ZSTD=off [default=OFF]
+#19 10.07 --       Build with zstd compression
+#19 10.07 --   ARROW_WITH_UTF8PROC=ON [default=ON]
+#19 10.07 --       Build with support for Unicode properties using the utf8proc library
+#19 10.07 --       (only used if ARROW_COMPUTE is ON or ARROW_GANDIVA is ON)
+#19 10.07 --   ARROW_WITH_RE2=ON [default=ON]
+#19 10.07 --       Build with support for regular expressions using the re2 library
+#19 10.07 --       (only used if ARROW_COMPUTE or ARROW_GANDIVA is ON)
+#19 10.07 -- 
+#19 10.07 -- Parquet options:
+#19 10.07 -- 
+#19 10.07 --   PARQUET_MINIMAL_DEPENDENCY=OFF [default=OFF]
+#19 10.07 --       Depend only on Thirdparty headers to build libparquet.
+#19 10.07 --       Always OFF if building binaries
+#19 10.07 --   PARQUET_BUILD_EXECUTABLES=off [default=OFF]
+#19 10.07 --       Build the Parquet executable CLI tools. Requires static libraries to be built.
+#19 10.07 --   PARQUET_BUILD_EXAMPLES=off [default=OFF]
+#19 10.07 --       Build the Parquet examples. Requires static libraries to be built.
+#19 10.07 --   PARQUET_REQUIRE_ENCRYPTION=off [default=OFF]
+#19 10.07 --       Build support for encryption. Fail if OpenSSL is not found
+#19 10.07 -- 
+#19 10.07 -- Gandiva options:
+#19 10.07 -- 
+#19 10.07 --   ARROW_GANDIVA_JAVA=OFF [default=OFF]
+#19 10.07 --       Build the Gandiva JNI wrappers
+#19 10.07 --   ARROW_GANDIVA_STATIC_LIBSTDCPP=OFF [default=OFF]
+#19 10.07 --       Include -static-libstdc++ -static-libgcc when linking with
+#19 10.07 --       Gandiva static libraries
+#19 10.07 --   ARROW_GANDIVA_PC_CXX_FLAGS="" [default=""]
+#19 10.07 --       Compiler flags to append when pre-compiling Gandiva operations
+#19 10.08 -- 
+#19 10.08 -- Advanced developer options:
+#19 10.08 -- 
+#19 10.08 --   ARROW_EXTRA_ERROR_CONTEXT=off [default=OFF]
+#19 10.08 --       Compile with extra error context (line numbers, code)
+#19 10.08 --   ARROW_OPTIONAL_INSTALL=OFF [default=OFF]
+#19 10.08 --       If enabled install ONLY targets that have already been built. Please be
+#19 10.08 --       advised that if this is enabled 'install' will fail silently on components
+#19 10.08 --       that have not been built
+#19 10.08 --   ARROW_SUBSTRAIT_REPO=https://github.com/substrait-io/substrait [default="https://github.com/substrait-io/substrait"]
+#19 10.08 --       Custom git repository URL for downloading Substrait sources.
+#19 10.08 --       See also ARROW_SUBSTRAIT_TAG
+#19 10.08 --   ARROW_SUBSTRAIT_TAG=e1b4c04a1b518912f4c4065b16a1b2c0ac8e14cf [default="e1b4c04a1b518912f4c4065b16a1b2c0ac8e14cf"]
+#19 10.08 --       Custom git hash/tag/branch for Substrait repository.
+#19 10.08 --       See also ARROW_SUBSTRAIT_REPO
+#19 10.08 --   Outputting build configuration summary to /work/cmake_summary.json
+#19 10.09 -- Configuring done
+#19 10.33 -- Generating done
+#19 10.37 -- Build files have been written to: /work
+#19 10.40 + cmake --build .
+#19 10.50 [1/314] Creating directories for 'thrift_ep'
+#19 10.52 [2/314] Creating directories for 'googletest_ep'
+#19 10.52 [3/314] Creating directories for 'rapidjson_ep'
+#19 10.52 [4/314] Creating directories for 're2_ep'
+#19 10.53 [5/314] Creating directories for 'xsimd_ep'
+#19 10.54 [6/314] Creating directories for 'utf8proc_ep'
+#19 11.24 [7/314] Performing download step (download, verify and extract) for 'utf8proc_ep'
+#19 11.26 [8/314] No update step for 'utf8proc_ep'
+#19 11.28 [9/314] Performing download step (download, verify and extract) for 'xsimd_ep'
+#19 11.29 [10/314] No patch step for 'utf8proc_ep'
+#19 11.30 [11/314] Performing download step (download, verify and extract) for 're2_ep'
+#19 11.31 [12/314] No update step for 'xsimd_ep'
+#19 11.32 [13/314] No update step for 're2_ep'
+#19 11.34 [14/314] No patch step for 're2_ep'
+#19 11.35 [15/314] No patch step for 'xsimd_ep'
+#19 11.68 [16/314] Performing download step (download, verify and extract) for 'googletest_ep'
+#19 11.74 [17/314] No update step for 'googletest_ep'
+#19 11.75 [18/314] Performing download step (download, verify and extract) for 'rapidjson_ep'
+#19 11.78 [19/314] No update step for 'rapidjson_ep'
+#19 11.80 [20/314] No patch step for 'googletest_ep'
+#19 11.83 [21/314] No patch step for 'rapidjson_ep'
+#19 12.56 [22/314] Performing download step (download, verify and extract) for 'thrift_ep'
+#19 12.60 [23/314] No update step for 'thrift_ep'
+#19 12.62 [24/314] No patch step for 'thrift_ep'
+#19 12.83 [25/314] Performing configure step for 'utf8proc_ep'
+#19 13.98 [26/314] Performing configure step for 'rapidjson_ep'
+#19 14.04 [27/314] Performing build step for 'rapidjson_ep'
+#19 14.19 [28/314] Performing install step for 'rapidjson_ep'
+#19 14.26 [29/314] Completed 'rapidjson_ep'
+#19 14.62 [30/314] Performing configure step for 'xsimd_ep'
+#19 14.66 [31/314] Performing build step for 'xsimd_ep'
+#19 14.77 [32/314] Performing install step for 'xsimd_ep'
+#19 14.78 [33/314] Completed 'xsimd_ep'
+#19 14.93 [34/314] Performing configure step for 're2_ep'
+#19 19.84 [35/314] Performing configure step for 'googletest_ep'
+#19 21.01 [36/314] Performing build step for 'utf8proc_ep'
+#19 21.23 [37/314] Performing install step for 'utf8proc_ep'
+#19 21.35 [38/314] Completed 'utf8proc_ep'
+#19 54.93 [39/314] Performing configure step for 'thrift_ep'
+#19 134.3 [40/314] Performing build step for 'thrift_ep'
+#19 134.5 [41/314] Performing install step for 'thrift_ep'
+#19 134.6 [42/314] Completed 'thrift_ep'
+#19 139.4 [43/314] Performing build step for 'googletest_ep'
+#19 139.5 [44/314] Performing install step for 'googletest_ep'
+#19 139.5 [45/314] Completed 'googletest_ep'
+#19 140.6 [46/314] Performing build step for 're2_ep'
+#19 140.8 [47/314] Performing install step for 're2_ep'
+#19 140.9 [48/314] Completed 're2_ep'
+#19 153.6 [49/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/testing/util.cc.o
+#19 157.3 [50/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/testing/json_integration.cc.o
+#19 158.7 [51/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/io/test_common.cc.o
+#19 164.8 [52/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_binary.cc.o
+#19 166.3 [53/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_decimal.cc.o
+#19 174.7 [54/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/testing/generator.cc.o
+#19 176.7 [55/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_primitive.cc.o
+#19 190.6 [56/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_adaptive.cc.o
+#19 194.7 [57/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/testing/gtest_util.cc.o
+#19 197.1 [58/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_base.cc.o
+#19 198.1 [59/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_nested.cc.o
+#19 199.7 [60/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/compute/exec/test_util.cc.o
+#19 203.4 [61/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_base.cc.o
+/bin/sh: 1: source: not found
+#19 206.9 [62/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_binary.cc.o
+#19 208.6 [63/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_decimal.cc.o
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5faf8edef878248ceb3fd4e2d98b5fa4d8b5171c2e0bd479a3e8be4cae10904a
+#1 transferring dockerfile: 32B done
+#1 DONE 0.9s
+
+#2 [internal] load .dockerignore
+#2 sha256:898e07f7d46c409057c2a16e7f8b231f280481173a8256f982e29a333623acb9
+#2 transferring context: 2B done
+#2 DONE 0.8s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/arrow_arrow
+#4 sha256:52b8c4ac6a410079727c30037fea5ee309fa67e7f74f09300e9080158057aa8e
+#4 DONE 0.0s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:8df8c6f5c097788cdb0c09aca85bacfdc47f2939d6212cc55fd02cb3e9d0f89c
+#8 transferring context: 30B done
+#8 DONE 0.0s
+
+#6 [2/4] RUN apt-get update -y -q &&     apt-get update -y -q &&     apt-get install -y -q --no-install-recommends         bison         build-essential         cmake         flex         libboost-all-dev         ninja-build         python3
+#6 sha256:1d5367ae4dc4bb149dd8c570a647ca472074ec442b2497f7822c948aff7fd7a5
+#6 CACHED
+
+#7 [3/4] RUN git clone --depth=1 --recurse-submodules     https://github.com/apache/arrow.git /src/arrow
+#7 sha256:9e3c29812b7af98fed6bac31af121930a90f9567199b447495f5149ac8fe4386
+#7 CACHED
+
+#9 [4/4] COPY build.sh /src/
+#9 sha256:f157365595c0eaa3afeb29db7db15e6340cb4795f631a318ebd83c5e8b7f7edc
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:2fe999da4388157bfc72ff94f58bd4f54d651ecac4d5977a43ca48064a04dc4b done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/arrow_arrow done
+#10 DONE 0.2s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:17bab88964bea87f4b433b37dad3b4a187a374eaf2fd8e1b5b1844a38a5c91a2
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:3aa9f8f807f05efad504a54b19c5545694bd7451bd642e2d30cb01899071c8e2
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/arrow_arrow:latest
+#3 sha256:c791f821c5a2390e1458185242c42fbc45669871d0f2714d44c84d757aac8c0f
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate
+#4 sha256:612c95e9e3811d71d89f0ef8ee259029c0051e2b1e030bab4ed6d93133bf26ad
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/arrow_arrow
+#5 sha256:3d396ea1521cdb01f8e77f21b1291e9b6db35a56849f508e9865ca3febf35e11
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:87a23b288fc2a3c30b9afc79464377074dd989e166dd27479a347cbf7a7ad1f7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:f9725b1c21330f7154e137d333189d4047b676390275c4d79aa526bc85367fca
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:8ad3eae41bb370f1778185cb751c76461d4ac3371965db36ecf9cb7ebc9fa53a done
+#8 naming to gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#19 217.1 [64/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_primitive.cc.o
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d5591c4ebe931b8e9084115f13b77fdafa7bc1907780f1669765d7685e3ef73b
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:91e3266f245d7134be92c5a151e9200589d5d86f37a28a09327be09e6dc3d15d
+#2 transferring context:
+#2 transferring context: 143B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#12 importing cache manifest from gcr.io/fuzzbench/base-image
+#12 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#12 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/ubuntu:xenial
+#4 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#4 DONE 0.0s
+
+#7 [internal] load build context
+#7 sha256:a92c6e387f66b8fd96209da0f3b00aa62ddacb43c6a7dca7d8b5eaa32cb418fa
+#7 transferring context: 559B done
+#7 DONE 0.0s
+
+#5 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#5 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#5 CACHED
+
+#6 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#6 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#6 CACHED
+
+#10 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#10 sha256:6edbcae745817d96bfe29637c1433266c6483e430154066cdff41617ab71ab21
+#10 CACHED
+
+#9 [5/7] RUN pip3 install -r /requirements.txt
+#9 sha256:7c6c507e5148ca30a6ce06d69b1daddf61770e927a9943f331e760f2e6d32e3d
+#9 CACHED
+
+#8 [4/7] COPY ./requirements.txt /
+#8 sha256:17cad2a7087987646e0239934d74cd9042f52122a7a67ef4f6785544570894cf
+#8 CACHED
+
+#11 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#11 sha256:68bca6a2578b3895f640f41e2acd5aa115724c454cd6e4f000984fc799c4a82c
+#11 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:7c312afc0c92be055a6e596de5bde5bb2ff79522f51f5d5c5b849c01586f4ff7 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#19 219.4 [65/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_nested.cc.o
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c08949205262c15d4268f06e6a070454e29a497f14d8a610f690d0132235400e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b1ff649b20d2836d055119baa9cdf30dd5071c685d589666a94f70d3bd07373a
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate
+#6 sha256:709fd35d9144b867e2c2693fd1cf7c030e24ca311d5b97a3e7bee0aa35cb98e6
+#6 DONE 0.5s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:92680b7f7d697f488a6c6db5ecd76cfef0f31a1f398cb4543b320ea229dc585c
+#8 DONE 0.6s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:959676c46abe6e5dfbeefe64b4f9d8a51edac248f1da794be0f16e8b0cf078fc
+#9 DONE 14.7s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:56f3668c581ebbfd178b77f1987e19cf64af45644f75afe2eae13a33a045a4e9
+#10 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:94244727a380325e3d532e7e5f08f882d442be30a6cf9f1a79d6c0afb3817719
+#11 DONE 22.8s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/arrow_arrow-intermediate:latest
+#3 sha256:1f76ad463f9d8861547faadb7105ce0c99ca3c8fc00e6524c3d5c9d02c179ccf
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:01687511441ad951b9533d686b7db4983b08c0d5891168238c27c5a09d57399a
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/arrow_arrow
+#5 sha256:00b7629c0669f5746dd8f72499c93dec53c82621ce904c7868e96cab88164536
+#19 219.9 [66/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_union.cc.o
+#5 ERROR: gcr.io/fuzzbench/builders/afl/arrow_arrow:latest: not found
+
+#12 [internal] load build context
+#12 sha256:01687511441ad951b9533d686b7db4983b08c0d5891168238c27c5a09d57399a
+#12 transferring context: 669.86kB 0.2s done
+#12 DONE 0.2s
+#19 220.8 [67/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/ipc/test_common.cc.o
+#19 222.2 [68/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/testing/random.cc.o
+#19 225.7 [69/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/data.cc.o
+#19 233.4 [70/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/concatenate.cc.o
+#19 234.1 [71/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/buffer.cc.o
+#19 235.4 [72/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_dict.cc.o
+#19 238.5 [73/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/config.cc.o
+#19 243.2 [74/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/chunked_array.cc.o
+#19 246.9 [75/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_dict.cc.o
+#19 252.0 [76/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/validate.cc.o
+#19 253.9 [77/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/device.cc.o
+#19 255.4 [78/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/datum.cc.o
+#19 260.8 [79/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/extension_type.cc.o
+#19 262.4 [80/314] Building CXX object src/arrow/CMakeFiles/arrow_testing_objlib.dir/testing/json_internal.cc.o
+#19 262.8 [81/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/util.cc.o
+#19 263.6 [82/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compare.cc.o
+#19 264.2 [83/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/result.cc.o
+#19 265.2 [84/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/memory_pool.cc.o
+#19 267.4 [85/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/status.cc.o
+#19 269.6 [86/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/record_batch.cc.o
+#19 272.8 [87/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/sparse_tensor.cc.o
+#19 273.4 [88/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/table_builder.cc.o
+#19 276.7 [89/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor.cc.o
+#19 281.4 [90/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/table.cc.o
+#19 283.0 [91/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor/csx_converter.cc.o
+#19 283.4 [92/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor/csf_converter.cc.o
+#19 286.0 [93/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/pretty_print.cc.o
+#19 287.0 [94/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/visitor.cc.o
+#19 294.4 [95/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/buffered.cc.o
+#19 295.1 [96/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/caching.cc.o
+#19 295.3 [97/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/compressed.cc.o
+#19 295.4 [98/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_basic_avx2.cc.o
+#19 304.1 [99/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/hdfs_internal.cc.o
+#19 304.9 [100/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/hdfs.cc.o
+#19 307.1 [101/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/c/bridge.cc.o
+#19 307.2 [102/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/file.cc.o
+#19 307.4 [103/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor/coo_converter.cc.o
+#19 311.6 [104/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/stdio.cc.o
+#19 312.0 [105/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/memory.cc.o
+#19 312.4 [106/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/diff.cc.o
+#19 312.6 [107/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/interfaces.cc.o
+#19 312.6 [108/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/slow.cc.o
+#19 314.9 [109/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bit_util.cc.o
+#19 315.8 [110/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bit_block_counter.cc.o
+#19 315.9 [111/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bit_run_reader.cc.o
+#19 316.2 [112/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/transform.cc.o
+#19 316.3 [113/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/async_util.cc.o
+#19 317.4 [114/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/type.cc.o
+#19 317.5 [115/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bitmap.cc.o
+#19 317.7 [116/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/basic_decimal.cc.o
+#19 319.0 [117/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bitmap_builders.cc.o
+#19 319.1 [118/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/debug.cc.o
+#19 321.7 [119/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression.cc.o
+#19 322.5 [120/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/counting_semaphore.cc.o
+#19 323.6 [121/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/cancel.cc.o
+#19 324.6 [122/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/cpu_info.cc.o
+#19 325.5 [123/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bitmap_ops.cc.o
+#19 325.8 [124/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bpacking.cc.o
+#19 326.7 [125/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/delimiting.cc.o
+#19 328.3 [126/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/scalar.cc.o
+#19 328.8 [127/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/byte_size.cc.o
+#19 328.8 [128/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/formatting.cc.o
+#19 328.9 [129/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/logging.cc.o
+#19 331.9 [130/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/mutex.cc.o
+#19 332.0 [131/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/decimal.cc.o
+#19 332.9 [132/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/string_builder.cc.o
+#19 333.6 [133/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/memory.cc.o
+#19 334.0 [134/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/future.cc.o
+#19 334.4 [135/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/string.cc.o
+#19 337.6 [136/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/task_group.cc.o
+#19 337.6 [137/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/time.cc.o
+#19 338.7 [138/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/key_value_metadata.cc.o
+#19 338.8 [139/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/trie.cc.o
+#19 339.2 [140/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/tdigest.cc.o
+#19 339.3 [141/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/io_util.cc.o
+#19 339.6 [142/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/tracing.cc.o
+#19 340.5 [143/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/unreachable.cc.o
+#19 342.1 [144/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/base64.cpp.o
+#19 342.5 [145/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/bignum.cc.o
+#19 342.7 [146/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/bignum-dtoa.cc.o
+#19 342.7 [147/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/thread_pool.cc.o
+#19 343.4 [148/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/cached-powers.cc.o
+#19 343.5 [149/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/fast-dtoa.cc.o
+#19 343.7 [150/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/diy-fp.cc.o
+#19 344.0 [151/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/fixed-dtoa.cc.o
+#19 344.2 [152/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/strtod.cc.o
+#19 345.4 [153/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/utf8.cc.o
+#19 347.3 [154/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/uri.cc.o
+#19 347.6 [155/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/double-conversion.cc.o
+#19 350.1 [156/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/value_parsing.cc.o
+#19 354.5 [157/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/int_util.cc.o
+#19 354.8 [158/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bpacking_avx512.cc.o
+#19 355.4 [159/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bpacking_avx2.cc.o
+#19 357.8 [160/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/datetime/tz.cpp.o
+#19 366.2 [161/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/cast.cc.o
+#19 368.8 [162/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec.cc.o
+#19 370.8 [163/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/filter_node.cc.o
+#19 378.0 [164/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/api_aggregate.cc.o
+#19 378.1 [165/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/api_vector.cc.o
+#19 380.1 [166/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/aggregate_node.cc.o
+#19 384.4 [167/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/exec_plan.cc.o
+#19 387.3 [168/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_compare.cc.o
+#19 388.5 [169/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/hash_join.cc.o
+#19 393.3 [170/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_hash.cc.o
+#19 397.9 [171/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_encode.cc.o
+#19 398.2 [172/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_map.cc.o
+#19 400.6 [173/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/options.cc.o
+#19 401.9 [174/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/order_by_impl.cc.o
+#19 404.8 [175/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/expression.cc.o
+#19 405.4 [176/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/hash_join_dict.cc.o
+#19 406.4 [177/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/hash_join_node.cc.o
+#19 408.0 [178/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/task_util.cc.o
+#19 413.7 [179/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/project_node.cc.o
+#19 413.9 [180/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/sink_node.cc.o
+#19 414.7 [181/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/util.cc.o
+#19 416.6 [182/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/union_node.cc.o
+#19 416.8 [183/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/source_node.cc.o
+#19 420.2 [184/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/ir_consumer.cc.o
+#19 421.3 [185/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/function_internal.cc.o
+#19 421.8 [186/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/function.cc.o
+#19 422.5 [187/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernel.cc.o
+#19 426.4 [188/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/registry.cc.o
+#19 431.8 [189/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/codegen_internal.cc.o
+#19 437.1 [190/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/api_scalar.cc.o
+#19 437.8 [191/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_var_std.cc.o
+#19 438.0 [192/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_tdigest.cc.o
+#19 439.4 [193/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/row_encoder.cc.o
+#19 448.3 [194/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_dictionary.cc.o
+#19 451.0 [195/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_boolean.cc.o
+#19 462.5 [196/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_quantile.cc.o
+#19 462.6 [197/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_nested.cc.o
+#19 465.3 [198/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/builder.cc.o
+#19 467.6 [199/314] Building CXX object src/arrow/ipc/CMakeFiles/arrow-ipc-tensor-stream-fuzz.dir/tensor_stream_fuzz.cc.o
+#19 468.2 [200/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_boolean.cc.o
+#19 471.0 [201/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_mode.cc.o
+#19 472.4 [202/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_internal.cc.o
+#19 482.8 [203/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_random.cc.o
+#19 505.5 [204/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_temporal.cc.o
+#19 516.8 [205/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_set_lookup.cc.o
+#19 519.2 [206/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_numeric.cc.o
+#19 519.4 [207/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_basic.cc.o
+#19 529.3 [208/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_string.cc.o
+#19 547.6 [209/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_validity.cc.o
+#19 559.4 [210/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/util_internal.cc.o
+#19 594.8 [211/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_if_else.cc.o
+#19 601.2 [212/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_nested.cc.o
+#19 604.6 [213/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_string_utf8.cc.o
+#19 606.9 [214/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_compare.cc.o
+#19 615.6 [215/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_nested.cc.o
+#19 641.2 [216/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/hash_aggregate.cc.o
+#19 650.3 [217/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_hash.cc.o
+#19 651.7 [218/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_replace.cc.o
+#19 658.2 [219/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_compare_avx2.cc.o
+#19 658.3 [220/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_encode_avx2.cc.o
+#19 661.9 [221/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_array_sort.cc.o
+#19 667.3 [222/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_hash_avx2.cc.o
+#19 669.6 [223/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_map_avx2.cc.o
+#19 675.2 [224/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/util_avx2.cc.o
+#19 692.0 [225/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/dictionary.cc.o
+#19 707.3 [226/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/feather.cc.o
+#19 712.7 [227/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/message.cc.o
+#19 714.7 [228/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/options.cc.o
+#19 719.1 [229/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_basic_avx512.cc.o
+#19 723.0 [230/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_selection.cc.o
+#19 725.3 [231/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/options.cc.o
+#19 726.6 [232/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_string_ascii.cc.o
+#19 743.3 [233/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/chunker.cc.o
+#19 748.5 [234/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/metadata_internal.cc.o
+#19 753.1 [235/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/chunked_builder.cc.o
+#19 761.8 [236/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/object_parser.cc.o
+#19 764.0 [237/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/object_writer.cc.o
+#19 764.5 [238/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/writer.cc.o
+#19 765.2 [239/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/musl/strptime.c.o
+#19 767.1 [240/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriCommon.c.o
+#19 767.7 [241/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriCompare.c.o
+#19 770.1 [242/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriEscape.c.o
+#19 771.1 [243/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriFile.c.o
+#19 771.2 [244/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriIp4Base.c.o
+#19 771.9 [245/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriIp4.c.o
+#19 772.7 [246/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriMemory.c.o
+#19 773.0 [247/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriNormalizeBase.c.o
+#19 780.0 [248/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriNormalize.c.o
+#19 780.3 [249/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriParseBase.c.o
+#19 787.6 [250/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriParse.c.o
+#19 788.4 [251/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriQuery.c.o
+#19 790.3 [252/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriRecompose.c.o
+#19 791.0 [253/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriResolve.c.o
+#19 791.0 [254/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/reader.cc.o
+#19 791.1 [255/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/converter.cc.o
+#19 791.1 [256/314] Bundling /work/release/libarrow_bundled_dependencies.a
+#19 791.9 [257/314] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriShorten.c.o
+#19 801.2 [258/314] Building CXX object src/arrow/ipc/CMakeFiles/arrow-ipc-file-fuzz.dir/file_fuzz.cc.o
+#19 805.8 [259/314] Building CXX object src/arrow/ipc/CMakeFiles/arrow-ipc-generate-tensor-fuzz-corpus.dir/generate_tensor_fuzz_corpus.cc.o
+#19 809.1 [260/314] Building CXX object src/arrow/ipc/CMakeFiles/arrow-ipc-generate-fuzz-corpus.dir/generate_fuzz_corpus.cc.o
+#19 811.0 [261/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/json/parser.cc.o
+#19 812.2 [262/314] Building CXX object src/arrow/ipc/CMakeFiles/arrow-ipc-stream-fuzz.dir/stream_fuzz.cc.o
+#19 812.9 [263/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/json_simple.cc.o
+#19 818.7 [264/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/reader.cc.o
+#19 827.2 [265/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/schema_internal.cc.o
+#19 838.9 [266/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/bloom_filter.cc.o
+#19 846.0 [267/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/writer.cc.o
+#19 857.0 [268/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/path_internal.cc.o
+#19 858.3 [269/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/schema.cc.o
+#19 863.9 [270/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/column_scanner.cc.o
+#19 877.2 [271/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/reader_internal.cc.o
+#19 890.0 [272/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/encryption.cc.o
+#19 896.3 [273/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/internal_file_decryptor.cc.o
+#19 903.3 [274/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/exception.cc.o
+#19 904.3 [275/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_temporal_unary.cc.o
+#19 908.3 [276/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/internal_file_encryptor.cc.o
+#19 908.5 [277/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/reader.cc.o
+#19 917.3 [278/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_comparison.cc.o
+#19 920.8 [279/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_conversion.cc.o
+#19 928.0 [280/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/murmur3.cc.o
+#19 931.9 [281/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/file_writer.cc.o
+#19 935.2 [282/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/__/generated/parquet_constants.cpp.o
+#19 936.9 [283/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_arithmetic.cc.o
+#19 939.1 [284/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/file_reader.cc.o
+#19 942.7 [285/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/platform.cc.o
+#19 948.8 [286/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/column_reader.cc.o
+#19 957.6 [287/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/printer.cc.o
+#19 958.3 [288/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/column_writer.cc.o
+#19 958.4 [289/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/properties.cc.o
+#19 976.8 [290/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/stream_writer.cc.o
+#19 976.9 [291/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/schema.cc.o
+#19 979.8 [292/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/metadata.cc.o
+#19 981.9 [293/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/stream_reader.cc.o
+#19 983.2 [294/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encoding.cc.o
+#19 983.5 [295/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/types.cc.o
+#19 983.7 [296/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_comparison_avx2.cc.o
+#19 988.9 [297/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_conversion_bmi2.cc.o
+#19 990.4 [298/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/statistics.cc.o
+#19 991.2 [299/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/__/generated/parquet_types.cpp.o
+#19 991.8 [300/314] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/encryption_internal_nossl.cc.o
+#19 992.1 [301/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_temporal_binary.cc.o
+#19 992.7 [302/314] Building CXX object src/parquet/arrow/CMakeFiles/parquet-arrow-fuzz.dir/fuzz.cc.o
+#19 1000.2 [303/314] Building CXX object src/parquet/arrow/CMakeFiles/parquet-arrow-generate-fuzz-corpus.dir/generate_fuzz_corpus.cc.o
+#19 1147.8 [304/314] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_sort.cc.o
+#19 1148.6 [305/314] Linking CXX static library release/libarrow.a
+#19 1148.7 [306/314] Linking CXX static library release/libarrow_testing.a
+#19 1148.8 [307/314] Linking CXX static library release/libparquet.a
+#19 1156.5 [308/314] Linking CXX executable release/arrow-ipc-tensor-stream-fuzz
+#19 1157.2 [309/314] Linking CXX executable release/arrow-ipc-generate-tensor-fuzz-corpus
+#19 1158.2 [310/314] Linking CXX executable release/arrow-ipc-file-fuzz
+#19 1158.2 [311/314] Linking CXX executable release/arrow-ipc-stream-fuzz
+#19 1158.3 [312/314] Linking CXX executable release/arrow-ipc-generate-fuzz-corpus
+#19 1166.8 [313/314] Linking CXX executable release/parquet-arrow-fuzz
+#19 1166.8 [314/314] Linking CXX executable release/parquet-arrow-generate-fuzz-corpus
+#19 1168.0 + cp -a release/arrow-ipc-file-fuzz release/arrow-ipc-generate-fuzz-corpus release/arrow-ipc-generate-tensor-fuzz-corpus release/arrow-ipc-stream-fuzz release/arrow-ipc-tensor-stream-fuzz release/libarrow.a release/libarrow_bundled_dependencies.a release/libarrow_testing.a release/libparquet.a release/parquet-arrow-fuzz release/parquet-arrow-generate-fuzz-corpus /out
+#19 1169.4 + /src/arrow/cpp/build-support/fuzzing/generate_corpuses.sh /out
+#19 1169.4 + CORPUS_DIR=/tmp/corpus
+#19 1169.4 +++ dirname /src/arrow/cpp/build-support/fuzzing/generate_corpuses.sh
+#19 1169.4 ++ cd /src/arrow/cpp/build-support/fuzzing/../../..
+#19 1169.4 ++ pwd
+#19 1169.4 + ARROW_ROOT=/src/arrow
+#19 1169.4 + ARROW_CPP=/src/arrow/cpp
+#19 1169.4 + OUT=/out
+#19 1169.4 ++ find /src/arrow/testing/data/arrow-ipc-stream/integration -name '*.stream'
+#19 1169.4 + IPC_INTEGRATION_FILES='/src/arrow/testing/data/arrow-ipc-stream/integration/2.0.0-compression/generated_zstd.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/2.0.0-compression/generated_lz4.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_decimal256.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_nested.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_interval.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_map.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_custom_metadata.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_null.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_union.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_null_trivial.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_map_non_canonical.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive_no_batches.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_duplicate_fieldnames.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_decimal.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_nested_dictionary.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive_large_offsets.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_extension.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_nested_large_offsets.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive_zerolength.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_datetime.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_recursive_nested.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_dictionary_unsigned.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_dictionary.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_nested.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_interval.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_map.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_primitive_no_batches.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_decimal.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_primitive_zerolength.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_datetime.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_primitive.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_dictionary.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/0.17.1/generated_union.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_decimal256.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_nested.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_interval.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_map.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_custom_metadata.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_null.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_union.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_null_trivial.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_map_non_canonical.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive_no_batches.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_duplicate_fieldnames.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_decimal.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_nested_dictionary.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive_large_offsets.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_extension.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_nested_large_offsets.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive_zerolength.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_datetime.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_recursive_nested.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_dictionary_unsigned.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_dictionary.stream
+#19 1169.4 /src/arrow/testing/data/arrow-ipc-stream/integration/4.0.0-shareddict/generated_shared_dict.stream'
+#19 1169.4 + rm -rf /tmp/corpus
+#19 1169.4 + /out/arrow-ipc-generate-fuzz-corpus -stream /tmp/corpus
+#19 1169.5 /tmp/corpus/batch-1
+#19 1169.5 /tmp/corpus/batch-2
+#19 1169.5 /tmp/corpus/batch-3
+#19 1169.5 /tmp/corpus/batch-4
+#19 1169.5 /tmp/corpus/batch-5
+#19 1169.5 /tmp/corpus/batch-6
+#19 1169.5 /tmp/corpus/batch-7
+#19 1169.5 /tmp/corpus/batch-8
+#19 1169.5 /tmp/corpus/batch-9
+#19 1169.5 /tmp/corpus/batch-10
+#19 1169.5 + cp --backup=numbered /src/arrow/testing/data/arrow-ipc-stream/integration/2.0.0-compression/generated_zstd.stream /src/arrow/testing/data/arrow-ipc-stream/integration/2.0.0-compression/generated_lz4.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_decimal256.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_nested.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_interval.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_map.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_custom_metadata.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_null.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_union.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_null_trivial.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_map_non_canonical.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive_no_batches.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_duplicate_fieldnames.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_decimal.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_nested_dictionary.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive_large_offsets.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_extension.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_nested_large_offsets.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive_zerolength.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_datetime.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_recursive_nested.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_primitive.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_dictionary_unsigned.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-bigendian/generated_dictionary.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_nested.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_interval.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_map.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_primitive_no_batches.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_decimal.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_primitive_zerolength.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_datetime.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_primitive.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.14.1/generated_dictionary.stream /src/arrow/testing/data/arrow-ipc-stream/integration/0.17.1/generated_union.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_decimal256.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_nested.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_interval.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_map.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_custom_metadata.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_null.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_union.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_null_trivial.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_map_non_canonical.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive_no_batches.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_duplicate_fieldnames.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_decimal.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_nested_dictionary.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive_large_offsets.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_extension.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_nested_large_offsets.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive_zerolength.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_datetime.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_recursive_nested.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_primitive.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_dictionary_unsigned.stream /src/arrow/testing/data/arrow-ipc-stream/integration/1.0.0-littleendian/generated_dictionary.stream /src/arrow/testing/data/arrow-ipc-stream/integration/4.0.0-shareddict/generated_shared_dict.stream /tmp/corpus
+#19 1169.5 + /src/arrow/cpp/build-support/fuzzing/pack_corpus.py /tmp/corpus /out/arrow-ipc-stream-fuzz_seed_corpus.zip
+#19 1169.8 + rm -rf /tmp/corpus
+#19 1169.8 + /out/arrow-ipc-generate-fuzz-corpus -file /tmp/corpus
+#19 1169.8 /tmp/corpus/batch-1
+#19 1169.8 /tmp/corpus/batch-2
+#19 1169.8 /tmp/corpus/batch-3
+#19 1169.8 /tmp/corpus/batch-4
+#19 1169.8 /tmp/corpus/batch-5
+#19 1169.8 /tmp/corpus/batch-6
+#19 1169.8 /tmp/corpus/batch-7
+#19 1169.8 /tmp/corpus/batch-8
+#19 1169.8 /tmp/corpus/batch-9
+#19 1169.8 /tmp/corpus/batch-10
+#19 1169.8 + /src/arrow/cpp/build-support/fuzzing/pack_corpus.py /tmp/corpus /out/arrow-ipc-file-fuzz_seed_corpus.zip
+#19 1170.0 + rm -rf /tmp/corpus
+#19 1170.0 + /out/arrow-ipc-generate-tensor-fuzz-corpus -stream /tmp/corpus
+#19 1170.0 /tmp/corpus/tensor-1
+#19 1170.0 /tmp/corpus/tensor-2
+#19 1170.0 /tmp/corpus/tensor-3
+#19 1170.0 /tmp/corpus/tensor-4
+#19 1170.0 /tmp/corpus/tensor-5
+#19 1170.0 /tmp/corpus/tensor-6
+#19 1170.0 /tmp/corpus/tensor-7
+#19 1170.0 /tmp/corpus/tensor-8
+#19 1170.0 /tmp/corpus/tensor-9
+#19 1170.0 /tmp/corpus/tensor-10
+#19 1170.0 /tmp/corpus/tensor-11
+#19 1170.0 /tmp/corpus/tensor-12
+#19 1170.0 /tmp/corpus/tensor-13
+#19 1170.0 /tmp/corpus/tensor-14
+#19 1170.0 /tmp/corpus/tensor-15
+#19 1170.0 /tmp/corpus/tensor-16
+#19 1170.0 + /src/arrow/cpp/build-support/fuzzing/pack_corpus.py /tmp/corpus /out/arrow-ipc-tensor-stream-fuzz_seed_corpus.zip
+#19 1170.1 + rm -rf /tmp/corpus
+#19 1170.2 + /out/parquet-arrow-generate-fuzz-corpus /tmp/corpus
+#19 1170.2 /tmp/corpus/pq-table-1
+#19 1170.2 NotImplemented: Support for codec 'brotli' not built
+#19 1170.7 Traceback (most recent call last):
+#19 1170.7   File "<string>", line 1, in <module>
+#19 1170.8   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#19 1170.8     utils.build_benchmark()
+#19 1170.8   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#19 1170.8     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#19 1170.8   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#19 1170.8     raise CalledProcessError(retcode, cmd)
+#19 1170.8 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/arrow_arrow:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+#19 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/arrow_arrow:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2810445: .afl-arrow_arrow-builder] Error 1
+make: *** [docker/generated.mk:2810445: .afl-arrow_arrow-builder] Error 1

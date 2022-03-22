@@ -1,0 +1,1156 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: miniz_miniz.
+INFO:root:Please run "make test-run-afl-miniz_miniz" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2577c0bc55a52e2c6788fbba08bd1ff0cddd01ab188bcbc6ed4eaf3e12f5c486
+#1 transferring dockerfile: 32B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:7177f621281048ca87307bf7bf9a386f7a167096915cee1f63af1f9f46337049
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:8ec35c400a1628ef8eafc112f13501ee28d39469645a6d28446f6440c7e9baea
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/miniz_miniz
+#4 sha256:13d28442c276383d2e6a532f703c79078cbde697b21792b95170cbbc79f3b294
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/miniz_miniz:latest: not found
+
+#9 [internal] load build context
+#9 sha256:8ec35c400a1628ef8eafc112f13501ee28d39469645a6d28446f6440c7e9baea
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update &&     apt-get install -y cmake
+#6 sha256:f0ea92a2203591c0db50e2f12f34385d6aeeebd8c9310670e5152f0fcca3f0f6
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/richgel999/miniz.git
+#7 sha256:b943808a743b75c1c305d39498dbb183f60135145b82c75e286d451098438678
+#7 CACHED
+
+#8 [4/5] WORKDIR miniz
+#8 sha256:4089d71cf82f9826d09843f07d5872a610b4a6be6ca0ae4e9b04520bad93251b
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:4bc4aa34adb0d16dce933487b0fdabde70aea72a3fe8578746a62e1083d2f9c0
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:cbe68846c2e9f9a12f2de21a2d7874a703e578c990c02ab6a8b1a2323b244e59 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/miniz_miniz 0.0s done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/miniz_miniz:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:46e3408a1e08c4c9af41ca499ca8eecaee8250ccdad454600d0112e0c9ae7797
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:41ee36d7b814a28e74c2b588fe2d4f25fdd0fa68d86b99e6681c3016e6baaedd
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/miniz_miniz:latest
+#3 sha256:8d5c0ce95b7c14316aee6378dce83a26b708fa38369d4167291e3e46870c242d
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/miniz_miniz
+#5 sha256:ba776af1cf2c14fdad7b2e51f2c4db2d822f5d97345a9b4a800f2f2a452846b0
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate
+#4 sha256:731d01df1c3ea8986deabdd429181df1a352d4e2c19294c687ce2a3361f9f128
+#4 ERROR: gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:e5256cb688f51999bd37f6679ec12dbba9cc2b31d4dbdb05d837011bfe4e21e7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:19c56ddf6b7fa945b12c80e8c1e7225b2acc1871568d69c662b6a52609796f1c
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:c878bc120eefe9c1e372c9a0e02d3b4249a8c1be49f18917d3254308b19a40b1 done
+#8 naming to gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:12cf0cbf184f1c5d071a29c6b724f5200dbbfa1f312260086be16b1d0c1e2f1e
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1212fca7844a89db4c78b0cbe29dc024a66d03344f8077c8b6f3d56b5640612d
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:fb79b9a2e92ddcf7ab6c7d7dbe711a1887333e0d3b8ff60bb6985bfc14013b96
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:26bb212159e41edd5618fe33fe15f4d4f3bc4dd22d43ee431fd6650acffb4cea
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:4e3650951c3d345c7908a5c3c2b6ea0b1c3d330fd203f84d5a23447204bc2a61
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:848f620858e7bce2da8cdb213c361ddaaf5efd19e7294cad34ecbeb5ef16474e
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:66b62a74b36b995ca0c00c292f19213713a352156c9b61512ff94f0b647e0ee0
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4c2db0080bf7ea050d4b18a07b73fde60ea7705e9caf8588c41b5b156e204cbe
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:abcbdb6b214bb98d86548610094780bb88511182cc14564bcbd45d18b40e26b3
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate:latest
+#3 sha256:4f3ce927ceaa48dca136c10df718e79171b234a4764f342dbec0ac65d32879fb
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d5ce811fcca8ad3ef6c662088c5fe7fe299df994eb46af3dfcf68ad36fb4c006
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate
+#6 sha256:3e7f9062f78f07624d069a83d16133ebf6866ebc6597e1fcd79b80047dc4bc41
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/miniz_miniz
+#5 sha256:0116807a9c153cb92461c4148a1dcc09912d05976d4f5e93306abf9e9ef63917
+#5 ERROR: gcr.io/fuzzbench/builders/afl/miniz_miniz:latest: not found
+
+#12 [internal] load build context
+#12 sha256:d5ce811fcca8ad3ef6c662088c5fe7fe299df994eb46af3dfcf68ad36fb4c006
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:6cfd8befd8bbafbfabb63f09dd04fa70b1ce72cee70880135f6f9b7564796156
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:3f814a01534a3f038406d356d76b81540cd6f03ff01baf263043a9caad6f28b5
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:07611087fd703156f060704bb991527b1aa589d9095f296b75903e57b1c1e0cb
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:c5c346192ac207759cec38c0d84e7cfdd2f7890771ed226214922c9ab99a8c89
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:d709bbb470e73715e9e075f40bba789a19c5d14a2f2895cd155343e37226fe0e
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:c63424ecd24747fe3f85bebd5c656075ab48343c25247fbb94bcbf2935fd04a5
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/miniz_miniz/benchmark.yaml /
+#15 sha256:622388fb54746cbdce151ec190ac75d7b07f77cb4c5ce765d1ed7ba70b130818
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:26d31741bf52696c5a5dfdd1fc7aec265b2b980448572ff5d383e6154dff08df
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:1c2733f6fed38744e76c28da9219f02e1cba8e0036ca097f01316738e0d975e6
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:75c207da8c8eb0900a81963e850bbae3822c95a2a907010b7b1b739b601896ee
+#18 0.567 Checking out commit 0c21b09b
+#18 2.895 From https://github.com/richgel999/miniz
+#18 2.895  * [new tag]         2.0.0      -> 2.0.0
+#18 2.895  * [new tag]         2.0.1      -> 2.0.1
+#18 2.896  * [new tag]         2.0.2      -> 2.0.2
+#18 2.896  * [new tag]         2.0.3      -> 2.0.3
+#18 2.896  * [new tag]         2.0.4      -> 2.0.4
+#18 2.896  * [new tag]         2.0.5      -> 2.0.5
+#18 2.897  * [new tag]         2.0.6      -> 2.0.6
+#18 2.897  * [new tag]         2.0.7      -> 2.0.7
+#18 2.897  * [new tag]         2.0.8      -> 2.0.8
+#18 2.897  * [new tag]         2.1.0      -> 2.1.0
+#18 2.898  * [new tag]         2.2.0      -> 2.2.0
+#18 2.905 error: pathspec '0c21b09b' did not match any file(s) known to git
+#18 2.910 error: pathspec '0c21b09b' did not match any file(s) known to git
+#18 2.917 error: pathspec '0c21b09b' did not match any file(s) known to git
+#18 2.954 Checkout unsuccessful.
+#18 DONE 5.4s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a04768f5ab7618b7ccabc9dbaf9b8abed9cd289574b4f6da88482789e8efeb1c
+#19 DONE 1.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:ec41609f9d3d68c8a1cf455f26fa4033bfd3fca75e99e5e1ddc15150d77837ff
+#20 0.552 Run fuzzer_build to build the target
+#20 0.669 FUZZ_TARGET = miniz
+#20 0.669 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.669 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.674 Building benchmark miniz_miniz with fuzzer afl
+#20 0.677 + /src/miniz/tests/ossfuzz.sh
+#20 0.892 -- The C compiler identification is Clang 14.0.0
+#20 0.906 -- Detecting C compiler ABI info
+#20 1.060 -- Detecting C compiler ABI info - done
+#20 1.110 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.110 -- Detecting C compile features
+#20 1.111 -- Detecting C compile features - done
+#20 1.127 -- Zip files: miniz.c;miniz.h;examples/example1.c;examples/example2.c;examples/example3.c;examples/example4.c;examples/example5.c;examples/example6.c;ChangeLog.md;readme.md;LICENSE
+#20 1.131 -- Configuring done
+#20 1.167 -- Generating done
+#20 1.170 -- Build files have been written to: /src/miniz/build
+#20 1.178 /usr/local/bin/cmake -S/src/miniz -B/src/miniz/build --check-build-system CMakeFiles/Makefile.cmake 0
+#20 1.183 /usr/local/bin/cmake -E cmake_progress_start /src/miniz/build/CMakeFiles /src/miniz/build//CMakeFiles/progress.marks
+#20 1.186 make  -f CMakeFiles/Makefile2 all
+#20 1.188 make[1]: Entering directory '/src/miniz/build'
+#20 1.188 make  -f CMakeFiles/miniz.dir/build.make CMakeFiles/miniz.dir/depend
+#20 1.189 make  -f CMakeFiles/create_zip.dir/build.make CMakeFiles/create_zip.dir/depend
+#20 1.190 make[2]: Entering directory '/src/miniz/build'
+#20 1.190 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/miniz.dir/DependInfo.cmake --color=
+#20 1.190 make[2]: Entering directory '/src/miniz/build'
+#20 1.190 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/create_zip.dir/DependInfo.cmake --color=
+#20 1.194 make[2]: Leaving directory '/src/miniz/build'
+#20 1.195 make[2]: Leaving directory '/src/miniz/build'
+#20 1.195 make  -f CMakeFiles/create_zip.dir/build.make CMakeFiles/create_zip.dir/build
+#20 1.195 make  -f CMakeFiles/miniz.dir/build.make CMakeFiles/miniz.dir/build
+#20 1.197 make[2]: Entering directory '/src/miniz/build'
+#20 1.197 make[2]: Entering directory '/src/miniz/build'
+#20 1.200 [  2%] Zipping to /src/miniz/build/miniz.zip.
+#20 1.200 [  5%] Building C object CMakeFiles/miniz.dir/amalgamation/miniz.c.o
+#20 1.200 cd /src/miniz/build/amalgamation && /usr/local/bin/cmake -E copy_directory /src/miniz/examples /src/miniz/build/amalgamation/examples
+#20 1.200 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/miniz.dir/amalgamation/miniz.c.o -MF CMakeFiles/miniz.dir/amalgamation/miniz.c.o.d -o CMakeFiles/miniz.dir/amalgamation/miniz.c.o -c /src/miniz/build/amalgamation/miniz.c
+#20 1.204 cd /src/miniz/build/amalgamation && /usr/local/bin/cmake -E copy /src/miniz/ChangeLog.md /src/miniz/build/amalgamation/ChangeLog.md
+#20 1.207 cd /src/miniz/build/amalgamation && /usr/local/bin/cmake -E copy /src/miniz/readme.md /src/miniz/build/amalgamation/readme.md
+#20 1.211 cd /src/miniz/build/amalgamation && /usr/local/bin/cmake -E copy /src/miniz/LICENSE /src/miniz/build/amalgamation/LICENSE
+#20 1.213 cd /src/miniz/build/amalgamation && /usr/local/bin/cmake -E tar cf /src/miniz/build/miniz-2.2.0.zip --format=zip -- miniz.c miniz.h examples/example1.c examples/example2.c examples/example3.c examples/example4.c examples/example5.c examples/example6.c ChangeLog.md readme.md LICENSE
+#20 1.265 make[2]: Leaving directory '/src/miniz/build'
+#20 1.267 [  5%] Built target create_zip
+#20 1.328 /src/miniz/build/amalgamation/miniz.c:3149:9: warning: Using fopen, ftello, fseeko, stat() etc. path for file I/O - this path may not support large files. [-W#pragma-messages]
+#20 1.328 #pragma message("Using fopen, ftello, fseeko, stat() etc. path for file I/O - this path may not support large files.")
+#20 1.328         ^
+#20 4.299 1 warning generated.
+#20 4.307 [  7%] Linking C static library libminiz.a
+#20 4.307 /usr/local/bin/cmake -P CMakeFiles/miniz.dir/cmake_clean_target.cmake
+#20 4.311 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/miniz.dir/link.txt --verbose=1
+#20 4.313 /usr/local/bin/llvm-ar qc libminiz.a CMakeFiles/miniz.dir/amalgamation/miniz.c.o
+#20 4.317 /usr/local/bin/llvm-ranlib libminiz.a
+#20 4.322 make[2]: Leaving directory '/src/miniz/build'
+#20 4.325 [  7%] Built target miniz
+#20 4.326 make  -f CMakeFiles/zip_fuzzer.dir/build.make CMakeFiles/zip_fuzzer.dir/depend
+#20 4.326 make  -f CMakeFiles/large_fuzzer.dir/build.make CMakeFiles/large_fuzzer.dir/depend
+#20 4.327 make  -f CMakeFiles/small_fuzzer.dir/build.make CMakeFiles/small_fuzzer.dir/depend
+#20 4.327 make  -f CMakeFiles/uncompress2_fuzzer.dir/build.make CMakeFiles/uncompress2_fuzzer.dir/depend
+#20 4.327 make  -f CMakeFiles/uncompress_fuzzer.dir/build.make CMakeFiles/uncompress_fuzzer.dir/depend
+#20 4.328 make  -f CMakeFiles/compress_fuzzer.dir/build.make CMakeFiles/compress_fuzzer.dir/depend
+#20 4.328 make[2]: Entering directory '/src/miniz/build'
+#20 4.328 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/zip_fuzzer.dir/DependInfo.cmake --color=
+#20 4.328 make  -f CMakeFiles/example1.dir/build.make CMakeFiles/example1.dir/depend
+#20 4.329 make[2]: Entering directory '/src/miniz/build'
+#20 4.329 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/large_fuzzer.dir/DependInfo.cmake --color=
+#20 4.329 make  -f CMakeFiles/example6.dir/build.make CMakeFiles/example6.dir/depend
+#20 4.329 make[2]: Entering directory '/src/miniz/build'
+#20 4.329 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/small_fuzzer.dir/DependInfo.cmake --color=
+#20 4.330 make[2]: Entering directory '/src/miniz/build'
+#20 4.330 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/uncompress2_fuzzer.dir/DependInfo.cmake --color=
+#20 4.330 make[2]: Entering directory '/src/miniz/build'
+#20 4.330 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/uncompress_fuzzer.dir/DependInfo.cmake --color=
+#20 4.330 make[2]: Entering directory '/src/miniz/build'
+#20 4.330 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/compress_fuzzer.dir/DependInfo.cmake --color=
+#20 4.331 make[2]: Entering directory '/src/miniz/build'
+#20 4.331 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/example1.dir/DependInfo.cmake --color=
+#20 4.333 make[2]: Entering directory '/src/miniz/build'
+#20 4.333 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/example6.dir/DependInfo.cmake --color=
+#20 4.334 make[2]: Leaving directory '/src/miniz/build'
+#20 4.334 make[2]: Leaving directory '/src/miniz/build'
+#20 4.334 make  -f CMakeFiles/large_fuzzer.dir/build.make CMakeFiles/large_fuzzer.dir/build
+#20 4.334 make[2]: Leaving directory '/src/miniz/build'
+#20 4.335 make[2]: Leaving directory '/src/miniz/build'
+#20 4.335 make  -f CMakeFiles/zip_fuzzer.dir/build.make CMakeFiles/zip_fuzzer.dir/build
+#20 4.335 make[2]: Leaving directory '/src/miniz/build'
+#20 4.335 make  -f CMakeFiles/small_fuzzer.dir/build.make CMakeFiles/small_fuzzer.dir/build
+#20 4.335 make  -f CMakeFiles/uncompress2_fuzzer.dir/build.make CMakeFiles/uncompress2_fuzzer.dir/build
+#20 4.336 make[2]: Entering directory '/src/miniz/build'
+#20 4.336 make[2]: Leaving directory '/src/miniz/build'
+#20 4.336 make[2]: Leaving directory '/src/miniz/build'
+#20 4.337 make  -f CMakeFiles/uncompress_fuzzer.dir/build.make CMakeFiles/uncompress_fuzzer.dir/build
+#20 4.337 make[2]: Entering directory '/src/miniz/build'
+#20 4.337 make[2]: Entering directory '/src/miniz/build'
+#20 4.337 make  -f CMakeFiles/compress_fuzzer.dir/build.make CMakeFiles/compress_fuzzer.dir/build
+#20 4.338 make  -f CMakeFiles/example1.dir/build.make CMakeFiles/example1.dir/build
+#20 4.338 make[2]: Leaving directory '/src/miniz/build'
+#20 4.338 make[2]: Entering directory '/src/miniz/build'
+#20 4.339 make  -f CMakeFiles/example6.dir/build.make CMakeFiles/example6.dir/build
+#20 4.339 make[2]: Entering directory '/src/miniz/build'
+#20 4.340 make[2]: Entering directory '/src/miniz/build'
+#20 4.340 [ 10%] Building C object CMakeFiles/large_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.340 [ 12%] Building C object CMakeFiles/zip_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.340 [ 15%] Building C object CMakeFiles/small_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.340 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/large_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/large_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/large_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.341 make[2]: Entering directory '/src/miniz/build'
+#20 4.341 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/zip_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/zip_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/zip_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.341 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/small_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/small_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/small_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.341 make[2]: Entering directory '/src/miniz/build'
+#20 4.342 [ 17%] Building C object CMakeFiles/uncompress2_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.342 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/uncompress2_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/uncompress2_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/uncompress2_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.343 [ 20%] Building C object CMakeFiles/uncompress_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.343 [ 23%] Building C object CMakeFiles/example1.dir/examples/example1.c.o
+#20 4.344 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/uncompress_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/uncompress_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/uncompress_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.344 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/example1.dir/examples/example1.c.o -MF CMakeFiles/example1.dir/examples/example1.c.o.d -o CMakeFiles/example1.dir/examples/example1.c.o -c /src/miniz/examples/example1.c
+#20 4.345 [ 25%] Building C object CMakeFiles/example6.dir/examples/example6.c.o
+#20 4.346 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/example6.dir/examples/example6.c.o -MF CMakeFiles/example6.dir/examples/example6.c.o.d -o CMakeFiles/example6.dir/examples/example6.c.o -c /src/miniz/examples/example6.c
+#20 4.346 [ 28%] Building C object CMakeFiles/compress_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.346 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/compress_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/compress_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/compress_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.385 /src/miniz/tests/fuzz_main.c:54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.386 /src/miniz/tests/fuzz_main.c:}54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.386 
+#20 4.386 }
+#20 4.386  ^
+#20 4.386  ^
+#20 4.386 /src/miniz/tests/fuzz_main.c:54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.386 }
+#20 4.386  ^
+#20 4.390 /src/miniz/tests/fuzz_main.c:54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.391 }
+#20 4.391  ^
+#20 4.392 /src/miniz/tests/fuzz_main.c:54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.393 }
+#20 4.393 /src/miniz/tests/fuzz_main.c:54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.393 }
+#20 4.393  ^
+#20 4.394  ^
+#20 4.403 11 warning generated.
+#20 4.404  warning generated.
+#20 4.405 1 warning generated.
+#20 4.409 1 warning generated.
+#20 4.410 [ 30%] Building C object CMakeFiles/uncompress2_fuzzer.dir/tests/uncompress2_fuzzer.c.o
+#20 4.410 [ 33%] Building C object CMakeFiles/uncompress_fuzzer.dir/tests/uncompress_fuzzer.c.o
+#20 4.411 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/uncompress2_fuzzer.dir/tests/uncompress2_fuzzer.c.o -MF CMakeFiles/uncompress2_fuzzer.dir/tests/uncompress2_fuzzer.c.o.d -o CMakeFiles/uncompress2_fuzzer.dir/tests/uncompress2_fuzzer.c.o -c /src/miniz/tests/uncompress2_fuzzer.c
+#20 4.411 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/uncompress_fuzzer.dir/tests/uncompress_fuzzer.c.o -MF CMakeFiles/uncompress_fuzzer.dir/tests/uncompress_fuzzer.c.o.d -o CMakeFiles/uncompress_fuzzer.dir/tests/uncompress_fuzzer.c.o -c /src/miniz/tests/uncompress_fuzzer.c
+#20 4.411 1 warning generated.
+#20 4.413 1 warning generated[ 35%] Building C object CMakeFiles/zip_fuzzer.dir/tests/zip_fuzzer.c.o
+#20 4.413 .
+#20 4.414 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/zip_fuzzer.dir/tests/zip_fuzzer.c.o -MF CMakeFiles/zip_fuzzer.dir/tests/zip_fuzzer.c.o.d -o CMakeFiles/zip_fuzzer.dir/tests/zip_fuzzer.c.o -c /src/miniz/tests/zip_fuzzer.c
+#20 4.418 [ 38%] Building C object CMakeFiles/compress_fuzzer.dir/tests/compress_fuzzer.c.o
+#20 4.418 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/compress_fuzzer.dir/tests/compress_fuzzer.c.o -MF CMakeFiles/compress_fuzzer.dir/tests/compress_fuzzer.c.o.d -o CMakeFiles/compress_fuzzer.dir/tests/compress_fuzzer.c.o -c /src/miniz/tests/compress_fuzzer.c
+#20 4.420 [ 41%] Building C object CMakeFiles/small_fuzzer.dir/tests/small_fuzzer.c.o
+#20 4.421 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/small_fuzzer.dir/tests/small_fuzzer.c.o -MF CMakeFiles/small_fuzzer.dir/tests/small_fuzzer.c.o.d -o CMakeFiles/small_fuzzer.dir/tests/small_fuzzer.c.o -c /src/miniz/tests/small_fuzzer.c
+#20 4.424 [ 43%] Building C object CMakeFiles/large_fuzzer.dir/tests/large_fuzzer.c.o
+#20 4.424 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/large_fuzzer.dir/tests/large_fuzzer.c.o -MF CMakeFiles/large_fuzzer.dir/tests/large_fuzzer.c.o.d -o CMakeFiles/large_fuzzer.dir/tests/large_fuzzer.c.o -c /src/miniz/tests/large_fuzzer.c
+#20 4.457 [ 46%] Linking C executable ../bin/example1
+#20 4.457 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/example1.dir/link.txt --verbose=1
+#20 4.460 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/example1.dir/examples/example1.c.o -o ../bin/example1  libminiz.a 
+#20 4.477 /src/miniz/tests/zip_fuzzer.c:41:17: warning: declaration shadows a local variable [-Wshadow]
+#20 4.477         mz_uint ret = mz_zip_reader_get_filename(&zip, i, filename, filename_max);
+#20 4.477                 ^
+#20 4.478 /src/miniz/tests/zip_fuzzer.c:17:9: note: previous declaration is here
+#20 4.478     int ret = 0;
+#20 4.479         ^
+#20 4.479 /src/miniz/tests/zip_fuzzer.c:41:17: warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+#20 4.480         mz_uint ret = mz_zip_reader_get_filename(&zip, i, filename, filename_max);
+#20 4.480                 ^
+#20 4.480 /src/miniz/tests/zip_fuzzer.c:41:17: warning: unused variable 'ret' [-Wunused-variable]
+#20 4.481 /src/miniz/tests/zip_fuzzer.c:46:17: warning: unused variable 'status' [-Wunused-variable]
+#20 4.481         mz_bool status = mz_zip_reader_file_stat(&zip, i, &file_stat) != 0;
+#20 4.481                 ^
+#20 4.482 /src/miniz/tests/zip_fuzzer.c:57:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.483 }
+#20 4.483  ^
+#20 4.483 /src/miniz/tests/zip_fuzzer.c:17:9: warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+#20 4.484     int ret = 0;
+#20 4.484         ^
+#20 4.485 /src/miniz/tests/zip_fuzzer.c:53:1: warning: unused label 'cleanup' [-Wunused-label]
+#20 4.486 cleanup:
+#20 4.486 ^~~~~~~~
+#20 4.487 [ 48%] Linking C executable ../bin/uncompress2_fuzzer
+#20 4.488 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/uncompress2_fuzzer.dir/link.txt --verbose=1
+#20 4.490 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/uncompress2_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/uncompress2_fuzzer.dir/tests/uncompress2_fuzzer.c.o -o ../bin/uncompress2_fuzzer  libminiz.a 
+#20 4.491 [ 51%] Linking C executable ../bin/uncompress_fuzzer
+#20 4.492 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/uncompress_fuzzer.dir/link.txt --verbose=1
+#20 4.494 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/uncompress_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/uncompress_fuzzer.dir/tests/uncompress_fuzzer.c.o -o ../bin/uncompress_fuzzer  libminiz.a 
+#20 4.509 [ 53%] Linking C executable ../bin/example6
+#20 4.510 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/example6.dir/link.txt --verbose=1
+#20 4.511 7 warnings generated.
+#20 4.513 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/example6.dir/examples/example6.c.o -o ../bin/example6  libminiz.a -lm 
+#20 4.519 [ 56%] Linking C executable ../bin/zip_fuzzer
+#20 4.520 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/zip_fuzzer.dir/link.txt --verbose=1
+#20 4.523 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/zip_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/zip_fuzzer.dir/tests/zip_fuzzer.c.o -o ../bin/zip_fuzzer  libminiz.a 
+#20 4.524 [ 58%] Linking C executable ../bin/compress_fuzzer
+#20 4.525 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/compress_fuzzer.dir/link.txt --verbose=1
+#20 4.531 [ 61%] Linking C executable ../bin/large_fuzzer
+#20 4.531 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/large_fuzzer.dir/link.txt --verbose=1
+#20 4.533 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/large_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/large_fuzzer.dir/tests/large_fuzzer.c.o -o ../bin/large_fuzzer  libminiz.a 
+#20 4.537 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/compress_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/compress_fuzzer.dir/tests/compress_fuzzer.c.o -o ../bin/compress_fuzzer  libminiz.a 
+#20 4.541 [ 64%] Linking C executable ../bin/small_fuzzer
+#20 4.542 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/small_fuzzer.dir/link.txt --verbose=1
+#20 4.545 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/small_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/small_fuzzer.dir/tests/small_fuzzer.c.o -o ../bin/small_fuzzer  libminiz.a 
+#20 4.663 make[2]: Leaving directory '/src/miniz/build'
+#20 4.668 [ 64%] Built target example1
+#20 4.669 make  -f CMakeFiles/example3.dir/build.make CMakeFiles/example3.dir/depend
+#20 4.671 make[2]: Entering directory '/src/miniz/build'
+#20 4.672 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/example3.dir/DependInfo.cmake --color=
+#20 4.677 make[2]: Leaving directory '/src/miniz/build'
+#20 4.678 make  -f CMakeFiles/example3.dir/build.make CMakeFiles/example3.dir/build
+#20 4.681 make[2]: Entering directory '/src/miniz/build'
+#20 4.686 [ 66%] Building C object CMakeFiles/example3.dir/examples/example3.c.o
+#20 4.687 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/example3.dir/examples/example3.c.o -MF CMakeFiles/example3.dir/examples/example3.c.o.d -o CMakeFiles/example3.dir/examples/example3.c.o -c /src/miniz/examples/example3.c
+#20 4.695 make[2]: Leaving directory '/src/miniz/build'
+#20 4.700 make[2]: Leaving directory '/src/miniz/build'
+#20 4.702 [ 66%] Built target uncompress2_fuzzer
+#20 4.703 make  -f CMakeFiles/example4.dir/build.make CMakeFiles/example4.dir/depend
+#20 4.705 make[2]: Entering directory '/src/miniz/build'
+#20 4.705 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/example4.dir/DependInfo.cmake --color=
+#20 4.706 [ 66%] Built target uncompress_fuzzer
+#20 4.707 make  -f CMakeFiles/example2.dir/build.make CMakeFiles/example2.dir/depend
+#20 4.711 make[2]: Entering directory '/src/miniz/build'
+#20 4.711 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/example2.dir/DependInfo.cmake --color=
+#20 4.712 make[2]: Leaving directory '/src/miniz/build'
+#20 4.712 make  -f CMakeFiles/example4.dir/build.make CMakeFiles/example4.dir/build
+#20 4.714 make[2]: Leaving directory '/src/miniz/build'
+#20 4.715 make[2]: Entering directory '/src/miniz/build'
+#20 4.716 make[2]: Leaving directory '/src/miniz/build'
+#20 4.717 make  -f CMakeFiles/example2.dir/build.make CMakeFiles/example2.dir/build
+#20 4.719 [ 69%] Building C object CMakeFiles/example4.dir/examples/example4.c.o
+#20 4.719 [ 69%] Built target example6
+#20 4.719 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/example4.dir/examples/example4.c.o -MF CMakeFiles/example4.dir/examples/example4.c.o.d -o CMakeFiles/example4.dir/examples/example4.c.o -c /src/miniz/examples/example4.c
+#20 4.719 make  -f CMakeFiles/checksum_fuzzer.dir/build.make CMakeFiles/checksum_fuzzer.dir/depend
+#20 4.721 make[2]: Entering directory '/src/miniz/build'
+#20 4.721 make[2]: Entering directory '/src/miniz/build'
+#20 4.722 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/checksum_fuzzer.dir/DependInfo.cmake --color=
+#20 4.727 make[2]: Leaving directory '/src/miniz/build'
+#20 4.727 make  -f CMakeFiles/checksum_fuzzer.dir/build.make CMakeFiles/checksum_fuzzer.dir/build
+#20 4.729 [ 71%] Building C object CMakeFiles/example2.dir/examples/example2.c.o
+#20 4.730 make[2]: Entering directory '/src/miniz/build'
+#20 4.730 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/example2.dir/examples/example2.c.o -MF CMakeFiles/example2.dir/examples/example2.c.o.d -o CMakeFiles/example2.dir/examples/example2.c.o -c /src/miniz/examples/example2.c
+#20 4.735 make[2]: Leaving directory '/src/miniz/build'
+#20 4.736 [ 74%] Building C object CMakeFiles/checksum_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.737 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/checksum_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/checksum_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/checksum_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.741 make[2]: Leaving directory '/src/miniz/build'
+#20 4.742 [ 74%] Built target zip_fuzzer
+#20 4.742 make  -f CMakeFiles/example5.dir/build.make CMakeFiles/example5.dir/depend
+#20 4.744 make[2]: Entering directory '/src/miniz/build'
+#20 4.745 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/example5.dir/DependInfo.cmake --color=
+#20 4.746 [ 74%] Built target large_fuzzer
+#20 4.748 make  -f CMakeFiles/flush_fuzzer.dir/build.make CMakeFiles/flush_fuzzer.dir/depend
+#20 4.750 make[2]: Entering directory '/src/miniz/build'
+#20 4.750 make[2]: Leaving directory '/src/miniz/build'
+#20 4.750 cd /src/miniz/build && /usr/local/bin/cmake -E cmake_depends "Unix Makefiles" /src/miniz /src/miniz /src/miniz/build /src/miniz/build /src/miniz/build/CMakeFiles/flush_fuzzer.dir/DependInfo.cmake --color=
+#20 4.750 make  -f CMakeFiles/example5.dir/build.make CMakeFiles/example5.dir/build
+#20 4.750 make[2]: Leaving directory '/src/miniz/build'
+#20 4.753 make[2]: Entering directory '/src/miniz/build'
+#20 4.755 [ 74%] Built target compress_fuzzer
+#20 4.755 make[2]: Leaving directory '/src/miniz/build'
+#20 4.755 make[2]: Leaving directory '/src/miniz/build'
+#20 4.755 make  -f CMakeFiles/flush_fuzzer.dir/build.make CMakeFiles/flush_fuzzer.dir/build
+#20 4.757 [ 76%] Building C object CMakeFiles/example5.dir/examples/example5.c.o
+#20 4.757 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/example5.dir/examples/example5.c.o -MF CMakeFiles/example5.dir/examples/example5.c.o.d -o CMakeFiles/example5.dir/examples/example5.c.o -c /src/miniz/examples/example5.c
+#20 4.758 make[2]: Entering directory '/src/miniz/build'
+#20 4.759 [ 76%] Built target small_fuzzer
+#20 4.760 [ 79%] Building C object CMakeFiles/checksum_fuzzer.dir/tests/checksum_fuzzer.c.o
+#20 4.761 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/checksum_fuzzer.dir/tests/checksum_fuzzer.c.o -MF CMakeFiles/checksum_fuzzer.dir/tests/checksum_fuzzer.c.o.d -o CMakeFiles/checksum_fuzzer.dir/tests/checksum_fuzzer.c.o -c /src/miniz/tests/checksum_fuzzer.c
+#20 4.763 [ 82%] Building C object CMakeFiles/flush_fuzzer.dir/tests/fuzz_main.c.o
+#20 4.764 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/flush_fuzzer.dir/tests/fuzz_main.c.o -MF CMakeFiles/flush_fuzzer.dir/tests/fuzz_main.c.o.d -o CMakeFiles/flush_fuzzer.dir/tests/fuzz_main.c.o -c /src/miniz/tests/fuzz_main.c
+#20 4.764 [ 84%] Building C object CMakeFiles/flush_fuzzer.dir/tests/flush_fuzzer.c.o
+#20 4.765 /usr/local/bin/clang  -I/src/miniz/build/amalgamation -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -std=gnu90 -MD -MT CMakeFiles/flush_fuzzer.dir/tests/flush_fuzzer.c.o -MF CMakeFiles/flush_fuzzer.dir/tests/flush_fuzzer.c.o.d -o CMakeFiles/flush_fuzzer.dir/tests/flush_fuzzer.c.o -c /src/miniz/tests/flush_fuzzer.c
+#20 4.782 /src/miniz/tests/fuzz_main.c:54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.783 }
+#20 4.783  ^
+#20 4.801 1 warning generated.
+#20 4.809 /src/miniz/tests/fuzz_main.c:54:2: warning: no newline at end of file [-Wnewline-eof]
+#20 4.810 }
+#20 4.810  ^
+#20 4.814 [ 87%] Linking C executable ../bin/example4
+#20 4.815 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/example4.dir/link.txt --verbose=1
+#20 4.818 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/example4.dir/examples/example4.c.o -o ../bin/example4  libminiz.a 
+#20 4.824 1 warning generated.
+#20 4.829 /src/miniz/tests/checksum_fuzzer.c:18:14: warning: ISO C90 forbids mixing declarations and code [-Wdeclaration-after-statement]
+#20 4.829     uint32_t crc = crc32(0L, NULL, 0);
+#20 4.829              ^
+#20 4.840 1 warning generated.
+#20 4.842 [ 89%] Linking C executable ../bin/example3
+#20 4.843 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/example3.dir/link.txt --verbose=1
+#20 4.845 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/example3.dir/examples/example3.c.o -o ../bin/example3  libminiz.a 
+#20 4.847 [ 92%] Linking C executable ../bin/checksum_fuzzer
+#20 4.847 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/checksum_fuzzer.dir/link.txt --verbose=1
+#20 4.849 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/checksum_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/checksum_fuzzer.dir/tests/checksum_fuzzer.c.o -o ../bin/checksum_fuzzer  libminiz.a 
+#20 4.850 [ 94%] Linking C executable ../bin/flush_fuzzer
+#20 4.850 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/flush_fuzzer.dir/link.txt --verbose=1
+#20 4.852 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/flush_fuzzer.dir/tests/fuzz_main.c.o CMakeFiles/flush_fuzzer.dir/tests/flush_fuzzer.c.o -o ../bin/flush_fuzzer  libminiz.a 
+#20 4.858 [ 97%] Linking C executable ../bin/example2
+#20 4.858 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/example2.dir/link.txt --verbose=1
+#20 4.861 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/example2.dir/examples/example2.c.o -o ../bin/example2  libminiz.a 
+#20 4.906 [100%] Linking C executable ../bin/example5
+#20 4.907 /usr/local/bin/cmake -E cmake_link_script CMakeFiles/example5.dir/link.txt --verbose=1
+#20 4.909 /usr/local/bin/clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wshadow -Wformat=2 -Wall -Wno-overlength-strings -pedantic -O3 -DNDEBUG -rdynamic CMakeFiles/example5.dir/examples/example5.c.o -o ../bin/example5  libminiz.a 
+#20 4.963 make[2]: Leaving directory '/src/miniz/build'
+#20 4.966 [100%] Built target example4
+#20 4.993 make[2]: Leaving directory '/src/miniz/build'
+#20 4.996 [100%] Built target flush_fuzzer
+#20 5.039 make[2]: Leaving directory '/src/miniz/build'
+#20 5.042 [100%] Built target example3
+#20 5.044 make[2]: Leaving directory '/src/miniz/build'
+#20 5.047 [100%] Built target checksum_fuzzer
+#20 5.048 make[2]: Leaving directory '/src/miniz/build'
+#20 5.050 [100%] Built target example2
+#20 5.078 make[2]: Leaving directory '/src/miniz/build'
+#20 5.082 [100%] Built target example5
+#20 5.082 make[1]: Leaving directory '/src/miniz/build'
+#20 5.083 /usr/local/bin/cmake -E cmake_progress_start /src/miniz/build/CMakeFiles 0
+#20 5.089   adding: CMakeLists.txt (deflated 75%)
+#20 5.090   adding: ChangeLog.md (deflated 63%)
+#20 5.091   adding: Config.cmake.in (stored 0%)
+#20 5.091   adding: afl-llvm-rt.o.o (deflated 66%)
+#20 5.092   adding: afl_driver.o (deflated 72%)
+#20 5.095   adding: amalgamate.sh (deflated 61%)
+#20 5.095   adding: meson.build (deflated 59%)
+#20 5.095   adding: miniz.c (deflated 71%)
+#20 5.097   adding: miniz.h (deflated 69%)
+#20 5.098   adding: miniz.pc.in (deflated 34%)
+#20 5.098   adding: miniz_common.h (deflated 66%)
+#20 5.099   adding: miniz_tdef.c (deflated 81%)
+#20 5.102   adding: miniz_tdef.h (deflated 66%)
+#20 5.102   adding: miniz_tinfl.c (deflated 80%)
+#20 5.104   adding: miniz_tinfl.h (deflated 65%)
+#20 5.104   adding: miniz_zip.c (deflated 84%)
+#20 5.112   adding: miniz_zip.h (deflated 76%)
+#20 5.113   adding: readme.md (deflated 51%)
+#20 5.113   adding: test.sh (deflated 55%)
+#20 7.627   adding: out/seed_corpus.zip (stored 0%)
+#20 7.632 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 8.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a15c82fe7928c5bf744d843db233239e327f8cc6125afd96fa8d958f92526d5c 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/miniz_miniz done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/miniz_miniz:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:945279b709333df6f7162e0182d96ba78c3f5ca97cfdcce1085a7c745b735daa
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:19ee48cc07850391fd4d0e971f29e536b9dc0412cba71e4a3e0383717d4e66b5
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate
+#5 sha256:086b38241ada12d75717e414c56860bbcbbe5e39caffd9ddecf3c6783b0ecd22
+#5 ERROR: gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate 0.0s done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:407ca4a62530c139e3626d1ef2179fb915d7d592286c6798266d69f7204b4985
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1565180f4ce5f26b22121741bf70c2bb7cfa764b3a11a9806705a9e19d8d54e8
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate:latest
+#3 sha256:67fa2dddb56e22b0ffa2c7f6eab2532df18d30d30b021c8611944cb9180f02e6
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/miniz_miniz:latest
+#4 sha256:cab117255b37fad02e02387c60cf3b6cc5f1deef0e0c676dbeb1804bc327eba5
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1d66ad4c5fbd3f0146b4fab9ad1bb3a65ccec621c05e2e3605031df7a9413ae6
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/miniz_miniz
+#5 sha256:a8f200164eff6a06c9527a0e1c1b9ad48e3e9372b66c92f5b3efe2d734fd8f99
+#5 ERROR: gcr.io/fuzzbench/runners/afl/miniz_miniz:latest: not found
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate
+#6 sha256:6a0e64cd452a5f317501008c2c1f532296623c4917309d0492deacbd8ffd29a3
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1d66ad4c5fbd3f0146b4fab9ad1bb3a65ccec621c05e2e3605031df7a9413ae6
+#12 transferring context: 17.56MB 0.6s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/miniz_miniz
+#10 sha256:1f736e1e4ca548da1977c3c990df1fb5d218cca3a17a51f940e5451da6a4dca0
+#10 DONE 1.3s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:be1bd081e61c270334d14f1f983969c60776f965474126f43b5136d544636ab7
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:83b607e043dbaf22782a606e14dab71b8a311f1f6df1687a1a4dae28481ff0b3
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:84523831580a306726ccf10db9b9116a7b78ea171998df8e5594c319f83cfa19
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:5f818a9021bcc35f6a1ed2e0ba510f54acc19b519d4f09a6817232b3c178b370
+#11 DONE 0.4s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:35be9ad9ee6e1b72260b15911ce3fa707f65b0620a7cd65754b729736a2cfed2
+#13 DONE 1.3s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:c1b25a17ec8105d8aa5bacfd1870efc405e5e7f064635e4b645e648ca4d35112
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:8741936843951b85be4ce8abf88cf88f7ac3554e64a5ef251992212b894ac4a9
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:c37a094829c96a20543f11756fe7b3fd9bc8f3188a261dc60158e4a08ece5d45
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:ec684ef061b85b7f999a39911efd41ca4d289215ca20f4c0657ff11e6939470e
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:99c053c0c7d7d80de94c8e442a4504b3179524b4f35692fb3eea167971c6c551
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:8247ca59d666840e39d1d08b3872df5eff673a90298bc0932b4dfd3e68cd2243
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:18fe640839fe343c0b08ed57a3af25bf975a5b46d12a2fd29c8768a5bcdb80b1
+#20 DONE 0.7s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:c95ac33c8b7a5ae0201a580edbd51af52175fb18fb6a2c65895aadbf2e528130 done
+#21 naming to gcr.io/fuzzbench/runners/afl/miniz_miniz done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/miniz_miniz:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f92a4c4ff70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:dbc86f89afe3debfd1bfd7289dcde89eb45a11a5c68d03374e28064f9ace6b6b
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e42802a81f35182b8407143b8c0eba1543d5e77c5e4df2593f4f30c96669280e
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/miniz_miniz
+#4 sha256:13d28442c276383d2e6a532f703c79078cbde697b21792b95170cbbc79f3b294
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:d65bc3914f798e6e9f69b85afa343f600d04a0664ce3c6bd16123f79831c70f6
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#8 [4/5] WORKDIR miniz
+#8 sha256:4089d71cf82f9826d09843f07d5872a610b4a6be6ca0ae4e9b04520bad93251b
+#8 CACHED
+
+#6 [2/5] RUN apt-get update &&     apt-get install -y cmake
+#6 sha256:f0ea92a2203591c0db50e2f12f34385d6aeeebd8c9310670e5152f0fcca3f0f6
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/richgel999/miniz.git
+#7 sha256:b943808a743b75c1c305d39498dbb183f60135145b82c75e286d451098438678
+#7 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:501d540fec80c5f2a280a50a50eda9b749606e5e251094e9982eb66b5216c1f3
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:cbe68846c2e9f9a12f2de21a2d7874a703e578c990c02ab6a8b1a2323b244e59 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/miniz_miniz done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:7c2eb138cc4b85eda350dbed86e033dd7b2669fbb7866f3396c8c765150bcba5
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:803a886ff59e7137f9609ecdcbf870fc3d930fd56408ad3efab9e00c8298c273
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/miniz_miniz:latest
+#3 sha256:8d5c0ce95b7c14316aee6378dce83a26b708fa38369d4167291e3e46870c242d
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/miniz_miniz
+#5 sha256:ba776af1cf2c14fdad7b2e51f2c4db2d822f5d97345a9b4a800f2f2a452846b0
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate
+#4 sha256:731d01df1c3ea8986deabdd429181df1a352d4e2c19294c687ce2a3361f9f128
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:e5256cb688f51999bd37f6679ec12dbba9cc2b31d4dbdb05d837011bfe4e21e7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:19c56ddf6b7fa945b12c80e8c1e7225b2acc1871568d69c662b6a52609796f1c
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:c878bc120eefe9c1e372c9a0e02d3b4249a8c1be49f18917d3254308b19a40b1
+#8 writing image sha256:c878bc120eefe9c1e372c9a0e02d3b4249a8c1be49f18917d3254308b19a40b1 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:a7d9947ee2732750ca5e1b2d0f4aac862068b9e4fdb3d493235753a02938f39a
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:79e0fde5ce941a374a6f0f5385f5ec69c0dc76512b6fa54f02ff2518534896c3
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:e57150228b814023ea90de2c8d71524d0501cd75cecc450906ecb86cae6b5802
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2a128976e17b6312c5bef34d9d6f4fa8ee4d9d2e5603aa11aecb669832a7ec92
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:bf7589ed325b8331572d698225c830beb8f28bf0177b7ffc3453b1af25b96a4c
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9253c77345bbb29280d8d8a3ddd066505fa899deac7e88db65223676030de64c
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:d98f312dc17b093bd16af7a3c94996df2902a2fd411dc2825a4cb64c9e4dc4ea
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:70f38056823334f19413fb59b3f3794ecc0acb8e07fea86769295a519f229e99
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:60646362d150002e013c44fbf360e33eec954af240ec116f65fdbebf340942ef
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate:latest
+#3 sha256:4f3ce927ceaa48dca136c10df718e79171b234a4764f342dbec0ac65d32879fb
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/miniz_miniz-intermediate
+#6 sha256:3e7f9062f78f07624d069a83d16133ebf6866ebc6597e1fcd79b80047dc4bc41
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/miniz_miniz
+#5 sha256:0116807a9c153cb92461c4148a1dcc09912d05976d4f5e93306abf9e9ef63917
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:f4a696b61616eaf29804fc576d40cb2620141cdb1e95c1464bb079e2c25fa8e4
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:07611087fd703156f060704bb991527b1aa589d9095f296b75903e57b1c1e0cb
+#10 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:c9173d66859a45eff678bd4dc039b262d4330ee2b2dd8803cc2394925e8f2fea
+#17 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:1a5682f2732dc85788d96d4a35b45cdd99d82d7ba7998181639005052e59012e
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:6cfd8befd8bbafbfabb63f09dd04fa70b1ce72cee70880135f6f9b7564796156
+#8 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:2715918f2295f28e8241c11d3113f4609075bb749c17a22c6513167168ba9dc6
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:4d03f02459266e6024b8e145dd93fa31fd9908ee54cc49625dd29d9ec55b36c2
+#18 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:3f814a01534a3f038406d356d76b81540cd6f03ff01baf263043a9caad6f28b5
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:373a5f8718d0a731419a5725ce1b7871008fb0f64814bc59362ecdbd56729fda
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/miniz_miniz/benchmark.yaml /
+#15 sha256:61ea731e47a72be74c1311305a941bafc475fb3768efcc038254c98d1c13b0c2
+#15 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:c5c346192ac207759cec38c0d84e7cfdd2f7890771ed226214922c9ab99a8c89
+#11 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:05e09d5b2917bf2b9095975677eb5a0adb8254d65a7c8772cefb530dd7e2f70a
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:af82d51e4ea5dc24b58d3f4cfb11bf979a3e6f59288950c671a5d7179f09bded
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a15c82fe7928c5bf744d843db233239e327f8cc6125afd96fa8d958f92526d5c
+#21 writing image sha256:a15c82fe7928c5bf744d843db233239e327f8cc6125afd96fa8d958f92526d5c 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/miniz_miniz done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:cc3e5e2eb8fdeb0372734d388cef2201cb235d1e87d9c3d2147f6066c16102b1
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:55c015d05b1e17054be69d2645657b4ec3bcc0a82b310ac7893a03a987951a7f
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate
+#5 sha256:086b38241ada12d75717e414c56860bbcbbe5e39caffd9ddecf3c6783b0ecd22
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:fdcada8f6e9e1b0e468b90e9f0e7d7e1e06895682e368086136765d467e43df3
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7745223dc04e8868bb5330b2062ad07dd6ad73ebd578ee8dd0d07687a6e2b288
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/miniz_miniz:latest
+#4 sha256:cab117255b37fad02e02387c60cf3b6cc5f1deef0e0c676dbeb1804bc327eba5
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate:latest
+#3 sha256:67fa2dddb56e22b0ffa2c7f6eab2532df18d30d30b021c8611944cb9180f02e6
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/miniz_miniz-intermediate
+#6 sha256:6a0e64cd452a5f317501008c2c1f532296623c4917309d0492deacbd8ffd29a3
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/miniz_miniz
+#5 sha256:a8f200164eff6a06c9527a0e1c1b9ad48e3e9372b66c92f5b3efe2d734fd8f99
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/miniz_miniz
+#10 sha256:1f736e1e4ca548da1977c3c990df1fb5d218cca3a17a51f940e5451da6a4dca0
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2be64ebe53b2a60f645aa2c96851dae450519341ce76ad3a2db6bb1f185434fe
+#12 transferring context: 17.56MB 0.6s done
+#12 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:936d586019b839e9e69876fbe46e670360f07c5379ac607df5b2e81d6f6ebd05
+#16 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:0b8a1574b17b5395ddc1a2a4342a221f3b68d308e1e3d72a56502e74ed0edd6f
+#17 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:84523831580a306726ccf10db9b9116a7b78ea171998df8e5594c319f83cfa19
+#9 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:83b607e043dbaf22782a606e14dab71b8a311f1f6df1687a1a4dae28481ff0b3
+#8 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:1b59b3f69be36f5a69a6b814c594ed75a2aaffb8d6c2bda4bc2ba2f947ae3d74
+#15 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:c671657807e88208312d97692ccecfcb7a97016ca5822014c85658a1cd10ad74
+#13 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:b16a6aab83fa6932651cffda662b793acd862ec693021d4bd3cf230ec95a4906
+#18 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:be1bd081e61c270334d14f1f983969c60776f965474126f43b5136d544636ab7
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:5f818a9021bcc35f6a1ed2e0ba510f54acc19b519d4f09a6817232b3c178b370
+#11 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:f77c580f665a57f854cd085b06ad8b6250bea91758c0c9d5bf114dab3df00cb6
+#19 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:cd1294890642bb3c5483946d54e762cf88311091ce27bd7fe70c3d4fb74ded09
+#14 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:fa1adfb60eda0cb694963dfd4dc390277c0cdc3f9fd14aff7309a57d296e7802
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:c95ac33c8b7a5ae0201a580edbd51af52175fb18fb6a2c65895aadbf2e528130 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/miniz_miniz done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f4441dc1f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

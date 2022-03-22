@@ -1,0 +1,1855 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: libgit2_libgit2.
+INFO:root:Please run "make test-run-afl-libgit2_libgit2" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:cd3ea63a951ad5b63cd24640d7d9988c53a03e35328094cb02bf90b4299d25ab
+#2 transferring context:
+#2 transferring context: 2B done
+#2 DONE 0.9s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0a426227089acc96360bcd896c004cac857c0820ae8eb17845c9d890e4a0344e
+#1 transferring dockerfile: 1.02kB done
+#1 DONE 0.9s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:b73e49da7c8300469265faebb84b8e822f1561726ba24863c72b837906a8182c
+#9 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2
+#4 sha256:3379620c708bfe574686709cdc5fe7bf6d50828655b3a612d2845a4a7e8ad345
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2:latest: not found
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/libgit2/libgit2 libgit2
+#7 sha256:0a0e35a88503ed6610b52fb5127ac4f582ef67d349cf59bd5ba9cf84d6f02ad5
+#7 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool cmake
+#6 sha256:0c734aecf1b283c063c3bbc6f7e827fdfd9889f2d9f9c17d96046a591ed89710
+#6 CACHED
+
+#8 [4/6] WORKDIR libgit2
+#8 sha256:38e78ac9de445af72edc01c6dc201fb5ffb16534b3311646fc80268bd2fbc65f
+#8 CACHED
+
+#9 [internal] load build context
+#9 sha256:b73e49da7c8300469265faebb84b8e822f1561726ba24863c72b837906a8182c
+#9 transferring context: 6.47kB done
+#9 DONE 0.1s
+
+#10 [5/6] COPY download_refs_fuzzer.cc build.sh /src/
+#10 sha256:cfbdef017e08beceed487b32ee42f5595eaf23a67951ecfc4f5c74e6ed2873fa
+#10 DONE 0.4s
+
+#11 [6/6] COPY corpora /src/corpora
+#11 sha256:bda556246289889783b870e970e42c93abb7b5752623bdd9376e20be15bbd0f4
+#11 DONE 0.4s
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:0c8b75333833aa6f2ec67c1389fc11e7e0e4465993b0345ef056a823b62b153c done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2 done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:260b0b76238b310f83aae562250432e7e30e05ce9b86e7bc0a519e328cd35b5d
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:ea7dfa68bb150a0119d3c1f15840bd06b5cb9155148bf226b788c8c25be5d3e8
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2:latest
+#3 sha256:af6c4a65ecf592fa770be802dc863c32b10f87e0e42a146e8efdcd0854d5364e
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2
+#5 sha256:52bc48ccba596604332989f2b0026816b1a9938725a233f012ba441e01932614
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate
+#4 sha256:e0b0df7b1a87930a2e51575cbe21f0b1beeb482964c8de029a1cb260762cbf0b
+#4 ERROR: gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2
+#5 sha256:52bc48ccba596604332989f2b0026816b1a9938725a233f012ba441e01932614
+#5 DONE 0.9s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:c141bbc22abca75a4d196a8225b0340b47947598bf3a54a8e15ac02806d9847b
+#6 0.507 Cloning into '/afl'...
+#6 1.299 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.299 
+#6 1.299 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.299 changes and commit them, and you can discard any commits you make in this
+#6 1.299 state without impacting any branches by switching back to a branch.
+#6 1.299 
+#6 1.299 If you want to create a new branch to retain commits you create, you may
+#6 1.299 do so (now or later) by using -c with the switch command. Example:
+#6 1.299 
+#6 1.299   git switch -c <new-branch-name>
+#6 1.299 
+#6 1.299 Or undo this operation with:
+#6 1.299 
+#6 1.299   git switch -
+#6 1.299 
+#6 1.299 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.299 
+#6 1.299 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.317 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.318 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.493 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.499 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.907 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.232 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.667 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.811 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.215 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.455 ln -sf afl-as as
+#6 5.457 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.460 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.461 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 6.5s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:d2a4c3634cf1dd156346cd4a300a3262a9a36da0595aa0df2a452938279f49f3
+#7 0.732 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.732 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.747 Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.772 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 0.874 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.668 Reading package lists...
+#7 3.445 Reading package lists...
+#7 4.900 Building dependency tree...
+#7 5.116 Reading state information...
+#7 5.377 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.377 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 5.466 --2022-02-16 08:38:07--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.468 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+#7 5.469 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+#7 5.492 HTTP request sent, awaiting response... 200 OK
+#7 5.512 Length: 9177 (9.0K) [text/plain]
+#7 5.512 Saving to: '/afl/afl_driver.cpp'
+#7 5.512 
+#7 5.512      0K ........                                              100% 10.5M=0.001s
+#7 5.512 
+#7 5.512 2022-02-16 08:38:07 (10.5 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.512 
+#7 7.342 ar: creating /libAFL.a
+#7 DONE 7.8s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:ee8a41c8db947e060baba2d3345d9f6b881419bbcaa769a333e377be4171f558 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate 0.0s done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:d60a815bf23f6cb9869c491d79ed09413b345f5668d37992b71f7f6c96cdb3eb
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:49d8fa9cda80ac9aa2f9ab3422198c6e6eee062da22031685da75a10cb55ca2b
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:691180bf8af8f926872a053cb3ede8db6bb32265259bc0a8725985720723cfff
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:ee3eaeb23fd9103d53f577d8468b8d8a379726795e918d72a1f1648ed15ff374
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:3a7f7fc79858bbf7ca12000e97773e40d9fec284fa710ada5665dfc197aeabe4
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9b3f38f28ded421d3b7a13ea9ea0c019335de561c4d71ab54e86ba883a3dc130
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:27a4a19e326127fc8131f3a48217d9af35796e1846499d030718d909a9d92c66
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9b3bca0455c9a4d64d66186eabaadd9695aba04c5111fc05c70e3fd8fc8220a9
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:0ee44a0994ef68d36b3d7718233bcc4c94df622de36f5c5af324bf0042c479fa
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate:latest
+#3 sha256:e3487556c40e9d0133243f714e34d78e4cbdac143c030ac93d02ef0b95217c45
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7ebc09e323cc9686750e5ffdba70297e63a7b4821442965b72463d45ff7c64ab
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate
+#6 sha256:a91e0d596d4551b9e32736e869bec84f5ee4482deca38942c34996ea84674c3c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libgit2_libgit2
+#5 sha256:e03ea3ed8a3cc5ae7114759c1af72b2547998200938d2b548dec8e0b22d5c179
+#5 ERROR: gcr.io/fuzzbench/builders/afl/libgit2_libgit2:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:7ebc09e323cc9686750e5ffdba70297e63a7b4821442965b72463d45ff7c64ab
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate
+#6 sha256:a91e0d596d4551b9e32736e869bec84f5ee4482deca38942c34996ea84674c3c
+#6 DONE 0.7s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:1b36a1eafac36288595f2119fc912018cc1abd3f638187d12d16caae3628d5f0
+#8 DONE 0.6s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:6511001c1d18ef34f60f5e2a22df34fdfff5fa2fedb7812fa06b96dbf0f66243
+#9 DONE 9.6s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:d8d0f0f504b0e6468450997e1f0351c7e584a04a9973753afc17c62a7cd88327
+#10 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:f843a54e034d0745e9fd4ac5331b57b3f49b3fa6baa5d236f0539f6e1e41f920
+#11 DONE 18.3s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:9820569a9ebdad60432b43cb368c1c2690eb79c7f95146fc188f6574a3c0d152
+#13 DONE 0.4s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:5b948e5f2300b5ec6224281ab2681311c1968d969e5aa0eb21280fc03e9f5410
+#14 DONE 0.9s
+
+#15 [stage-1  8/13] COPY benchmarks/libgit2_libgit2/benchmark.yaml /
+#15 sha256:3107b893ccd332ed21af0596e45a3e8b80c1f8bb057e5ae329a19b577e92dd76
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:86df78f35ff382a83ce5a05f595aa1e028674d9ef93e6099891a113a17956dd6
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:0170b816f710b93551c86cf427db69ba159bf6bbb036e9386852bbb33988a364
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:09d9618a6677c82f91571dbf3f0511e3b2e9e678e91f26e03a1dd8af9dee4dc7
+#18 0.531 Checking out commit c0661eef
+#18 8.891 From https://github.com/libgit2/libgit2
+#18 8.891  * [new tag]             v0.1.0      -> v0.1.0
+#18 8.891  * [new tag]             v0.10.0     -> v0.10.0
+#18 8.891  * [new tag]             v0.11.0     -> v0.11.0
+#18 8.892  * [new tag]             v0.12.0     -> v0.12.0
+#18 8.892  * [new tag]             v0.13.0     -> v0.13.0
+#18 8.893  * [new tag]             v0.14.0     -> v0.14.0
+#18 8.893  * [new tag]             v0.15.0     -> v0.15.0
+#18 8.893  * [new tag]             v0.16.0     -> v0.16.0
+#18 8.894  * [new tag]             v0.17.0     -> v0.17.0
+#18 8.894  * [new tag]             v0.18.0     -> v0.18.0
+#18 8.894  * [new tag]             v0.19.0     -> v0.19.0
+#18 8.895  * [new tag]             v0.2.0      -> v0.2.0
+#18 8.895  * [new tag]             v0.20.0     -> v0.20.0
+#18 8.895  * [new tag]             v0.21.0     -> v0.21.0
+#18 8.896  * [new tag]             v0.21.0-rc1 -> v0.21.0-rc1
+#18 8.896  * [new tag]             v0.21.0-rc2 -> v0.21.0-rc2
+#18 8.897  * [new tag]             v0.22.0     -> v0.22.0
+#18 8.897  * [new tag]             v0.22.0-rc1 -> v0.22.0-rc1
+#18 8.897  * [new tag]             v0.22.0-rc2 -> v0.22.0-rc2
+#18 8.898  * [new tag]             v0.23.0     -> v0.23.0
+#18 8.898  * [new tag]             v0.23.0-rc1 -> v0.23.0-rc1
+#18 8.898  * [new tag]             v0.23.0-rc2 -> v0.23.0-rc2
+#18 8.899  * [new tag]             v0.24.0     -> v0.24.0
+#18 8.899  * [new tag]             v0.24.0-rc1 -> v0.24.0-rc1
+#18 8.899  * [new tag]             v0.24.4     -> v0.24.4
+#18 8.900  * [new tag]             v0.25.0     -> v0.25.0
+#18 8.900  * [new tag]             v0.25.0-rc1 -> v0.25.0-rc1
+#18 8.900  * [new tag]             v0.25.0-rc2 -> v0.25.0-rc2
+#18 8.901  * [new tag]             v0.25.1     -> v0.25.1
+#18 8.901  * [new tag]             v0.26.0     -> v0.26.0
+#18 8.901  * [new tag]             v0.26.0-rc1 -> v0.26.0-rc1
+#18 8.902  * [new tag]             v0.26.0-rc2 -> v0.26.0-rc2
+#18 8.902  * [new tag]             v0.27.0     -> v0.27.0
+#18 8.902  * [new tag]             v0.27.0-rc1 -> v0.27.0-rc1
+#18 8.903  * [new tag]             v0.27.0-rc2 -> v0.27.0-rc2
+#18 8.903  * [new tag]             v0.27.0-rc3 -> v0.27.0-rc3
+#18 8.903  * [new tag]             v0.28.0     -> v0.28.0
+#18 8.903  * [new tag]             v0.28.0-rc1 -> v0.28.0-rc1
+#18 8.904  * [new tag]             v0.3.0      -> v0.3.0
+#18 8.904  * [new tag]             v0.8.0      -> v0.8.0
+#18 8.904  * [new tag]             v0.99.0     -> v0.99.0
+#18 8.904  * [new tag]             v1.0.0      -> v1.0.0
+#18 8.905  * [new tag]             v1.1.0      -> v1.1.0
+#18 8.905  * [new tag]             v1.2.0      -> v1.2.0
+#18 8.905  * [new tag]             v1.3.0      -> v1.3.0
+#18 8.905  * [new tag]             v1.4.0      -> v1.4.0
+#18 8.919 error: pathspec 'c0661eef' did not match any file(s) known to git
+#18 8.927 error: pathspec 'c0661eef' did not match any file(s) known to git
+#18 8.935 error: pathspec 'c0661eef' did not match any file(s) known to git
+#18 9.248 Checkout unsuccessful.
+#18 DONE 9.8s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:3517459cf650a680a4705fd1e596df16497fc3c1eff8f99ec5e396d2ad0f6e0b
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:d138700ca65eef75d408a22f2e266937105116847760bdbca2185e269487a477
+#20 0.525 Run fuzzer_build to build the target
+#20 0.637 FUZZ_TARGET = libgit2
+#20 0.637 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.637 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.655 Building benchmark libgit2_libgit2 with fuzzer afl
+#20 0.658 + mkdir build
+#20 0.660 + cd build
+#20 0.660 + cmake .. -DCMAKE_INSTALL_PREFIX=/work -DBUILD_SHARED_LIBS=OFF -DBUILD_CLAR=OFF -DUSE_HTTPS=OFF -DUSE_SSH=OFF -DUSE_BUNDLED_ZLIB=ON
+#20 0.896 -- The C compiler identification is Clang 14.0.0
+#20 0.916 -- Detecting C compiler ABI info
+#20 1.104 -- Detecting C compiler ABI info - done
+#20 1.153 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.154 -- Detecting C compile features
+#20 1.155 -- Detecting C compile features - done
+#20 1.168 -- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+#20 1.171 -- Looking for pthread.h
+#20 1.338 -- Looking for pthread.h - found
+#20 1.338 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 1.511 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 1.513 -- Found Threads: TRUE  
+#20 1.515 -- Performing Test HAVE_STRUCT_STAT_ST_MTIM
+#20 1.681 -- Performing Test HAVE_STRUCT_STAT_ST_MTIM - Success
+#20 1.681 -- Performing Test HAVE_STRUCT_STAT_ST_MTIMESPEC
+#20 1.732 -- Performing Test HAVE_STRUCT_STAT_ST_MTIMESPEC - Failed
+#20 1.733 -- Performing Test HAVE_STRUCT_STAT_MTIME_NSEC
+#20 1.779 -- Performing Test HAVE_STRUCT_STAT_MTIME_NSEC - Failed
+#20 1.779 -- Performing Test HAVE_STRUCT_STAT_NSEC
+#20 1.943 -- Performing Test HAVE_STRUCT_STAT_NSEC - Success
+#20 1.944 -- Looking for futimens
+#20 2.103 -- Looking for futimens - found
+#20 2.118 -- Performing Test IS_WALL_SUPPORTED
+#20 2.265 -- Performing Test IS_WALL_SUPPORTED - Success
+#20 2.267 -- Performing Test IS_WEXTRA_SUPPORTED
+#20 2.423 -- Performing Test IS_WEXTRA_SUPPORTED - Success
+#20 2.425 -- Performing Test IS_WDOCUMENTATION_SUPPORTED
+#20 2.571 -- Performing Test IS_WDOCUMENTATION_SUPPORTED - Success
+#20 2.573 -- Performing Test IS_WNO_DOCUMENTATION_DEPRECATED_SYNC_SUPPORTED
+#20 2.716 -- Performing Test IS_WNO_DOCUMENTATION_DEPRECATED_SYNC_SUPPORTED - Success
+#20 2.717 -- Performing Test IS_WNO_MISSING_FIELD_INITIALIZERS_SUPPORTED
+#20 2.864 -- Performing Test IS_WNO_MISSING_FIELD_INITIALIZERS_SUPPORTED - Success
+#20 2.867 -- Performing Test IS_WMISSING_DECLARATIONS_SUPPORTED
+#20 3.013 -- Performing Test IS_WMISSING_DECLARATIONS_SUPPORTED - Success
+#20 3.016 -- Performing Test IS_WSTRICT_ALIASING_SUPPORTED
+#20 3.168 -- Performing Test IS_WSTRICT_ALIASING_SUPPORTED - Success
+#20 3.171 -- Performing Test IS_WSTRICT_PROTOTYPES_SUPPORTED
+#20 3.321 -- Performing Test IS_WSTRICT_PROTOTYPES_SUPPORTED - Success
+#20 3.323 -- Performing Test IS_WDECLARATION_AFTER_STATEMENT_SUPPORTED
+#20 3.476 -- Performing Test IS_WDECLARATION_AFTER_STATEMENT_SUPPORTED - Success
+#20 3.478 -- Performing Test IS_WSHIFT_COUNT_OVERFLOW_SUPPORTED
+#20 3.626 -- Performing Test IS_WSHIFT_COUNT_OVERFLOW_SUPPORTED - Success
+#20 3.628 -- Performing Test IS_WUNUSED_CONST_VARIABLE_SUPPORTED
+#20 3.777 -- Performing Test IS_WUNUSED_CONST_VARIABLE_SUPPORTED - Success
+#20 3.779 -- Performing Test IS_WUNUSED_FUNCTION_SUPPORTED
+#20 3.935 -- Performing Test IS_WUNUSED_FUNCTION_SUPPORTED - Success
+#20 3.938 -- Performing Test IS_WINT_CONVERSION_SUPPORTED
+#20 4.081 -- Performing Test IS_WINT_CONVERSION_SUPPORTED - Success
+#20 4.082 -- Performing Test IS_WC11_EXTENSIONS_SUPPORTED
+#20 4.231 -- Performing Test IS_WC11_EXTENSIONS_SUPPORTED - Success
+#20 4.233 -- Performing Test IS_WC99_C11_COMPAT_SUPPORTED
+#20 4.377 -- Performing Test IS_WC99_C11_COMPAT_SUPPORTED - Failed
+#20 4.378 -- Performing Test IS_WFORMAT_SUPPORTED
+#20 4.527 -- Performing Test IS_WFORMAT_SUPPORTED - Success
+#20 4.529 -- Performing Test IS_WFORMAT_SECURITY_SUPPORTED
+#20 4.684 -- Performing Test IS_WFORMAT_SECURITY_SUPPORTED - Success
+#20 4.695 -- Checking prototype qsort_r for GIT_QSORT_R_BSD
+#20 4.756 -- Checking prototype qsort_r for GIT_QSORT_R_BSD - False
+#20 4.756 -- Checking prototype qsort_r for GIT_QSORT_R_GNU
+#20 4.940 -- Checking prototype qsort_r for GIT_QSORT_R_GNU - True
+#20 4.941 -- Looking for qsort_s
+#20 5.114 -- Looking for qsort_s - not found
+#20 5.114 -- Looking for getentropy
+#20 5.276 -- Looking for getentropy - found
+#20 5.276 -- Looking for clock_gettime in rt
+#20 5.442 -- Looking for clock_gettime in rt - found
+#20 5.466 -- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+#20 5.472 -- http-parser version 2 was not found or disabled; using bundled 3rd-party sources.
+#20 5.474 -- Performing Test IS_WIMPLICIT_FALLTHROUGH_1_SUPPORTED
+#20 5.629 -- Performing Test IS_WIMPLICIT_FALLTHROUGH_1_SUPPORTED - Failed
+#20 5.641 -- Could NOT find PCRE (missing: PCRE_LIBRARY PCRE_POSIX_LIBRARY PCRE_INCLUDE_DIR) 
+#20 5.642 -- Looking for regcomp_l
+#20 5.718 -- Looking for regcomp_l - not found
+#20 5.723 -- Looking for dirent.h
+#20 5.883 -- Looking for dirent.h - found
+#20 5.883 -- Looking for stdint.h
+#20 6.041 -- Looking for stdint.h - found
+#20 6.041 -- Looking for inttypes.h
+#20 6.205 -- Looking for inttypes.h - found
+#20 6.205 -- Looking for sys/stat.h
+#20 6.370 -- Looking for sys/stat.h - found
+#20 6.370 -- Looking for sys/types.h
+#20 6.537 -- Looking for sys/types.h - found
+#20 6.538 -- Looking for unistd.h
+#20 6.705 -- Looking for unistd.h - found
+#20 6.706 -- Looking for windows.h
+#20 6.745 -- Looking for windows.h - not found
+#20 6.745 -- Looking for bcopy
+#20 6.904 -- Looking for bcopy - found
+#20 6.904 -- Looking for memmove
+#20 7.067 -- Looking for memmove - found
+#20 7.068 -- Looking for strerror
+#20 7.227 -- Looking for strerror - found
+#20 7.227 -- Looking for strtoll
+#20 7.391 -- Looking for strtoll - found
+#20 7.391 -- Looking for strtoq
+#20 7.554 -- Looking for strtoq - found
+#20 7.554 -- Looking for _strtoi64
+#20 7.723 -- Looking for _strtoi64 - not found
+#20 7.724 -- Looking for stddef.h
+#20 7.880 -- Looking for stddef.h - found
+#20 7.880 -- Check size of long long
+#20 8.084 -- Check size of long long - done
+#20 8.085 -- Check size of unsigned long long
+#20 8.291 -- Check size of unsigned long long - done
+#20 8.292 -- Performing Test IS_WNO_UNUSED_FUNCTION_SUPPORTED
+#20 8.442 -- Performing Test IS_WNO_UNUSED_FUNCTION_SUPPORTED - Success
+#20 8.444 -- Performing Test IS_WNO_IMPLICIT_FALLTHROUGH_SUPPORTED
+#20 8.591 -- Performing Test IS_WNO_IMPLICIT_FALLTHROUGH_SUPPORTED - Success
+#20 8.592 -- LIBSSH2 not found. Set CMAKE_PREFIX_PATH if it is installed outside of the default search path.
+#20 8.600 -- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+#20 8.604 -- Could NOT find GSSAPI (missing: GSSAPI_LIBRARIES GSSAPI_INCLUDE_DIR) 
+#20 8.667 -- Found PythonInterp: /usr/local/bin/python3 (found version "3.8.6") 
+#20 9.059 -- Enabled features:
+#20 9.059  * nanoseconds, support nanosecond precision file mtimes and ctimes
+#20 9.059  * futimens, futimens support
+#20 9.059  * threadsafe, threadsafe support
+#20 9.059  * SHA, using CollisionDetection
+#20 9.059  * http-parser, http-parser support (bundled)
+#20 9.059  * regex, using bundled PCRE
+#20 9.059  * zlib, using bundled zlib
+#20 9.059 
+#20 9.060 -- Disabled features:
+#20 9.060  * debugpool, debug pool allocator
+#20 9.060  * debugalloc, debug strict allocators
+#20 9.060  * debugopen, path validation in open
+#20 9.060  * HTTPS
+#20 9.060  * SSH, SSH transport support
+#20 9.060  * ntlmclient, NTLM authentication support for Unix
+#20 9.060  * SPNEGO, SPNEGO authentication support
+#20 9.060  * iconv, iconv encoding conversion support
+#20 9.060 
+#20 9.061 -- Configuring done
+#20 9.287 -- Generating done
+#20 9.290 CMake Warning:
+#20 9.290   Manually-specified variables were not used by the project:
+#20 9.290 
+#20 9.290     BUILD_CLAR
+#20 9.290 
+#20 9.290 
+#20 9.290 -- Build files have been written to: /src/libgit2/build
+#20 9.297 ++ nproc
+#20 9.298 + make -j8
+#20 9.323 [  0%] Building C object deps/http-parser/CMakeFiles/http-parser.dir/http_parser.c.o
+#20 9.324 [  0%] Building C object deps/zlib/CMakeFiles/zlib.dir/adler32.c.o
+#20 9.324 [  0%] Building C object deps/zlib/CMakeFiles/zlib.dir/crc32.c.o
+#20 9.324 [  1%] Building C object deps/zlib/CMakeFiles/zlib.dir/deflate.c.o
+#20 9.325 [  1%] Building C object deps/zlib/CMakeFiles/zlib.dir/infback.c.o
+#20 9.325 [  1%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_byte_order.c.o
+#20 9.326 [  1%] Building C object tests/CMakeFiles/headertest.dir/headertest.c.o
+#20 9.341 [  1%] Building C object src/CMakeFiles/git2internal.dir/hash/sha1/collisiondetect.c.o
+#20 9.427 [  1%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_chartables.c.o
+#20 9.433 [  1%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_compile.c.o
+#20 9.448 [  1%] Linking C executable headertest
+#20 9.498 [  1%] Building C object deps/zlib/CMakeFiles/zlib.dir/inffast.c.o
+#20 9.513 [  1%] Building C object deps/zlib/CMakeFiles/zlib.dir/inflate.c.o
+#20 9.530 [  1%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_config.c.o
+#20 9.564 [  1%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_dfa_exec.c.o
+#20 9.578 [  1%] Building C object src/CMakeFiles/git2internal.dir/hash/sha1/sha1dc/sha1.c.o
+#20 9.599 [  1%] Building C object deps/zlib/CMakeFiles/zlib.dir/inftrees.c.o
+#20 9.604 [  1%] Built target http-parser
+#20 9.605 [  1%] Built target headertest
+#20 9.608 [  1%] Building C object deps/zlib/CMakeFiles/zlib.dir/trees.c.o
+#20 9.608 [  2%] Building C object deps/zlib/CMakeFiles/zlib.dir/zutil.c.o
+#20 9.616 [  2%] Building C object src/CMakeFiles/git2internal.dir/hash/sha1/sha1dc/ubc_check.c.o
+#20 9.688 [  2%] Building C object src/CMakeFiles/git2internal.dir/unix/map.c.o
+#20 9.705 [  2%] Building C object src/CMakeFiles/git2internal.dir/unix/realpath.c.o
+#20 9.733 [  3%] Building C object src/CMakeFiles/git2internal.dir/alloc.c.o
+#20 9.813 [  3%] Built target zlib
+#20 9.817 [  3%] Building C object src/CMakeFiles/git2internal.dir/allocators/failalloc.c.o
+#20 9.942 [  3%] Building C object src/CMakeFiles/git2internal.dir/allocators/stdalloc.c.o
+#20 9.956 [  4%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_exec.c.o
+#20 9.958 [  4%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_fullinfo.c.o
+#20 9.960 [  4%] Building C object src/CMakeFiles/git2internal.dir/allocators/win32_leakcheck.c.o
+#20 9.983 [  4%] Building C object src/CMakeFiles/git2internal.dir/annotated_commit.c.o
+#20 10.05 [  4%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_get.c.o
+#20 10.07 [  4%] Building C object src/CMakeFiles/git2internal.dir/apply.c.o
+#20 10.11 [  4%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_globals.c.o
+#20 10.13 [  5%] Building C object src/CMakeFiles/git2internal.dir/attr.c.o
+#20 10.16 [  5%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_jit_compile.c.o
+#20 10.18 [  5%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_maketables.c.o
+#20 10.20 [  5%] Building C object src/CMakeFiles/git2internal.dir/attr_file.c.o
+#20 10.21 [  5%] Building C object src/CMakeFiles/git2internal.dir/attrcache.c.o
+#20 10.26 [  6%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_newline.c.o
+#20 10.27 [  6%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_ord2utf8.c.o
+#20 10.27 [  6%] Building C object src/CMakeFiles/git2internal.dir/blame.c.o
+#20 10.35 [  6%] Building C object src/CMakeFiles/git2internal.dir/blame_git.c.o
+#20 10.35 [  6%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_refcount.c.o
+#20 10.43 [  6%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_string_utils.c.o
+#20 10.46 [  6%] Building C object src/CMakeFiles/git2internal.dir/blob.c.o
+#20 10.51 [  6%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_study.c.o
+#20 10.52 [  6%] Building C object src/CMakeFiles/git2internal.dir/branch.c.o
+#20 10.56 [  7%] Building C object src/CMakeFiles/git2internal.dir/buf.c.o
+#20 10.63 [  7%] Building C object src/CMakeFiles/git2internal.dir/cache.c.o
+#20 10.64 [  7%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_tables.c.o
+#20 10.67 [  7%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_ucd.c.o
+#20 10.72 [  8%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_valid_utf8.c.o
+#20 10.74 [  8%] Building C object src/CMakeFiles/git2internal.dir/checkout.c.o
+#20 10.77 [  8%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_version.c.o
+#20 10.80 [  8%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcre_xclass.c.o
+#20 10.82 [  8%] Building C object src/CMakeFiles/git2internal.dir/cherrypick.c.o
+#20 10.84 [  8%] Building C object src/CMakeFiles/git2internal.dir/clone.c.o
+#20 10.86 [  8%] Building C object deps/pcre/CMakeFiles/pcre.dir/pcreposix.c.o
+#20 10.88 [  8%] Building C object src/CMakeFiles/git2internal.dir/commit.c.o
+#20 10.92 [  9%] Building C object src/CMakeFiles/git2internal.dir/commit_graph.c.o
+#20 10.94 [  9%] Building C object src/CMakeFiles/git2internal.dir/commit_list.c.o
+#20 10.96 [  9%] Building C object src/CMakeFiles/git2internal.dir/config.c.o
+#20 11.15 [  9%] Building C object src/CMakeFiles/git2internal.dir/config_cache.c.o
+#20 11.20 [  9%] Building C object src/CMakeFiles/git2internal.dir/config_entries.c.o
+#20 11.25 [  9%] Building C object src/CMakeFiles/git2internal.dir/config_file.c.o
+#20 11.31 [ 10%] Building C object src/CMakeFiles/git2internal.dir/config_mem.c.o
+#20 11.35 [ 10%] Building C object src/CMakeFiles/git2internal.dir/config_parse.c.o
+#20 11.38 [ 10%] Building C object src/CMakeFiles/git2internal.dir/config_snapshot.c.o
+#20 11.45 [ 10%] Building C object src/CMakeFiles/git2internal.dir/crlf.c.o
+#20 11.47 [ 10%] Building C object src/CMakeFiles/git2internal.dir/date.c.o
+#20 11.52 [ 10%] Building C object src/CMakeFiles/git2internal.dir/delta.c.o
+#20 11.63 [ 10%] Building C object src/CMakeFiles/git2internal.dir/describe.c.o
+#20 11.66 [ 11%] Building C object src/CMakeFiles/git2internal.dir/diff.c.o
+#20 11.70 [ 11%] Building C object src/CMakeFiles/git2internal.dir/diff_driver.c.o
+#20 11.70 [ 11%] Building C object src/CMakeFiles/git2internal.dir/diff_file.c.o
+#20 11.79 [ 11%] Building C object src/CMakeFiles/git2internal.dir/diff_generate.c.o
+#20 11.81 [ 11%] Building C object src/CMakeFiles/git2internal.dir/diff_parse.c.o
+#20 11.87 [ 11%] Building C object src/CMakeFiles/git2internal.dir/diff_print.c.o
+#20 12.02 [ 12%] Building C object src/CMakeFiles/git2internal.dir/diff_stats.c.o
+#20 12.02 [ 12%] Building C object src/CMakeFiles/git2internal.dir/diff_tform.c.o
+#20 12.06 [ 12%] Building C object src/CMakeFiles/git2internal.dir/diff_xdiff.c.o
+#20 12.08 [ 12%] Building C object src/CMakeFiles/git2internal.dir/email.c.o
+#20 12.12 [ 12%] Building C object src/CMakeFiles/git2internal.dir/errors.c.o
+#20 12.27 [ 12%] Building C object src/CMakeFiles/git2internal.dir/fetch.c.o
+#20 12.31 [ 12%] Building C object src/CMakeFiles/git2internal.dir/fetchhead.c.o
+#20 12.36 [ 13%] Building C object src/CMakeFiles/git2internal.dir/filebuf.c.o
+#20 12.38 [ 13%] Building C object src/CMakeFiles/git2internal.dir/filter.c.o
+#20 12.39 [ 13%] Building C object src/CMakeFiles/git2internal.dir/fs_path.c.o
+#20 12.43 [ 13%] Building C object src/CMakeFiles/git2internal.dir/futils.c.o
+#20 12.46 [ 13%] Building C object src/CMakeFiles/git2internal.dir/graph.c.o
+#20 12.60 [ 13%] Building C object src/CMakeFiles/git2internal.dir/hash.c.o
+#20 12.63 [ 14%] Building C object src/CMakeFiles/git2internal.dir/hashsig.c.o
+#20 12.69 [ 14%] Building C object src/CMakeFiles/git2internal.dir/ident.c.o
+#20 12.77 [ 14%] Building C object src/CMakeFiles/git2internal.dir/idxmap.c.o
+#20 12.81 [ 14%] Building C object src/CMakeFiles/git2internal.dir/ignore.c.o
+#20 12.83 [ 14%] Building C object src/CMakeFiles/git2internal.dir/index.c.o
+#20 12.83 [ 14%] Building C object src/CMakeFiles/git2internal.dir/indexer.c.o
+#20 12.87 [ 15%] Building C object src/CMakeFiles/git2internal.dir/iterator.c.o
+#20 12.95 [ 15%] Building C object src/CMakeFiles/git2internal.dir/libgit2.c.o
+#20 12.96 [ 15%] Building C object src/CMakeFiles/git2internal.dir/mailmap.c.o
+#20 13.00 [ 15%] Built target pcre
+#20 13.01 [ 15%] Building C object src/CMakeFiles/git2internal.dir/merge.c.o
+#20 13.08 [ 15%] Building C object src/CMakeFiles/git2internal.dir/merge_driver.c.o
+#20 13.19 [ 15%] Building C object src/CMakeFiles/git2internal.dir/merge_file.c.o
+#20 13.27 [ 15%] Building C object src/CMakeFiles/git2internal.dir/message.c.o
+#20 13.31 [ 16%] Building C object src/CMakeFiles/git2internal.dir/midx.c.o
+#20 13.34 [ 16%] Building C object src/CMakeFiles/git2internal.dir/mwindow.c.o
+#20 13.41 [ 16%] Building C object src/CMakeFiles/git2internal.dir/net.c.o
+#20 13.42 [ 16%] Building C object src/CMakeFiles/git2internal.dir/netops.c.o
+#20 13.53 [ 16%] Building C object src/CMakeFiles/git2internal.dir/notes.c.o
+#20 13.54 [ 16%] Building C object src/CMakeFiles/git2internal.dir/object.c.o
+#20 13.59 [ 17%] Building C object src/CMakeFiles/git2internal.dir/object_api.c.o
+#20 13.67 [ 17%] Building C object src/CMakeFiles/git2internal.dir/odb.c.o
+#20 13.69 [ 17%] Building C object src/CMakeFiles/git2internal.dir/odb_loose.c.o
+#20 13.71 [ 17%] Building C object src/CMakeFiles/git2internal.dir/odb_mempack.c.o
+#20 13.74 [ 17%] Building C object src/CMakeFiles/git2internal.dir/odb_pack.c.o
+#20 13.77 [ 17%] Building C object src/CMakeFiles/git2internal.dir/offmap.c.o
+#20 13.89 [ 17%] Building C object src/CMakeFiles/git2internal.dir/oid.c.o
+#20 13.89 [ 18%] Building C object src/CMakeFiles/git2internal.dir/oidarray.c.o
+#20 13.92 [ 18%] Building C object src/CMakeFiles/git2internal.dir/oidmap.c.o
+#20 14.02 [ 18%] Building C object src/CMakeFiles/git2internal.dir/pack-objects.c.o
+#20 14.06 [ 18%] Building C object src/CMakeFiles/git2internal.dir/pack.c.o
+#20 14.10 [ 18%] Building C object src/CMakeFiles/git2internal.dir/parse.c.o
+#20 14.11 [ 18%] Building C object src/CMakeFiles/git2internal.dir/patch.c.o
+#20 14.14 [ 19%] Building C object src/CMakeFiles/git2internal.dir/patch_generate.c.o
+#20 14.20 [ 19%] Building C object src/CMakeFiles/git2internal.dir/patch_parse.c.o
+#20 14.20 [ 19%] Building C object src/CMakeFiles/git2internal.dir/path.c.o
+#20 14.24 [ 19%] Building C object src/CMakeFiles/git2internal.dir/pathspec.c.o
+#20 14.36 [ 19%] Building C object src/CMakeFiles/git2internal.dir/pool.c.o
+#20 14.44 [ 19%] Building C object src/CMakeFiles/git2internal.dir/posix.c.o
+#20 14.51 [ 20%] Building C object src/CMakeFiles/git2internal.dir/pqueue.c.o
+#20 14.51 [ 20%] Building C object src/CMakeFiles/git2internal.dir/proxy.c.o
+#20 14.52 [ 20%] Building C object src/CMakeFiles/git2internal.dir/push.c.o
+#20 14.58 [ 20%] Building C object src/CMakeFiles/git2internal.dir/rand.c.o
+#20 14.64 [ 20%] Building C object src/CMakeFiles/git2internal.dir/reader.c.o
+#20 14.64 [ 20%] Building C object src/CMakeFiles/git2internal.dir/rebase.c.o
+#20 14.66 [ 20%] Building C object src/CMakeFiles/git2internal.dir/refdb.c.o
+#20 14.73 [ 21%] Building C object src/CMakeFiles/git2internal.dir/refdb_fs.c.o
+#20 14.76 [ 21%] Building C object src/CMakeFiles/git2internal.dir/reflog.c.o
+#20 14.77 [ 21%] Building C object src/CMakeFiles/git2internal.dir/refs.c.o
+#20 14.84 [ 21%] Building C object src/CMakeFiles/git2internal.dir/refspec.c.o
+#20 14.93 [ 21%] Building C object src/CMakeFiles/git2internal.dir/regexp.c.o
+#20 14.96 [ 21%] Building C object src/CMakeFiles/git2internal.dir/remote.c.o
+#20 14.99 [ 22%] Building C object src/CMakeFiles/git2internal.dir/repository.c.o
+#20 15.09 [ 22%] Building C object src/CMakeFiles/git2internal.dir/reset.c.o
+#20 15.14 [ 22%] Building C object src/CMakeFiles/git2internal.dir/revert.c.o
+#20 15.16 [ 22%] Building C object src/CMakeFiles/git2internal.dir/revparse.c.o
+#20 15.20 [ 22%] Building C object src/CMakeFiles/git2internal.dir/revwalk.c.o
+#20 15.23 [ 22%] Building C object src/CMakeFiles/git2internal.dir/runtime.c.o
+#20 15.29 [ 22%] Building C object src/CMakeFiles/git2internal.dir/signature.c.o
+#20 15.45 [ 23%] Building C object src/CMakeFiles/git2internal.dir/sortedcache.c.o
+#20 15.47 [ 23%] Building C object src/CMakeFiles/git2internal.dir/stash.c.o
+#20 15.48 [ 23%] Building C object src/CMakeFiles/git2internal.dir/status.c.o
+#20 15.55 [ 23%] Building C object src/CMakeFiles/git2internal.dir/str.c.o
+#20 15.57 [ 23%] Building C object src/CMakeFiles/git2internal.dir/strarray.c.o
+#20 15.59 [ 23%] Building C object src/CMakeFiles/git2internal.dir/streams/mbedtls.c.o
+#20 15.59 [ 24%] Building C object src/CMakeFiles/git2internal.dir/streams/openssl.c.o
+#20 15.69 [ 24%] Building C object src/CMakeFiles/git2internal.dir/streams/openssl_dynamic.c.o
+#20 15.81 [ 24%] Building C object src/CMakeFiles/git2internal.dir/streams/openssl_legacy.c.o
+#20 15.84 [ 24%] Building C object src/CMakeFiles/git2internal.dir/streams/registry.c.o
+#20 15.86 [ 24%] Building C object src/CMakeFiles/git2internal.dir/streams/socket.c.o
+#20 15.86 [ 24%] Building C object src/CMakeFiles/git2internal.dir/streams/stransport.c.o
+#20 15.93 [ 25%] Building C object src/CMakeFiles/git2internal.dir/streams/tls.c.o
+#20 15.94 [ 25%] Building C object src/CMakeFiles/git2internal.dir/strmap.c.o
+#20 15.98 [ 25%] Building C object src/CMakeFiles/git2internal.dir/submodule.c.o
+#20 15.99 [ 25%] Building C object src/CMakeFiles/git2internal.dir/sysdir.c.o
+#20 16.07 [ 25%] Building C object src/CMakeFiles/git2internal.dir/tag.c.o
+#20 16.10 [ 25%] Building C object src/CMakeFiles/git2internal.dir/thread.c.o
+#20 16.11 [ 25%] Building C object src/CMakeFiles/git2internal.dir/threadstate.c.o
+#20 16.15 [ 26%] Building C object src/CMakeFiles/git2internal.dir/trace.c.o
+#20 16.18 [ 26%] Building C object src/CMakeFiles/git2internal.dir/trailer.c.o
+#20 16.23 [ 26%] Building C object src/CMakeFiles/git2internal.dir/transaction.c.o
+#20 16.28 [ 26%] Building C object src/CMakeFiles/git2internal.dir/transport.c.o
+#20 16.35 [ 26%] Building C object src/CMakeFiles/git2internal.dir/transports/auth.c.o
+#20 16.36 [ 26%] Building C object src/CMakeFiles/git2internal.dir/transports/auth_negotiate.c.o
+#20 16.40 [ 27%] Building C object src/CMakeFiles/git2internal.dir/transports/auth_ntlm.c.o
+#20 16.44 [ 27%] Building C object src/CMakeFiles/git2internal.dir/transports/credential.c.o
+#20 16.47 [ 27%] Building C object src/CMakeFiles/git2internal.dir/transports/credential_helpers.c.o
+#20 16.56 [ 27%] Building C object src/CMakeFiles/git2internal.dir/transports/git.c.o
+#20 16.57 [ 27%] Building C object src/CMakeFiles/git2internal.dir/transports/http.c.o
+#20 16.58 [ 27%] Building C object src/CMakeFiles/git2internal.dir/transports/httpclient.c.o
+#20 16.61 [ 28%] Building C object src/CMakeFiles/git2internal.dir/transports/local.c.o
+#20 16.65 [ 28%] Building C object src/CMakeFiles/git2internal.dir/transports/smart_pkt.c.o
+#20 16.66 [ 28%] Building C object src/CMakeFiles/git2internal.dir/transports/smart.c.o
+#20 16.72 [ 28%] Building C object src/CMakeFiles/git2internal.dir/transports/smart_protocol.c.o
+#20 16.72 [ 28%] Building C object src/CMakeFiles/git2internal.dir/transports/ssh.c.o
+#20 16.86 [ 28%] Building C object src/CMakeFiles/git2internal.dir/transports/winhttp.c.o
+#20 16.92 [ 28%] Building C object src/CMakeFiles/git2internal.dir/tree-cache.c.o
+#20 17.00 [ 29%] Building C object src/CMakeFiles/git2internal.dir/tree.c.o
+#20 17.01 [ 29%] Building C object src/CMakeFiles/git2internal.dir/tsort.c.o
+#20 17.01 [ 29%] Building C object src/CMakeFiles/git2internal.dir/utf8.c.o
+#20 17.02 [ 29%] Building C object src/CMakeFiles/git2internal.dir/util.c.o
+#20 17.02 [ 29%] Building C object src/CMakeFiles/git2internal.dir/varint.c.o
+#20 17.11 [ 29%] Building C object src/CMakeFiles/git2internal.dir/vector.c.o
+#20 17.15 [ 30%] Building C object src/CMakeFiles/git2internal.dir/wildmatch.c.o
+#20 17.24 [ 30%] Building C object src/CMakeFiles/git2internal.dir/worktree.c.o
+#20 17.27 [ 30%] Building C object src/CMakeFiles/git2internal.dir/xdiff/xdiffi.c.o
+#20 17.27 [ 30%] Building C object src/CMakeFiles/git2internal.dir/xdiff/xemit.c.o
+#20 17.31 [ 30%] Building C object src/CMakeFiles/git2internal.dir/xdiff/xhistogram.c.o
+#20 17.33 [ 30%] Building C object src/CMakeFiles/git2internal.dir/xdiff/xmerge.c.o
+#20 17.41 [ 30%] Building C object src/CMakeFiles/git2internal.dir/xdiff/xpatience.c.o
+#20 17.44 [ 31%] Building C object src/CMakeFiles/git2internal.dir/xdiff/xprepare.c.o
+#20 17.48 [ 31%] Building C object src/CMakeFiles/git2internal.dir/xdiff/xutils.c.o
+#20 17.57 [ 31%] Building C object src/CMakeFiles/git2internal.dir/zstream.c.o
+#20 17.90 [ 31%] Built target git2internal
+#20 17.91 [ 31%] Linking C static library ../libgit2.a
+#20 17.93 [ 32%] Generating clar.suite, clar_suite.h
+#20 17.99 [ 32%] Built target git2
+#20 18.72 Written `clar.suite`, `clar_suite.h` (3222 tests in 413 suites)
+#20 18.76 [ 32%] Building C object tests/CMakeFiles/libgit2_tests.dir/clar_libgit2.c.o
+#20 18.76 [ 32%] Building C object tests/CMakeFiles/libgit2_tests.dir/main.c.o
+#20 18.76 [ 32%] Building C object tests/CMakeFiles/libgit2_tests.dir/clar_libgit2_trace.c.o
+#20 18.76 [ 32%] Building C object tests/CMakeFiles/libgit2_tests.dir/clar_libgit2_timer.c.o
+#20 18.78 [ 32%] Building C object tests/CMakeFiles/libgit2_tests.dir/clar.c.o
+#20 18.78 [ 33%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/both.c.o
+#20 18.78 [ 33%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/apply_helpers.c.o
+#20 18.78 [ 33%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/callbacks.c.o
+#20 19.01 [ 33%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/check.c.o
+#20 19.01 [ 33%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/fromdiff.c.o
+#20 19.03 [ 33%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/fromfile.c.o
+#20 19.07 [ 33%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/index.c.o
+#20 19.08 [ 34%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/partial.c.o
+#20 19.10 [ 34%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/tree.c.o
+#20 19.17 [ 34%] Building C object tests/CMakeFiles/libgit2_tests.dir/apply/workdir.c.o
+#20 19.32 [ 34%] Building C object tests/CMakeFiles/libgit2_tests.dir/attr/file.c.o
+#20 19.35 [ 34%] Building C object tests/CMakeFiles/libgit2_tests.dir/attr/flags.c.o
+#20 19.39 [ 34%] Building C object tests/CMakeFiles/libgit2_tests.dir/attr/lookup.c.o
+#20 19.40 [ 35%] Building C object tests/CMakeFiles/libgit2_tests.dir/attr/repo.c.o
+#20 19.40 [ 35%] Building C object tests/CMakeFiles/libgit2_tests.dir/attr/macro.c.o
+#20 19.40 [ 35%] Building C object tests/CMakeFiles/libgit2_tests.dir/blame/blame_helpers.c.o
+#20 19.51 [ 35%] Building C object tests/CMakeFiles/libgit2_tests.dir/blame/buffer.c.o
+#20 19.61 [ 35%] Building C object tests/CMakeFiles/libgit2_tests.dir/blame/getters.c.o
+#20 19.62 [ 35%] Building C object tests/CMakeFiles/libgit2_tests.dir/blame/harder.c.o
+#20 19.64 [ 35%] Building C object tests/CMakeFiles/libgit2_tests.dir/blame/simple.c.o
+#20 19.69 [ 36%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/binaryunicode.c.o
+#20 19.69 [ 36%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/checkout_helpers.c.o
+#20 19.70 [ 36%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/conflict.c.o
+#20 19.74 [ 36%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/crlf.c.o
+#20 19.82 [ 36%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/head.c.o
+#20 19.90 [ 36%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/icase.c.o
+#20 19.92 [ 37%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/index.c.o
+#20 19.96 [ 37%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/nasty.c.o
+#20 19.97 [ 37%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/tree.c.o
+#20 19.99 [ 37%] Building C object tests/CMakeFiles/libgit2_tests.dir/checkout/typechange.c.o
+#20 20.08 [ 37%] Building C object tests/CMakeFiles/libgit2_tests.dir/cherrypick/bare.c.o
+#20 20.10 [ 37%] Building C object tests/CMakeFiles/libgit2_tests.dir/cherrypick/workdir.c.o
+#20 20.15 [ 38%] Building C object tests/CMakeFiles/libgit2_tests.dir/clone/empty.c.o
+#20 20.23 [ 38%] Building C object tests/CMakeFiles/libgit2_tests.dir/clone/local.c.o
+#20 20.27 [ 38%] Building C object tests/CMakeFiles/libgit2_tests.dir/clone/nonetwork.c.o
+#20 20.34 [ 38%] Building C object tests/CMakeFiles/libgit2_tests.dir/clone/transport.c.o
+#20 20.35 [ 38%] Building C object tests/CMakeFiles/libgit2_tests.dir/commit/commit.c.o
+#20 20.37 [ 38%] Building C object tests/CMakeFiles/libgit2_tests.dir/commit/parent.c.o
+#20 20.44 [ 38%] Building C object tests/CMakeFiles/libgit2_tests.dir/commit/parse.c.o
+#20 20.46 [ 39%] Building C object tests/CMakeFiles/libgit2_tests.dir/commit/signature.c.o
+#20 20.53 [ 39%] Building C object tests/CMakeFiles/libgit2_tests.dir/commit/write.c.o
+#20 20.58 [ 39%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/add.c.o
+#20 20.61 [ 39%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/backend.c.o
+#20 20.63 [ 39%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/conditionals.c.o
+#20 20.63 [ 39%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/config_helpers.c.o
+#20 20.66 [ 40%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/configlevel.c.o
+#20 20.76 [ 40%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/global.c.o
+#20 20.78 [ 40%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/include.c.o
+#20 20.83 [ 40%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/memory.c.o
+#20 20.83 [ 40%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/multivar.c.o
+#20 20.85 [ 40%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/new.c.o
+#20 20.91 [ 40%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/read.c.o
+#20 20.92 [ 41%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/readonly.c.o
+#20 20.93 [ 41%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/rename.c.o
+#20 21.06 [ 41%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/snapshot.c.o
+#20 21.10 [ 41%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/stress.c.o
+#20 21.10 [ 41%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/validkeyname.c.o
+#20 21.12 [ 41%] Building C object tests/CMakeFiles/libgit2_tests.dir/config/write.c.o
+#20 21.13 [ 42%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/array.c.o
+#20 21.22 [ 42%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/assert.c.o
+#20 21.22 [ 42%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/bitvec.c.o
+#20 21.34 [ 42%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/buf.c.o
+#20 21.38 [ 42%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/copy.c.o
+#20 21.39 [ 42%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/dirent.c.o
+#20 21.41 [ 43%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/encoding.c.o
+#20 21.41 [ 43%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/env.c.o
+#20 21.47 [ 43%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/errors.c.o
+#20 21.48 [ 43%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/features.c.o
+#20 21.57 [ 43%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/filebuf.c.o
+#20 21.60 [ 43%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/ftruncate.c.o
+#20 21.66 [ 43%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/futils.c.o
+#20 21.68 [ 44%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/gitstr.c.o
+#20 21.72 [ 44%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/hex.c.o
+#20 21.73 [ 44%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/iconv.c.o
+#20 21.75 [ 44%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/init.c.o
+#20 21.75 [ 44%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/integer.c.o
+#20 21.85 [ 44%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/link.c.o
+#20 21.89 [ 45%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/memmem.c.o
+#20 21.94 [ 45%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/mkdir.c.o
+#20 21.97 [ 45%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/oid.c.o
+#20 21.99 [ 45%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/oidmap.c.o
+#20 21.99 [ 45%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/opts.c.o
+#20 22.00 [ 45%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/path.c.o
+#20 22.15 [ 46%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/pool.c.o
+#20 22.16 [ 46%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/posix.c.o
+#20 22.19 [ 46%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/pqueue.c.o
+#20 22.24 [ 46%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/qsort.c.o
+#20 22.25 [ 46%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/regexp.c.o
+#20 22.27 [ 46%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/rmdir.c.o
+#20 22.28 [ 46%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/sha1.c.o
+#20 22.40 [ 47%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/sortedcache.c.o
+#20 22.42 [ 47%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/stat.c.o
+#20 22.47 [ 47%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/string.c.o
+#20 22.47 [ 47%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/strmap.c.o
+#20 22.51 [ 47%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/strtol.c.o
+#20 22.54 [ 47%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/structinit.c.o
+#20 22.56 [ 48%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/useragent.c.o
+#20 22.57 [ 48%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/utf8.c.o
+#20 22.70 [ 48%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/vector.c.o
+#20 22.76 [ 48%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/wildmatch.c.o
+#20 22.76 [ 48%] Building C object tests/CMakeFiles/libgit2_tests.dir/core/zstream.c.o
+#20 22.77 [ 48%] Building C object tests/CMakeFiles/libgit2_tests.dir/date/date.c.o
+#20 22.79 [ 48%] Building C object tests/CMakeFiles/libgit2_tests.dir/date/rfc2822.c.o
+#20 22.81 [ 49%] Building C object tests/CMakeFiles/libgit2_tests.dir/delta/apply.c.o
+#20 22.82 [ 49%] Building C object tests/CMakeFiles/libgit2_tests.dir/describe/describe.c.o
+#20 22.88 [ 49%] Building C object tests/CMakeFiles/libgit2_tests.dir/describe/describe_helpers.c.o
+#20 23.02 [ 49%] Building C object tests/CMakeFiles/libgit2_tests.dir/describe/t6120.c.o
+#20 23.02 [ 49%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/binary.c.o
+#20 23.04 [ 49%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/blob.c.o
+#20 23.05 [ 50%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/diff_helpers.c.o
+#20 23.07 [ 50%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/diffiter.c.o
+#20 23.09 [ 50%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/drivers.c.o
+#20 23.10 [ 50%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/externalmodifications.c.o
+#20 23.14 [ 50%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/format_email.c.o
+#20 23.33 [ 50%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/index.c.o
+#20 23.36 [ 51%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/notify.c.o
+#20 23.39 [ 51%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/parse.c.o
+#20 23.40 [ 51%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/patch.c.o
+#20 23.41 [ 51%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/patchid.c.o
+#20 23.44 [ 51%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/pathspec.c.o
+#20 23.45 [ 51%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/racediffiter.c.o
+#20 23.52 [ 51%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/rename.c.o
+#20 23.66 [ 52%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/stats.c.o
+#20 23.66 [ 52%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/submodules.c.o
+#20 23.68 [ 52%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/tree.c.o
+#20 23.73 [ 52%] Building C object tests/CMakeFiles/libgit2_tests.dir/diff/workdir.c.o
+#20 23.74 [ 52%] Building C object tests/CMakeFiles/libgit2_tests.dir/email/create.c.o
+#20 23.74 [ 52%] Building C object tests/CMakeFiles/libgit2_tests.dir/fetch/local.c.o
+#20 23.83 [ 53%] Building C object tests/CMakeFiles/libgit2_tests.dir/fetchhead/nonetwork.c.o
+#20 24.03 [ 53%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/bare.c.o
+#20 24.03 [ 53%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/blob.c.o
+#20 24.04 [ 53%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/crlf.c.o
+#20 24.06 [ 53%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/custom.c.o
+#20 24.07 [ 53%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/custom_helpers.c.o
+#20 24.17 [ 53%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/file.c.o
+#20 24.21 [ 54%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/ident.c.o
+#20 24.32 [ 54%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/query.c.o
+#20 24.32 [ 54%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/stream.c.o
+#20 24.34 [ 54%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/systemattrs.c.o
+#20 24.36 [ 54%] Building C object tests/CMakeFiles/libgit2_tests.dir/filter/wildcard.c.o
+#20 24.39 [ 54%] Building C object tests/CMakeFiles/libgit2_tests.dir/graph/ahead_behind.c.o
+#20 24.45 [ 55%] Building C object tests/CMakeFiles/libgit2_tests.dir/graph/commitgraph.c.o
+#20 24.47 [ 55%] Building C object tests/CMakeFiles/libgit2_tests.dir/graph/descendant_of.c.o
+#20 24.49 [ 55%] Building C object tests/CMakeFiles/libgit2_tests.dir/graph/reachable_from_any.c.o
+#20 24.59 [ 55%] Building C object tests/CMakeFiles/libgit2_tests.dir/ignore/path.c.o
+#20 24.63 [ 55%] Building C object tests/CMakeFiles/libgit2_tests.dir/ignore/status.c.o
+#20 24.65 [ 55%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/add.c.o
+#20 24.67 [ 56%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/addall.c.o
+#20 24.68 [ 56%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/bypath.c.o
+#20 24.75 [ 56%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/cache.c.o
+#20 24.77 [ 56%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/collision.c.o
+#20 24.82 [ 56%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/conflicts.c.o
+#20 24.91 [ 56%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/crlf.c.o
+#20 24.95 [ 56%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/filemodes.c.o
+#20 25.04 [ 57%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/inmemory.c.o
+#20 25.05 [ 57%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/names.c.o
+#20 25.06 [ 57%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/nsec.c.o
+#20 25.10 [ 57%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/racy.c.o
+#20 25.10 [ 57%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/read_index.c.o
+#20 25.20 [ 57%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/read_tree.c.o
+#20 25.27 [ 58%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/reuc.c.o
+#20 25.27 [ 58%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/rename.c.o
+#20 25.30 [ 58%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/splitindex.c.o
+#20 25.36 [ 58%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/stage.c.o
+#20 25.38 [ 58%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/tests.c.o
+#20 25.44 [ 58%] Building C object tests/CMakeFiles/libgit2_tests.dir/index/version.c.o
+#20 25.47 [ 58%] Building C object tests/CMakeFiles/libgit2_tests.dir/iterator/index.c.o
+#20 25.47 [ 59%] Building C object tests/CMakeFiles/libgit2_tests.dir/iterator/iterator_helpers.c.o
+#20 25.55 [ 59%] Building C object tests/CMakeFiles/libgit2_tests.dir/iterator/tree.c.o
+#20 25.58 [ 59%] Building C object tests/CMakeFiles/libgit2_tests.dir/iterator/workdir.c.o
+#20 25.63 [ 59%] Building C object tests/CMakeFiles/libgit2_tests.dir/mailmap/basic.c.o
+#20 25.66 [ 59%] Building C object tests/CMakeFiles/libgit2_tests.dir/mailmap/blame.c.o
+#20 25.76 [ 59%] Building C object tests/CMakeFiles/libgit2_tests.dir/mailmap/parsing.c.o
+#20 25.79 [ 60%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/analysis.c.o
+#20 25.91 [ 60%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/annotated_commit.c.o
+#20 25.92 [ 60%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/driver.c.o
+#20 25.94 [ 60%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/files.c.o
+#20 26.00 [ 60%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/merge_helpers.c.o
+#20 26.02 [ 60%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/automerge.c.o
+#20 26.10 [ 61%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/commits.c.o
+#20 26.12 [ 61%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/modeconflict.c.o
+#20 26.13 [ 61%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/recursive.c.o
+#20 26.18 [ 61%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/renames.c.o
+#20 26.27 [ 61%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/treediff.c.o
+#20 26.32 [ 61%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/trivial.c.o
+#20 26.34 [ 61%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/trees/whitespace.c.o
+#20 26.39 [ 62%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/workdir/dirty.c.o
+#20 26.42 [ 62%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/workdir/recursive.c.o
+#20 26.42 [ 62%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/workdir/renames.c.o
+#20 26.47 [ 62%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/workdir/setup.c.o
+#20 26.51 [ 62%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/workdir/simple.c.o
+#20 26.61 [ 62%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/workdir/submodules.c.o
+#20 26.65 [ 63%] Building C object tests/CMakeFiles/libgit2_tests.dir/merge/workdir/trivial.c.o
+#20 26.69 [ 63%] Building C object tests/CMakeFiles/libgit2_tests.dir/message/trailer.c.o
+#20 26.73 [ 63%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/cred.c.o
+#20 26.74 [ 63%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/fetchlocal.c.o
+#20 26.76 [ 63%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/matchhost.c.o
+#20 26.91 [ 63%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/refspecs.c.o
+#20 26.94 [ 63%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/remote/defaultbranch.c.o
+#20 26.96 [ 64%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/remote/delete.c.o
+#20 27.00 [ 64%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/remote/isvalidname.c.o
+#20 27.00 [ 64%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/remote/local.c.o
+#20 27.03 [ 64%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/remote/push.c.o
+#20 27.05 [ 64%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/remote/remotes.c.o
+#20 27.16 [ 64%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/remote/rename.c.o
+#20 27.21 [ 65%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/url/joinpath.c.o
+#20 27.23 [ 65%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/url/parse.c.o
+#20 27.26 [ 65%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/url/pattern.c.o
+#20 27.27 [ 65%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/url/redirect.c.o
+#20 27.32 [ 65%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/url/scp.c.o
+#20 27.36 [ 65%] Building C object tests/CMakeFiles/libgit2_tests.dir/network/url/valid.c.o
+#20 27.43 [ 66%] Building C object tests/CMakeFiles/libgit2_tests.dir/notes/notes.c.o
+#20 27.52 [ 66%] Building C object tests/CMakeFiles/libgit2_tests.dir/notes/notesref.c.o
+#20 27.52 [ 66%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/blob/filter.c.o
+#20 27.52 [ 66%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/blob/fromstream.c.o
+#20 27.57 [ 66%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/blob/write.c.o
+#20 27.63 [ 66%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/cache.c.o
+#20 27.66 [ 66%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/commit/commitstagedfile.c.o
+#20 27.68 [ 67%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/commit/parse.c.o
+#20 27.80 [ 67%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/lookup.c.o
+#20 27.81 [ 67%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/lookupbypath.c.o
+#20 27.82 [ 67%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/message.c.o
+#20 27.85 [ 67%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/peel.c.o
+#20 27.86 [ 67%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/chars.c.o
+#20 27.96 [ 68%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/compare.c.o
+#20 27.97 [ 68%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/convert.c.o
+#20 28.01 [ 68%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/fromstr.c.o
+#20 28.12 [ 68%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/hash.c.o
+#20 28.12 [ 68%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/short.c.o
+#20 28.12 [ 68%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/size.c.o
+#20 28.13 [ 69%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/type2string.c.o
+#20 28.15 [ 69%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/raw/write.c.o
+#20 28.26 [ 69%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/shortid.c.o
+#20 28.28 [ 69%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tag/list.c.o
+#20 28.30 [ 69%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tag/parse.c.o
+#20 28.41 [ 69%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tag/peel.c.o
+#20 28.42 [ 69%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tag/read.c.o
+#20 28.43 [ 70%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tag/write.c.o
+#20 28.45 [ 70%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/attributes.c.o
+#20 28.47 [ 70%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/duplicateentries.c.o
+#20 28.53 [ 70%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/frompath.c.o
+#20 28.59 [ 70%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/parse.c.o
+#20 28.63 [ 70%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/read.c.o
+#20 28.72 [ 71%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/update.c.o
+#20 28.75 [ 71%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/walk.c.o
+#20 28.75 [ 71%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/tree/write.c.o
+#20 28.77 [ 71%] Building C object tests/CMakeFiles/libgit2_tests.dir/object/validate.c.o
+#20 28.80 [ 71%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/alternates.c.o
+#20 28.81 [ 71%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/backend/backend_helpers.c.o
+#20 28.91 [ 71%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/backend/mempack.c.o
+#20 28.95 [ 72%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/backend/multiple.c.o
+#20 29.04 [ 72%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/backend/nobackend.c.o
+#20 29.07 [ 72%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/backend/nonrefreshing.c.o
+#20 29.09 [ 72%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/backend/refreshing.c.o
+#20 29.10 [ 72%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/backend/simple.c.o
+#20 29.13 [ 72%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/emptyobjects.c.o
+#20 29.18 [ 73%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/foreach.c.o
+#20 29.22 [ 73%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/freshen.c.o
+#20 29.27 [ 73%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/largefiles.c.o
+#20 29.34 [ 73%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/loose.c.o
+#20 29.39 [ 73%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/mixed.c.o
+#20 29.42 [ 73%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/packed.c.o
+#20 29.45 [ 74%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/packed_one.c.o
+#20 29.46 [ 74%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/sorting.c.o
+#20 29.52 [ 74%] Building C object tests/CMakeFiles/libgit2_tests.dir/odb/streamwrite.c.o
+#20 29.55 [ 74%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/badssl.c.o
+#20 29.59 [ 74%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/clone.c.o
+#20 29.72 [ 74%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/customcert.c.o
+#20 29.72 [ 74%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/fetch.c.o
+#20 29.74 [ 75%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/fetchhead.c.o
+#20 29.76 [ 75%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/push.c.o
+#20 29.78 [ 75%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/push_util.c.o
+#20 29.81 [ 75%] Building C object tests/CMakeFiles/libgit2_tests.dir/online/remotes.c.o
+#20 29.82 [ 75%] Building C object tests/CMakeFiles/libgit2_tests.dir/pack/filelimit.c.o
+#20 30.01 [ 75%] Building C object tests/CMakeFiles/libgit2_tests.dir/pack/indexer.c.o
+#20 30.06 [ 76%] Building C object tests/CMakeFiles/libgit2_tests.dir/pack/midx.c.o
+#20 30.06 [ 76%] Building C object tests/CMakeFiles/libgit2_tests.dir/pack/packbuilder.c.o
+#20 30.07 [ 76%] Building C object tests/CMakeFiles/libgit2_tests.dir/pack/sharing.c.o
+#20 30.08 [ 76%] Building C object tests/CMakeFiles/libgit2_tests.dir/pack/threadsafety.c.o
+#20 30.11 [ 76%] Building C object tests/CMakeFiles/libgit2_tests.dir/patch/parse.c.o
+#20 30.13 [ 76%] Building C object tests/CMakeFiles/libgit2_tests.dir/patch/print.c.o
+#20 30.15 [ 76%] Building C object tests/CMakeFiles/libgit2_tests.dir/path/core.c.o
+#20 30.35 [ 77%] Building C object tests/CMakeFiles/libgit2_tests.dir/path/dotgit.c.o
+#20 30.37 [ 77%] Building C object tests/CMakeFiles/libgit2_tests.dir/path/win32.c.o
+#20 30.38 [ 77%] Building C object tests/CMakeFiles/libgit2_tests.dir/perf/helper__perf__do_merge.c.o
+#20 30.39 [ 77%] Building C object tests/CMakeFiles/libgit2_tests.dir/perf/helper__perf__timer.c.o
+#20 30.42 [ 77%] Building C object tests/CMakeFiles/libgit2_tests.dir/perf/merge.c.o
+#20 30.43 [ 77%] Building C object tests/CMakeFiles/libgit2_tests.dir/rebase/abort.c.o
+#20 30.43 [ 78%] Building C object tests/CMakeFiles/libgit2_tests.dir/rebase/inmemory.c.o
+#20 30.52 [ 78%] Building C object tests/CMakeFiles/libgit2_tests.dir/rebase/iterator.c.o
+#20 30.63 [ 78%] Building C object tests/CMakeFiles/libgit2_tests.dir/rebase/merge.c.o
+#20 30.66 [ 78%] Building C object tests/CMakeFiles/libgit2_tests.dir/rebase/setup.c.o
+#20 30.66 [ 78%] Building C object tests/CMakeFiles/libgit2_tests.dir/rebase/sign.c.o
+#20 30.68 [ 78%] Building C object tests/CMakeFiles/libgit2_tests.dir/rebase/submodule.c.o
+#20 30.68 [ 79%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/basic.c.o
+#20 30.74 [ 79%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/checkedout.c.o
+#20 30.79 [ 79%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/create.c.o
+#20 30.82 [ 79%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/delete.c.o
+#20 30.96 [ 79%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/ishead.c.o
+#20 30.97 [ 79%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/iterator.c.o
+#20 30.99 [ 79%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/lookup.c.o
+#20 31.01 [ 80%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/move.c.o
+#20 31.06 [ 80%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/name.c.o
+#20 31.12 [ 80%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/remote.c.o
+#20 31.14 [ 80%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/upstream.c.o
+#20 31.15 [ 80%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/branches/upstreamname.c.o
+#20 31.25 [ 80%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/crashes.c.o
+#20 31.26 [ 81%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/create.c.o
+#20 31.28 [ 81%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/delete.c.o
+#20 31.33 [ 81%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/dup.c.o
+#20 31.34 [ 81%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/foreachglob.c.o
+#20 31.42 [ 81%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/iterator.c.o
+#20 31.42 [ 81%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/isvalidname.c.o
+#20 31.46 [ 81%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/list.c.o
+#20 31.52 [ 82%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/listall.c.o
+#20 31.59 [ 82%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/lookup.c.o
+#20 31.60 [ 82%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/namespaces.c.o
+#20 31.61 [ 82%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/normalize.c.o
+#20 31.62 [ 82%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/overwrite.c.o
+#20 31.69 [ 82%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/pack.c.o
+#20 31.73 [ 83%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/peel.c.o
+#20 31.76 [ 83%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/races.c.o
+#20 31.80 [ 83%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/read.c.o
+#20 31.87 [ 83%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/ref_helpers.c.o
+#20 31.90 [ 83%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/reflog/drop.c.o
+#20 31.93 [ 83%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/reflog/messages.c.o
+#20 31.95 [ 84%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/reflog/reflog.c.o
+#20 31.99 [ 84%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/reflog/reflog_helpers.c.o
+#20 32.02 [ 84%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/rename.c.o
+#20 32.09 [ 84%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/revparse.c.o
+#20 32.13 [ 84%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/setter.c.o
+#20 32.16 [ 84%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/shorthand.c.o
+#20 32.19 [ 84%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/tags/name.c.o
+#20 32.30 [ 85%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/transactions.c.o
+#20 32.31 [ 85%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/unicode.c.o
+#20 32.33 [ 85%] Building C object tests/CMakeFiles/libgit2_tests.dir/refs/update.c.o
+#20 32.39 [ 85%] Building C object tests/CMakeFiles/libgit2_tests.dir/remote/create.c.o
+#20 32.46 [ 85%] Building C object tests/CMakeFiles/libgit2_tests.dir/remote/fetch.c.o
+#20 32.46 [ 85%] Building C object tests/CMakeFiles/libgit2_tests.dir/remote/httpproxy.c.o
+#20 32.46 [ 86%] Building C object tests/CMakeFiles/libgit2_tests.dir/remote/insteadof.c.o
+#20 32.47 [ 86%] Building C object tests/CMakeFiles/libgit2_tests.dir/remote/list.c.o
+#20 32.58 [ 86%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/config.c.o
+#20 32.60 [ 86%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/discover.c.o
+#20 32.61 [ 86%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/env.c.o
+#20 32.73 [ 86%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/extensions.c.o
+#20 32.73 [ 87%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/getters.c.o
+#20 32.76 [ 87%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/hashfile.c.o
+#20 32.79 [ 87%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/headtree.c.o
+#20 32.79 [ 87%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/head.c.o
+#20 32.92 [ 87%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/init.c.o
+#20 32.93 [ 87%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/message.c.o
+#20 32.94 [ 87%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/new.c.o
+#20 33.01 [ 88%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/open.c.o
+#20 33.03 [ 88%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/pathspec.c.o
+#20 33.08 [ 88%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/repo_helpers.c.o
+#20 33.09 [ 88%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/setters.c.o
+#20 33.09 [ 88%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/reservedname.c.o
+#20 33.21 [ 88%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/shallow.c.o
+#20 33.21 [ 89%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/state.c.o
+#20 33.33 [ 89%] Building C object tests/CMakeFiles/libgit2_tests.dir/repo/template.c.o
+#20 33.36 [ 89%] Building C object tests/CMakeFiles/libgit2_tests.dir/reset/default.c.o
+#20 33.38 [ 89%] Building C object tests/CMakeFiles/libgit2_tests.dir/reset/hard.c.o
+#20 33.38 [ 89%] Building C object tests/CMakeFiles/libgit2_tests.dir/reset/mixed.c.o
+#20 33.40 [ 89%] Building C object tests/CMakeFiles/libgit2_tests.dir/reset/reset_helpers.c.o
+#20 33.40 [ 89%] Building C object tests/CMakeFiles/libgit2_tests.dir/reset/soft.c.o
+#20 33.49 [ 90%] Building C object tests/CMakeFiles/libgit2_tests.dir/revert/bare.c.o
+#20 33.52 [ 90%] Building C object tests/CMakeFiles/libgit2_tests.dir/revert/rename.c.o
+#20 33.66 [ 90%] Building C object tests/CMakeFiles/libgit2_tests.dir/revwalk/basic.c.o
+#20 33.66 [ 90%] Building C object tests/CMakeFiles/libgit2_tests.dir/revert/workdir.c.o
+#20 33.67 [ 90%] Building C object tests/CMakeFiles/libgit2_tests.dir/revwalk/hidecb.c.o
+#20 33.67 [ 90%] Building C object tests/CMakeFiles/libgit2_tests.dir/revwalk/mergebase.c.o
+#20 33.73 [ 91%] Building C object tests/CMakeFiles/libgit2_tests.dir/revwalk/simplify.c.o
+#20 33.73 [ 91%] Building C object tests/CMakeFiles/libgit2_tests.dir/revwalk/signatureparsing.c.o
+#20 33.82 [ 91%] Building C object tests/CMakeFiles/libgit2_tests.dir/stash/apply.c.o
+#20 33.84 [ 91%] Building C object tests/CMakeFiles/libgit2_tests.dir/stash/drop.c.o
+#20 33.98 [ 91%] Building C object tests/CMakeFiles/libgit2_tests.dir/stash/foreach.c.o
+#20 34.00 [ 91%] Building C object tests/CMakeFiles/libgit2_tests.dir/stash/save.c.o
+#20 34.00 [ 92%] Building C object tests/CMakeFiles/libgit2_tests.dir/stash/stash_helpers.c.o
+#20 34.02 [ 92%] Building C object tests/CMakeFiles/libgit2_tests.dir/stash/submodules.c.o
+#20 34.03 [ 92%] Building C object tests/CMakeFiles/libgit2_tests.dir/status/renames.c.o
+#20 34.08 [ 92%] Building C object tests/CMakeFiles/libgit2_tests.dir/status/single.c.o
+#20 34.16 [ 92%] Building C object tests/CMakeFiles/libgit2_tests.dir/status/status_helpers.c.o
+#20 34.19 [ 92%] Building C object tests/CMakeFiles/libgit2_tests.dir/status/submodules.c.o
+#20 34.29 [ 92%] Building C object tests/CMakeFiles/libgit2_tests.dir/status/worktree.c.o
+#20 34.29 [ 93%] Building C object tests/CMakeFiles/libgit2_tests.dir/status/worktree_init.c.o
+#20 34.30 [ 93%] Building C object tests/CMakeFiles/libgit2_tests.dir/str/basic.c.o
+#20 34.35 [ 93%] Building C object tests/CMakeFiles/libgit2_tests.dir/str/oom.c.o
+#20 34.36 [ 93%] Building C object tests/CMakeFiles/libgit2_tests.dir/str/percent.c.o
+#20 34.44 [ 93%] Building C object tests/CMakeFiles/libgit2_tests.dir/str/quote.c.o
+#20 34.47 [ 93%] Building C object tests/CMakeFiles/libgit2_tests.dir/str/splice.c.o
+#20 34.56 [ 94%] Building C object tests/CMakeFiles/libgit2_tests.dir/stream/deprecated.c.o
+#20 34.58 [ 94%] Building C object tests/CMakeFiles/libgit2_tests.dir/stream/registration.c.o
+#20 34.63 [ 94%] Building C object tests/CMakeFiles/libgit2_tests.dir/stress/diff.c.o
+#20 34.64 [ 94%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/add.c.o
+#20 34.67 [ 94%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/escape.c.o
+#20 34.72 [ 94%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/init.c.o
+#20 34.76 [ 94%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/inject_option.c.o
+#20 34.84 [ 95%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/lookup.c.o
+#20 34.85 [ 95%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/modify.c.o
+#20 34.87 [ 95%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/nosubs.c.o
+#20 34.94 [ 95%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/open.c.o
+#20 34.98 [ 95%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/repository_init.c.o
+#20 35.00 [ 95%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/status.c.o
+#20 35.03 [ 96%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/submodule_helpers.c.o
+#20 35.07 [ 96%] Building C object tests/CMakeFiles/libgit2_tests.dir/submodule/update.c.o
+#20 35.18 [ 96%] Building C object tests/CMakeFiles/libgit2_tests.dir/threads/atomic.c.o
+#20 35.19 [ 96%] Building C object tests/CMakeFiles/libgit2_tests.dir/threads/basic.c.o
+#20 35.24 [ 96%] Building C object tests/CMakeFiles/libgit2_tests.dir/threads/diff.c.o
+#20 35.24 [ 96%] Building C object tests/CMakeFiles/libgit2_tests.dir/threads/iterator.c.o
+#20 35.27 [ 97%] Building C object tests/CMakeFiles/libgit2_tests.dir/threads/refdb.c.o
+#20 35.36 [ 97%] Building C object tests/CMakeFiles/libgit2_tests.dir/threads/thread_helpers.c.o
+#20 35.38 [ 97%] Building C object tests/CMakeFiles/libgit2_tests.dir/threads/tlsdata.c.o
+#20 35.44 [ 97%] Building C object tests/CMakeFiles/libgit2_tests.dir/trace/trace.c.o
+#20 35.48 [ 97%] Building C object tests/CMakeFiles/libgit2_tests.dir/transport/register.c.o
+#20 35.48 [ 97%] Building C object tests/CMakeFiles/libgit2_tests.dir/trace/windows/stacktrace.c.o
+#20 35.54 [ 97%] Building C object tests/CMakeFiles/libgit2_tests.dir/transports/smart/packet.c.o
+#20 35.55 [ 98%] Building C object tests/CMakeFiles/libgit2_tests.dir/win32/forbidden.c.o
+#20 35.61 [ 98%] Building C object tests/CMakeFiles/libgit2_tests.dir/win32/longpath.c.o
+#20 35.64 [ 98%] Building C object tests/CMakeFiles/libgit2_tests.dir/win32/systemdir.c.o
+#20 35.67 [ 98%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/bare.c.o
+#20 35.72 [ 98%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/config.c.o
+#20 35.75 [ 98%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/merge.c.o
+#20 35.76 [ 99%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/open.c.o
+#20 35.87 [ 99%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/reflog.c.o
+#20 35.87 [ 99%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/refs.c.o
+#20 35.90 [ 99%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/repository.c.o
+#20 35.92 [ 99%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/submodule.c.o
+#20 35.96 [ 99%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/worktree.c.o
+#20 35.99 [ 99%] Building C object tests/CMakeFiles/libgit2_tests.dir/worktree/worktree_helpers.c.o
+#20 36.29 [100%] Linking C executable ../libgit2_tests
+#20 37.65 [100%] Built target libgit2_tests
+#20 37.66 + make install
+#20 37.99 Consolidate compiler generated dependencies of target git2internal
+#20 38.05 [ 26%] Built target git2internal
+#20 38.06 Consolidate compiler generated dependencies of target zlib
+#20 38.07 [ 28%] Built target zlib
+#20 38.08 Consolidate compiler generated dependencies of target http-parser
+#20 38.09 [ 28%] Built target http-parser
+#20 38.11 Consolidate compiler generated dependencies of target pcre
+#20 38.12 [ 31%] Built target pcre
+#20 38.14 [ 31%] Built target git2
+#20 38.90 Consolidate compiler generated dependencies of target libgit2_tests
+#20 39.04 [100%] Built target libgit2_tests
+#20 39.05 Consolidate compiler generated dependencies of target headertest
+#20 39.06 [100%] Built target headertest
+#20 39.07 Install the project...
+#20 39.08 -- Install configuration: "Debug"
+#20 39.08 -- Installing: /work/lib/pkgconfig/libgit2.pc
+#20 39.08 -- Installing: /work/lib/libgit2.a
+#20 39.10 -- Installing: /work/include/git2
+#20 39.10 -- Installing: /work/include/git2/cherrypick.h
+#20 39.11 -- Installing: /work/include/git2/indexer.h
+#20 39.11 -- Installing: /work/include/git2/blame.h
+#20 39.11 -- Installing: /work/include/git2/stdint.h
+#20 39.11 -- Installing: /work/include/git2/reset.h
+#20 39.11 -- Installing: /work/include/git2/refs.h
+#20 39.11 -- Installing: /work/include/git2/email.h
+#20 39.11 -- Installing: /work/include/git2/signature.h
+#20 39.11 -- Installing: /work/include/git2/remote.h
+#20 39.11 -- Installing: /work/include/git2/deprecated.h
+#20 39.11 -- Installing: /work/include/git2/annotated_commit.h
+#20 39.11 -- Installing: /work/include/git2/reflog.h
+#20 39.11 -- Installing: /work/include/git2/blob.h
+#20 39.11 -- Installing: /work/include/git2/types.h
+#20 39.11 -- Installing: /work/include/git2/version.h
+#20 39.11 -- Installing: /work/include/git2/branch.h
+#20 39.11 -- Installing: /work/include/git2/credential_helpers.h
+#20 39.11 -- Installing: /work/include/git2/patch.h
+#20 39.11 -- Installing: /work/include/git2/config.h
+#20 39.11 -- Installing: /work/include/git2/worktree.h
+#20 39.11 -- Installing: /work/include/git2/oid.h
+#20 39.11 -- Installing: /work/include/git2/credential.h
+#20 39.11 -- Installing: /work/include/git2/clone.h
+#20 39.11 -- Installing: /work/include/git2/graph.h
+#20 39.11 -- Installing: /work/include/git2/common.h
+#20 39.11 -- Installing: /work/include/git2/submodule.h
+#20 39.11 -- Installing: /work/include/git2/stash.h
+#20 39.11 -- Installing: /work/include/git2/object.h
+#20 39.11 -- Installing: /work/include/git2/revwalk.h
+#20 39.11 -- Installing: /work/include/git2/rebase.h
+#20 39.11 -- Installing: /work/include/git2/pack.h
+#20 39.11 -- Installing: /work/include/git2/transaction.h
+#20 39.11 -- Installing: /work/include/git2/repository.h
+#20 39.11 -- Installing: /work/include/git2/apply.h
+#20 39.11 -- Installing: /work/include/git2/index.h
+#20 39.11 -- Installing: /work/include/git2/oidarray.h
+#20 39.11 -- Installing: /work/include/git2/revert.h
+#20 39.11 -- Installing: /work/include/git2/commit.h
+#20 39.11 -- Installing: /work/include/git2/describe.h
+#20 39.11 -- Installing: /work/include/git2/diff.h
+#20 39.11 -- Installing: /work/include/git2/notes.h
+#20 39.11 -- Installing: /work/include/git2/odb_backend.h
+#20 39.11 -- Installing: /work/include/git2/filter.h
+#20 39.11 -- Installing: /work/include/git2/global.h
+#20 39.11 -- Installing: /work/include/git2/revparse.h
+#20 39.11 -- Installing: /work/include/git2/mailmap.h
+#20 39.11 -- Installing: /work/include/git2/message.h
+#20 39.11 -- Installing: /work/include/git2/sys
+#20 39.11 -- Installing: /work/include/git2/sys/refs.h
+#20 39.11 -- Installing: /work/include/git2/sys/email.h
+#20 39.11 -- Installing: /work/include/git2/sys/remote.h
+#20 39.12 -- Installing: /work/include/git2/sys/stream.h
+#20 39.12 -- Installing: /work/include/git2/sys/reflog.h
+#20 39.12 -- Installing: /work/include/git2/sys/commit_graph.h
+#20 39.12 -- Installing: /work/include/git2/sys/config.h
+#20 39.12 -- Installing: /work/include/git2/sys/mempack.h
+#20 39.12 -- Installing: /work/include/git2/sys/credential.h
+#20 39.12 -- Installing: /work/include/git2/sys/openssl.h
+#20 39.12 -- Installing: /work/include/git2/sys/cred.h
+#20 39.12 -- Installing: /work/include/git2/sys/repository.h
+#20 39.12 -- Installing: /work/include/git2/sys/index.h
+#20 39.12 -- Installing: /work/include/git2/sys/commit.h
+#20 39.12 -- Installing: /work/include/git2/sys/diff.h
+#20 39.12 -- Installing: /work/include/git2/sys/odb_backend.h
+#20 39.12 -- Installing: /work/include/git2/sys/filter.h
+#20 39.12 -- Installing: /work/include/git2/sys/hashsig.h
+#20 39.12 -- Installing: /work/include/git2/sys/path.h
+#20 39.12 -- Installing: /work/include/git2/sys/midx.h
+#20 39.12 -- Installing: /work/include/git2/sys/refdb_backend.h
+#20 39.12 -- Installing: /work/include/git2/sys/merge.h
+#20 39.12 -- Installing: /work/include/git2/sys/alloc.h
+#20 39.12 -- Installing: /work/include/git2/sys/transport.h
+#20 39.12 -- Installing: /work/include/git2/errors.h
+#20 39.12 -- Installing: /work/include/git2/trace.h
+#20 39.12 -- Installing: /work/include/git2/refdb.h
+#20 39.12 -- Installing: /work/include/git2/tag.h
+#20 39.12 -- Installing: /work/include/git2/odb.h
+#20 39.12 -- Installing: /work/include/git2/merge.h
+#20 39.12 -- Installing: /work/include/git2/checkout.h
+#20 39.12 -- Installing: /work/include/git2/attr.h
+#20 39.12 -- Installing: /work/include/git2/ignore.h
+#20 39.12 -- Installing: /work/include/git2/transport.h
+#20 39.12 -- Installing: /work/include/git2/strarray.h
+#20 39.12 -- Installing: /work/include/git2/proxy.h
+#20 39.12 -- Installing: /work/include/git2/refspec.h
+#20 39.12 -- Installing: /work/include/git2/status.h
+#20 39.12 -- Installing: /work/include/git2/buffer.h
+#20 39.12 -- Installing: /work/include/git2/tree.h
+#20 39.12 -- Installing: /work/include/git2/cert.h
+#20 39.12 -- Installing: /work/include/git2/pathspec.h
+#20 39.12 -- Installing: /work/include/git2/net.h
+#20 39.12 -- Installing: /work/include/git2/cred_helpers.h
+#20 39.12 -- Installing: /work/include/git2.h
+#20 39.12 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I/work/include /src/download_refs_fuzzer.cc -o /out/download_refs_fuzzer -lFuzzingEngine /work/lib/libgit2.a
+#20 40.52 + zip -j /out/download_refs_fuzzer_seed_corpus.zip /src/corpora/download_refs/clone.dat
+#20 40.52   adding: clone.dat (deflated 17%)
+#20 40.52 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 41.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:99686748aa9c0a58ee6b1699ea29a2948f33cbd74a5bc78f08d114a26b116f98
+#21 writing image sha256:99686748aa9c0a58ee6b1699ea29a2948f33cbd74a5bc78f08d114a26b116f98 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/libgit2_libgit2 done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libgit2_libgit2:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:a1d15206ccd7e3fc477d6a75f7b654118647d11264f0442cdc663da11c89c1f5
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2b28fa5515d07686a6d3dfb2f7fcdd461263480c7b8458f35be7607c7340c533
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate
+#4 sha256:fb76cebc402d506fe94f809304d2df0c1b5827dfe64431116db1d7cd80d9f3fe
+#4 ERROR: gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate done
+#6 DONE 0.2s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:595b83d8e4bab40c6471cde74d1696d3be39943f24ea8e16ad82019eb908de0c
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:4532406fe0f0ef9b0cf512cae37e77dbb4e1801657c88ff3895b488f98dd0cc6
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate:latest
+#3 sha256:ec96d71634358d686dc2d00191ca4541c16caf1bef2e7fd4c6eda9282f69301a
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libgit2_libgit2:latest
+#4 sha256:32ee858f34beb9bea034ba0bad9d2dff5b75e1679bdd5f62969f4f8d2c639a3f
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b3df1a1041996e725d30fc8e83d7c0725032046c84fa3d293cf906f844a516fb
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate
+#6 sha256:6ecfba92cb4624d865924cdc23c1925f6269a5b1f651f92d10b1a684aa59adaf
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libgit2_libgit2
+#10 sha256:fe1063b7a1210bb405f036e879f5c40ee67af2b64898baa6b0bb97f021cca0ad
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libgit2_libgit2
+#5 sha256:9328d2f7957b87c2d1a309d78dc487debfda8529887fc88631a3a7a39b46ab5c
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libgit2_libgit2:latest: not found
+
+#12 [internal] load build context
+#12 sha256:b3df1a1041996e725d30fc8e83d7c0725032046c84fa3d293cf906f844a516fb
+#12 transferring context: 17.63MB 0.6s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libgit2_libgit2
+#10 sha256:fe1063b7a1210bb405f036e879f5c40ee67af2b64898baa6b0bb97f021cca0ad
+#10 DONE 1.8s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:38ec443bea184d07047aa9b4009fc78ccd59199bce4c0fed73f48364312ce015
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:90be6d80aa935aa7e915f781ab5513ee82992cb5895863df2d887e2f660b8655
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:df4a927cf043be847fb40a31e8ccaa4bb7aab4c8ef097c568173d2ca85daa44e
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:dfdaefffe9aa4a9017942904bedb03ed2afda0fba3e35690e146356afe6c78ea
+#11 DONE 0.2s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:c564d25c9efd985cc1c62aa7ea9d1bba33cad0848b8d58fc04b5df55e3e4ed35
+#13 DONE 1.3s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:e23350b2cb51825114f7a9fc4c14537da681d3510a580e8eaa657c23ab7c1b37
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:deb900e9ea25de39986e2af7540e82ec9d15bf15a3f1108a472c28beeae65527
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:bfecb1e66a86506b571e0245f7b2e5ab604a4950fe0caeecb0a16b4d3cf69654
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:407d144bbd39feaecb2709d9fb550ead702699cf8aa1aa4def339ac67ee3dea9
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:4941856977ab762d49d72cfc6a9b3e87e65676a3ebb0497b574fab57293c05d2
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:5fb870a8e307016b129c8fc5db5401c3e5ef1df1028fe0f8dd2d7e85d11b3181
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:796f1dd250c9bad9fd9bb146a908a5e43f07ab05d73d1999da15dff990cf32da
+#20 DONE 0.7s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e03663860485538990ecf5556935303deb598cb23a2cff6650c0de06d69c58bf 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/libgit2_libgit2 done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libgit2_libgit2:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f099ee80f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:b20e09f977c06e3f9de8c5d700b6f5c8bda1db9c731a1ea766f5551721a393e3
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c634aa156de9d2140634a0255096543f09810bee305692ff24c8a781d38a54ce
+#1 transferring dockerfile: 32B done
+#1 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2
+#4 sha256:3379620c708bfe574686709cdc5fe7bf6d50828655b3a612d2845a4a7e8ad345
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:f846837b4ada07f52e7ef00f82762737ced9152969a07fb8a37701a7ef818b6d
+#9 transferring context: 192B done
+#9 DONE 0.1s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool cmake
+#6 sha256:0c734aecf1b283c063c3bbc6f7e827fdfd9889f2d9f9c17d96046a591ed89710
+#6 CACHED
+
+#8 [4/6] WORKDIR libgit2
+#8 sha256:38e78ac9de445af72edc01c6dc201fb5ffb16534b3311646fc80268bd2fbc65f
+#8 CACHED
+
+#10 [5/6] COPY download_refs_fuzzer.cc build.sh /src/
+#10 sha256:895c90111323112c31488c890e67f790c6be785ec74c0d785350fb7fd07ec16b
+#10 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/libgit2/libgit2 libgit2
+#7 sha256:0a0e35a88503ed6610b52fb5127ac4f582ef67d349cf59bd5ba9cf84d6f02ad5
+#7 CACHED
+
+#11 [6/6] COPY corpora /src/corpora
+#11 sha256:34a583c28f31a1b30931a258c73b1546ac19e2bf4ea4632668f4f45319ba0f61
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:0c8b75333833aa6f2ec67c1389fc11e7e0e4465993b0345ef056a823b62b153c 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2 done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a54e3edc55e6c540f7f775bd2d3e5e90995d20355fd04df706d72fcbf9e0a638
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:56b973a34e0fb50513e0f9996174d0dadd35927d29e8bb1de5433d969152288f
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2:latest
+#3 sha256:af6c4a65ecf592fa770be802dc863c32b10f87e0e42a146e8efdcd0854d5364e
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libgit2_libgit2
+#5 sha256:52bc48ccba596604332989f2b0026816b1a9938725a233f012ba441e01932614
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate
+#4 sha256:e0b0df7b1a87930a2e51575cbe21f0b1beeb482964c8de029a1cb260762cbf0b
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:c141bbc22abca75a4d196a8225b0340b47947598bf3a54a8e15ac02806d9847b
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:d2a4c3634cf1dd156346cd4a300a3262a9a36da0595aa0df2a452938279f49f3
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:ee8a41c8db947e060baba2d3345d9f6b881419bbcaa769a333e377be4171f558 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ca0963e0545ad20aef07f698e833dd5454135fbb18253ff702f47e568929e606
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5b6d1b58664d82f3a071008a4638af9cebd06b9bb33b6ea2cb7fbee4e0739da6
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:24e2bee354a55796aef70ececf97b1d3b1e0efe7da94ff85123920d7d0faf661
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:b00ec9c0b0bdfd2efe829454e1fbe852bc7cebfdae5fd4d1f56544325b97103d
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:6dca2e6fd22fcc3e49a19c51cefd3de13a75ed038494aba039e0676375a90c1a
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:fc97f6040ed9cae59603ab1f214c29ba073b65f087206dc7dfbd170057de7451
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:46a839809a4e663b4641690da1a8ac1901a41c763911fe11b75d49b7c7fa117a
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c1608fc06046b464a5c1907de3ac7838a354b1cf0fe76ade2b5a9d2369f522f4
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:e0beedffa9a5c49ec6019fd551bfb5f6b22c5dbf32c4954d2786c0c3b8775a96
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate:latest
+#3 sha256:e3487556c40e9d0133243f714e34d78e4cbdac143c030ac93d02ef0b95217c45
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7398b46093151f9bbd00d9758e9f42638d3ff000fd879f25ca76464b95cde5a4
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libgit2_libgit2-intermediate
+#6 sha256:a91e0d596d4551b9e32736e869bec84f5ee4482deca38942c34996ea84674c3c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libgit2_libgit2
+#5 sha256:e03ea3ed8a3cc5ae7114759c1af72b2547998200938d2b548dec8e0b22d5c179
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7398b46093151f9bbd00d9758e9f42638d3ff000fd879f25ca76464b95cde5a4
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:0e5412365f610d8829dd5bca9aa14bab10eb5ee1d8d6422698764cf17eb5e962
+#18 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:376c0ddb3d3696187d5c9f760aa6fc6d5040eaf40ee92cca70b3484f40b24b2a
+#19 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:6511001c1d18ef34f60f5e2a22df34fdfff5fa2fedb7812fa06b96dbf0f66243
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:d8d0f0f504b0e6468450997e1f0351c7e584a04a9973753afc17c62a7cd88327
+#10 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:06b56c9f7e57eb327cabf25ccc6f2948a6042c6f773b2ae9d3a08de85030c7f1
+#17 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:1b36a1eafac36288595f2119fc912018cc1abd3f638187d12d16caae3628d5f0
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:f843a54e034d0745e9fd4ac5331b57b3f49b3fa6baa5d236f0539f6e1e41f920
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:b0a1d6a648b4297588de2232fe179fb362433108848c7935f0070ca8b839d8d9
+#14 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:4728c4a43c11338955e0a6104050f625a798b9acbcb47681cae130e4b9b74a7d
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libgit2_libgit2/benchmark.yaml /
+#15 sha256:62f8b7dba8578d88a0918ec9b9aebf4a9d5ff0c5077aadd2c54a2070aba97225
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:0e64536e9d924124ad8b48cba4b27905753786366412d8e00cb794cc3a985fb6
+#16 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:69f46e88ada100dd981d3eb66c41e4394ec7a7b8f3ad5e590381c2d690e758fa
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:99686748aa9c0a58ee6b1699ea29a2948f33cbd74a5bc78f08d114a26b116f98 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/libgit2_libgit2
+#21 naming to gcr.io/fuzzbench/builders/afl/libgit2_libgit2 done
+#21 DONE 0.4s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:406a16cfe3a7764c854cdc5d85a190d42ac4b1bbf4efa3d9c49d7f4b83c0e178
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:573656bbd63f185f365cdbb7c6ed9e4362394d0d86ed01b8fd4d785660a05a5f
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate
+#5 sha256:fb76cebc402d506fe94f809304d2df0c1b5827dfe64431116db1d7cd80d9f3fe
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:22e6a62c45ef73ea2f07c594b0344821e509f5dc21124c8ea07ac8f637fc8461
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:002af721491a2b62da5f58d3f69fb3ee501c9b0a9af4a23062b5be07fbebaa1f
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libgit2_libgit2:latest
+#4 sha256:32ee858f34beb9bea034ba0bad9d2dff5b75e1679bdd5f62969f4f8d2c639a3f
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate:latest
+#3 sha256:ec96d71634358d686dc2d00191ca4541c16caf1bef2e7fd4c6eda9282f69301a
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libgit2_libgit2-intermediate
+#6 sha256:6ecfba92cb4624d865924cdc23c1925f6269a5b1f651f92d10b1a684aa59adaf
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libgit2_libgit2
+#5 sha256:9328d2f7957b87c2d1a309d78dc487debfda8529887fc88631a3a7a39b46ab5c
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libgit2_libgit2
+#10 sha256:fe1063b7a1210bb405f036e879f5c40ee67af2b64898baa6b0bb97f021cca0ad
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:f275087c987c84bb8bcfc96dd569a39ee2a51b1f06ba1042a86ff8f2ac925d7d
+#12 transferring context: 17.63MB 0.6s done
+#12 DONE 0.7s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:3af852b9255498913131b4e734bf39b633e05d71b96724e56191f7ce90f1bd26
+#15 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:7cd5ef06b7afbd6506c08c3096ed233b32191e5d9abcb828535c858dda033d98
+#17 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:df4a927cf043be847fb40a31e8ccaa4bb7aab4c8ef097c568173d2ca85daa44e
+#9 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:99b597fe8405e5903e36a2bac48bbfe38d8b86085fc150eb9dfe43df1759a3be
+#13 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:3fba688982faaca8f2f8ccd08dbd64afd8f19defd6ca580319359264e12f8de9
+#14 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:86dc79d149119ce3ab1ba4c34bb9c1f6c969271b3a05bc5c3146269cb821515a
+#19 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:38ec443bea184d07047aa9b4009fc78ccd59199bce4c0fed73f48364312ce015
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:dfdaefffe9aa4a9017942904bedb03ed2afda0fba3e35690e146356afe6c78ea
+#11 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:90be6d80aa935aa7e915f781ab5513ee82992cb5895863df2d887e2f660b8655
+#8 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:4c24f445e9f4476c13e6f7e66e823bf1ca8d9c4bc689d73a3df70f7702f5e961
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:0784108cb736875825a99619cb309dc916e46e4fbf584cbb5ed1f54205474687
+#18 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:010b1839d80b0db3db168681a10ad4da8d80b29e1ab43eda5b104fb178246d86
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e03663860485538990ecf5556935303deb598cb23a2cff6650c0de06d69c58bf
+#21 writing image sha256:e03663860485538990ecf5556935303deb598cb23a2cff6650c0de06d69c58bf done
+#21 naming to gcr.io/fuzzbench/runners/afl/libgit2_libgit2 done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fb866a34f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

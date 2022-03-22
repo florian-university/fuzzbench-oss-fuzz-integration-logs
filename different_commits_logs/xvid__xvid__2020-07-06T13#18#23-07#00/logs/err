@@ -1,0 +1,1024 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: xvid_xvid.
+INFO:root:Please run "make test-run-afl-xvid_xvid" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:652c4080dcd3c147c1cef1756b3bd6aa131f7a4dbdac7d85a592f4194538f72b
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.11kB done
+#1 ...
+
+#2 [internal] load .dockerignore
+#2 sha256:eb3dd3c74fc335f2a7f84e617afb443809c5621376ddcd219fc7a1de2c10a4ed
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:652c4080dcd3c147c1cef1756b3bd6aa131f7a4dbdac7d85a592f4194538f72b
+#1 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.6s
+
+#10 [internal] load build context
+#10 sha256:c4e774a46c1b811eedae4eff9d05b875d925468787d9f5a36ff070847347a75d
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/xvid_xvid
+#4 sha256:253b6365417e00ae6d22ac75f3dc0a545c777eeade36b789438db7b5b57228ab
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/xvid_xvid:latest: not found
+
+#10 [internal] load build context
+#10 sha256:c4e774a46c1b811eedae4eff9d05b875d925468787d9f5a36ff070847347a75d
+#10 transferring context: 30B done
+#10 DONE 0.9s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool subversion
+#6 sha256:ce45d6ee0fa62f88e08f66b102d0a6bd5a6a4853ec88c0c8dcf7debe0ff583ab
+#6 CACHED
+
+#7 [3/6] RUN svn checkout http://svn.xvid.org/trunk --username anonymous --password "" --non-interactive --no-auth-cache
+#7 sha256:a10cfa92959c8b294c375ee7c2da2a8e23f1e6b4b0235d7a965981896a7cfaf3
+#7 CACHED
+
+#8 [4/6] RUN git clone --depth 1 https://github.com/guidovranken/fuzzing-headers.git
+#8 sha256:0e438359e4a9fd0b302477bb7c524c70f1aae5e314ad8e79c763884945a8cdf6
+#8 CACHED
+
+#9 [5/6] RUN git clone --depth 1 https://github.com/guidovranken/oss-fuzz-fuzzers.git
+#9 sha256:dd8ba69974936386d229eceffe81ca2d0254f101946672cc5e8c5d548bcbeaa4
+#9 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:4590cd1a3d07d853746123ab36b4a1b623cd7875d953cb9b23f444f8b7377c67
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:be5554ab1e3cf85a70c19801b8d44fd4ace132211101d25ac4110a9c2d5f3df6 0.1s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/xvid_xvid
+#12 naming to gcr.io/fuzzbench/builders/benchmark/xvid_xvid 0.1s done
+#12 DONE 1.5s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/xvid_xvid:
+------
+#2 [internal] load .dockerignore
+#2 sha256:4485bb806a5114754dd19f8dded849e08debe670498403640c40e7f1d14b09be
+#2 transferring context: 2B done
+#2 DONE 0.6s
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:634737b07b534141ec58855dfbf044e4a9f7a9bb28d750923f8ff12b17e49047
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/xvid_xvid:latest
+#3 sha256:31378b3843b7a2a0ebd012c1bebb48a0c322e6f1c36c3e58524fe9188099f255
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/xvid_xvid
+#5 sha256:a2a1df15b689236a59fcadc8c7e9aa3ed6c798d4f6e052c0cf18b250ee287342
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate
+#4 sha256:9df58655721a6b04ac13980f1fc473abe5e0c026cc383c9537d3ce5eac760fc0
+#4 ERROR: gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b04dfd82dcd434a1ed0a7132864ea3be78522f811ebe728dfd23fa84326b0a4b
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:53e219ea75c034208bc5957a486815c70dfa35fb8c1e8be75ec6df7de495a26d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:42220fdb97770b43f69a9776cc6b8705ab0f6a52ceaeda65f4c0e7da2baafc70 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:453fa6b76a8f6b2c6fd57e1832eec6b46dc941465f94908a40696ac58a5ab997
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:ed2e60ce7cced2b40b34779ff1331d2d61d4611c7c8576809a59ba626afe72a2
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:f8df11e02de5e293f601ecfa9600e23e10647528f1637f79b2fd8024e479dd64
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:a7a4c60cd09f788366733bec64e41257362e76dc89df19cfe6d4d5a039ea4563
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:6ce805536ac80effb35f36bcdf5d1220feed1ba3b8770ad875659a0097417ca0
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:77f3324c04e404002030226b2417e562ea6d6dc7f6f9e115363c55fcd99a0f49
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:b70cf50cd2c71ba3326f500e38a65a2a24563afebd0b812992b4b9af5099fec7
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:909824a61f4cf2ef4f2be5c80da41015c1c1e547c8f3f76eb928c950c0ecb39f
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:4eaa8b37abe18f055a149cb70193d55c4a5e3051be2e5ba6d8ff9bd03c2637a5
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate:latest
+#3 sha256:b4d70ee72ccf41d7eb2b0b83527cd2c554562f00f04880069f1a2ab955d2d35f
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d32e73e12e5b5ac9b2ad252d42cb5d0db2fa7b3025d336081463f689a21a56e8
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate
+#6 sha256:9248975954f22ba8ebe058eee9cfc3e0a05c87962f977df2608558b00aa5d218
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/xvid_xvid
+#5 sha256:5369681c0b846a39a897641da1e2042f439f0978bd9208fa7770f7c444bcd3bf
+#5 ERROR: gcr.io/fuzzbench/builders/afl/xvid_xvid:latest: not found
+
+#12 [internal] load build context
+#12 sha256:d32e73e12e5b5ac9b2ad252d42cb5d0db2fa7b3025d336081463f689a21a56e8
+#12 transferring context: 669.85kB 0.1s done
+#12 DONE 0.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:012c57dd9aaca0eb19e31c3b58531469bd68f2939ffd4b967cc033be88a75d54
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:f0f041d059b380e615599f2d4907e0289ca22073a378c9398f1f49d2306776b1
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:0fc37d50a56543a0ea156c11867bd8c9300037839becc50d1eb90a2dd2822446
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c91cdb3939fc2967d485dfaa6ac89b29dfaa209686371249aaf1dd8c21554dc7
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:827948fe09bb8db242205710f4b0db8be6e0756caaf62244892f02eec09f261c
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:a9e64fc3645463a10a06f1c85652fc0504b5884879824566e3b5ca291db2d9d5
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/xvid_xvid/benchmark.yaml /
+#15 sha256:6c481cb3d68d42544ab20069d09dbf25841cde4c245b26d55f16adea85079176
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:01371a08d4ce9b9d9d06a7e1d5df321e69d08480c58d16014c6686cf3a5f6ca9
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:d1c58e85251c67bb2915c78382f5a3451ea2989cf25cfd0447fd1556140c45fe
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:a4f8da338d49771a17ba30599bd033ec39336b124574b88cab3e3983ea54b539
+#18 0.413 Checking out commit d561c49a
+#18 0.931 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 1.595 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 1.601 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 1.608 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 1.757 Checkout unsuccessful.
+#18 DONE 2.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:73649ac865512a6dd9091156691e9c297a4dadcaffd5087f4accfd9890a9273c
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f092dff2063f02d1badcd8dcddd00ccfb34a830f2786111f45ff005ae708cee7
+#20 0.562 Run fuzzer_build to build the target
+#20 0.674 FUZZ_TARGET = xvid
+#20 0.674 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.674 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.681 Building benchmark xvid_xvid with fuzzer afl
+#20 0.685 + cd /src/trunk/xvidcore/build/generic/
+#20 0.685 + ./bootstrap.sh
+#20 1.302 Creating ./configure
+#20 2.071 Copying files provided by automake
+#20 2.725 Copying files provided by libtool
+#20 3.093 Removing files that are not needed
+#20 3.097 + mkdir /src/xvidcore-install/
+#20 3.100 + [[ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard = *sanitize=memory* ]]
+#20 3.100 + [[ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard = *-m32* ]]
+#20 3.100 + ./configure --prefix=/src/xvidcore-install/
+#20 3.320 checking build system type... x86_64-pc-linux-gnu
+#20 3.410 checking host system type... x86_64-pc-linux-gnu
+#20 3.411 checking target system type... x86_64-pc-linux-gnu
+#20 3.411 checking whether to use default CFLAGS... no
+#20 3.412 checking for gcc... clang
+#20 3.480 checking whether the C compiler works... yes
+#20 3.607 checking for C compiler default output file name... a.out
+#20 3.609 checking for suffix of executables... 
+#20 3.736 checking whether we are cross compiling... no
+#20 3.877 checking for suffix of object files... o
+#20 3.908 checking whether we are using the GNU C compiler... yes
+#20 3.935 checking whether clang accepts -g... yes
+#20 3.958 checking for clang option to accept ISO C89... none needed
+#20 4.001 checking for a BSD-compatible install... /usr/bin/install -c
+#20 4.016 checking for ranlib... ranlib
+#20 4.017 checking for ar... ar
+#20 4.018 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 4.021 checking for egrep... /usr/bin/grep -E
+#20 4.024 checking whether ln -s works... yes
+#20 4.025 checking for whether to use assembly code... yes
+#20 4.025 checking for architecture type... x86_64
+#20 4.026 checking how to run the C preprocessor... clang -E
+#20 4.118 checking for ANSI C header files... yes
+#20 4.364 checking for sys/types.h... yes
+#20 4.415 checking for sys/stat.h... yes
+#20 4.470 checking for stdlib.h... yes
+#20 4.524 checking for string.h... yes
+#20 4.582 checking for memory.h... yes
+#20 4.638 checking for strings.h... yes
+#20 4.695 checking for inttypes.h... yes
+#20 4.754 checking for stdint.h... yes
+#20 4.817 checking for unistd.h... yes
+#20 4.884 checking size of int *... 8
+#20 5.049 checking whether byte ordering is bigendian... no
+#20 5.158 checking for build extensions... .so .a .o
+#20 5.159 checking for platform specific LDFLAGS/CFLAGS... ok
+#20 5.162 checking for yasm... no
+#20 5.162 checking for nasm... no
+#20 5.163 configure: WARNING: no correct assembler was found - Compiling generic sources only
+#20 5.168 checking stdio.h usability... yes
+#20 5.221 checking stdio.h presence... yes
+#20 5.240 checking for stdio.h... yes
+#20 5.250 checking signal.h usability... yes
+#20 5.309 checking signal.h presence... yes
+#20 5.331 checking for signal.h... yes
+#20 5.342 checking for stdlib.h... (cached) yes
+#20 5.352 checking for string.h... (cached) yes
+#20 5.362 checking assert.h usability... yes
+#20 5.417 checking assert.h presence... yes
+#20 5.438 checking for assert.h... yes
+#20 5.446 checking math.h usability... yes
+#20 5.532 checking math.h presence... yes
+#20 5.563 checking for math.h... yes
+#20 5.569 checking pthread.h usability... yes
+#20 5.637 checking pthread.h presence... yes
+#20 5.662 checking for pthread.h... yes
+#20 5.663 checking for pthread_create in -lpthread... yes
+#20 5.857 configure: creating ./config.status
+#20 5.984 config.status: creating platform.inc
+#20 6.041 ++ nproc
+#20 6.042 + make -j 8
+#20 6.045 
+#20 6.046 
+#20 6.046 
+#20 6.046 ---------------------------------------------------------------
+#20 6.047 
+#20 6.047 ---------------------------------------------------------------
+#20 6.047 ---------------------------------------------------------------
+#20 6.047 Object files used for this build
+#20 6.048   D: =build
+#20 6.048 ---------------------------------------------------------------
+#20 6.048 Using CFLAGS
+#20 6.048 Target Libraries
+#20 6.048 ---------------------------------------------------------------
+#20 6.049   C: ./decoder.c
+#20 6.049 Install Paths
+#20 6.050 ---------------------------------------------------------------
+#20 6.050 ---------------------------------------------------------------
+#20 6.050 
+#20 6.050 ---------------------------------------------------------------
+#20 6.051   C: ./encoder.c
+#20 6.051 
+#20 6.051 
+#20 6.052 decoder.o encoder.o xvid.o bitstream/bitstream.o bitstream/cbp.o bitstream/mbcoding.o dct/fdct.o dct/idct.o dct/simple_idct.o image/colorspace.o image/image.o image/interpolate8x8.o image/font.o image/postprocessing.o image/qpel.o image/reduced.o motion/estimation_bvop.o motion/estimation_common.o motion/estimation_gmc.o motion/estimation_pvop.o motion/estimation_rd_based.o motion/estimation_rd_based_bvop.o motion/gmc.o motion/motion_comp.o motion/vop_type_decision.o motion/sad.o prediction/mbprediction.o plugins/plugin_single.o plugins/plugin_2pass1.o plugins/plugin_2pass2.o plugins/plugin_lumimasking.o plugins/plugin_dump.o plugins/plugin_psnr.o plugins/plugin_ssim.o plugins/plugin_psnrhvsm.o quant/quant_h263.o quant/quant_matrix.o quant/quant_mpeg.o utils/emms.o utils/mbtransquant.o utils/mem_align.o utils/mem_transfer.o utils/timer.o
+#20 6.052 
+#20 6.053 CFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard
+#20 6.053 Shared library: libxvidcore.so.4.4
+#20 6.053 
+#20 6.053 Include Directory: /src/xvidcore-install/include
+#20 6.054 
+#20 6.054 Static library: libxvidcore.a
+#20 6.055 Library Directory: /src/xvidcore-install/lib
+#20 6.055   C: ./xvid.c
+#20 6.055 
+#20 6.056 
+#20 6.056   C: bitstream/bitstream.c
+#20 6.057   C: bitstream/cbp.c
+#20 6.057   C: bitstream/mbcoding.c
+#20 6.058   C: dct/fdct.c
+#20 6.059   C: dct/idct.c
+#20 6.244   C: dct/simple_idct.c
+#20 6.259   C: image/colorspace.c
+#20 6.279   C: image/image.c
+#20 6.298   C: image/interpolate8x8.c
+#20 6.418   C: image/font.c
+#20 6.565   C: image/postprocessing.c
+#20 7.606   C: image/qpel.c
+#20 7.705   C: image/reduced.c
+#20 7.813   C: motion/estimation_bvop.c
+#20 7.986   C: motion/estimation_common.c
+#20 8.094   C: motion/estimation_gmc.c
+#20 8.279   C: motion/estimation_pvop.c
+#20 8.389   C: motion/estimation_rd_based.c
+#20 8.737   C: motion/estimation_rd_based_bvop.c
+#20 9.033   C: motion/gmc.c
+#20 9.184   C: motion/motion_comp.c
+#20 9.230   C: motion/vop_type_decision.c
+#20 9.243   C: motion/sad.c
+#20 9.363 ../../src/motion/gmc.c:283:14: warning: shifting a negative signed value is undefined [-Wshift-negative-value]
+#20 9.366         if (vo>=(-16<<4) && vo<=H) Offset = (vo>>4)*srcstride;
+#20 9.367                  ~~~^
+#20 9.368 ../../src/motion/gmc.c:289:14: warning: shifting a negative signed value is undefined [-Wshift-negative-value]
+#20 9.369         if (uo>=(-16<<4) && uo<=W) Offset += (uo>>4);
+#20 9.369                  ~~~^
+#20 9.372 ../../src/motion/gmc.c:335:13: warning: shifting a negative signed value is undefined [-Wshift-negative-value]
+#20 9.372         if (vo>=(-8<<4) && vo<=H) Offset = (vo>>4)*srcstride;
+#20 9.372                  ~~^
+#20 9.373 ../../src/motion/gmc.c:341:13: warning: shifting a negative signed value is undefined [-Wshift-negative-value]
+#20 9.373         if (uo>=(-8<<4) && uo<=W) Offset += (uo>>4);
+#20 9.374                  ~~^
+#20 9.425   C: prediction/mbprediction.c
+#20 9.438   C: plugins/plugin_single.c
+#20 9.595   C: plugins/plugin_2pass1.c
+#20 9.598   C: plugins/plugin_2pass2.c
+#20 9.616   C: plugins/plugin_lumimasking.c
+#20 9.723   C: plugins/plugin_dump.c
+#20 9.763 4 warnings generated.
+#20 9.767   C: plugins/plugin_psnr.c
+#20 9.813   C: plugins/plugin_ssim.c
+#20 9.852   C: plugins/plugin_psnrhvsm.c
+#20 9.854   C: quant/quant_h263.c
+#20 9.888   C: quant/quant_matrix.c
+#20 10.02   C: quant/quant_mpeg.c
+#20 10.12   C: utils/emms.c
+#20 10.12   C: utils/mbtransquant.c
+#20 10.12   C: utils/mem_align.c
+#20 10.16   C: utils/mem_transfer.c
+#20 10.18   C: utils/timer.c
+#20 11.38   L: libxvidcore.a
+#20 11.38   L: libxvidcore.so.4.4
+#20 11.54 
+#20 11.54 ---------------------------------------------------------------
+#20 11.54  Xvid has been successfully built.
+#20 11.54 
+#20 11.54  * Binaries are currently located in the '=build' directory
+#20 11.54  * To install them on your system, you can run '# make install'
+#20 11.54    as root.
+#20 11.54 ---------------------------------------------------------------
+#20 11.54 
+#20 11.55 + make install
+#20 11.55   D: /src/xvidcore-install/include
+#20 11.55   I: /src/xvidcore-install/include/xvid.h
+#20 11.56   D: /src/xvidcore-install/lib
+#20 11.56   I: /src/xvidcore-install/lib/libxvidcore.a
+#20 11.56   I: /src/xvidcore-install/lib/libxvidcore.so.4.4
+#20 11.57 + find /src/xvidcore-install/
+#20 11.58 /src/xvidcore-install/
+#20 11.58 /src/xvidcore-install/include
+#20 11.58 /src/xvidcore-install/include/xvid.h
+#20 11.58 /src/xvidcore-install/lib
+#20 11.58 /src/xvidcore-install/lib/libxvidcore.so.4.4
+#20 11.58 /src/xvidcore-install/lib/libxvidcore.so.4
+#20 11.58 /src/xvidcore-install/lib/libxvidcore.so
+#20 11.58 /src/xvidcore-install/lib/libxvidcore.a
+#20 11.58 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I /src/xvidcore-install/include /src/oss-fuzz-fuzzers/xvid/fuzzer.cpp /src/xvidcore-install/lib/libxvidcore.a /libAFL.a -o /out/fuzzer-decoder
+#20 11.95 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 12.4s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6033fabe5e0225c7d79967dffcd4c60048de031995fd086a10e8221cf4442b70 done
+#21 naming to gcr.io/fuzzbench/builders/afl/xvid_xvid done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/xvid_xvid:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:8689e715763b092ce5365faa02cb79e67f7233ff864613ed111f601b27aa580a
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:eaa5941566c9e02e220810ea88398e8fc653707bb8a7d1d6429a6f93968a1c05
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate
+#4 sha256:f26997f9ddae3f610cf873f332e9bac0234d32db0af9cb40987a503adcf2ca45
+#4 ERROR: gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate 0.0s done
+#6 DONE 0.2s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e7b46b8e3af1e5edf1b913ffd36b32e8dcb1c5db29c61140ebdd71ede41c80f1
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:c4269ca670286e721b9c3b0c363bcb9fa368168f1b2baedee146b458852b1f51
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/xvid_xvid:latest
+#4 sha256:90d67cc10d86929152fdcd14d77e71432094b894a5719033e1c3083a5f6dfa4f
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate:latest
+#3 sha256:2e2303d20a9a9ba88f77200648e33fe14eda96b43528d8ff2856306d5b92b0f7
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:39ad6d3f4dd3eef33d70881b4f5ce3d8288efee74414512fb29ce0635cb82766
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate
+#6 sha256:0bce403c994f74ef6a68839c7197da16661696dbc37122a55635a9ec769f6af4
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/xvid_xvid
+#10 sha256:4cbc141d0f4e53160cc5e299ac1468948033e0ffc88e2e3b8e674a67b8f15fd8
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/xvid_xvid
+#5 sha256:8e3fd23af450e070d6e4269b39f787a124848975d4117e8c5a7601a76f37c7da
+#5 ERROR: gcr.io/fuzzbench/runners/afl/xvid_xvid:latest: not found
+
+#12 [internal] load build context
+#12 sha256:39ad6d3f4dd3eef33d70881b4f5ce3d8288efee74414512fb29ce0635cb82766
+#12 transferring context: 18.36MB 0.6s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/xvid_xvid
+#10 sha256:4cbc141d0f4e53160cc5e299ac1468948033e0ffc88e2e3b8e674a67b8f15fd8
+#10 DONE 1.0s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:f197ae6f94328e6575b22f4056220275516a9d3d8486e934abaac16084df4e96
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:a7215a6677ecf2a205deeebca2d3d675f2adc3c0893fa745d46fcbd9b0fcf5f8
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:ef7ce8db16b713346d765381af24547edfaece44c537e666e738347c18fd534e
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:1ed710d299fe9a39e500b481701f0bf1aea61537c2b8efdc6f4daddf8babda0c
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:42f5ab351e597baa650b8d4a8ba7c9675e91c2be0555d1a774978ce497575173
+#13 DONE 1.4s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:2f828448994128783abdb7bd54fcfa9928a889e9ec4f732c3e88b875e480e13e
+#14 DONE 0.8s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:a1b8d7ee2eb2bfcd284e94fd81f7cd7333a0fd6efd1fa3a636848c3a11a4ed5f
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:33ca1941461df486e1bf37b2179144e9176dd8246292dcf4231b0643697766ed
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:0112607e318a0c3c6e3d9b1c525daf67134a657d1827ad3038d3785f1b27553e
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:8a00a67502662caf0765f2e6547bc597453de10348522e5a1f284220ede7dac3
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:400d4c8ea8e5683af07df6d2ffa64acbfb4c0acd4f83641e5c2df0255d51c874
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:fc834461e7bd4c67d73c8b7dea6215a96781f8ff6b091f5c9971a048236e6fc0
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:ffa3e7dac325b97a5297a868be1e7f274826461d2a11559f0d3c3698dc8b3180
+#21 writing image sha256:ffa3e7dac325b97a5297a868be1e7f274826461d2a11559f0d3c3698dc8b3180 done
+#21 naming to gcr.io/fuzzbench/runners/afl/xvid_xvid done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/xvid_xvid:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fca88e17f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:92f9fe1e96a898fbd0f1630278543861600462358048dda526464e81a41f4ef9
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:3f3305b40d3b158cb103689fa200dab346f84d7dfd6ea832132c2fe42016d3a3
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/xvid_xvid
+#4 sha256:253b6365417e00ae6d22ac75f3dc0a545c777eeade36b789438db7b5b57228ab
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:39e2cc9afa41786112e1d032c571f5c53d1c757ac96384d6ea87afe2ace11ee3
+#10 transferring context: 30B done
+#10 DONE 0.1s
+
+#8 [4/6] RUN git clone --depth 1 https://github.com/guidovranken/fuzzing-headers.git
+#8 sha256:0e438359e4a9fd0b302477bb7c524c70f1aae5e314ad8e79c763884945a8cdf6
+#8 CACHED
+
+#9 [5/6] RUN git clone --depth 1 https://github.com/guidovranken/oss-fuzz-fuzzers.git
+#9 sha256:dd8ba69974936386d229eceffe81ca2d0254f101946672cc5e8c5d548bcbeaa4
+#9 CACHED
+
+#7 [3/6] RUN svn checkout http://svn.xvid.org/trunk --username anonymous --password "" --non-interactive --no-auth-cache
+#7 sha256:a10cfa92959c8b294c375ee7c2da2a8e23f1e6b4b0235d7a965981896a7cfaf3
+#7 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool subversion
+#6 sha256:ce45d6ee0fa62f88e08f66b102d0a6bd5a6a4853ec88c0c8dcf7debe0ff583ab
+#6 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:a55c604c5b1a31661efcfa8949e8c88ef190f15639081044e728000b807f96de
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:be5554ab1e3cf85a70c19801b8d44fd4ace132211101d25ac4110a9c2d5f3df6
+#12 writing image sha256:be5554ab1e3cf85a70c19801b8d44fd4ace132211101d25ac4110a9c2d5f3df6 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/xvid_xvid done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:32cd60806f928475d16cbdac17a647673f76c4eb6606cb9bceac87a969a49191
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5f28843caccfa61c1cce3d085834b0b1239c5e86e63afc13c8e998073ff370d2
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/xvid_xvid:latest
+#3 sha256:31378b3843b7a2a0ebd012c1bebb48a0c322e6f1c36c3e58524fe9188099f255
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate
+#4 sha256:9df58655721a6b04ac13980f1fc473abe5e0c026cc383c9537d3ce5eac760fc0
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/xvid_xvid
+#5 sha256:a2a1df15b689236a59fcadc8c7e9aa3ed6c798d4f6e052c0cf18b250ee287342
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b04dfd82dcd434a1ed0a7132864ea3be78522f811ebe728dfd23fa84326b0a4b
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:53e219ea75c034208bc5957a486815c70dfa35fb8c1e8be75ec6df7de495a26d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:42220fdb97770b43f69a9776cc6b8705ab0f6a52ceaeda65f4c0e7da2baafc70
+#8 writing image sha256:42220fdb97770b43f69a9776cc6b8705ab0f6a52ceaeda65f4c0e7da2baafc70 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:afda3ccb8aa314e7174951fd96a8885caca10eb014d80e7f841449c56507aff3
+#2 transferring context:
+#2 transferring context: 34B done
+#2 DONE 0.6s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:02afc608f0a104060d6b9359b64b46bb1a9e8f6d6f0ddfbcdc4e18d345294c37
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.6s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:7ebeef1d5dd20fd84f0f06b5f86275b0873d7707259b82dc2e113db699752b38
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:852941099bfb6891d60a36c5c096a042aebaeb118eb3a39fd876dc03b67989a2
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:1d55d468058593ab76f3421be87175ef30471dab7b59dd2e1e938d357c21df38
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ec0fc5f8a6c9bb9c4650cb1d7d935d64dbec57f60140d657df36d5548204ba37
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:d16cf99dc823eea7f50a476148063c77b3d668e651e1f4ce39853eb24ab5564f
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5b0145d111e3565963530bb1c971607fbf44eb5445905a6195405a661dcb9b4c
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:7971e597d403e7a9da8c649d53b6988d0c65aa41b5bfedd14766925bdebb7779
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate:latest
+#3 sha256:b4d70ee72ccf41d7eb2b0b83527cd2c554562f00f04880069f1a2ab955d2d35f
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/xvid_xvid-intermediate
+#6 sha256:9248975954f22ba8ebe058eee9cfc3e0a05c87962f977df2608558b00aa5d218
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/xvid_xvid
+#5 sha256:5369681c0b846a39a897641da1e2042f439f0978bd9208fa7770f7c444bcd3bf
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:24d22055c19af5aff33ae356c0f2949a1f126a037fa28b581b4ed2748caa079f
+#12 transferring context: 669.85kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:f0f041d059b380e615599f2d4907e0289ca22073a378c9398f1f49d2306776b1
+#8 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:cc5fb4752bb1d7790da2208fd6e9299322c08637e67733adabb73d3b5d2276ae
+#19 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:43af2ed37a96504834df09b8acf81658a23cafa4510d26ee4a231f10581a3007
+#13 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:0fc37d50a56543a0ea156c11867bd8c9300037839becc50d1eb90a2dd2822446
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:827948fe09bb8db242205710f4b0db8be6e0756caaf62244892f02eec09f261c
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:3ff9f28feab83e4788f6323e8524aba7598233d74f58e0851596738fac5f8132
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:d5f77e0259e9e7cff03864eecc5533bd0a5416f886a7b5bbf3f5ca545e245f31
+#16 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/xvid_xvid/benchmark.yaml /
+#15 sha256:17308cdca1bbd27c31a7c64bab459b2cbf8fe6c9669d4222a530606575710c78
+#15 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:9b52311e99e323803ab7da4b823e3ae2d35ab555be8aeb01f47e63b03bef6a95
+#17 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c91cdb3939fc2967d485dfaa6ac89b29dfaa209686371249aaf1dd8c21554dc7
+#10 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:45aa92bf5ef58fd466d3baaf9f0bcb3cc0729eb713ec6a94842d902be3d8eafe
+#18 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:bebf066f22a4703083436b3c6bef4a5ef3928adde7e94665fb295896a51733b0
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6033fabe5e0225c7d79967dffcd4c60048de031995fd086a10e8221cf4442b70
+#21 writing image sha256:6033fabe5e0225c7d79967dffcd4c60048de031995fd086a10e8221cf4442b70 done
+#21 naming to gcr.io/fuzzbench/builders/afl/xvid_xvid done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:e741c1fcbe7a6718fc34c9cb701a6a6d008e28773e08ca9baff5bf19decb3254
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f6d42f794aa621865ccad9ce73cd3a42387180e7e323f32c24a4a686bf2a191b
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate
+#5 sha256:f26997f9ddae3f610cf873f332e9bac0234d32db0af9cb40987a503adcf2ca45
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate
+#6 naming to gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e189ac8f0eb965bb327856f52d2fe36d0d1fec51c7f09f3accd7d5d8b6fc79bc
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b713fa04565edc038b9a73eda736aba8efd9016319c33065ff84f2a3e0242e61
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/xvid_xvid:latest
+#4 sha256:90d67cc10d86929152fdcd14d77e71432094b894a5719033e1c3083a5f6dfa4f
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate:latest
+#3 sha256:2e2303d20a9a9ba88f77200648e33fe14eda96b43528d8ff2856306d5b92b0f7
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/xvid_xvid-intermediate
+#6 sha256:0bce403c994f74ef6a68839c7197da16661696dbc37122a55635a9ec769f6af4
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/xvid_xvid
+#5 sha256:8e3fd23af450e070d6e4269b39f787a124848975d4117e8c5a7601a76f37c7da
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/xvid_xvid
+#10 sha256:4cbc141d0f4e53160cc5e299ac1468948033e0ffc88e2e3b8e674a67b8f15fd8
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7c33a14ee966e04f3cb4f3fee8c7915a30c23d8baa46df039b782df6f473eeb3
+#12 transferring context: 18.36MB 0.6s done
+#12 DONE 0.7s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:b038ffae9da8edde5343c2506d0d1db6e263f8e9cca486fbf60af228164666e8
+#19 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:a7215a6677ecf2a205deeebca2d3d675f2adc3c0893fa745d46fcbd9b0fcf5f8
+#8 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:b297212210f4cfe2dd30b699576c040aae9dcef7105cc37ab65c0a5d82d08c19
+#15 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:c8e9e92fc2cc4d68a5e691232b0780df6a24cb4b93168c38495626f4ad4ad8f6
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:ab56003d57a9e254b8e7713f67c04e012573bd29dba7aa394368156addb4d429
+#16 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:084a221e0c6a9eb7599a3dcf47f6488c874b87159ea4d7c1d4324330f08b1b87
+#17 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:f197ae6f94328e6575b22f4056220275516a9d3d8486e934abaac16084df4e96
+#7 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:ef7ce8db16b713346d765381af24547edfaece44c537e666e738347c18fd534e
+#9 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:402fc4d96c9b1cffde242e2d9ac3dfd2b227540cc5984f665acefe7809361599
+#18 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:1ed710d299fe9a39e500b481701f0bf1aea61537c2b8efdc6f4daddf8babda0c
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:4024ffb568b5ea8de73bd59f9ca247302d6d8e15dae607d77051909367912b32
+#13 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:1b0855d10c14ae0ec227d8d2fae2a01448860df688648cb5ced70526a9896949
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:ffa3e7dac325b97a5297a868be1e7f274826461d2a11559f0d3c3698dc8b3180 0.1s done
+#21 naming to gcr.io/fuzzbench/runners/afl/xvid_xvid done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f11f6492f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

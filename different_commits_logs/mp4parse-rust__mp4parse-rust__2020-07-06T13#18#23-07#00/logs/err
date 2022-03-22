@@ -1,0 +1,661 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: mp4parse-rust_mp4parse-rust.
+INFO:root:Please run "make test-run-afl-mp4parse-rust_mp4parse-rust" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:19b5418940d260dd841a9c83797c6ebc68b7df721f24372d2e9fadc71eef4f96
+#1 transferring dockerfile: 979B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:a2021a01e42045fa0d2db5f9e954e71c3fed4a1553352b9102343359e1c77262
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:3b69a2833cdf9b7d19fa1188bbf19f3645be82f7fdeff40c43cf2f570bdacc59
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust
+#4 sha256:4107baeae0bd256624297f91516b80e5beb433f139a3ea1edae6c1e1f1582a5a
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust:latest: not found
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool curl cmake python llvm-dev libclang-dev clang
+#6 sha256:66bc0ce1eb224e9ff493fe7fadec6414b98db0fd06e0576b70a9dcc480786ace
+#6 CACHED
+
+#9 [internal] load build context
+#9 sha256:3b69a2833cdf9b7d19fa1188bbf19f3645be82f7fdeff40c43cf2f570bdacc59
+#9 transferring context: 1.44kB done
+#9 DONE 0.7s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/mozilla/mp4parse-rust mp4parse-rust
+#7 sha256:aeee5565193400c6c1a1b3ad7c2c8e7e77563bc4b17f218a4005534d1b037608
+#7 1.077 Cloning into 'mp4parse-rust'...
+#7 DONE 2.4s
+
+#8 [4/5] WORKDIR mp4parse-rust
+#8 sha256:9811a9af7744ff22741e6a59bed1a67c188f9f479cd915d3f96f0db8fbf5f164
+#8 DONE 0.4s
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:fad9b5584f7763e9c5b646ab8f69aef1d479bcdfb37ecdf19b10b3f392588942
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:d0a3bcc5fbf04666c350d8ac658c14206931990d8172e58493924a76a3aad81b 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:506074dcdbec8aad15ac58ccc8055568a3daf3797bd939f24916584d69cd3162
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:6d1b0df6f0ae14193c1ee94d7179937716d4fc0c9be5c007080862ae106736de
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust:latest
+#3 sha256:ea3886c095a9978dc96860d374a60f4d51dfc8062cc726d06b7e339374783654
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust
+#5 sha256:c21e84c7913895b6ff546380982abb5842b99baf254b4765dc97f5dd1635044a
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate
+#4 sha256:400a7ced4ec661fab859743826082bb65ddaaebc34ad0dc7bb6d20dcd2f1a345
+#4 ERROR: gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust
+#5 sha256:c21e84c7913895b6ff546380982abb5842b99baf254b4765dc97f5dd1635044a
+#5 DONE 1.7s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a501f55da5e11db3c84ba0a0d9f38092f1af122f719e95c8ee902f8c5d21d054
+#6 0.460 Cloning into '/afl'...
+#6 1.241 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.241 
+#6 1.241 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.241 changes and commit them, and you can discard any commits you make in this
+#6 1.241 state without impacting any branches by switching back to a branch.
+#6 1.241 
+#6 1.241 If you want to create a new branch to retain commits you create, you may
+#6 1.241 do so (now or later) by using -c with the switch command. Example:
+#6 1.241 
+#6 1.241   git switch -c <new-branch-name>
+#6 1.241 
+#6 1.241 Or undo this operation with:
+#6 1.241 
+#6 1.241   git switch -
+#6 1.241 
+#6 1.241 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.241 
+#6 1.241 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.311 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.311 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.487 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.497 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.869 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.191 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.611 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.761 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.155 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.392 ln -sf afl-as as
+#6 5.394 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.397 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.398 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.9s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:b5b272be44d24e9bdc2e74156854781864d4ad33fd8263af6e69a1594352e62e
+#7 0.961 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.961 Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.962 Hit:3 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.983 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.109 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.967 Reading package lists...
+#7 3.651 Reading package lists...
+#7 5.086 Building dependency tree...
+#7 5.300 Reading state information...
+#7 5.552 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.552 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+#7 5.569 --2022-02-16 02:04:10--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.571 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+#7 5.573 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+#7 5.595 HTTP request sent, awaiting response... 200 OK
+#7 5.615 Length: 9177 (9.0K) [text/plain]
+#7 5.615 Saving to: '/afl/afl_driver.cpp'
+#7 5.615 
+#7 5.615      0K ........                                              100% 8.22M=0.001s
+#7 5.616 
+#7 5.616 2022-02-16 02:04:10 (8.22 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.616 
+#7 7.384 ar: creating /libAFL.a
+#7 DONE 8.5s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:491e0706e5bb083902449ec4a7a99a94f25feff6cdf444c1fa58cbdedf39f735 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5d5cf3586bd36ff7dd742bbf0ad10b4315caccbda77232d956380d6de1f73cbe
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b6509f88aac38ee31a19b1bf103474c297af209d17b23454b536b7d8e9672d44
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:190b8b008e0a082e813b687882ce8ec411b432e0d821f7b77a011ebe104db195
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:623e84f9ea1021c5d0e780650e5eef27a778e4d08a93768b4381a8d6671b434d
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:fd037cb0a4a13683ee0b4363fb08f81745bc91b813ed8d3def877bdc0edbb87e
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:29d333e90327de03ef505e8c5778c7678ee45da764eebae383ce6c7b84a017cc
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:b1051531e900eb9313948baf6b1255c867abc55f3e2b73b23bfc3dadcf51311e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9068eca4aa2967ca6a6bc1d61aae80b7e8531a601a5dc676f9fb0823ade679e5
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:6d780d295d62e5f5b9f4de65e2ae8a394b78cae9ea6afd706e827f32e5c155b2
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate:latest
+#4 sha256:e436c795f8fdeec2933bfaab31260dc72ee055037735550ddd5d733001aca4d0
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2adf446e093d2022e429f9aa82ac299d74803052b988e303691cdf37eedeff4b
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate
+#6 sha256:fc5a6d77b1a2864dad31da857db3edb18123b568c515945ae02e22ee5c5f686b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust
+#5 sha256:0af6ca0992a5b5057ee7fd14fe19fd76d2ac7ad59819e5d623ad4ec3bcdd9291
+#5 ERROR: gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:2adf446e093d2022e429f9aa82ac299d74803052b988e303691cdf37eedeff4b
+#12 transferring context: 669.90kB 0.1s done
+#12 DONE 0.2s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate
+#6 sha256:fc5a6d77b1a2864dad31da857db3edb18123b568c515945ae02e22ee5c5f686b
+#6 DONE 1.0s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:4a866265cd0665b0444cb6b2caee62e1c39464f7296814dcd3193ffd25745eef
+#8 DONE 1.0s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:205bb8169d61b2d771d52c0003c05047c00c5b6c03e3bf4fac687031cec649fa
+#9 DONE 23.8s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:dc7f5dd921198e71c1b8c1dddbb5726055068c88dc10dceb82c64c86431ce12f
+#10 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:521aad378204c111c4d74435dae8deac2cd5971102da20d49e89bed2e0a30d2f
+#11 DONE 39.6s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:efd34b427d5b2b6772dd9067e540e36d426a4103b28f580a2b6c93ea5b7626ef
+#13 DONE 2.0s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:80d3729f73ae909c3f9ab659f7ea2009c7ee9556d76bd26231dfb65b82acc9b6
+#14 DONE 3.0s
+
+#15 [stage-1  8/13] COPY benchmarks/mp4parse-rust_mp4parse-rust/benchmark.yaml /
+#15 sha256:b323a601fa30047d21b25619afa862122ff8aa8cdbb4853e6a953c78216343d0
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:ccfc7269fd570c810419484382b7b3bc4ccfdd778bd5a6463d2b8fc2f69116eb
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:fb67808c80bb0152beede2c7bab4a84ff83c505deb25af1c0a458081baddfbfe
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:f22caa0d2deddebc0fe4acefdc40bd05677907625114ea218f25aa1b1624c3a8
+#18 0.517 Checking out commit d561c49a
+#18 3.510 From https://github.com/mozilla/mp4parse-rust
+#18 3.510  * [new tag]         firefox-93 -> firefox-93
+#18 3.510  * [new tag]         firefox-96 -> firefox-96
+#18 3.510  * [new tag]         v0.0.2     -> v0.0.2
+#18 3.510  * [new tag]         v0.0.4     -> v0.0.4
+#18 3.511  * [new tag]         v0.0.5     -> v0.0.5
+#18 3.511  * [new tag]         v0.0.6     -> v0.0.6
+#18 3.511  * [new tag]         v0.0.8     -> v0.0.8
+#18 3.511  * [new tag]         v0.0.9     -> v0.0.9
+#18 3.511  * [new tag]         v0.1.0     -> v0.1.0
+#18 3.512  * [new tag]         v0.1.1     -> v0.1.1
+#18 3.512  * [new tag]         v0.1.2     -> v0.1.2
+#18 3.512  * [new tag]         v0.1.3     -> v0.1.3
+#18 3.512  * [new tag]         v0.1.4     -> v0.1.4
+#18 3.513  * [new tag]         v0.1.5     -> v0.1.5
+#18 3.513  * [new tag]         v0.1.6     -> v0.1.6
+#18 3.513  * [new tag]         v0.10.0    -> v0.10.0
+#18 3.513  * [new tag]         v0.10.1    -> v0.10.1
+#18 3.514  * [new tag]         v0.11.6    -> v0.11.6
+#18 3.514  * [new tag]         v0.12.0    -> v0.12.0
+#18 3.514  * [new tag]         v0.2.0     -> v0.2.0
+#18 3.515  * [new tag]         v0.2.1     -> v0.2.1
+#18 3.515  * [new tag]         v0.3.0     -> v0.3.0
+#18 3.515  * [new tag]         v0.4.0     -> v0.4.0
+#18 3.515  * [new tag]         v0.4.1     -> v0.4.1
+#18 3.516  * [new tag]         v0.5.0     -> v0.5.0
+#18 3.516  * [new tag]         v0.5.1     -> v0.5.1
+#18 3.516  * [new tag]         v0.6.0     -> v0.6.0
+#18 3.517  * [new tag]         v0.7.0     -> v0.7.0
+#18 3.517  * [new tag]         v0.7.1     -> v0.7.1
+#18 3.517  * [new tag]         v0.8.0     -> v0.8.0
+#18 3.517  * [new tag]         v0.9.0     -> v0.9.0
+#18 3.518  * [new tag]         v0.9.1     -> v0.9.1
+#18 3.583 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 3.589 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 3.597 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 3.653 Checkout unsuccessful.
+#18 DONE 4.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:34267a1181df7bcbe1d00bd92ac7e96198e880267e72522988c23ca713158cde
+#19 DONE 1.0s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:3856fe587b2340ea92ba58ae4625363675aab0c7e80289516a93f98c5e718bb0
+#20 0.665 Run fuzzer_build to build the target
+#20 0.801 FUZZ_TARGET = mp4parse-rust
+#20 0.801 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.801 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.809 Building benchmark mp4parse-rust_mp4parse-rust with fuzzer afl
+#20 0.812 + PROJECT_DIR=/src/mp4parse-rust
+#20 0.812 + cd /src/mp4parse-rust/mp4parse_capi/fuzz
+#20 0.813 + cargo fuzz build -O --debug-assertions
+#20 0.816 /usr/local/bin/cargo: line 55: /rust/bin/cargo: No such file or directory
+#20 0.818 Traceback (most recent call last):
+#20 0.818   File "<string>", line 1, in <module>
+#20 0.818   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.818     utils.build_benchmark()
+#20 0.818   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.818     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.818   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.820     raise CalledProcessError(retcode, cmd)
+#20 0.820 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2707704: .afl-mp4parse-rust_mp4parse-rust-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:5b8bb5fdd1322e8746ca14384770ab98edfc32ec14177db0b10056a172a2937f
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:99019267e54529e4cae63f5f79fc7bd2b04f0f5a1cd2ac826164143b3a711b91
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.7s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust
+#4 sha256:4107baeae0bd256624297f91516b80e5beb433f139a3ea1edae6c1e1f1582a5a
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:75471be7b0017268637ec715536123b7082d12eb5dacb8728033eb34a8c74c92
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/mozilla/mp4parse-rust mp4parse-rust
+#7 sha256:aeee5565193400c6c1a1b3ad7c2c8e7e77563bc4b17f218a4005534d1b037608
+#7 CACHED
+
+#8 [4/5] WORKDIR mp4parse-rust
+#8 sha256:9811a9af7744ff22741e6a59bed1a67c188f9f479cd915d3f96f0db8fbf5f164
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool curl cmake python llvm-dev libclang-dev clang
+#6 sha256:66bc0ce1eb224e9ff493fe7fadec6414b98db0fd06e0576b70a9dcc480786ace
+#6 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:cfef73e2b687ec1f8a81c5afb52325b6330367b457e9b6ad6129f1fb2723371b
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:d0a3bcc5fbf04666c350d8ac658c14206931990d8172e58493924a76a3aad81b 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:0b29f29e0307f0215b049ba961031b345efe77f7825467ac5c560d7ffda63b06
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:beff136d6399856be868000f5190a089e3c42c956a057660e1da175716427edb
+#1 transferring dockerfile: 46B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust:latest
+#3 sha256:ea3886c095a9978dc96860d374a60f4d51dfc8062cc726d06b7e339374783654
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/mp4parse-rust_mp4parse-rust
+#5 sha256:c21e84c7913895b6ff546380982abb5842b99baf254b4765dc97f5dd1635044a
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate
+#4 sha256:400a7ced4ec661fab859743826082bb65ddaaebc34ad0dc7bb6d20dcd2f1a345
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a501f55da5e11db3c84ba0a0d9f38092f1af122f719e95c8ee902f8c5d21d054
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:b5b272be44d24e9bdc2e74156854781864d4ad33fd8263af6e69a1594352e62e
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:491e0706e5bb083902449ec4a7a99a94f25feff6cdf444c1fa58cbdedf39f735
+#8 writing image sha256:491e0706e5bb083902449ec4a7a99a94f25feff6cdf444c1fa58cbdedf39f735 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:20851bf1cf7aafba683c7b0d89651cce7c198142b46a5c92fa85579f82feb8ee
+#2 transferring context: 34B done
+#2 DONE 0.6s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:485f581631d79b9d08672ab73ac5a91064898a1ffeba999f1c763fdd1a4a79ef
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.7s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:aa895c558f2521267a8871174215aa9d38e9d49c97eb2157755965764fa35dcc
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2fd297d0bab988d04998069d06f8069fe2fa3d620bc0fc38fb5e85b78f87b7bd
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:d960519553ab7a21db09e38c576d62c0c7f53a4b9e7b79bfb20b230a5f3be906
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9c3f69882bb39e9c7240df6a2b93fcac6b2f69e9522d17cbd6d3271af8da8347
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:36be21847d74a86cfb0ca65f587b055a6891c8569125c7e5d1629e19051d5a16
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:bba3f6ca244231de7d3f459f650c451a69f31a50a5683cdf3be19dd463bfc222
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:10f501b554e833ad451afc24e77da29f5084fda1a99dd4548b73eb55d20d9c64
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate:latest
+#4 sha256:e436c795f8fdeec2933bfaab31260dc72ee055037735550ddd5d733001aca4d0
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:28f8c61c397df60b712e0368630084b3f56211c6ca6b10c45ca208ef37c62d6d
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust-intermediate
+#6 sha256:fc5a6d77b1a2864dad31da857db3edb18123b568c515945ae02e22ee5c5f686b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust
+#5 sha256:0af6ca0992a5b5057ee7fd14fe19fd76d2ac7ad59819e5d623ad4ec3bcdd9291
+#5 ERROR: gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust:latest: not found
+
+#12 [internal] load build context
+#12 sha256:28f8c61c397df60b712e0368630084b3f56211c6ca6b10c45ca208ef37c62d6d
+#12 transferring context: 669.90kB 0.1s done
+#12 DONE 0.2s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:3585eba3712009d0320efdad937a09ea74c3de6660362885e5fb6d23b3dcfc3f
+#17 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:521aad378204c111c4d74435dae8deac2cd5971102da20d49e89bed2e0a30d2f
+#11 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:dc7f5dd921198e71c1b8c1dddbb5726055068c88dc10dceb82c64c86431ce12f
+#10 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:205bb8169d61b2d771d52c0003c05047c00c5b6c03e3bf4fac687031cec649fa
+#9 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:c29231832907dc3fcef8b1dc2dd93f3579fe8e90c969fe34ae33159bc22129d7
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:1815025887c21e3eaa1e8610564cf50c78fa5526f046e1c51a161f3e9c5bf7f2
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:bf95f2f8ea063d01c01991496f840c47e54f7f61632915d92fa7aa45f6aafebe
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:4fef2da77affc997bc1a30d1326cd1ada16537057ab3662e74c490405633d5c6
+#18 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/mp4parse-rust_mp4parse-rust/benchmark.yaml /
+#15 sha256:1b0c95d9ed342f8326f0a0bff86ced52e6ac29cde4fec6b255f76c48361a6744
+#15 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:4a866265cd0665b0444cb6b2caee62e1c39464f7296814dcd3193ffd25745eef
+#8 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:0134e88a74cacd84a3d0b9116cc0ae96cd8301aa852c2a1f88ba62a899600132
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:ad1af8c40984fd5982da02998a36320a5d88fa52185146b55a571f496fb0468b
+#20 0.511 Run fuzzer_build to build the target
+#20 0.623 FUZZ_TARGET = mp4parse-rust
+#20 0.623 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.623 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.628 Building benchmark mp4parse-rust_mp4parse-rust with fuzzer afl
+#20 0.631 + PROJECT_DIR=/src/mp4parse-rust
+#20 0.631 + cd /src/mp4parse-rust/mp4parse_capi/fuzz
+#20 0.631 + cargo fuzz build -O --debug-assertions
+#20 0.635 /usr/local/bin/cargo: line 55: /rust/bin/cargo: No such file or directory
+#20 0.636 Traceback (most recent call last):
+#20 0.636   File "<string>", line 1, in <module>
+#20 0.636   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.636     utils.build_benchmark()
+#20 0.636   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.636     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.636   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.636     raise CalledProcessError(retcode, cmd)
+#20 0.636 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/mp4parse-rust_mp4parse-rust:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2707704: .afl-mp4parse-rust_mp4parse-rust-builder] Error 1

@@ -1,0 +1,779 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: servo_servo.
+INFO:root:Please run "make test-run-afl-servo_servo" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:365e9ccec1e0a6ea5fd7f670e1559d9124bf22cc23044e219b606ad0ddacce43
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b7bfd1304ba373635c5b9db6dbde91018dd6bb2b562f95955c95be363bc0e9af
+#1 transferring dockerfile: 889B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:3b1b14d388ccec5ad71c349f19c28982467ab3a9ebc763efbbde1a4ba34061e3
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/servo_servo
+#4 sha256:8d1e936f72058c73c790b8e574fa34143a1acaf9cb7740001981bc811f1c782c
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/servo_servo:latest: not found
+
+#9 [internal] load build context
+#9 sha256:3b1b14d388ccec5ad71c349f19c28982467ab3a9ebc763efbbde1a4ba34061e3
+#9 transferring context: 952B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN git clone --depth 1 https://github.com/servo/html5ever
+#6 sha256:5f011b8ac04342966c3b71c1368dfac272d6b226f95eeaa26205e72893815326
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/servo/rust-url
+#7 sha256:1fe955ed9cd8f64065a28e13dc78a2936d54fbbe4ddbb99c1406ea101f95be80
+#7 CACHED
+
+#8 [4/5] WORKDIR /src
+#8 sha256:7690664db6d69bc4a7068eb08cacd5ff321f6a5fb2a41e4ee8cd199d5f6a38cd
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:8d18b7665eede8b234a10325f9da778c5f30771bf4d50dc7ce081c964a2a6943
+#10 DONE 0.5s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:5b28dbdd9ae138b9a809ba1a73ae90ef143571d43a863c15edb139d3ea0d1db8 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/servo_servo done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/servo_servo:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a92c5c56c17a6be9922f643f6c61eb8891bd53e98699721a4409d55f48ae9b8f
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:3fee867568312c1b7c33419be56a6035b67136a7a5eee13fa01b2a3ba7ec7307
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/servo_servo:latest
+#3 sha256:e1b8f038aeb532736958e14c2422b271196705be139d69d213485729fe6be532
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/servo_servo
+#5 sha256:7abac3f7681755a9a806107a7cf1e0f9e01aaa85ca593fcaa890c575e5fcf19f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/servo_servo-intermediate
+#4 sha256:82324fb53b0e001c1e0d17c1cd16da439666953b354ac99443ad451266bb8fc3
+#4 ERROR: gcr.io/fuzzbench/builders/afl/servo_servo-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/servo_servo
+#5 sha256:7abac3f7681755a9a806107a7cf1e0f9e01aaa85ca593fcaa890c575e5fcf19f
+#5 DONE 0.7s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:ae0e871c640c828fa9ff56ba8d0a6d916748f2de74d84a91c322a2eb7440a88c
+#6 0.445 Cloning into '/afl'...
+#6 2.586 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 2.586 
+#6 2.586 You are in 'detached HEAD' state. You can look around, make experimental
+#6 2.586 changes and commit them, and you can discard any commits you make in this
+#6 2.586 state without impacting any branches by switching back to a branch.
+#6 2.586 
+#6 2.586 If you want to create a new branch to retain commits you create, you may
+#6 2.586 do so (now or later) by using -c with the switch command. Example:
+#6 2.586 
+#6 2.586   git switch -c <new-branch-name>
+#6 2.586 
+#6 2.586 Or undo this operation with:
+#6 2.586 
+#6 2.586   git switch -
+#6 2.586 
+#6 2.586 Turn off this advice by setting config variable advice.detachedHead to false
+#6 2.586 
+#6 2.586 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 2.679 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 2.680 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 2.896 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 2.902 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 5.301 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 5.629 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 6.068 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 6.216 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 6.624 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 6.871 ln -sf afl-as as
+#6 6.873 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 6.875 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 6.877 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 7.5s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c842a590832e343440c1ed467d809cfdf22d3573d142eeadbec91f5f95b1b8b1
+#7 0.852 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.852 Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#7 0.852 Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+#7 0.852 Hit:4 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.940 Get:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#7 1.412 Get:6 http://security.ubuntu.com/ubuntu focal-security/universe i386 Packages [657 kB]
+#7 1.524 Get:7 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [840 kB]
+#7 1.586 Get:8 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1546 kB]
+#7 1.614 Get:9 http://archive.ubuntu.com/ubuntu focal-updates/universe i386 Packages [827 kB]
+#7 1.798 Get:10 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1134 kB]
+#7 1.882 Get:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1973 kB]
+#7 2.030 Get:12 http://archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [752 kB]
+#7 2.628 Fetched 8065 kB in 1s (5414 kB/s)
+#7 2.628 Reading package lists...
+#7 4.415 Reading package lists...
+#7 5.837 Building dependency tree...
+#7 6.049 Reading state information...
+#7 6.303 wget is already the newest version (1.20.3-1ubuntu2).
+#7 6.303 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#7 6.476 --2022-02-15 16:01:19--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 6.478 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+#7 6.480 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+#7 6.503 HTTP request sent, awaiting response... 200 OK
+#7 6.683 Length: 9177 (9.0K) [text/plain]
+#7 6.683 Saving to: '/afl/afl_driver.cpp'
+#7 6.683 
+#7 6.683      0K ........                                              100% 10.8M=0.001s
+#7 6.684 
+#7 6.684 2022-02-15 16:01:20 (10.8 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 6.684 
+#7 8.410 ar: creating /libAFL.a
+#7 DONE 8.7s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3fba0ec9f895fe46c84fe49a00a17fbd54538f35f38dcfe3ab6efa86a003d3b2 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/servo_servo-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/servo_servo-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0975a93feaaca43fae869c7c413a6908feeafba9082601c4a8ef30d88c69413c
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:234f4b57abc40300bc532d46633c0664d567c3860467edde16be07e917e7cd63
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:83c8f23fa310598c77e8d294e75eb5031f15110411c24e39434ab1d2d6d25267
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:207f75d87a14a836d6e78891ee8a0068563b36feddcab32629d5f6d4569ef886
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:91cef73b9ab2cd544f1c82fc2901d9d80384e96a8c36ce633b1c037fad144b74
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:e585a85149dcd6bd90746f1f393bed9305e4cbe5ceabd575e40e81fcaf0de75c
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:781ea672dabfb539d70a9f4edf83b0da0934fba14692660a80c926c7c9447233
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:57015df1b77bb4ed61c11083dd8964d9a7b298b8e7192b431e308ab7a67b95aa
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:a318ae9db2f0ecd613f87f694147cfb4890dc876ba4e956bcb9d8ce16c71280a
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/servo_servo-intermediate:latest
+#3 sha256:fb8858ddd21d98d9ca992624703f16c1d853cbb83db426b81dd7540fefbca974
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d16525c1ff3361cb48dee4355a343e0b4efdeb87f46f7bc98d6bb087f9b6adb4
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/servo_servo-intermediate
+#6 sha256:86ad894d83e7b12328b529e5910b2b7cc013c74425c05471aa995b20f37f8bc9
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/servo_servo
+#5 sha256:912232aac5407c857adae59e1f6b5985b36369ece22936e7f3f2c681e2b26a04
+#5 ERROR: gcr.io/fuzzbench/builders/afl/servo_servo:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:d16525c1ff3361cb48dee4355a343e0b4efdeb87f46f7bc98d6bb087f9b6adb4
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/servo_servo-intermediate
+#6 sha256:86ad894d83e7b12328b529e5910b2b7cc013c74425c05471aa995b20f37f8bc9
+#6 DONE 0.9s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:18a868102fdbb1b36625b9d4fdd6522943d3bb1c3c8c011b50dffbe8bc5b9e0e
+#8 DONE 0.7s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:e6d62069a96e50328be18cf262ba782ffc86b99d39fd0ef5ec1706e6650ab8db
+#9 DONE 17.8s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:7438a733e7264170ed7e40053df10ae18d3891c1e3872239802f6bc11c7252c9
+#10 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:d126dae99d1e5ca93f751bf3df2084c897c8a0856697159d77d63e87414e409f
+#11 DONE 38.5s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:56913669d7e54b2be04e3b05827ab34bdfd35ade290aeba620aeec2879fa52ab
+#13 DONE 0.5s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:85f619f989d38fe5236c3f3d475c0e8b79fb74b7c2b5ac0ca35dc427bc461e83
+#14 DONE 1.0s
+
+#15 [stage-1  8/13] COPY benchmarks/servo_servo/benchmark.yaml /
+#15 sha256:23ceebbe576e1d669f7d66414de1bf2f6a4050e823933d848246c01962539853
+#15 DONE 1.0s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:0e0553647926953e631d4d4c022e058e98be7858319334b5dac4e69195de5968
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:83b7d2b95506f4a0d16e13f86915b5122b5dfaf3f429ab84ccb46a4072cc6948
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:ccc66f96e89877a9eb6b5c04a78e79937f7a7a380ce7005426b69007cba3b8a3
+#18 0.534 Checking out commit 1d5a2cd8
+#18 3.280 From https://github.com/servo/rust-url
+#18 3.280  * [new tag]         data_url_v0.1.1         -> data_url_v0.1.1
+#18 3.280  * [new tag]         idna-v0.1.1             -> idna-v0.1.1
+#18 3.281  * [new tag]         idna-v0.1.2             -> idna-v0.1.2
+#18 3.281  * [new tag]         idna-v0.1.4             -> idna-v0.1.4
+#18 3.281  * [new tag]         idna-v0.1.5             -> idna-v0.1.5
+#18 3.281  * [new tag]         idna-v0.2.0             -> idna-v0.2.0
+#18 3.282  * [new tag]         idna-v0.2.2             -> idna-v0.2.2
+#18 3.282  * [new tag]         idna-v0.2.3             -> idna-v0.2.3
+#18 3.282  * [new tag]         percent-encoding-v1.0.1 -> percent-encoding-v1.0.1
+#18 3.282  * [new tag]         percent-encoding-v2.0.0 -> percent-encoding-v2.0.0
+#18 3.283  * [new tag]         percent-encoding-v2.1.0 -> percent-encoding-v2.1.0
+#18 3.283  * [new tag]         percent-encoding_v1.0.0 -> percent-encoding_v1.0.0
+#18 3.283  * [new tag]         v0.1.0                  -> v0.1.0
+#18 3.283  * [new tag]         v0.2.0                  -> v0.2.0
+#18 3.284  * [new tag]         v0.2.1                  -> v0.2.1
+#18 3.284  * [new tag]         v0.2.10                 -> v0.2.10
+#18 3.284  * [new tag]         v0.2.11                 -> v0.2.11
+#18 3.284  * [new tag]         v0.2.12                 -> v0.2.12
+#18 3.285  * [new tag]         v0.2.13                 -> v0.2.13
+#18 3.285  * [new tag]         v0.2.14                 -> v0.2.14
+#18 3.285  * [new tag]         v0.2.15                 -> v0.2.15
+#18 3.285  * [new tag]         v0.2.16                 -> v0.2.16
+#18 3.286  * [new tag]         v0.2.17                 -> v0.2.17
+#18 3.286  * [new tag]         v0.2.18                 -> v0.2.18
+#18 3.286  * [new tag]         v0.2.19                 -> v0.2.19
+#18 3.286  * [new tag]         v0.2.2                  -> v0.2.2
+#18 3.287  * [new tag]         v0.2.20                 -> v0.2.20
+#18 3.287  * [new tag]         v0.2.21                 -> v0.2.21
+#18 3.287  * [new tag]         v0.2.22                 -> v0.2.22
+#18 3.287  * [new tag]         v0.2.23                 -> v0.2.23
+#18 3.288  * [new tag]         v0.2.24                 -> v0.2.24
+#18 3.288  * [new tag]         v0.2.25                 -> v0.2.25
+#18 3.288  * [new tag]         v0.2.26                 -> v0.2.26
+#18 3.288  * [new tag]         v0.2.27                 -> v0.2.27
+#18 3.289  * [new tag]         v0.2.28                 -> v0.2.28
+#18 3.289  * [new tag]         v0.2.29                 -> v0.2.29
+#18 3.289  * [new tag]         v0.2.3                  -> v0.2.3
+#18 3.289  * [new tag]         v0.2.30                 -> v0.2.30
+#18 3.289  * [new tag]         v0.2.31                 -> v0.2.31
+#18 3.290  * [new tag]         v0.2.32                 -> v0.2.32
+#18 3.290  * [new tag]         v0.2.33                 -> v0.2.33
+#18 3.290  * [new tag]         v0.2.34                 -> v0.2.34
+#18 3.290  * [new tag]         v0.2.35                 -> v0.2.35
+#18 3.290  * [new tag]         v0.2.36                 -> v0.2.36
+#18 3.291  * [new tag]         v0.2.37                 -> v0.2.37
+#18 3.291  * [new tag]         v0.2.38                 -> v0.2.38
+#18 3.291  * [new tag]         v0.2.4                  -> v0.2.4
+#18 3.291  * [new tag]         v0.2.5                  -> v0.2.5
+#18 3.292  * [new tag]         v0.2.6                  -> v0.2.6
+#18 3.292  * [new tag]         v0.2.7                  -> v0.2.7
+#18 3.292  * [new tag]         v0.2.8                  -> v0.2.8
+#18 3.292  * [new tag]         v0.2.9                  -> v0.2.9
+#18 3.293  * [new tag]         v0.3.0                  -> v0.3.0
+#18 3.293  * [new tag]         v0.4.0                  -> v0.4.0
+#18 3.293  * [new tag]         v0.5.0                  -> v0.5.0
+#18 3.293  * [new tag]         v0.5.1                  -> v0.5.1
+#18 3.293  * [new tag]         v0.5.2                  -> v0.5.2
+#18 3.294  * [new tag]         v0.5.3                  -> v0.5.3
+#18 3.294  * [new tag]         v0.5.4                  -> v0.5.4
+#18 3.294  * [new tag]         v0.5.5                  -> v0.5.5
+#18 3.294  * [new tag]         v0.5.7                  -> v0.5.7
+#18 3.294  * [new tag]         v0.5.9                  -> v0.5.9
+#18 3.295  * [new tag]         v1.0.0                  -> v1.0.0
+#18 3.295  * [new tag]         v1.1.1                  -> v1.1.1
+#18 3.295  * [new tag]         v1.2.0                  -> v1.2.0
+#18 3.295  * [new tag]         v1.2.1                  -> v1.2.1
+#18 3.296  * [new tag]         v1.2.2                  -> v1.2.2
+#18 3.296  * [new tag]         v1.3.0                  -> v1.3.0
+#18 3.296  * [new tag]         v1.4.0                  -> v1.4.0
+#18 3.296  * [new tag]         v1.4.1                  -> v1.4.1
+#18 3.296  * [new tag]         v1.5.0                  -> v1.5.0
+#18 3.297  * [new tag]         v1.5.1                  -> v1.5.1
+#18 3.297  * [new tag]         v1.6.0                  -> v1.6.0
+#18 3.297  * [new tag]         v1.7.0                  -> v1.7.0
+#18 3.297  * [new tag]         v1.7.1                  -> v1.7.1
+#18 3.298  * [new tag]         v1.7.2                  -> v1.7.2
+#18 3.298  * [new tag]         v2.0.0                  -> v2.0.0
+#18 3.298  * [new tag]         v2.1.0                  -> v2.1.0
+#18 3.298  * [new tag]         v2.1.1                  -> v2.1.1
+#18 3.298  * [new tag]         v2.2.0                  -> v2.2.0
+#18 3.299  * [new tag]         v2.2.1                  -> v2.2.1
+#18 3.299  * [new tag]         v2.2.2                  -> v2.2.2
+#18 3.306 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 5.494 From https://github.com/servo/html5ever
+#18 5.494  * [new tag]         atoms-v0.1.2        -> atoms-v0.1.2
+#18 5.495  * [new tag]         atoms-v0.2.0        -> atoms-v0.2.0
+#18 5.495  * [new tag]         html5ever-v0.14.0   -> html5ever-v0.14.0
+#18 5.495  * [new tag]         html5ever-v0.14.1   -> html5ever-v0.14.1
+#18 5.495  * [new tag]         html5ever-v0.17.0   -> html5ever-v0.17.0
+#18 5.496  * [new tag]         html5ever-v0.18.0   -> html5ever-v0.18.0
+#18 5.496  * [new tag]         html5ever-v0.21.0   -> html5ever-v0.21.0
+#18 5.496  * [new tag]         html5ever-v0.22.0   -> html5ever-v0.22.0
+#18 5.497  * [new tag]         html5ever-v0.22.2   -> html5ever-v0.22.2
+#18 5.497  * [new tag]         html5ever-v0.22.3   -> html5ever-v0.22.3
+#18 5.497  * [new tag]         html5ever-v0.22.8   -> html5ever-v0.22.8
+#18 5.497  * [new tag]         html5ever-v0.23.0   -> html5ever-v0.23.0
+#18 5.498  * [new tag]         html5ever-v0.25.0   -> html5ever-v0.25.0
+#18 5.498  * [new tag]         markup5ever-0.7.1   -> markup5ever-0.7.1
+#18 5.498  * [new tag]         markup5ever-v0.10.0 -> markup5ever-v0.10.0
+#18 5.498  * [new tag]         markup5ever-v0.10.1 -> markup5ever-v0.10.1
+#18 5.499  * [new tag]         markup5ever-v0.2.1  -> markup5ever-v0.2.1
+#18 5.499  * [new tag]         markup5ever-v0.3.0  -> markup5ever-v0.3.0
+#18 5.499  * [new tag]         markup5ever-v0.3.1  -> markup5ever-v0.3.1
+#18 5.499  * [new tag]         markup5ever-v0.7.0  -> markup5ever-v0.7.0
+#18 5.500  * [new tag]         markup5ever-v0.7.2  -> markup5ever-v0.7.2
+#18 5.500  * [new tag]         markup5ever-v0.7.4  -> markup5ever-v0.7.4
+#18 5.500  * [new tag]         markup5ever-v0.8.0  -> markup5ever-v0.8.0
+#18 5.500  * [new tag]         markup5ever-v0.8.1  -> markup5ever-v0.8.1
+#18 5.501  * [new tag]         v0.1.0              -> v0.1.0
+#18 5.501  * [new tag]         v0.1.1              -> v0.1.1
+#18 5.501  * [new tag]         v0.10.0             -> v0.10.0
+#18 5.501  * [new tag]         v0.10.1             -> v0.10.1
+#18 5.502  * [new tag]         v0.10.2             -> v0.10.2
+#18 5.502  * [new tag]         v0.10.3             -> v0.10.3
+#18 5.502  * [new tag]         v0.12.0             -> v0.12.0
+#18 5.502  * [new tag]         v0.12.1             -> v0.12.1
+#18 5.503  * [new tag]         v0.13.0             -> v0.13.0
+#18 5.503  * [new tag]         v0.13.1             -> v0.13.1
+#18 5.503  * [new tag]         v0.2.0              -> v0.2.0
+#18 5.504  * [new tag]         v0.2.1              -> v0.2.1
+#18 5.504  * [new tag]         v0.2.10             -> v0.2.10
+#18 5.504  * [new tag]         v0.2.11             -> v0.2.11
+#18 5.504  * [new tag]         v0.2.2              -> v0.2.2
+#18 5.505  * [new tag]         v0.2.3              -> v0.2.3
+#18 5.505  * [new tag]         v0.2.4              -> v0.2.4
+#18 5.505  * [new tag]         v0.2.5              -> v0.2.5
+#18 5.505  * [new tag]         v0.22.5             -> v0.22.5
+#18 5.506  * [new tag]         v0.3.0              -> v0.3.0
+#18 5.506  * [new tag]         v0.4.0              -> v0.4.0
+#18 5.506  * [new tag]         v0.4.1              -> v0.4.1
+#18 5.506  * [new tag]         v0.4.2              -> v0.4.2
+#18 5.507  * [new tag]         v0.5.1              -> v0.5.1
+#18 5.507  * [new tag]         v0.5.2              -> v0.5.2
+#18 5.507  * [new tag]         v0.5.3              -> v0.5.3
+#18 5.507  * [new tag]         v0.5.5              -> v0.5.5
+#18 5.508  * [new tag]         v0.6.0              -> v0.6.0
+#18 5.508  * [new tag]         v0.7.0              -> v0.7.0
+#18 5.508  * [new tag]         v0.8.0              -> v0.8.0
+#18 5.508  * [new tag]         v0.9.0              -> v0.9.0
+#18 5.508  * [new tag]         xml5ever-v0.12.0    -> xml5ever-v0.12.0
+#18 5.509  * [new tag]         xml5ever-v0.12.1    -> xml5ever-v0.12.1
+#18 5.509  * [new tag]         xml5ever-v0.13.2    -> xml5ever-v0.13.2
+#18 5.509  * [new tag]         xml5ever-v0.14.0    -> xml5ever-v0.14.0
+#18 5.509  * [new tag]         xml5ever-v0.16.0    -> xml5ever-v0.16.0
+#18 5.510  * [new tag]         xml5ever-v0.16.2    -> xml5ever-v0.16.2
+#18 5.510  * [new tag]         xml5ever-v0.8.0     -> xml5ever-v0.8.0
+#18 5.589 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 5.595 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 5.602 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 5.645 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 5.735 Checkout unsuccessful.
+#18 DONE 6.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:e27226cea3b081c480834ec0e7ddf4a273a61bb95489fc5cdd1685426b9c7f86
+#19 DONE 1.0s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:bcc9e1e6505e177e551ca2e824833cdf31544c54bd4e2806287ee804dfbbdc95
+#20 0.591 Run fuzzer_build to build the target
+#20 0.712 FUZZ_TARGET = servo
+#20 0.712 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.712 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.725 Building benchmark servo_servo with fuzzer afl
+#20 0.728 + cd /src/html5ever/html5ever
+#20 0.728 + cargo fuzz build -O
+#20 0.733 /usr/local/bin/cargo: line 55: /rust/bin/cargo: No such file or directory
+#20 0.734 Traceback (most recent call last):
+#20 0.734   File "<string>", line 1, in <module>
+#20 0.734   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.734     utils.build_benchmark()
+#20 0.734   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.734     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.734   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.735     raise CalledProcessError(retcode, cmd)
+#20 0.735 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/servo_servo:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2716867: .afl-servo_servo-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:51e17378c9b0b36f1885cc4b18fcbcd53e3df6b5a588592edb13068857f4009d
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7947e85de31103461082afa4fac01e08c3aee72f5ea9b7213a9cb940de7b162c
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/servo_servo
+#4 sha256:8d1e936f72058c73c790b8e574fa34143a1acaf9cb7740001981bc811f1c782c
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:ad2dec3c2c97091e3a93e101b6a25a8aaada2aff6c33544edefe696ec23d6603
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#8 [4/5] WORKDIR /src
+#8 sha256:7690664db6d69bc4a7068eb08cacd5ff321f6a5fb2a41e4ee8cd199d5f6a38cd
+#8 CACHED
+
+#6 [2/5] RUN git clone --depth 1 https://github.com/servo/html5ever
+#6 sha256:5f011b8ac04342966c3b71c1368dfac272d6b226f95eeaa26205e72893815326
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/servo/rust-url
+#7 sha256:1fe955ed9cd8f64065a28e13dc78a2936d54fbbe4ddbb99c1406ea101f95be80
+#7 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:b46f527647e934c575a96bc99031588847d67b0cfe5f144bf7a83f5dd208722b
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:5b28dbdd9ae138b9a809ba1a73ae90ef143571d43a863c15edb139d3ea0d1db8 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/servo_servo done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:468bc9179fba3234061067ec269e376c8eca123ab76bd1a933c5cf2b35c164c3
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b480dd75a6ba13079ea4b0a4fb396fa1da43ef366a18aa50c58383a5750dd9cc
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/servo_servo:latest
+#3 sha256:e1b8f038aeb532736958e14c2422b271196705be139d69d213485729fe6be532
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/servo_servo
+#5 sha256:7abac3f7681755a9a806107a7cf1e0f9e01aaa85ca593fcaa890c575e5fcf19f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/servo_servo-intermediate
+#4 sha256:82324fb53b0e001c1e0d17c1cd16da439666953b354ac99443ad451266bb8fc3
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:ae0e871c640c828fa9ff56ba8d0a6d916748f2de74d84a91c322a2eb7440a88c
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c842a590832e343440c1ed467d809cfdf22d3573d142eeadbec91f5f95b1b8b1
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3fba0ec9f895fe46c84fe49a00a17fbd54538f35f38dcfe3ab6efa86a003d3b2 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/servo_servo-intermediate done
+#8 DONE 0.7s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1643accecc56b4d1dba5fa06615cdba6ac37efac2dfbc89cbb080a00ca83b5f1
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.6s
+
+#2 [internal] load .dockerignore
+#2 sha256:7600507e7334e1e80634b220152ab2c508e07a609317700002275a0afb343d77
+#2 transferring context: 34B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:121c1d454ed06ed33acf79bc1c37d55203eb8bdd9f45f2306619df87c8ec5034
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:aaab63db9f1f928fb5e22a158dd05518d4734bbbeade30dd66478701fa3a2ffd
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:03bf252aab61450f32220df244b6f40d3c7328cec0169ac67671e323c0a352e9
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:5740bbadfd5e6735b78583b8e20b7fab477c5a30bca0d2eb9269f66f94bf3612
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:46bc88ece857959665f56086e099871268a84e40bc68d6f2ea3f93ed5615e5ca
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0365dee1982d7e3092442658597cd5c196d72ae7182cbc6fab8204490751f268
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:fe877d32fa7bfc0c397788a8030ba1c558eb7a90dcb7cb3a41dc1a409124612e
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/servo_servo-intermediate:latest
+#3 sha256:fb8858ddd21d98d9ca992624703f16c1d853cbb83db426b81dd7540fefbca974
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:0b98a48f1c04ac8816daf5b3d743dc22463a3956f6cccee91b2aa56dcf6d1848
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/servo_servo-intermediate
+#6 sha256:86ad894d83e7b12328b529e5910b2b7cc013c74425c05471aa995b20f37f8bc9
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/servo_servo
+#5 sha256:912232aac5407c857adae59e1f6b5985b36369ece22936e7f3f2c681e2b26a04
+#5 ERROR: gcr.io/fuzzbench/builders/afl/servo_servo:latest: not found
+
+#12 [internal] load build context
+#12 sha256:0b98a48f1c04ac8816daf5b3d743dc22463a3956f6cccee91b2aa56dcf6d1848
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.3s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:7438a733e7264170ed7e40053df10ae18d3891c1e3872239802f6bc11c7252c9
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:86990eb6d9dcbc5efe96a0dab52b6cbb160cddef47ce8d9a336b9c993383e5ab
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:d92dbb2f726cfe674ec7fec67e376a24f5fb2fb60da159441f5d210ff81fc3f2
+#16 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:18a868102fdbb1b36625b9d4fdd6522943d3bb1c3c8c011b50dffbe8bc5b9e0e
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:e6d62069a96e50328be18cf262ba782ffc86b99d39fd0ef5ec1706e6650ab8db
+#9 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:9f955bee6f8e0647718abfa4c947a527e0bb321d87099bcdb37c9425a4d91e81
+#18 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/servo_servo/benchmark.yaml /
+#15 sha256:93277bde1b27185830763da4b9cfa60c83ed529adc0d1d7731255825a33fe2ac
+#15 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:d126dae99d1e5ca93f751bf3df2084c897c8a0856697159d77d63e87414e409f
+#11 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:ca038ad86bdd90c785275a4795dfc11e0018c07a218bf58a5faede1a5ce46ec2
+#17 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:bb6fe05a8a703b9742e764c64bc3a84215046218e77b0d5118c5a36cf1319d30
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:8ee3b0fa853b22d243ef8adcd9794af86cc8d2afbec870cc239b8a4f58ff934a
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:07372cb22833e124bd0a3b6d98a310a7eae0824853b43d4a8c0fc8aa099d4229
+#20 0.609 Run fuzzer_build to build the target
+#20 0.738 FUZZ_TARGET = servo
+#20 0.738 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.738 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.754 Building benchmark servo_servo with fuzzer afl
+#20 0.757 + cd /src/html5ever/html5ever
+#20 0.757 + cargo fuzz build -O
+#20 0.761 /usr/local/bin/cargo: line 55: /rust/bin/cargo: No such file or directory
+#20 0.762 Traceback (most recent call last):
+#20 0.762   File "<string>", line 1, in <module>
+#20 0.762   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.762     utils.build_benchmark()
+#20 0.762   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.763     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.763   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.763     raise CalledProcessError(retcode, cmd)
+#20 0.763 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/servo_servo:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2716867: .afl-servo_servo-builder] Error 1

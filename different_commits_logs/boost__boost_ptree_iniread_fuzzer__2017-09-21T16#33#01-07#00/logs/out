@@ -1,0 +1,996 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: boost_boost_ptree_iniread_fuzzer.
+INFO:root:Please run "make test-run-afl-boost_boost_ptree_iniread_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:749946fb53d8cf047a2985d7eeb2938067602a7141f95a15f2377030e2a379ce
+#1 transferring dockerfile: 1.12kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d81e6168734fccac3282d7c2c17109465520c7caa7e7583b704ca6220b6a257e
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:61a3fa36d8e6ddb9c12c3f2af8a0b19a5df4211dccd3238125e536b0f4723a25
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer
+#4 sha256:2606a5b72e9e0b979aa9661284e6c5043ca1a0ab12dff7089e0c207567cfb3f2
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer:latest: not found
+
+#10 [internal] load build context
+#10 sha256:61a3fa36d8e6ddb9c12c3f2af8a0b19a5df4211dccd3238125e536b0f4723a25
+#10 transferring context: 1.93kB done
+#10 DONE 0.0s
+
+#8 [4/6] WORKDIR boost
+#8 sha256:755c9caf20b728150890ac7a5930f5fbc4bb14055a1d076889c70231e26b5020
+#8 CACHED
+
+#9 [5/6] RUN ./bootstrap.sh && ./b2 headers
+#9 sha256:22cb100c1bc39190d79f2ede1ffe043110b390c776b0bd1716ee5931553a4a03
+#9 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y g++
+#6 sha256:af3a28fbaef1d043919d93747061c5755e2161896ee0b66b13300fc7e54c3d90
+#6 CACHED
+
+#7 [3/6] RUN git clone --recursive https://github.com/boostorg/boost.git
+#7 sha256:67869b6b2869a34d8198f8ddb8ff78e8a8b8e5a898b3f72376b5ac365e825fe2
+#7 CACHED
+
+#11 [6/6] COPY build.sh boost_regex_fuzzer.cc /src/
+#11 sha256:8a7d9874f7a9f6b02bde7770a3563a8dac9fe9962e92c6e1e5c8c52377fa5383
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:c93299b457923750415e974773c8842f7312add13599f901c85a7f912296a3b3 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e2fc690d8cfa1a848d4d97e3e53219f77513b4d262687b670869fe4d26951d36
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:04911e6eed8411d7c0e791eb242c594cda3f605fd247e7aed9afdcdc53e2dce3
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer:latest
+#3 sha256:f6b89fc95009c8554c0e6678d84336d37cc0fa6b47d5fa8521a191763179be69
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer
+#5 sha256:c2070eb4f734ababced0d0a60b3a66b34592224bc8b1a6361ce9151e56de2ef6
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#4 sha256:901166d5abe26ad2ca6e91b8b0c306c20caab91c3ca62cea43af0f432e7dd4ac
+#4 ERROR: gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:f2ea250b90266580cc8e62c0d2cedf58d6a3b6c4f23bafc69cab22e87d4261b1
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:a7f9f96349b153668ac23b5dc95150ba958d8059e23a7ca502af0fbe2a40eda8
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:18c610413e8ce0db3465d3d18b2d6473928fe5d95fbfe25fba97db1273192da1 done
+#8 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2d052eff2dd041eccf7a0273ec1d418096c4a2bd740df2f995f3c2919698da10
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:aefe237181f2a76c8ad44c941536cb632173c8c79ec98b593e98733cc514cceb
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:e201f63e3236483850b61bd5f9d78e1355fad8f9d2d4c9a9f02cde00aa7567e6
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:42c413e13a0ae9d6a7844a62cadf0a8eef5fda3e5b79332c6c9ecea7c03597c2
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:a1edf164dad4313059c8e89803d1561fe3bda6306531a0aceb032b58ae7849f2
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:734caaf550823ff032d8161649583437ac1c58ec5345afcc965617226ecf2dfa
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:2312ad7413c7e7aa6080b55c57abf6d5d46e990cccbfdcc28e60a4e75fc61393
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:cdb478538a35041a0b5608a1313087aff20fc062fe25108e635bb6f1faebe08e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:329e42b51e648c35fa35c7a8a02655b7f1a91e15f8a99fdb4f64aaa72f332e18
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2c600f4e91f05bcc9749bf827e13cf97dc9f13ab9bb1042dd27e042e097b157b
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate:latest
+#3 sha256:520b00892d4147222b477c32856b0338492b94b572bc71f6fcc19ff84973c644
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:edfaa21edc79936a90f5e89f268cf1b65723fa0f90b98ff22ceb4f24b7b5d593
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer
+#5 sha256:1249947f93964ad7706de3f2f8fc828659287cabecb2450f3f56d4d59c9db680
+#5 ERROR: gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer:latest: not found
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#6 sha256:479a98df7932ff6a88911af7ccaeefe9b5d1f23b1d38e186bf4b3a49d9e2f84c
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:edfaa21edc79936a90f5e89f268cf1b65723fa0f90b98ff22ceb4f24b7b5d593
+#12 transferring context: 669.92kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:7d8173f0aa332f5e4b9b0bf4de1cb775a5bad284a2d1a3d6add5eb1c78580eda
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:9839805bfbbd1dfb9a0e8f66a6efbbaee38fedb5e15d4a63fd72e470447e75aa
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:88814a6beb72d6db67e75c278b1f204be255eccb85482e771c7f4a7eed4cc5b6
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:4d3453f2df429c3e79cce6d7fb8245fec0740deb9f869825ca6db23c244bd54c
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:6b186c47753cebb14aefc2619d459d5fd297e7bb669e227e5f198e42be0e144f
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:2510404b02efdfbb990cfb042362604855343682c5ee55e141b146dbfe336e9e
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] COPY benchmarks/boost_boost_ptree_iniread_fuzzer/benchmark.yaml /
+#15 sha256:30c973c5bb0664be599ce137aeef2a1eecf5bf53818a280111ebde1296ea1ff5
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:d8c2a369149efe60ec83335538457af0f570184b5840897a79994514e6ed4837
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:cfbcac32037e3fffb9ecdb51277b4cac38cb5cab13468145f108f485c2c1ecab
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:8e8003ecc5527800772c389816eb70444bbae52933471a0787ce71b530675195
+#18 0.467 Checking out commit 8bcc8e1e
+#18 0.472 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.477 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.485 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.504 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.535 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.552 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.569 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.582 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.601 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.606 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.614 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.620 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.628 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.634 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.642 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.650 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.657 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.663 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.669 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.681 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.692 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.700 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.709 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.716 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.723 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.730 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.738 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.745 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.752 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.758 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.766 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.774 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.781 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.787 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.804 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.810 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.815 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.821 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.830 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.840 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.852 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.871 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.878 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.884 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.893 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.901 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.932 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.940 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.946 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.954 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.962 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 0.991 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.000 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.010 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.016 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.023 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.029 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.036 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.042 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.047 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.053 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.060 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.067 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.087 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.094 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.107 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.117 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.124 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.131 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.137 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.143 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.151 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.161 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.174 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.180 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.189 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.207 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.217 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.222 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.229 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.235 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.241 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.250 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.257 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.264 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.272 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.281 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.289 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.301 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.315 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.321 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.330 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.337 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.351 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.380 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.387 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.396 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.405 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.412 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.419 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.429 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.437 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.445 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.453 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.460 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.468 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.475 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.485 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.491 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.497 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.504 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.513 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.524 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.537 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.545 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.552 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.561 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.568 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.574 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.582 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.586 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.593 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.606 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.612 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.618 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.624 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.630 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.638 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.644 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.652 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.671 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.680 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.692 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.698 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.710 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.717 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.724 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.730 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.739 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.749 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.760 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.780 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.787 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.795 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.801 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.807 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.813 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.829 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.838 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.844 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.852 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.858 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.866 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.872 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.878 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.886 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.894 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.902 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.910 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.920 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.927 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.933 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.944 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.951 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 1.957 error: pathspec '8bcc8e1e' did not match any file(s) known to git
+#18 2.240 Checkout unsuccessful.
+#18 DONE 2.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:eea9cbf6ed76b2d44e02f7e380599e3c2d27ed7f032b0d08be96bbcce9d82a80
+#19 DONE 0.5s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:e3a1f090aa6d098ddb950c10acb1598eee4a118b67685b202ec4f2b9cad43639
+#20 0.498 Run fuzzer_build to build the target
+#20 0.617 FUZZ_TARGET = boost_ptree_iniread_fuzzer
+#20 0.617 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.617 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.622 Building benchmark boost_boost_ptree_iniread_fuzzer with fuzzer afl
+#20 0.625 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I . ../boost_regex_fuzzer.cc libs/regex/src/posix_api.cpp libs/regex/src/regex.cpp libs/regex/src/regex_debug.cpp libs/regex/src/static_mutex.cpp libs/regex/src/wide_posix_api.cpp /libAFL.a -o boost_regex_fuzzer
+#20 25.24 + find . -name '*_fuzzer' -exec cp -v '{}' /out ';'
+#20 25.57 './boost_regex_fuzzer' -> '/out/boost_regex_fuzzer'
+#20 25.57 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 25.7s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a203909739497915e11bcecf604e36a29fde14ba404e392bd0278a9f5851b8f4 done
+#21 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:6271b28874a1fd20795f29197dccc2f441579500a67d6f9805eccef5a0d37c13
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:7b33e9fd965c7b5aad3fc31e922913f68ea8655fd324ee8439dc11424d1fd4a9
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#5 sha256:66aaccd7f7d3f813dfcefa366f1fe4267c0c63c54736ef748b6afaa3d739b16b
+#5 ERROR: gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5c7d6d3502981d8dc761263bd06f4e4f219ec5cfc9159c607e4edb9749b5e14 done
+#6 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:cba9c4a987c4d723ce341ca7bab6717a2d2040c6c225ede237aed09df350b210
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:83d7b75e1b5a93938be91040910375b052d18a11f3eb3a34adbdcb13b6d25747
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate:latest
+#3 sha256:225e187fc456b969ff7f4aad7e5850bd6e7c513802c34527358c91368bbd76a0
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer:latest
+#4 sha256:36a8ad260414d6d1a80fdf29e8cfbb69873414b5b3969bf56c46125193fc6260
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:fdc659049942e51cac4c229b7d252f9890cb677285f36c6709addcf7d12f3c4a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#6 sha256:0454746c024bc13f48f301905da8d1bde40a1869dfc606f436125f5ae154b4e2
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer
+#10 sha256:6431e756e4d1ef68102dee8b7b0c8e6bed6fa37c7193b848cd5425736c608c98
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer
+#5 sha256:d865183cfa412311ce67ef6dc9f4ae769ec067ffdcab0ee6e5d82b4519fd4dad
+#5 ERROR: gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:fdc659049942e51cac4c229b7d252f9890cb677285f36c6709addcf7d12f3c4a
+#12 ...
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer
+#10 sha256:6431e756e4d1ef68102dee8b7b0c8e6bed6fa37c7193b848cd5425736c608c98
+#10 DONE 0.4s
+
+#12 [internal] load build context
+#12 sha256:fdc659049942e51cac4c229b7d252f9890cb677285f36c6709addcf7d12f3c4a
+#12 transferring context: 18.42MB 0.7s done
+#12 DONE 0.7s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:9a1bede73c9bc3ddeb0c84305b9caf91595a7e2e18a4e12825c9d5edc173daed
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f68a2eca5699076385f390c5cf1cc398c56785798faa4906b049ac37dddcde36
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:25019dd597087a022782b994fe2640926d846064990439a986509738527a6a6e
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:bd46f9b1482e9b3a6284c36d0974ca37c38b7a87463651b2d36edc806ec6ad3b
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:2ad26d7e18fc3debbcd5919e2f8d232eaedcfbf118c42b0c77e92993757ee51f
+#13 DONE 0.7s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:1e1be57fcd7aa133d318a8cb66baa46c7702bf70540930d60f24789277363203
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:2d337c3f9aae84f18be597d4ece6d18c5103729f662ac653c15e3de92f2f481f
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:b9bf053f7fb2300e877a691c403d7949ff555d3b7880104de1ff8f7fc8fc235b
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:83c075beaed0e29417bc79f6b8c6e8d3226bdf7210fcfa1802b43c8b6b94dda9
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:65c8b6eaa34b54c7414a751ec3ed3d13a4aeaabb8fc7720ebe837083616874ef
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:8d42a181c7fb042a0497066e910c71253bc476c5a93f094995f5bde566e722a7
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:f9e670dea2919b01171b5b59ba031a8cb8115f687b7d7b93add419734eb7816f
+#20 DONE 0.4s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:d4d1fbed0bc9e1ddf75f4856ce26a592ef18cb010d74e5d5f411eee7a9b165e1 done
+#21 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f621cba0f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a7789cac4478e19feca020a07d40f617cd177a0b043666b1f42e011f33fcbb29
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:3229702d8ddad1950f6ef02e3ebc4b1cfaad0cd7442829ecdd6e4085dfecbba1
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.3s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer
+#4 sha256:2606a5b72e9e0b979aa9661284e6c5043ca1a0ab12dff7089e0c207567cfb3f2
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:5942a8e802fed5c3fdcf71134f540cc6115044fb8f340b548b485f524a4f1f6c
+#10 transferring context: 71B done
+#10 DONE 0.0s
+
+#8 [4/6] WORKDIR boost
+#8 sha256:755c9caf20b728150890ac7a5930f5fbc4bb14055a1d076889c70231e26b5020
+#8 CACHED
+
+#9 [5/6] RUN ./bootstrap.sh && ./b2 headers
+#9 sha256:22cb100c1bc39190d79f2ede1ffe043110b390c776b0bd1716ee5931553a4a03
+#9 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y g++
+#6 sha256:af3a28fbaef1d043919d93747061c5755e2161896ee0b66b13300fc7e54c3d90
+#6 CACHED
+
+#7 [3/6] RUN git clone --recursive https://github.com/boostorg/boost.git
+#7 sha256:67869b6b2869a34d8198f8ddb8ff78e8a8b8e5a898b3f72376b5ac365e825fe2
+#7 CACHED
+
+#11 [6/6] COPY build.sh boost_regex_fuzzer.cc /src/
+#11 sha256:3d2e9ad8995d014c500f77c4f5e33d31a6504b31dcf7153fdedced76283e22cb
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:c93299b457923750415e974773c8842f7312add13599f901c85a7f912296a3b3
+#12 writing image sha256:c93299b457923750415e974773c8842f7312add13599f901c85a7f912296a3b3 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:c455fffefb4a107adf9d250bb70f7c27ea7d9a8385f41592d025ef1f46d3c823
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e9aa9e295944a87b0282be8c3e6f6dff4cbe85d90ec834cb44dded94ef0a8682
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer:latest
+#3 sha256:f6b89fc95009c8554c0e6678d84336d37cc0fa6b47d5fa8521a191763179be69
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#4 sha256:901166d5abe26ad2ca6e91b8b0c306c20caab91c3ca62cea43af0f432e7dd4ac
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/boost_boost_ptree_iniread_fuzzer
+#5 sha256:c2070eb4f734ababced0d0a60b3a66b34592224bc8b1a6361ce9151e56de2ef6
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:f2ea250b90266580cc8e62c0d2cedf58d6a3b6c4f23bafc69cab22e87d4261b1
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:a7f9f96349b153668ac23b5dc95150ba958d8059e23a7ca502af0fbe2a40eda8
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:18c610413e8ce0db3465d3d18b2d6473928fe5d95fbfe25fba97db1273192da1 done
+#8 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d9fc00c8d12db9ed0fc2104263d117abdf982217028b446ebf3b676f24516247
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:07abceb7d58bfa12e6d16165a953f2d179cdc8beac5ceb7fe5a919b1cd1b79be
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:125f97253d4582fb0991814c178aad2ac415969073194ae5d94a681b4cacf22c
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3636ec53099073b00687b41c99279a32d5a3bf08c67050f4e5dde1042b38f2ef
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:8b74ea3d4cd2cb082cae5360ee15277d99130f4db0e242f67214f29f5f9583ec
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:44d19b03f0b94a915f7210b8a139add676809de5ef24adb1fb064b153c624d84
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:d564fa7d027867979481d9ae5056f7df61c3b40399a1b1b915ab77fc79f50b4e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:cdb478538a35041a0b5608a1313087aff20fc062fe25108e635bb6f1faebe08e done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:802d086cbb4ebd7d86f20e13090ea97c6db424ff218eda602ca9854f4c4ccb5b
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9d5bf146093f94359e1821cd151a3001f80aef282a8ee94730e11ee74d6b8ebf
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate:latest
+#3 sha256:520b00892d4147222b477c32856b0338492b94b572bc71f6fcc19ff84973c644
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#6 sha256:479a98df7932ff6a88911af7ccaeefe9b5d1f23b1d38e186bf4b3a49d9e2f84c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer
+#5 sha256:1249947f93964ad7706de3f2f8fc828659287cabecb2450f3f56d4d59c9db680
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:43476c9553e4277c3a4432d6fa2591bec900dcb83bf8307d9702c8e9b82e5995
+#12 transferring context: 669.92kB 0.1s done
+#12 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:17edff95d05ddbf94e54168d9b9a13bb227622e4b85a54bc8772e5201172ef6f
+#16 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:4d3453f2df429c3e79cce6d7fb8245fec0740deb9f869825ca6db23c244bd54c
+#11 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:2c653a219eb8fe5cc7de5d9846501ecce8cbb58fd52006be9ce610b1e618541f
+#17 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:7d8173f0aa332f5e4b9b0bf4de1cb775a5bad284a2d1a3d6add5eb1c78580eda
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:9839805bfbbd1dfb9a0e8f66a6efbbaee38fedb5e15d4a63fd72e470447e75aa
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:88814a6beb72d6db67e75c278b1f204be255eccb85482e771c7f4a7eed4cc5b6
+#10 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/boost_boost_ptree_iniread_fuzzer/benchmark.yaml /
+#15 sha256:d5328a0038804ebc4dc325d7b2ea0038a3efaa8e1b8e0931dd133d2aa0135a26
+#15 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:86b67b99b064a0a6141b51118a682cb5a6d9d26efad42b0f4033e4397bd322e8
+#14 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:acb007a3639d7129c78f8b18e92abaade599cec4fec4b482281369d733a5a9e0
+#19 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:642de25bd3626ea37fe362239e3c9292a4670ebe11063f3672276c53f0c6444a
+#13 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:320bbc4a0488dc621de287663c264b905dc047915c1087526d9746ab24f0b37e
+#18 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:033dacd8811e1c4ff935b6ecff8a451f3852d4c7682a63ce77fa197062cafac4
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:a203909739497915e11bcecf604e36a29fde14ba404e392bd0278a9f5851b8f4 done
+#21 naming to gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:5096cc73631813efd142184ea455bc7d0e1fd0c778117d82257176b17a264cc4
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:35edf0a257a59310edb0b8084c1cee10fa08bf578b81a41addc6d0350e566339
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#5 sha256:66aaccd7f7d3f813dfcefa366f1fe4267c0c63c54736ef748b6afaa3d739b16b
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5c7d6d3502981d8dc761263bd06f4e4f219ec5cfc9159c607e4edb9749b5e14
+#6 writing image sha256:d5c7d6d3502981d8dc761263bd06f4e4f219ec5cfc9159c607e4edb9749b5e14 done
+#6 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:46f725df2060323c44ad0f33190497d106d6da00ea9fc6d63955748b825f563f
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e6e1c2ccf8a5e9a6229607138ec0cae3afc8e36d7745b662220f2681b819d4ff
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate:latest
+#3 sha256:225e187fc456b969ff7f4aad7e5850bd6e7c513802c34527358c91368bbd76a0
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer:latest
+#4 sha256:36a8ad260414d6d1a80fdf29e8cfbb69873414b5b3969bf56c46125193fc6260
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer-intermediate
+#6 sha256:0454746c024bc13f48f301905da8d1bde40a1869dfc606f436125f5ae154b4e2
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer
+#5 sha256:d865183cfa412311ce67ef6dc9f4ae769ec067ffdcab0ee6e5d82b4519fd4dad
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/boost_boost_ptree_iniread_fuzzer
+#10 sha256:6431e756e4d1ef68102dee8b7b0c8e6bed6fa37c7193b848cd5425736c608c98
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e70b972cd562515ce99f2ab147d93869d5c5ada3a2b7e6d609c3923ddebbabe2
+#12 transferring context: 18.42MB 0.6s done
+#12 DONE 0.7s
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:25019dd597087a022782b994fe2640926d846064990439a986509738527a6a6e
+#9 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:f160984f79a1f53a436950a662dba152ada2dfb662142efb4b821829dfc208ab
+#19 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:9a1bede73c9bc3ddeb0c84305b9caf91595a7e2e18a4e12825c9d5edc173daed
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f68a2eca5699076385f390c5cf1cc398c56785798faa4906b049ac37dddcde36
+#8 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:9b259c8c3fb36ad5733b8926062fe73f631263dbce31a9ade1d357d07d3b4a28
+#15 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:f312415ab471c4d2541a624ca3f967b27cb8cfd7e8258b9d0a6573ba5406ad83
+#18 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:4b7f3bb8403a82770fa11f0ea76d9f9f2ce13b5935ae3e8e1fe36f81c6ba9492
+#13 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:74b233378916f070790bb4acabebf8f884ba41a6509939d0f7e3b30d61e06750
+#14 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:bd46f9b1482e9b3a6284c36d0974ca37c38b7a87463651b2d36edc806ec6ad3b
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:9730053ae88e8d17597be1f48c6dc3ae735977b9a7a0c532ad582c679e95fba0
+#16 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:b0e84e19d1366bcc08f5a384b54ea7add104c7a3f41c8ea46c2c776996f92f4c
+#17 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:9ed10aeda4ad7514dcf501ec5063a4135cd97ce9b0a579067088a55fce94125b
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:d4d1fbed0bc9e1ddf75f4856ce26a592ef18cb010d74e5d5f411eee7a9b165e1
+#21 writing image sha256:d4d1fbed0bc9e1ddf75f4856ce26a592ef18cb010d74e5d5f411eee7a9b165e1 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/boost_boost_ptree_iniread_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f4cfc1b2f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

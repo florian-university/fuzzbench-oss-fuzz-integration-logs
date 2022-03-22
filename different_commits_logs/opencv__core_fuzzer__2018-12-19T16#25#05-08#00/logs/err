@@ -1,0 +1,2329 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: opencv_core_fuzzer.
+INFO:root:Please run "make test-run-afl-opencv_core_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f5988f92f361e9c486a086da29835924295947a15c746bde8c5ede0bc319a5ef
+#1 transferring dockerfile: 935B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:716e26ca0caed9aaf4bc665e013fda73d050d11162343eaab39f155952b35e45
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:dcb1364675176bd07400513845e9410865cb38de7757d6cb67abca3c89cb3224
+#9 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer
+#4 sha256:825e7d189e57b82d27dfb019a1915b68696076204dd5bdd23181f180933fc2ae
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:dcb1364675176bd07400513845e9410865cb38de7757d6cb67abca3c89cb3224
+#9 transferring context: 15.71kB 0.0s done
+#9 DONE 0.0s
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:47a271a5dba8f25d02d0d1ae8065075aced8d37201cb4004986dd754890b8070
+#10 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y build-essential cmake pkg-config
+#6 sha256:5b4cdd543f7676d762d91b87c637b12e81d197a5de05812a3f0a2dc7aead2436
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/opencv/opencv.git opencv
+#7 sha256:59a9fb61118231e7c2a207bca2277cafcfad95bb7e22f5ee768b2c0e041e7f83
+#7 CACHED
+
+#8 [4/6] WORKDIR /src/
+#8 sha256:7c9e4a971a185102dda40c4c64484c8b0a13a717e8957839edb6a9a3ae2a8ca1
+#8 CACHED
+
+#11 [6/6] COPY *.cc *.h /src/
+#11 sha256:86dc77c845b48e1fe68c6ead59fa99d36bd8905f7b60e53ff5716f017599a87f
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:055fcde65884ed361a6988261c80accacc8fbd6b80115d507eefcd22bec895f4
+#12 writing image sha256:055fcde65884ed361a6988261c80accacc8fbd6b80115d507eefcd22bec895f4 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:65ebed3d89210e524dc2116d587935291fd43cb432d1357e3f293f0d74223bf5
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:34be07e87768abbc683f8819b2b9cee7af3b1c813c849bb0227108c366a38a0f
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer:latest
+#3 sha256:7e679078f46fb4a28103f5458ae64afa19248ffd31ecef6fbd7d2f070b61aaa9
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer
+#7 sha256:41e42725ec1ceedee3fb3a9c680db059939e34862c1f983a3954558c2fb637f0
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate
+#4 sha256:5c2e946e519cb0f086173fd6b8b9eb29e06cffd8816198e7df309aa3402fe049
+#4 ERROR: gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:a5b5da24cd884cd2d1550faf1d9415f69dd6ee8134f367e7513f5f044ef5156c
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:3ba9b5beb51bea87744a28fb71aa80693f5fe2dc7a6c050f60b95f1eb77c13a8
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:d7a3e7644c0ae68c1269fd9977f4a3381bd6d82ffd56300e32139907e05820fb done
+#8 naming to gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:07d1b5c487bf2d3094646c3028d822ea9c415b8842c50c4899f38b05fd2112e6
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:a0339ae0dd194dd088b1013624d5d172b08968868d2a827afcec5e5cb67bcf68
+#2 transferring context: 143B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#11 [1/7] FROM docker.io/library/ubuntu:xenial
+#11 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#11 DONE 0.0s
+
+#12 importing cache manifest from gcr.io/fuzzbench/base-image
+#12 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#12 DONE 0.0s
+
+#6 [internal] load build context
+#6 sha256:c23f06179d5d87c6bf576659362cf066cfec7a8de22cb69a7223ee181cbe5e3d
+#6 transferring context: 559B done
+#6 DONE 0.0s
+
+#5 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#5 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#5 CACHED
+
+#8 [5/7] RUN pip3 install -r /requirements.txt
+#8 sha256:17bbb0410b46c638134bc8ebe74759107abe70e073b3b6b6de87afe3e7327a34
+#8 CACHED
+
+#9 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#9 sha256:7f6118562de82164de1ca3f5e0c1c0b30898e7133dc1c26f8af639378a4b37f3
+#9 CACHED
+
+#7 [4/7] COPY ./requirements.txt /
+#7 sha256:41f36a21ec402a39ac4b740b1e3d85f54480efc0cd78942501324b11a3c59d3a
+#7 CACHED
+
+#4 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#4 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#4 CACHED
+
+#10 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#10 sha256:5d6bee74e0acdf847f7ccdb7c10acd0cc0edeea13c7f5c169f4c76859124b678
+#10 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:55e5825902805b10e1ba0cd27e4af0d82c25f9e225d6218342d4b6474bd3ddae
+#13 writing image sha256:55e5825902805b10e1ba0cd27e4af0d82c25f9e225d6218342d4b6474bd3ddae done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:744b66339af0baf1cc0bb5dcb9801dee4a9cf9bfa418d578624f724515b9adea
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:5a315f619e8f783d018d20941c0189d95ebc6837ad160ce0d64059923f6259fa
+#2 transferring context: 34B 0.0s done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 1.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate:latest
+#4 sha256:26e02d64b02857ccbc026a5909bb0532adb731d7353e5f7efef5c92f3669e0b4
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1e1595ba9833cd9379b439650866389e402d5509ef8e2b6a4289e5f637c10a68
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate
+#6 sha256:7094a14b00f030098f0c51eaebc45dfd827301f9a37ac9b2118c36ed0d83af54
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer
+#5 sha256:7a8cb461dfc521f5114a553fb927e5c48aa6a12725176926560d9f0cfef26f85
+#5 ERROR: gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:1e1595ba9833cd9379b439650866389e402d5509ef8e2b6a4289e5f637c10a68
+#12 transferring context: 669.88kB 0.2s done
+#12 DONE 0.2s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:d65b848e788342982a9e0c5868cff05b694324d646f50309e791262a7ea50285
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:53aacb0d6eaa87b046de58e23b6a1fb13b4b9f76264ef7943efb288765524e53
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:1855118e1118187f2c542b6eb3ee31ce2d0dde76b7a3e13886b40db85bf2188e
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:3c2992e9626c4ae56f4bfcb6d0e273c73c21d04334ba91d7e6761f69ad32e9e2
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:8af48da9093116a912ad441749ffcd94dc2ddbe5974b03d76a9e94ff0df8af66
+#8 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:85db410a6dfd2c2c77087da883d4a5d8c64df285c72d3203dbd6e0cdad4cd991
+#14 DONE 1.3s
+
+#15 [stage-1  8/13] COPY benchmarks/opencv_core_fuzzer/benchmark.yaml /
+#15 sha256:b7f99e7c62a69d34d73de73ea068b0586005cdb6b8cf2ac4da88cbc48392c902
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:c503868eb69b0c4dd232067225b8bce5e3e5ea699794e4d605267c2caad178ea
+#16 DONE 1.1s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:bebfcd59b5a6bd13e7969b12f968d89899613d1f6ecb769399d29777d1f6d850
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:580ced3914c0219927aa6245188cb09b28c493d9752c2766bdc8ec50f8fa25f6
+#18 1.347 Checking out commit f9971c49
+#18 127.6 From https://github.com/opencv/opencv
+#18 127.6  * [new tag]               2.2                  -> 2.2
+#18 127.6  * [new tag]               2.4.0                -> 2.4.0
+#18 127.6  * [new tag]               2.4.1                -> 2.4.1
+#18 127.6  * [new tag]               2.4.10               -> 2.4.10
+#18 127.6  * [new tag]               2.4.10.1             -> 2.4.10.1
+#18 127.6  * [new tag]               2.4.10.2             -> 2.4.10.2
+#18 127.7  * [new tag]               2.4.10.3             -> 2.4.10.3
+#18 127.7  * [new tag]               2.4.10.4             -> 2.4.10.4
+#18 127.7  * [new tag]               2.4.11               -> 2.4.11
+#18 127.7  * [new tag]               2.4.12               -> 2.4.12
+#18 127.7  * [new tag]               2.4.12.1             -> 2.4.12.1
+#18 127.7  * [new tag]               2.4.12.2             -> 2.4.12.2
+#18 127.7  * [new tag]               2.4.12.3             -> 2.4.12.3
+#18 127.7  * [new tag]               2.4.13               -> 2.4.13
+#18 127.7  * [new tag]               2.4.13.1             -> 2.4.13.1
+#18 127.7  * [new tag]               2.4.2                -> 2.4.2
+#18 127.7  * [new tag]               2.4.3                -> 2.4.3
+#18 127.7  * [new tag]               2.4.3-rc             -> 2.4.3-rc
+#18 127.7  * [new tag]               2.4.3.1              -> 2.4.3.1
+#18 127.7  * [new tag]               2.4.3.2              -> 2.4.3.2
+#18 127.7  * [new tag]               2.4.4                -> 2.4.4
+#18 127.7  * [new tag]               2.4.4-beta           -> 2.4.4-beta
+#18 127.7  * [new tag]               2.4.5                -> 2.4.5
+#18 127.7  * [new tag]               2.4.6                -> 2.4.6
+#18 127.7  * [new tag]               2.4.6.1              -> 2.4.6.1
+#18 127.7  * [new tag]               2.4.6.2              -> 2.4.6.2
+#18 127.7  * [new tag]               2.4.6.2-rc1          -> 2.4.6.2-rc1
+#18 127.7  * [new tag]               2.4.7                -> 2.4.7
+#18 127.7  * [new tag]               2.4.7-rc1            -> 2.4.7-rc1
+#18 127.7  * [new tag]               2.4.7.1              -> 2.4.7.1
+#18 127.7  * [new tag]               2.4.7.2              -> 2.4.7.2
+#18 127.7  * [new tag]               2.4.8                -> 2.4.8
+#18 127.7  * [new tag]               2.4.8.1              -> 2.4.8.1
+#18 127.7  * [new tag]               2.4.8.2              -> 2.4.8.2
+#18 127.7  * [new tag]               2.4.8.3              -> 2.4.8.3
+#18 127.7  * [new tag]               2.4.9                -> 2.4.9
+#18 127.7  * [new tag]               2.4.9.1              -> 2.4.9.1
+#18 127.7  * [new tag]               3.0-ocl-tech-preview -> 3.0-ocl-tech-preview
+#18 127.7  * [new tag]               3.0-ocl-tp2          -> 3.0-ocl-tp2
+#18 127.7  * [new tag]               3.0.0                -> 3.0.0
+#18 127.7  * [new tag]               3.0.0-alpha          -> 3.0.0-alpha
+#18 127.7  * [new tag]               3.0.0-beta           -> 3.0.0-beta
+#18 127.7  * [new tag]               3.0.0-rc1            -> 3.0.0-rc1
+#18 127.7  * [new tag]               3.1.0                -> 3.1.0
+#18 127.7  * [new tag]               3.2.0                -> 3.2.0
+#18 127.7  * [new tag]               3.2.0-rc             -> 3.2.0-rc
+#18 127.7  * [new tag]               3.3.0                -> 3.3.0
+#18 127.7  * [new tag]               3.3.0-cvsdk          -> 3.3.0-cvsdk
+#18 127.7  * [new tag]               3.3.0-rc             -> 3.3.0-rc
+#18 127.7  * [new tag]               3.3.1                -> 3.3.1
+#18 127.7  * [new tag]               3.3.1-cvsdk          -> 3.3.1-cvsdk
+#18 127.7  * [new tag]               3.4.0                -> 3.4.0
+#18 127.7  * [new tag]               3.4.0-rc             -> 3.4.0-rc
+#18 127.7  * [new tag]               3.4.1                -> 3.4.1
+#18 127.7  * [new tag]               3.4.1-cvsdk          -> 3.4.1-cvsdk
+#18 127.7  * [new tag]               3.4.10               -> 3.4.10
+#18 127.7  * [new tag]               3.4.11               -> 3.4.11
+#18 127.7  * [new tag]               3.4.12               -> 3.4.12
+#18 127.7  * [new tag]               3.4.13               -> 3.4.13
+#18 127.7  * [new tag]               3.4.14               -> 3.4.14
+#18 127.7  * [new tag]               3.4.15               -> 3.4.15
+#18 127.7  * [new tag]               3.4.16               -> 3.4.16
+#18 127.7  * [new tag]               3.4.17               -> 3.4.17
+#18 127.7  * [new tag]               3.4.2                -> 3.4.2
+#18 127.7  * [new tag]               3.4.2-openvino       -> 3.4.2-openvino
+#18 127.7  * [new tag]               3.4.3                -> 3.4.3
+#18 127.7  * [new tag]               3.4.3-openvino       -> 3.4.3-openvino
+#18 127.7  * [new tag]               3.4.4                -> 3.4.4
+#18 127.7  * [new tag]               3.4.5                -> 3.4.5
+#18 127.7  * [new tag]               3.4.6                -> 3.4.6
+#18 127.7  * [new tag]               3.4.7                -> 3.4.7
+#18 127.7  * [new tag]               3.4.8                -> 3.4.8
+#18 127.7  * [new tag]               3.4.9                -> 3.4.9
+#18 127.7  * [new tag]               4.0.0                -> 4.0.0
+#18 127.7  * [new tag]               4.0.0-alpha          -> 4.0.0-alpha
+#18 127.7  * [new tag]               4.0.0-beta           -> 4.0.0-beta
+#18 127.7  * [new tag]               4.0.0-openvino       -> 4.0.0-openvino
+#18 127.7  * [new tag]               4.0.0-rc             -> 4.0.0-rc
+#18 127.7  * [new tag]               4.0.1                -> 4.0.1
+#18 127.7  * [new tag]               4.0.1-openvino       -> 4.0.1-openvino
+#18 127.7  * [new tag]               4.1.0                -> 4.1.0
+#18 127.7  * [new tag]               4.1.0-openvino       -> 4.1.0-openvino
+#18 127.7  * [new tag]               4.1.1                -> 4.1.1
+#18 127.7  * [new tag]               4.1.1-openvino       -> 4.1.1-openvino
+#18 127.7  * [new tag]               4.1.2                -> 4.1.2
+#18 127.7  * [new tag]               4.1.2-openvino       -> 4.1.2-openvino
+#18 127.7  * [new tag]               4.2.0                -> 4.2.0
+#18 127.7  * [new tag]               4.3.0                -> 4.3.0
+#18 127.7  * [new tag]               4.4.0                -> 4.4.0
+#18 127.7  * [new tag]               4.5.0                -> 4.5.0
+#18 127.7  * [new tag]               4.5.1                -> 4.5.1
+#18 127.7  * [new tag]               4.5.2                -> 4.5.2
+#18 127.7  * [new tag]               4.5.3                -> 4.5.3
+#18 127.7  * [new tag]               4.5.4                -> 4.5.4
+#18 127.7  * [new tag]               4.5.5                -> 4.5.5
+#18 127.8 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 127.8 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 127.8 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.0 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.0 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.0 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.1 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.1 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.1 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.3 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.3 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.3 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.5 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.5 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.5 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.6 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.6 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.7 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.7 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.8 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.8 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 128.9 error: pathspec 'f9971c49' did not match any file(s) known to git
+#18 129.2 Checkout unsuccessful.
+#18 DONE 129.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:b14c359f5a9013e29aaa19602324b3dc582e4acc6b196ce38adf9728e8870075
+#19 DONE 2.2s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:7552d382eb31aad62ec31e67242f2e3bb20b51dd13cf324eb26985b8ac00b627
+#20 1.101 Run fuzzer_build to build the target
+#20 1.486 FUZZ_TARGET = core_fuzzer
+#20 1.486 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.487 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.497 Building benchmark opencv_core_fuzzer with fuzzer afl
+#20 1.508 + mkdir opencv/build
+#20 1.516 + pushd opencv/build
+#20 1.516 /src/opencv/build /src
+#20 1.516 + cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/work -DBUILD_SHARED_LIBS=OFF -DOPENCV_GENERATE_PKGCONFIG=ON -DOPENCV_GENERATE_PKGCONFIG=ON -DOPENCV_FORCE_3RDPARTY_BUILD=ON ..
+#20 2.261 -- The CXX compiler identification is Clang 14.0.0
+#20 2.798 -- The C compiler identification is Clang 14.0.0
+#20 2.827 -- Detecting CXX compiler ABI info
+#20 3.363 -- Detecting CXX compiler ABI info - done
+#20 3.577 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 3.578 -- Detecting CXX compile features
+#20 3.581 -- Detecting CXX compile features - done
+#20 3.595 -- Detecting C compiler ABI info
+#20 4.114 -- Detecting C compiler ABI info - done
+#20 4.261 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 4.275 -- Detecting C compile features
+#20 4.277 -- Detecting C compile features - done
+#20 4.283 -- Detected processor: x86_64
+#20 6.750 -- Found PythonInterp: /usr/bin/python (found suitable version "3.8.10", minimum required is "2.7") 
+#20 6.751 CMake Warning at cmake/OpenCVDetectPython.cmake:81 (message):
+#20 6.751   CMake's 'find_host_package(PythonInterp 2.7)' found wrong Python version:
+#20 6.751 
+#20 6.751   PYTHON_EXECUTABLE=/usr/bin/python
+#20 6.751 
+#20 6.751   PYTHON_VERSION_STRING=3.8.10
+#20 6.751 
+#20 6.751   Consider providing the 'PYTHON2_EXECUTABLE' variable via CMake command line
+#20 6.751   or environment variables
+#20 6.751 
+#20 6.751 Call Stack (most recent call first):
+#20 6.751   cmake/OpenCVDetectPython.cmake:271 (find_python)
+#20 6.751   CMakeLists.txt:625 (include)
+#20 6.751 
+#20 6.751 
+#20 7.220 -- Could NOT find Python2 (missing: Python2_EXECUTABLE Interpreter) 
+#20 7.220     Reason given by package: 
+#20 7.220         Interpreter: Wrong major version for the interpreter "/usr/bin/python"
+#20 7.220 
+#20 7.367 -- Found PythonInterp: /usr/local/bin/python3 (found suitable version "3.8.6", minimum required is "3.2") 
+#20 7.404 -- Found PythonLibs: /usr/local/lib/libpython3.8.so (found suitable exact version "3.8.6") 
+#20 8.200 Traceback (most recent call last):
+#20 8.200   File "<string>", line 1, in <module>
+#20 8.200   File "/usr/local/lib/python3.8/site-packages/numpy/__init__.py", line 142, in <module>
+#20 8.200     from . import core
+#20 8.200   File "/usr/local/lib/python3.8/site-packages/numpy/core/__init__.py", line 106, in <module>
+#20 8.200     from . import _dtype_ctypes
+#20 8.200   File "/usr/local/lib/python3.8/site-packages/numpy/core/_dtype_ctypes.py", line 25, in <module>
+#20 8.200     import _ctypes
+#20 8.200 ImportError: libffi.so.6: cannot open shared object file: No such file or directory
+#20 8.231 -- Looking for ccache - not found
+#20 8.233 -- Performing Test HAVE_CXX_FSIGNED_CHAR
+#20 8.850 -- Performing Test HAVE_CXX_FSIGNED_CHAR - Success
+#20 8.855 -- Performing Test HAVE_C_FSIGNED_CHAR
+#20 9.410 -- Performing Test HAVE_C_FSIGNED_CHAR - Success
+#20 9.412 -- Performing Test HAVE_CXX_W
+#20 10.09 -- Performing Test HAVE_CXX_W - Success
+#20 10.09 -- Performing Test HAVE_C_W
+#20 10.48 -- Performing Test HAVE_C_W - Success
+#20 10.49 -- Performing Test HAVE_CXX_WALL
+#20 11.13 -- Performing Test HAVE_CXX_WALL - Success
+#20 11.13 -- Performing Test HAVE_C_WALL
+#20 11.50 -- Performing Test HAVE_C_WALL - Success
+#20 11.51 -- Performing Test HAVE_CXX_WRETURN_TYPE
+#20 12.06 -- Performing Test HAVE_CXX_WRETURN_TYPE - Success
+#20 12.06 -- Performing Test HAVE_C_WRETURN_TYPE
+#20 12.57 -- Performing Test HAVE_C_WRETURN_TYPE - Success
+#20 12.58 -- Performing Test HAVE_CXX_WNON_VIRTUAL_DTOR
+#20 13.24 -- Performing Test HAVE_CXX_WNON_VIRTUAL_DTOR - Success
+#20 13.24 -- Performing Test HAVE_C_WNON_VIRTUAL_DTOR
+#20 13.82 -- Performing Test HAVE_C_WNON_VIRTUAL_DTOR - Success
+#20 13.82 -- Performing Test HAVE_CXX_WADDRESS
+#20 14.54 -- Performing Test HAVE_CXX_WADDRESS - Success
+#20 14.54 -- Performing Test HAVE_C_WADDRESS
+#20 15.08 -- Performing Test HAVE_C_WADDRESS - Success
+#20 15.08 -- Performing Test HAVE_CXX_WSEQUENCE_POINT
+#20 15.67 -- Performing Test HAVE_CXX_WSEQUENCE_POINT - Success
+#20 15.68 -- Performing Test HAVE_C_WSEQUENCE_POINT
+#20 16.21 -- Performing Test HAVE_C_WSEQUENCE_POINT - Success
+#20 16.21 -- Performing Test HAVE_CXX_WFORMAT
+#20 16.81 -- Performing Test HAVE_CXX_WFORMAT - Success
+#20 16.81 -- Performing Test HAVE_C_WFORMAT
+#20 17.26 -- Performing Test HAVE_C_WFORMAT - Success
+#20 17.26 -- Performing Test HAVE_CXX_WFORMAT_SECURITY
+#20 17.83 -- Performing Test HAVE_CXX_WFORMAT_SECURITY - Success
+#20 17.83 -- Performing Test HAVE_C_WFORMAT_SECURITY
+#20 18.36 -- Performing Test HAVE_C_WFORMAT_SECURITY - Success
+#20 18.36 -- Performing Test HAVE_CXX_WMISSING_DECLARATIONS
+#20 18.97 -- Performing Test HAVE_CXX_WMISSING_DECLARATIONS - Success
+#20 18.97 -- Performing Test HAVE_C_WMISSING_DECLARATIONS
+#20 19.49 -- Performing Test HAVE_C_WMISSING_DECLARATIONS - Success
+#20 19.50 -- Performing Test HAVE_CXX_WMISSING_PROTOTYPES
+#20 19.94 -- Performing Test HAVE_CXX_WMISSING_PROTOTYPES - Success
+#20 19.94 -- Performing Test HAVE_C_WMISSING_PROTOTYPES
+#20 20.40 -- Performing Test HAVE_C_WMISSING_PROTOTYPES - Success
+#20 20.41 -- Performing Test HAVE_CXX_WSTRICT_PROTOTYPES
+#20 21.00 -- Performing Test HAVE_CXX_WSTRICT_PROTOTYPES - Success
+#20 21.00 -- Performing Test HAVE_C_WSTRICT_PROTOTYPES
+#20 21.51 -- Performing Test HAVE_C_WSTRICT_PROTOTYPES - Success
+#20 21.52 -- Performing Test HAVE_CXX_WUNDEF
+#20 22.17 -- Performing Test HAVE_CXX_WUNDEF - Success
+#20 22.17 -- Performing Test HAVE_C_WUNDEF
+#20 22.66 -- Performing Test HAVE_C_WUNDEF - Success
+#20 22.66 -- Performing Test HAVE_CXX_WINIT_SELF
+#20 23.25 -- Performing Test HAVE_CXX_WINIT_SELF - Success
+#20 23.26 -- Performing Test HAVE_C_WINIT_SELF
+#20 23.70 -- Performing Test HAVE_C_WINIT_SELF - Success
+#20 23.70 -- Performing Test HAVE_CXX_WPOINTER_ARITH
+#20 24.34 -- Performing Test HAVE_CXX_WPOINTER_ARITH - Success
+#20 24.34 -- Performing Test HAVE_C_WPOINTER_ARITH
+#20 24.89 -- Performing Test HAVE_C_WPOINTER_ARITH - Success
+#20 24.90 -- Performing Test HAVE_CXX_WSHADOW
+#20 25.51 -- Performing Test HAVE_CXX_WSHADOW - Success
+#20 25.52 -- Performing Test HAVE_C_WSHADOW
+#20 25.92 -- Performing Test HAVE_C_WSHADOW - Success
+#20 25.92 -- Performing Test HAVE_CXX_WSIGN_PROMO
+#20 26.50 -- Performing Test HAVE_CXX_WSIGN_PROMO - Success
+#20 26.50 -- Performing Test HAVE_C_WSIGN_PROMO
+#20 26.95 -- Performing Test HAVE_C_WSIGN_PROMO - Success
+#20 26.95 -- Performing Test HAVE_CXX_WUNINITIALIZED
+#20 27.52 -- Performing Test HAVE_CXX_WUNINITIALIZED - Success
+#20 27.52 -- Performing Test HAVE_C_WUNINITIALIZED
+#20 27.95 -- Performing Test HAVE_C_WUNINITIALIZED - Success
+#20 27.95 -- Performing Test HAVE_CXX_WINCONSISTENT_MISSING_OVERRIDE
+#20 28.53 -- Performing Test HAVE_CXX_WINCONSISTENT_MISSING_OVERRIDE - Success
+#20 28.53 -- Performing Test HAVE_C_WINCONSISTENT_MISSING_OVERRIDE
+#20 29.04 -- Performing Test HAVE_C_WINCONSISTENT_MISSING_OVERRIDE - Success
+#20 29.04 -- Performing Test HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR
+#20 29.66 -- Performing Test HAVE_CXX_WNO_DELETE_NON_VIRTUAL_DTOR - Success
+#20 29.66 -- Performing Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR
+#20 30.13 -- Performing Test HAVE_C_WNO_DELETE_NON_VIRTUAL_DTOR - Success
+#20 30.13 -- Performing Test HAVE_CXX_WNO_UNNAMED_TYPE_TEMPLATE_ARGS
+#20 30.73 -- Performing Test HAVE_CXX_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Success
+#20 30.73 -- Performing Test HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS
+#20 31.09 -- Performing Test HAVE_C_WNO_UNNAMED_TYPE_TEMPLATE_ARGS - Success
+#20 31.10 -- Performing Test HAVE_CXX_WNO_COMMENT
+#20 31.78 -- Performing Test HAVE_CXX_WNO_COMMENT - Success
+#20 31.80 -- Performing Test HAVE_C_WNO_COMMENT
+#20 32.36 -- Performing Test HAVE_C_WNO_COMMENT - Success
+#20 32.36 -- Performing Test HAVE_CXX_WNO_DEPRECATED_ENUM_ENUM_CONVERSION
+#20 32.89 -- Performing Test HAVE_CXX_WNO_DEPRECATED_ENUM_ENUM_CONVERSION - Success
+#20 32.90 -- Performing Test HAVE_C_WNO_DEPRECATED_ENUM_ENUM_CONVERSION
+#20 33.20 -- Performing Test HAVE_C_WNO_DEPRECATED_ENUM_ENUM_CONVERSION - Success
+#20 33.20 -- Performing Test HAVE_CXX_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION
+#20 33.81 -- Performing Test HAVE_CXX_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION - Success
+#20 33.82 -- Performing Test HAVE_C_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION
+#20 34.22 -- Performing Test HAVE_C_WNO_DEPRECATED_ANON_ENUM_ENUM_CONVERSION - Success
+#20 34.22 -- Performing Test HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION
+#20 34.84 -- Performing Test HAVE_CXX_FDIAGNOSTICS_SHOW_OPTION - Success
+#20 34.84 -- Performing Test HAVE_C_FDIAGNOSTICS_SHOW_OPTION
+#20 35.38 -- Performing Test HAVE_C_FDIAGNOSTICS_SHOW_OPTION - Success
+#20 35.39 -- Performing Test HAVE_CXX_WNO_LONG_LONG
+#20 36.04 -- Performing Test HAVE_CXX_WNO_LONG_LONG - Success
+#20 36.05 -- Performing Test HAVE_C_WNO_LONG_LONG
+#20 36.56 -- Performing Test HAVE_C_WNO_LONG_LONG - Success
+#20 36.57 -- Performing Test HAVE_CXX_PTHREAD
+#20 37.24 -- Performing Test HAVE_CXX_PTHREAD - Success
+#20 37.24 -- Performing Test HAVE_C_PTHREAD
+#20 37.59 -- Performing Test HAVE_C_PTHREAD - Success
+#20 37.59 -- Performing Test HAVE_CXX_QUNUSED_ARGUMENTS
+#20 38.23 -- Performing Test HAVE_CXX_QUNUSED_ARGUMENTS - Success
+#20 38.24 -- Performing Test HAVE_C_QUNUSED_ARGUMENTS
+#20 38.75 -- Performing Test HAVE_C_QUNUSED_ARGUMENTS - Success
+#20 38.75 -- Performing Test HAVE_CXX_FFUNCTION_SECTIONS
+#20 39.29 -- Performing Test HAVE_CXX_FFUNCTION_SECTIONS - Success
+#20 39.30 -- Performing Test HAVE_C_FFUNCTION_SECTIONS
+#20 39.78 -- Performing Test HAVE_C_FFUNCTION_SECTIONS - Success
+#20 39.78 -- Performing Test HAVE_CXX_FDATA_SECTIONS
+#20 40.38 -- Performing Test HAVE_CXX_FDATA_SECTIONS - Success
+#20 40.38 -- Performing Test HAVE_C_FDATA_SECTIONS
+#20 40.93 -- Performing Test HAVE_C_FDATA_SECTIONS - Success
+#20 40.98 -- Performing Test HAVE_CXX_MSSE (check file: cmake/checks/cpu_sse.cpp)
+#20 41.68 -- Performing Test HAVE_CXX_MSSE - Success
+#20 41.69 -- Performing Test HAVE_CXX_MSSE2 (check file: cmake/checks/cpu_sse2.cpp)
+#20 42.33 -- Performing Test HAVE_CXX_MSSE2 - Success
+#20 42.33 -- Performing Test HAVE_CXX_MSSE3 (check file: cmake/checks/cpu_sse3.cpp)
+#20 43.03 -- Performing Test HAVE_CXX_MSSE3 - Success
+#20 43.04 -- Performing Test HAVE_CXX_MSSSE3 (check file: cmake/checks/cpu_ssse3.cpp)
+#20 43.87 -- Performing Test HAVE_CXX_MSSSE3 - Success
+#20 43.87 -- Performing Test HAVE_CXX_MSSE4_1 (check file: cmake/checks/cpu_sse41.cpp)
+#20 44.65 -- Performing Test HAVE_CXX_MSSE4_1 - Success
+#20 44.65 -- Performing Test HAVE_CXX_MPOPCNT (check file: cmake/checks/cpu_popcnt.cpp)
+#20 45.20 -- Performing Test HAVE_CXX_MPOPCNT - Success
+#20 45.20 -- Performing Test HAVE_CXX_MSSE4_2 (check file: cmake/checks/cpu_sse42.cpp)
+#20 45.96 -- Performing Test HAVE_CXX_MSSE4_2 - Success
+#20 45.97 -- Performing Test HAVE_CXX_MF16C (check file: cmake/checks/cpu_fp16.cpp)
+#20 47.96 -- Performing Test HAVE_CXX_MF16C - Success
+#20 47.97 -- Performing Test HAVE_CXX_MFMA
+#20 48.61 -- Performing Test HAVE_CXX_MFMA - Success
+#20 48.61 -- Performing Test HAVE_CXX_MAVX (check file: cmake/checks/cpu_avx.cpp)
+#20 50.75 -- Performing Test HAVE_CXX_MAVX - Success
+#20 50.75 -- Performing Test HAVE_CXX_MAVX2 (check file: cmake/checks/cpu_avx2.cpp)
+#20 52.59 -- Performing Test HAVE_CXX_MAVX2 - Success
+#20 52.59 -- Performing Test HAVE_CXX_MAVX512F (check file: cmake/checks/cpu_avx512.cpp)
+#20 54.47 -- Performing Test HAVE_CXX_MAVX512F - Success
+#20 54.47 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD (check file: cmake/checks/cpu_avx512common.cpp)
+#20 56.71 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD - Success
+#20 56.72 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ (check file: cmake/checks/cpu_avx512skx.cpp)
+#20 58.63 -- Performing Test HAVE_CXX_MAVX512F_MAVX512CD_MAVX512VL_MAVX512BW_MAVX512DQ - Success
+#20 58.64 -- Performing Test HAVE_CPU_BASELINE_FLAGS
+#20 59.23 -- Performing Test HAVE_CPU_BASELINE_FLAGS - Success
+#20 59.26 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_SSE4_1
+#20 59.90 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_SSE4_1 - Success
+#20 59.96 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_SSE4_2
+#20 60.48 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_SSE4_2 - Success
+#20 60.50 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_FP16
+#20 60.92 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_FP16 - Success
+#20 60.95 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX
+#20 61.48 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX - Success
+#20 61.50 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX2
+#20 62.10 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX2 - Success
+#20 62.14 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX512_SKX
+#20 62.79 -- Performing Test HAVE_CPU_DISPATCH_FLAGS_AVX512_SKX - Success
+#20 62.81 -- Performing Test HAVE_CXX_FVISIBILITY_HIDDEN
+#20 63.41 -- Performing Test HAVE_CXX_FVISIBILITY_HIDDEN - Success
+#20 63.41 -- Performing Test HAVE_C_FVISIBILITY_HIDDEN
+#20 63.79 -- Performing Test HAVE_C_FVISIBILITY_HIDDEN - Success
+#20 63.80 -- Performing Test HAVE_CXX_FVISIBILITY_INLINES_HIDDEN
+#20 64.33 -- Performing Test HAVE_CXX_FVISIBILITY_INLINES_HIDDEN - Success
+#20 64.33 -- Performing Test HAVE_C_FVISIBILITY_INLINES_HIDDEN
+#20 64.83 -- Performing Test HAVE_C_FVISIBILITY_INLINES_HIDDEN - Success
+#20 64.84 -- Performing Test HAVE_LINK_AS_NEEDED
+#20 65.47 -- Performing Test HAVE_LINK_AS_NEEDED - Success
+#20 65.47 -- Performing Test HAVE_LINK_NO_UNDEFINED
+#20 66.07 -- Performing Test HAVE_LINK_NO_UNDEFINED - Success
+#20 66.09 -- Looking for pthread.h
+#20 66.52 -- Looking for pthread.h - found
+#20 66.52 -- Looking for posix_memalign
+#20 66.89 -- Looking for posix_memalign - found
+#20 66.89 -- Looking for malloc.h
+#20 67.38 -- Looking for malloc.h - found
+#20 67.38 -- Looking for memalign
+#20 67.90 -- Looking for memalign - found
+#20 67.92 -- Looking for fseeko
+#20 68.41 -- Looking for fseeko - found
+#20 68.41 -- Looking for unistd.h
+#20 68.93 -- Looking for unistd.h - found
+#20 68.93 -- Looking for sys/types.h
+#20 69.44 -- Looking for sys/types.h - found
+#20 69.44 -- Looking for stdint.h
+#20 69.93 -- Looking for stdint.h - found
+#20 69.94 -- Looking for stddef.h
+#20 70.42 -- Looking for stddef.h - found
+#20 70.43 -- Check size of off64_t
+#20 70.59 -- Check size of off64_t - failed
+#20 70.60 -- Performing Test HAVE_C_WNO_SHORTEN_64_TO_32
+#20 71.12 -- Performing Test HAVE_C_WNO_SHORTEN_64_TO_32 - Success
+#20 71.12 -- Performing Test HAVE_C_WNO_ATTRIBUTES
+#20 71.63 -- Performing Test HAVE_C_WNO_ATTRIBUTES - Success
+#20 71.63 -- Performing Test HAVE_C_WNO_STRICT_PROTOTYPES
+#20 72.15 -- Performing Test HAVE_C_WNO_STRICT_PROTOTYPES - Success
+#20 72.16 -- Performing Test HAVE_C_WNO_MISSING_PROTOTYPES
+#20 72.63 -- Performing Test HAVE_C_WNO_MISSING_PROTOTYPES - Success
+#20 72.63 -- Performing Test HAVE_C_WNO_MISSING_DECLARATIONS
+#20 73.13 -- Performing Test HAVE_C_WNO_MISSING_DECLARATIONS - Success
+#20 73.13 -- Performing Test HAVE_C_WNO_SHIFT_NEGATIVE_VALUE
+#20 73.60 -- Performing Test HAVE_C_WNO_SHIFT_NEGATIVE_VALUE - Success
+#20 73.60 -- Performing Test HAVE_C_WNO_UNDEF
+#20 74.12 -- Performing Test HAVE_C_WNO_UNDEF - Success
+#20 74.12 -- Performing Test HAVE_C_WNO_IMPLICIT_FALLTHROUGH
+#20 74.65 -- Performing Test HAVE_C_WNO_IMPLICIT_FALLTHROUGH - Success
+#20 74.67 -- Performing Test HAVE_C_WNO_UNUSED_PARAMETER
+#20 75.19 -- Performing Test HAVE_C_WNO_UNUSED_PARAMETER - Success
+#20 75.19 -- Performing Test HAVE_C_WNO_SIGN_COMPARE
+#20 75.64 -- Performing Test HAVE_C_WNO_SIGN_COMPARE - Success
+#20 75.64 -- libjpeg-turbo: VERSION = 2.1.2, BUILD = opencv-4.5.5-dev-libjpeg-turbo
+#20 75.65 -- Check size of size_t
+#20 76.12 -- Check size of size_t - done
+#20 76.12 -- Check size of unsigned long
+#20 76.50 -- Check size of unsigned long - done
+#20 76.50 -- Performing Test HAVE_BUILTIN_CTZL
+#20 76.96 -- Performing Test HAVE_BUILTIN_CTZL - Success
+#20 76.96 -- Looking for include file locale.h
+#20 77.42 -- Looking for include file locale.h - found
+#20 77.42 -- Looking for include file stdlib.h
+#20 78.04 -- Looking for include file stdlib.h - found
+#20 78.04 -- Looking for include file sys/types.h
+#20 78.41 -- Looking for include file sys/types.h - found
+#20 78.43 -- Looking for assert.h
+#20 78.95 -- Looking for assert.h - found
+#20 78.95 -- Looking for dlfcn.h
+#20 79.47 -- Looking for dlfcn.h - found
+#20 79.47 -- Looking for fcntl.h
+#20 79.81 -- Looking for fcntl.h - found
+#20 79.81 -- Looking for inttypes.h
+#20 80.28 -- Looking for inttypes.h - found
+#20 80.28 -- Looking for io.h
+#20 80.40 -- Looking for io.h - not found
+#20 80.40 -- Looking for limits.h
+#20 80.86 -- Looking for limits.h - found
+#20 80.86 -- Looking for memory.h
+#20 81.33 -- Looking for memory.h - found
+#20 81.34 -- Looking for search.h
+#20 81.86 -- Looking for search.h - found
+#20 81.86 -- Looking for string.h
+#20 82.41 -- Looking for string.h - found
+#20 82.41 -- Looking for strings.h
+#20 82.95 -- Looking for strings.h - found
+#20 82.95 -- Looking for sys/time.h
+#20 83.51 -- Looking for sys/time.h - found
+#20 83.51 -- Looking for unistd.h
+#20 84.06 -- Looking for unistd.h - found
+#20 84.06 -- Performing Test C_HAS_inline
+#20 84.57 -- Performing Test C_HAS_inline - Success
+#20 84.58 -- Check size of signed short
+#20 85.20 -- Check size of signed short - done
+#20 85.20 -- Check size of unsigned short
+#20 85.73 -- Check size of unsigned short - done
+#20 85.74 -- Check size of signed int
+#20 86.25 -- Check size of signed int - done
+#20 86.26 -- Check size of unsigned int
+#20 86.78 -- Check size of unsigned int - done
+#20 86.79 -- Check size of signed long
+#20 87.33 -- Check size of signed long - done
+#20 87.34 -- Check size of signed long long
+#20 87.93 -- Check size of signed long long - done
+#20 87.93 -- Check size of unsigned long long
+#20 88.48 -- Check size of unsigned long long - done
+#20 88.48 -- Check size of unsigned char *
+#20 89.11 -- Check size of unsigned char * - done
+#20 89.12 -- Check size of ptrdiff_t
+#20 89.66 -- Check size of ptrdiff_t - done
+#20 89.67 -- Check size of INT8
+#20 89.84 -- Check size of INT8 - failed
+#20 89.86 -- Check size of INT16
+#20 90.02 -- Check size of INT16 - failed
+#20 90.02 -- Check size of INT32
+#20 90.18 -- Check size of INT32 - failed
+#20 90.18 -- Looking for floor
+#20 90.63 -- Looking for floor - found
+#20 90.63 -- Looking for pow
+#20 91.13 -- Looking for pow - found
+#20 91.13 -- Looking for sqrt
+#20 91.64 -- Looking for sqrt - found
+#20 91.64 -- Looking for isascii
+#20 92.01 -- Looking for isascii - found
+#20 92.01 -- Looking for memset
+#20 92.49 -- Looking for memset - found
+#20 92.50 -- Looking for mmap
+#20 93.02 -- Looking for mmap - found
+#20 93.02 -- Looking for getopt
+#20 93.47 -- Looking for getopt - found
+#20 93.48 -- Looking for memmove
+#20 93.98 -- Looking for memmove - found
+#20 93.98 -- Looking for setmode
+#20 94.42 -- Looking for setmode - not found
+#20 94.42 -- Looking for strcasecmp
+#20 94.87 -- Looking for strcasecmp - found
+#20 94.87 -- Looking for strchr
+#20 95.40 -- Looking for strchr - found
+#20 95.40 -- Looking for strrchr
+#20 95.91 -- Looking for strrchr - found
+#20 95.91 -- Looking for strstr
+#20 96.39 -- Looking for strstr - found
+#20 96.39 -- Looking for strtol
+#20 96.90 -- Looking for strtol - found
+#20 96.90 -- Looking for strtol
+#20 97.40 -- Looking for strtol - found
+#20 97.41 -- Looking for strtoull
+#20 97.89 -- Looking for strtoull - found
+#20 97.89 -- Looking for lfind
+#20 98.37 -- Looking for lfind - found
+#20 98.37 -- Performing Test HAVE_SNPRINTF
+#20 98.93 -- Performing Test HAVE_SNPRINTF - Success
+#20 98.93 -- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE
+#20 99.44 -- Performing Test HAVE_C_WNO_UNUSED_BUT_SET_VARIABLE - Success
+#20 99.44 -- Performing Test HAVE_C_WNO_UNUSED
+#20 99.95 -- Performing Test HAVE_C_WNO_UNUSED - Success
+#20 99.95 -- Performing Test HAVE_C_WNO_CAST_ALIGN
+#20 100.5 -- Performing Test HAVE_C_WNO_CAST_ALIGN - Success
+#20 100.5 -- Performing Test HAVE_C_WNO_SHADOW
+#20 101.0 -- Performing Test HAVE_C_WNO_SHADOW - Success
+#20 101.0 -- Performing Test HAVE_C_WNO_MAYBE_UNINITIALIZED
+#20 101.5 -- Performing Test HAVE_C_WNO_MAYBE_UNINITIALIZED - Failed
+#20 101.5 -- Performing Test HAVE_C_WNO_POINTER_TO_INT_CAST
+#20 101.8 -- Performing Test HAVE_C_WNO_POINTER_TO_INT_CAST - Success
+#20 101.8 -- Performing Test HAVE_C_WNO_INT_TO_POINTER_CAST
+#20 102.4 -- Performing Test HAVE_C_WNO_INT_TO_POINTER_CAST - Success
+#20 102.4 -- Performing Test HAVE_C_WNO_MISLEADING_INDENTATION
+#20 102.8 -- Performing Test HAVE_C_WNO_MISLEADING_INDENTATION - Success
+#20 102.8 -- Performing Test HAVE_CXX_WNO_MISSING_DECLARATIONS
+#20 103.3 -- Performing Test HAVE_CXX_WNO_MISSING_DECLARATIONS - Success
+#20 103.3 -- Performing Test HAVE_CXX_WNO_UNUSED_PARAMETER
+#20 103.9 -- Performing Test HAVE_CXX_WNO_UNUSED_PARAMETER - Success
+#20 103.9 -- Performing Test HAVE_CXX_WNO_MISSING_PROTOTYPES
+#20 104.5 -- Performing Test HAVE_CXX_WNO_MISSING_PROTOTYPES - Success
+#20 104.5 -- Performing Test HAVE_CXX_WNO_UNDEF
+#20 105.1 -- Performing Test HAVE_CXX_WNO_UNDEF - Success
+#20 105.2 -- Performing Test HAVE_C_STD_C99
+#20 105.5 -- Performing Test HAVE_C_STD_C99 - Success
+#20 105.5 -- Performing Test HAVE_C_WNO_UNUSED_VARIABLE
+#20 105.9 -- Performing Test HAVE_C_WNO_UNUSED_VARIABLE - Success
+#20 105.9 -- Performing Test HAVE_C_WNO_UNUSED_FUNCTION
+#20 106.2 -- Performing Test HAVE_C_WNO_UNUSED_FUNCTION - Success
+#20 106.2 -- Could NOT find OpenJPEG (minimal suitable version: 2.0, recommended version >= 2.3.1). OpenJPEG will be built from sources
+#20 106.2 -- Performing Test HAVE_C_WNO_IMPLICIT_CONST_INT_FLOAT_CONVERSION
+#20 106.6 -- Performing Test HAVE_C_WNO_IMPLICIT_CONST_INT_FLOAT_CONVERSION - Success
+#20 106.6 -- OpenJPEG: VERSION = 2.4.0, BUILD = opencv-4.5.5-dev-openjp2-2.4.0
+#20 106.6 -- Looking for stdio.h
+#20 107.2 -- Looking for stdio.h - found
+#20 107.2 -- Looking for math.h
+#20 107.7 -- Looking for math.h - found
+#20 107.7 -- Looking for float.h
+#20 108.1 -- Looking for float.h - found
+#20 108.1 -- Looking for time.h
+#20 108.7 -- Looking for time.h - found
+#20 108.7 -- Looking for stdarg.h
+#20 109.2 -- Looking for stdarg.h - found
+#20 109.2 -- Looking for ctype.h
+#20 109.7 -- Looking for ctype.h - found
+#20 109.7 -- Looking for stdint.h
+#20 110.3 -- Looking for stdint.h - found
+#20 110.3 -- Looking for inttypes.h
+#20 110.7 -- Looking for inttypes.h - found
+#20 110.7 -- Looking for sys/stat.h
+#20 111.1 -- Looking for sys/stat.h - found
+#20 111.1 -- Looking for include file malloc.h
+#20 111.4 -- Looking for include file malloc.h - found
+#20 111.4 -- Looking for _aligned_malloc
+#20 111.5 -- Looking for _aligned_malloc - not found
+#20 111.5 -- Looking for posix_memalign
+#20 112.1 -- Looking for posix_memalign - found
+#20 112.1 -- Looking for memalign
+#20 112.6 -- Looking for memalign - found
+#20 112.7 -- Performing Test HAVE_C_WNO_CAST_FUNCTION_TYPE
+#20 113.2 -- Performing Test HAVE_C_WNO_CAST_FUNCTION_TYPE - Success
+#20 114.4 -- OpenJPEG libraries will be built from sources: libopenjp2 (version "2.4.0")
+#20 114.4 -- Looking for semaphore.h
+#20 114.9 -- Looking for semaphore.h - found
+#20 114.9 -- Performing Test HAVE_CXX_WNO_SHADOW
+#20 115.5 -- Performing Test HAVE_CXX_WNO_SHADOW - Success
+#20 115.6 -- Performing Test HAVE_CXX_WNO_UNUSED
+#20 116.1 -- Performing Test HAVE_CXX_WNO_UNUSED - Success
+#20 116.1 -- Performing Test HAVE_CXX_WNO_SIGN_COMPARE
+#20 116.7 -- Performing Test HAVE_CXX_WNO_SIGN_COMPARE - Success
+#20 116.7 -- Performing Test HAVE_CXX_WNO_UNINITIALIZED
+#20 117.4 -- Performing Test HAVE_CXX_WNO_UNINITIALIZED - Success
+#20 117.4 -- Performing Test HAVE_CXX_WNO_SWITCH
+#20 118.0 -- Performing Test HAVE_CXX_WNO_SWITCH - Success
+#20 118.0 -- Performing Test HAVE_CXX_WNO_PARENTHESES
+#20 118.6 -- Performing Test HAVE_CXX_WNO_PARENTHESES - Success
+#20 118.6 -- Performing Test HAVE_CXX_WNO_ARRAY_BOUNDS
+#20 119.2 -- Performing Test HAVE_CXX_WNO_ARRAY_BOUNDS - Success
+#20 119.2 -- Performing Test HAVE_CXX_WNO_EXTRA
+#20 119.8 -- Performing Test HAVE_CXX_WNO_EXTRA - Success
+#20 119.8 -- Performing Test HAVE_CXX_WNO_DEPRECATED_DECLARATIONS
+#20 120.3 -- Performing Test HAVE_CXX_WNO_DEPRECATED_DECLARATIONS - Success
+#20 120.3 -- Performing Test HAVE_CXX_WNO_MISLEADING_INDENTATION
+#20 120.9 -- Performing Test HAVE_CXX_WNO_MISLEADING_INDENTATION - Success
+#20 120.9 -- Performing Test HAVE_CXX_WNO_DEPRECATED
+#20 121.5 -- Performing Test HAVE_CXX_WNO_DEPRECATED - Success
+#20 121.5 -- Performing Test HAVE_CXX_WNO_SUGGEST_OVERRIDE
+#20 122.1 -- Performing Test HAVE_CXX_WNO_SUGGEST_OVERRIDE - Success
+#20 122.1 -- Performing Test HAVE_CXX_WNO_INCONSISTENT_MISSING_OVERRIDE
+#20 122.7 -- Performing Test HAVE_CXX_WNO_INCONSISTENT_MISSING_OVERRIDE - Success
+#20 122.7 -- Performing Test HAVE_CXX_WNO_IMPLICIT_FALLTHROUGH
+#20 123.3 -- Performing Test HAVE_CXX_WNO_IMPLICIT_FALLTHROUGH - Success
+#20 123.3 -- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_COMPARE
+#20 123.9 -- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_COMPARE - Success
+#20 123.9 -- Performing Test HAVE_CXX_WNO_REORDER
+#20 124.4 -- Performing Test HAVE_CXX_WNO_REORDER - Success
+#20 124.4 -- Performing Test HAVE_CXX_WNO_UNUSED_RESULT
+#20 124.9 -- Performing Test HAVE_CXX_WNO_UNUSED_RESULT - Success
+#20 124.9 -- Performing Test HAVE_CXX_WNO_IMPLICIT_CONST_INT_FLOAT_CONVERSION
+#20 125.5 -- Performing Test HAVE_CXX_WNO_IMPLICIT_CONST_INT_FLOAT_CONVERSION - Success
+#20 125.5 -- libva: missing va.h header (VA_INCLUDE_DIR)
+#20 125.5 -- IPPICV: Download: ippicv_2020_lnx_intel64_20191018_general.tgz
+#20 129.6 -- found Intel IPP (ICV version): 2020.0.0 [2020.0.0 Gold]
+#20 129.6 -- at: /src/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+#20 129.6 -- found Intel IPP Integration Wrappers sources: 2020.0.0
+#20 129.6 -- at: /src/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+#20 129.7 -- Could not find OpenBLAS include. Turning OpenBLAS_FOUND off
+#20 129.7 -- Could not find OpenBLAS lib. Turning OpenBLAS_FOUND off
+#20 129.7 -- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+#20 129.7 -- Looking for sgemm_
+#20 130.2 -- Looking for sgemm_ - not found
+#20 130.2 -- Found Threads: TRUE  
+#20 130.3 -- Looking for sgemm_
+#20 130.5 -- Looking for sgemm_ - not found
+#20 130.5 -- Could NOT find BLAS (missing: BLAS_LIBRARIES) 
+#20 130.5 -- Could NOT find LAPACK (missing: LAPACK_LIBRARIES) 
+#20 130.5     Reason given by package: LAPACK could not be found because dependency BLAS could not be found.
+#20 130.5 
+#20 130.6 -- Performing Test HAVE_CXX_WNO_UNUSED_LOCAL_TYPEDEFS
+#20 131.1 -- Performing Test HAVE_CXX_WNO_UNUSED_LOCAL_TYPEDEFS - Success
+#20 131.1 -- Performing Test HAVE_CXX_WNO_SIGN_PROMO
+#20 131.8 -- Performing Test HAVE_CXX_WNO_SIGN_PROMO - Success
+#20 131.8 -- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_UNDEFINED_COMPARE
+#20 132.2 -- Performing Test HAVE_CXX_WNO_TAUTOLOGICAL_UNDEFINED_COMPARE - Success
+#20 132.2 -- Performing Test HAVE_CXX_WNO_IGNORED_QUALIFIERS
+#20 132.8 -- Performing Test HAVE_CXX_WNO_IGNORED_QUALIFIERS - Success
+#20 132.8 -- Performing Test HAVE_CXX_WNO_UNUSED_FUNCTION
+#20 133.5 -- Performing Test HAVE_CXX_WNO_UNUSED_FUNCTION - Success
+#20 133.5 -- Performing Test HAVE_CXX_WNO_UNUSED_CONST_VARIABLE
+#20 134.0 -- Performing Test HAVE_CXX_WNO_UNUSED_CONST_VARIABLE - Success
+#20 134.0 -- Performing Test HAVE_CXX_WNO_SHORTEN_64_TO_32
+#20 134.6 -- Performing Test HAVE_CXX_WNO_SHORTEN_64_TO_32 - Success
+#20 134.6 -- Performing Test HAVE_CXX_WNO_INVALID_OFFSETOF
+#20 135.2 -- Performing Test HAVE_CXX_WNO_INVALID_OFFSETOF - Success
+#20 135.2 -- Performing Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH
+#20 135.8 -- Performing Test HAVE_CXX_WNO_ENUM_COMPARE_SWITCH - Success
+#20 135.9 -- Could NOT find JNI (missing: JAVA_AWT_LIBRARY JAVA_JVM_LIBRARY JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 
+#20 136.3 -- VTK is not found. Please set -DVTK_DIR in CMake to VTK build directory, or to VTK install subdirectory with VTKConfig.cmake file
+#20 136.4 -- Looking for dlerror in dl
+#20 136.9 -- Looking for dlerror in dl - found
+#20 137.0 -- ADE: Download: v0.1.1f.zip
+#20 137.3 -- Checking for module 'gtk+-3.0'
+#20 137.3 --   No package 'gtk+-3.0' found
+#20 137.3 -- Checking for module 'gtk+-2.0'
+#20 137.3 --   No package 'gtk+-2.0' found
+#20 137.3 -- Checking for module 'gthread-2.0'
+#20 137.3 --   No package 'gthread-2.0' found
+#20 137.5 -- Checking for modules 'libavcodec;libavformat;libavutil;libswscale'
+#20 137.5 --   No package 'libavcodec' found
+#20 137.5 --   No package 'libavformat' found
+#20 137.5 --   No package 'libavutil' found
+#20 137.5 --   No package 'libswscale' found
+#20 137.5 -- FFMPEG is disabled. Required libraries: libavcodec;libavformat;libavutil;libswscale. Missing libraries: libavcodec;libavformat;libavutil;libswscale
+#20 137.5 -- Checking for module 'gstreamer-base-1.0'
+#20 137.5 --   No package 'gstreamer-base-1.0' found
+#20 137.5 -- Checking for module 'gstreamer-app-1.0'
+#20 137.5 --   No package 'gstreamer-app-1.0' found
+#20 137.5 -- Checking for module 'gstreamer-riff-1.0'
+#20 137.6 --   No package 'gstreamer-riff-1.0' found
+#20 137.6 -- Checking for module 'gstreamer-pbutils-1.0'
+#20 137.6 --   No package 'gstreamer-pbutils-1.0' found
+#20 137.6 -- Checking for module 'gstreamer-video-1.0'
+#20 137.6 --   No package 'gstreamer-video-1.0' found
+#20 137.6 -- Checking for module 'gstreamer-audio-1.0'
+#20 137.6 --   No package 'gstreamer-audio-1.0' found
+#20 138.3 -- Checking for module 'libdc1394-2'
+#20 138.3 --   No package 'libdc1394-2' found
+#20 138.6 -- Allocator metrics storage type: 'long long'
+#20 139.1 -- Registering hook 'INIT_MODULE_SOURCES_opencv_dnn': /src/opencv/modules/dnn/cmake/hooks/INIT_MODULE_SOURCES_opencv_dnn.cmake
+#20 139.2 -- opencv_dnn: filter out cuda4dnn source code
+#20 139.2 -- Excluding from source files list: <BUILD>/modules/dnn/layers/layers_common.rvv.cpp
+#20 139.4 -- imgcodecs: OpenEXR codec is disabled in runtime. Details: https://github.com/opencv/opencv/issues/21326
+#20 139.6 -- highgui: using builtin backend: NONE
+#20 140.0 -- Found 'misc' Python modules from /src/opencv/modules/python/package/extra_modules
+#20 140.0 -- Found 'mat_wrapper;utils' Python modules from /src/opencv/modules/core/misc/python/package
+#20 140.0 -- Found 'gapi' Python modules from /src/opencv/modules/gapi/misc/python/package
+#20 140.3 -- 
+#20 140.3 -- General configuration for OpenCV 4.5.5-dev =====================================
+#20 140.3 --   Version control:               4.5.5-185-gb9e5256cf9
+#20 140.3 -- 
+#20 140.3 --   Platform:
+#20 140.3 --     Timestamp:                   2022-02-18T17:16:12Z
+#20 140.3 --     Host:                        Linux 5.13.0-30-generic x86_64
+#20 140.3 --     CMake:                       3.21.1
+#20 140.3 --     CMake generator:             Unix Makefiles
+#20 140.3 --     CMake build tool:            /usr/bin/make
+#20 140.3 --     Configuration:               Release
+#20 140.3 -- 
+#20 140.3 --   CPU/HW features:
+#20 140.3 --     Baseline:                    SSE SSE2 SSE3
+#20 140.3 --       requested:                 SSE3
+#20 140.3 --     Dispatched code generation:  SSE4_1 SSE4_2 FP16 AVX AVX2 AVX512_SKX
+#20 140.3 --       requested:                 SSE4_1 SSE4_2 AVX FP16 AVX2 AVX512_SKX
+#20 140.3 --       SSE4_1 (18 files):         + SSSE3 SSE4_1
+#20 140.3 --       SSE4_2 (2 files):          + SSSE3 SSE4_1 POPCNT SSE4_2
+#20 140.3 --       FP16 (1 files):            + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 AVX
+#20 140.3 --       AVX (5 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
+#20 140.3 --       AVX2 (33 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
+#20 140.3 --       AVX512_SKX (8 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
+#20 140.3 -- 
+#20 140.3 --   C/C++:
+#20 140.3 --     Built as dynamic libs?:      NO
+#20 140.3 --     C++ standard:                11
+#20 140.3 --     C++ Compiler:                /usr/local/bin/clang++  (ver 14.0.0)
+#20 140.3 --     C++ flags (Release):         -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Wno-long-long -pthread -Qunused-arguments -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+#20 140.3 --     C++ flags (Debug):           -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Wno-long-long -pthread -Qunused-arguments -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -DDEBUG -D_DEBUG
+#20 140.4 --     C Compiler:                  /usr/local/bin/clang
+#20 140.4 --     C flags (Release):           -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Wno-long-long -pthread -Qunused-arguments -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG
+#20 140.4 --     C flags (Debug):             -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Wno-long-long -pthread -Qunused-arguments -ffunction-sections -fdata-sections  -msse -msse2 -msse3 -fvisibility=hidden -fvisibility-inlines-hidden -g  -DDEBUG -D_DEBUG
+#20 140.4 --     Linker flags (Release):      -Wl,--exclude-libs,libippicv.a -Wl,--exclude-libs,libippiw.a   -Wl,--gc-sections -Wl,--as-needed -Wl,--no-undefined  
+#20 140.4 --     Linker flags (Debug):        -Wl,--exclude-libs,libippicv.a -Wl,--exclude-libs,libippiw.a   -Wl,--gc-sections -Wl,--as-needed -Wl,--no-undefined  
+#20 140.4 --     ccache:                      NO
+#20 140.4 --     Precompiled headers:         NO
+#20 140.4 --     Extra dependencies:          dl m pthread rt
+#20 140.4 --     3rdparty dependencies:       libprotobuf ade ittnotify libjpeg-turbo libwebp libpng libtiff libopenjp2 IlmImf zlib quirc ippiw ippicv
+#20 140.4 -- 
+#20 140.4 --   OpenCV modules:
+#20 140.4 --     To be built:                 calib3d core dnn features2d flann gapi highgui imgcodecs imgproc ml objdetect photo stitching ts video videoio
+#20 140.4 --     Disabled:                    world
+#20 140.4 --     Disabled by dependency:      -
+#20 140.4 --     Unavailable:                 java python2 python3
+#20 140.4 --     Applications:                tests perf_tests apps
+#20 140.4 --     Documentation:               NO
+#20 140.4 --     Non-free algorithms:         NO
+#20 140.4 -- 
+#20 140.4 --   GUI:                           NONE
+#20 140.4 --     GTK+:                        NO
+#20 140.4 --     VTK support:                 NO
+#20 140.4 -- 
+#20 140.4 --   Media I/O: 
+#20 140.4 --     ZLib:                        build (ver 1.2.11)
+#20 140.5 --     JPEG:                        build-libjpeg-turbo (ver 2.1.2-62)
+#20 140.5 --     WEBP:                        build (ver encoder: 0x020f)
+#20 140.5 --     PNG:                         build (ver 1.6.37)
+#20 140.5 --     TIFF:                        build (ver 42 - 4.2.0)
+#20 140.5 --     JPEG 2000:                   build (ver 2.4.0)
+#20 140.5 --     OpenEXR:                     build (ver 2.3.0)
+#20 140.5 --     HDR:                         YES
+#20 140.5 --     SUNRASTER:                   YES
+#20 140.5 --     PXM:                         YES
+#20 140.5 --     PFM:                         YES
+#20 140.5 -- 
+#20 140.5 --   Video I/O:
+#20 140.5 --     DC1394:                      NO
+#20 140.5 --     FFMPEG:                      NO
+#20 140.5 --       avcodec:                   NO
+#20 140.5 --       avformat:                  NO
+#20 140.5 --       avutil:                    NO
+#20 140.5 --       swscale:                   NO
+#20 140.5 --       avresample:                NO
+#20 140.5 --     GStreamer:                   NO
+#20 140.5 --     v4l/v4l2:                    YES (linux/videodev2.h)
+#20 140.5 -- 
+#20 140.5 --   Parallel framework:            pthreads
+#20 140.5 -- 
+#20 140.5 --   Trace:                         YES (with Intel ITT)
+#20 140.5 -- 
+#20 140.5 --   Other third-party libraries:
+#20 140.5 --     Intel IPP:                   2020.0.0 Gold [2020.0.0]
+#20 140.5 --            at:                   /src/opencv/build/3rdparty/ippicv/ippicv_lnx/icv
+#20 140.5 --     Intel IPP IW:                sources (2020.0.0)
+#20 140.5 --               at:                /src/opencv/build/3rdparty/ippicv/ippicv_lnx/iw
+#20 140.5 --     VA:                          NO
+#20 140.5 --     Lapack:                      NO
+#20 140.5 --     Eigen:                       NO
+#20 140.5 --     Custom HAL:                  NO
+#20 140.5 --     Protobuf:                    build (3.19.1)
+#20 140.5 -- 
+#20 140.5 --   OpenCL:                        YES (no extra features)
+#20 140.5 --     Include path:                /src/opencv/3rdparty/include/opencl/1.2
+#20 140.5 --     Link libraries:              Dynamic load
+#20 140.5 -- 
+#20 140.5 --   Python (for build):            /usr/local/bin/python3
+#20 140.5 -- 
+#20 140.5 --   Java:                          
+#20 140.5 --     ant:                         NO
+#20 140.5 --     JNI:                         NO
+#20 140.5 --     Java wrappers:               NO
+#20 140.5 --     Java tests:                  NO
+#20 140.5 -- 
+#20 140.5 --   Install to:                    /work
+#20 140.5 -- -----------------------------------------------------------------
+#20 140.5 -- 
+#20 141.1 -- Configuring done
+#20 143.0 -- Generating done
+#20 143.1 -- Build files have been written to: /src/opencv/build
+#20 143.1 ++ nproc
+#20 143.1 + make -j8
+#20 143.2 [  0%] Building C object 3rdparty/ittnotify/CMakeFiles/ittnotify.dir/src/ittnotify/ittnotify_static.c.o
+#20 143.2 [  0%] Generate opencv4.pc
+#20 143.3 [  0%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/thread.c.o
+#20 143.3 [  0%] Built target opencv_videoio_plugins
+#20 143.3 [  0%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/bio.c.o
+#20 143.3 [  0%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/adler32.c.o
+#20 143.3 [  0%] Building C object 3rdparty/ittnotify/CMakeFiles/ittnotify.dir/src/ittnotify/jitprofiling.c.o
+#20 143.3 [  0%] Built target opencv_highgui_plugins
+#20 143.5 [  0%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_core.c.o
+#20 143.5 [  0%] Built target gen-pkgconfig
+#20 143.6 [  0%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcapimin.c.o
+#20 143.7 [  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/alpha_dec.c.o
+#20 144.1 [  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/buffer_dec.c.o
+#20 144.1 [  0%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/compress.c.o
+#20 144.8 [  0%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/crc32.c.o
+#20 145.2 [  1%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcapistd.c.o
+#20 145.4 [  1%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/frame_dec.c.o
+#20 145.4 [  1%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/cio.c.o
+#20 146.4 [  1%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jccoefct.c.o
+#20 146.4 [  1%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jccolor.c.o
+#20 146.4 [  1%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image.c.o
+#20 147.0 [  1%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/dwt.c.o
+#20 147.3 [  1%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/deflate.c.o
+/bin/sh: 1: source: not found
+#20 150.0 [  1%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/event.c.o
+#20 151.5 [  1%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/image.c.o
+#20 151.5 [  1%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcdctmgr.c.o
+#20 152.2 [  1%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/idec_dec.c.o
+#20 152.9 [  1%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/io_dec.c.o
+#20 153.7 [  1%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_color_convert_all.c.o
+#20 153.9 [  1%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jchuff.c.o
+#20 154.2 [  1%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/invert.c.o
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b1d3754087933c3a3b9200481652946ced314192adc3f5cfd5762ae3d179ce06
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:667db7f5bfbad859994f6eb5ddc754404d2ac3a1e8b92dbc98b3bc33b8ee2c5a
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#4 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#4 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#4 DONE 0.0s
+
+#10 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer
+#10 sha256:825e7d189e57b82d27dfb019a1915b68696076204dd5bdd23181f180933fc2ae
+#10 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:0a6861b7bc14cef7ab6a2fc53f6c73f307495405e252b3e15ad6ebb685f6cf07
+#8 transferring context: 429B done
+#8 DONE 0.0s
+
+#5 [2/6] RUN apt-get update && apt-get install -y build-essential cmake pkg-config
+#5 sha256:5b4cdd543f7676d762d91b87c637b12e81d197a5de05812a3f0a2dc7aead2436
+#5 CACHED
+
+#6 [3/6] RUN git clone --depth 1 https://github.com/opencv/opencv.git opencv
+#6 sha256:59a9fb61118231e7c2a207bca2277cafcfad95bb7e22f5ee768b2c0e041e7f83
+#6 CACHED
+
+#7 [4/6] WORKDIR /src/
+#7 sha256:7c9e4a971a185102dda40c4c64484c8b0a13a717e8957839edb6a9a3ae2a8ca1
+#7 CACHED
+
+#9 [5/6] COPY build.sh /src/
+#9 sha256:3d793eb2c0bde5366754cff7b2123327bb5dac30bac38ff2396b441ff6eae17e
+#9 CACHED
+
+#11 [6/6] COPY *.cc *.h /src/
+#11 sha256:3335475bb3ae17c4cdc9b8bc05caa58b29cadcb897cdce79ec67be483979c494
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:055fcde65884ed361a6988261c80accacc8fbd6b80115d507eefcd22bec895f4 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer done
+#12 DONE 0.2s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#20 155.9 [  1%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcicc.c.o
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:26b3836d6bc27c03079e68ec5083b379ed3fda78feaae4c334dc9904c53df2c1
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:498892c98626c50a6e32f3b438d335ca323511d4d2bcd9da6193bb61026edb8f
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer:latest
+#3 sha256:7e679078f46fb4a28103f5458ae64afa19248ffd31ecef6fbd7d2f070b61aaa9
+#3 DONE 0.0s
+
+#4 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/opencv_core_fuzzer
+#4 sha256:41e42725ec1ceedee3fb3a9c680db059939e34862c1f983a3954558c2fb637f0
+#4 DONE 0.0s
+
+#7 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate
+#7 sha256:5c2e946e519cb0f086173fd6b8b9eb29e06cffd8816198e7df309aa3402fe049
+#7 DONE 0.0s
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:a5b5da24cd884cd2d1550faf1d9415f69dd6ee8134f367e7513f5f044ef5156c
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:3ba9b5beb51bea87744a28fb71aa80693f5fe2dc7a6c050f60b95f1eb77c13a8
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:d7a3e7644c0ae68c1269fd9977f4a3381bd6d82ffd56300e32139907e05820fb done
+#8 naming to gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#20 157.0 [  2%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/quant_dec.c.o
+#20 157.1 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_color_convert_rgbs.c.o
+#20 157.1 [  2%] Linking C static library ../lib/libittnotify.a
+#20 157.2 [  2%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/tree_dec.c.o
+#20 157.3 [  2%] Built target ittnotify
+#20 157.6 [  2%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/any_lite.cc.o
+#20 157.7 [  2%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcinit.c.o
+#20 158.6 [  2%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/j2k.c.o
+#20 158.9 [  2%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arena.cc.o
+#1 [internal] load build definition from Dockerfile
+#1 sha256:63202425c9d4bf7dc117ea3d4395642efaf12d653da24585e5a3582172ce3ff8
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:c7f6eb39c9dbce5d906131c50d0e03a3899ecd90889c6f54b02ef4ef4703fe37
+#20 159.6 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_bilateral.c.o
+#2 transferring context: 143B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#12 importing cache manifest from gcr.io/fuzzbench/base-image
+#12 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#12 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/ubuntu:xenial
+#4 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#4 DONE 0.0s
+
+#7 [internal] load build context
+#7 sha256:6cbf969cc8f95686dcc7618d81b3b1fb9ea82324eb4bb759a59628730542de92
+#7 transferring context: 559B done
+#7 DONE 0.0s
+
+#5 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#5 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#5 CACHED
+
+#6 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#6 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#6 CACHED
+
+#8 [4/7] COPY ./requirements.txt /
+#8 sha256:bdeec2a4e9f818e26f2134883f8b1a8be10c7733cdf2771e9d2b465dd9182436
+#8 CACHED
+
+#9 [5/7] RUN pip3 install -r /requirements.txt
+#9 sha256:a4cf2ef9a4e35dfeb000a786fedb33794de3f187a10333cd1e25c10495cd5f58
+#9 CACHED
+
+#10 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#10 sha256:a488d3c7af509cceb4d9a3e4cb5bd7a10bf1d2a8a520af601b3997198e7cdd58
+#10 CACHED
+
+#11 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#11 sha256:130df31a87e9bb36bea18c1060f77003c32c5bbcd60507252020cd846c1327b6
+#11 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:55e5825902805b10e1ba0cd27e4af0d82c25f9e225d6218342d4b6474bd3ddae done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2b19c82a8ef80f805e21dfcd0454a3599f205dc54d1fd8d4b2986f38a86c9974
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:35d53598405adeab957527d201b17de4f0a3d42703f5cceb61693a194437a3fb
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate:latest
+#3 sha256:26e02d64b02857ccbc026a5909bb0532adb731d7353e5f7efef5c92f3669e0b4
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer
+#5 sha256:7a8cb461dfc521f5114a553fb927e5c48aa6a12725176926560d9f0cfef26f85
+#5 ...
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 1.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer-intermediate
+#6 sha256:7094a14b00f030098f0c51eaebc45dfd827301f9a37ac9b2118c36ed0d83af54
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2de879fdbb6de51b1dd6912fd724698607ea4f9fe625c3b8592086ff5a6245ac
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer
+#5 sha256:7a8cb461dfc521f5114a553fb927e5c48aa6a12725176926560d9f0cfef26f85
+#5 ERROR: gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:2de879fdbb6de51b1dd6912fd724698607ea4f9fe625c3b8592086ff5a6245ac
+#12 transferring context: 669.88kB 0.2s done
+#12 DONE 0.3s
+#20 161.6 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_box.c.o
+#20 162.6 [  2%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8_dec.c.o
+#20 163.5 [  2%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/gzclose.c.o
+#20 164.5 [  2%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/gzlib.c.o
+#20 165.0 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_canny.c.o
+#20 167.1 [  2%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/gzread.c.o
+#20 167.7 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_gaussian.c.o
+#20 170.1 [  2%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/vp8l_dec.c.o
+#20 171.0 [  2%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/gzwrite.c.o
+#20 172.8 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_general.c.o
+#20 174.9 [  2%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/inflate.c.o
+#20 176.7 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_laplacian.c.o
+#20 178.6 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_morphology.c.o
+#20 183.6 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_scharr.c.o
+#20 185.5 [  2%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dec/webp_dec.c.o
+#20 185.6 [  2%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/arenastring.cc.o
+#20 186.6 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_filter_sobel.c.o
+#20 189.5 [  2%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/extension_set.cc.o
+#20 189.6 [  2%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/infback.c.o
+#20 190.0 [  2%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcmainct.c.o
+#20 190.0 [  2%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/anim_decode.c.o
+#20 190.1 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_copy.c.o
+#20 191.2 [  2%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcmarker.c.o
+#20 193.0 [  2%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_copy_channel.c.o
+#20 193.1 [  2%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/demux/demux.c.o
+#20 195.8 [  3%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_copy_make_border.c.o
+#20 197.3 [  3%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/inftrees.c.o
+#20 198.8 [  3%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing.c.o
+#20 199.8 [  3%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcmaster.c.o
+#20 200.0 [  3%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/inffast.c.o
+#20 201.9 [  3%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_copy_merge.c.o
+#20 203.6 [  3%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_mips_dsp_r2.c.o
+#20 204.2 [  3%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/trees.c.o
+#20 204.3 [  3%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_neon.c.o
+#20 204.6 [  3%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_copy_split.c.o
+#20 205.0 [  3%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_sse2.c.o
+#20 205.9 [  3%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcomapi.c.o
+#20 206.2 [  3%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcparam.c.o
+#20 208.0 [  3%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_scale.c.o
+#20 211.2 [  3%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_set.c.o
+#20 211.7 [  3%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_set_channel.c.o
+#20 212.3 [  3%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/alpha_processing_sse41.c.o
+#20 212.9 [  3%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/jp2.c.o
+#20 213.0 [  3%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost.c.o
+#20 213.2 [  3%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/uncompr.c.o
+#20 214.1 [  3%] Building C object 3rdparty/zlib/CMakeFiles/zlib.dir/zutil.c.o
+#20 214.4 [  3%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_op_swap_channels.c.o
+#20 214.5 [  3%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_mips32.c.o
+#20 215.1 [  4%] Linking C static library ../lib/libzlib.a
+#20 215.1 [  4%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_mips_dsp_r2.c.o
+#20 215.5 [  4%] Built target zlib
+#20 215.7 [  4%] Building C object 3rdparty/quirc/CMakeFiles/quirc.dir/src/decode.c.o
+#20 215.8 [  4%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_neon.c.o
+#20 216.4 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cost_sse2.c.o
+#20 217.2 [  5%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_transform_mirror.c.o
+#20 218.1 [  5%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_transform_resize.c.o
+#20 218.5 [  5%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_util.cc.o
+#20 218.7 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/cpu.c.o
+#20 219.6 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec.c.o
+#20 219.9 [  5%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_transform_rotate.c.o
+#20 222.1 [  5%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_image_transform_warpaffine.c.o
+#20 222.5 [  5%] Building C object 3rdparty/ippiw/CMakeFiles/ippiw.dir/src/iw_own.c.o
+#20 224.1 [  5%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcphuff.c.o
+#20 224.1 [  5%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/mct.c.o
+#20 226.0 [  5%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcprepct.c.o
+#20 227.7 [  5%] Linking C static library ../lib/libippiw.a
+#20 228.0 [  5%] Built target ippiw
+#20 228.4 [  5%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/alloc.cpp.o
+#20 229.1 [  5%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcsample.c.o
+#20 229.2 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_clip_tables.c.o
+#20 229.3 [  5%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/mqc.c.o
+#20 230.1 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_mips32.c.o
+#20 230.8 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_mips_dsp_r2.c.o
+#20 231.5 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_msa.c.o
+#20 232.2 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_neon.c.o
+#20 232.8 [  5%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_sse2.c.o
+#20 232.8 [  5%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/openjpeg.c.o
+#20 233.2 [  5%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jctrans.c.o
+#20 233.7 [  6%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdapimin.c.o
+#20 235.4 [  6%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdapistd.c.o
+#20 236.0 [  6%] Building C object 3rdparty/quirc/CMakeFiles/quirc.dir/src/quirc.c.o
+#20 236.2 [  6%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/opj_clock.c.o
+#20 236.5 [  6%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdatadst.c.o
+#20 236.8 [  6%] Building C object 3rdparty/quirc/CMakeFiles/quirc.dir/src/version_db.c.o
+#20 237.3 [  7%] Linking C static library ../lib/libquirc.a
+#20 237.4 [  7%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/assert.cpp.o
+#20 237.4 [  7%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/pi.c.o
+#20 237.5 [  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/dec_sse41.c.o
+#20 237.7 [  7%] Built target quirc
+#20 237.9 [  7%] Processing OpenCL kernels (core)
+#20 238.1 [  7%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/implicit_weak_message.cc.o
+#20 239.0 [  7%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/algorithm.cpp.o
+#20 239.4 [  7%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdatasrc.c.o
+#20 239.6 [  7%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/check_cycles.cpp.o
+#20 240.5 [  7%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdcoefct.c.o
+#20 244.4 [  7%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc.c.o
+#20 247.6 [  7%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdcolor.c.o
+#20 252.5 [  8%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/t1.c.o
+#20 259.9 [  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_mips32.c.o
+#20 260.4 [  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_mips_dsp_r2.c.o
+#20 260.5 [  8%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jddctmgr.c.o
+#20 261.1 [  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_msa.c.o
+#20 261.7 [  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_neon.c.o
+#20 262.3 [  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_sse2.c.o
+#20 263.0 [  8%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdhuff.c.o
+#20 266.2 [  8%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/edge.cpp.o
+#20 269.1 [  8%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/coded_stream.cc.o
+#20 272.2 [  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/enc_sse41.c.o
+#20 272.8 [  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters.c.o
+#20 273.7 [  9%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdicc.c.o
+#20 275.7 [  9%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdinput.c.o
+#20 278.2 [  9%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdmainct.c.o
+#20 278.3 [  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_mips_dsp_r2.c.o
+#20 278.9 [  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_msa.c.o
+#20 279.6 [  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_neon.c.o
+#20 280.3 [  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/filters_sse2.c.o
+#20 281.9 [  9%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdmarker.c.o
+#20 283.7 [  9%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/execution_engine.cpp.o
+#20 283.8 [  9%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/alloc.cpp.o
+#20 291.2 [  9%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless.c.o
+#20 291.3 [ 10%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/io_win32.cc.o
+#20 291.6 [ 10%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/strtod.cc.o
+#20 291.8 [ 10%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdmaster.c.o
+#20 295.6 [ 10%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdmerge.c.o
+#20 300.2 [ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc.c.o
+#20 302.2 [ 10%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream.cc.o
+#20 304.9 [ 10%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream_impl.cc.o
+#20 306.3 [ 10%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdphuff.c.o
+#20 308.6 [ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_mips32.c.o
+#20 309.3 [ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_mips_dsp_r2.c.o
+#20 309.9 [ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_msa.c.o
+#20 310.5 [ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_neon.c.o
+#20 310.6 [ 10%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdpostct.c.o
+#20 311.2 [ 10%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_sse2.c.o
+#20 312.0 [ 10%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdsample.c.o
+#20 313.5 [ 10%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/zero_copy_stream_impl_lite.cc.o
+#20 315.0 [ 11%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdtrans.c.o
+#20 315.4 [ 11%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jerror.c.o
+#20 316.2 [ 11%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jfdctflt.c.o
+#20 317.8 [ 11%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jfdctfst.c.o
+#20 319.4 [ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_enc_sse41.c.o
+#20 319.5 [ 11%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jfdctint.c.o
+#20 319.9 [ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_mips_dsp_r2.c.o
+#20 320.4 [ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_msa.c.o
+#20 320.5 [ 11%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_neon.c.o
+#20 320.9 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/lossless_sse2.c.o
+#20 322.0 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jidctflt.c.o
+#20 323.7 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jidctfst.c.o
+#20 325.2 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jidctint.c.o
+#20 325.5 [ 12%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/map.cc.o
+#20 327.6 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler.c.o
+#20 327.7 [ 12%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/arithm.cpp.o
+#20 329.9 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_mips32.c.o
+#20 330.4 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_mips_dsp_r2.c.o
+#20 330.7 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_msa.c.o
+#20 331.0 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_neon.c.o
+#20 331.5 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/rescaler_sse2.c.o
+#20 332.6 [ 12%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/message_lite.cc.o
+#20 334.2 [ 12%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/graph.cpp.o
+#20 336.1 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/ssim.c.o
+#20 337.7 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/ssim_sse2.c.o
+#20 339.8 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling.c.o
+#20 339.8 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jidctred.c.o
+#20 340.4 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jquant1.c.o
+#20 343.1 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jquant2.c.o
+#20 345.3 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jutils.c.o
+#20 346.6 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jmemmgr.c.o
+#20 352.5 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jmemnobs.c.o
+#20 353.6 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jaricom.c.o
+#20 354.4 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jcarith.c.o
+#20 355.7 [ 12%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jdarith.c.o
+#20 356.8 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_mips_dsp_r2.c.o
+#20 357.5 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_msa.c.o
+#20 357.7 [ 12%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/parse_context.cc.o
+#20 358.2 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_neon.c.o
+#20 359.0 [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_sse2.c.o
+#20 360.2 [ 13%] Building C object 3rdparty/libjpeg-turbo/CMakeFiles/libjpeg-turbo.dir/src/jsimd_none.c.o
+#20 360.9 [ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/upsampling_sse41.c.o
+#20 361.6 [ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv.c.o
+#20 362.3 [ 13%] Linking C static library ../lib/liblibjpeg-turbo.a
+#20 362.6 [ 13%] Built target libjpeg-turbo
+#20 362.9 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_aux.c.o
+#20 366.1 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_close.c.o
+#20 367.4 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_codec.c.o
+#20 368.4 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_color.c.o
+#20 368.6 [ 13%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_mips32.c.o
+#20 369.3 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_compress.c.o
+#20 370.8 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dir.c.o
+#20 371.6 [ 13%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/repeated_field.cc.o
+#20 371.7 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirinfo.c.o
+#20 375.2 [ 13%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirread.c.o
+#20 379.3 [ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_mips_dsp_r2.c.o
+#20 380.0 [ 14%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_neon.c.o
+#20 380.6 [ 15%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_accessor.cpp.o
+#20 380.7 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_sse2.c.o
+#20 383.3 [ 15%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dirwrite.c.o
+#20 391.0 [ 15%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/t2.c.o
+#20 392.9 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/dsp/yuv_sse41.c.o
+#20 393.6 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/alpha_enc.c.o
+#20 395.3 [ 15%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_dumpmode.c.o
+#20 396.5 [ 15%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_error.c.o
+#20 397.3 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/analysis_enc.c.o
+#20 397.3 [ 15%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_extension.c.o
+#20 398.5 [ 15%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/repeated_ptr_field.cc.o
+#20 400.4 [ 15%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/tcd.c.o
+#20 403.5 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/backward_references_cost_enc.c.o
+#20 405.1 [ 15%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor.cpp.o
+#20 410.1 [ 15%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_ref.cpp.o
+#20 410.5 [ 15%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3.c.o
+#20 411.9 [ 15%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/arithm.dispatch.cpp.o
+#20 412.5 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/backward_references_enc.c.o
+#20 422.3 [ 15%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/tgt.c.o
+#20 424.7 [ 15%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/memory_descriptor_view.cpp.o
+#20 425.2 [ 15%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/function_list.c.o
+#20 425.6 [ 15%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/bytestream.cc.o
+#20 426.9 [ 15%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/opj_malloc.c.o
+#20 428.3 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/config_enc.c.o
+#20 428.6 [ 15%] Building C object 3rdparty/openjpeg/openjp2/CMakeFiles/libopenjp2.dir/sparse_array.c.o
+#20 429.3 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/cost_enc.c.o
+#20 432.3 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/filter_enc.c.o
+#20 433.9 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/frame_enc.c.o
+#20 434.2 [ 15%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/common.cc.o
+#20 437.1 [ 15%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/int128.cc.o
+#20 437.7 [ 15%] Linking C static library ../../lib/liblibopenjp2.a
+#20 437.9 [ 15%] Built target libopenjp2
+#20 438.0 [ 15%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/png.c.o
+#20 443.0 [ 15%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/histogram_enc.c.o
+#20 447.4 [ 15%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_fax3sm.c.o
+#20 448.8 [ 15%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/status.cc.o
+#20 451.7 [ 15%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_flush.c.o
+#20 452.0 [ 16%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_getimage.c.o
+#20 456.0 [ 16%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/iterator_enc.c.o
+#20 457.3 [ 16%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngerror.c.o
+#20 458.4 [ 16%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/metadata.cpp.o
+#20 461.8 [ 16%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngget.c.o
+#20 464.4 [ 16%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngmem.c.o
+#20 464.8 [ 16%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/near_lossless_enc.c.o
+#20 464.9 [ 16%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringpiece.cc.o
+#20 467.0 [ 16%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_csp_enc.c.o
+#20 467.1 [ 16%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngpread.c.o
+#20 467.6 [ 16%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngread.c.o
+#20 470.2 /src/opencv/3rdparty/libpng/pngread.c:3455:26: warning: variable 'row' set but not used [-Wunused-but-set-variable]
+#20 470.2                png_bytep row = png_voidcast(png_bytep, display->first_row);
+#20 470.2                          ^
+#20 472.9 [ 16%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngrio.c.o
+#20 474.3 [ 16%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngrtran.c.o
+#20 476.0 [ 16%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/stringprintf.cc.o
+#20 482.5 [ 16%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/metatypes.cpp.o
+#20 485.7 [ 16%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_enc.c.o
+#20 487.4 1 warning generated.
+#20 487.5 [ 17%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_psnr_enc.c.o
+#20 487.5 [ 17%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jbig.c.o
+#20 488.3 [ 17%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jpeg_12.c.o
+#20 489.0 [ 17%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_rescale_enc.c.o
+#20 489.1 [ 17%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_jpeg.c.o
+#20 489.2 [ 17%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/structurally_valid.cc.o
+#20 491.3 [ 17%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/picture_tools_enc.c.o
+#20 491.6 [ 17%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/predictor_enc.c.o
+#20 501.4 [ 18%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/strutil.cc.o
+#20 505.1 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_luv.c.o
+#20 505.8 [ 18%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/quant_enc.c.o
+#20 509.9 [ 18%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/node.cpp.o
+#20 514.1 [ 18%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngrutil.c.o
+#20 516.4 [ 18%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/wire_format_lite.cc.o
+#20 517.6 /src/opencv/3rdparty/libpng/pngrutil.c:3554:20: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 517.6                    png_isaligned(dp, png_uint_16) &&
+#20 517.6                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 517.6 /src/opencv/3rdparty/libpng/pngpriv.h:606:29: note: expanded from macro 'png_isaligned'
+#20 517.6    (((type)((const char*)ptr-(const char*)0) & \
+#20 517.6                             ^~~~~~~~~~~~~~~
+#20 517.6 /src/opencv/3rdparty/libpng/pngrutil.c:3555:20: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 517.6                    png_isaligned(sp, png_uint_16) &&
+#20 517.6                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 517.6 /src/opencv/3rdparty/libpng/pngpriv.h:606:29: note: expanded from macro 'png_isaligned'
+#20 517.6    (((type)((const char*)ptr-(const char*)0) & \
+#20 517.6                             ^~~~~~~~~~~~~~~
+#20 517.6 /src/opencv/3rdparty/libpng/pngrutil.c:3562:23: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 517.6                   if (png_isaligned(dp, png_uint_32) &&
+#20 517.6                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 517.6 /src/opencv/3rdparty/libpng/pngpriv.h:606:29: note: expanded from macro 'png_isaligned'
+#20 517.6    (((type)((const char*)ptr-(const char*)0) & \
+#20 517.6                             ^~~~~~~~~~~~~~~
+#20 517.6 /src/opencv/3rdparty/libpng/pngrutil.c:3563:23: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 517.6                       png_isaligned(sp, png_uint_32) &&
+#20 517.6                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 517.6 /src/opencv/3rdparty/libpng/pngpriv.h:606:29: note: expanded from macro 'png_isaligned'
+#20 517.6    (((type)((const char*)ptr-(const char*)0) & \
+#20 517.6                             ^~~~~~~~~~~~~~~
+#20 518.1 /src/opencv/3rdparty/libpng/pngrutil.c:4622:34: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 518.1          int extra = (int)((temp - (png_bytep)0) & 0x0f);
+#20 518.1                                  ^ ~~~~~~~~~~~~
+#20 518.1 /src/opencv/3rdparty/libpng/pngrutil.c:4626:30: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 518.2          extra = (int)((temp - (png_bytep)0) & 0x0f);
+#20 518.2                              ^ ~~~~~~~~~~~~
+#20 518.6 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_lzma.c.o
+#20 519.1 [ 18%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/any.cc.o
+#20 519.5 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_lzw.c.o
+#20 521.6 [ 18%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/syntax_enc.c.o
+#20 524.9 [ 18%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/token_enc.c.o
+#20 525.7 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_next.c.o
+#20 527.2 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_ojpeg.c.o
+#20 528.2 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_open.c.o
+#20 529.8 [ 18%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/tree_enc.c.o
+#20 531.2 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_packbits.c.o
+#20 532.1 [ 18%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/vp8l_enc.c.o
+#20 534.5 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_pixarlog.c.o
+#20 535.4 [ 18%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_predict.c.o
+#20 537.1 6 warnings generated.
+#20 537.3 [ 19%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngset.c.o
+#20 538.3 [ 19%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/passes/communications.cpp.o
+#20 543.8 [ 19%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_print.c.o
+#20 545.4 [ 19%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngtrans.c.o
+#20 549.3 [ 19%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_read.c.o
+#20 551.7 [ 19%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngwio.c.o
+#20 553.1 [ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/array.cpp.o
+#20 553.7 [ 20%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngwrite.c.o
+#20 555.5 [ 20%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_strip.c.o
+#20 555.9 [ 20%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor.cc.o
+#20 556.3 [ 20%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/search.cpp.o
+#20 557.3 [ 20%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/enc/webp_enc.c.o
+#20 557.5 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_swab.c.o
+#20 558.6 [ 21%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/anim_encode.c.o
+#20 559.5 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_thunder.c.o
+#20 561.7 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_tile.c.o
+#20 564.0 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_version.c.o
+#20 564.8 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_warning.c.o
+#20 565.9 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_webp.c.o
+#20 565.9 [ 21%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngwtran.c.o
+#20 566.8 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_write.c.o
+#20 570.2 [ 21%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxedit.c.o
+#20 571.1 [ 21%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/pngwutil.c.o
+#20 571.3 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_zip.c.o
+#20 574.0 [ 21%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_zstd.c.o
+#20 574.9 [ 21%] Building CXX object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_stream.cxx.o
+#20 575.5 [ 21%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxinternal.c.o
+#20 580.6 [ 21%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/mux/muxread.c.o
+#20 585.0 [ 21%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/bit_reader_utils.c.o
+#20 587.5 [ 21%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/bit_writer_utils.c.o
+#20 590.5 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/color_cache_utils.c.o
+#20 591.0 [ 22%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/intel/intel_init.c.o
+#20 591.5 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/filters_utils.c.o
+#20 592.4 [ 22%] Building C object 3rdparty/libpng/CMakeFiles/libpng.dir/intel/filter_sse2_intrinsics.c.o
+#20 593.5 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/huffman_encode_utils.c.o
+#20 593.7 [ 22%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/subgraphs.cpp.o
+#20 598.1 [ 22%] Building C object 3rdparty/libtiff/CMakeFiles/libtiff.dir/tif_unix.c.o
+#20 599.6 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/huffman_utils.c.o
+#20 600.3 [ 22%] Linking CXX static library ../lib/liblibtiff.a
+#20 600.8 [ 22%] Built target libtiff
+#20 601.3 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Half/half.cpp.o
+#20 602.9 [ 22%] Linking C static library ../lib/liblibpng.a
+#20 603.0 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/quant_levels_dec_utils.c.o
+#20 603.4 [ 22%] Built target libpng
+#20 603.5 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/quant_levels_utils.c.o
+#20 605.4 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/random_utils.c.o
+#20 606.0 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/rescaler_utils.c.o
+#20 607.5 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/thread_utils.c.o
+#20 607.9 [ 22%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/src/utils/utils.c.o
+#20 609.0 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Iex/IexBaseExc.cpp.o
+#20 609.4 [ 22%] Linking C static library ../lib/liblibwebp.a
+#20 610.0 [ 22%] Built target libwebp
+#20 610.1 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Iex/IexThrowErrnoExc.cpp.o
+#20 632.0 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfAcesFile.cpp.o
+#20 635.2 [ 22%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/async.cpp.o
+#20 637.1 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfAttribute.cpp.o
+#20 637.3 [ 22%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/batch_distance.cpp.o
+#20 637.7 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfB44Compressor.cpp.o
+#20 641.7 [ 22%] Building CXX object CMakeFiles/ade.dir/3rdparty/ade/ade-0.1.1f/sources/ade/source/topological_sort.cpp.o
+#20 663.2 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfBoxAttribute.cpp.o
+#20 663.5 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfCRgbaFile.cpp.o
+#20 666.1 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfChannelList.cpp.o
+#20 679.6 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfChannelListAttribute.cpp.o
+#20 682.7 [ 22%] Linking CXX static library 3rdparty/lib/libade.a
+#20 683.0 [ 22%] Built target ade
+#20 683.0 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfChromaticities.cpp.o
+#20 685.4 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfChromaticitiesAttribute.cpp.o
+#20 692.3 [ 22%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/bindings_utils.cpp.o
+#20 701.7 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfCompositeDeepScanLine.cpp.o
+#20 702.9 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfCompressionAttribute.cpp.o
+#20 703.0 [ 22%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/buffer_area.cpp.o
+#20 706.4 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfCompressor.cpp.o
+#20 707.5 [ 22%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfConvert.cpp.o
+#20 710.0 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepCompositing.cpp.o
+#20 724.9 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepFrameBuffer.cpp.o
+#20 725.8 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepImageStateAttribute.cpp.o
+#20 725.8 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/channels.cpp.o
+#20 734.3 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/check.cpp.o
+#20 745.9 [ 23%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor.pb.cc.o
+#20 746.6 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepScanLineInputFile.cpp.o
+#20 749.8 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepScanLineInputPart.cpp.o
+#20 751.4 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/command_line_parser.cpp.o
+#20 762.6 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepScanLineOutputFile.cpp.o
+#20 775.1 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepScanLineOutputPart.cpp.o
+#20 793.5 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/conjugate_gradient.cpp.o
+#20 796.3 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/convert.dispatch.cpp.o
+#20 800.5 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepTiledInputFile.cpp.o
+#20 811.7 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepTiledInputPart.cpp.o
+#20 824.8 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepTiledOutputFile.cpp.o
+#20 835.2 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/convert_c.cpp.o
+#20 838.3 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDeepTiledOutputPart.cpp.o
+#20 839.1 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/convert_scale.dispatch.cpp.o
+#20 863.3 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDoubleAttribute.cpp.o
+#20 863.4 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfDwaCompressor.cpp.o
+#20 882.5 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfEnvmap.cpp.o
+#20 891.6 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/copy.cpp.o
+#20 893.7 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfEnvmapAttribute.cpp.o
+#20 901.9 [ 23%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/count_non_zero.dispatch.cpp.o
+#20 906.3 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfFastHuf.cpp.o
+#20 914.1 [ 23%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfFloatAttribute.cpp.o
+#20 922.7 [ 23%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/descriptor_database.cc.o
+#20 932.9 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfFloatVectorAttribute.cpp.o
+#20 934.5 [ 24%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_gpu_mat.cpp.o
+#20 935.4 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfFrameBuffer.cpp.o
+#20 935.9 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfFramesPerSecond.cpp.o
+#20 936.9 [ 24%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/dynamic_message.cc.o
+#20 954.6 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfGenericInputFile.cpp.o
+#20 960.8 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfGenericOutputFile.cpp.o
+#20 964.9 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfHeader.cpp.o
+#20 974.7 [ 24%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_gpu_mat_nd.cpp.o
+#20 981.0 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfHuf.cpp.o
+#20 981.4 [ 24%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_host_mem.cpp.o
+#20 987.3 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfIO.cpp.o
+#20 993.5 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfInputFile.cpp.o
+#20 1003.4 [ 24%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/extension_set_heavy.cc.o
+#20 1007.0 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfInputPart.cpp.o
+#20 1010.2 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfInputPartData.cpp.o
+#20 1025.0 [ 24%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfIntAttribute.cpp.o
+#20 1030.9 [ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_info.cpp.o
+#20 1031.9 [ 25%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfKeyCode.cpp.o
+#20 1036.4 [ 25%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfKeyCodeAttribute.cpp.o
+#20 1038.1 [ 25%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfLineOrderAttribute.cpp.o
+#20 1038.7 [ 25%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/generated_message_reflection.cc.o
+#20 1043.0 [ 25%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfLut.cpp.o
+#20 1043.5 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfMatrixAttribute.cpp.o
+#20 1049.9 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfMisc.cpp.o
+#20 1056.2 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfMultiPartInputFile.cpp.o
+#20 1060.4 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfMultiPartOutputFile.cpp.o
+#20 1067.7 [ 26%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/io/tokenizer.cc.o
+#20 1068.3 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfMultiView.cpp.o
+#20 1071.8 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfOpaqueAttribute.cpp.o
+#20 1077.4 [ 26%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_stream.cpp.o
+#20 1097.2 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfOutputFile.cpp.o
+#20 1100.7 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfOutputPart.cpp.o
+#20 1113.1 [ 26%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/map_field.cc.o
+#20 1114.8 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfOutputPartData.cpp.o
+#20 1119.3 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfPartType.cpp.o
+#20 1121.0 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfPizCompressor.cpp.o
+#20 1125.1 [ 26%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/datastructs.cpp.o
+#20 1127.0 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfPreviewImage.cpp.o
+#20 1135.9 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfPreviewImageAttribute.cpp.o
+#20 1139.0 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfPxr24Compressor.cpp.o
+#20 1149.2 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfRational.cpp.o
+#20 1151.5 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfRationalAttribute.cpp.o
+#20 1152.4 [ 26%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfRgbaFile.cpp.o
+#20 1155.6 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfRgbaYca.cpp.o
+#20 1158.9 [ 27%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/message.cc.o
+#20 1159.1 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfRle.cpp.o
+#20 1160.2 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfRleCompressor.cpp.o
+#20 1171.0 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfScanLineInputFile.cpp.o
+#20 1171.6 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfStandardAttributes.cpp.o
+#20 1182.6 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfStdIO.cpp.o
+#20 1184.1 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfStringAttribute.cpp.o
+#20 1184.9 [ 27%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/reflection_ops.cc.o
+#20 1187.1 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfStringVectorAttribute.cpp.o
+#20 1206.8 [ 27%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/directx.cpp.o
+#20 1207.4 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfSystemSpecific.cpp.o
+#20 1210.1 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTestFile.cpp.o
+#20 1212.7 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfThreading.cpp.o
+#20 1213.1 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTileDescriptionAttribute.cpp.o
+#20 1221.4 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTileOffsets.cpp.o
+#20 1223.4 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTiledInputFile.cpp.o
+#20 1229.7 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTiledInputPart.cpp.o
+#20 1233.2 [ 27%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTiledMisc.cpp.o
+#20 1235.9 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTiledOutputFile.cpp.o
+#20 1245.5 [ 28%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/stubs/substitute.cc.o
+#20 1247.4 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTiledOutputPart.cpp.o
+#20 1255.3 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTiledRgbaFile.cpp.o
+#20 1258.7 [ 28%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/downhill_simplex.cpp.o
+#20 1262.0 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTimeCode.cpp.o
+#20 1264.3 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfTimeCodeAttribute.cpp.o
+#20 1273.5 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfVecAttribute.cpp.o
+#20 1273.7 [ 28%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/text_format.cc.o
+#20 1279.9 [ 28%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/unknown_field_set.cc.o
+#20 1282.7 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfVersion.cpp.o
+#20 1283.1 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfWav.cpp.o
+#20 1284.9 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfZip.cpp.o
+#20 1285.3 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/ImfZipCompressor.cpp.o
+#20 1295.7 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmImf/dwaLookups.cpp.o
+#20 1300.3 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThread.cpp.o
+#20 1304.9 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThreadMutex.cpp.o
+#20 1305.3 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThreadMutexPosix.cpp.o
+#20 1305.6 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThreadPool.cpp.o
+#20 1308.2 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThreadPosix.cpp.o
+#20 1308.4 [ 28%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThreadSemaphore.cpp.o
+#20 1308.6 [ 29%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThreadSemaphorePosix.cpp.o
+#20 1310.0 [ 29%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/IlmThread/IlmThreadSemaphorePosixCompat.cpp.o
+#20 1310.3 [ 29%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Imath/ImathBox.cpp.o
+#20 1318.3 [ 29%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/dxt.cpp.o
+#20 1321.3 [ 29%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Imath/ImathColorAlgo.cpp.o
+#20 1323.2 [ 29%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Imath/ImathFun.cpp.o
+#20 1324.0 [ 29%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Imath/ImathMatrixAlgo.cpp.o
+#20 1326.8 [ 30%] Building CXX object 3rdparty/protobuf/CMakeFiles/libprotobuf.dir/src/google/protobuf/wire_format.cc.o
+#20 1328.7 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/gl_core_3_1.cpp.o
+#20 1330.7 [ 30%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Imath/ImathRandom.cpp.o
+#20 1332.6 [ 30%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Imath/ImathShear.cpp.o
+#20 1334.4 [ 30%] Building CXX object 3rdparty/openexr/CMakeFiles/IlmImf.dir/Imath/ImathVec.cpp.o
+#20 1341.8 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/glob.cpp.o
+#20 1354.2 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/hal_internal.cpp.o
+#20 1362.3 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/kmeans.cpp.o
+#20 1370.5 [ 30%] Linking CXX static library ../lib/libIlmImf.a
+#20 1371.2 [ 30%] Built target IlmImf
+#20 1371.3 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/lapack.cpp.o
+#20 1386.2 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/lda.cpp.o
+#20 1396.7 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/logger.cpp.o
+#20 1405.7 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/lpsolver.cpp.o
+#20 1409.7 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/lut.cpp.o
+#20 1424.4 [ 30%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/mathfuncs.cpp.o
+#20 1438.8 [ 30%] Linking CXX static library ../lib/liblibprotobuf.a
+#20 1439.3 [ 30%] Built target libprotobuf
+#20 1439.3 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/mathfuncs_core.dispatch.cpp.o
+#20 1458.9 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matmul.dispatch.cpp.o
+#20 1463.8 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix.cpp.o
+#20 1466.6 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_c.cpp.o
+#20 1466.9 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_decomp.cpp.o
+#20 1469.1 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_expressions.cpp.o
+#20 1469.3 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_iterator.cpp.o
+#20 1495.5 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_operations.cpp.o
+#20 1516.5 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_sparse.cpp.o
+#20 1522.3 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_transform.cpp.o
+#20 1522.8 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix_wrap.cpp.o
+#20 1531.5 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/mean.dispatch.cpp.o
+#20 1537.4 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/merge.dispatch.cpp.o
+#20 1550.2 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/minmax.cpp.o
+#20 1604.1 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/norm.cpp.o
+#20 1612.4 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/ocl.cpp.o
+#20 1613.4 [ 31%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opencl/runtime/opencl_clblas.cpp.o
+#20 1615.3 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opencl/runtime/opencl_clfft.cpp.o
+#20 1647.2 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opencl/runtime/opencl_core.cpp.o
+#20 1648.9 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opengl.cpp.o
+#20 1660.6 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/out.cpp.o
+#20 1661.6 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/ovx.cpp.o
+#20 1696.1 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/parallel.cpp.o
+#20 1698.1 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/parallel/parallel.cpp.o
+#20 1698.3 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/parallel/parallel_openmp.cpp.o
+#20 1700.1 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/parallel/parallel_tbb.cpp.o
+#20 1700.2 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/parallel_impl.cpp.o
+#20 1711.3 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/pca.cpp.o
+#20 1715.1 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/persistence.cpp.o
+#20 1747.2 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/persistence_base64_encoding.cpp.o
+#20 1748.8 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/persistence_json.cpp.o
+#20 1760.6 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/persistence_types.cpp.o
+#20 1761.9 [ 32%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/persistence_xml.cpp.o
+#20 1768.8 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/persistence_yml.cpp.o
+#20 1801.3 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/rand.cpp.o
+#20 1801.7 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/softfloat.cpp.o
+#20 1812.7 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/split.dispatch.cpp.o
+#20 1822.3 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/stat.dispatch.cpp.o
+#20 1824.7 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/stat_c.cpp.o
+#20 1827.5 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/stl.cpp.o
+#20 1846.0 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/sum.dispatch.cpp.o
+#20 1867.5 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/system.cpp.o
+#20 1872.0 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/tables.cpp.o
+#20 1873.4 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/trace.cpp.o
+#20 1874.9 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/types.cpp.o
+#20 1877.5 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/umatrix.cpp.o
+#20 1878.6 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/utils/datafile.cpp.o
+#20 1887.4 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/utils/filesystem.cpp.o
+#20 1914.1 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/utils/logtagconfigparser.cpp.o
+#20 1918.7 [ 33%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/utils/logtagmanager.cpp.o
+#20 1927.5 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/utils/samples.cpp.o
+#20 1950.8 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/va_intel.cpp.o
+#20 1952.5 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/opencl_kernels_core.cpp.o
+#20 1961.0 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/arithm.sse4_1.cpp.o
+#20 1963.9 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/matmul.sse4_1.cpp.o
+#20 1963.9 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/stat.sse4_2.cpp.o
+#20 1974.1 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/mathfuncs_core.avx.cpp.o
+#20 1985.9 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/mathfuncs_core.avx2.cpp.o
+#20 1988.5 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/stat.avx2.cpp.o
+#20 1995.1 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/arithm.avx2.cpp.o
+#20 2001.6 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/convert.avx2.cpp.o
+#20 2015.3 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/convert_scale.avx2.cpp.o
+#20 2041.5 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/count_non_zero.avx2.cpp.o
+#20 2057.2 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/matmul.avx2.cpp.o
+#20 2060.9 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/mean.avx2.cpp.o
+#20 2109.7 [ 34%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/merge.avx2.cpp.o
+#20 2116.4 [ 35%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/split.avx2.cpp.o
+#20 2119.6 [ 35%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/sum.avx2.cpp.o
+#20 2129.4 [ 35%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/matmul.avx512_skx.cpp.o
+#20 2209.1 [ 35%] Linking CXX static library ../../lib/libopencv_core.a
+#20 2209.4 [ 35%] Built target opencv_core
+#20 2209.4 [ 35%] Processing OpenCL kernels (imgproc)
+#20 2209.4 [ 35%] Building CXX object modules/flann/CMakeFiles/opencv_flann.dir/src/flann.cpp.o
+#20 2209.4 [ 35%] Building CXX object apps/version/CMakeFiles/opencv_version.dir/opencv_version.cpp.o
+#20 2209.5 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/ann_mlp.cpp.o
+#20 2209.5 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/boost.cpp.o
+#20 2209.5 [ 35%] Building CXX object modules/flann/CMakeFiles/opencv_flann.dir/src/miniflann.cpp.o
+#20 2209.5 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/data.cpp.o
+#20 2209.5 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/em.cpp.o
+#20 2211.6 [ 35%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/accum.cpp.o
+#20 2240.3 In file included from /src/opencv/modules/flann/src/flann.cpp:29:
+#20 2240.3 In file included from /src/opencv/modules/flann/src/precomp.hpp:13:
+#20 2240.3 /src/opencv/modules/flann/include/opencv2/flann/index_testing.h:249:11: warning: variable 'p1' set but not used [-Wunused-but-set-variable]
+#20 2240.3     float p1;
+#20 2240.3           ^
+#20 2242.7 In file included from /src/opencv/modules/flann/src/miniflann.cpp:1:
+#20 2242.7 In file included from /src/opencv/modules/flann/src/precomp.hpp:13:
+#20 2242.7 /src/opencv/modules/flann/include/opencv2/flann/index_testing.h:249:11: warning: variable 'p1' set but not used [-Wunused-but-set-variable]
+#20 2242.7     float p1;
+#20 2242.7           ^
+#20 2255.1 1 warning generated.
+#20 2255.3 [ 35%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/accum.dispatch.cpp.o
+#20 2259.7 [ 35%] Linking CXX executable ../../bin/opencv_version
+#20 2264.3 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/gbt.cpp.o
+#20 2269.2 [ 35%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/approx.cpp.o
+#20 2278.6 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/inner_functions.cpp.o
+#20 2282.8 [ 35%] Built target opencv_version
+#20 2282.9 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/kdtree.cpp.o
+#20 2302.3 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/knearest.cpp.o
+#20 2303.5 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/lr.cpp.o
+#20 2309.7 [ 35%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/nbayes.cpp.o
+#20 2321.2 [ 35%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/bilateral_filter.dispatch.cpp.o
+#20 2322.0 /src/opencv/modules/ml/src/kdtree.cpp:123:19: warning: variable 'more' set but not used [-Wunused-but-set-variable]
+#20 2322.0     int less = 0, more = 0;
+#20 2322.0                   ^
+#20 2322.0 /src/opencv/modules/ml/src/kdtree.cpp:123:9: warning: variable 'less' set but not used [-Wunused-but-set-variable]
+#20 2322.0     int less = 0, more = 0;
+#20 2322.0         ^
+#20 2328.6 [ 36%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/rtrees.cpp.o
+#20 2339.5 2 warnings generated.
+#20 2339.7 [ 36%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/svm.cpp.o
+#20 2358.5 [ 36%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/svmsgd.cpp.o
+#20 2361.7 [ 36%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/testset.cpp.o
+#20 2372.4 [ 36%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/tree.cpp.o
+#20 2376.3 [ 36%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/blend.cpp.o
+#20 2391.0 [ 36%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/box_filter.dispatch.cpp.o
+#20 2407.3 [ 36%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/canny.cpp.o
+#20 2410.7 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/clahe.cpp.o
+#20 2415.8 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/color.cpp.o
+#20 2434.4 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/color_hsv.dispatch.cpp.o
+#20 2444.6 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/color_lab.cpp.o
+#20 2461.8 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/color_rgb.dispatch.cpp.o
+#20 2466.1 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/color_yuv.dispatch.cpp.o
+#20 2494.0 [ 37%] Linking CXX static library ../../lib/libopencv_ml.a
+#20 2494.4 [ 37%] Built target opencv_ml
+#20 2494.5 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/colormap.cpp.o
+#20 2498.4 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/connectedcomponents.cpp.o
+#20 2508.2 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/contours.cpp.o
+#20 2537.9 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/convhull.cpp.o
+#20 2552.0 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/corner.cpp.o
+#20 2559.4 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/cornersubpix.cpp.o
+#20 2574.4 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/demosaicing.cpp.o
+#20 2586.9 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/deriv.cpp.o
+#20 2600.5 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/distransform.cpp.o
+#20 2607.8 [ 37%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/drawing.cpp.o
+#20 2611.1 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/emd.cpp.o
+#20 2625.0 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/featureselect.cpp.o
+#20 2639.1 1 warning generated.
+#20 2639.3 [ 38%] Linking CXX static library ../../lib/libopencv_flann.a
+#20 2639.6 [ 38%] Built target opencv_flann
+#20 2639.6 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/filter.dispatch.cpp.o
+#20 2645.9 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/floodfill.cpp.o
+#20 2659.9 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/gabor.cpp.o
+#20 2662.7 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/generalized_hough.cpp.o
+#20 2669.6 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/geometry.cpp.o
+#20 2688.9 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/grabcut.cpp.o
+#20 2703.1 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/hershey_fonts.cpp.o
+#20 2706.2 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/histogram.cpp.o
+#20 2722.5 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/hough.cpp.o
+#20 2739.1 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/imgwarp.cpp.o
+#20 2750.8 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/intelligent_scissors.cpp.o
+#20 2760.0 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/intersection.cpp.o
+#20 2761.3 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/linefit.cpp.o
+#20 2810.3 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/lsd.cpp.o
+#20 2811.7 [ 38%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/main.cpp.o
+#20 2812.2 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/matchcontours.cpp.o
+#20 2842.5 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/median_blur.dispatch.cpp.o
+#20 2854.1 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/min_enclosing_triangle.cpp.o
+#20 2859.1 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/moments.cpp.o
+#20 2867.0 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/morph.dispatch.cpp.o
+#20 2882.3 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/phasecorr.cpp.o
+#20 2910.9 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/pyramids.cpp.o
+#20 2912.4 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/resize.cpp.o
+#20 2940.5 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/rotcalipers.cpp.o
+#20 2946.5 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/samplers.cpp.o
+#20 2949.3 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/segmentation.cpp.o
+#20 2952.8 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/shapedescr.cpp.o
+#20 2986.6 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/smooth.dispatch.cpp.o
+#20 3001.6 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/spatialgradient.cpp.o
+#20 3009.2 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/subdivision2d.cpp.o
+#20 3021.5 [ 39%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/sumpixels.dispatch.cpp.o
+#20 3037.4 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/tables.cpp.o
+#20 3048.2 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/templmatch.cpp.o
+#20 3065.0 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/thresh.cpp.o
+#20 3074.7 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/utils.cpp.o
+#20 3090.0 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/opencl_kernels_imgproc.cpp.o
+#20 3119.1 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/imgwarp.sse4_1.cpp.o
+#20 3119.5 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/resize.sse4_1.cpp.o
+#20 3124.3 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/accum.sse4_1.cpp.o
+#20 3137.6 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/box_filter.sse4_1.cpp.o
+#20 3147.3 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/filter.sse4_1.cpp.o
+#20 3158.6 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/color_hsv.sse4_1.cpp.o
+#20 3165.5 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/color_rgb.sse4_1.cpp.o
+#20 3175.2 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/color_yuv.sse4_1.cpp.o
+#20 3214.8 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/median_blur.sse4_1.cpp.o
+#20 3231.8 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/morph.sse4_1.cpp.o
+#20 3241.6 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/smooth.sse4_1.cpp.o
+#20 3242.9 [ 40%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/corner.avx.cpp.o
+#20 3283.4 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/accum.avx.cpp.o
+#20 3291.4 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/imgwarp.avx2.cpp.o
+#20 3301.5 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/resize.avx2.cpp.o
+#20 3311.2 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/accum.avx2.cpp.o
+#20 3348.9 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/bilateral_filter.avx2.cpp.o
+#20 3359.4 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/box_filter.avx2.cpp.o
+#20 3394.0 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/filter.avx2.cpp.o
+#20 3401.3 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/color_hsv.avx2.cpp.o
+#20 3427.5 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/color_rgb.avx2.cpp.o
+#20 3431.6 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/color_yuv.avx2.cpp.o
+#20 3441.5 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/median_blur.avx2.cpp.o
+#20 3442.8 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/morph.avx2.cpp.o
+#20 3447.6 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/smooth.avx2.cpp.o
+#20 3487.6 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/sumpixels.avx2.cpp.o
+#20 3523.8 [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/sumpixels.avx512_skx.cpp.o
+#20 3614.0 [ 41%] Linking CXX static library ../../lib/libopencv_imgproc.a
+#20 3614.2 [ 41%] Built target opencv_imgproc
+#20 3614.2 [ 41%] Processing OpenCL kernels (photo)
+#20 3614.2 [ 41%] Processing OpenCL kernels (features2d)
+#20 3614.2 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/loadsave.cpp.o
+#20 3614.3 [ 41%] Processing OpenCL kernels (dnn)
+#20 3614.3 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/utils.cpp.o
+#20 3614.3 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/align.cpp.o
+#20 3614.3 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/contrast_preserve.cpp.o
+#20 3614.3 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/calibrate.cpp.o
+#20 3614.4 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_base.cpp.o
+#20 3614.7 [ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/affine_feature.cpp.o
+#20 3615.2 [ 41%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/caffe/opencv-caffe.pb.cc.o
+#20 3661.6 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_bmp.cpp.o
+#20 3663.8 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_exr.cpp.o
+#20 3668.1 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/denoise_tvl1.cpp.o
+#20 3671.6 [ 41%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/onnx/opencv-onnx.pb.cc.o
+#20 3675.1 [ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/agast.cpp.o
+#20 3678.4 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/denoising.cpp.o
+#20 3713.4 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_gdal.cpp.o
+#20 3716.3 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/denoising.cuda.cpp.o
+#20 3716.6 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_gdcm.cpp.o
+#20 3736.3 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_hdr.cpp.o
+#20 3749.9 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/hdr_common.cpp.o
+#20 3759.9 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_jpeg.cpp.o
+#20 3760.3 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/inpaint.cpp.o
+#20 3781.5 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_jpeg2000.cpp.o
+#20 3782.6 [ 41%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/attr_value.pb.cc.o
+#20 3789.3 [ 41%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/merge.cpp.o
+#20 3809.9 [ 41%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_jpeg2000_openjpeg.cpp.o
+#20 3817.4 [ 41%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/function.pb.cc.o
+#20 3843.2 [ 42%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/npr.cpp.o
+#20 3855.5 [ 42%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/graph.pb.cc.o
+#20 3878.1 [ 42%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/op_def.pb.cc.o
+#20 3878.3 [ 42%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_pam.cpp.o
+#20 3888.9 [ 42%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/agast_score.cpp.o
+#20 3909.6 [ 42%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_pfm.cpp.o
+#20 3913.7 [ 42%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/tensor.pb.cc.o
+#20 3934.9 [ 43%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_png.cpp.o
+#20 3948.0 [ 43%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/tensor_shape.pb.cc.o
+#20 3950.3 [ 43%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/types.pb.cc.o
+#20 3962.3 [ 43%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_pxm.cpp.o
+#20 3969.2 [ 43%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/misc/tensorflow/versions.pb.cc.o
+#20 3981.1 [ 43%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/seamless_cloning.cpp.o
+#20 3985.9 [ 43%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_sunras.cpp.o
+#20 3986.0 [ 43%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/caffe/caffe_importer.cpp.o
+#20 3988.0 [ 43%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/caffe/caffe_io.cpp.o
+#20 4012.6 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/caffe/caffe_shrinker.cpp.o
+#20 4014.2 [ 44%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/akaze.cpp.o
+#20 4028.7 [ 44%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/seamless_cloning_impl.cpp.o
+#20 4033.4 [ 44%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_tiff.cpp.o
+#20 4049.1 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/darknet/darknet_importer.cpp.o
+#20 4060.2 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/darknet/darknet_io.cpp.o
+#20 4075.3 [ 44%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/tonemap.cpp.o
+#20 4105.3 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/debug_utils.cpp.o
+#20 4114.9 [ 44%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_webp.cpp.o
+#20 4123.9 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/dnn.cpp.o
+#20 4125.4 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/graph_simplifier.cpp.o
+#20 4127.2 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/halide_scheduler.cpp.o
+#20 4138.8 [ 44%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/opencl_kernels_photo.cpp.o
+#20 4167.4 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ie_ngraph.cpp.o
+#20 4172.1 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/init.cpp.o
+#20 4177.2 [ 44%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/bitstrm.cpp.o
+#20 4177.4 [ 44%] Linking CXX static library ../../lib/libopencv_photo.a
+#20 4177.9 [ 44%] Built target opencv_photo
+#20 4178.0 [ 44%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/rgbe.cpp.o
+#20 4188.9 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/batch_norm_layer.cpp.o
+#20 4198.5 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/convolution_layer.cpp.o
+#20 4214.4 [ 44%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/elementwise_layers.cpp.o
+#20 4220.3 [ 44%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/exif.cpp.o
+#20 4225.4 [ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/bagofwords.cpp.o
+#20 4227.0 [ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/blobdetector.cpp.o
+#20 4238.5 [ 45%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/eltwise_layer.cpp.o
+#20 4246.6 [ 45%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/fully_connected_layer.cpp.o
+#20 4268.3 [ 45%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/pooling_layer.cpp.o
+#20 4276.5 [ 45%] Linking CXX static library ../../lib/libopencv_imgcodecs.a
+#20 4277.2 [ 45%] Built target opencv_imgcodecs
+#20 4277.4 [ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/brisk.cpp.o
+#20 4278.3 [ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/draw.cpp.o
+#20 4290.4 [ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/dynamic.cpp.o
+#20 4298.0 [ 45%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/quantization_utils.cpp.o
+#20 4303.6 [ 45%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/scale_layer.cpp.o
+#20 4319.6 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/int8layers/softmax_layer.cpp.o
+#20 4326.7 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/evaluation.cpp.o
+#20 4332.5 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/fast.cpp.o
+#20 4353.0 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/accum_layer.cpp.o
+#20 4362.3 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/arg_layer.cpp.o
+#20 4367.6 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/fast_score.cpp.o
+#20 4370.5 /src/opencv/modules/features2d/src/evaluation.cpp:317:21: warning: definition of implicit copy constructor for 'UsedFinder' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+#20 4370.6         UsedFinder& operator=(const UsedFinder&) = delete;
+#20 4370.6                     ^
+#20 4370.6 /src/opencv/modules/features2d/src/evaluation.cpp:390:40: note: in implicit copy constructor for 'SIdx::UsedFinder' first required here
+#20 4370.6         end = std::remove_if(pos, end, SIdx::UsedFinder(*prev));
+#20 4370.6                                        ^
+#20 4379.5 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/batch_norm_layer.cpp.o
+#20 4383.7 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/blank_layer.cpp.o
+#20 4401.7 1 warning generated.
+#20 4402.0 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/feature2d.cpp.o
+#20 4404.8 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/gftt.cpp.o
+#20 4414.2 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/concat_layer.cpp.o
+#20 4416.8 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze.cpp.o
+#20 4422.4 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/const_layer.cpp.o
+#20 4437.9 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/convolution_layer.cpp.o
+#20 4448.6 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/correlation_layer.cpp.o
+#20 4450.5 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/AKAZEFeatures.cpp.o
+#20 4454.4 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/KAZEFeatures.cpp.o
+#20 4458.4 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/fed.cpp.o
+#20 4478.0 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/crop_and_resize_layer.cpp.o
+#20 4488.0 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/cumsum_layer.cpp.o
+#20 4496.3 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/detection_output_layer.cpp.o
+#20 4502.1 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/nldiffusion_functions.cpp.o
+#20 4505.7 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/elementwise_layers.cpp.o
+#20 4520.8 [ 46%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/keypoint.cpp.o
+#20 4531.4 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/eltwise_layer.cpp.o
+#20 4541.1 [ 46%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/flatten_layer.cpp.o
+#20 4547.1 [ 47%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/main.cpp.o
+#20 4555.7 [ 47%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/matchers.cpp.o
+#20 4558.7 /src/opencv/modules/features2d/src/keypoint.cpp:154:20: warning: definition of implicit copy constructor for 'MaskPredicate' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+#20 4558.7     MaskPredicate& operator=(const MaskPredicate&) = delete;
+#20 4558.7                    ^
+#20 4558.7 /src/opencv/modules/features2d/src/keypoint.cpp:164:72: note: in implicit copy constructor for 'cv::MaskPredicate' first required here
+#20 4558.7     keypoints.erase(std::remove_if(keypoints.begin(), keypoints.end(), MaskPredicate(mask)), keypoints.end());
+#20 4558.7                                                                        ^
+#20 4584.7 1 warning generated.
+#20 4584.9 [ 47%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/mser.cpp.o
+#20 4585.4 [ 47%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/flow_warp_layer.cpp.o
+#20 4588.3 [ 47%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/orb.cpp.o
+#20 4602.0 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/fully_connected_layer.cpp.o
+#20 4620.6 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/layers_common.cpp.o
+#20 4628.6 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/lrn_layer.cpp.o
+#20 4639.7 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/max_unpooling_layer.cpp.o
+#20 4648.5 [ 48%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/sift.dispatch.cpp.o
+#20 4657.9 [ 48%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/opencl_kernels_features2d.cpp.o
+#20 4666.9 [ 48%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/sift.sse4_1.cpp.o
+#20 4680.3 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/mvn_layer.cpp.o
+#20 4688.2 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/normalize_bbox_layer.cpp.o
+#20 4691.8 [ 48%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/fast.avx2.cpp.o
+#20 4697.9 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/not_implemented_layer.cpp.o
+#20 4698.4 [ 48%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/sift.avx2.cpp.o
+#20 4730.9 [ 48%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/sift.avx512_skx.cpp.o
+#20 4732.9 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/padding_layer.cpp.o
+#20 4741.0 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/permute_layer.cpp.o
+#20 4746.8 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/pooling_layer.cpp.o
+#20 4755.8 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/prior_box_layer.cpp.o
+#20 4756.4 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/proposal_layer.cpp.o
+#20 4757.2 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/recurrent_layers.cpp.o
+#20 4782.3 [ 48%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/videoio_registry.cpp.o
+#20 4803.7 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/region_layer.cpp.o
+#20 4812.2 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/reorg_layer.cpp.o
+#20 4819.2 [ 48%] Linking CXX static library ../../lib/libopencv_features2d.a
+#20 4819.7 [ 48%] Built target opencv_features2d
+#20 4819.8 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/reshape_layer.cpp.o
+#20 4828.6 [ 48%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/resize_layer.cpp.o
+#20 4844.6 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/scale_layer.cpp.o
+#20 4847.8 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/shuffle_channel_layer.cpp.o
+#20 4848.1 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/slice_layer.cpp.o
+#20 4855.2 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/videoio_c.cpp.o
+#20 4869.6 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/softmax_layer.cpp.o
+#20 4871.5 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap.cpp.o
+#20 4895.7 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/layers/split_layer.cpp.o
+#20 4902.8 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_images.cpp.o
+#20 4904.7 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/model.cpp.o
+#20 4908.0 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/nms.cpp.o
+#20 4922.0 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ocl4dnn/src/common.cpp.o
+#20 4934.9 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ocl4dnn/src/math_functions.cpp.o
+#20 4938.4 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ocl4dnn/src/ocl4dnn_conv_spatial.cpp.o
+#20 4949.2 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_mjpeg_encoder.cpp.o
+#20 4955.0 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ocl4dnn/src/ocl4dnn_inner_product.cpp.o
+#20 4961.7 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_mjpeg_decoder.cpp.o
+#20 4962.3 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ocl4dnn/src/ocl4dnn_lrn.cpp.o
+#20 4974.5 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ocl4dnn/src/ocl4dnn_pool.cpp.o
+#20 4992.1 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/backend_plugin.cpp.o
+#20 4998.4 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/ocl4dnn/src/ocl4dnn_softmax.cpp.o
+#20 5014.3 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/backend_static.cpp.o
+#20 5016.1 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/onnx/onnx_graph_simplifier.cpp.o
+#20 5020.6 [ 49%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/container_avi.cpp.o
+#20 5023.5 [ 49%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/onnx/onnx_importer.cpp.o
+#20 5034.9 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/op_halide.cpp.o
+#20 5042.8 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/op_inf_engine.cpp.o
+#20 5063.8 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/op_vkcom.cpp.o
+#20 5071.3 [ 50%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_v4l.cpp.o
+#20 5077.3 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/op_webnn.cpp.o
+#20 5081.8 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/tengine4dnn/src/tengine_graph_convolution.cpp.o
+#20 5083.2 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/tensorflow/tf_graph_simplifier.cpp.o
+#20 5091.4 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/tensorflow/tf_importer.cpp.o
+#20 5105.2 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/tensorflow/tf_io.cpp.o
+#20 5122.4 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/torch/THDiskFile.cpp.o
+#20 5126.2 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/torch/THFile.cpp.o
+#20 5127.5 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/torch/THGeneral.cpp.o
+#20 5157.6 [ 50%] Linking CXX static library ../../lib/libopencv_videoio.a
+#20 5157.9 [ 50%] Built target opencv_videoio
+#20 5158.1 [ 50%] Processing OpenCL kernels (calib3d)
+#20 5158.4 [ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/ap3p.cpp.o
+#20 5171.5 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/torch/torch_importer.cpp.o
+#20 5171.9 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/avg_pool_spv.cpp.o
+#20 5174.8 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/concat_spv.cpp.o
+#20 5204.8 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/conv48_spv.cpp.o
+#20 5215.7 [ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/calibinit.cpp.o
+#20 5217.5 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/conv_spv.cpp.o
+#20 5218.6 [ 50%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/dw_conv_spv.cpp.o
+#20 5247.1 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/lrn_spv.cpp.o
+#20 5254.8 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/max_pool_spv.cpp.o
+#20 5258.5 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/permute_spv.cpp.o
+#20 5259.3 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/prior_box_spv.cpp.o
+#20 5285.9 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/relu_spv.cpp.o
+#20 5296.3 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/shader/softmax_spv.cpp.o
+#20 5296.4 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/buffer.cpp.o
+#20 5299.5 [ 51%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/calibration.cpp.o
+#20 5309.0 [ 51%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/context.cpp.o
+#20 5316.8 [ 52%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/calibration_handeye.cpp.o
+#20 5329.0 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/internal.cpp.o
+#20 5334.5 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_base.cpp.o
+#20 5336.8 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_concat.cpp.o
+#20 5350.2 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_conv.cpp.o
+#20 5357.7 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_lrn.cpp.o
+#20 5369.6 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_permute.cpp.o
+#20 5376.8 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_pool.cpp.o
+#20 5378.8 [ 52%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_prior_box.cpp.o
+#20 5380.0 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_relu.cpp.o
+#20 5395.4 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/op_softmax.cpp.o
+#20 5399.6 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/checkchessboard.cpp.o
+#20 5401.4 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/src/tensor.cpp.o
+#20 5413.1 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/vulkan/vk_functions.cpp.o
+#20 5418.8 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/src/vkcom/vulkan/vk_loader.cpp.o
+#20 5420.4 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/opencl_kernels_dnn.cpp.o
+#20 5422.2 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/layers/layers_common.avx.cpp.o
+#20 5437.9 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/layers/layers_common.avx2.cpp.o
+#20 5438.6 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/chessboard.cpp.o
+#20 5443.5 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/int8layers/layers_common.avx2.cpp.o
+#20 5449.9 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/layers/layers_common.avx512_skx.cpp.o
+#20 5453.9 [ 53%] Building CXX object modules/dnn/CMakeFiles/opencv_dnn.dir/int8layers/layers_common.avx512_skx.cpp.o
+#20 5455.0 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/circlesgrid.cpp.o
+#20 5460.8 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/compat_ptsetreg.cpp.o
+#20 5483.5 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/dls.cpp.o
+#20 5485.7 In file included from /src/opencv/modules/calib3d/src/chessboard.cpp:6:
+#20 5485.7 In file included from /src/opencv/modules/flann/include/opencv2/flann.hpp:48:
+#20 5485.7 In file included from /src/opencv/modules/flann/include/opencv2/flann/flann_base.hpp:44:
+#20 5485.7 In file included from /src/opencv/modules/flann/include/opencv2/flann/all_indices.h:45:
+#20 5485.7 In file included from /src/opencv/modules/flann/include/opencv2/flann/autotuned_index.h:39:
+#20 5485.7 /src/opencv/modules/flann/include/opencv2/flann/index_testing.h:249:11: warning: variable 'p1' set but not used [-Wunused-but-set-variable]
+#20 5485.7     float p1;
+#20 5485.7           ^
+#20 5510.3 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/epnp.cpp.o
+#20 5511.6 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/fisheye.cpp.o
+#20 5514.7 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/five-point.cpp.o
+#20 5520.0 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/fundam.cpp.o
+#20 5533.8 [ 53%] Linking CXX static library ../../lib/libopencv_dnn.a
+#20 5535.8 [ 53%] Built target opencv_dnn
+#20 5536.1 [ 53%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui.dir/src/backend.cpp.o
+#20 5568.5 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/homography_decomp.cpp.o
+#20 5592.7 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/ippe.cpp.o
+#20 5595.5 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/levmarq.cpp.o
+#20 5618.0 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/main.cpp.o
+#20 5628.7 [ 53%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/p3p.cpp.o
+#20 5632.0 [ 54%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui.dir/src/window.cpp.o
+#20 5632.4 [ 54%] Building CXX object apps/model-diagnostics/CMakeFiles/opencv_model_diagnostics.dir/model_diagnostics.cpp.o
+#20 5635.4 [ 54%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/polynom_solver.cpp.o
+#20 5643.4 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/posit.cpp.o
+#20 5653.6 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/ptsetreg.cpp.o
+#20 5657.6 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/quadsubpix.cpp.o
+#20 5659.7 1 warning generated.
+#20 5660.1 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/rho.cpp.o
+#20 5676.8 [ 55%] Linking CXX executable ../../bin/opencv_model_diagnostics
+#20 5678.0 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/solvepnp.cpp.o
+#20 5682.9 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/sqpnp.cpp.o
+#20 5683.8 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/stereobm.cpp.o
+#20 5706.6 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/stereosgbm.cpp.o
+#20 5714.2 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/triangulate.cpp.o
+#20 5716.6 [ 55%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui.dir/src/roiSelector.cpp.o
+#20 5733.7 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/undistort.dispatch.cpp.o
+#20 5750.0 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/upnp.cpp.o
+#20 5755.4 [ 55%] Built target opencv_model_diagnostics
+#20 5755.4 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/degeneracy.cpp.o
+#20 5761.3 [ 55%] Linking CXX static library ../../lib/libopencv_highgui.a
+#20 5761.9 [ 55%] Built target opencv_highgui
+#20 5762.3 [ 55%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/cuda_perf.cpp.o
+#20 5766.0 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/dls_solver.cpp.o
+#20 5768.6 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/essential_solver.cpp.o
+#20 5790.9 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/estimator.cpp.o
+#20 5806.0 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/fundamental_solver.cpp.o
+#20 5809.4 [ 55%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/gamma_values.cpp.o
+#20 5810.9 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/homography_solver.cpp.o
+#20 5812.8 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/local_optimization.cpp.o
+#20 5816.8 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/pnp_solver.cpp.o
+#20 5819.8 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/quality.cpp.o
+#20 5836.3 [ 56%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/cuda_test.cpp.o
+#20 5854.5 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/ransac_solvers.cpp.o
+#20 5860.7 [ 56%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ocl_perf.cpp.o
+#20 5861.3 [ 56%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ocl_test.cpp.o
+#20 5864.6 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/sampler.cpp.o
+#20 5869.6 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/termination.cpp.o
+#20 5879.4 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/usac/utils.cpp.o
+#20 5882.5 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/opencl_kernels_calib3d.cpp.o
+#20 5912.2 [ 56%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/undistort.avx2.cpp.o
+#20 5912.4 [ 56%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts.cpp.o
+#20 5922.8 [ 56%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_arrtest.cpp.o
+#20 5924.9 [ 57%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_func.cpp.o
+#20 5928.7 [ 57%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_gtest.cpp.o
+#20 5929.6 [ 57%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_perf.cpp.o
+#20 5947.2 [ 57%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_tags.cpp.o
+#20 5955.5 [ 57%] Building CXX object apps/annotation/CMakeFiles/opencv_annotation.dir/opencv_annotation.cpp.o
+#20 5977.0 [ 57%] Linking CXX static library ../../lib/libopencv_calib3d.a
+#20 5978.2 [ 57%] Built target opencv_calib3d
+#20 5978.5 [ 57%] Building CXX object apps/visualisation/CMakeFiles/opencv_visualisation.dir/opencv_visualisation.cpp.o
+#20 5989.5 /src/opencv/modules/ts/src/ts_perf.cpp:2171:25: warning: definition of implicit copy constructor for 'KeypointComparator' is deprecated because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+#20 5989.5     KeypointComparator& operator=(const KeypointComparator&) = delete;
+#20 5989.5                         ^
+#20 5989.5 /src/opencv/modules/ts/src/ts_perf.cpp:2185:53: note: in implicit copy constructor for '(anonymous namespace)::KeypointComparator' first required here
+#20 5989.5     std::sort(idxs.data(), idxs.data() + desc.rows, KeypointComparator(pts));
+#20 5989.5                                                     ^
+#20 6002.2 [ 58%] Building CXX object apps/interactive-calibration/CMakeFiles/opencv_interactive-calibration.dir/calibController.cpp.o
+#20 6008.9 [ 58%] Linking CXX executable ../../bin/opencv_annotation
+#20 6034.1 [ 58%] Building CXX object apps/interactive-calibration/CMakeFiles/opencv_interactive-calibration.dir/calibPipeline.cpp.o
+#20 6037.9 [ 58%] Building CXX object apps/interactive-calibration/CMakeFiles/opencv_interactive-calibration.dir/frameProcessor.cpp.o
+#20 6047.7 [ 58%] Linking CXX executable ../../bin/opencv_visualisation
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer:
+------
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opencv_core_fuzzer:
+------
+unexpected EOF
+unexpected EOF
+make: *** [docker/generated.mk:2853801: .afl-opencv_core_fuzzer-builder] Error 1
+make: *** [docker/generated.mk:2853801: .afl-opencv_core_fuzzer-builder] Error 1

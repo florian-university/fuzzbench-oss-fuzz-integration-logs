@@ -1,0 +1,650 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: astc-encoder_astc-encoder.
+INFO:root:Please run "make test-run-afl-astc-encoder_astc-encoder" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:fdf39c841282bb70d4c89e87a9df6b6933e0267639e464b22d3400d4278ac52d
+#2 transferring context: 2B done
+#2 DONE 0.5s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:34db014a226da0c5d089d8f8bbfdfed63c5d0020061394ad39db5c24a8b9e5eb
+#1 transferring dockerfile: 984B done
+#1 DONE 0.5s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#4 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#4 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:af7e409b405f451aaac8bd5483fc591e3cb815ce98114e37e7172cffab445135
+#8 DONE 0.0s
+
+#11 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder
+#11 sha256:00ba58a9f8b64de3d9b02857930a62fb6b25aa68ba310b6d3527b2c721e0fa15
+#11 ERROR: gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder:latest: not found
+
+#6 [3/6] RUN git clone --depth 1 https://github.com/ARM-software/astc-encoder
+#6 sha256:8b3938c20cd08863658d41e6ac85a36b6723d01b82c6a51b94f0ab2a7e29616d
+#6 CACHED
+
+#5 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#5 sha256:1b680dfd08ff668505b992cdb80d6a0ea43cbc2f7a85f533f40c1edf5f50c5ba
+#5 CACHED
+
+#7 [4/6] WORKDIR astc-encoder/Source
+#7 sha256:4e6f7aef4f72450ae0ecad360165eed7ed2982e4b9a0a2cf86ea40edfc11c3c6
+#7 CACHED
+
+#8 [internal] load build context
+#8 sha256:af7e409b405f451aaac8bd5483fc591e3cb815ce98114e37e7172cffab445135
+#8 transferring context: 7.36kB done
+#8 DONE 0.2s
+
+#9 [5/6] COPY build.sh *_fuzzer.cc /src/
+#9 sha256:d2b11a0c675a93712754bfee615482656efa5caa0749301ed0b728ef1edbad16
+#9 DONE 0.4s
+
+#10 [6/6] COPY Makefile.patch /src/astc-encoder/Source
+#10 sha256:9a122da5bee153f3c64b6aba662e99abfb3bcd5b620b833366595010e5063740
+#10 DONE 0.3s
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:54659cf2b17c9eecf896f14d6be11f134f699f0b5c8bc688a1cda1add741d20e 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:659f472545b7e3bb690b04b9c8ecf27e53e4e4bd9d8bbf264cfee3348bd86426
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:8e520ca7ee88e6bf87625a014d6651d168ab96c5db7516132c218f550914d707
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder:latest
+#3 sha256:f89a37d30b9c5299dc0aefbd01dbf198d4e819f8da88f8704b670fdf67b6bd1e
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder
+#5 sha256:1a632afa0ca9b4273f58fc1ea334650e74441d185bac04f7ccb1991dfd23d8b8
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate
+#4 sha256:89cf9300870ed6f7e42a60440ef58e197f697f7f01ce40f6d09f669995e84dfc
+#4 ERROR: gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder
+#5 sha256:1a632afa0ca9b4273f58fc1ea334650e74441d185bac04f7ccb1991dfd23d8b8
+#5 DONE 0.7s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:88ab6987e0181b78ea8c93bc17553a012939d6db1466b011c42a6455d612b190
+#6 0.488 Cloning into '/afl'...
+#6 1.285 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.285 
+#6 1.285 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.285 changes and commit them, and you can discard any commits you make in this
+#6 1.285 state without impacting any branches by switching back to a branch.
+#6 1.285 
+#6 1.285 If you want to create a new branch to retain commits you create, you may
+#6 1.285 do so (now or later) by using -c with the switch command. Example:
+#6 1.285 
+#6 1.285   git switch -c <new-branch-name>
+#6 1.285 
+#6 1.285 Or undo this operation with:
+#6 1.285 
+#6 1.285   git switch -
+#6 1.285 
+#6 1.285 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.285 
+#6 1.285 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.299 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.300 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.479 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.484 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.852 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.170 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.602 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.752 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.158 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.385 ln -sf afl-as as
+#6 5.388 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.390 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.391 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 6.0s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:5d93d1f992763d2d8f45b5d8e8b805bafb925d48c9b8d6ceff4593e03394d14a
+#7 0.752 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.752 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.768 Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#7 0.872 Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#7 0.905 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.773 Fetched 222 kB in 1s (203 kB/s)
+#7 1.773 Reading package lists...
+#7 3.333 Reading package lists...
+#7 4.763 Building dependency tree...
+#7 4.973 Reading state information...
+#7 5.216 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.216 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 5.232 --2022-02-17 07:04:04--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.234 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.108.133, ...
+#7 5.236 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#7 5.258 HTTP request sent, awaiting response... 200 OK
+#7 5.278 Length: 9177 (9.0K) [text/plain]
+#7 5.278 Saving to: '/afl/afl_driver.cpp'
+#7 5.278 
+#7 5.278      0K ........                                              100% 10.7M=0.001s
+#7 5.279 
+#7 5.279 2022-02-17 07:04:04 (10.7 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.279 
+#7 6.988 ar: creating /libAFL.a
+#7 DONE 7.4s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:b1532c7ec3aeba9b4d9449733a2646c1b333fb8b1c5833592962e344ec7b7c80 done
+#8 naming to gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4d64f381bf821fcc858bebf244db709828c4cdd49fa35c5a092cfc581842bbd5
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:057cd428673e3f00be47f636a95b284f53473feb6440001190557e59e15dba55
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:aaae0fb8aa6c6297cb97ecc5d567534bb0d3fbc90a6bd02b9893d02b6bbfef3f
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3c894f67242d66fda121b97fce50fbb56c738d65cae2b50fa920530863b1655d
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:7548b0a722c72830686d395306367a022a60d47334369776bf5fbf56f3aa8ceb
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:4434aee8c398afd1c5d75e39cb14816874e44c935818c620c281d2d77f6f9c77
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:aec24e4c21acff8ebb4a504b06e14e28d713b0d0cbb8930bc6dfb90db7768cee
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:c3a86acdae3fb44919108890d4861f6d2bfdc827d3c1ebe37654229c98736ff3
+#13 writing image sha256:c3a86acdae3fb44919108890d4861f6d2bfdc827d3c1ebe37654229c98736ff3 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0fc2ad78f26aa58635c88f96521e1bccdfa2b17eef6d3410e6a377fe8b9b5731
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:2daa74c25cfa1470003fc2ebf96874be4fa0e24296fc604d0ee06519b8d98587
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate:latest
+#3 sha256:4e7ba8720de1938bcea2e7bf627af639c9847f5223dbce8940ee771cd7b16498
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:19703e0107852743093c69de5793f00bd17f251fd0ec47aa16df07ee07ff533a
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder
+#5 sha256:706e2c450ee7b12ca444eee384482ff1594a29e2dafe9b95ec774432929e0e85
+#5 ERROR: gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate
+#6 sha256:9fa84eae7a63eae92935e7b4f6364949af153abca8c82e1e149855b5f8fc34ed
+#6 ...
+
+#12 [internal] load build context
+#12 sha256:19703e0107852743093c69de5793f00bd17f251fd0ec47aa16df07ee07ff533a
+#12 transferring context: 669.90kB 0.1s done
+#12 DONE 0.3s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate
+#6 sha256:9fa84eae7a63eae92935e7b4f6364949af153abca8c82e1e149855b5f8fc34ed
+#6 DONE 0.8s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d6a5ed65b4afbc655e045efc52ac2750244dd89244d0fb0ceaffd92029685516
+#8 DONE 0.8s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:52427a53eefde775eab324643c3f8710f397a7377f880387d6a0c5ef073d0e52
+#9 DONE 21.7s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:b7190728d678b1961e30311ec03428743e6d3ce634c499aa42ca8128ecbb1486
+#10 DONE 0.3s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:0de2356e326cc7a338888f12c91af3efe0f2055c8e54626ebcc1d67bb4c603ce
+#11 DONE 42.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:54300594d2fe19f04f6d3f2cd817d7686f7628477c3b6a72e8be9d6fbe91189e
+#13 DONE 1.2s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:a26369d7e64575e2b6ef2315f11f07df5ae5d94d2d68e94d61ce3d0c5510f56b
+#14 DONE 1.4s
+
+#15 [stage-1  8/13] COPY benchmarks/astc-encoder_astc-encoder/benchmark.yaml /
+#15 sha256:75744b0ed0d0c154bf8251e3eab3a4efb4a1acf7dc6f22a5a5a3c907e352a6c8
+#15 DONE 1.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:52372479d57509b0fccc237be6c19265e71b5c25b26dc43fd3e2b80ecdc65257
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:36a2042ae4254753ab6e44165e59afe94cbf0f4009230b4e919002fd808fb98f
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:c478c113b63bb67d121b2732852cf7d4324ec46164e6888b0c28593a44c25139
+#18 1.096 Checking out commit 4e0b05ee
+#18 4.704 From https://github.com/ARM-software/astc-encoder
+#18 4.704  * [new tag]         1.3        -> 1.3
+#18 4.704  * [new tag]         1.4        -> 1.4
+#18 4.704  * [new tag]         1.5        -> 1.5
+#18 4.705  * [new tag]         1.6        -> 1.6
+#18 4.705  * [new tag]         1.7        -> 1.7
+#18 4.705  * [new tag]         2.0        -> 2.0
+#18 4.705  * [new tag]         2.1        -> 2.1
+#18 4.706  * [new tag]         2.2        -> 2.2
+#18 4.706  * [new tag]         2.3        -> 2.3
+#18 4.706  * [new tag]         2.4        -> 2.4
+#18 4.706  * [new tag]         2.5        -> 2.5
+#18 4.707  * [new tag]         3.0        -> 3.0
+#18 4.707  * [new tag]         3.1        -> 3.1
+#18 4.707  * [new tag]         3.2        -> 3.2
+#18 4.707  * [new tag]         3.3        -> 3.3
+#18 4.774 error: pathspec '4e0b05ee' did not match any file(s) known to git
+#18 4.787 error: pathspec '4e0b05ee' did not match any file(s) known to git
+#18 4.795 error: pathspec '4e0b05ee' did not match any file(s) known to git
+#18 4.839 Checkout unsuccessful.
+#18 DONE 5.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:ef91d2e2fdbee0b85f13febb5ccbf6a0d2afa64987ca539bf079badec94944b3
+#19 DONE 1.2s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:9f10fc6c8eb06029fc4ada8b920a55861fbb39d0c4f72ee654945db5bf54a738
+#20 0.599 Run fuzzer_build to build the target
+#20 0.737 FUZZ_TARGET = astc-encoder
+#20 0.737 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.737 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.749 Building benchmark astc-encoder_astc-encoder with fuzzer afl
+#20 0.752 + patch Makefile Makefile.patch
+#20 0.757 patching file Makefile
+#20 0.757 Hunk #1 FAILED at 92.
+#20 0.757 1 out of 1 hunk FAILED -- saving rejects to file Makefile.rej
+#20 0.757 patch: **** Can't reopen file Makefile : No such file or directory
+#20 0.758 Traceback (most recent call last):
+#20 0.758   File "<string>", line 1, in <module>
+#20 0.758   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.758     utils.build_benchmark()
+#20 0.758   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.758     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.758   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.759     raise CalledProcessError(retcode, cmd)
+#20 0.759 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 2.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2762544: .afl-astc-encoder_astc-encoder-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:61662a6b4587d2f22220f8d4faa257b02926a1393c4719e41b06ac503d8451d4
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:fbb98c095129747dc10a286254db6e78c5dfd9b3b518679b1c28d3c85c9abfc7
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder
+#4 sha256:00ba58a9f8b64de3d9b02857930a62fb6b25aa68ba310b6d3527b2c721e0fa15
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:1b9340084702d7e4dfd8a694d2b8f782fbe37a42fe65e042da0ea1d7fcb324f7
+#9 transferring context: 172B done
+#9 DONE 0.1s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:1b680dfd08ff668505b992cdb80d6a0ea43cbc2f7a85f533f40c1edf5f50c5ba
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/ARM-software/astc-encoder
+#7 sha256:8b3938c20cd08863658d41e6ac85a36b6723d01b82c6a51b94f0ab2a7e29616d
+#7 CACHED
+
+#8 [4/6] WORKDIR astc-encoder/Source
+#8 sha256:4e6f7aef4f72450ae0ecad360165eed7ed2982e4b9a0a2cf86ea40edfc11c3c6
+#8 CACHED
+
+#10 [5/6] COPY build.sh *_fuzzer.cc /src/
+#10 sha256:28dcce37491d45efdd1a969eeb88dccaec836069190dd4d85f842f4476050893
+#10 CACHED
+
+#11 [6/6] COPY Makefile.patch /src/astc-encoder/Source
+#11 sha256:0482ee141376003b1efd6f2cd31bc2f016e716b87b78a82e5bdea844a894db27
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:54659cf2b17c9eecf896f14d6be11f134f699f0b5c8bc688a1cda1add741d20e 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder done
+#12 DONE 0.4s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:7f3a1d2e72295694a0ee581bfbff36861712d09b8c6a322aa2542d1bbee489e3
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:9f40899542b771a36c867d8dfcca9284939b71157955d2602354ee1358544a5a
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder:latest
+#3 sha256:f89a37d30b9c5299dc0aefbd01dbf198d4e819f8da88f8704b670fdf67b6bd1e
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/astc-encoder_astc-encoder
+#5 sha256:1a632afa0ca9b4273f58fc1ea334650e74441d185bac04f7ccb1991dfd23d8b8
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate
+#4 sha256:89cf9300870ed6f7e42a60440ef58e197f697f7f01ce40f6d09f669995e84dfc
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:88ab6987e0181b78ea8c93bc17553a012939d6db1466b011c42a6455d612b190
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:5d93d1f992763d2d8f45b5d8e8b805bafb925d48c9b8d6ceff4593e03394d14a
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:b1532c7ec3aeba9b4d9449733a2646c1b333fb8b1c5833592962e344ec7b7c80 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a4f19a4f033e3a954d10b5516a38a01239bb6e45f5d2d292ab29a88fd4bc505b
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:e89c0cf671e8e7a98e9903104da4f0616559b445edb830e27680c521013a5bc6
+#2 transferring context: 34B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:026369d5038166fcc84cc760ba4c0411ddd933294203a34b85a7fa7bf086d0bc
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:9e3be437ee3657368f94dd9a7ee766f31583eb048101d044f763790dae995722
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:d3ba97e1b7858331ceaa285ca4da2bd51da8951001b33429815d3d5c248fc42d
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:4e10600c28189ceacbd08c4b62449866e4d3b813caccce791d855601b6755a8a
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:5a66752f29dbc367a3414717a2c373120d5803ec0d93110a00557d83158ed9ca
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:c3a86acdae3fb44919108890d4861f6d2bfdc827d3c1ebe37654229c98736ff3 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0a256493a988d54e26c50600805ffa6905d8dc40b7b0fcfb0b445f6337d2056e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:294c527b7b07e47bb8563930d37292426a131acc3e98443f35e9aebed41935af
+#2 transferring context: 34B done
+#2 DONE 0.4s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate:latest
+#3 sha256:4e7ba8720de1938bcea2e7bf627af639c9847f5223dbce8940ee771cd7b16498
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1b4301b116cdf98b1f4c12ce1bef6dd37e665a1d803fb2c22a9eab46fbc67cf4
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder-intermediate
+#6 sha256:9fa84eae7a63eae92935e7b4f6364949af153abca8c82e1e149855b5f8fc34ed
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder
+#5 sha256:706e2c450ee7b12ca444eee384482ff1594a29e2dafe9b95ec774432929e0e85
+#5 ERROR: gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder:latest: not found
+
+#12 [internal] load build context
+#12 sha256:1b4301b116cdf98b1f4c12ce1bef6dd37e665a1d803fb2c22a9eab46fbc67cf4
+#12 transferring context: 669.90kB 0.1s done
+#12 DONE 0.2s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:391114d8339b3af61f7d3c248985daa19e972b74816048dd8dbcdd64e9d0cef5
+#14 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:f9b878dd1bbc1bc8ba6c11068706e3a83ea605cc1ce0684a83deabd0645a10e4
+#17 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:52427a53eefde775eab324643c3f8710f397a7377f880387d6a0c5ef073d0e52
+#9 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d6a5ed65b4afbc655e045efc52ac2750244dd89244d0fb0ceaffd92029685516
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:0de2356e326cc7a338888f12c91af3efe0f2055c8e54626ebcc1d67bb4c603ce
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:85934ff4ff0c260b48dd6906c07dfb1e8dcbb79eb1a0b5a7d1bdba8509c1f337
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/astc-encoder_astc-encoder/benchmark.yaml /
+#15 sha256:6e55101d901bd47c0ff6e49b77d68011b688d5c3908247ecf04499aad2bb4254
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:17cf3050ee025a94af6a4b0247c9f913902b034fa51de144ac99a2a78286ba96
+#16 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:b7190728d678b1961e30311ec03428743e6d3ce634c499aa42ca8128ecbb1486
+#10 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:797fae1ef8ebf9e0596787f1caa4c1f05522e93dd4534e39f6b0f77a58460599
+#18 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:4682e9145453e29fc9560e19bc84cb8c44933d0f41ed8d2dd96a9a747f9a9695
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:a6a7f0d64d77ef0100da63ba6015cdb771b9defc6c8ad3f3dc541d8907b7b585
+#20 0.487 Run fuzzer_build to build the target
+#20 0.604 FUZZ_TARGET = astc-encoder
+#20 0.604 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.604 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.609 Building benchmark astc-encoder_astc-encoder with fuzzer afl
+#20 0.612 + patch Makefile Makefile.patch
+#20 0.614 patching file Makefile
+#20 0.614 Hunk #1 FAILED at 92.
+#20 0.614 1 out of 1 hunk FAILED -- saving rejects to file Makefile.rej
+#20 0.615 patch: **** Can't reopen file Makefile : No such file or directory
+#20 0.615 Traceback (most recent call last):
+#20 0.615   File "<string>", line 1, in <module>
+#20 0.615   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.615     utils.build_benchmark()
+#20 0.615   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.616     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.616   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.616     raise CalledProcessError(retcode, cmd)
+#20 0.616 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 2.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/astc-encoder_astc-encoder:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2762544: .afl-astc-encoder_astc-encoder-builder] Error 1

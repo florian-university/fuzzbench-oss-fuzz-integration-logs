@@ -1,0 +1,961 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: janet_janet.
+INFO:root:Please run "make test-run-afl-janet_janet" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:6d0a5e6894e52d05bec60e179a4ae5ffd56b7c3c65a8cac5b10be34b6297508c
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:125f3a89603e5bc29df9e03f9041f41410cb858bf00852b46fbb513d97f9127c
+#1 transferring dockerfile: 905B done
+#1 DONE 0.6s
+
+#2 [internal] load .dockerignore
+#2 sha256:6d0a5e6894e52d05bec60e179a4ae5ffd56b7c3c65a8cac5b10be34b6297508c
+#2 DONE 0.6s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:c4adc87989bd6f44574adce879c789b8c66850a6c147d864c132f63a258919db
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/janet_janet
+#4 sha256:58e09b999642addd5cf6605d7380c405213c2cd236b4f90e31262ef971873635
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/janet_janet:latest: not found
+
+#9 [internal] load build context
+#9 sha256:c4adc87989bd6f44574adce879c789b8c66850a6c147d864c132f63a258919db
+#9 transferring context: 928B done
+#9 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make cmake
+#6 sha256:1bc7e7da36934d98d1edef82f4514e6acdf8866c12935ce6e40fa577b775d206
+#6 CACHED
+
+#7 [3/5] RUN git clone https://github.com/janet-lang/janet
+#7 sha256:25b4909f284a89ca186a37eef908b2e20c694da87154072d98d6b479e14124e1
+#7 CACHED
+
+#8 [4/5] WORKDIR /src
+#8 sha256:9e8b8607ae7ed658dba9a4fb2450f2e957e8b9b54709c777b5cfda9c2f18619f
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:a18e7948bd3c40b249fd80e5c1f0a09bec62f294228015f0d11aa1e9e5feb017
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:34a2885284ae184bdd441c91bdf8100d19e5605b5a39964f8c2ae783a659867b
+#11 writing image sha256:34a2885284ae184bdd441c91bdf8100d19e5605b5a39964f8c2ae783a659867b done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/janet_janet done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/janet_janet:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:c93d8e319a0759b079c92be2ca3dd2ea335f825eb9d9e909c26c3b877d4ea3b5
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:d95ff447498b07a01f921c5cd386270793b645bb6a095eb0aa3b760de5eaf35c
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/janet_janet:latest
+#3 sha256:f08eedeb33c9045a2a7f99d5ffd533f2aaa7b7ff88b78fafac50851716544921
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/janet_janet
+#5 sha256:b26a95af7eb858f05bdb55a23fbfcae3b321eb711a009a3d6f93682a131600af
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/janet_janet-intermediate
+#4 sha256:fc3f571efe1d7ccc87db823962ced0f53659e3acc12adf7ee922a0fc8a195699
+#4 ERROR: gcr.io/fuzzbench/builders/afl/janet_janet-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/janet_janet
+#5 sha256:b26a95af7eb858f05bdb55a23fbfcae3b321eb711a009a3d6f93682a131600af
+#5 DONE 0.1s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:2907e39895b3c73d744024d248664c7f8a20f988b44d475e0945cc5e64155f2c
+#6 0.316 Cloning into '/afl'...
+#6 1.090 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.090 
+#6 1.090 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.090 changes and commit them, and you can discard any commits you make in this
+#6 1.090 state without impacting any branches by switching back to a branch.
+#6 1.090 
+#6 1.090 If you want to create a new branch to retain commits you create, you may
+#6 1.090 do so (now or later) by using -c with the switch command. Example:
+#6 1.090 
+#6 1.090   git switch -c <new-branch-name>
+#6 1.090 
+#6 1.090 Or undo this operation with:
+#6 1.090 
+#6 1.090   git switch -
+#6 1.090 
+#6 1.090 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.090 
+#6 1.090 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.120 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.120 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.309 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.314 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.777 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.092 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.528 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.675 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.081 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.332 ln -sf afl-as as
+#6 5.334 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.335 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.336 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.4s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:7b2e4e8d5018627882262274e66d4bdd33d802c40b920048e1b21161a81ac8d8
+#7 0.660 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.660 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.660 Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 0.669 Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.692 Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.509 Reading package lists...
+#7 3.519 Reading package lists...
+#7 4.962 Building dependency tree...
+#7 5.178 Reading state information...
+#7 5.434 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.434 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 5.447 --2022-02-10 19:54:20--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.464 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+#7 5.466 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+#7 5.493 HTTP request sent, awaiting response... 200 OK
+#7 5.512 Length: 9177 (9.0K) [text/plain]
+#7 5.512 Saving to: '/afl/afl_driver.cpp'
+#7 5.512 
+#7 5.512      0K ........                                              100% 6.21M=0.001s
+#7 5.514 
+#7 5.514 2022-02-10 19:54:20 (6.21 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.514 
+#7 7.249 ar: creating /libAFL.a
+#7 DONE 7.3s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:9532ed25cd3cd191366d6c6389d81588d0014a41151908497b16434e599b5f29
+#8 writing image sha256:9532ed25cd3cd191366d6c6389d81588d0014a41151908497b16434e599b5f29 done
+#8 naming to gcr.io/fuzzbench/builders/afl/janet_janet-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/janet_janet-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5e32f339fa4a1e5b8e1789d6686a81d759f7105f16406b79dd5fc6c869e5e21b
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1c1198652a1a3d4e29d92cc8707e2b641380830ebbda481dcd18b54dff295e51
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:87108d13693da2434002a1dc351a5fd8f5671b9dfa80ae5ffd254c997c92e479
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:213985666147970c5f5770c276e95cabb511e9cb668c96e82538113996179033
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:0dd1a287d6ca6370c17b7f263bcfa8ea07c7cfafce4040304bb91242950081f5
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:29d49ca5af47a795d8d7b2a5e29fecb4a1c3c2e1e2024760a009d96ced8296a8
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:71fb954cef8b39815ac95192af59184ce6f1c380f2d5b949f6f381d48bd87d5e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b65a9dd49ffaab0be8efe2793409b5032d9852c53042123476cf17025ef61187
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:6f6e31d578d5ce9f29ae9ce6b865000c494c8ef826eb6362921273fab7cc655d
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/janet_janet-intermediate:latest
+#3 sha256:b64e6ee75325fcafe06e4534bb54dd85ac472909887728315070368c40188d48
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:745edce728def6b395ed78f66fec5c7c041fd630c1e663b68066498b302f5453
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/janet_janet-intermediate
+#6 sha256:38125417f5ea6602d504bd7276458164eda7af695ee1d146df692ee91109951c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/janet_janet
+#5 sha256:97f6ecc59d8cf5ff9262ed6d567a222856ff1f44e70a35ecca659f99705a3d34
+#5 ERROR: gcr.io/fuzzbench/builders/afl/janet_janet:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:745edce728def6b395ed78f66fec5c7c041fd630c1e663b68066498b302f5453
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/janet_janet-intermediate
+#6 sha256:38125417f5ea6602d504bd7276458164eda7af695ee1d146df692ee91109951c
+#6 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:5f071792221464a4cba45258c2b0f1c79628dcff249b8211f5863e37b4b73a06
+#8 DONE 0.3s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:be46972333c66cc9c5e6b78ea71e7a8ef6fa374c99a10e499b6417f9cef7f245
+#9 DONE 15.3s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:1f6743fe0f3c2538e30c73df0535c0b73684497ece2ae69b07d771606827b755
+#10 DONE 0.5s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:f75a1c6eb070fe14110ea8ea5efdf1d2c519e6f8d8cf86b71bf273e0b36b86d4
+#11 DONE 12.9s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:7e52d8383fca19e1483219698b50b7e693f3261bb11179b8fe4eefc371fb3be0
+#13 DONE 0.3s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:3a3a419028641e969a422679cae54de701c6f2b592e65ca1529daa8b7c06dde4
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] COPY benchmarks/janet_janet/benchmark.yaml /
+#15 sha256:d4cd24175fef9c7d1bf51b39202a29fb0c62f419f8f0f4484fdb7e992294a5c2
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:2b4d3d99790273f0b879aebf812aef44c8f37916c800ef86f79884a1d8ec8fd6
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:062b444e8d0f9506bd9fe0529bdb0b412e803fd04963c065c790457339e36565
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:8ef755362c34b4ea414bf2bf38320ee6903e28f4ce08b30b2ce7b69c948620c9
+#18 0.511 Checking out commit 3999d177
+#18 0.520 error: pathspec '3999d177' did not match any file(s) known to git
+#18 0.529 error: pathspec '3999d177' did not match any file(s) known to git
+#18 0.536 error: pathspec '3999d177' did not match any file(s) known to git
+#18 0.582 Checkout unsuccessful.
+#18 DONE 1.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:0f4cc9d8a415383e350ddc16e44c0b3822f2d4bf1500e29cdc3fb6fd73544538
+#19 DONE 1.1s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:3873c1b93de1eb0e22c0644a7f1b9106fdc408f69795418081d171bc3b2d15aa
+#20 0.564 Run fuzzer_build to build the target
+#20 0.687 FUZZ_TARGET = janet
+#20 0.687 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.687 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.699 Building benchmark janet_janet with fuzzer afl
+#20 0.703 + cd janet
+#20 0.703 + make
+#20 0.717 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/abstract.boot.o -c src/core/abstract.c
+#20 0.819 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/array.boot.o -c src/core/array.c
+#20 0.931 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/asm.boot.o -c src/core/asm.c
+#20 1.086 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/buffer.boot.o -c src/core/buffer.c
+#20 1.202 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/bytecode.boot.o -c src/core/bytecode.c
+#20 1.289 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/capi.boot.o -c src/core/capi.c
+#20 1.431 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/cfuns.boot.o -c src/core/cfuns.c
+#20 1.558 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/compile.boot.o -c src/core/compile.c
+#20 1.723 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/corelib.boot.o -c src/core/corelib.c
+#20 1.878 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/debug.boot.o -c src/core/debug.c
+#20 1.990 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/emit.boot.o -c src/core/emit.c
+#20 2.095 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/ev.boot.o -c src/core/ev.c
+#20 2.368 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/fiber.boot.o -c src/core/fiber.c
+#20 2.495 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/gc.boot.o -c src/core/gc.c
+#20 2.626 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/inttypes.boot.o -c src/core/inttypes.c
+#20 2.764 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/io.boot.o -c src/core/io.c
+#20 2.940 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/marsh.boot.o -c src/core/marsh.c
+#20 3.133 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/math.boot.o -c src/core/math.c
+#20 3.266 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/net.boot.o -c src/core/net.c
+#20 3.411 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/os.boot.o -c src/core/os.c
+#20 3.625 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/parse.boot.o -c src/core/parse.c
+#20 3.792 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/peg.boot.o -c src/core/peg.c
+#20 4.019 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/pp.boot.o -c src/core/pp.c
+#20 4.176 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/regalloc.boot.o -c src/core/regalloc.c
+#20 4.263 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/run.boot.o -c src/core/run.c
+#20 4.346 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/specials.boot.o -c src/core/specials.c
+#20 4.518 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/state.boot.o -c src/core/state.c
+#20 4.603 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/string.boot.o -c src/core/string.c
+#20 4.732 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/strtod.boot.o -c src/core/strtod.c
+#20 4.840 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/struct.boot.o -c src/core/struct.c
+#20 4.950 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/symcache.boot.o -c src/core/symcache.c
+#20 5.059 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/table.boot.o -c src/core/table.c
+#20 5.177 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/tuple.boot.o -c src/core/tuple.c
+#20 5.266 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/util.boot.o -c src/core/util.c
+#20 5.412 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/value.boot.o -c src/core/value.c
+#20 5.494 src/core/value.c:350:67: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 5.494                 ptrdiff_t diff = ((char *)janet_unwrap_pointer(x) - (char *)0);
+#20 5.494                                                                   ^ ~~~~~~~~~
+#20 5.540 1 warning generated.
+#20 5.544 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/vector.boot.o -c src/core/vector.c
+#20 5.620 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/vm.boot.o -c src/core/vm.c
+#20 5.896 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/core/wrap.boot.o -c src/core/wrap.c
+#20 6.002 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/boot/array_test.boot.o -c src/boot/array_test.c
+#20 6.082 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/boot/boot.boot.o -c src/boot/boot.c
+#20 6.159 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/boot/buffer_test.boot.o -c src/boot/buffer_test.c
+#20 6.235 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/boot/number_test.boot.o -c src/boot/number_test.c
+#20 6.310 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/boot/system_test.boot.o -c src/boot/system_test.c
+#20 6.386 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/boot/table_test.boot.o -c src/boot/table_test.c
+#20 6.461 clang -DJANET_BOOTSTRAP -DJANET_BUILD="\"aba87bf1\"" -O0 -g -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/janet_boot build/core/abstract.boot.o build/core/array.boot.o build/core/asm.boot.o build/core/buffer.boot.o build/core/bytecode.boot.o build/core/capi.boot.o build/core/cfuns.boot.o build/core/compile.boot.o build/core/corelib.boot.o build/core/debug.boot.o build/core/emit.boot.o build/core/ev.boot.o build/core/fiber.boot.o build/core/gc.boot.o build/core/inttypes.boot.o build/core/io.boot.o build/core/marsh.boot.o build/core/math.boot.o build/core/net.boot.o build/core/os.boot.o build/core/parse.boot.o build/core/peg.boot.o build/core/pp.boot.o build/core/regalloc.boot.o build/core/run.boot.o build/core/specials.boot.o build/core/state.boot.o build/core/string.boot.o build/core/strtod.boot.o build/core/struct.boot.o build/core/symcache.boot.o build/core/table.boot.o build/core/tuple.boot.o build/core/util.boot.o build/core/value.boot.o build/core/vector.boot.o build/core/vm.boot.o build/core/wrap.boot.o build/boot/array_test.boot.o build/boot/boot.boot.o build/boot/buffer_test.boot.o build/boot/number_test.boot.o build/boot/system_test.boot.o build/boot/table_test.boot.o -lm -lpthread -lrt -ldl
+#20 6.543 build/janet_boot . JANET_PATH '/usr/local/lib/janet' > build/c/janet.c
+#20 6.837 cksum build/c/janet.c
+#20 6.854 64615126 2287498 build/c/janet.c
+#20 6.854 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -c build/c/janet.c -o build/janet.o
+#20 7.696 src/core/value.c:350:67: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 7.696                 ptrdiff_t diff = ((char *)janet_unwrap_pointer(x) - (char *)0);
+#20 7.696                                                                   ^ ~~~~~~~~~
+#20 24.83 1 warning generated.
+#20 24.87 cp src/mainclient/shell.c build/c/shell.c
+#20 24.87 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -c build/c/shell.c -o build/shell.o
+#20 25.67 clang -rdynamic -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -o build/janet build/janet.o build/shell.o -lm -lpthread -lrt -ldl
+#20 25.87 clang -rdynamic -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -std=c99 -Wall -Wextra -Isrc/include -Isrc/conf -fvisibility=hidden -fPIC -Wl,-soname,libjanet.so.1.20 -shared -o build/libjanet.so build/janet.o build/shell.o -lm -lpthread -lrt -ldl
+#20 25.99 ar rcs build/libjanet.a build/janet.o build/shell.o
+#20 26.02 ./build/janet tools/patch-header.janet src/include/janet.h src/conf/janetconf.h build/janet.h
+#20 26.03 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -std=c99 -Isrc/include -Isrc/conf -fPIC -o fuzz_dostring.o -c ./test/fuzzers/fuzz_dostring.c
+#20 26.11 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard /libAFL.a fuzz_dostring.o build/libjanet.a -o /out/fuzz_dostring
+#20 26.41 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 26.8s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6b372f1913a3b02e5c5eb4d55ca70096a184dfc702ab7cc9d4c5694747135cbc done
+#21 naming to gcr.io/fuzzbench/builders/afl/janet_janet done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/janet_janet:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:50bec5e10c212225a835dfa1c01293d8c351d2374416a0f85f4183df01998a59
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:8bb0b9f0b1daa9f03428c8abdecb8ef694857a7390aafbcd02af8db32e680dde
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/janet_janet-intermediate
+#5 sha256:b5e175f5cb417225be78a0d42d75ff5a5541daa220e0d5c6e043be7c1281ed1f
+#5 ERROR: gcr.io/fuzzbench/runners/afl/janet_janet-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c done
+#6 naming to gcr.io/fuzzbench/runners/afl/janet_janet-intermediate done
+#6 DONE 0.2s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/janet_janet-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ef0c415c4d6ce2ca4216cb0d72cf6c339a47cef756e4fc0f101d845efb213c55
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:ca6cb0d5904512785270b6c7146b5ddfae44297352183d0708113984d4ff1ea2
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/janet_janet:latest
+#4 sha256:fe5acedd1e4229279c9a8f41d1c51b580c8918e3a9754236c6ceb884c44b2086
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/janet_janet-intermediate:latest
+#3 sha256:5303f47769299baa6e34a2e050859f04942fe0bbc0b1a86e36f9fb53d573783c
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:5cbce326f057c4a7e336850e70536a152bb34fca400614493f8e43746d8bd9db
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/janet_janet-intermediate
+#6 sha256:341bdd4de97f288b963f778062688998134124454306519228b7435b7647c983
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/janet_janet
+#10 sha256:0ed9b01688fdef482db9dfa50482bf2233f93dcd52c2ddd987520aa57890e3ca
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/janet_janet
+#5 sha256:83f1b63a4210b6791751be03c1b879405f5ca6706e19bdccb7f0e1dbdb9e4b07
+#5 ERROR: gcr.io/fuzzbench/runners/afl/janet_janet:latest: not found
+
+#12 [internal] load build context
+#12 sha256:5cbce326f057c4a7e336850e70536a152bb34fca400614493f8e43746d8bd9db
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/janet_janet
+#10 sha256:0ed9b01688fdef482db9dfa50482bf2233f93dcd52c2ddd987520aa57890e3ca
+#10 DONE 1.3s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:fe740efd5c2dc8745264302484daf71447b51d04aa8df8c6ddba41858d7bdbf4
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:ba929b14a45be427cfa5bea1e1b274342fac8a088a354e18967910a1e98482ec
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:269e8f99bea64f2998ff291ba724ba95319dcb91f301090fffc57c992f1fa4c9
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:678cf4221e341f9dcc1ac845db4537db48a3a2c763235fe778f3693e28ee92ee
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:4f65e1620f14aaebb84bea0c2531f01e08bbf5b72e5700904c97ae1c90ce47f7
+#13 DONE 0.7s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:de42b2f3846a48481ea4820f8632318bb0866dea3b517636e30a9b07c78c839d
+#14 DONE 0.6s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:25ebbd3873eccd925615c538f2cc2abcbc5e479295bbc355fed162a4b103a75f
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:20a2db7044570196231a0b48d7e558383716e5b12f29a52df8c6a6072f8485e4
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:a1743aa65edb1b85bec0b4689565c8d599c0240eab7125269488d6606d46c112
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:a17fe02943edc8387a50496c35c3bdb1d675ad9c294ee5f325c0dd24c94f05be
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:b9128dc27d2bbf133cf5a166f1df6e22231177d34ac1950e5d00ec2d9727e245
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:603d5b757e30e99e8b3a807e8f444ca126c745d4083a931d64a3c75d00f9c9b7
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6e9b3e6dae358d41ad753902b6284c2bcff5c4f6911029d746d96095d7683a59 done
+#21 naming to gcr.io/fuzzbench/runners/afl/janet_janet
+#21 naming to gcr.io/fuzzbench/runners/afl/janet_janet done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/janet_janet:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fba8226af70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a3010f7f3dba20c67889a5f87557e7eeb8847354ebe0704dfb57dda699866ade
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:36e61f5dbc6281bfd2397aa18b507475ce9096b40050d84302ab2e85debda2dc
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/janet_janet
+#4 sha256:58e09b999642addd5cf6605d7380c405213c2cd236b4f90e31262ef971873635
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:1a5fe7889f160afd3047e7da797efa2d5ef310a12ce61f5a2bdc58f15e26f407
+#9 transferring context: 30B done
+#9 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make cmake
+#6 sha256:1bc7e7da36934d98d1edef82f4514e6acdf8866c12935ce6e40fa577b775d206
+#6 CACHED
+
+#7 [3/5] RUN git clone https://github.com/janet-lang/janet
+#7 sha256:25b4909f284a89ca186a37eef908b2e20c694da87154072d98d6b479e14124e1
+#7 CACHED
+
+#8 [4/5] WORKDIR /src
+#8 sha256:9e8b8607ae7ed658dba9a4fb2450f2e957e8b9b54709c777b5cfda9c2f18619f
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:09ad702f85cd54dfa1465f0f83b7a3eab96fee0475b064cd41f9ce9b74c2b80e
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:34a2885284ae184bdd441c91bdf8100d19e5605b5a39964f8c2ae783a659867b
+#11 writing image sha256:34a2885284ae184bdd441c91bdf8100d19e5605b5a39964f8c2ae783a659867b done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/janet_janet done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:1cb8fe8261586856cb3e24f0e33fc673ef8509574d77653aa82f7a087e377257
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ee12c39285661c714fb6d5fbefee0e4d87b7ec667e6faf79fdbeac40a04cbd49
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/janet_janet:latest
+#3 sha256:f08eedeb33c9045a2a7f99d5ffd533f2aaa7b7ff88b78fafac50851716544921
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/janet_janet-intermediate
+#4 sha256:fc3f571efe1d7ccc87db823962ced0f53659e3acc12adf7ee922a0fc8a195699
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/janet_janet
+#5 sha256:b26a95af7eb858f05bdb55a23fbfcae3b321eb711a009a3d6f93682a131600af
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:2907e39895b3c73d744024d248664c7f8a20f988b44d475e0945cc5e64155f2c
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:7b2e4e8d5018627882262274e66d4bdd33d802c40b920048e1b21161a81ac8d8
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:9532ed25cd3cd191366d6c6389d81588d0014a41151908497b16434e599b5f29 done
+#8 naming to gcr.io/fuzzbench/builders/afl/janet_janet-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f5d902baaa7c5749b60083117e7c71af719d48a3c72c0a8988ba020bc6d8203c
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f00ea0ae06d88fa9d2915d2b4df0b8b1d80604af824df667839c655dede21869
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:86e9a2b12916ae0bfb3b972aeb774530164fd6c1e2b40c55ae7baca049f26ce5
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:a3b01c25d51280068ecbd66072a4a065a8fd0612d434a1f722c425fd2f0c7452
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:6fc2e4e57f3c372079d63fbae359876ffb4773b36dadea57c9943fc5e71c637b
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:cd9025d0302f51ebbca6b294f36b84a8265dd76ff3f0d9aa605694c71b4673e9
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:36285003df2d30e96916a5b5edd8fbe01f9bef163dee0b1c6d7cfe471ddd1288
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0eddad180a7c3057d97d29d803bcccde41a46355fe2b229cc3fbb50faf60dc91
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:20a8734d54ba082e54616e6f23f16c1a06748e5a5473b57bb58b7df210b5ba5a
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/janet_janet-intermediate:latest
+#3 sha256:b64e6ee75325fcafe06e4534bb54dd85ac472909887728315070368c40188d48
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/janet_janet-intermediate
+#6 sha256:38125417f5ea6602d504bd7276458164eda7af695ee1d146df692ee91109951c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/janet_janet
+#5 sha256:97f6ecc59d8cf5ff9262ed6d567a222856ff1f44e70a35ecca659f99705a3d34
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:6cb9948b82ec775e504b4f478a1bb276f3c41da73720dadc316ca1877937abbe
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#15 [stage-1  8/13] COPY benchmarks/janet_janet/benchmark.yaml /
+#15 sha256:5e743d6507da123eab45ba01abe92a1698b977c0a7c1e61e5ce9d0e8e0d4114f
+#15 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:2add565466e9d9deea15bfa381d10e886c0b07897c5baa647ed092901b574ef5
+#17 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:1f6743fe0f3c2538e30c73df0535c0b73684497ece2ae69b07d771606827b755
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:cdb888e2cc17ca55f60225980b1c8e3ffbc524fc755effd57429b6940b417784
+#13 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:7de5ff66583b06bfd541c235f52b44374d5e5794b6960e037ec599388980edbf
+#18 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:5f071792221464a4cba45258c2b0f1c79628dcff249b8211f5863e37b4b73a06
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:be46972333c66cc9c5e6b78ea71e7a8ef6fa374c99a10e499b6417f9cef7f245
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:9e15a57bb4c2dc71db91a64a896cb210c75f1901864dac0c81905a253f2ad652
+#14 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:f75a1c6eb070fe14110ea8ea5efdf1d2c519e6f8d8cf86b71bf273e0b36b86d4
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:739c833b92c727255dfc55ec5ae8462982b4e04e67aed4d8b3d8a32e4860f8e7
+#16 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:737f44a9133f71a3c2ae51c206b6e9b0aa44dcbd8c10e459c94fe2d958a56036
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:87dea89ca70c2338c28f4648b3e0ecdb2cc1edac8743a8856875bda5f39a5cec
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6b372f1913a3b02e5c5eb4d55ca70096a184dfc702ab7cc9d4c5694747135cbc
+#21 writing image sha256:6b372f1913a3b02e5c5eb4d55ca70096a184dfc702ab7cc9d4c5694747135cbc 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/janet_janet done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:80160e5739b812c8a04c4f6ff9fae3af327d55fe898e88206bfbe7bca470bbf0
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f4e6b9555acad3520b755d7d41c0851905c1100e54d6e647f85b13b5397d4e2b
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/janet_janet-intermediate
+#5 sha256:b5e175f5cb417225be78a0d42d75ff5a5541daa220e0d5c6e043be7c1281ed1f
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c done
+#6 naming to gcr.io/fuzzbench/runners/afl/janet_janet-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:3f711cde2c016e8fb8d136342d529e0a001b79faec80c092134ed6719b0e304d
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a5b2c74305d9e23e5f5f271ad6b24814d0858286496aab0d668828d0f7035a38
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/janet_janet-intermediate:latest
+#3 sha256:5303f47769299baa6e34a2e050859f04942fe0bbc0b1a86e36f9fb53d573783c
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/janet_janet:latest
+#4 sha256:fe5acedd1e4229279c9a8f41d1c51b580c8918e3a9754236c6ceb884c44b2086
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/janet_janet-intermediate
+#6 sha256:341bdd4de97f288b963f778062688998134124454306519228b7435b7647c983
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/janet_janet
+#5 sha256:83f1b63a4210b6791751be03c1b879405f5ca6706e19bdccb7f0e1dbdb9e4b07
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/janet_janet
+#10 sha256:0ed9b01688fdef482db9dfa50482bf2233f93dcd52c2ddd987520aa57890e3ca
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d2043f2a734ff3aa0c3ac02040e711c5561a62f7bdc26939f0a721c31c6f78f5
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 0.7s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:ba929b14a45be427cfa5bea1e1b274342fac8a088a354e18967910a1e98482ec
+#8 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:24bfe83821cf2c8721f24891d79f6a487a2547bea0c88c09251aac259dc9808b
+#13 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:5d805783606531da742f0248136820e0d5512cc30fce69285cf4025a158ebc40
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:678cf4221e341f9dcc1ac845db4537db48a3a2c763235fe778f3693e28ee92ee
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:ed73026343f539753ecf5dfe83af0f7af7a8d488fbd6b82bcb62cd2863c44bf5
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:d6121dfa700743aefb950c57de99ec71489ae471c4fb55c53ce24408b33b8ec9
+#18 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:ea0553669feb6294d4a19995b08087bcec9ab59be1ec65222ce2d467edaa0c0e
+#14 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:fe740efd5c2dc8745264302484daf71447b51d04aa8df8c6ddba41858d7bdbf4
+#7 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:5df8b8b10826ebd9d537190f2849c1dae7b443da3c68dcfe7c7767eaac0f3024
+#15 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:269e8f99bea64f2998ff291ba724ba95319dcb91f301090fffc57c992f1fa4c9
+#9 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:f2581f6ec38edc22ae8b57217234b3eed47fd7dec36b77b4b542df7ee6c2f95b
+#17 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:afa2160b97821917f82e89bc87ae96ccacfc506f5c91766fd89fa34d99406a15
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6e9b3e6dae358d41ad753902b6284c2bcff5c4f6911029d746d96095d7683a59
+#21 writing image sha256:6e9b3e6dae358d41ad753902b6284c2bcff5c4f6911029d746d96095d7683a59 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/janet_janet done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f4a676a5f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

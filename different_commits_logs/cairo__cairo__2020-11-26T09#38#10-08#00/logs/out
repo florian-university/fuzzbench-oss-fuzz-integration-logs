@@ -1,0 +1,890 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: cairo_cairo.
+INFO:root:Please run "make test-run-afl-cairo_cairo" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2f48b9c9faf17c6c5fcc1ef987602503b337b20d1a9ce3a390d43d309c751204
+#1 transferring dockerfile: 32B done
+#1 DONE 0.9s
+
+#2 [internal] load .dockerignore
+#2 sha256:1acddaf1bacf467867dd9e9d8b958830a7d9602117d010006dc60a0feb639c2d
+#2 transferring context: 2B done
+#2 DONE 0.9s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#16 [internal] load build context
+#16 sha256:62a06e1a9ab13b103d8a1f3f0102eac719d6ac12cdfde4afc45babe4e591a68c
+#16 DONE 0.0s
+
+#5 [ 1/11] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#13 https://raw.githubusercontent.com/google/fuzzing/master/dictionaries/png.dict
+#13 sha256:f2fe9035cd64272db8c1e48d4d86d21805361b1b009db1cbaf23aa40c6bc9b06
+#13 DONE 0.0s
+
+#9 https://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.2.tar.xz
+#9 sha256:e71d02f259bb4f6c4f159c57a40c280299b792ff9ad685e4dfdef2f275e3a2d7
+#9 DONE 0.3s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/cairo_cairo
+#4 sha256:b1b4675d841d12ba585e69941fa0804393e53cc35b6f2546e619d2d5003bcd42
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/cairo_cairo:latest: not found
+
+#16 [internal] load build context
+#16 sha256:62a06e1a9ab13b103d8a1f3f0102eac719d6ac12cdfde4afc45babe4e591a68c
+#16 transferring context: 296B done
+#16 DONE 0.5s
+
+#10 [ 5/11] ADD https://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.2.tar.xz /src
+#10 sha256:d6732cf49e4bd1a9a66c0c3b09b110ff4ef64cbd512505253b02c82eced7a20b
+#10 CACHED
+
+#15 [ 9/11] WORKDIR /src/cairo
+#15 sha256:927726fa98886f0e227190d9bb221d997cbcbe4bceccd3beacec55a5abbd3fb9
+#15 CACHED
+
+#7 [ 3/11] RUN pip3 install -U meson==0.55.3 ninja
+#7 sha256:34dc6ebb44b46916605ed9a81693bff292ff82e14dbec51dbf294ab445be913b
+#7 CACHED
+
+#8 [ 4/11] RUN git clone --depth 1 git://git.sv.nongnu.org/freetype/freetype2.git
+#8 sha256:170b544160290793c83942a1eebedb3937d0f8259403d2ca6bee30843317ae20
+#8 CACHED
+
+#11 [ 6/11] RUN tar xvJf /src/glib-2.64.2.tar.xz
+#11 sha256:a8c4bba860e2386af884cadc3812c6245e0733c396d6b53e5abdff989ca3b3a2
+#11 CACHED
+
+#12 [ 7/11] RUN git clone --depth 1 https://gitlab.freedesktop.org/cairo/cairo.git &&     zip -q /src/cairo_seed_corpus.zip /src/cairo/test/reference/*
+#12 sha256:cf80ec888ac4a799902896af03c36c6b53725cb0c2fb1b18d183cb47673a9aab
+#12 CACHED
+
+#14 [ 8/11] ADD https://raw.githubusercontent.com/google/fuzzing/master/dictionaries/png.dict /src/cairo.dict
+#14 sha256:874ded3fb3d7ee8ff44a435685510899123e6194377ef332cc77842437e374ce
+#14 CACHED
+
+#17 [10/11] COPY targets /src/fuzz
+#17 sha256:9c9a480d9fc8eb5ad70c0f9668867effe016f46994b8363f19c8efa46a3f8734
+#17 CACHED
+
+#6 [ 2/11] RUN apt-get update && apt-get install -y python3-pip gtk-doc-tools libffi-dev
+#6 sha256:370ff0cdb34740acdfb5e003f794efab19e99f6d7a498ee06fe9313137417660
+#6 CACHED
+
+#18 [11/11] COPY build.sh /src/
+#18 sha256:6f4b77203ba6a3e1f94f807c12d29183d57a6779b0ccc4c3d7af4d7596e08f3f
+#18 CACHED
+
+#19 exporting to image
+#19 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#19 exporting layers done
+#19 writing image sha256:56db228aa16ff4bac003d4b78499bf3a0b975b651865637136e7217d63b3d437
+#19 writing image sha256:56db228aa16ff4bac003d4b78499bf3a0b975b651865637136e7217d63b3d437 0.2s done
+#19 naming to gcr.io/fuzzbench/builders/benchmark/cairo_cairo
+#19 naming to gcr.io/fuzzbench/builders/benchmark/cairo_cairo 0.1s done
+#19 DONE 3.0s
+
+#20 exporting cache
+#20 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#20 preparing build cache for export done
+#20 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/cairo_cairo:
+------
+#2 [internal] load .dockerignore
+#2 sha256:24b882d88db77c07e230d96f713851251ca79f9bc3692b7328c8da64f6eeb841
+#2 transferring context: 2B done
+#2 DONE 0.9s
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:339f923df00bf8d23e1bf9b6241718af3499cc44e1bedf0ed7f1fc92ff44a993
+#1 transferring dockerfile: 46B done
+#1 DONE 0.8s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/cairo_cairo:latest
+#3 sha256:b369c12210b215ff1d8a34d247a2b7bc6137ed9a8639c7bcbc4556ec02c681ff
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/cairo_cairo
+#5 sha256:73b40ebd82861b5d6504448c2e7d932c2bcdccf4fcb29eb588b74445ca3c8cdb
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate
+#4 sha256:3e03d3ea1c5e0a9b88cc87ef3b854c805438e59ad6b720e6c9442faa3040eaf2
+#4 ERROR: gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:5e5949adc24271809a5e6b3af9284a0a64197feb7c5b2501e126e1b15cee1425
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:7b46953f2d2fd4aaf7b2e234259f09e368a30103b6e8ee709e6559cdb7ce29e9
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:c45435867b5d1bb5cdbca96d95e1cbb90a50050d06f4318cc2c2184555877393 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate 0.0s done
+#8 DONE 0.5s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ada31098781df2b59c5e3c0487b2f1a2be7d2ae004ff54c055ab6af59a4e5a63
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:72846b46a063708e0d622ca746e4b17eb3adb1397808ef72513be5bed13e23b3
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:7d735fd505459fa2acfca447b5e80525ab1a61ad37fa965d82f0ccf5b9f26c62
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:1abce7ac47875221d6b0e4fcd6805d149df1ebda37fc65c131814daedd37f2f1
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:dad4158adc73d944497bb5f37881bf4e238d8613fe507dc2ba445e499df08075
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:f9adea27b36a94a98545c2b7bde7914edf093f9e21b953dd5818804a26cae2c8
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:607227d7e07a8408d9c422fb69541f5b1996b6f8014b5e54453284b6e6e3e24f
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:7d9957eb6f280da9248cb8afce2961dbcb27e41d89cdfd8167167cb748135959 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1d916b9691c653f5756b6ae5a3ab1e1e1e2e9c2523cef7847e31ca33bd4b3170
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d57dd0c46f78dc364dc23b40e731fedf81e77bde113c3fdd64e2bf898bded4ff
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate:latest
+#3 sha256:3c57b95891a0f059e7b015997e2f1a403218bfd929148271abbc15e4f343c288
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b2f6f70b206de3dde6fc0dc16a488c81d1ad2819ccf3dd09baf75a6fbf4fd5e4
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate
+#6 sha256:89c57dac4914de1354560b41535d1e5e92276e6a60add52e2d0bc8e53cd62562
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/cairo_cairo
+#5 sha256:84603404fa579db905069c851a8cf550555b187642dfc9d752f092c1aed35cb9
+#5 ERROR: gcr.io/fuzzbench/builders/afl/cairo_cairo:latest: not found
+
+#12 [internal] load build context
+#12 sha256:b2f6f70b206de3dde6fc0dc16a488c81d1ad2819ccf3dd09baf75a6fbf4fd5e4
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:72e2dc796d32cf2b445d5c4477c0a7f3f603a9c2f8f779a6a35e5fe91a794610
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:206b8253a09a4ede49f2842810b8159fe70de2784674035f9559cdd7fd0023ec
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:38fdc7f0f837e2937d5c2cc0a3bef09fa29232f81e424f48b545329dee8bfc3d
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:50adc9bae8dc9a98ada86e65863a54f0c080e690a618400c53448e2d2996d90e
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:3245a8e2fe92a21caa68ab08b301d70e2c54b49ffde299a0222175f19bb917f9
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:0a32f09b37458e77dfee2697da9ba4fe621ca0646b06707a92997a2039c073ba
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/cairo_cairo/benchmark.yaml /
+#15 sha256:4c8f84758cb2cad2c38de84a538e4ca593e62efc71893e713e68f89fa43f75b9
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:9f1d31994b18c587b7e9a584f08ffc0ed5a5ff241147cc2b79540f5380d46b81
+#16 DONE 1.0s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:31bdc9459d9e626df6b0c5238e128fce91f60fe0a63876c62829505b2b11250a
+#17 DONE 0.5s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:dd087a2d4fde55f9d5caa0ae1a25c15e4e64b582b9d61077b4066fa188a57077
+#18 0.627 Checking out commit 945e7480
+#18 18.34 From https://gitlab.freedesktop.org/cairo/cairo
+#18 18.34  * [new tag]             1.0.0          -> 1.0.0
+#18 18.34  * [new tag]             1.1.10         -> 1.1.10
+#18 18.34  * [new tag]             1.1.2          -> 1.1.2
+#18 18.34  * [new tag]             1.1.4          -> 1.1.4
+#18 18.34  * [new tag]             1.1.6          -> 1.1.6
+#18 18.34  * [new tag]             1.1.8          -> 1.1.8
+#18 18.34  * [new tag]             1.10.0         -> 1.10.0
+#18 18.34  * [new tag]             1.10.2         -> 1.10.2
+#18 18.34  * [new tag]             1.11.2         -> 1.11.2
+#18 18.34  * [new tag]             1.11.4         -> 1.11.4
+#18 18.34  * [new tag]             1.12.0         -> 1.12.0
+#18 18.34  * [new tag]             1.12.10        -> 1.12.10
+#18 18.34  * [new tag]             1.12.12        -> 1.12.12
+#18 18.34  * [new tag]             1.12.14        -> 1.12.14
+#18 18.34  * [new tag]             1.12.16        -> 1.12.16
+#18 18.34  * [new tag]             1.12.2         -> 1.12.2
+#18 18.34  * [new tag]             1.12.4         -> 1.12.4
+#18 18.35  * [new tag]             1.12.6         -> 1.12.6
+#18 18.35  * [new tag]             1.12.8         -> 1.12.8
+#18 18.35  * [new tag]             1.14.0         -> 1.14.0
+#18 18.35  * [new tag]             1.14.2         -> 1.14.2
+#18 18.35  * [new tag]             1.15.12        -> 1.15.12
+#18 18.35  * [new tag]             1.15.14        -> 1.15.14
+#18 18.35  * [new tag]             1.15.2         -> 1.15.2
+#18 18.35  * [new tag]             1.15.4         -> 1.15.4
+#18 18.35  * [new tag]             1.15.6         -> 1.15.6
+#18 18.35  * [new tag]             1.15.8         -> 1.15.8
+#18 18.35  * [new tag]             1.16.0         -> 1.16.0
+#18 18.35  * [new tag]             1.17.2         -> 1.17.2
+#18 18.35  * [new tag]             1.17.4         -> 1.17.4
+#18 18.35  * [new tag]             1.2.0          -> 1.2.0
+#18 18.35  * [new tag]             1.2.2          -> 1.2.2
+#18 18.35  * [new tag]             1.2.4          -> 1.2.4
+#18 18.35  * [new tag]             1.3.10         -> 1.3.10
+#18 18.35  * [new tag]             1.3.12         -> 1.3.12
+#18 18.35  * [new tag]             1.3.14         -> 1.3.14
+#18 18.35  * [new tag]             1.3.16         -> 1.3.16
+#18 18.35  * [new tag]             1.3.2          -> 1.3.2
+#18 18.35  * [new tag]             1.3.4          -> 1.3.4
+#18 18.35  * [new tag]             1.3.6          -> 1.3.6
+#18 18.35  * [new tag]             1.3.8          -> 1.3.8
+#18 18.35  * [new tag]             1.4.0          -> 1.4.0
+#18 18.35  * [new tag]             1.4.10         -> 1.4.10
+#18 18.35  * [new tag]             1.4.2          -> 1.4.2
+#18 18.35  * [new tag]             1.4.4          -> 1.4.4
+#18 18.35  * [new tag]             1.4.6          -> 1.4.6
+#18 18.35  * [new tag]             1.4.8          -> 1.4.8
+#18 18.35  * [new tag]             1.5.10         -> 1.5.10
+#18 18.35  * [new tag]             1.5.12         -> 1.5.12
+#18 18.35  * [new tag]             1.5.14         -> 1.5.14
+#18 18.35  * [new tag]             1.5.16         -> 1.5.16
+#18 18.35  * [new tag]             1.5.18         -> 1.5.18
+#18 18.36  * [new tag]             1.5.2          -> 1.5.2
+#18 18.36  * [new tag]             1.5.20         -> 1.5.20
+#18 18.36  * [new tag]             1.5.4          -> 1.5.4
+#18 18.36  * [new tag]             1.5.6          -> 1.5.6
+#18 18.36  * [new tag]             1.5.8          -> 1.5.8
+#18 18.36  * [new tag]             1.6.0          -> 1.6.0
+#18 18.36  * [new tag]             1.6.2          -> 1.6.2
+#18 18.36  * [new tag]             1.6.4          -> 1.6.4
+#18 18.36  * [new tag]             1.7.2          -> 1.7.2
+#18 18.36  * [new tag]             1.7.4          -> 1.7.4
+#18 18.36  * [new tag]             1.7.6          -> 1.7.6
+#18 18.36  * [new tag]             1.8.0          -> 1.8.0
+#18 18.36  * [new tag]             1.8.2          -> 1.8.2
+#18 18.36  * [new tag]             1.8.4          -> 1.8.4
+#18 18.36  * [new tag]             1.8.6          -> 1.8.6
+#18 18.36  * [new tag]             1.9.10         -> 1.9.10
+#18 18.36  * [new tag]             1.9.12         -> 1.9.12
+#18 18.36  * [new tag]             1.9.14         -> 1.9.14
+#18 18.36  * [new tag]             1.9.2          -> 1.9.2
+#18 18.36  * [new tag]             1.9.4          -> 1.9.4
+#18 18.36  * [new tag]             1.9.6          -> 1.9.6
+#18 18.36  * [new tag]             1.9.8          -> 1.9.8
+#18 18.36  * [new tag]             RELEASE_0_9_2  -> RELEASE_0_9_2
+#18 18.36  * [new tag]             RELEASE_1_0_0  -> RELEASE_1_0_0
+#18 18.36  * [new tag]             SNAPSHOT_0_1_1 -> SNAPSHOT_0_1_1
+#18 18.36  * [new tag]             SNAPSHOT_0_1_2 -> SNAPSHOT_0_1_2
+#18 18.36  * [new tag]             SNAPSHOT_0_1_3 -> SNAPSHOT_0_1_3
+#18 18.36  * [new tag]             SNAPSHOT_0_1_4 -> SNAPSHOT_0_1_4
+#18 18.36  * [new tag]             SNAPSHOT_0_1_5 -> SNAPSHOT_0_1_5
+#18 18.36  * [new tag]             SNAPSHOT_0_1_6 -> SNAPSHOT_0_1_6
+#18 18.36  * [new tag]             initial        -> initial
+#18 18.37 error: pathspec '945e7480' did not match any file(s) known to git
+#18 30.93 From git://git.sv.nongnu.org/freetype/freetype2
+#18 30.93  * [new tag]             BETA-5          -> BETA-5
+#18 30.93  * [new tag]             BETA-6          -> BETA-6
+#18 30.93  * [new tag]             BETA-7          -> BETA-7
+#18 30.93  * [new tag]             BETA-8          -> BETA-8
+#18 30.93  * [new tag]             DATE-050920     -> DATE-050920
+#18 30.93  * [new tag]             PRE-2-0-1       -> PRE-2-0-1
+#18 30.93  * [new tag]             PRE-2-0-6       -> PRE-2-0-6
+#18 30.93  * [new tag]             RELEASE-2-0     -> RELEASE-2-0
+#18 30.93  * [new tag]             VER-2-0         -> VER-2-0
+#18 30.93  * [new tag]             VER-2-0-1       -> VER-2-0-1
+#18 30.93  * [new tag]             VER-2-0-2       -> VER-2-0-2
+#18 30.93  * [new tag]             VER-2-0-2-TEST  -> VER-2-0-2-TEST
+#18 30.93  * [new tag]             VER-2-0-3       -> VER-2-0-3
+#18 30.93  * [new tag]             VER-2-0-4       -> VER-2-0-4
+#18 30.93  * [new tag]             VER-2-0-5       -> VER-2-0-5
+#18 30.93  * [new tag]             VER-2-0-6       -> VER-2-0-6
+#18 30.93  * [new tag]             VER-2-0-7       -> VER-2-0-7
+#18 30.93  * [new tag]             VER-2-0-8       -> VER-2-0-8
+#18 30.93  * [new tag]             VER-2-1-0       -> VER-2-1-0
+#18 30.93  * [new tag]             VER-2-1-1       -> VER-2-1-1
+#18 30.93  * [new tag]             VER-2-1-1-RC1   -> VER-2-1-1-RC1
+#18 30.93  * [new tag]             VER-2-1-10      -> VER-2-1-10
+#18 30.93  * [new tag]             VER-2-1-2       -> VER-2-1-2
+#18 30.93  * [new tag]             VER-2-1-2-RC1   -> VER-2-1-2-RC1
+#18 30.94  * [new tag]             VER-2-1-3       -> VER-2-1-3
+#18 30.94  * [new tag]             VER-2-1-3-RC1   -> VER-2-1-3-RC1
+#18 30.94  * [new tag]             VER-2-1-3-RC2   -> VER-2-1-3-RC2
+#18 30.94  * [new tag]             VER-2-1-3-RC3   -> VER-2-1-3-RC3
+#18 30.94  * [new tag]             VER-2-1-4       -> VER-2-1-4
+#18 30.94  * [new tag]             VER-2-1-4-RC1   -> VER-2-1-4-RC1
+#18 30.94  * [new tag]             VER-2-1-4-RC2   -> VER-2-1-4-RC2
+#18 30.94  * [new tag]             VER-2-1-5-RC1   -> VER-2-1-5-RC1
+#18 30.94  * [new tag]             VER-2-1-6       -> VER-2-1-6
+#18 30.94  * [new tag]             VER-2-1-7       -> VER-2-1-7
+#18 30.94  * [new tag]             VER-2-1-8       -> VER-2-1-8
+#18 30.94  * [new tag]             VER-2-1-8-RC1   -> VER-2-1-8-RC1
+#18 30.94  * [new tag]             VER-2-1-9       -> VER-2-1-9
+#18 30.94  * [new tag]             VER-2-10-0      -> VER-2-10-0
+#18 30.94  * [new tag]             VER-2-10-1      -> VER-2-10-1
+#18 30.94  * [new tag]             VER-2-10-2      -> VER-2-10-2
+#18 30.94  * [new tag]             VER-2-10-3      -> VER-2-10-3
+#18 30.94  * [new tag]             VER-2-10-4      -> VER-2-10-4
+#18 30.94  * [new tag]             VER-2-11-0      -> VER-2-11-0
+#18 30.94  * [new tag]             VER-2-11-1      -> VER-2-11-1
+#18 30.94  * [new tag]             VER-2-2-0       -> VER-2-2-0
+#18 30.94  * [new tag]             VER-2-2-0-RC1   -> VER-2-2-0-RC1
+#18 30.94  * [new tag]             VER-2-2-0-RC2   -> VER-2-2-0-RC2
+#18 30.94  * [new tag]             VER-2-2-0-RC3   -> VER-2-2-0-RC3
+#18 30.94  * [new tag]             VER-2-2-0-RC4   -> VER-2-2-0-RC4
+#18 30.94  * [new tag]             VER-2-2-1       -> VER-2-2-1
+#18 30.94  * [new tag]             VER-2-3-0       -> VER-2-3-0
+#18 30.94  * [new tag]             VER-2-3-0-FINAL -> VER-2-3-0-FINAL
+#18 30.94  * [new tag]             VER-2-3-0-RC1   -> VER-2-3-0-RC1
+#18 30.94  * [new tag]             VER-2-3-0-RC2   -> VER-2-3-0-RC2
+#18 30.94  * [new tag]             VER-2-3-1       -> VER-2-3-1
+#18 30.94  * [new tag]             VER-2-3-1-FINAL -> VER-2-3-1-FINAL
+#18 30.94  * [new tag]             VER-2-3-10      -> VER-2-3-10
+#18 30.95  * [new tag]             VER-2-3-11      -> VER-2-3-11
+#18 30.95  * [new tag]             VER-2-3-12      -> VER-2-3-12
+#18 30.95  * [new tag]             VER-2-3-2       -> VER-2-3-2
+#18 30.95  * [new tag]             VER-2-3-3       -> VER-2-3-3
+#18 30.95  * [new tag]             VER-2-3-4       -> VER-2-3-4
+#18 30.95  * [new tag]             VER-2-3-5       -> VER-2-3-5
+#18 30.95  * [new tag]             VER-2-3-5-REAL  -> VER-2-3-5-REAL
+#18 30.95  * [new tag]             VER-2-3-6       -> VER-2-3-6
+#18 30.95  * [new tag]             VER-2-3-7       -> VER-2-3-7
+#18 30.95  * [new tag]             VER-2-3-8       -> VER-2-3-8
+#18 30.95  * [new tag]             VER-2-3-9       -> VER-2-3-9
+#18 30.95  * [new tag]             VER-2-4-0       -> VER-2-4-0
+#18 30.95  * [new tag]             VER-2-4-1       -> VER-2-4-1
+#18 30.95  * [new tag]             VER-2-4-10      -> VER-2-4-10
+#18 30.95  * [new tag]             VER-2-4-11      -> VER-2-4-11
+#18 30.95  * [new tag]             VER-2-4-12      -> VER-2-4-12
+#18 30.95  * [new tag]             VER-2-4-12-beta -> VER-2-4-12-beta
+#18 30.95  * [new tag]             VER-2-4-2       -> VER-2-4-2
+#18 30.95  * [new tag]             VER-2-4-3       -> VER-2-4-3
+#18 30.95  * [new tag]             VER-2-4-4       -> VER-2-4-4
+#18 30.95  * [new tag]             VER-2-4-5       -> VER-2-4-5
+#18 30.95  * [new tag]             VER-2-4-6       -> VER-2-4-6
+#18 30.95  * [new tag]             VER-2-4-7       -> VER-2-4-7
+#18 30.95  * [new tag]             VER-2-4-8       -> VER-2-4-8
+#18 30.95  * [new tag]             VER-2-4-9       -> VER-2-4-9
+#18 30.95  * [new tag]             VER-2-5-0       -> VER-2-5-0
+#18 30.95  * [new tag]             VER-2-5-0-1     -> VER-2-5-0-1
+#18 30.95  * [new tag]             VER-2-5-1       -> VER-2-5-1
+#18 30.95  * [new tag]             VER-2-5-2       -> VER-2-5-2
+#18 30.95  * [new tag]             VER-2-5-3       -> VER-2-5-3
+#18 30.95  * [new tag]             VER-2-5-4       -> VER-2-5-4
+#18 30.95  * [new tag]             VER-2-5-5       -> VER-2-5-5
+#18 30.95  * [new tag]             VER-2-6         -> VER-2-6
+#18 30.95  * [new tag]             VER-2-6-1       -> VER-2-6-1
+#18 30.95  * [new tag]             VER-2-6-2       -> VER-2-6-2
+#18 30.95  * [new tag]             VER-2-6-3       -> VER-2-6-3
+#18 30.95  * [new tag]             VER-2-6-4       -> VER-2-6-4
+#18 30.95  * [new tag]             VER-2-6-5       -> VER-2-6-5
+#18 30.95  * [new tag]             VER-2-7         -> VER-2-7
+#18 30.95  * [new tag]             VER-2-7-1       -> VER-2-7-1
+#18 30.95  * [new tag]             VER-2-8         -> VER-2-8
+#18 30.95  * [new tag]             VER-2-8-1       -> VER-2-8-1
+#18 30.95  * [new tag]             VER-2-9         -> VER-2-9
+#18 30.95  * [new tag]             VER-2-9-1       -> VER-2-9-1
+#18 30.95  * [new tag]             VER-2-BETA2     -> VER-2-BETA2
+#18 30.96  * [new tag]             VER-2-BETA3     -> VER-2-BETA3
+#18 30.96  * [new tag]             VER-2-BETA4     -> VER-2-BETA4
+#18 30.96  * [new tag]             freetype        -> freetype
+#18 30.96  * [new tag]             freetype2       -> freetype2
+#18 30.96  * [new tag]             import          -> import
+#18 30.96  * [new tag]             start           -> start
+#18 31.41 error: pathspec '945e7480' did not match any file(s) known to git
+#18 31.41 error: pathspec '945e7480' did not match any file(s) known to git
+#18 31.42 error: pathspec '945e7480' did not match any file(s) known to git
+#18 31.52 error: pathspec '945e7480' did not match any file(s) known to git
+#18 31.54 Checkout unsuccessful.
+#18 DONE 31.9s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:025b9c3632ffe849f04efea12d903c43aad941c93437c9247d478893ac22e1c2
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:8e2c024e77e862e737da914390864581db938eaa561fc6b08e9dffb1b1fba9d9
+#20 0.554 Run fuzzer_build to build the target
+#20 0.692 FUZZ_TARGET = cairo
+#20 0.692 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.692 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.700 Building benchmark cairo_cairo with fuzzer afl
+#20 0.704 + PREFIX=/work/prefix
+#20 0.704 + mkdir -p /work/prefix
+#20 0.707 ++ which pkg-config
+#20 0.708 + export 'PKG_CONFIG=/usr/bin/pkg-config --static'
+#20 0.708 + PKG_CONFIG='/usr/bin/pkg-config --static'
+#20 0.708 + export PKG_CONFIG_PATH=/work/prefix/lib/pkgconfig
+#20 0.708 + PKG_CONFIG_PATH=/work/prefix/lib/pkgconfig
+#20 0.708 + export PATH=/work/prefix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out
+#20 0.708 + PATH=/work/prefix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out
+#20 0.708 + BUILD=/work/build
+#20 0.708 + rm -rf /work/prefix
+#20 0.711 + rm -rf /work/build
+#20 0.712 + mkdir -p /work/build
+#20 0.714 + pushd /src/glib-2.64.2
+#20 0.714 /src/glib-2.64.2 /src/cairo
+#20 0.714 + meson --prefix=/work/prefix --libdir=lib --default-library=static -Db_lundef=false -Doss_fuzz=enabled -Dlibmount=disabled -Dinternal_pcre=true _builddir
+#20 1.010 Traceback (most recent call last):
+#20 1.010   File "/usr/local/bin/meson", line 6, in <module>
+#20 1.010     from mesonbuild.mesonmain import main
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/mesonmain.py", line 25, in <module>
+#20 1.010     from . import mconf, mdist, minit, minstall, mintro, msetup, mtest, rewriter, msubprojects, munstable_coredata, mcompile
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/mconf.py", line 16, in <module>
+#20 1.010     from . import coredata, environment, mesonlib, build, mintro, mlog
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/build.py", line 26, in <module>
+#20 1.010     from . import dependencies
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/dependencies/__init__.py", line 15, in <module>
+#20 1.010     from .boost import BoostDependency
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/dependencies/boost.py", line 25, in <module>
+#20 1.010     from .base import DependencyException, ExternalDependency, PkgConfigDependency
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/dependencies/base.py", line 37, in <module>
+#20 1.010     from ..cmake import CMakeExecutor, CMakeTraceParser, CMakeException
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/cmake/__init__.py", line 35, in <module>
+#20 1.010     from .client import CMakeClient
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/cmake/client.py", line 19, in <module>
+#20 1.010     from .executor import CMakeExecutor
+#20 1.010   File "/usr/local/lib/python3.8/site-packages/mesonbuild/cmake/executor.py", line 25, in <module>
+#20 1.010     import ctypes
+#20 1.010   File "/usr/local/lib/python3.8/ctypes/__init__.py", line 7, in <module>
+#20 1.010     from _ctypes import Union, Structure, Array
+#20 1.010 ImportError: libffi.so.6: cannot open shared object file: No such file or directory
+#20 1.026 Traceback (most recent call last):
+#20 1.026   File "<string>", line 1, in <module>
+#20 1.026   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 1.026     utils.build_benchmark()
+#20 1.026   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 1.026     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 1.026   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 1.027     raise CalledProcessError(retcode, cmd)
+#20 1.027 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/cairo_cairo:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2785776: .afl-cairo_cairo-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:904547014a936d61e4aa8c4b884d3b69fbe325733931d02181ea6f8036188e3e
+#1 transferring dockerfile: 32B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:26a5dae4f4c7ec1bb7b7a8024db1ac7e44b797ed2f9a0aeea87dca5d12a77184
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [ 1/11] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/cairo_cairo
+#4 sha256:b1b4675d841d12ba585e69941fa0804393e53cc35b6f2546e619d2d5003bcd42
+#4 DONE 0.0s
+
+#13 https://raw.githubusercontent.com/google/fuzzing/master/dictionaries/png.dict
+#13 sha256:f2fe9035cd64272db8c1e48d4d86d21805361b1b009db1cbaf23aa40c6bc9b06
+#13 DONE 0.0s
+
+#16 [internal] load build context
+#16 sha256:2b61d77e7a0815bb7d6ff85de80bccb82da8b95d71733e4f5fa637ad47b45b00
+#16 transferring context: 296B done
+#16 DONE 0.1s
+
+#9 https://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.2.tar.xz
+#9 sha256:e71d02f259bb4f6c4f159c57a40c280299b792ff9ad685e4dfdef2f275e3a2d7
+#9 DONE 1.0s
+
+#10 [ 5/11] ADD https://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.2.tar.xz /src
+#10 sha256:d6732cf49e4bd1a9a66c0c3b09b110ff4ef64cbd512505253b02c82eced7a20b
+#10 CACHED
+
+#17 [10/11] COPY targets /src/fuzz
+#17 sha256:7817eca6ebe0cd09a06442f9de31525976223e5ea815d611000fb0c142752991
+#17 CACHED
+
+#6 [ 2/11] RUN apt-get update && apt-get install -y python3-pip gtk-doc-tools libffi-dev
+#6 sha256:370ff0cdb34740acdfb5e003f794efab19e99f6d7a498ee06fe9313137417660
+#6 CACHED
+
+#7 [ 3/11] RUN pip3 install -U meson==0.55.3 ninja
+#7 sha256:34dc6ebb44b46916605ed9a81693bff292ff82e14dbec51dbf294ab445be913b
+#7 CACHED
+
+#15 [ 9/11] WORKDIR /src/cairo
+#15 sha256:927726fa98886f0e227190d9bb221d997cbcbe4bceccd3beacec55a5abbd3fb9
+#15 CACHED
+
+#8 [ 4/11] RUN git clone --depth 1 git://git.sv.nongnu.org/freetype/freetype2.git
+#8 sha256:170b544160290793c83942a1eebedb3937d0f8259403d2ca6bee30843317ae20
+#8 CACHED
+
+#11 [ 6/11] RUN tar xvJf /src/glib-2.64.2.tar.xz
+#11 sha256:a8c4bba860e2386af884cadc3812c6245e0733c396d6b53e5abdff989ca3b3a2
+#11 CACHED
+
+#14 [ 8/11] ADD https://raw.githubusercontent.com/google/fuzzing/master/dictionaries/png.dict /src/cairo.dict
+#14 sha256:874ded3fb3d7ee8ff44a435685510899123e6194377ef332cc77842437e374ce
+#14 CACHED
+
+#12 [ 7/11] RUN git clone --depth 1 https://gitlab.freedesktop.org/cairo/cairo.git &&     zip -q /src/cairo_seed_corpus.zip /src/cairo/test/reference/*
+#12 sha256:cf80ec888ac4a799902896af03c36c6b53725cb0c2fb1b18d183cb47673a9aab
+#12 CACHED
+
+#18 [11/11] COPY build.sh /src/
+#18 sha256:23eb6249bdaecd1033928d2360666be2ab4d3efc50c26fcb3b7c4c6c1e70f30f
+#18 CACHED
+
+#19 exporting to image
+#19 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#19 exporting layers done
+#19 writing image sha256:56db228aa16ff4bac003d4b78499bf3a0b975b651865637136e7217d63b3d437 0.0s done
+#19 naming to gcr.io/fuzzbench/builders/benchmark/cairo_cairo done
+#19 DONE 0.5s
+
+#20 exporting cache
+#20 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#20 preparing build cache for export done
+#20 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:b39dca0e24dcdf7bead247920823e9aecae9aa816faa5e434803230c344ae820
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:c44468b3059b58a87b5eb5fcefb48e342739c3fd9cad079822ab74d498392ba2
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/cairo_cairo:latest
+#3 sha256:b369c12210b215ff1d8a34d247a2b7bc6137ed9a8639c7bcbc4556ec02c681ff
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate
+#4 sha256:3e03d3ea1c5e0a9b88cc87ef3b854c805438e59ad6b720e6c9442faa3040eaf2
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/cairo_cairo
+#5 sha256:73b40ebd82861b5d6504448c2e7d932c2bcdccf4fcb29eb588b74445ca3c8cdb
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:5e5949adc24271809a5e6b3af9284a0a64197feb7c5b2501e126e1b15cee1425
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:7b46953f2d2fd4aaf7b2e234259f09e368a30103b6e8ee709e6559cdb7ce29e9
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:c45435867b5d1bb5cdbca96d95e1cbb90a50050d06f4318cc2c2184555877393 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate done
+#8 DONE 0.5s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ccb2af4a31b27ca4f5b88c3e751a8f72a28a0862b9ab3a53523f47a3b1eeae32
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b220c08885b66fd8a200717b9c52d0083d7c111d6d5bedae4469247ef4f1cf19
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:0d9b56437e2aefe1b5690fb487c069f8b99a90cb2ac4209313f0cea80deb480e
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:bb7f325566032e77f617044b6b757c0e8a4771de0332e2f7d5f0d13e1e29c0f0
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:21d6ab3ca099dbbb6915b1f20287a403026fef5d9ea28184f2e73d5b8afd0e00
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:db845005956061fb087536cab6647bac93c06248cc2744a9111913ec96816b70
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:d6226afd190ceab9a0adc5ac6e83aa7e0567f4fcb0144a8573d65f888dfc4948
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:7d9957eb6f280da9248cb8afce2961dbcb27e41d89cdfd8167167cb748135959 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:96339ec6f4f71ecd5b83cb2470a49a0083ce538838c4ae36b8e87ee12d21612b
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:9641a6f8e196e8e562d5313dee3b4396ce3f881b455ecba53a68729d53df59f1
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate:latest
+#4 sha256:3c57b95891a0f059e7b015997e2f1a403218bfd929148271abbc15e4f343c288
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b3acd1f3d2c37cb67254ee45ec5424a7e1a2be3a1f76261b943061a42597f938
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/cairo_cairo
+#5 sha256:84603404fa579db905069c851a8cf550555b187642dfc9d752f092c1aed35cb9
+#5 ERROR: gcr.io/fuzzbench/builders/afl/cairo_cairo:latest: not found
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/cairo_cairo-intermediate
+#6 sha256:89c57dac4914de1354560b41535d1e5e92276e6a60add52e2d0bc8e53cd62562
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b3acd1f3d2c37cb67254ee45ec5424a7e1a2be3a1f76261b943061a42597f938
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.3s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:3245a8e2fe92a21caa68ab08b301d70e2c54b49ffde299a0222175f19bb917f9
+#10 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:38fdc7f0f837e2937d5c2cc0a3bef09fa29232f81e424f48b545329dee8bfc3d
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:72e2dc796d32cf2b445d5c4477c0a7f3f603a9c2f8f779a6a35e5fe91a794610
+#11 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:f6b6870f7752402911471a980197508586c24f99b6579dfea6e61985a673a67a
+#18 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/cairo_cairo/benchmark.yaml /
+#15 sha256:d6e78f7a226a19342b8ca4559ea6441e445ac8e97d60fd78bc076e3f0ee48e97
+#15 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:50adc9bae8dc9a98ada86e65863a54f0c080e690a618400c53448e2d2996d90e
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:a0b5ab8a36ca6ab84ce93eff71d6e4186560f813282a1af82c85858168a06802
+#16 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:9bca57f2b16a321fa3cdb7e524da83625840912d7bafdbafb69c07de33b4d469
+#17 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:ab1dabfd2029c704835e81204fb33f2fdda11d2a4e881d10701632776223e674
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:f80c0c8cbec53f8fd2f9f2e79c724855f5417c82a4519390a65ae7019161fdcd
+#14 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:680097ffa93c1a4c66dee4aa2d646262e2f69a388ceb1c4b6d1f5cfcca93e78e
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:b3d8083f525735b235ac9eb8339f0f641d285e85d3cda143659fbdb83ed9df05
+#20 0.547 Run fuzzer_build to build the target
+#20 0.663 FUZZ_TARGET = cairo
+#20 0.663 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.663 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.667 Building benchmark cairo_cairo with fuzzer afl
+#20 0.671 + PREFIX=/work/prefix
+#20 0.671 + mkdir -p /work/prefix
+#20 0.674 ++ which pkg-config
+#20 0.675 + export 'PKG_CONFIG=/usr/bin/pkg-config --static'
+#20 0.675 + PKG_CONFIG='/usr/bin/pkg-config --static'
+#20 0.675 + export PKG_CONFIG_PATH=/work/prefix/lib/pkgconfig
+#20 0.675 + PKG_CONFIG_PATH=/work/prefix/lib/pkgconfig
+#20 0.675 + export PATH=/work/prefix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out
+#20 0.675 + PATH=/work/prefix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out
+#20 0.675 + BUILD=/work/build
+#20 0.675 + rm -rf /work/prefix
+#20 0.676 + rm -rf /work/build
+#20 0.677 + mkdir -p /work/build
+#20 0.679 + pushd /src/glib-2.64.2
+#20 0.679 /src/glib-2.64.2 /src/cairo
+#20 0.679 + meson --prefix=/work/prefix --libdir=lib --default-library=static -Db_lundef=false -Doss_fuzz=enabled -Dlibmount=disabled -Dinternal_pcre=true _builddir
+#20 0.912 Traceback (most recent call last):
+#20 0.912   File "/usr/local/bin/meson", line 6, in <module>
+#20 0.912     from mesonbuild.mesonmain import main
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/mesonmain.py", line 25, in <module>
+#20 0.912     from . import mconf, mdist, minit, minstall, mintro, msetup, mtest, rewriter, msubprojects, munstable_coredata, mcompile
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/mconf.py", line 16, in <module>
+#20 0.912     from . import coredata, environment, mesonlib, build, mintro, mlog
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/build.py", line 26, in <module>
+#20 0.912     from . import dependencies
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/dependencies/__init__.py", line 15, in <module>
+#20 0.912     from .boost import BoostDependency
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/dependencies/boost.py", line 25, in <module>
+#20 0.912     from .base import DependencyException, ExternalDependency, PkgConfigDependency
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/dependencies/base.py", line 37, in <module>
+#20 0.912     from ..cmake import CMakeExecutor, CMakeTraceParser, CMakeException
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/cmake/__init__.py", line 35, in <module>
+#20 0.912     from .client import CMakeClient
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/cmake/client.py", line 19, in <module>
+#20 0.912     from .executor import CMakeExecutor
+#20 0.912   File "/usr/local/lib/python3.8/site-packages/mesonbuild/cmake/executor.py", line 25, in <module>
+#20 0.912     import ctypes
+#20 0.912   File "/usr/local/lib/python3.8/ctypes/__init__.py", line 7, in <module>
+#20 0.912     from _ctypes import Union, Structure, Array
+#20 0.912 ImportError: libffi.so.6: cannot open shared object file: No such file or directory
+#20 0.927 Traceback (most recent call last):
+#20 0.927   File "<string>", line 1, in <module>
+#20 0.927   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.927     utils.build_benchmark()
+#20 0.927   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.928     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.928   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.928     raise CalledProcessError(retcode, cmd)
+#20 0.928 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/cairo_cairo:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2785776: .afl-cairo_cairo-builder] Error 1

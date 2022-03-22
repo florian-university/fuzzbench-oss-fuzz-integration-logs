@@ -1,0 +1,555 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: giflib_dgif_target.
+INFO:root:Please run "make test-run-afl-giflib_dgif_target" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:663006c022b1da274c0e507ebef2f7f163e0b8bdc74bf1b8606b249caa7bfe88
+#1 transferring dockerfile: 955B done
+#1 ...
+
+#2 [internal] load .dockerignore
+#2 sha256:20730c2c094a834c3bc9fe048589057cdda1f3a012a72c50a8b6311801715a72
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:663006c022b1da274c0e507ebef2f7f163e0b8bdc74bf1b8606b249caa7bfe88
+#1 DONE 0.5s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#8 [internal] load build context
+#8 sha256:1758c1c3c3d8babd414ae88cbed50a0222991b698fbf32ee3bd4a28df3f4eb96
+#8 DONE 0.0s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target
+#4 sha256:6dcdcca9edd8319c94d2a147bb91b6caf1ac0e0dd4aee46678f7d85e0abbbcaa
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target:latest: not found
+
+#8 [internal] load build context
+#8 sha256:1758c1c3c3d8babd414ae88cbed50a0222991b698fbf32ee3bd4a28df3f4eb96
+#8 transferring context: 2.69kB done
+#8 DONE 0.1s
+
+#6 [2/4] RUN apt-get update && apt-get install -y make autoconf automake libtool wget
+#6 sha256:a587be800eff3db9649c494a314142e0f82c6b32aaa614a59f9c6ea84c95a75a
+#6 CACHED
+
+#7 [3/4] RUN git clone --depth=1 https://git.code.sf.net/p/giflib/code /src/giflib-code
+#7 sha256:f4e7eaea19103b0d6206c0962c428e33814ae7f358056e02d2c366863882b48c
+#7 CACHED
+
+#9 [4/4] COPY *.c *.options build.sh /src/
+#9 sha256:5dd769fe4f6bd761533e4b14d28bddc0e65669a2f52fa4de0ed727aaaa493c1f
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:8b7ea1f070fdba51e43c948a85a2010ea0a2e46bc95e90f7a5013aaca286e303 0.0s done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target 0.0s done
+#10 DONE 0.4s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:124630a42ca9bbcad4fce09a4a89db4206ee9f3f8b4bfe98e099ed4199cb1b7f
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:20960d448f2b8e0bb9a42d2d48c0552ec0820d035229c5b23a07f8705f7b98b9
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target:latest
+#3 sha256:715576067af8eeef12eb31ed98f84971e9fda5be23e0a1186df9e479e126dd14
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target
+#5 sha256:2188cfa2429728e7661a5677e13a48bd1ac1495b732f965b0e4d599313b1c011
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate
+#4 sha256:15d9fc405afc1c2067115374f903d116ab5e9c8168540582c3d823b6ca688002
+#4 ERROR: gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b10a67f25e458dd5eff7656a56cc28ebbd36162b7cef891aaad87501edd63cc3
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:8f58c785bac85b806793b8708cf0fd40373515573108d59426b2d7dacee87f69
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:37a6e417d74265f6d66218e15e6d5c1a49ea6889417d694f70e92f8e76a7c8c7
+#8 writing image sha256:37a6e417d74265f6d66218e15e6d5c1a49ea6889417d694f70e92f8e76a7c8c7 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:6e5827aeb2c0aec2be1d4a77205842c1aef094c2b036474cb28d78baeb409127
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f6ba801f53ff0c7aa2cb4ba899a5164e400a5e541cbfaebf03ce2cb157152e60
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:f1a58089e01608137a63212969fa00a775aa92dc17db3036df2c3520858b6ffe
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:f45708a0794596f4a0871596efdd3276b7044d279e5eae519841944d69468ad6
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:40781f7d9a4676578d25a2f5c691b89a513915e92d34a2da0d2a0025f6bdd827
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:88ec65afd965fbbbf682ef2e510b6c44506f011f7f03d426726d025678a3afa6
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:c83f70eb698f91dc48cc57e63c4e47be421df9d2c10e8489b2340b7265d58b47
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:e3cbf82bbc2eea9bcaeb0a2efba8829ab74e1fad630072948e4c61a55f2e7824
+#13 writing image sha256:e3cbf82bbc2eea9bcaeb0a2efba8829ab74e1fad630072948e4c61a55f2e7824 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5bd353643b4309c92f610d27fe3992fb8df121f78a89b489ec9fd159cb5d1380
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:2c2a8a826d35481ce3f74f740585633ac8883b9a916f646d79ebd509cb75dd5d
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate:latest
+#3 sha256:e363a21df57109bf868fb0548bb1958d40ff0395ae002e118dcf44d3d8492858
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:5575b935bdbb60907fdc2322b14098f42d2715f4f4667b851433d85faeca6265
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate
+#6 sha256:f94c4234230a5bf370711bb9dce109a425b1e0078dda6b02850c96378e9d8ec1
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/giflib_dgif_target
+#5 sha256:d9d57eb2dc282e0dbc7251a80a3ac492484869715c8005323f733efe54c9d3a6
+#5 ERROR: gcr.io/fuzzbench/builders/afl/giflib_dgif_target:latest: not found
+
+#12 [internal] load build context
+#12 sha256:5575b935bdbb60907fdc2322b14098f42d2715f4f4667b851433d85faeca6265
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:4e81bba2b49e8cbe5846387588f32be5f032a9284dd86c0d54ef32b163a6c784
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:53b4e992a0d4cda6a96e4ad720bf6b2f3530da4073ec812457f07117cbbf4df2
+#11 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:de70e47e3e54253b2370df068d9598960f37ddfa8426d1d0cf0e079aff09b3be
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:251b8ce955d494efae7b292f762caf57567c22ec02256e27098e345f0960bfee
+#9 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:e0735bd3876f2f4702db234f47628d7a08ce472fb8eaa8c9dc8231b2b3d8f3a2
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:9eac0a93fcbe259c50660f9944053aa791c9aef15583a340c4c4b653b16a8e7c
+#14 DONE 1.1s
+
+#15 [stage-1  8/13] COPY benchmarks/giflib_dgif_target/benchmark.yaml /
+#15 sha256:80c5d81e3efa5f9034049ab92063bb9870af5ed3c83f00a17673659302aae097
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:1d7d155b2cc8a79405009143a8cf5b09391f95cfea2ced54c4479570cbba8bc9
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:85dba790619a41cada3d3c05fd951cea60efafe95675ad9495174eda757324a1
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:707ceccd0f5c4ba1393ccefa51ab2ecf685a2a4467779b4f5d25972f77f34bb7
+#18 0.485 Checking out commit 834a138b
+#18 8.554 error: pathspec '834a138b' did not match any file(s) known to git
+#18 8.559 error: pathspec '834a138b' did not match any file(s) known to git
+#18 8.566 error: pathspec '834a138b' did not match any file(s) known to git
+#18 8.605 Checkout unsuccessful.
+#18 DONE 8.9s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:8ed0b5e1fc63958d7d8298421409a545d0efb9a2c6930e6744c806ccf602eb19
+#19 DONE 0.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:0f2c6d64e03afbd5d7fd1e924e87c2e2fbda01fab9ed9fcb40c12f2e9d2d5498
+#20 0.744 Run fuzzer_build to build the target
+#20 0.867 FUZZ_TARGET = dgif_target
+#20 0.867 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.867 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.872 Building benchmark giflib_dgif_target with fuzzer afl
+#20 0.875 + cd /src/giflib-code
+#20 0.875 + ./autogen.sh
+#20 0.876 /src/build.sh: line 2: ./autogen.sh: No such file or directory
+#20 0.877 Traceback (most recent call last):
+#20 0.877   File "<string>", line 1, in <module>
+#20 0.877   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.877     utils.build_benchmark()
+#20 0.877   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.877     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.877   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.878     raise CalledProcessError(retcode, cmd)
+#20 0.878 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/giflib_dgif_target:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2798874: .afl-giflib_dgif_target-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0e418e1f016fdec81485d2b0e6faa6aa326c0c1c5d59f6cffa9ed32f16da0533
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:162d6c095cd54962d4f31a864acc6c903ea1911f1c327186251a4d7ab990f4ac
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target
+#4 sha256:6dcdcca9edd8319c94d2a147bb91b6caf1ac0e0dd4aee46678f7d85e0abbbcaa
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:125730659929a9d28da6a95caf7756b848eb92b4c5facd034ab3b0d83ab15bc5
+#8 transferring context: 101B done
+#8 DONE 0.1s
+
+#6 [2/4] RUN apt-get update && apt-get install -y make autoconf automake libtool wget
+#6 sha256:a587be800eff3db9649c494a314142e0f82c6b32aaa614a59f9c6ea84c95a75a
+#6 CACHED
+
+#7 [3/4] RUN git clone --depth=1 https://git.code.sf.net/p/giflib/code /src/giflib-code
+#7 sha256:f4e7eaea19103b0d6206c0962c428e33814ae7f358056e02d2c366863882b48c
+#7 CACHED
+
+#9 [4/4] COPY *.c *.options build.sh /src/
+#9 sha256:1cf60c8a09cbe33dfc8f08fe75cbfe704d3715e69d634438f93858d58293b059
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:8b7ea1f070fdba51e43c948a85a2010ea0a2e46bc95e90f7a5013aaca286e303 done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target done
+#10 DONE 0.2s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:4561d45e4f1ca1dccef4dfe709bca106c2f893c0029a773cf8ec3eb03866326a
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:2f91183b233d94b7d4907f33ffe123a7c7b4b770196144e0bbb9665680a1709c
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target:latest
+#3 sha256:715576067af8eeef12eb31ed98f84971e9fda5be23e0a1186df9e479e126dd14
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target
+#5 sha256:2188cfa2429728e7661a5677e13a48bd1ac1495b732f965b0e4d599313b1c011
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate
+#4 sha256:15d9fc405afc1c2067115374f903d116ab5e9c8168540582c3d823b6ca688002
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b10a67f25e458dd5eff7656a56cc28ebbd36162b7cef891aaad87501edd63cc3
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:8f58c785bac85b806793b8708cf0fd40373515573108d59426b2d7dacee87f69
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:37a6e417d74265f6d66218e15e6d5c1a49ea6889417d694f70e92f8e76a7c8c7
+#8 writing image sha256:37a6e417d74265f6d66218e15e6d5c1a49ea6889417d694f70e92f8e76a7c8c7 done
+#8 naming to gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:2a50221acda90a47248c0f3dc768bca9b0a99eaee9faa69ddcda9dcb4670ddd1
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f0604060ac78538c2ae73c61924a8fc3e96eca516387b2a736e432a064d25bd6
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:b776640227fc514ba14e6f1d7582c40ebc8cc167b7c8c957a13cb62c4bc693f6
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:12e1789b3a7fea51e1e5ec170887fe8b12cbe599f72091d711c6a2210392ee6d
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:cf9e927fa06d6e415dbaa1f092ceab4b74abb23c29f24292386353b71dc47f3d
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:d2c5962ff23dd95d34a92a1b233911812d695b454f6600f8adff6f660349a644
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:88e2d69e901e4542d5f346762f1d51cfaef5eda8b458e475a1c6db4d74cee885
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:e3cbf82bbc2eea9bcaeb0a2efba8829ab74e1fad630072948e4c61a55f2e7824 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ff372dc559c97d028573379ce2f304b8453ccda1625d7ec0024cc55c25087973
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:14b380d6177bef66461d9ef758aee3631897381fea54b4c247e1c838c45143e3
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate:latest
+#3 sha256:e363a21df57109bf868fb0548bb1958d40ff0395ae002e118dcf44d3d8492858
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:ca71efdfd923895559ba3b6cf781dda71c8772da7d3c79fdd33b4ed9921aafb6
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate
+#6 sha256:f94c4234230a5bf370711bb9dce109a425b1e0078dda6b02850c96378e9d8ec1
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/giflib_dgif_target
+#5 sha256:d9d57eb2dc282e0dbc7251a80a3ac492484869715c8005323f733efe54c9d3a6
+#5 ERROR: gcr.io/fuzzbench/builders/afl/giflib_dgif_target:latest: not found
+
+#12 [internal] load build context
+#12 sha256:ca71efdfd923895559ba3b6cf781dda71c8772da7d3c79fdd33b4ed9921aafb6
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.1s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:4e81bba2b49e8cbe5846387588f32be5f032a9284dd86c0d54ef32b163a6c784
+#10 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:251b8ce955d494efae7b292f762caf57567c22ec02256e27098e345f0960bfee
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:53b4e992a0d4cda6a96e4ad720bf6b2f3530da4073ec812457f07117cbbf4df2
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:49cf91d306a151031fc6571195db209623c688f3d9e8256b04c8738d89a37c70
+#16 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:30042914ebbe6a1c7e3db8e41ae204cd91308cfa6437ff6382479b3b91ead02d
+#17 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:8a48bdf7772f689bd7b476ebf4eedc2f1450e5559c52b44761f1e1651a0e7e7f
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/giflib_dgif_target/benchmark.yaml /
+#15 sha256:6ea59d47fc9c79b3bc051a0bff76394bba534d58c715b858cb889b1f56f0146c
+#15 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:757f8bb32e821911570bcaa696f44bb5b9514cd80599452b2c0ad24b0fa65bca
+#18 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:de70e47e3e54253b2370df068d9598960f37ddfa8426d1d0cf0e079aff09b3be
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:5ea99a28d55aa43293570e2ba880427be28ee3865751cd601e026a09c857ecc2
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:d3abb770643ec51cd3fb4de38aec3ec8d811d8c61b9b3e2e2f025c506cce25ff
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:70a6f7e574a42f56c3bab9118db5fb71b6c7af16156703cfd40a97ef3b798348
+#20 0.459 Run fuzzer_build to build the target
+#20 0.573 FUZZ_TARGET = dgif_target
+#20 0.573 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.573 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.577 Building benchmark giflib_dgif_target with fuzzer afl
+#20 0.581 + cd /src/giflib-code
+#20 0.581 + ./autogen.sh
+#20 0.581 /src/build.sh: line 2: ./autogen.sh: No such file or directory
+#20 0.582 Traceback (most recent call last):
+#20 0.582   File "<string>", line 1, in <module>
+#20 0.582   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.582     utils.build_benchmark()
+#20 0.582   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.582     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.582   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.582     raise CalledProcessError(retcode, cmd)
+#20 0.583 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/giflib_dgif_target:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2798874: .afl-giflib_dgif_target-builder] Error 1

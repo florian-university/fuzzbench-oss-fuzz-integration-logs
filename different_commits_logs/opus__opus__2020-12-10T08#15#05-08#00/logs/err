@@ -1,0 +1,2214 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: opus_opus.
+INFO:root:Please run "make test-run-afl-opus_opus" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:701673203788c0c6ade0788c7ecbd141d4431ae01a00dd99d8290041e22a7268
+#1 transferring dockerfile: 32B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:8926928bd993085dcb0ac272fb65fc27bb24714e84db6d3eb9d675059619e0e7
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:8d5a9b1f320b5aad6eb74a7f6d2f31ef39b5a375b9f51751718e0c837f80eb33
+#10 DONE 0.0s
+
+#5 [1/7] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opus_opus
+#4 sha256:419f080ca1bc4f38b4fb1856ca18f33747fbd5985c201e6e3d2daf1c901db986
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/opus_opus:latest: not found
+
+#10 [internal] load build context
+#10 sha256:8d5a9b1f320b5aad6eb74a7f6d2f31ef39b5a375b9f51751718e0c837f80eb33
+#10 transferring context: 69B done
+#10 DONE 0.1s
+
+#8 [4/7] RUN wget https://opus-codec.org/static/testvectors/opus_testvectors.tar.gz
+#8 sha256:c0c8237ef8133eff5506bc402f3cc7c0f21ed70fa9beeab925deb6c9fd7033b7
+#8 CACHED
+
+#9 [5/7] WORKDIR opus
+#9 sha256:227d169beda6bea6de66ce91ed02dce46ccca785453bfc86a1a0ea0590fc0ec4
+#9 CACHED
+
+#11 [6/7] COPY build.sh /src/
+#11 sha256:268f42f15489f59668ab23759733e9c644a7a0dcd1032c6a15ec2a16c061f730
+#11 CACHED
+
+#6 [2/7] RUN apt-get update && apt-get install -y make autoconf automake libtool wget
+#6 sha256:5105b70670ffd051b8883c33b3686d6c1245811bcf75b95a95fa1ff10043da9f
+#6 CACHED
+
+#7 [3/7] RUN git clone https://gitlab.xiph.org/xiph/opus.git
+#7 sha256:0d801ef68f8ce2b29496ae60b879e3e15321e72b70538abe6c9b289a8e55bd69
+#7 CACHED
+
+#12 [7/7] COPY *.c tests/
+#12 sha256:fb1f9dc40af0fe2e88ddb51a4483d5e486ecda0279615cacf99af6813005de4d
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5cbb1c59d81504b7adee458a5b344b88985e241186650398012133f0068a5255 done
+#13 naming to gcr.io/fuzzbench/builders/benchmark/opus_opus 0.0s done
+#13 DONE 0.4s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opus_opus:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:907f5c23dc8f07bf2f3d75b5c37176dd93aa07dea3731cee1b10832d3305a0f1
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d3ca1b4f229f871447ef30ba960f9ef8865be694711e6eba666ae59435dc71dc
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/opus_opus:latest
+#3 sha256:0e99a5bb4b09170e13101e61e4b6ec535c1328dad33a1e9748c8cfa251ac2973
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/opus_opus
+#5 sha256:7ee8e7325f929096e43044b095dca4e8220285974cab21500d1923d488927223
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/opus_opus-intermediate
+#4 sha256:9bfaef6d4fec4d3da2277ef9d450700ff56b491f5277f2cc570908996ecbc474
+#4 ERROR: gcr.io/fuzzbench/builders/afl/opus_opus-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:5def9597c00b48c5ddfc1e9d64b05d33bf16badd065cb7a9e38d2b444638b2b3
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:bae47dd8a1a0461b96aade676c14960942b6689677933cca4ea7296c5df25552
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:1770a63369317b1bf67e4db4040bc779a93d1d1813ea28b5d815fadc39791d12 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/opus_opus-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opus_opus-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a4fb005af8f0df539a3c29da9bbe7efab31bb7c8f5415b740300add311f1ea57
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:4deb367cfd72975bede4c23979ee37176701affefb399938ce98e172227800db
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:2a64c88e35f0a8dbb6b3f7373566ca3624b3b596fcdfac2fd64d52133ff59272
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:5d6c5e9bcf5309921b545b9418fa76ce3f87f838a058c2ec66eceb43062177aa
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:9a6b18d505b0ace76adf072575be4fa2c6a95235caf669bd28ce875e22d57000
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:5d6bb313d95403bd7ca6fd0d8654f9853ae06be19a998a0fb47c5b17ca6186f9
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:6b0bf29df0237dc9c775dffbbacf4965868e1e484c582bd114af0e8ac33991c1
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:186b8186bbf0249cce564761cedf8db2c9494a3df36f827b8c69bb53ceecd342
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:eab8d50086a324bcb555a1010e49ddc7a6b311c566b1278c22a49655831a0ca5
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opus_opus-intermediate:latest
+#3 sha256:bc544bc526a540e87803dacff08709cacfd6a504ca9bef87d493061eb5c492d8
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:5330c5ec163c103432d26f6a4aeed79aca978ce27eac26ab467826d8b98d01a9
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/opus_opus-intermediate
+#6 sha256:cd543a85e097f13355c7d019127ce57b7a29c6fcd3c4a24329ff6e91e1ae6129
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/opus_opus
+#5 sha256:f2030f5675a0f47ec7fdb2aa401c322e8b5ffea51151848be27d0f77251e2401
+#5 ERROR: gcr.io/fuzzbench/builders/afl/opus_opus:latest: not found
+
+#12 [internal] load build context
+#12 sha256:5330c5ec163c103432d26f6a4aeed79aca978ce27eac26ab467826d8b98d01a9
+#12 transferring context: 669.85kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:dd248a4aec779eb0b5b68186a7ac56d23b296d20bf3961b482712f2215198b30
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3929c953d96183be0fd34e45368d13223a7f46b3c953c0803be691f5f2eba3d8
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:7505380d193e037a29b27d62d21fe8539a10272dde6981981c71e6d8168af474
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:904649bd372fbdbd878a83c8754d5a91b300a2fd7c1bc0f399b8257ae66a1223
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:fdb10f3c3e514b58de9b7d8bdfa0090500140495164f459b2d2c321f5467743d
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:48c3af22b2f2f40a36d351a0f1013bda0f72045fed8057ffb825f55ea4bbe644
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/opus_opus/benchmark.yaml /
+#15 sha256:1ee586742cadbd94ed8258f86f827b408353ba4c03a1eb1d1f3b8ff3509e22f2
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:3d106281a4f345b11e0f15c2fee65a01d75a6d1282135579087e96de70ed67df
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:06a0406f472ba2c82b52d832acc3a2215935f8fcb438de94c2457f5e0a1dc1c5
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:ed00bd0ad948c6d4ba976c77bc1173d4b0935912f7caacd3035bb8c05bd57bd1
+#18 0.594 Checking out commit 95a7b675
+#18 0.598 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.603 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.609 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.653 Checkout unsuccessful.
+#18 DONE 1.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:291f5888a085cf9e35252492b57684763a3aafea1e1d578e772effc4d445f482
+#19 DONE 1.4s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:ce8b6580c70bad932dd14b53d80befc5be4229e8037da245a89fd8e24fe08837
+#20 0.485 Run fuzzer_build to build the target
+#20 0.621 FUZZ_TARGET = opus
+#20 0.621 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.621 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.626 Building benchmark opus_opus with fuzzer afl
+#20 0.630 + set -eu
+#20 0.630 + FUZZERS='opus_decode_fuzzer opus_multi_fuzzer'
+#20 0.630 + BUILDS=(floating fixed)
+#20 0.630 + tar xvf /src/opus_testvectors.tar.gz
+#20 0.645 opus_testvectors/
+#20 0.645 opus_testvectors/testvector11.bit
+#20 0.651 opus_testvectors/testvector05.dec
+#20 0.720 opus_testvectors/testvector01.bit
+#20 0.727 opus_testvectors/testvector07.dec
+#20 0.786 opus_testvectors/testvector09.dec
+#20 0.849 opus_testvectors/testvector12.bit
+#20 0.849 opus_testvectors/testvector03.dec
+#20 0.901 opus_testvectors/testvector01.dec
+#20 0.989 opus_testvectors/testvector10.bit
+#20 0.996 opus_testvectors/testvector03.bit
+#20 0.997 opus_testvectors/testvector09.bit
+#20 1.005 opus_testvectors/testvector11.dec
+#20 1.074 opus_testvectors/testvector10.dec
+#20 1.148 opus_testvectors/testvector04.bit
+#20 1.149 opus_testvectors/testvector02.bit
+#20 1.150 opus_testvectors/testvector06.bit
+#20 1.151 opus_testvectors/testvector08.dec
+#20 1.218 opus_testvectors/testvector12.dec
+#20 1.356 opus_testvectors/testvector08.bit
+#20 1.380 opus_testvectors/testvector07.bit
+#20 1.383 opus_testvectors/testvector02.dec
+#20 1.573 opus_testvectors/testvector06.dec
+#20 1.718 opus_testvectors/testvector04.dec
+#20 1.855 opus_testvectors/testvector05.bit
+#20 1.858 + [[ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard = *sanitize=memory* ]]
+#20 1.858 + ./autogen.sh
+#20 1.860 Updating build configuration files, please wait....
+#20 6.391 libtoolize: putting auxiliary files in '.'.
+#20 6.391 libtoolize: linking file './ltmain.sh'
+#20 6.480 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 6.480 libtoolize: linking file 'm4/libtool.m4'
+#20 6.530 libtoolize: linking file 'm4/ltoptions.m4'
+#20 6.580 libtoolize: linking file 'm4/ltsugar.m4'
+#20 6.631 libtoolize: linking file 'm4/ltversion.m4'
+#20 6.681 libtoolize: linking file 'm4/lt~obsolete.m4'
+#20 11.24 configure.ac:38: installing './compile'
+#20 11.24 configure.ac:36: installing './config.guess'
+#20 11.24 configure.ac:36: installing './config.sub'
+#20 11.24 configure.ac:33: installing './install-sh'
+#20 11.24 configure.ac:33: installing './missing'
+#20 11.28 Makefile.am:337: warning: '%'-style pattern rules are a GNU make extension
+#20 11.28 Makefile.am:340: warning: '%'-style pattern rules are a GNU make extension
+#20 11.28 Makefile.am: installing './INSTALL'
+#20 11.38 Makefile.am: installing './depcomp'
+#20 11.43 parallel-tests: installing './test-driver'
+#20 11.54 + for build in "${BUILDS[@]}"
+#20 11.54 + case "$build" in
+#20 11.54 + extra_args=
+#20 11.54 + ./configure --enable-static --disable-shared --disable-doc --enable-assertions
+#20 11.78 checking whether make supports nested variables... yes
+#20 11.78 checking for a BSD-compatible install... /usr/bin/install -c
+#20 11.80 checking whether build environment is sane... yes
+#20 11.82 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 11.82 checking for gawk... no
+#20 11.82 checking for mawk... mawk
+#20 11.82 checking whether make sets $(MAKE)... yes
+#20 11.85 checking whether to enable maintainer-specific portions of Makefiles... yes
+#20 11.86 checking build system type... x86_64-pc-linux-gnu
+#20 11.96 checking host system type... x86_64-pc-linux-gnu
+#20 11.97 checking how to print strings... printf
+#20 12.02 checking whether make supports the include directive... yes (GNU style)
+#20 12.03 checking for gcc... clang
+#20 12.11 checking whether the C compiler works... yes
+#20 12.23 checking for C compiler default output file name... a.out
+#20 12.23 checking for suffix of executables... 
+#20 12.36 checking whether we are cross compiling... no
+#20 12.50 checking for suffix of object files... o
+#20 12.53 checking whether we are using the GNU C compiler... yes
+#20 12.56 checking whether clang accepts -g... yes
+#20 12.58 checking for clang option to accept ISO C89... none needed
+#20 12.63 checking whether clang understands -c and -o together... yes
+#20 12.67 checking dependency style of clang... gcc3
+#20 12.72 checking for a sed that does not truncate output... /usr/bin/sed
+#20 12.73 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 12.74 checking for egrep... /usr/bin/grep -E
+#20 12.74 checking for fgrep... /usr/bin/grep -F
+#20 12.74 checking for ld used by clang... /usr/bin/ld
+#20 12.76 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 12.77 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 12.77 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 12.80 checking whether ln -s works... yes
+#20 12.81 checking the maximum length of command line arguments... 1572864
+#20 12.82 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 12.82 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 12.82 checking for /usr/bin/ld option to reload object files... -r
+#20 12.82 checking for objdump... objdump
+#20 12.82 checking how to recognize dependent libraries... pass_all
+#20 12.82 checking for dlltool... no
+#20 12.82 checking how to associate runtime and link libraries... printf %s\n
+#20 12.82 checking for ar... ar
+#20 12.83 checking for archiver @FILE support... @
+#20 12.87 checking for strip... strip
+#20 12.87 checking for ranlib... ranlib
+#20 12.88 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 13.06 checking for sysroot... no
+#20 13.06 checking for a working dd... /usr/bin/dd
+#20 13.06 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 13.09 checking for mt... no
+#20 13.10 checking if : is a manifest tool... no
+#20 13.11 checking how to run the C preprocessor... clang -E
+#20 13.20 checking for ANSI C header files... yes
+#20 13.45 checking for sys/types.h... yes
+#20 13.50 checking for sys/stat.h... yes
+#20 13.56 checking for stdlib.h... yes
+#20 13.61 checking for string.h... yes
+#20 13.67 checking for memory.h... yes
+#20 13.73 checking for strings.h... yes
+#20 13.79 checking for inttypes.h... yes
+#20 13.85 checking for stdint.h... yes
+#20 13.91 checking for unistd.h... yes
+#20 13.98 checking for dlfcn.h... yes
+#20 14.04 checking for objdir... .libs
+#20 14.21 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 14.24 checking for clang option to produce PIC... -fPIC -DPIC
+#20 14.24 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 14.27 checking if clang static flag -static works... yes
+#20 14.44 checking if clang supports -c -o file.o... yes
+#20 14.48 checking if clang supports -c -o file.o... (cached) yes
+#20 14.48 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 14.50 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 14.68 checking how to hardcode library paths into programs... immediate
+#20 14.68 checking whether stripping libraries is possible... yes
+#20 14.68 checking if libtool supports shared libraries... yes
+#20 14.68 checking whether to build shared libraries... no
+#20 14.68 checking whether to build static libraries... yes
+#20 14.68 checking for clang option to accept ISO C99... none needed
+#20 14.75 checking for an ANSI C-conforming const... yes
+#20 14.78 checking for inline... inline
+#20 14.81 checking dependency style of clang... gcc3
+#20 14.86 checking for C/C++ restrict keyword... __restrict
+#20 14.90 checking for C99 variable-size arrays... yes
+#20 14.93 checking for cos in -lm... yes
+#20 15.07 checking if compiler supports SSE intrinsics... yes
+#20 15.48 checking if compiler supports SSE2 intrinsics... yes
+#20 15.67 checking if compiler supports SSE4.1 intrinsics... no
+#20 15.78 checking if compiler supports SSE4.1 intrinsics with -msse4.1... yes
+#20 15.98 checking if compiler supports AVX intrinsics... no
+#20 16.52 checking if compiler supports AVX intrinsics with -mavx... yes
+#20 17.17 checking How to get X86 CPU Info... Inline Assembly
+#20 17.30 checking if clang supports -fvisibility=hidden... yes
+#20 17.33 checking if clang supports -fstack-protector-strong... yes
+#20 17.45 checking whether to add -D_FORTIFY_SOURCE=2 to CFLAGS... yes
+#20 17.57 checking if clang supports -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes... yes
+#20 17.60 checking for lrintf... yes
+#20 17.74 checking for lrint... yes
+#20 17.88 checking for __malloc_hook... yes
+#20 18.06 checking that generated files are newer than configure... done
+#20 18.06 configure: creating ./config.status
+#20 18.85 config.status: creating Makefile
+#20 18.88 config.status: creating opus.pc
+#20 18.90 config.status: creating opus-uninstalled.pc
+#20 18.92 config.status: creating celt/arm/armopts.s
+#20 18.94 config.status: creating doc/Makefile
+#20 18.97 config.status: creating doc/Doxyfile
+#20 18.99 config.status: creating config.h
+#20 19.01 config.status: executing depfiles commands
+#20 20.34 config.status: executing libtool commands
+#20 20.36 configure:
+#20 20.36 ------------------------------------------------------------------------
+#20 20.36   opus 1.3.1-101-g66d060c7:  Automatic configuration OK.
+#20 20.36 
+#20 20.36     Compiler support:
+#20 20.36 
+#20 20.36       C99 var arrays: ................ yes
+#20 20.36       C99 lrintf: .................... yes
+#20 20.36       Use alloca: .................... no (using var arrays)
+#20 20.36 
+#20 20.36     General configuration:
+#20 20.36 
+#20 20.36       Floating point support: ........ yes
+#20 20.36       Fast float approximations: ..... no
+#20 20.36       Fixed point debugging: ......... no
+#20 20.36       Inline Assembly Optimizations: . No inline ASM for your platform, please send patches
+#20 20.36       External Assembly Optimizations: 
+#20 20.36       Intrinsics Optimizations: ...... x86 SSE SSE2 SSE4.1 AVX
+#20 20.36       Run-time CPU detection: ........ x86 SSE4.1 AVX
+#20 20.36       Custom modes: .................. no
+#20 20.36       Assertion checking: ............ yes
+#20 20.36       Hardening: ..................... yes
+#20 20.36       Fuzzing: ....................... no
+#20 20.36       Check ASM: ..................... no
+#20 20.36 
+#20 20.36       API documentation: ............. no
+#20 20.36       Extra programs: ................ yes
+#20 20.36 ------------------------------------------------------------------------
+#20 20.36 
+#20 20.36  Type "make; make install" to compile and install
+#20 20.36  Type "make check" to run the test suite
+#20 20.36 
+#20 20.44 ++ nproc
+#20 20.44 + make -j8
+#20 20.49 make  all-recursive
+#20 20.51 make[1]: Entering directory '/src/opus'
+#20 20.56 make[2]: Entering directory '/src/opus'
+#20 20.60   CC       src/opus.lo
+#20 20.60   CC       src/opus_decoder.lo
+#20 20.60   CC       src/opus_encoder.lo
+#20 20.60   CC       src/opus_multistream_encoder.lo
+#20 20.60   CC       src/opus_multistream.lo
+#20 20.60   CC       src/opus_multistream_decoder.lo
+#20 20.60   CC       src/repacketizer.lo
+#20 20.60   CC       src/opus_projection_encoder.lo
+#20 20.95   CC       src/opus_projection_decoder.lo
+#20 20.96   CC       src/mapping_matrix.lo
+#20 21.01   CC       src/analysis.lo
+#20 21.05   CC       src/mlp.lo
+#20 21.16   CC       src/mlp_data.lo
+#20 21.28   CC       src/repacketizer_demo.o
+#20 21.38 make[3]: Entering directory '/src/opus/doc'
+#20 21.38 make[3]: Nothing to be done for 'all'.
+#20 21.38 make[3]: Leaving directory '/src/opus/doc'
+#20 21.38   CC       celt/tests/test_unit_cwrs32.o
+#20 21.45   CC       celt/tests/test_unit_dft.o
+#20 21.47   CC       celt/bands.lo
+#20 21.51   CC       celt/celt.lo
+#20 21.54   CC       celt/celt_encoder.lo
+#20 21.67   CC       celt/celt_decoder.lo
+#20 21.82   CC       celt/cwrs.lo
+#20 21.87   CC       celt/entcode.lo
+#20 22.05   CC       celt/entdec.lo
+#20 22.08   CC       celt/entenc.lo
+#20 22.12   CC       celt/kiss_fft.lo
+#20 22.14   CC       celt/laplace.lo
+#20 22.40   CC       celt/mathops.lo
+#20 22.41   CC       celt/mdct.lo
+#20 22.41   CC       celt/modes.lo
+#20 22.52   CC       celt/pitch.lo
+#20 22.62   CC       celt/celt_lpc.lo
+#20 22.63   CC       celt/quant_bands.lo
+#20 22.68   CC       celt/rate.lo
+#20 22.73 celt/pitch.c:252:41: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 22.73    celt_sig_assert((((unsigned char *)_x-(unsigned char *)NULL)&3)==0);
+#20 22.73    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 22.73 ./celt/arch.h:93:38: note: expanded from macro 'celt_sig_assert'
+#20 22.74 #define celt_sig_assert(cond) {if (!(cond)) {CELT_FATAL("signal assertion failed: " #cond);}}
+#20 22.74                                      ^~~~
+#20 22.78   CC       celt/vq.lo
+#20 23.02 1 warning generated.
+#20 23.03   CC       celt/x86/x86cpu.lo
+#20 23.08   CC       celt/x86/x86_celt_map.lo
+#20 23.18   CC       celt/x86/pitch_sse.lo
+#20 23.20   CC       celt/x86/pitch_sse2.lo
+#20 23.29   CC       celt/x86/vq_sse2.lo
+#20 23.29   CC       celt/x86/celt_lpc_sse4_1.lo
+#20 23.31   CC       celt/x86/pitch_sse4_1.lo
+#20 23.46   CC       celt/tests/test_unit_entropy.o
+#20 23.48   CC       celt/tests/test_unit_laplace.o
+#20 23.54 celt/x86/vq_sse2.c:78:24: warning: cast from 'int *' to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 23.55       _mm_storeu_si128((__m128i*)&iy[j], _mm_setzero_si128());
+#20 23.55                        ^~~~~~~~~~~~~~~~
+#20 23.55 celt/x86/vq_sse2.c:119:27: warning: cast from 'int *' to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 23.55          _mm_storeu_si128((__m128i*)&iy[j], iy4);
+#20 23.55                           ^~~~~~~~~~~~~~~~
+#20 23.56 celt/x86/vq_sse2.c:208:28: warning: cast from 'int *' to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 23.56   CC       celt/tests/test_unit_mathops.o
+#20 23.56       y4 = _mm_loadu_si128((__m128i*)&iy[j]);
+#20 23.56                            ^~~~~~~~~~~~~~~~
+#20 23.56 celt/x86/vq_sse2.c:211:24: warning: cast from 'int *' to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 23.56       _mm_storeu_si128((__m128i*)&iy[j], y4);
+#20 23.57                        ^~~~~~~~~~~~~~~~
+#20 23.59   CC       celt/tests/test_unit_mdct.o
+#20 23.60   CC       celt/tests/test_unit_rotation.o
+#20 23.60   CC       celt/tests/test_unit_types.o
+#20 23.66   CC       src/opus_compare.o
+#20 23.69 4 warnings generated.
+#20 23.71   CC       src/opus_demo.o
+#20 23.76   CC       silk/CNG.lo
+#20 23.80   CC       silk/code_signs.lo
+#20 23.86   CC       silk/init_decoder.lo
+#20 24.11   CC       silk/decode_core.lo
+#20 24.11   CC       silk/decode_frame.lo
+#20 24.13   CC       silk/decode_parameters.lo
+#20 24.24   CC       silk/decode_indices.lo
+#20 24.25   CC       silk/decode_pulses.lo
+#20 24.28   CC       silk/decoder_set_fs.lo
+#20 24.39   CC       silk/dec_API.lo
+#20 24.44   CC       silk/enc_API.lo
+#20 24.45   CC       silk/encode_indices.lo
+#20 24.53   CC       silk/encode_pulses.lo
+#20 24.55   CC       silk/gain_quant.lo
+#20 24.59   CC       silk/interpolate.lo
+#20 24.64   CC       silk/LP_variable_cutoff.lo
+#20 24.78   CC       silk/NLSF_decode.lo
+#20 24.86   CC       silk/NSQ.lo
+#20 24.87   CC       silk/NSQ_del_dec.lo
+#20 24.94   CC       silk/PLC.lo
+#20 24.95   CC       silk/shell_coder.lo
+#20 25.03   CC       silk/tables_gain.lo
+#20 25.06   CC       silk/tables_LTP.lo
+#20 25.17   CC       silk/tables_NLSF_CB_NB_MB.lo
+#20 25.27   CC       silk/tables_NLSF_CB_WB.lo
+#20 25.27   CC       silk/tables_other.lo
+#20 25.28   CC       silk/tables_pitch_lag.lo
+#20 25.29   CC       silk/tables_pulses_per_block.lo
+#20 25.41   CC       silk/VAD.lo
+#20 25.50   CC       silk/control_audio_bandwidth.lo
+#20 25.50   CC       silk/quant_LTP_gains.lo
+#20 25.51   CC       silk/VQ_WMat_EC.lo
+#20 25.51   CC       silk/HP_variable_cutoff.lo
+#20 25.53   CC       silk/NLSF_encode.lo
+#20 25.57   CC       silk/NLSF_VQ.lo
+#20 25.76   CC       silk/NLSF_unpack.lo
+#20 25.78   CC       silk/NLSF_del_dec_quant.lo
+#20 25.79   CC       silk/process_NLSFs.lo
+#20 25.83   CC       silk/stereo_LR_to_MS.lo
+#20 25.84   CC       silk/stereo_MS_to_LR.lo
+#20 25.86   CC       silk/check_control_input.lo
+#20 25.87   CC       silk/control_SNR.lo
+#20 25.98   CC       silk/init_encoder.lo
+#20 26.01   CC       silk/control_codec.lo
+#20 26.11   CC       silk/A2NLSF.lo
+#20 26.12   CC       silk/ana_filt_bank_1.lo
+#20 26.15   CC       silk/biquad_alt.lo
+#20 26.16   CC       silk/bwexpander_32.lo
+#20 26.21   CC       silk/bwexpander.lo
+#20 26.30   CC       silk/debug.lo
+#20 26.33   CC       silk/decode_pitch.lo
+#20 26.36   CC       silk/inner_prod_aligned.lo
+#20 26.39   CC       silk/lin2log.lo
+#20 26.43   CC       silk/log2lin.lo
+#20 26.44   CC       silk/LPC_analysis_filter.lo
+#20 26.44   CC       silk/LPC_inv_pred_gain.lo
+#20 26.48   CC       silk/table_LSF_cos.lo
+#20 26.61   CC       silk/NLSF2A.lo
+#20 26.61   CC       silk/NLSF_stabilize.lo
+#20 26.65   CC       silk/NLSF_VQ_weights_laroia.lo
+#20 26.66   CC       silk/pitch_est_tables.lo
+#20 26.68   CC       silk/resampler.lo
+#20 26.71   CC       silk/resampler_down2_3.lo
+#20 26.79   CC       silk/resampler_down2.lo
+#20 26.85   CC       silk/resampler_private_AR2.lo
+#20 26.89   CC       silk/resampler_private_down_FIR.lo
+#20 26.90   CC       silk/resampler_private_IIR_FIR.lo
+#20 26.95   CC       silk/resampler_private_up2_HQ.lo
+#20 26.96   CC       silk/resampler_rom.lo
+#20 26.97   CC       silk/sigm_Q15.lo
+#20 26.99   CC       silk/sort.lo
+#20 27.04   CC       silk/sum_sqr_shift.lo
+#20 27.08   CC       silk/stereo_decode_pred.lo
+#20 27.17   CC       silk/stereo_encode_pred.lo
+#20 27.20   CC       silk/stereo_find_predictor.lo
+#20 27.20   CC       silk/stereo_quant_pred.lo
+#20 27.23   CC       silk/LPC_fit.lo
+#20 27.30   CC       silk/float/apply_sine_window_FLP.lo
+#20 27.30   CC       silk/float/corrMatrix_FLP.lo
+#20 27.31   CC       silk/float/encode_frame_FLP.lo
+#20 27.36   CC       silk/float/find_LPC_FLP.lo
+#20 27.42   CC       silk/float/find_LTP_FLP.lo
+#20 27.49   CC       silk/float/find_pitch_lags_FLP.lo
+#20 27.50   CC       silk/float/find_pred_coefs_FLP.lo
+#20 27.60   CC       silk/float/LPC_analysis_filter_FLP.lo
+#20 27.64   CC       silk/float/LTP_analysis_filter_FLP.lo
+#20 27.72   CC       silk/float/LTP_scale_ctrl_FLP.lo
+#20 27.73   CC       silk/float/noise_shape_analysis_FLP.lo
+#20 27.80   CC       silk/float/process_gains_FLP.lo
+#20 27.85   CC       silk/float/regularize_correlations_FLP.lo
+#20 27.86   CC       silk/float/residual_energy_FLP.lo
+#20 27.89   CC       silk/float/warped_autocorrelation_FLP.lo
+#20 28.00   CC       silk/float/wrappers_FLP.lo
+#20 28.05   CC       silk/float/autocorrelation_FLP.lo
+#20 28.09   CC       silk/float/burg_modified_FLP.lo
+#20 28.17   CC       silk/float/bwexpander_FLP.lo
+#20 28.23   CC       silk/float/energy_FLP.lo
+#20 28.25   CC       silk/float/inner_product_FLP.lo
+#20 28.26   CC       silk/float/k2a_FLP.lo
+#20 28.32   CC       silk/float/LPC_inv_pred_gain_FLP.lo
+#20 28.41   CC       silk/float/pitch_analysis_core_FLP.lo
+#20 28.48   CC       silk/float/scale_copy_vector_FLP.lo
+#20 28.57   CC       silk/float/scale_vector_FLP.lo
+#20 28.58   CC       silk/float/schur_FLP.lo
+#20 28.59   CC       silk/float/sort_FLP.lo
+#20 28.60   CC       silk/x86/NSQ_sse4_1.lo
+#20 28.65   CC       silk/x86/NSQ_del_dec_sse4_1.lo
+#20 28.66   CC       silk/x86/x86_silk_map.lo
+#20 28.84   CC       silk/x86/VAD_sse4_1.lo
+#20 28.91   CC       silk/x86/VQ_WMat_EC_sse4_1.lo
+#20 28.91 silk/x86/NSQ_sse4_1.c:297:39: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.91     a_Q12_01234567 = _mm_loadu_si128( (__m128i *)(&a_Q12[ 0 ] ) );
+#20 28.91                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.91 silk/x86/NSQ_sse4_1.c:299:39: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.91     a_Q12_89ABCDEF = _mm_loadu_si128( (__m128i *)(&a_Q12[ 8 ] ) );
+#20 28.91                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.91 silk/x86/NSQ_sse4_1.c:305:44: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.91     AR_shp_Q13_76543210 = _mm_loadu_si128( (__m128i *)(&AR_shp_Q13[0] ) );
+#20 28.91                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.91 silk/x86/NSQ_sse4_1.c:310:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.91     xmm_tempa = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[-16]) );
+#20 28.91                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.91 silk/x86/NSQ_sse4_1.c:311:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.91     xmm_tempb = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[-12]) );
+#20 28.91                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.91 silk/x86/NSQ_sse4_1.c:319:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.91     xmm_tempa = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -8 ]) );
+#20 28.91                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.91 silk/x86/NSQ_sse4_1.c:320:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.92     xmm_tempb = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -4 ]) );
+#20 28.92                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.92 silk/x86/NSQ_sse4_1.c:329:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.92     xmm_tempa = _mm_loadu_si128( (__m128i *)(&(NSQ->sAR2_Q14[ 0 ]) ) );
+#20 28.92                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.92 silk/x86/NSQ_sse4_1.c:330:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.92     xmm_tempb = _mm_loadu_si128( (__m128i *)(&(NSQ->sAR2_Q14[ 4 ]) ) );
+#20 28.92                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.92 silk/x86/NSQ_sse4_1.c:398:30: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.92                 b_Q14_3210 = OP_CVTEPI16_EPI32_M64( b_Q14 );
+#20 28.92                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.92 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 28.92  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 28.92                                      ^~~~~~~~~~~~~~
+#20 28.92 silk/x86/NSQ_sse4_1.c:402:54: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.92                 pred_lag_ptr_0123 = _mm_loadu_si128( (__m128i *)(&pred_lag_ptr[ -3 ] ) );
+#20 28.92                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.92   CC       silk/tests/test_unit_LPC_inv_pred_gain.o
+#20 28.93   CC       tests/test_opus_api.o
+#20 28.93 silk/x86/NSQ_sse4_1.c:541:23: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.93     _mm_storeu_si128( (__m128i *)(&NSQ->sAR2_Q14[ 4 ]), xmm_tempa );
+#20 28.93                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.93 silk/x86/NSQ_sse4_1.c:542:23: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.93     _mm_storeu_si128( (__m128i *)(&NSQ->sAR2_Q14[ 0 ]), xmm_tempb );
+#20 28.93                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.93 silk/x86/NSQ_sse4_1.c:558:48: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.93             xmm_xq_Q14_3210 = _mm_loadu_si128( (__m128i *)(&(psLPC_Q14[ i + 0 ] ) ) );
+#20 28.93                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.93 silk/x86/NSQ_sse4_1.c:559:48: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.93             xmm_xq_Q14_7654 = _mm_loadu_si128( (__m128i *)(&(psLPC_Q14[ i + 4 ] ) ) );
+#20 28.93                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.93 silk/x86/NSQ_sse4_1.c:590:31: warning: cast from 'opus_int16 *' (aka 'short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.93             _mm_storeu_si128( (__m128i *)(&xq[ i ] ), xmm_xq_Q14_3210 );
+#20 28.93                               ^~~~~~~~~~~~~~~~~~~~~~
+#20 28.93 silk/x86/NSQ_sse4_1.c:638:42: warning: cast from 'const opus_int32 *' (aka 'const int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.93         xmm_x_Q3_x2x0 = _mm_loadu_si128( (__m128i *)(&(x_Q3[ i ] ) ) );
+#20 28.93                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.93 silk/x86/NSQ_sse4_1.c:651:27: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.93         _mm_storeu_si128( (__m128i *)(&(x_sc_Q10[ i ] ) ), xmm_x_Q3_x2x0 );
+#20 28.93                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.93 silk/x86/NSQ_sse4_1.c:683:54: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.94             xmm_sLTP_shp_Q14_x2x0 = _mm_loadu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ) );
+#20 28.94                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.94 silk/x86/NSQ_sse4_1.c:695:31: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.94             _mm_storeu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ), xmm_sLTP_shp_Q14_x2x0 );
+#20 28.94                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.95   CC       tests/test_opus_decode.o
+#20 28.96 silk/x86/NSQ_del_dec_sse4_1.c:363:18: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.96     a_Q12_0123 = OP_CVTEPI16_EPI32_M64( a_Q12 );
+#20 28.96                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.96 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 28.96  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 28.96                                      ^~~~~~~~~~~~~~
+#20 28.96 silk/x86/NSQ_del_dec_sse4_1.c:364:18: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.96     a_Q12_4567 = OP_CVTEPI16_EPI32_M64( a_Q12 + 4 );
+#20 28.96                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.96 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 28.96  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 28.96                                      ^~~~~~~~~~~~~~
+#20 28.96 silk/x86/NSQ_del_dec_sse4_1.c:367:22: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.96         a_Q12_89AB = OP_CVTEPI16_EPI32_M64( a_Q12 + 8 );
+#20 28.96                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.96 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 28.97  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 28.97                                      ^~~~~~~~~~~~~~
+#20 28.97 silk/x86/NSQ_del_dec_sse4_1.c:368:22: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.97         a_Q12_CDEF = OP_CVTEPI16_EPI32_M64( a_Q12 + 12 );
+#20 28.97                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.97 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 28.97  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 28.97                                      ^~~~~~~~~~~~~~
+#20 28.97 silk/x86/NSQ_del_dec_sse4_1.c:372:22: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 28.97         b_Q12_0123 = OP_CVTEPI16_EPI32_M64( b_Q14 );
+#20 28.97                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.97 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 28.97  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 28.97                                      ^~~~~~~~~~~~~~
+#20 28.97 silk/x86/NSQ_del_dec_sse4_1.c:385:56: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.97                 pred_lag_ptr_tmp    = _mm_loadu_si128( (__m128i *)(&pred_lag_ptr[ -3 ] ) );
+#20 28.97                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.97 silk/x86/NSQ_del_dec_sse4_1.c:440:52: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.97                 psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -3 ] ) ); /* -3, -2 , -1, 0 */
+#20 28.97                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.97 silk/x86/NSQ_del_dec_sse4_1.c:454:52: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.97                 psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -7 ] ) );
+#20 28.97                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.97 silk/x86/NSQ_del_dec_sse4_1.c:469:56: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.97                     psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -11 ] ) );
+#20 28.97                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.98 silk/x86/NSQ_del_dec_sse4_1.c:482:56: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.98                     psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -15 ] ) );
+#20 28.98                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.99 silk/x86/NSQ_del_dec_sse4_1.c:768:42: warning: cast from 'const opus_int32 *' (aka 'const int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.99         xmm_x_Q3_x2x0 = _mm_loadu_si128( (__m128i *)(&(x_Q3[ i ] ) ) );
+#20 28.99                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.99 silk/x86/NSQ_del_dec_sse4_1.c:780:27: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.99         _mm_storeu_si128( (__m128i *)(&(x_sc_Q10[ i ])), xmm_x_Q3_x2x0 );
+#20 28.99                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 28.99 silk/x86/NSQ_del_dec_sse4_1.c:813:58: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 28.99                 xmm_sLTP_shp_Q14_x2x0 = _mm_loadu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ) );
+#20 28.99                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 29.00 silk/x86/NSQ_del_dec_sse4_1.c:825:35: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 29.00                 _mm_storeu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ), xmm_sLTP_shp_Q14_x2x0 );
+#20 29.00                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 29.16 silk/x86/VAD_sse4_1.c:139:44: warning: cast from 'opus_int16 *' (aka 'short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 29.16                 xmm_X   = _mm_loadu_si128( (__m128i *)&(X[ X_offset[ b ] + i + dec_subframe_offset ] ) );
+#20 29.16                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 29.24 silk/x86/VQ_WMat_EC_sse4_1.c:67:18: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 29.25         C_tmp1 = OP_CVTEPI16_EPI32_M64( &in_Q14[ 1 ] );
+#20 29.25                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 29.25 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 29.25  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 29.25                                      ^~~~~~~~~~~~~~
+#20 29.25 silk/x86/VQ_WMat_EC_sse4_1.c:68:18: warning: cast from 'const opus_int8 *' (aka 'const signed char *') to 'int *' increases required alignment from 1 to 4 [-Wcast-align]
+#20 29.25         C_tmp2 = OP_CVTEPI8_EPI32_M32( &cb_row_Q7[ 1 ] );
+#20 29.25                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 29.25 ./celt/x86/x86cpu.h:60:40: note: expanded from macro 'OP_CVTEPI8_EPI32_M32'
+#20 29.25  (_mm_cvtepi8_epi32(_mm_cvtsi32_si128(*(int *)(x))))
+#20 29.25                                        ^~~~~~~~~~
+#20 29.26 silk/x86/VQ_WMat_EC_sse4_1.c:86:35: warning: cast from 'const opus_int32 *' (aka 'const int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 29.26         C_tmp3 = _mm_loadu_si128( (__m128i *)(&W_Q18[ 1 ] ) );
+#20 29.26                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+#20 29.29   CC       tests/test_opus_encode.o
+#20 29.33 3 warnings generated.
+#20 29.34   CC       tests/opus_encode_regressions.o
+#20 29.48   CC       tests/test_opus_padding.o
+#20 29.48 20 warnings generated.
+#20 29.50   CC       tests/test_opus_projection.o
+#20 29.55 1 warning generated.
+#20 29.55 tests/test_opus_padding.c:81:7: warning: variable 'tests' set but not used [-Wunused-but-set-variable]
+#20 29.55   int tests = 0;;
+#20 29.55       ^
+#20 29.56   CC       doc/trivial_example.o
+#20 29.58 1 warning generated.
+#20 29.59   CCLD     celt/tests/test_unit_cwrs32
+#20 29.61   CCLD     celt/tests/test_unit_dft
+#20 29.72   CCLD     celt/tests/test_unit_entropy
+#20 29.75 14 warnings generated.
+#20 29.77   CCLD     celt/tests/test_unit_laplace
+#20 29.81   CCLD     celt/tests/test_unit_mathops
+#20 29.95   CCLD     celt/tests/test_unit_mdct
+#20 29.96   CCLD     celt/tests/test_unit_rotation
+#20 30.04   CCLD     celt/tests/test_unit_types
+#20 30.07   CCLD     opus_compare
+#20 30.12   CCLD     libopus.la
+#20 30.24   CCLD     silk/tests/test_unit_LPC_inv_pred_gain
+#20 30.59   CCLD     tests/test_opus_projection
+#20 30.82   CCLD     opus_demo
+#20 30.82   CCLD     repacketizer_demo
+#20 30.82   CCLD     tests/test_opus_api
+#20 30.82   CCLD     tests/test_opus_decode
+#20 30.82   CCLD     tests/test_opus_padding
+#20 30.82   CCLD     tests/test_opus_encode
+#20 30.87   CCLD     trivial_example
+#20 31.35 make[2]: Leaving directory '/src/opus'
+#20 31.35 make[1]: Leaving directory '/src/opus'
+#20 31.35 + for fuzzer in $FUZZERS
+#20 31.35 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -Iinclude tests/opus_decode_fuzzer.c -o opus_decode_fuzzer.o
+#20 31.40 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard opus_decode_fuzzer.o -o /out/opus_decode_fuzzer_floating /libAFL.a .libs/libopus.a
+#20 31.69 + '[' -f tests/opus_decode_fuzzer.options ']'
+#20 31.69 + cp tests/opus_decode_fuzzer.options /out/opus_decode_fuzzer_floating.options
+#20 31.69 + zip -r /out/opus_decode_fuzzer_floating_seed_corpus.zip opus_testvectors/
+#20 31.70   adding: opus_testvectors/ (stored 0%)
+#20 31.70   adding: opus_testvectors/testvector03.bit (deflated 2%)
+#20 31.70   adding: opus_testvectors/testvector01.bit (deflated 15%)
+#20 31.73   adding: opus_testvectors/testvector07.bit (deflated 4%)
+#20 31.75   adding: opus_testvectors/testvector02.bit (deflated 3%)
+#20 31.75   adding: opus_testvectors/testvector12.bit (deflated 4%)
+#20 31.75   adding: opus_testvectors/testvector03.dec (deflated 48%)
+#20 32.00   adding: opus_testvectors/testvector06.dec (deflated 45%)
+#20 32.30   adding: opus_testvectors/testvector11.dec (deflated 7%)
+#20 32.58   adding: opus_testvectors/testvector11.bit (deflated 0%)
+#20 32.60   adding: opus_testvectors/testvector06.bit (deflated 3%)
+#20 32.61   adding: opus_testvectors/testvector08.dec (deflated 38%)
+#20 32.94   adding: opus_testvectors/testvector02.dec (deflated 50%)
+#20 33.21   adding: opus_testvectors/testvector01.dec (deflated 29%)
+#20 33.62   adding: opus_testvectors/testvector05.bit (deflated 3%)
+#20 33.63   adding: opus_testvectors/testvector08.bit (deflated 1%)
+#20 33.63   adding: opus_testvectors/testvector09.bit (deflated 11%)
+#20 33.67   adding: opus_testvectors/testvector10.dec (deflated 49%)
+#20 33.97   adding: opus_testvectors/testvector07.dec (deflated 44%)
+#20 34.23   adding: opus_testvectors/testvector04.dec (deflated 49%)
+#20 34.54   adding: opus_testvectors/testvector09.dec (deflated 43%)
+#20 34.88   adding: opus_testvectors/testvector05.dec (deflated 47%)
+#20 35.22   adding: opus_testvectors/testvector12.dec (deflated 61%)
+#20 35.52   adding: opus_testvectors/testvector10.bit (deflated 9%)
+#20 35.55   adding: opus_testvectors/testvector04.bit (deflated 3%)
+#20 35.55 + for fuzzer in $FUZZERS
+#20 35.55 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -Iinclude tests/opus_multi_fuzzer.c -o opus_multi_fuzzer.o
+#20 35.62 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard opus_multi_fuzzer.o -o /out/opus_multi_fuzzer_floating /libAFL.a .libs/libopus.a
+#20 35.88 + '[' -f tests/opus_multi_fuzzer.options ']'
+#20 35.88 + zip -r /out/opus_multi_fuzzer_floating_seed_corpus.zip opus_testvectors/
+#20 35.88   adding: opus_testvectors/ (stored 0%)
+#20 35.88   adding: opus_testvectors/testvector03.bit (deflated 2%)
+#20 35.89   adding: opus_testvectors/testvector01.bit (deflated 15%)
+#20 35.92   adding: opus_testvectors/testvector07.bit (deflated 4%)
+#20 35.93   adding: opus_testvectors/testvector02.bit (deflated 3%)
+#20 35.93   adding: opus_testvectors/testvector12.bit (deflated 4%)
+#20 35.94   adding: opus_testvectors/testvector03.dec (deflated 48%)
+#20 36.18   adding: opus_testvectors/testvector06.dec (deflated 45%)
+#20 36.49   adding: opus_testvectors/testvector11.dec (deflated 7%)
+#20 36.77   adding: opus_testvectors/testvector11.bit (deflated 0%)
+#20 36.78   adding: opus_testvectors/testvector06.bit (deflated 3%)
+#20 36.79   adding: opus_testvectors/testvector08.dec (deflated 38%)
+#20 37.12   adding: opus_testvectors/testvector02.dec (deflated 50%)
+#20 37.39   adding: opus_testvectors/testvector01.dec (deflated 29%)
+#20 37.80   adding: opus_testvectors/testvector05.bit (deflated 3%)
+#20 37.81   adding: opus_testvectors/testvector08.bit (deflated 1%)
+#20 37.82   adding: opus_testvectors/testvector09.bit (deflated 11%)
+#20 37.85   adding: opus_testvectors/testvector10.dec (deflated 49%)
+#20 38.15   adding: opus_testvectors/testvector07.dec (deflated 44%)
+#20 38.41   adding: opus_testvectors/testvector04.dec (deflated 49%)
+#20 38.72   adding: opus_testvectors/testvector09.dec (deflated 43%)
+#20 39.05   adding: opus_testvectors/testvector05.dec (deflated 47%)
+#20 39.38   adding: opus_testvectors/testvector12.dec (deflated 61%)
+#20 39.69   adding: opus_testvectors/testvector10.bit (deflated 9%)
+#20 39.73   adding: opus_testvectors/testvector04.bit (deflated 3%)
+#20 39.73 + for build in "${BUILDS[@]}"
+#20 39.73 + case "$build" in
+#20 39.73 + extra_args=' --enable-fixed-point --enable-check-asm'
+#20 39.73 + ./configure --enable-fixed-point --enable-check-asm --enable-static --disable-shared --disable-doc --enable-assertions
+#20 39.98 checking whether make supports nested variables... yes
+#20 39.98 checking for a BSD-compatible install... /usr/bin/install -c
+#20 40.00 checking whether build environment is sane... yes
+#20 40.01 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 40.02 checking for gawk... no
+#20 40.02 checking for mawk... mawk
+#20 40.02 checking whether make sets $(MAKE)... yes
+#20 40.04 checking whether to enable maintainer-specific portions of Makefiles... yes
+#20 40.06 checking build system type... x86_64-pc-linux-gnu
+#20 40.14 checking host system type... x86_64-pc-linux-gnu
+#20 40.14 checking how to print strings... printf
+#20 40.19 checking whether make supports the include directive... yes (GNU style)
+#20 40.21 checking for gcc... clang
+#20 40.28 checking whether the C compiler works... yes
+#20 40.39 checking for C compiler default output file name... a.out
+#20 40.40 checking for suffix of executables... 
+#20 40.52 checking whether we are cross compiling... no
+#20 40.65 checking for suffix of object files... o
+#20 40.68 checking whether we are using the GNU C compiler... yes
+#20 40.70 checking whether clang accepts -g... yes
+#20 40.73 checking for clang option to accept ISO C89... none needed
+#20 40.77 checking whether clang understands -c and -o together... yes
+#20 40.82 checking dependency style of clang... gcc3
+#20 40.87 checking for a sed that does not truncate output... /usr/bin/sed
+#20 40.88 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 40.89 checking for egrep... /usr/bin/grep -E
+#20 40.89 checking for fgrep... /usr/bin/grep -F
+#20 40.89 checking for ld used by clang... /usr/bin/ld
+#20 40.91 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 40.92 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 40.92 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 40.95 checking whether ln -s works... yes
+#20 40.95 checking the maximum length of command line arguments... 1572864
+#20 40.96 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 40.96 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 40.97 checking for /usr/bin/ld option to reload object files... -r
+#20 40.97 checking for objdump... objdump
+#20 40.97 checking how to recognize dependent libraries... pass_all
+#20 40.97 checking for dlltool... no
+#20 40.97 checking how to associate runtime and link libraries... printf %s\n
+#20 40.97 checking for ar... ar
+#20 40.97 checking for archiver @FILE support... @
+#20 41.01 checking for strip... strip
+#20 41.01 checking for ranlib... ranlib
+#20 41.01 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 41.19 checking for sysroot... no
+#20 41.19 checking for a working dd... /usr/bin/dd
+#20 41.20 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 41.23 checking for mt... no
+#20 41.23 checking if : is a manifest tool... no
+#20 41.24 checking how to run the C preprocessor... clang -E
+#20 41.34 checking for ANSI C header files... yes
+#20 41.58 checking for sys/types.h... yes
+#20 41.64 checking for sys/stat.h... yes
+#20 41.69 checking for stdlib.h... yes
+#20 41.75 checking for string.h... yes
+#20 41.81 checking for memory.h... yes
+#20 41.87 checking for strings.h... yes
+#20 41.93 checking for inttypes.h... yes
+#20 41.99 checking for stdint.h... yes
+#20 42.05 checking for unistd.h... yes
+#20 42.11 checking for dlfcn.h... yes
+#20 42.17 checking for objdir... .libs
+#20 42.34 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 42.37 checking for clang option to produce PIC... -fPIC -DPIC
+#20 42.37 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 42.41 checking if clang static flag -static works... yes
+#20 42.58 checking if clang supports -c -o file.o... yes
+#20 42.63 checking if clang supports -c -o file.o... (cached) yes
+#20 42.63 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 42.65 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 42.82 checking how to hardcode library paths into programs... immediate
+#20 42.82 checking whether stripping libraries is possible... yes
+#20 42.82 checking if libtool supports shared libraries... yes
+#20 42.82 checking whether to build shared libraries... no
+#20 42.83 checking whether to build static libraries... yes
+#20 42.83 checking for clang option to accept ISO C99... none needed
+#20 42.89 checking for an ANSI C-conforming const... yes
+#20 42.92 checking for inline... inline
+#20 42.95 checking dependency style of clang... gcc3
+#20 43.00 checking for C/C++ restrict keyword... __restrict
+#20 43.04 checking for C99 variable-size arrays... yes
+#20 43.07 checking for cos in -lm... yes
+#20 43.20 checking if compiler supports SSE intrinsics... yes
+#20 43.38 checking if compiler supports SSE2 intrinsics... yes
+#20 43.56 checking if compiler supports SSE4.1 intrinsics... no
+#20 43.67 checking if compiler supports SSE4.1 intrinsics with -msse4.1... yes
+#20 43.87 checking if compiler supports AVX intrinsics... no
+#20 44.41 checking if compiler supports AVX intrinsics with -mavx... yes
+#20 45.04 checking How to get X86 CPU Info... Inline Assembly
+#20 45.18 checking if clang supports -fvisibility=hidden... yes
+#20 45.21 checking if clang supports -fstack-protector-strong... yes
+#20 45.34 checking whether to add -D_FORTIFY_SOURCE=2 to CFLAGS... yes
+#20 45.46 checking if clang supports -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes... yes
+#20 45.49 checking for lrintf... yes
+#20 45.62 checking for lrint... yes
+#20 45.76 checking for __malloc_hook... yes
+#20 45.94 checking that generated files are newer than configure... done
+#20 45.95 configure: creating ./config.status
+#20 46.74 config.status: creating Makefile
+#20 46.77 config.status: creating opus.pc
+#20 46.79 config.status: creating opus-uninstalled.pc
+#20 46.81 config.status: creating celt/arm/armopts.s
+#20 46.83 config.status: creating doc/Makefile
+#20 46.86 config.status: creating doc/Doxyfile
+#20 46.89 config.status: creating config.h
+#20 46.90 config.status: executing depfiles commands
+#20 46.96 config.status: executing libtool commands
+#20 46.98 configure:
+#20 46.98 ------------------------------------------------------------------------
+#20 46.98   opus 1.3.1-101-g66d060c7:  Automatic configuration OK.
+#20 46.98 
+#20 46.98     Compiler support:
+#20 46.98 
+#20 46.98       C99 var arrays: ................ yes
+#20 46.98       C99 lrintf: .................... yes
+#20 46.98       Use alloca: .................... no (using var arrays)
+#20 46.98 
+#20 46.98     General configuration:
+#20 46.98 
+#20 46.98       Floating point support: ........ no
+#20 46.98       Fast float approximations: ..... no
+#20 46.98       Fixed point debugging: ......... no
+#20 46.98       Inline Assembly Optimizations: . No inline ASM for your platform, please send patches
+#20 46.98       External Assembly Optimizations: 
+#20 46.98       Intrinsics Optimizations: ...... x86 SSE SSE2 SSE4.1 AVX
+#20 46.98       Run-time CPU detection: ........ x86 SSE4.1 AVX
+#20 46.98       Custom modes: .................. no
+#20 46.98       Assertion checking: ............ yes
+#20 46.98       Hardening: ..................... yes
+#20 46.98       Fuzzing: ....................... no
+#20 46.98       Check ASM: ..................... yes
+#20 46.98 
+#20 46.98       API documentation: ............. no
+#20 46.98       Extra programs: ................ yes
+#20 46.98 ------------------------------------------------------------------------
+#20 46.98 
+#20 46.98  Type "make; make install" to compile and install
+#20 46.98  Type "make check" to run the test suite
+#20 46.98 
+#20 47.06 ++ nproc
+#20 47.06 + make -j8
+#20 47.15 make  all-recursive
+#20 47.21 make[1]: Entering directory '/src/opus'
+#20 47.31 make[2]: Entering directory '/src/opus'
+#20 47.37   CC       src/opus.lo
+#20 47.37   CC       src/opus_decoder.lo
+#20 47.37   CC       src/opus_encoder.lo
+#20 47.37   CC       src/opus_multistream.lo
+#20 47.37   CC       src/opus_multistream_encoder.lo
+#20 47.37   CC       src/opus_multistream_decoder.lo
+#20 47.37   CC       src/repacketizer.lo
+#20 47.37   CC       src/opus_projection_encoder.lo
+#20 47.69   CC       src/opus_projection_decoder.lo
+#20 47.74   CC       src/mapping_matrix.lo
+#20 47.78   CC       src/analysis.lo
+#20 47.81   CC       src/mlp.lo
+#20 47.91   CC       src/mlp_data.lo
+#20 48.03   CC       src/repacketizer_demo.o
+#20 48.07   CC       silk/tests/test_unit_LPC_inv_pred_gain.o
+#20 48.22   CC       tests/test_opus_api.o
+#20 48.24   CC       tests/test_opus_decode.o
+#20 48.28   CC       tests/test_opus_encode.o
+#20 48.33   CC       tests/opus_encode_regressions.o
+#20 48.44   CC       tests/test_opus_projection.o
+#20 48.59 make[3]: Entering directory '/src/opus/doc'
+#20 48.59 make[3]: Nothing to be done for 'all'.
+#20 48.59 make[3]: Leaving directory '/src/opus/doc'
+#20 48.60   CC       celt/tests/test_unit_cwrs32.o
+#20 48.64   CC       celt/tests/test_unit_dft.o
+#20 48.82   CC       celt/bands.lo
+#20 48.86   CC       celt/celt.lo
+#20 48.89   CC       celt/celt_encoder.lo
+#20 49.04   CC       celt/celt_decoder.lo
+#20 49.27   CC       celt/cwrs.lo
+#20 49.28   CC       celt/entcode.lo
+#20 49.36   CC       celt/entdec.lo
+#20 49.44   CC       celt/entenc.lo
+#20 49.46   CC       celt/kiss_fft.lo
+#20 49.58   CC       celt/laplace.lo
+#20 49.70   CC       celt/mathops.lo
+#20 49.72   CC       celt/mdct.lo
+#20 49.84   CC       celt/modes.lo
+#20 49.91   CC       celt/pitch.lo
+#20 50.02   CC       celt/celt_lpc.lo
+#20 50.03   CC       celt/quant_bands.lo
+#20 50.10   CC       celt/rate.lo
+#20 50.11   CC       celt/vq.lo
+#20 50.12 celt/pitch.c:252:41: warning: performing pointer subtraction with a null pointer has undefined behavior [-Wnull-pointer-subtraction]
+#20 50.12    celt_sig_assert((((unsigned char *)_x-(unsigned char *)NULL)&3)==0);
+#20 50.12    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 50.12 ./celt/arch.h:93:38: note: expanded from macro 'celt_sig_assert'
+#20 50.12 #define celt_sig_assert(cond) {if (!(cond)) {CELT_FATAL("signal assertion failed: " #cond);}}
+#20 50.12                                      ^~~~
+#20 50.63   CC       celt/x86/x86cpu.lo
+#20 50.70   CC       celt/x86/x86_celt_map.lo
+#20 50.71 1 warning generated.
+#20 50.73   CC       celt/x86/pitch_sse.lo
+#20 50.74   CC       celt/x86/pitch_sse2.lo
+#20 50.78   CC       celt/x86/vq_sse2.lo
+#20 50.88   CC       celt/x86/celt_lpc_sse4_1.lo
+#20 50.90   CC       celt/x86/pitch_sse4_1.lo
+#20 50.97   CC       celt/tests/test_unit_entropy.o
+#20 50.97   CC       celt/tests/test_unit_laplace.o
+#20 51.05 celt/x86/pitch_sse2.c:59:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.05         inVec1_76543210 = _mm_loadu_si128((__m128i *)(&x[i + 0]));
+#20 51.05                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.05 celt/x86/pitch_sse2.c:60:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.05         inVec2_76543210 = _mm_loadu_si128((__m128i *)(&y[i + 0]));
+#20 51.05                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.05 celt/x86/pitch_sse2.c:62:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.05         inVec1_FEDCBA98 = _mm_loadu_si128((__m128i *)(&x[i + 8]));
+#20 51.05                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.05 celt/x86/pitch_sse2.c:63:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.05         inVec2_FEDCBA98 = _mm_loadu_si128((__m128i *)(&y[i + 8]));
+#20 51.05                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.05 celt/x86/pitch_sse2.c:76:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.06         inVec1_76543210 = _mm_loadu_si128((__m128i *)(&x[i + 0]));
+#20 51.06                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.06 celt/x86/pitch_sse2.c:77:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.06         inVec2_76543210 = _mm_loadu_si128((__m128i *)(&y[i + 0]));
+#20 51.06                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.10 6 warnings generated.
+#20 51.11   CC       celt/tests/test_unit_mathops.o
+#20 51.12   CC       celt/tests/test_unit_mdct.o
+#20 51.17 celt/x86/celt_lpc_sse4_1.c:73:14: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.17       vecX = OP_CVTEPI16_EPI32_M64(x + i);
+#20 51.17              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.17 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.17  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.17                                      ^~~~~~~~~~~~~~
+#20 51.17 celt/x86/celt_lpc_sse4_1.c:76:24: warning: cast from 'opus_val16 *' (aka 'short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.17       _mm_storel_epi64((__m128i *)(y + i), vecSum);
+#20 51.17                        ^~~~~~~~~~~~~~~~~~
+#20 51.20   CC       celt/tests/test_unit_rotation.o
+#20 51.20 celt/x86/pitch_sse4_1.c:61:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.20         inVec1_76543210 = _mm_loadu_si128((__m128i *)(&x[i + 0]));
+#20 51.20                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.20 celt/x86/pitch_sse4_1.c:62:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.20         inVec2_76543210 = _mm_loadu_si128((__m128i *)(&y[i + 0]));
+#20 51.20                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:64:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         inVec1_FEDCBA98 = _mm_loadu_si128((__m128i *)(&x[i + 8]));
+#20 51.21                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:65:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         inVec2_FEDCBA98 = _mm_loadu_si128((__m128i *)(&y[i + 8]));
+#20 51.21                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:78:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         inVec1_76543210 = _mm_loadu_si128((__m128i *)(&x[i + 0]));
+#20 51.21                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:79:43: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         inVec2_76543210 = _mm_loadu_si128((__m128i *)(&y[i + 0]));
+#20 51.21                                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:89:23: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         inVec1_3210 = OP_CVTEPI16_EPI32_M64(&x[i + 0]);
+#20 51.21                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.21  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.21                                      ^~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:90:23: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         inVec2_3210 = OP_CVTEPI16_EPI32_M64(&y[i + 0]);
+#20 51.21                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.21  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.21                                      ^~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:137:32: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecX = _mm_loadu_si128((__m128i *)(&x[j + 0]));
+#20 51.21                                ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:138:33: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY0 = _mm_loadu_si128((__m128i *)(&y[j + 0]));
+#20 51.21                                 ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:139:33: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY1 = _mm_loadu_si128((__m128i *)(&y[j + 1]));
+#20 51.21                                 ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:140:33: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY2 = _mm_loadu_si128((__m128i *)(&y[j + 2]));
+#20 51.21                                 ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:141:33: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY3 = _mm_loadu_si128((__m128i *)(&y[j + 3]));
+#20 51.21                                 ^~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:166:16: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecX = OP_CVTEPI16_EPI32_M64(&x[j + 0]);
+#20 51.21                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.21  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.21                                      ^~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:172:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY0 = OP_CVTEPI16_EPI32_M64(&y[j + 0]);
+#20 51.21                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.21  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.21                                      ^~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:173:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY1 = OP_CVTEPI16_EPI32_M64(&y[j + 1]);
+#20 51.21                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.21  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.21                                      ^~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:174:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY2 = OP_CVTEPI16_EPI32_M64(&y[j + 2]);
+#20 51.21                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.21  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.21                                      ^~~~~~~~~~~~~~
+#20 51.21 celt/x86/pitch_sse4_1.c:175:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.21         vecY3 = OP_CVTEPI16_EPI32_M64(&y[j + 3]);
+#20 51.21                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.21 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:188:12: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.22     vecX = OP_CVTEPI16_EPI32_M64(&x[len - 4]);
+#20 51.22            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:195:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.22         vecY0 = OP_CVTEPI16_EPI32_M64(&y[j + 0]);
+#20 51.22                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:196:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.22         vecY1 = OP_CVTEPI16_EPI32_M64(&y[j + 1]);
+#20 51.22                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:197:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.22         vecY2 = OP_CVTEPI16_EPI32_M64(&y[j + 2]);
+#20 51.22                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:212:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.22         vecY0 = OP_CVTEPI16_EPI32_M64(&y[j + 0]);
+#20 51.22                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:213:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.22         vecY1 = OP_CVTEPI16_EPI32_M64(&y[j + 1]);
+#20 51.22                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:225:17: warning: cast from 'const opus_val16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 51.22         vecY0 = OP_CVTEPI16_EPI32_M64(&y[j + 0]);
+#20 51.22                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 51.22  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 51.22                                      ^~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:232:31: warning: cast from 'opus_val32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 51.22     initSum = _mm_loadu_si128((__m128i *)(&sum[0]));
+#20 51.22                               ^~~~~~~~~~~~~~~~~~~~
+#20 51.22 celt/x86/pitch_sse4_1.c:234:22: warning: cast from 'opus_val32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 51.22     _mm_storeu_si128((__m128i *)sum, initSum);
+#20 51.22                      ^~~~~~~~~~~~~~
+#20 51.29 2 warnings generated.
+#20 51.30   CC       celt/tests/test_unit_types.o
+#20 51.36   CC       src/opus_demo.o
+#20 51.37   CC       silk/CNG.lo
+#20 51.37 27 warnings generated.
+#20 51.38   CC       silk/code_signs.lo
+#20 51.38   CC       silk/init_decoder.lo
+#20 51.41   CC       silk/decode_core.lo
+#20 51.60   CC       silk/decode_frame.lo
+#20 51.62   CC       silk/decode_parameters.lo
+#20 51.72   CC       silk/decode_indices.lo
+#20 51.87   CC       silk/decode_pulses.lo
+#20 51.87   CC       silk/decoder_set_fs.lo
+#20 51.95   CC       silk/dec_API.lo
+#20 51.99   CC       silk/enc_API.lo
+#20 52.02   CC       silk/encode_indices.lo
+#20 52.10   CC       silk/encode_pulses.lo
+#20 52.14   CC       silk/gain_quant.lo
+#20 52.17   CC       silk/interpolate.lo
+#20 52.20   CC       silk/LP_variable_cutoff.lo
+#20 52.35   CC       silk/NLSF_decode.lo
+#20 52.45   CC       silk/NSQ.lo
+#20 52.45   CC       silk/NSQ_del_dec.lo
+#20 52.49   CC       silk/PLC.lo
+#20 52.50   CC       silk/shell_coder.lo
+#20 52.60   CC       silk/tables_gain.lo
+#20 52.63   CC       silk/tables_LTP.lo
+#20 52.70   CC       silk/tables_NLSF_CB_NB_MB.lo
+#20 52.76   CC       silk/tables_NLSF_CB_WB.lo
+#20 52.83   CC       silk/tables_other.lo
+#20 52.85   CC       silk/tables_pitch_lag.lo
+#20 52.87   CC       silk/tables_pulses_per_block.lo
+#20 52.94   CC       silk/VAD.lo
+#20 53.00   CC       silk/control_audio_bandwidth.lo
+#20 53.07   CC       silk/quant_LTP_gains.lo
+#20 53.09   CC       silk/VQ_WMat_EC.lo
+#20 53.09   CC       silk/HP_variable_cutoff.lo
+#20 53.10   CC       silk/NLSF_encode.lo
+#20 53.10   CC       silk/NLSF_VQ.lo
+#20 53.27   CC       silk/NLSF_unpack.lo
+#20 53.36   CC       silk/NLSF_del_dec_quant.lo
+#20 53.37   CC       silk/process_NLSFs.lo
+#20 53.38   CC       silk/stereo_LR_to_MS.lo
+#20 53.39   CC       silk/stereo_MS_to_LR.lo
+#20 53.41   CC       silk/check_control_input.lo
+#20 53.43   CC       silk/control_SNR.lo
+#20 53.51   CC       silk/init_encoder.lo
+#20 53.53   CC       silk/control_codec.lo
+#20 53.66   CC       silk/A2NLSF.lo
+#20 53.68   CC       silk/ana_filt_bank_1.lo
+#20 53.74   CC       silk/biquad_alt.lo
+#20 53.75   CC       silk/bwexpander_32.lo
+#20 53.75   CC       silk/bwexpander.lo
+#20 53.77   CC       silk/debug.lo
+#20 53.91   CC       silk/decode_pitch.lo
+#20 53.92   CC       silk/inner_prod_aligned.lo
+#20 53.92   CC       silk/lin2log.lo
+#20 53.92   CC       silk/log2lin.lo
+#20 54.00   CC       silk/LPC_analysis_filter.lo
+#20 54.01   CC       silk/LPC_inv_pred_gain.lo
+#20 54.04   CC       silk/table_LSF_cos.lo
+#20 54.16   CC       silk/NLSF2A.lo
+#20 54.17   CC       silk/NLSF_stabilize.lo
+#20 54.18   CC       silk/NLSF_VQ_weights_laroia.lo
+#20 54.20   CC       silk/pitch_est_tables.lo
+#20 54.26   CC       silk/resampler.lo
+#20 54.28   CC       silk/resampler_down2_3.lo
+#20 54.30   CC       silk/resampler_down2.lo
+#20 54.41   CC       silk/resampler_private_AR2.lo
+#20 54.44   CC       silk/resampler_private_down_FIR.lo
+#20 54.47   CC       silk/resampler_private_IIR_FIR.lo
+#20 54.53   CC       silk/resampler_private_up2_HQ.lo
+#20 54.55   CC       silk/resampler_rom.lo
+#20 54.55   CC       silk/sigm_Q15.lo
+#20 54.56   CC       silk/sort.lo
+#20 54.56   CC       silk/sum_sqr_shift.lo
+#20 54.68   CC       silk/stereo_decode_pred.lo
+#20 54.75   CC       silk/stereo_encode_pred.lo
+#20 54.79   CC       silk/stereo_find_predictor.lo
+#20 54.80   CC       silk/stereo_quant_pred.lo
+#20 54.82   CC       silk/LPC_fit.lo
+#20 54.85   CC       silk/fixed/LTP_analysis_filter_FIX.lo
+#20 54.92   CC       silk/fixed/LTP_scale_ctrl_FIX.lo
+#20 54.94   CC       silk/fixed/corrMatrix_FIX.lo
+#20 54.98   CC       silk/fixed/encode_frame_FIX.lo
+#20 55.02   CC       silk/fixed/find_LPC_FIX.lo
+#20 55.09   CC       silk/fixed/find_LTP_FIX.lo
+#20 55.11   CC       silk/fixed/find_pitch_lags_FIX.lo
+#20 55.18   CC       silk/fixed/find_pred_coefs_FIX.lo
+#20 55.18   CC       silk/fixed/noise_shape_analysis_FIX.lo
+#20 55.23   CC       silk/fixed/process_gains_FIX.lo
+#20 55.35   CC       silk/fixed/regularize_correlations_FIX.lo
+#20 55.38   CC       silk/fixed/residual_energy16_FIX.lo
+#20 55.44   CC       silk/fixed/residual_energy_FIX.lo
+#20 55.45   CC       silk/fixed/warped_autocorrelation_FIX.lo
+#20 55.48   CC       silk/fixed/apply_sine_window_FIX.lo
+#20 55.55   CC       silk/fixed/autocorr_FIX.lo
+#20 55.58   CC       silk/fixed/burg_modified_FIX.lo
+#20 55.62   CC       silk/fixed/k2a_FIX.lo
+#20 55.74   CC       silk/fixed/k2a_Q16_FIX.lo
+#20 55.76   CC       silk/fixed/pitch_analysis_core_FIX.lo
+#20 55.77   CC       silk/fixed/vector_ops_FIX.lo
+#20 55.81   CC       silk/fixed/schur64_FIX.lo
+#20 55.81   CC       silk/fixed/schur_FIX.lo
+#20 55.92   CC       silk/x86/NSQ_sse4_1.lo
+#20 55.99   CC       silk/x86/NSQ_del_dec_sse4_1.lo
+#20 56.03   CC       silk/x86/x86_silk_map.lo
+#20 56.09   CC       silk/x86/VAD_sse4_1.lo
+#20 56.13   CC       silk/x86/VQ_WMat_EC_sse4_1.lo
+#20 56.17   CC       silk/fixed/x86/vector_ops_FIX_sse4_1.lo
+#20 56.25 silk/x86/NSQ_sse4_1.c:297:39: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.25     a_Q12_01234567 = _mm_loadu_si128( (__m128i *)(&a_Q12[ 0 ] ) );
+#20 56.25                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.26 silk/x86/NSQ_sse4_1.c:299:39: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.26     a_Q12_89ABCDEF = _mm_loadu_si128( (__m128i *)(&a_Q12[ 8 ] ) );
+#20 56.26                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.26 silk/x86/NSQ_sse4_1.c:305:44: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.26     AR_shp_Q13_76543210 = _mm_loadu_si128( (__m128i *)(&AR_shp_Q13[0] ) );
+#20 56.26                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.26 silk/x86/NSQ_sse4_1.c:310:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.26     xmm_tempa = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[-16]) );
+#20 56.26                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.26 silk/x86/NSQ_sse4_1.c:311:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.26     xmm_tempb = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[-12]) );
+#20 56.26                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.26 silk/x86/NSQ_sse4_1.c:319:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.26     xmm_tempa = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -8 ]) );
+#20 56.27                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.27 silk/x86/NSQ_sse4_1.c:320:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.27     xmm_tempb = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -4 ]) );
+#20 56.27                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.27 silk/x86/NSQ_sse4_1.c:329:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.27     xmm_tempa = _mm_loadu_si128( (__m128i *)(&(NSQ->sAR2_Q14[ 0 ]) ) );
+#20 56.27                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.27 silk/x86/NSQ_sse4_1.c:330:34: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.27     xmm_tempb = _mm_loadu_si128( (__m128i *)(&(NSQ->sAR2_Q14[ 4 ]) ) );
+#20 56.27                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.27 silk/x86/NSQ_sse4_1.c:398:30: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.27                 b_Q14_3210 = OP_CVTEPI16_EPI32_M64( b_Q14 );
+#20 56.27                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.27 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.28  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.28                                      ^~~~~~~~~~~~~~
+#20 56.28 silk/x86/NSQ_sse4_1.c:402:54: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.28                 pred_lag_ptr_0123 = _mm_loadu_si128( (__m128i *)(&pred_lag_ptr[ -3 ] ) );
+#20 56.28                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.28 silk/x86/NSQ_sse4_1.c:541:23: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.28     _mm_storeu_si128( (__m128i *)(&NSQ->sAR2_Q14[ 4 ]), xmm_tempa );
+#20 56.28                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.28 silk/x86/NSQ_sse4_1.c:542:23: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.28     _mm_storeu_si128( (__m128i *)(&NSQ->sAR2_Q14[ 0 ]), xmm_tempb );
+#20 56.28                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.28 silk/x86/NSQ_sse4_1.c:558:48: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.28             xmm_xq_Q14_3210 = _mm_loadu_si128( (__m128i *)(&(psLPC_Q14[ i + 0 ] ) ) );
+#20 56.28                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.28 silk/x86/NSQ_sse4_1.c:559:48: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.28             xmm_xq_Q14_7654 = _mm_loadu_si128( (__m128i *)(&(psLPC_Q14[ i + 4 ] ) ) );
+#20 56.29                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.29 silk/x86/NSQ_sse4_1.c:590:31: warning: cast from 'opus_int16 *' (aka 'short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.29             _mm_storeu_si128( (__m128i *)(&xq[ i ] ), xmm_xq_Q14_3210 );
+#20 56.29                               ^~~~~~~~~~~~~~~~~~~~~~
+#20 56.29 silk/x86/NSQ_sse4_1.c:638:42: warning: cast from 'const opus_int32 *' (aka 'const int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.29         xmm_x_Q3_x2x0 = _mm_loadu_si128( (__m128i *)(&(x_Q3[ i ] ) ) );
+#20 56.29                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.29 silk/x86/NSQ_sse4_1.c:651:27: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.29         _mm_storeu_si128( (__m128i *)(&(x_sc_Q10[ i ] ) ), xmm_x_Q3_x2x0 );
+#20 56.29                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.29 silk/x86/NSQ_sse4_1.c:683:54: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.29             xmm_sLTP_shp_Q14_x2x0 = _mm_loadu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ) );
+#20 56.29                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.30 silk/x86/NSQ_sse4_1.c:695:31: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.30             _mm_storeu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ), xmm_sLTP_shp_Q14_x2x0 );
+#20 56.30                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.34 silk/x86/NSQ_del_dec_sse4_1.c:363:18: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.34     a_Q12_0123 = OP_CVTEPI16_EPI32_M64( a_Q12 );
+#20 56.34                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.34 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.34  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.34                                      ^~~~~~~~~~~~~~
+#20 56.34 silk/x86/NSQ_del_dec_sse4_1.c:364:18: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.34     a_Q12_4567 = OP_CVTEPI16_EPI32_M64( a_Q12 + 4 );
+#20 56.34                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.34 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.34  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.34                                      ^~~~~~~~~~~~~~
+#20 56.34 silk/x86/NSQ_del_dec_sse4_1.c:367:22: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.34         a_Q12_89AB = OP_CVTEPI16_EPI32_M64( a_Q12 + 8 );
+#20 56.34                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.34 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.34  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.34                                      ^~~~~~~~~~~~~~
+#20 56.34 silk/x86/NSQ_del_dec_sse4_1.c:368:22  CC       silk/fixed/x86/burg_modified_FIX_sse4_1.lo
+#20 56.34 : warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.34         a_Q12_CDEF = OP_CVTEPI16_EPI32_M64( a_Q12 + 12 );
+#20 56.34                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.34 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.34  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.34                                      ^~~~~~~~~~~~~~
+#20 56.34 silk/x86/NSQ_del_dec_sse4_1.c:372:22: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.34         b_Q12_0123 = OP_CVTEPI16_EPI32_M64( b_Q14 );
+#20 56.34                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.34 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.34  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.34                                      ^~~~~~~~~~~~~~
+#20 56.34 silk/x86/NSQ_del_dec_sse4_1.c:385:56: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.34                 pred_lag_ptr_tmp    = _mm_loadu_si128( (__m128i *)(&pred_lag_ptr[ -3 ] ) );
+#20 56.34                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.35 silk/x86/NSQ_del_dec_sse4_1.c:440:52: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.35                 psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -3 ] ) ); /* -3, -2 , -1, 0 */
+#20 56.35                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.35 silk/x86/NSQ_del_dec_sse4_1.c:454:52: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.35                 psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -7 ] ) );
+#20 56.35                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.35 silk/x86/NSQ_del_dec_sse4_1.c:469:56: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.35                     psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -11 ] ) );
+#20 56.35                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.35 silk/x86/NSQ_del_dec_sse4_1.c:482:56: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.35                     psLPC_Q14_tmp   = _mm_loadu_si128( (__m128i *)(&psLPC_Q14[ -15 ] ) );
+#20 56.35                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.37 silk/x86/NSQ_del_dec_sse4_1.c:768:42: warning: cast from 'const opus_int32 *' (aka 'const int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.37         xmm_x_Q3_x2x0 = _mm_loadu_si128( (__m128i *)(&(x_Q3[ i ] ) ) );
+#20 56.37                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.37 silk/x86/NSQ_del_dec_sse4_1.c:780:27: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.37         _mm_storeu_si128( (__m128i *)(&(x_sc_Q10[ i ])), xmm_x_Q3_x2x0 );
+#20 56.37                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.37 silk/x86/NSQ_del_dec_sse4_1.c:813:58: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.37                 xmm_sLTP_shp_Q14_x2x0 = _mm_loadu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ) );
+#20 56.37                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.37 silk/x86/NSQ_del_dec_sse4_1.c:825:35: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.37                 _mm_storeu_si128( (__m128i *)(&(NSQ->sLTP_shp_Q14[ i ] ) ), xmm_sLTP_shp_Q14_x2x0 );
+#20 56.37                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.41   CCLD     celt/tests/test_unit_cwrs32
+#20 56.43 silk/x86/VAD_sse4_1.c:139:44: warning: cast from 'opus_int16 *' (aka 'short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.43                 xmm_X   = _mm_loadu_si128( (__m128i *)&(X[ X_offset[ b ] + i + dec_subframe_offset ] ) );
+#20 56.43                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.46 silk/x86/VQ_WMat_EC_sse4_1.c:67:18: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.46         C_tmp1 = OP_CVTEPI16_EPI32_M64( &in_Q14[ 1 ] );
+#20 56.47                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.47 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.47  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.47                                      ^~~~~~~~~~~~~~
+#20 56.47 silk/x86/VQ_WMat_EC_sse4_1.c:68:18: warning: cast from 'const opus_int8 *' (aka 'const signed char *') to 'int *' increases required alignment from 1 to 4 [-Wcast-align]
+#20 56.47         C_tmp2 = OP_CVTEPI8_EPI32_M32( &cb_row_Q7[ 1 ] );
+#20 56.47                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.47 ./celt/x86/x86cpu.h:60:40: note: expanded from macro 'OP_CVTEPI8_EPI32_M32'
+#20 56.47  (_mm_cvtepi8_epi32(_mm_cvtsi32_si128(*(int *)(x))))
+#20 56.47                                        ^~~~~~~~~~
+#20 56.47 silk/x86/VQ_WMat_EC_sse4_1.c:86:35: warning: cast from 'const opus_int32 *' (aka 'const int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.47         C_tmp3 = _mm_loadu_si128( (__m128i *)(&W_Q18[ 1 ] ) );
+#20 56.47                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.53 silk/fixed/x86/vector_ops_FIX_sse4_1.c:60:44: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.53         inVec1_76543210 = _mm_loadu_si128( (__m128i *)(&inVec1[i + 0] ) );
+#20 56.53                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.53 silk/fixed/x86/vector_ops_FIX_sse4_1.c:61:44: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.53         inVec2_76543210 = _mm_loadu_si128( (__m128i *)(&inVec2[i + 0] ) );
+#20 56.53                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.53 silk/fixed/x86/vector_ops_FIX_sse4_1.c:81:23: warning: cast from 'opus_int64 *' (aka 'long *') to '__m128i *' increases required alignment from 8 to 16 [-Wcast-align]
+#20 56.53     _mm_storel_epi64( (__m128i *)&sum, acc1 );
+#20 56.54                       ^~~~~~~~~~~~~~~
+#20 56.54 3 warnings generated.
+#20 56.56   CCLD     celt/tests/test_unit_dft
+#20 56.58 3 warnings generated.
+#20 56.59   CCLD     celt/tests/test_unit_entropy
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:167:34: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.69                     PTR_3210   = OP_CVTEPI16_EPI32_M64( &x_ptr[ n - k - 1 - 3 ] );
+#20 56.69                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.69  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.69                                      ^~~~~~~~~~~~~~
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:168:34: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.69                     SUBFR_3210 = OP_CVTEPI16_EPI32_M64( &x_ptr[ subfr_length - n + k ] );
+#20 56.69                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.69  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.69                                      ^~~~~~~~~~~~~~
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:169:51: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.69                     FIRST_3210 = _mm_loadu_si128( (__m128i *)&C_first_row[ k ] );
+#20 56.69                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:171:51: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.69                     LAST_3210  = _mm_loadu_si128( (__m128i *)&C_last_row[ k ] );
+#20 56.69                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:172:51: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.69                     ATMP_3210  = _mm_loadu_si128( (__m128i *)&Af_QA[ k ] );
+#20 56.69                                                   ^~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:187:39: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.69                     _mm_storeu_si128( (__m128i *)&C_first_row[ k ], FIRST_3210 );
+#20 56.69                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:188:39: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.69                     _mm_storeu_si128( (__m128i *)&C_last_row[ k ], LAST_3210 );
+#20 56.69                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 silk/fixed/x86/burg_modified_FIX_sse4_1.c:222:46: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.69                         xmm_x_ptr_n_k_x2x0 = OP_CVTEPI16_EPI32_M64( &x_ptr[ n - k - 3 ] );
+#20 56.69                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.69 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.69  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.69                                      ^~~~~~~~~~~~~~
+#20 56.70 silk/fixed/x86/burg_modified_FIX_sse4_1.c:223:46: warning: cast from 'const opus_int16 *' (aka 'const short *') to '__m128i *' increases required alignment from 2 to 16 [-Wcast-align]
+#20 56.70                         xmm_x_ptr_sub_x2x0 = OP_CVTEPI16_EPI32_M64( &x_ptr[ subfr_length - n + k - 1 ] );
+#20 56.70                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#20 56.70 ./celt/x86/x86cpu.h:63:38: note: expanded from macro 'OP_CVTEPI16_EPI32_M64'
+#20 56.70  (_mm_cvtepi16_epi32(_mm_loadl_epi64((__m128i *)(x))))
+#20 56.70                                      ^~~~~~~~~~~~~~
+#20 56.70 silk/fixed/x86/burg_modified_FIX_sse4_1.c:247:53: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.70                         X1_3210  = _mm_loadu_si128( (__m128i *)&CAf[ k ] );
+#20 56.70                                                     ^~~~~~~~~~~~~~~~~~~~
+#20 56.70 silk/fixed/x86/burg_modified_FIX_sse4_1.c:248:53: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.70                         PTR_3210 = _mm_loadu_si128( (__m128i *)&CAb[ k ] );
+#20 56.70                                                     ^~~~~~~~~~~~~~~~~~~~
+#20 56.70 silk/fixed/x86/burg_modified_FIX_sse4_1.c:253:43: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.70                         _mm_storeu_si128( (__m128i *)&CAf[ k ], X1_3210 );
+#20 56.70                                           ^~~~~~~~~~~~~~~~~~~~
+#20 56.70 silk/fixed/x86/burg_modified_FIX_sse4_1.c:254:43: warning: cast from 'opus_int32 *' (aka 'int *') to '__m128i *' increases required alignment from 4 to 16 [-Wcast-align]
+#20 56.70                         _mm_storeu_si128( (__m128i *)&CAb[ k ], PTR_3210 );
+#20 56.70                                           ^~~~~~~~~~~~~~~~~~~~
+#20 56.76   CCLD     celt/tests/test_unit_laplace
+#20 56.86 1 warning generated.
+#20 56.87   CCLD     celt/tests/test_unit_mathops
+#20 56.88   CCLD     celt/tests/test_unit_mdct
+#20 56.90 20 warnings generated.
+#20 56.92   CCLD     celt/tests/test_unit_rotation
+#20 56.97   CCLD     celt/tests/test_unit_types
+#20 57.16 14 warnings generated.
+#20 57.32 13 warnings generated.
+#20 57.33   CCLD     libopus.la
+#20 57.33   CCLD     silk/tests/test_unit_LPC_inv_pred_gain
+#20 57.33   CCLD     tests/test_opus_projection
+#20 57.90   CCLD     repacketizer_demo
+#20 57.90   CCLD     opus_demo
+#20 57.90   CCLD     tests/test_opus_api
+#20 57.90   CCLD     tests/test_opus_decode
+#20 57.90   CCLD     tests/test_opus_padding
+#20 57.90   CCLD     tests/test_opus_encode
+#20 57.90   CCLD     trivial_example
+#20 58.34 make[2]: Leaving directory '/src/opus'
+#20 58.34 make[1]: Leaving directory '/src/opus'
+#20 58.34 + for fuzzer in $FUZZERS
+#20 58.34 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -Iinclude tests/opus_decode_fuzzer.c -o opus_decode_fuzzer.o
+#20 58.40 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard opus_decode_fuzzer.o -o /out/opus_decode_fuzzer_fixed /libAFL.a .libs/libopus.a
+#20 58.66 + '[' -f tests/opus_decode_fuzzer.options ']'
+#20 58.66 + cp tests/opus_decode_fuzzer.options /out/opus_decode_fuzzer_fixed.options
+#20 58.66 + zip -r /out/opus_decode_fuzzer_fixed_seed_corpus.zip opus_testvectors/
+#20 58.66   adding: opus_testvectors/ (stored 0%)
+#20 58.66   adding: opus_testvectors/testvector03.bit (deflated 2%)
+#20 58.67   adding: opus_testvectors/testvector01.bit (deflated 15%)
+#20 58.70   adding: opus_testvectors/testvector07.bit (deflated 4%)
+#20 58.71   adding: opus_testvectors/testvector02.bit (deflated 3%)
+#20 58.72   adding: opus_testvectors/testvector12.bit (deflated 4%)
+#20 58.72   adding: opus_testvectors/testvector03.dec (deflated 48%)
+#20 58.97   adding: opus_testvectors/testvector06.dec (deflated 45%)
+#20 59.28   adding: opus_testvectors/testvector11.dec (deflated 7%)
+#20 59.56   adding: opus_testvectors/testvector11.bit (deflated 0%)
+#20 59.58   adding: opus_testvectors/testvector06.bit (deflated 3%)
+#20 59.59   adding: opus_testvectors/testvector08.dec (deflated 38%)
+#20 59.92   adding: opus_testvectors/testvector02.dec (deflated 50%)
+#20 60.20   adding: opus_testvectors/testvector01.dec (deflated 29%)
+#20 60.60   adding: opus_testvectors/testvector05.bit (deflated 3%)
+#20 60.61   adding: opus_testvectors/testvector08.bit (deflated 1%)
+#20 60.62   adding: opus_testvectors/testvector09.bit (deflated 11%)
+#20 60.65   adding: opus_testvectors/testvector10.dec (deflated 49%)
+#20 60.96   adding: opus_testvectors/testvector07.dec (deflated 44%)
+#20 61.22   adding: opus_testvectors/testvector04.dec (deflated 49%)
+#20 61.54   adding: opus_testvectors/testvector09.dec (deflated 43%)
+#20 61.87   adding: opus_testvectors/testvector05.dec (deflated 47%)
+#20 62.20   adding: opus_testvectors/testvector12.dec (deflated 61%)
+#20 62.51   adding: opus_testvectors/testvector10.bit (deflated 9%)
+#20 62.54   adding: opus_testvectors/testvector04.bit (deflated 3%)
+#20 62.55 + for fuzzer in $FUZZERS
+#20 62.55 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -Iinclude tests/opus_multi_fuzzer.c -o opus_multi_fuzzer.o
+#20 62.61 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard opus_multi_fuzzer.o -o /out/opus_multi_fuzzer_fixed /libAFL.a .libs/libopus.a
+#20 62.90 + '[' -f tests/opus_multi_fuzzer.options ']'
+#20 62.90 + zip -r /out/opus_multi_fuzzer_fixed_seed_corpus.zip opus_testvectors/
+#20 62.91   adding: opus_testvectors/ (stored 0%)
+#20 62.91   adding: opus_testvectors/testvector03.bit (deflated 2%)
+#20 62.91   adding: opus_testvectors/testvector01.bit (deflated 15%)
+#20 62.94   adding: opus_testvectors/testvector07.bit (deflated 4%)
+#20 62.96   adding: opus_testvectors/testvector02.bit (deflated 3%)
+#20 62.96   adding: opus_testvectors/testvector12.bit (deflated 4%)
+#20 62.96   adding: opus_testvectors/testvector03.dec (deflated 48%)
+#20 63.21   adding: opus_testvectors/testvector06.dec (deflated 45%)
+#20 63.51   adding: opus_testvectors/testvector11.dec (deflated 7%)
+#20 63.80   adding: opus_testvectors/testvector11.bit (deflated 0%)
+#20 63.81   adding: opus_testvectors/testvector06.bit (deflated 3%)
+#20 63.82   adding: opus_testvectors/testvector08.dec (deflated 38%)
+#20 64.15   adding: opus_testvectors/testvector02.dec (deflated 50%)
+#20 64.42   adding: opus_testvectors/testvector01.dec (deflated 29%)
+#20 64.84   adding: opus_testvectors/testvector05.bit (deflated 3%)
+#20 64.85   adding: opus_testvectors/testvector08.bit (deflated 1%)
+#20 64.85   adding: opus_testvectors/testvector09.bit (deflated 11%)
+#20 64.89   adding: opus_testvectors/testvector10.dec (deflated 49%)
+#20 65.20   adding: opus_testvectors/testvector07.dec (deflated 44%)
+#20 65.46   adding: opus_testvectors/testvector04.dec (deflated 49%)
+#20 65.76   adding: opus_testvectors/testvector09.dec (deflated 43%)
+#20 66.10   adding: opus_testvectors/testvector05.dec (deflated 47%)
+#20 66.45   adding: opus_testvectors/testvector12.dec (deflated 61%)
+#20 66.75   adding: opus_testvectors/testvector10.bit (deflated 9%)
+#20 66.79   adding: opus_testvectors/testvector04.bit (deflated 3%)
+#20 66.79 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 67.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:c38f39a1f6fcdbc55caf3283770072b2841938acd478f96a721cfd73a598c998
+#21 writing image sha256:c38f39a1f6fcdbc55caf3283770072b2841938acd478f96a721cfd73a598c998 done
+#21 naming to gcr.io/fuzzbench/builders/afl/opus_opus done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/opus_opus:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:19a957dfecad30b83d952e36aa8f61ab086a5953e83055bc068a5ceb651bd72b
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:8bc800274f172f9cfd12a03caa11e02dc5bf1441363361f2ad12f118ae4b0615
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/opus_opus-intermediate
+#5 sha256:6fd3eac060ba015891d67c0d1340afde984adf472b31a6f1094fb42c70df92b4
+#5 ERROR: gcr.io/fuzzbench/runners/afl/opus_opus-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:4efbd5e416c83953b598ff82cefe236e4f25c5eeda46088ba83e35554e2d5ee7 done
+#6 naming to gcr.io/fuzzbench/runners/afl/opus_opus-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/opus_opus-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:cc20f535fa348bb26c464c9b7f15b9ede7d31a87b5f9565a2a104f91b0f840f5
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:664fea03965c65058939a9bac12c81d6e6fe3566b0e67632469f853110b60c9c
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/opus_opus-intermediate:latest
+#3 sha256:05bc2ce61dd2c3f377151f32d17c6395f8330d2c1712fc0efce375f6f857473f
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opus_opus:latest
+#4 sha256:1c1c279a245ebdacae5b795d2511e4c886b6695525e047f388f9ecd73399a122
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:59096969a339a10e4ce0c2ad33f5d451359bf25e28beec0fd187dde72f94bc45
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/opus_opus-intermediate
+#6 sha256:08e17bb0c4e931e8a11ae466c821dd6d61efde63b33349c17457aa6c5d9a95a1
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/opus_opus
+#10 sha256:e0a00800e3fb677ee89deac8c0245b14dc70131a9534d2aff75e58a6df6c5e84
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/opus_opus
+#5 sha256:f0adbebae3b7ce3dbcf2a01b493be4953171059dcdc7cee0d0cd1fb52af30c80
+#5 ERROR: gcr.io/fuzzbench/runners/afl/opus_opus:latest: not found
+
+#12 [internal] load build context
+#12 sha256:59096969a339a10e4ce0c2ad33f5d451359bf25e28beec0fd187dde72f94bc45
+#12 transferring context: 17.55MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/opus_opus
+#10 sha256:e0a00800e3fb677ee89deac8c0245b14dc70131a9534d2aff75e58a6df6c5e84
+#10 DONE 0.9s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:bc43de19392f9021c299ba27dd7d246490423b86c604a8ff1bebc885653cab87
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:ec34871666669bc77996b712657ab2509ee6126c1aa7e6e040fb150a92bc7e17
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:1ef3f2624b33fb620a70ffb3240af6e8b369bbe33407c25e17cd110ffffee1e9
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:991d78da450a253306a5279cb412465762d983d929db5a86a9cddf080931472c
+#11 DONE 1.1s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:d887c0fe478b87e3de5620b0df438eabfa0d710b940aa8b71b283f51353a7565
+#13 DONE 0.9s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:2c6b1bda930ce5f1f33c9d26f445d39f8b1be14aaaa505c214b62cf94dbe80f6
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:f0e197ae74bc252d170020f16b1669d71f32dac9851dfd4c52cce87a963cd512
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:54de305d94e6e9d1e98c748c8285c7f7631cc080fbe2a29d89fbd1733f37569b
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:0f266e14e88ae386ebb0413b84940cf94073fab8100a078b442738a20632c81d
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:53e9a57569b0fac2a702af57ad60e77c2b6c590935abc4ff18c729fea5e9e9cf
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:9d32366eb344dc56caa2cb869eb91f0ac12f093d91e523117f47310326b4750e
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:079b76d9a324ee0cb48ec3bf57c22ff8409b53825fe1288db813e1ae374509fd
+#20 DONE 1.0s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:cbcc1cf3075bf89b33752440cae85e9904ac0e53a62b0f51bc31ca0b4ce913bc
+#21 writing image sha256:cbcc1cf3075bf89b33752440cae85e9904ac0e53a62b0f51bc31ca0b4ce913bc done
+#21 naming to gcr.io/fuzzbench/runners/afl/opus_opus done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/opus_opus:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f138dc9ef70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:4f484ab15e1e59767e176f423c2b053830c24ecc4a725b04a04e7e44a5a65f0d
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:aa11ef1bbda7f91e2dfdee394c3def7b8186d8eb6a7eb6fef4aa643c396f27de
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/7] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/opus_opus
+#4 sha256:419f080ca1bc4f38b4fb1856ca18f33747fbd5985c201e6e3d2daf1c901db986
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:3794e5e48bd94d248b282c74b358393fd3d1d8ba53d2f793a786f0d8f8dfec8d
+#10 transferring context: 69B done
+#10 DONE 0.1s
+
+#6 [2/7] RUN apt-get update && apt-get install -y make autoconf automake libtool wget
+#6 sha256:5105b70670ffd051b8883c33b3686d6c1245811bcf75b95a95fa1ff10043da9f
+#6 CACHED
+
+#7 [3/7] RUN git clone https://gitlab.xiph.org/xiph/opus.git
+#7 sha256:0d801ef68f8ce2b29496ae60b879e3e15321e72b70538abe6c9b289a8e55bd69
+#7 CACHED
+
+#9 [5/7] WORKDIR opus
+#9 sha256:227d169beda6bea6de66ce91ed02dce46ccca785453bfc86a1a0ea0590fc0ec4
+#9 CACHED
+
+#11 [6/7] COPY build.sh /src/
+#11 sha256:0f6309cada18a91921448367bf80b3dc0d3f5a81a1cf3edb5523a6b7dbbb0d34
+#11 CACHED
+
+#8 [4/7] RUN wget https://opus-codec.org/static/testvectors/opus_testvectors.tar.gz
+#8 sha256:c0c8237ef8133eff5506bc402f3cc7c0f21ed70fa9beeab925deb6c9fd7033b7
+#8 CACHED
+
+#12 [7/7] COPY *.c tests/
+#12 sha256:a87d2e6f8d40c8c8a9e8c2c5b3412e51578618d7fc1a396cb13c6e23696db044
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5cbb1c59d81504b7adee458a5b344b88985e241186650398012133f0068a5255 done
+#13 naming to gcr.io/fuzzbench/builders/benchmark/opus_opus done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:0a95d5c86581070b1605da87043a9194d9f257ab3de06c6742595689166550ea
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:9238ea5251b6382cef54f062c0be9da6530451165ebe489fbbb2333c8c1db041
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/opus_opus:latest
+#3 sha256:0e99a5bb4b09170e13101e61e4b6ec535c1328dad33a1e9748c8cfa251ac2973
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/opus_opus-intermediate
+#4 sha256:9bfaef6d4fec4d3da2277ef9d450700ff56b491f5277f2cc570908996ecbc474
+#4 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/opus_opus
+#7 sha256:7ee8e7325f929096e43044b095dca4e8220285974cab21500d1923d488927223
+#7 DONE 0.0s
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:5def9597c00b48c5ddfc1e9d64b05d33bf16badd065cb7a9e38d2b444638b2b3
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:bae47dd8a1a0461b96aade676c14960942b6689677933cca4ea7296c5df25552
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:1770a63369317b1bf67e4db4040bc779a93d1d1813ea28b5d815fadc39791d12 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/opus_opus-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:294a8d6f3044336507cfd88cd915e5915152f03a195deaa604b527c34174083d
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:4b2a88022b40d874e2c84df472f422fdc83c1009f216ebd8a2c38482f4ec5810
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:0a6cc6722f0ac74cc6682cc37ddfefee19d5f5396b3c38261200db9c5709fb5a
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:6901e55fc51f7ae7cbe9134809ddd1d1b7bc81d2feeb4f6def6d49b6c6f990a7
+#10 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:deca05da471833607b97ac6941bca72275ea77f1c3731c7d9742b4076c5e6734
+#9 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:cde1a8183201708a88809a43d466399c1f26f73689421e13ef85c4c27f6b61a6
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:7afba6f40cf3a3181c146dabfceaf84ffd82344ad6cbd2aeb0d00a565f0006c9
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:3e04b5fd0a277df2bc5cd3367dbf9178b152077681f3e4447621291a56e5d56f done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:fa37b5add57e7348e562c28dd22186e82ef4ce38b6938319b4f503238dda66c9
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:c451cf311f80e538750d92d77f76509d17ee10cbe11e2091f337ccbb4b154d38
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opus_opus-intermediate:latest
+#3 sha256:bc544bc526a540e87803dacff08709cacfd6a504ca9bef87d493061eb5c492d8
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/opus_opus-intermediate
+#6 sha256:cd543a85e097f13355c7d019127ce57b7a29c6fcd3c4a24329ff6e91e1ae6129
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/opus_opus
+#5 sha256:f2030f5675a0f47ec7fdb2aa401c322e8b5ffea51151848be27d0f77251e2401
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e33d6c551ba3764010661d0e374cf1d34c521ca0412bf71c000cfa3637032f4a
+#12 transferring context: 669.85kB 0.1s done
+#12 DONE 0.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:479ab65576409dc2f2a4f219390ab201e80adc2612602d238c195dca4496605a
+#13 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:0c1b027a7f80063ee4440dd2bee1ec86fc298461b4099079f48ad08cfb456710
+#16 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:4e234361f44e950a20f61e77d4a90f4f186ddffb071b159e8936e8c0222a13ae
+#17 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:9b6582ecf2f883a2c3234cb2e295c9b98c2c8be7f82e39de8bb2086f3aaa0212
+#19 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/opus_opus/benchmark.yaml /
+#15 sha256:a42381e300cc5ae8e4721149ec593d8b0fd098bee59ee2b8e9857cafc6b623b9
+#15 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:4205e0a4bcf80fb167f71ed13914f1efe87a3c3df20075eb287dd72b74c4777e
+#18 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:05ac74e9e8b8171fae49c952e6b5b32e4c06def21fc74b31eeccc2eabfcc3eb9
+#14 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:fdb10f3c3e514b58de9b7d8bdfa0090500140495164f459b2d2c321f5467743d
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:dd248a4aec779eb0b5b68186a7ac56d23b296d20bf3961b482712f2215198b30
+#10 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:904649bd372fbdbd878a83c8754d5a91b300a2fd7c1bc0f399b8257ae66a1223
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3929c953d96183be0fd34e45368d13223a7f46b3c953c0803be691f5f2eba3d8
+#11 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:a6bf23845472359d28cee40c49d5dd92a1d2c631bdab755d29410b863c7d1792
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:c38f39a1f6fcdbc55caf3283770072b2841938acd478f96a721cfd73a598c998
+#21 writing image sha256:c38f39a1f6fcdbc55caf3283770072b2841938acd478f96a721cfd73a598c998 done
+#21 naming to gcr.io/fuzzbench/builders/afl/opus_opus done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:459b9bd3ecc02d25ab94afdc292e1e5cd4e45babc5b41d94c19a1834a4b6eb5d
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b8a7d8a8ca79fe45ffa3e7745c96a46a62902b7d4794837f2183c4400e96d1a7
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/opus_opus-intermediate
+#4 sha256:6fd3eac060ba015891d67c0d1340afde984adf472b31a6f1094fb42c70df92b4
+#4 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:4efbd5e416c83953b598ff82cefe236e4f25c5eeda46088ba83e35554e2d5ee7
+#6 writing image sha256:4efbd5e416c83953b598ff82cefe236e4f25c5eeda46088ba83e35554e2d5ee7 done
+#6 naming to gcr.io/fuzzbench/runners/afl/opus_opus-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f42dd4663b91ff6d61c374dc8fd06ecc3d65ff1cc32865229cfd836f55c41e8e
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f7427a3c559eebce88fa004c4ed58299bcb62ccab5a4dd224a13ace067dfd030
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/opus_opus:latest
+#4 sha256:1c1c279a245ebdacae5b795d2511e4c886b6695525e047f388f9ecd73399a122
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/opus_opus-intermediate:latest
+#3 sha256:05bc2ce61dd2c3f377151f32d17c6395f8330d2c1712fc0efce375f6f857473f
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/opus_opus-intermediate
+#6 sha256:08e17bb0c4e931e8a11ae466c821dd6d61efde63b33349c17457aa6c5d9a95a1
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/opus_opus
+#5 sha256:f0adbebae3b7ce3dbcf2a01b493be4953171059dcdc7cee0d0cd1fb52af30c80
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/opus_opus
+#10 sha256:e0a00800e3fb677ee89deac8c0245b14dc70131a9534d2aff75e58a6df6c5e84
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e9328e075cb7fe3559adf3c20605f4c8e0e9faaafc3067b6eae9ec660cbba715
+#12 transferring context: 17.55MB 0.6s done
+#12 DONE 0.7s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:c6e7bd5f9436c266bdc181808b4e36a6763a9c37593815840294395727603fb1
+#18 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:bc43de19392f9021c299ba27dd7d246490423b86c604a8ff1bebc885653cab87
+#7 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:46728bd59934154fdb9eab6afb8b4a4f1e1eb12bb5aded61374c74475cdb9961
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:f28c8bbb06e6d5dec6ae3d5b46ad5ef7b6174b675b02ced9344aee6ff1bcc8da
+#16 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:d9e75e1103d2fa35cf17d9ee9cdbf43d76e73a0f9638ad018aa2300867727080
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:3e24fd260c14e54f0f0cb66f88a9e6f23fd98ce7734118d1ea8f5a1337ec5d48
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:991d78da450a253306a5279cb412465762d983d929db5a86a9cddf080931472c
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:2bd298698e99e8c9a76059b390f775e35bb6f46535ae6c708babd0ac82e23ad7
+#13 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:1ef3f2624b33fb620a70ffb3240af6e8b369bbe33407c25e17cd110ffffee1e9
+#9 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:ec34871666669bc77996b712657ab2509ee6126c1aa7e6e040fb150a92bc7e17
+#8 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:237eb32de91b4223e6d82a5dabe8870480f3c1a2fc3061d8cabf0f46480f2b15
+#14 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:2abac74c1c0c9c4583b6a7da60459c6afe8b674e7fd90fde224ec4049b5c7ef0
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:cbcc1cf3075bf89b33752440cae85e9904ac0e53a62b0f51bc31ca0b4ce913bc
+#21 writing image sha256:cbcc1cf3075bf89b33752440cae85e9904ac0e53a62b0f51bc31ca0b4ce913bc 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/opus_opus done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f24d239cf70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

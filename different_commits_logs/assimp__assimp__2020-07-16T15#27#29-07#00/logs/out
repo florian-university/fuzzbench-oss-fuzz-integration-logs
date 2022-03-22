@@ -1,0 +1,1157 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: assimp_assimp.
+INFO:root:Please run "make test-run-afl-assimp_assimp" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:c379076ea9dda9dd5638905abe67c13d5756457ee9ade99b536e6fd2c86fbd6b
+#2 transferring context:
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:07c1cec0acfcb179237dcfd03ed802b1b78a90a79e85a26a94b9a5750739512e
+#1 transferring dockerfile: 32B done
+#1 DONE 0.9s
+
+#2 [internal] load .dockerignore
+#2 sha256:c379076ea9dda9dd5638905abe67c13d5756457ee9ade99b536e6fd2c86fbd6b
+#2 DONE 0.9s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:e2642b23b065916a159543f6d3ce61c1bf4ef4051b5cf52d462e5eb60b741bda
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/assimp_assimp
+#4 sha256:607866d18fd8316a3d15494a3fc1afc37a00d72843dd73e1dbbacad25d0d6a9d
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/assimp_assimp:latest: not found
+
+#9 [internal] load build context
+#9 sha256:e2642b23b065916a159543f6d3ce61c1bf4ef4051b5cf52d462e5eb60b741bda
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y cmake ninja-build
+#6 sha256:194a7061444c7973a5bf045edca4c43a7ad735afb0474bebce94ccea29eb4b06
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 --recursive https://github.com/assimp/assimp.git
+#7 sha256:475339f9d4270b7b18754373471f79250cdcfeaac0bbe70e6c6e621b5f43e6bc
+#7 CACHED
+
+#8 [4/5] WORKDIR assimp
+#8 sha256:b665229bb9c73ac2632d3fcf3f50e9ba9ae1231da287d0690567fc24e089ab32
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:666c10f76f4d940473244ac7506b535ef3554e388c673e81b5ec0283bec23908
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:250121a14d1c2237513c96508ea4c8eb611be18732ec73e000d36aa1c5ea29df 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/assimp_assimp done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/assimp_assimp:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:963d752768e1d6360d6507f1cae8a28bcafdb0b682a1da00ff216f4d34382a0f
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:76dd492ca38655fe04d3204c1052933a4d1d1c786fbd944980a422c62672e017
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/assimp_assimp:latest
+#3 sha256:58690ffefe964fa684783c84c131a2738f6f0559500e85dc15aee1cf6e498cc8
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/assimp_assimp
+#7 sha256:a99a38b26c80048ff81582f259ca4b809296a96c9cc06a599d4c32b60cbd9460
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate
+#4 sha256:17ea8b1633a8171a06f6442f4a3b966c1a512509d45a9fea5a3ce2d5bfddb010
+#4 ERROR: gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:08d9e7467cdf111b3200ed436b6e0c6629bd4c5cbfed79481fd3de3bd63743a1
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:fbb5a3786971991087631f28f0eb8ac4ce46880b0b366794b8276beb835ab327
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:aa5352a10c52feefbc3ee3b40d9c9dd8e49eee274c7ff4f8844c6616d333feca done
+#8 naming to gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:293035ac22b16d133c3e320eacaf2189207e773e8c984216cb104f9d964cbf24
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:32286975c2a5853643d1a53c761614cb4def0036b562027a24a8f10870d44421
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:ac3365ef20930178605e8a09cb6f2ca45f5903bd773f1a319b5518441f4985b2
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:ba068cadce9bb337117d4158a940e9a5082ee91b797b1074ce6b512a4c60d7bd
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:8787c76f12767a19725e8d24a868779406f7ef46c7eb8c503d92b40e80452002
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:01e7113886548d9abfdb39b8dd10335c0b591ae9914ec32718d4cdd065ba31fa
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:8a58efb264c03355cb7fe44602c9ea68746b27276c7a49af1c9783811f4c859b
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:57dbbdf9052e2e595a2caca22442fd4116256a2d3ac1f113f0e6568b1502ae78
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:09a8111a1df380cf463ddac1995b0232cf5eccd9ab9d45f790e3ccb4d93ad4f4
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate:latest
+#3 sha256:957d9838212af14f856eecd13cc98d0cacbbc259bda03100ade70d1d47fa8a8f
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d65bd2828493bcd7f566b227452142da085c6cc2a7040982a5dfefa9ae11ded6
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate
+#6 sha256:d9c2fb714b31bda616bdd125a5205c0ef9c92442397a9dd18966fcfcbf523f0f
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/assimp_assimp
+#5 sha256:6f296aaad5366984382d9b5774fb61ef8214c8d93ac2df28cea45b8c10753f17
+#5 ERROR: gcr.io/fuzzbench/builders/afl/assimp_assimp:latest: not found
+
+#12 [internal] load build context
+#12 sha256:d65bd2828493bcd7f566b227452142da085c6cc2a7040982a5dfefa9ae11ded6
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:748c1b55e549964621028d458ce88210928cb3cf8eadba128db9eee5e34bbb91
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:214d3860b33b995a7cf825ee8bf94ecd118914167bd016a5c4aa3cdc21477d35
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:f053703a2cdd321f93b554844a7e4b6a975c250dfe8e971fd56c86c674662b5a
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:325b606d96b7b3f1dfd72c863c162bb3a7372d1bc5b56d936e025a43aa22b9fc
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:16a1da4c4be3dffdb464672c889fbc86137d4b9c96d66c3683f75c1e7afbc148
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:f9d1491c3cc922781c51e6ea3055ee6c1ad3e2044d1c623bbf1e465540514618
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/assimp_assimp/benchmark.yaml /
+#15 sha256:a971d0502cac684468fcda297f8469cce22ae071fed3c29696b49823e5437d8d
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:a82655bcf00d114d74caffca117687b19902c83424f71a92e80e647c90b918d7
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:5e1e5c0c6a99f6ac5a857a5006e2df42c4fbcfbd801e360a64358a47c050b5f7
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:cf317af7a3903237e811b9f3686e3172520d0fd764fc07dce282ab7984006499
+#18 0.557 Checking out commit d70f7933
+#18 22.03 From https://github.com/assimp/assimp
+#18 22.03  * [new tag]             5.2.0          -> 5.2.0
+#18 22.03  * [new tag]             Release3.1_RC1 -> Release3.1_RC1
+#18 22.03  * [new tag]             v.5.0.0.rc1    -> v.5.0.0.rc1
+#18 22.03  * [new tag]             v.5.0.0.rc2    -> v.5.0.0.rc2
+#18 22.03  * [new tag]             v3.1           -> v3.1
+#18 22.03  * [new tag]             v3.1-rc2       -> v3.1-rc2
+#18 22.03  * [new tag]             v3.1.1         -> v3.1.1
+#18 22.03  * [new tag]             v3.2           -> v3.2
+#18 22.03  * [new tag]             v3.3           -> v3.3
+#18 22.03  * [new tag]             v3.3.1         -> v3.3.1
+#18 22.03  * [new tag]             v4.0.0         -> v4.0.0
+#18 22.03  * [new tag]             v4.0.0.rc1     -> v4.0.0.rc1
+#18 22.03  * [new tag]             v4.0.1         -> v4.0.1
+#18 22.03  * [new tag]             v4.1.0         -> v4.1.0
+#18 22.03  * [new tag]             v5.0.0         -> v5.0.0
+#18 22.03  * [new tag]             v5.1.0         -> v5.1.0
+#18 22.03  * [new tag]             v5.1.0.rc1     -> v5.1.0.rc1
+#18 22.03  * [new tag]             v5.1.1         -> v5.1.1
+#18 22.03  * [new tag]             v5.1.2         -> v5.1.2
+#18 22.03  * [new tag]             v5.1.3         -> v5.1.3
+#18 22.03  * [new tag]             v5.1.4         -> v5.1.4
+#18 22.03  * [new tag]             v5.1.5         -> v5.1.5
+#18 22.03  * [new tag]             v5.1.6         -> v5.1.6
+#18 22.03  * [new tag]             v5.2.0         -> v5.2.0
+#18 22.03  * [new tag]             v5.2.1         -> v5.2.1
+#18 22.04 error: pathspec 'd70f7933' did not match any file(s) known to git
+#18 22.05 error: pathspec 'd70f7933' did not match any file(s) known to git
+#18 22.05 error: pathspec 'd70f7933' did not match any file(s) known to git
+#18 22.11 error: pathspec 'd70f7933' did not match any file(s) known to git
+#18 22.12 error: pathspec 'd70f7933' did not match any file(s) known to git
+#18 22.16 Checkout unsuccessful.
+#18 DONE 22.5s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:c4ca57959f99a8d1b8bf8f835160603e9782dfcf1918cd11cc45469e9f01eab6
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f8d35b06c3cc4476e397a4747ee511ca5b4839d0f919a50b296bfd1e36dfd4da
+#20 0.545 Run fuzzer_build to build the target
+#20 0.656 FUZZ_TARGET = assimp
+#20 0.656 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.656 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.665 Building benchmark assimp_assimp with fuzzer afl
+#20 0.669 + cmake CMakeLists.txt -G Ninja -DBUILD_SHARED_LIBS=OFF -DASSIMP_BUILD_ZLIB=ON -DASSIMP_BUILD_TESTS=OFF -DASSIMP_BUILD_ASSIMP_TOOLS=OFF -DASSIMP_BUILD_SAMPLES=OFF
+#20 0.874 -- The C compiler identification is Clang 14.0.0
+#20 1.119 -- The CXX compiler identification is Clang 14.0.0
+#20 1.130 -- Detecting C compiler ABI info
+#20 1.280 -- Detecting C compiler ABI info - done
+#20 1.328 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.329 -- Detecting C compile features
+#20 1.329 -- Detecting C compile features - done
+#20 1.336 -- Detecting CXX compiler ABI info
+#20 1.521 -- Detecting CXX compiler ABI info - done
+#20 1.584 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.585 -- Detecting CXX compile features
+#20 1.586 -- Detecting CXX compile features - done
+#20 1.587 -- Shared libraries disabled
+#20 1.618 -- compiling zlib from sources
+#20 1.624 -- Looking for sys/types.h
+#20 1.793 -- Looking for sys/types.h - found
+#20 1.794 -- Looking for stdint.h
+#20 1.957 -- Looking for stdint.h - found
+#20 1.958 -- Looking for stddef.h
+#20 2.129 -- Looking for stddef.h - found
+#20 2.130 -- Check size of off64_t
+#20 2.330 -- Check size of off64_t - done
+#20 2.330 -- Looking for fseeko
+#20 2.491 -- Looking for fseeko - found
+#20 2.492 -- Looking for unistd.h
+#20 2.664 -- Looking for unistd.h - found
+#20 2.690 -- Enabled importer formats: AMF 3DS AC ASE ASSBIN B3D BVH COLLADA DXF CSM HMP IRRMESH IQM IRR LWO LWS M3D MD2 MD3 MD5 MDC MDL NFF NDO OFF OBJ OGRE OPENGEX PLY MS3D COB BLEND IFC XGL FBX Q3D Q3BSP RAW SIB SMD STL TERRAGEN 3D X X3D GLTF 3MF MMD
+#20 2.690 -- Disabled importer formats:
+#20 2.690 -- Enabled exporter formats: OBJ OPENGEX PLY 3DS ASSBIN ASSXML M3D COLLADA FBX STL X X3D GLTF 3MF PBRT ASSJSON STEP
+#20 2.690 -- Disabled exporter formats:
+#20 2.695 -- Configuring done
+#20 2.752 -- Generating done
+#20 2.767 -- Build files have been written to: /src/assimp
+#20 2.774 + cmake --build .
+#20 2.875 [1/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzclose.c.o
+#20 2.938 [2/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/compress.c.o
+#20 3.035 [3/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzlib.c.o
+#20 3.070 [4/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/adler32.c.o
+#20 3.102 [5/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/crc32.c.o
+#20 3.115 [6/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/inftrees.c.o
+#20 3.159 [7/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzread.c.o
+#20 3.175 [8/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzwrite.c.o
+#20 3.199 [9/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/uncompr.c.o
+#20 3.251 [10/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/zutil.c.o
+#20 3.361 [11/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/inffast.c.o
+#20 3.580 [12/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/infback.c.o
+#20 3.841 [13/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/trees.c.o
+#20 4.143 [14/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/deflate.c.o
+#20 4.439 [15/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/inflate.c.o
+#20 4.510 [16/249] Linking C static library contrib/zlib/libzlibstatic.a
+#20 5.353 [17/249] Building CXX object code/CMakeFiles/assimp.dir/Common/DefaultIOStream.cpp.o
+#20 5.396 [18/249] Building CXX object code/CMakeFiles/assimp.dir/CApi/CInterfaceIOWrapper.cpp.o
+#20 6.491 [19/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Compression.cpp.o
+#20 6.679 [20/249] Building CXX object code/CMakeFiles/assimp.dir/Common/IOSystem.cpp.o
+#20 6.961 [21/249] Building CXX object code/CMakeFiles/assimp.dir/Common/BaseProcess.cpp.o
+#20 7.996 [22/249] Building CXX object code/CMakeFiles/assimp.dir/Common/PostStepRegistry.cpp.o
+#20 8.263 [23/249] Building CXX object code/CMakeFiles/assimp.dir/Common/DefaultIOSystem.cpp.o
+#20 9.333 [24/249] Building CXX object code/CMakeFiles/assimp.dir/Common/VertexTriangleAdjacency.cpp.o
+#20 9.661 [25/249] Building CXX object code/CMakeFiles/assimp.dir/Common/ZipArchiveIOSystem.cpp.o
+#20 9.792 [26/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SGSpatialSort.cpp.o
+#20 10.52 [27/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SpatialSort.cpp.o
+#20 11.61 [28/249] Building CXX object code/CMakeFiles/assimp.dir/Common/ScenePreprocessor.cpp.o
+#20 12.23 [29/249] Building CXX object code/CMakeFiles/assimp.dir/Common/TargetAnimation.cpp.o
+#20 13.23 [30/249] Building CXX object code/CMakeFiles/assimp.dir/Common/BaseImporter.cpp.o
+#20 13.25 [31/249] Building CXX object code/CMakeFiles/assimp.dir/Common/RemoveComments.cpp.o
+#20 14.35 [32/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SkeletonMeshBuilder.cpp.o
+#20 14.82 [33/249] Building CXX object code/CMakeFiles/assimp.dir/Common/scene.cpp.o
+#20 14.91 [34/249] Building CXX object code/CMakeFiles/assimp.dir/Common/simd.cpp.o
+#20 15.45 [35/249] Building CXX object code/CMakeFiles/assimp.dir/Common/ImporterRegistry.cpp.o
+#20 15.48 [36/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Bitmap.cpp.o
+#20 15.56 [37/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Version.cpp.o
+#20 16.54 [38/249] Building CXX object code/CMakeFiles/assimp.dir/Common/CreateAnimMesh.cpp.o
+#20 16.64 [39/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SceneCombiner.cpp.o
+#20 16.67 [40/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Importer.cpp.o
+#20 16.92 [41/249] Building CXX object code/CMakeFiles/assimp.dir/Common/material.cpp.o
+#20 18.14 [42/249] Building CXX object code/CMakeFiles/assimp.dir/Common/AssertHandler.cpp.o
+#20 18.14 [43/249] Building CXX object code/CMakeFiles/assimp.dir/Common/StandardShapes.cpp.o
+#20 18.26 [44/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Exceptional.cpp.o
+#20 19.38 [45/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Base64.cpp.o
+#20 20.01 [46/249] Building CXX object code/CMakeFiles/assimp.dir/CApi/AssimpCExport.cpp.o
+#20 20.24 [47/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Subdivision.cpp.o
+#20 20.47 [48/249] Building CXX object code/CMakeFiles/assimp.dir/Common/DefaultLogger.cpp.o
+#20 21.62 [49/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/CalcTangentsProcess.cpp.o
+#20 22.29 [50/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ConvertToLHProcess.cpp.o
+#20 23.16 [51/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ComputeUVMappingProcess.cpp.o
+#20 24.31 [52/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/EmbedTexturesProcess.cpp.o
+#20 24.73 [53/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FindInstancesProcess.cpp.o
+#20 24.89 [54/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FixNormalsStep.cpp.o
+#20 25.27 [55/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FindDegenerates.cpp.o
+#20 25.54 [56/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/DropFaceNormalsProcess.cpp.o
+#20 25.66 [57/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FindInvalidDataProcess.cpp.o
+#20 26.47 [58/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/GenFaceNormalsProcess.cpp.o
+#20 27.67 [59/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/GenVertexNormalsProcess.cpp.o
+#20 28.00 [60/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Exporter.cpp.o
+#20 29.73 [61/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ImproveCacheLocality.cpp.o
+#20 30.08 [62/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/RemoveVCProcess.cpp.o
+#20 30.38 [63/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/RemoveRedundantMaterials.cpp.o
+#20 30.53 [64/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/LimitBoneWeightsProcess.cpp.o
+#20 30.64 [65/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Assimp.cpp.o
+#20 31.51 [66/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/PretransformVertices.cpp.o
+#20 31.84 [67/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/JoinVerticesProcess.cpp.o
+#20 33.18 [68/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/SortByPTypeProcess.cpp.o
+#20 33.84 [69/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/SplitLargeMeshes.cpp.o
+#20 34.30 [70/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/TriangulateProcess.cpp.o
+#20 34.42 [71/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/TextureTransform.cpp.o
+#20 35.87 [72/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/MakeVerboseFormat.cpp.o
+#20 36.04 [73/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/OptimizeMeshes.cpp.o
+#20 36.40 [74/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ValidateDataStructure.cpp.o
+#20 36.52 [75/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ProcessHelper.cpp.o
+#20 36.70 [76/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/OptimizeGraph.cpp.o
+#20 36.91 [77/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/GenBoundingBoxesProcess.cpp.o
+#20 37.60 [78/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/DeboneProcess.cpp.o
+#20 37.98 [79/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ScaleProcess.cpp.o
+#20 39.11 [80/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ArmaturePopulate.cpp.o
+#20 40.25 [81/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STEPParser/STEPFileEncoding.cpp.o
+#20 40.83 [82/249] Building CXX object code/CMakeFiles/assimp.dir/Material/MaterialSystem.cpp.o
+#20 42.30 [83/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/SplitByBoneCountProcess.cpp.o
+#20 42.56 [84/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter_Geometry.cpp.o
+#20 44.44 [85/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter_Material.cpp.o
+#20 45.36 [86/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3DS/3DSConverter.cpp.o
+#20 46.32 [87/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STEPParser/STEPFileReader.cpp.o
+#20 47.34 [88/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter.cpp.o
+#20 48.31 [89/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter_Postprocess.cpp.o
+#20 48.98 [90/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assbin/AssbinLoader.cpp.o
+#20 50.67 [91/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AC/ACLoader.cpp.o
+#20 51.38 [92/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaHelper.cpp.o
+#20 52.69 [93/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3DS/3DSLoader.cpp.o
+#20 52.92 [94/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/ASE/ASELoader.cpp.o
+#20 54.62 [95/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/BVH/BVHLoader.cpp.o
+#20 55.59 [96/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/B3D/B3DImporter.cpp.o
+#20 56.48 [97/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/HMP/HMPLoader.cpp.o
+#20 56.80 [98/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/CSM/CSMLoader.cpp.o
+#20 57.34 [99/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/ASE/ASEParser.cpp.o
+#20 59.35 [100/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IQM/IQMImporter.cpp.o
+#20 60.19 [101/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Irr/IRRShared.cpp.o
+#20 60.78 [102/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/DXF/DXFLoader.cpp.o
+#20 60.85 [103/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/M3D/M3DImporter.cpp.o
+#20 60.92 [104/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/M3D/M3DWrapper.cpp.o
+#20 61.10 [105/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOAnimation.cpp.o
+#20 62.51 [106/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOBLoader.cpp.o
+#20 64.62 [107/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Irr/IRRMeshLoader.cpp.o
+#20 66.14 [108/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD2/MD2Loader.cpp.o
+#20 66.70 [109/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOMaterial.cpp.o
+#20 69.18 [110/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaLoader.cpp.o
+#20 70.62 [111/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD5/MD5Loader.cpp.o
+#20 70.63 [112/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD3/MD3Loader.cpp.o
+#20 71.20 [113/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWS/LWSLoader.cpp.o
+#20 71.66 [114/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Irr/IRRLoader.cpp.o
+#20 71.68 [115/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDC/MDCLoader.cpp.o
+#20 71.93 [116/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOLoader.cpp.o
+#20 74.42 [117/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/HalfLife/UniqueNameGenerator.cpp.o
+#20 74.65 [118/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/MDLMaterialLoader.cpp.o
+#20 75.86 [119/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD5/MD5Parser.cpp.o
+#20 77.05 [120/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/MDLLoader.cpp.o
+#20 77.20 [121/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/OFF/OFFLoader.cpp.o
+#20 79.32 [122/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/NDO/NDOLoader.cpp.o
+#20 79.43 [123/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjFileImporter.cpp.o
+#20 83.00 [124/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjFileMtlImporter.cpp.o
+#20 84.33 [125/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaParser.cpp.o
+#20 85.08 [126/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjFileParser.cpp.o
+#20 85.17 [127/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/HalfLife/HL1MDLLoader.cpp.o
+#20 85.67 [128/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreImporter.cpp.o
+#20 88.29 [129/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreStructs.cpp.o
+#20 88.60 [130/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreMaterial.cpp.o
+#20 89.91 [131/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreBinarySerializer.cpp.o
+#20 91.28 [132/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ply/PlyLoader.cpp.o
+#20 91.51 [133/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/NFF/NFFLoader.cpp.o
+#20 93.31 [134/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/OpenGEX/OpenGEXImporter.cpp.o
+#20 93.59 [135/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ply/PlyParser.cpp.o
+#20 94.35 [136/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MS3D/MS3DLoader.cpp.o
+#20 96.35 [137/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderDNA.cpp.o
+#20 96.58 [138/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreXmlSerializer.cpp.o
+#20 98.52 [139/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderModifier.cpp.o
+#20 99.52 [140/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderCustomData.cpp.o
+#20 99.55 [141/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderBMesh.cpp.o
+#20 100.1 [142/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderTessellator.cpp.o
+#20 103.3 [143/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/COB/COBLoader.cpp.o
+#20 109.0 [144/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCProfile.cpp.o
+#20 109.6 [145/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCMaterial.cpp.o
+#20 110.2 [146/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderLoader.cpp.o
+#20 110.5 [147/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCReaderGen2_2x3.cpp.o
+#20 111.2 [148/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCLoader.cpp.o
+#20 112.0 [149/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCUtil.cpp.o
+#20 113.7 [150/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCCurve.cpp.o
+#20 115.8 [151/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCGeometry.cpp.o
+#20 116.2 [152/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXTokenizer.cpp.o
+#20 117.0 [153/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXImporter.cpp.o
+#20 119.7 [154/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXUtil.cpp.o
+#20 121.4 [155/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXParser.cpp.o
+#20 121.4 [156/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderScene.cpp.o
+#20 122.6 [157/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCBoolean.cpp.o
+#20 124.1 [158/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXProperties.cpp.o
+#20 125.3 [159/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXDocument.cpp.o
+#20 127.3 [160/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXModel.cpp.o
+#20 127.9 [161/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXMaterial.cpp.o
+#20 128.4 [162/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/XGL/XGLLoader.cpp.o
+#20 128.8 [163/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXAnimation.cpp.o
+#20 129.5 [164/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXNodeAttribute.cpp.o
+#20 130.6 [165/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXMeshGeometry.cpp.o
+#20 131.1 [166/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXDeformer.cpp.o
+#20 132.7 [167/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXBinaryTokenizer.cpp.o
+#20 133.0 [168/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXDocumentUtil.cpp.o
+#20 134.7 [169/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Q3BSP/Q3BSPFileParser.cpp.o
+#20 135.1 [170/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCOpenings.cpp.o
+#20 136.6 [171/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Q3D/Q3DLoader.cpp.o
+#20 136.9 [172/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Q3BSP/Q3BSPFileImporter.cpp.o
+#20 138.9 [173/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Raw/RawLoader.cpp.o
+#20 139.5 [174/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Terragen/TerragenLoader.cpp.o
+#20 140.5 [175/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STL/STLLoader.cpp.o
+#20 143.0 [176/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/SMD/SMDLoader.cpp.o
+#20 143.0 [177/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Unreal/UnrealLoader.cpp.o
+#20 143.5 [178/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/SIB/SIBImporter.cpp.o
+#20 144.5 [179/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X/XFileImporter.cpp.o
+#20 145.8 [180/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXConverter.cpp.o
+#20 147.2 [181/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Geometry2D.cpp.o
+#20 149.8 [182/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Group.cpp.o
+#20 150.1 [183/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Light.cpp.o
+#20 150.3 [184/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter.cpp.o
+#20 150.4 [185/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X/XFileParser.cpp.o
+#20 151.5 [186/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Networking.cpp.o
+#20 152.0 [187/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Metadata.cpp.o
+#20 153.3 [188/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Geometry3D.cpp.o
+#20 154.7 [189/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Postprocess.cpp.o
+#20 155.9 [190/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF/glTFCommon.cpp.o
+#20 157.1 [191/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Shape.cpp.o
+#20 157.2 [192/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Texturing.cpp.o
+#20 158.8 [193/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Rendering.cpp.o
+#20 159.9 [194/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DGeoHelper.cpp.o
+#20 160.1 [195/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DXmlHelper.cpp.o
+#20 162.3 [196/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/OpenGEX/OpenGEXExporter.cpp.o
+#20 164.2 [197/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/D3MFImporter.cpp.o
+#20 166.3 [198/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/D3MFOpcPackage.cpp.o
+#20 166.4 [199/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/XmlSerializer.cpp.o
+#20 167.2 [200/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MMD/MMDPmxParser.cpp.o
+#20 167.4 [201/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MMD/MMDImporter.cpp.o
+#20 167.6 [202/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ply/PlyExporter.cpp.o
+#20 167.6 [203/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/M3D/M3DExporter.cpp.o
+#20 169.1 [204/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjExporter.cpp.o
+#20 169.2 [205/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assbin/AssbinExporter.cpp.o
+#20 170.2 [206/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assxml/AssxmlExporter.cpp.o
+#20 173.0 [207/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assbin/AssbinFileWriter.cpp.o
+#20 173.2 [208/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3DS/3DSExporter.cpp.o
+#20 173.8 [209/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assxml/AssxmlFileWriter.cpp.o
+#20 175.7 [210/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXExportProperty.cpp.o
+#20 175.8 [211/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXExportNode.cpp.o
+#20 178.8 [212/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STL/STLExporter.cpp.o
+#20 180.9 [213/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X/XFileExporter.cpp.o
+#20 184.1 [214/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DExporter.cpp.o
+#20 184.2 [215/249] Building C object code/CMakeFiles/assimp.dir/AssetLib/Assjson/cencode.c.o
+#20 184.7 [216/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF/glTFImporter.cpp.o
+#20 185.1 [217/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/D3MFExporter.cpp.o
+#20 187.4 [218/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaExporter.cpp.o
+#20 187.7 [219/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/unzip/crypt.c.o
+#20 188.0 [220/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/unzip/ioapi.c.o
+#20 189.4 [221/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assjson/mesh_splitter.cpp.o
+#20 189.6 [222/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/unzip/unzip.c.o
+#20 191.4 [223/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assjson/json_exporter.cpp.o
+#20 191.8 [224/249] Building CXX object code/CMakeFiles/assimp.dir/Pbrt/PbrtExporter.cpp.o
+#20 192.0 [225/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/advancing_front.cc.o
+#20 193.0 [226/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/common/shapes.cc.o
+#20 193.6 [227/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Step/StepExporter.cpp.o
+#20 194.2 [228/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/cdt.cc.o
+#20 195.4 [229/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/sweep.cc.o
+#20 196.2 [230/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/sweep_context.cc.o
+#20 196.8 [231/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/DDLNode.cpp.o
+#20 197.8 [232/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLCommon.cpp.o
+#20 198.2 [233/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCReaderGen1_2x3.cpp.o
+#20 199.3 [234/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/Value.cpp.o
+#20 199.6 [235/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcArithmeticCodec.cpp.o
+#20 200.1 [236/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLStream.cpp.o
+#20 200.2 [237/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLParser.cpp.o
+#20 200.2 [238/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcTools.cpp.o
+#20 200.3 [239/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLExport.cpp.o
+#20 200.5 [240/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcDynamicVectorDecoder.cpp.o
+#20 201.0 [241/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcDynamicVectorEncoder.cpp.o
+#20 201.3 [242/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcTriangleFans.cpp.o
+#20 203.0 [243/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/clipper/clipper.cpp.o
+#20 205.4 [244/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF2/glTF2Importer.cpp.o
+#20 205.6 [245/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/zip/src/zip.c.o
+#20 207.0 [246/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXExporter.cpp.o
+#20 208.1 [247/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF2/glTF2Exporter.cpp.o
+#20 209.7 [248/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF/glTFExporter.cpp.o
+#20 209.8 [249/249] Linking CXX static library lib/libassimp.a
+#20 209.8 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I/src/assimp/include fuzz/assimp_fuzzer.cc -o /out/assimp_fuzzer /libAFL.a /src/assimp/lib/libassimp.a /src/assimp/lib/libIrrXML.a /src/assimp/lib/libzlibstatic.a
+#20 209.9 clang-14: error: no such file or directory: '/src/assimp/lib/libIrrXML.a'
+#20 209.9 clang-14: error: no such file or directory: '/src/assimp/lib/libzlibstatic.a'
+#20 209.9 Traceback (most recent call last):
+#20 209.9   File "<string>", line 1, in <module>
+#20 209.9   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 209.9     utils.build_benchmark()
+#20 209.9   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 209.9     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 209.9   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 209.9     raise CalledProcessError(retcode, cmd)
+#20 209.9 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/assimp_assimp:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2728522: .afl-assimp_assimp-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:5bcd3b17c41c6b4ee8018ff2642a86d36525a5d733f0abc7abe9255322909841
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8816f1c527c33a4e3784560aa47afda2feafcbdc057cfbfff1ab44b4c314ce0a
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/assimp_assimp
+#4 sha256:607866d18fd8316a3d15494a3fc1afc37a00d72843dd73e1dbbacad25d0d6a9d
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:1cee484dc77fa042770cbe2c55904490f30abd9c078f48d2068a486c2e38c5c4
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y cmake ninja-build
+#6 sha256:194a7061444c7973a5bf045edca4c43a7ad735afb0474bebce94ccea29eb4b06
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 --recursive https://github.com/assimp/assimp.git
+#7 sha256:475339f9d4270b7b18754373471f79250cdcfeaac0bbe70e6c6e621b5f43e6bc
+#7 CACHED
+
+#8 [4/5] WORKDIR assimp
+#8 sha256:b665229bb9c73ac2632d3fcf3f50e9ba9ae1231da287d0690567fc24e089ab32
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:77e4b79ae911373f541aefbd338f974ee96318b5f1510c773763abdbac1a54a2
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:250121a14d1c2237513c96508ea4c8eb611be18732ec73e000d36aa1c5ea29df done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/assimp_assimp done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:dad428b467801b2b4ae370c588ce85efa5d212b54d8bc9a69f2360b060c69f4e
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:33c50284e7b0416a2317031c9ff25ddc4094c233a5009266284b7f7ebef41115
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/assimp_assimp:latest
+#3 sha256:58690ffefe964fa684783c84c131a2738f6f0559500e85dc15aee1cf6e498cc8
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/assimp_assimp
+#5 sha256:a99a38b26c80048ff81582f259ca4b809296a96c9cc06a599d4c32b60cbd9460
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate
+#4 sha256:17ea8b1633a8171a06f6442f4a3b966c1a512509d45a9fea5a3ce2d5bfddb010
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:08d9e7467cdf111b3200ed436b6e0c6629bd4c5cbfed79481fd3de3bd63743a1
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:fbb5a3786971991087631f28f0eb8ac4ce46880b0b366794b8276beb835ab327
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:aa5352a10c52feefbc3ee3b40d9c9dd8e49eee274c7ff4f8844c6616d333feca done
+#8 naming to gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:15d361df64b7f5b131eec34f065103ea5a7b1df5c722aa98698c4f47b2cad4ba
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:992568ce754d0cecc4f477520913a538023a3f6dbe52bebb07caab04db3ff575
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:371b592c9664f1230760048f02cc3002eec1e7d123001cc3171abeba9a79593c
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:22553b986d2b79187c7e34a0c0c8f2637cefc9b1949e0b20788a4c682ada4c42
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:86323c7b714a5849a7674aa692dca8e90a363c0c499be19ec4b03b4227ed5ec3
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ab4c659587bace4edfbd3e88697ac2c0e67ad915145754ce2528c2fc3642ec19
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:ac50551f219f130bf4c4e5b677eb5110cce699bc8447f7c29f8d2ceef3069095
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:22618958083556c9954c706a2907e218ba5f27d77f85ff7ef0ac26fbab8cbd51
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:ce772d68889b0c1d3b766fde5a508f47fbb53659ed0e1c6e6e1c67e4c27ab604
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate:latest
+#3 sha256:957d9838212af14f856eecd13cc98d0cacbbc259bda03100ade70d1d47fa8a8f
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:a2d85d2866538f1695aff391750b0a864f3360b9dca366b0c1fcbd696f428dd5
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/assimp_assimp-intermediate
+#6 sha256:d9c2fb714b31bda616bdd125a5205c0ef9c92442397a9dd18966fcfcbf523f0f
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/assimp_assimp
+#5 sha256:6f296aaad5366984382d9b5774fb61ef8214c8d93ac2df28cea45b8c10753f17
+#5 ERROR: gcr.io/fuzzbench/builders/afl/assimp_assimp:latest: not found
+
+#12 [internal] load build context
+#12 sha256:a2d85d2866538f1695aff391750b0a864f3360b9dca366b0c1fcbd696f428dd5
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:16a1da4c4be3dffdb464672c889fbc86137d4b9c96d66c3683f75c1e7afbc148
+#11 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:94f98d5421f722826e5de066f2175792170975b831bdb937deba86d83affb96a
+#17 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:74d864eb84d179ae0cb39712989fd574ee345f114aeae72dfc6d4f5042820b1b
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:eb3a16ea441a92a1489329e7e1eda4e66b77ef077ef50d0c7638917411735f0a
+#18 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/assimp_assimp/benchmark.yaml /
+#15 sha256:f63dfed4813f1421873486ba139a927887f97b9c6cb577b7f58e9d04426881ce
+#15 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:f053703a2cdd321f93b554844a7e4b6a975c250dfe8e971fd56c86c674662b5a
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:8647506b6d8df2c32d5fc51721a3d701028fae83eb048a23edc3b6631f8b048c
+#14 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:214d3860b33b995a7cf825ee8bf94ecd118914167bd016a5c4aa3cdc21477d35
+#8 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:325b606d96b7b3f1dfd72c863c162bb3a7372d1bc5b56d936e025a43aa22b9fc
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:0c7d4f69e2ffdaf35242728e5d4ef86a9ce66cae3602921978267b9591dc0482
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:627d14609edf8d8c95028dafa3d725521de55f0506cd52353782eac6a4d3c526
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:63f0fb99af6400dcda581ed2935cdf5ba7d7981552d754c9a11f9392ba696905
+#20 0.359 Run fuzzer_build to build the target
+#20 0.476 FUZZ_TARGET = assimp
+#20 0.476 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.476 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.482 Building benchmark assimp_assimp with fuzzer afl
+#20 0.485 + cmake CMakeLists.txt -G Ninja -DBUILD_SHARED_LIBS=OFF -DASSIMP_BUILD_ZLIB=ON -DASSIMP_BUILD_TESTS=OFF -DASSIMP_BUILD_ASSIMP_TOOLS=OFF -DASSIMP_BUILD_SAMPLES=OFF
+#20 0.691 -- The C compiler identification is Clang 14.0.0
+#20 0.942 -- The CXX compiler identification is Clang 14.0.0
+#20 0.953 -- Detecting C compiler ABI info
+#20 1.099 -- Detecting C compiler ABI info - done
+#20 1.146 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.147 -- Detecting C compile features
+#20 1.147 -- Detecting C compile features - done
+#20 1.154 -- Detecting CXX compiler ABI info
+#20 1.341 -- Detecting CXX compiler ABI info - done
+#20 1.410 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.411 -- Detecting CXX compile features
+#20 1.412 -- Detecting CXX compile features - done
+#20 1.413 -- Shared libraries disabled
+#20 1.436 -- compiling zlib from sources
+#20 1.441 -- Looking for sys/types.h
+#20 1.602 -- Looking for sys/types.h - found
+#20 1.603 -- Looking for stdint.h
+#20 1.763 -- Looking for stdint.h - found
+#20 1.764 -- Looking for stddef.h
+#20 1.923 -- Looking for stddef.h - found
+#20 1.923 -- Check size of off64_t
+#20 2.129 -- Check size of off64_t - done
+#20 2.130 -- Looking for fseeko
+#20 2.297 -- Looking for fseeko - found
+#20 2.297 -- Looking for unistd.h
+#20 2.469 -- Looking for unistd.h - found
+#20 2.490 -- Enabled importer formats: AMF 3DS AC ASE ASSBIN B3D BVH COLLADA DXF CSM HMP IRRMESH IQM IRR LWO LWS M3D MD2 MD3 MD5 MDC MDL NFF NDO OFF OBJ OGRE OPENGEX PLY MS3D COB BLEND IFC XGL FBX Q3D Q3BSP RAW SIB SMD STL TERRAGEN 3D X X3D GLTF 3MF MMD
+#20 2.490 -- Disabled importer formats:
+#20 2.490 -- Enabled exporter formats: OBJ OPENGEX PLY 3DS ASSBIN ASSXML M3D COLLADA FBX STL X X3D GLTF 3MF PBRT ASSJSON STEP
+#20 2.490 -- Disabled exporter formats:
+#20 2.495 -- Configuring done
+#20 2.551 -- Generating done
+#20 2.567 -- Build files have been written to: /src/assimp
+#20 2.575 + cmake --build .
+#20 2.678 [1/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/compress.c.o
+#20 2.740 [2/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzclose.c.o
+#20 2.840 [3/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzlib.c.o
+#20 2.901 [4/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/inftrees.c.o
+#20 2.929 [5/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/crc32.c.o
+#20 2.950 [6/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/adler32.c.o
+#20 2.978 [7/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzread.c.o
+#20 2.978 [8/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/uncompr.c.o
+#20 3.013 [9/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/gzwrite.c.o
+#20 3.042 [10/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/zutil.c.o
+#20 3.294 [11/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/inffast.c.o
+#20 3.321 [12/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/infback.c.o
+#20 3.831 [13/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/trees.c.o
+#20 3.882 [14/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/deflate.c.o
+#20 4.427 [15/249] Building C object contrib/zlib/CMakeFiles/zlibstatic.dir/inflate.c.o
+#20 4.501 [16/249] Linking C static library contrib/zlib/libzlibstatic.a
+#20 5.449 [17/249] Building CXX object code/CMakeFiles/assimp.dir/CApi/CInterfaceIOWrapper.cpp.o
+#20 5.589 [18/249] Building CXX object code/CMakeFiles/assimp.dir/Common/DefaultIOStream.cpp.o
+#20 5.921 [19/249] Building CXX object code/CMakeFiles/assimp.dir/Common/IOSystem.cpp.o
+#20 6.355 [20/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Compression.cpp.o
+#20 7.394 [21/249] Building CXX object code/CMakeFiles/assimp.dir/Common/BaseProcess.cpp.o
+#20 8.435 [22/249] Building CXX object code/CMakeFiles/assimp.dir/Common/DefaultIOSystem.cpp.o
+#20 8.802 [23/249] Building CXX object code/CMakeFiles/assimp.dir/Common/PostStepRegistry.cpp.o
+#20 8.886 [24/249] Building CXX object code/CMakeFiles/assimp.dir/Common/VertexTriangleAdjacency.cpp.o
+#20 9.263 [25/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SGSpatialSort.cpp.o
+#20 9.808 [26/249] Building CXX object code/CMakeFiles/assimp.dir/Common/ZipArchiveIOSystem.cpp.o
+#20 11.02 [27/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SpatialSort.cpp.o
+#20 12.55 [28/249] Building CXX object code/CMakeFiles/assimp.dir/Common/ScenePreprocessor.cpp.o
+#20 12.57 [29/249] Building CXX object code/CMakeFiles/assimp.dir/Common/BaseImporter.cpp.o
+#20 12.69 [30/249] Building CXX object code/CMakeFiles/assimp.dir/Common/TargetAnimation.cpp.o
+#20 13.70 [31/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SkeletonMeshBuilder.cpp.o
+#20 13.74 [32/249] Building CXX object code/CMakeFiles/assimp.dir/Common/RemoveComments.cpp.o
+#20 14.95 [33/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Bitmap.cpp.o
+#20 15.03 [34/249] Building CXX object code/CMakeFiles/assimp.dir/Common/simd.cpp.o
+#20 15.32 [35/249] Building CXX object code/CMakeFiles/assimp.dir/Common/scene.cpp.o
+#20 16.13 [36/249] Building CXX object code/CMakeFiles/assimp.dir/Common/CreateAnimMesh.cpp.o
+#20 16.47 [37/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Version.cpp.o
+#20 17.16 [38/249] Building CXX object code/CMakeFiles/assimp.dir/Common/material.cpp.o
+#20 17.52 [39/249] Building CXX object code/CMakeFiles/assimp.dir/Common/ImporterRegistry.cpp.o
+#20 17.59 [40/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Importer.cpp.o
+#20 18.18 [41/249] Building CXX object code/CMakeFiles/assimp.dir/Common/AssertHandler.cpp.o
+#20 18.28 [42/249] Building CXX object code/CMakeFiles/assimp.dir/Common/SceneCombiner.cpp.o
+#20 18.47 [43/249] Building CXX object code/CMakeFiles/assimp.dir/Common/StandardShapes.cpp.o
+#20 19.27 [44/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Exceptional.cpp.o
+#20 20.78 [45/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Base64.cpp.o
+#20 21.15 [46/249] Building CXX object code/CMakeFiles/assimp.dir/CApi/AssimpCExport.cpp.o
+#20 21.44 [47/249] Building CXX object code/CMakeFiles/assimp.dir/Common/DefaultLogger.cpp.o
+#20 21.76 [48/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Subdivision.cpp.o
+#20 22.86 [49/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ConvertToLHProcess.cpp.o
+#20 23.50 [50/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/CalcTangentsProcess.cpp.o
+#20 23.76 [51/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ComputeUVMappingProcess.cpp.o
+#20 25.12 [52/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/EmbedTexturesProcess.cpp.o
+#20 25.95 [53/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FindInstancesProcess.cpp.o
+#20 26.42 [54/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FixNormalsStep.cpp.o
+#20 26.82 [55/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FindDegenerates.cpp.o
+#20 27.02 [56/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/DropFaceNormalsProcess.cpp.o
+#20 27.53 [57/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/FindInvalidDataProcess.cpp.o
+#20 27.85 [58/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/GenFaceNormalsProcess.cpp.o
+#20 28.54 [59/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Exporter.cpp.o
+#20 28.77 [60/249] Building CXX object code/CMakeFiles/assimp.dir/Common/Assimp.cpp.o
+#20 29.01 [61/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/GenVertexNormalsProcess.cpp.o
+#20 31.53 [62/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/RemoveRedundantMaterials.cpp.o
+#20 31.55 [63/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/LimitBoneWeightsProcess.cpp.o
+#20 31.58 [64/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ImproveCacheLocality.cpp.o
+#20 32.45 [65/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/RemoveVCProcess.cpp.o
+#20 32.93 [66/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/PretransformVertices.cpp.o
+#20 33.47 [67/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/JoinVerticesProcess.cpp.o
+#20 34.13 [68/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/TriangulateProcess.cpp.o
+#20 34.73 [69/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/SortByPTypeProcess.cpp.o
+#20 35.25 [70/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/TextureTransform.cpp.o
+#20 35.61 [71/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/SplitLargeMeshes.cpp.o
+#20 36.76 [72/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/OptimizeMeshes.cpp.o
+#20 37.66 [73/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/GenBoundingBoxesProcess.cpp.o
+#20 37.95 [74/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/MakeVerboseFormat.cpp.o
+#20 38.13 [75/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ScaleProcess.cpp.o
+#20 38.34 [76/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ValidateDataStructure.cpp.o
+#20 38.39 [77/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ProcessHelper.cpp.o
+#20 38.42 [78/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/OptimizeGraph.cpp.o
+#20 39.38 [79/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/DeboneProcess.cpp.o
+#20 40.62 [80/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/ArmaturePopulate.cpp.o
+#20 41.98 [81/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STEPParser/STEPFileEncoding.cpp.o
+#20 42.09 [82/249] Building CXX object code/CMakeFiles/assimp.dir/Material/MaterialSystem.cpp.o
+#20 43.35 [83/249] Building CXX object code/CMakeFiles/assimp.dir/PostProcessing/SplitByBoneCountProcess.cpp.o
+#20 44.35 [84/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter_Geometry.cpp.o
+#20 46.51 [85/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter_Material.cpp.o
+#20 47.18 [86/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3DS/3DSConverter.cpp.o
+#20 48.25 [87/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STEPParser/STEPFileReader.cpp.o
+#20 49.79 [88/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter_Postprocess.cpp.o
+#20 49.82 [89/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AMF/AMFImporter.cpp.o
+#20 50.29 [90/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assbin/AssbinLoader.cpp.o
+#20 53.24 [91/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaHelper.cpp.o
+#20 53.25 [92/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/AC/ACLoader.cpp.o
+#20 54.13 [93/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/ASE/ASELoader.cpp.o
+#20 55.01 [94/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3DS/3DSLoader.cpp.o
+#20 56.73 [95/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/BVH/BVHLoader.cpp.o
+#20 57.90 [96/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/B3D/B3DImporter.cpp.o
+#20 59.19 [97/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/HMP/HMPLoader.cpp.o
+#20 59.58 [98/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/ASE/ASEParser.cpp.o
+#20 59.60 [99/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/CSM/CSMLoader.cpp.o
+#20 61.16 [100/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/DXF/DXFLoader.cpp.o
+#20 61.79 [101/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Irr/IRRShared.cpp.o
+#20 62.43 [102/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IQM/IQMImporter.cpp.o
+#20 62.50 [103/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/M3D/M3DImporter.cpp.o
+#20 62.57 [104/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/M3D/M3DWrapper.cpp.o
+#20 63.65 [105/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOAnimation.cpp.o
+#20 65.45 [106/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOBLoader.cpp.o
+#20 66.23 [107/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Irr/IRRMeshLoader.cpp.o
+#20 67.86 [108/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD2/MD2Loader.cpp.o
+#20 68.97 [109/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOMaterial.cpp.o
+#20 72.60 [110/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWS/LWSLoader.cpp.o
+#20 73.45 [111/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaLoader.cpp.o
+#20 73.83 [112/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDC/MDCLoader.cpp.o
+#20 74.02 [113/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD3/MD3Loader.cpp.o
+#20 74.28 [114/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD5/MD5Loader.cpp.o
+#20 74.29 [115/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Irr/IRRLoader.cpp.o
+#20 74.85 [116/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/LWO/LWOLoader.cpp.o
+#20 77.78 [117/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MD5/MD5Parser.cpp.o
+#20 77.81 [118/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/HalfLife/UniqueNameGenerator.cpp.o
+#20 77.91 [119/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/MDLMaterialLoader.cpp.o
+#20 79.19 [120/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/MDLLoader.cpp.o
+#20 80.30 [121/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/OFF/OFFLoader.cpp.o
+#20 81.90 [122/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjFileImporter.cpp.o
+#20 82.11 [123/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/NDO/NDOLoader.cpp.o
+#20 85.46 [124/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaParser.cpp.o
+#20 86.57 [125/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjFileMtlImporter.cpp.o
+#20 87.36 [126/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreImporter.cpp.o
+#20 87.72 [127/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjFileParser.cpp.o
+#20 88.68 [128/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MDL/HalfLife/HL1MDLLoader.cpp.o
+#20 91.24 [129/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreStructs.cpp.o
+#20 92.00 [130/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreMaterial.cpp.o
+#20 92.53 [131/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/NFF/NFFLoader.cpp.o
+#20 93.30 [132/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreBinarySerializer.cpp.o
+#20 93.35 [133/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ply/PlyLoader.cpp.o
+#20 96.60 [134/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ply/PlyParser.cpp.o
+#20 97.11 [135/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MS3D/MS3DLoader.cpp.o
+#20 97.25 [136/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/OpenGEX/OpenGEXImporter.cpp.o
+#20 99.33 [137/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ogre/OgreXmlSerializer.cpp.o
+#20 100.0 [138/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderDNA.cpp.o
+#20 101.0 [139/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderModifier.cpp.o
+#20 101.9 [140/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderBMesh.cpp.o
+#20 102.9 [141/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderCustomData.cpp.o
+#20 103.8 [142/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderTessellator.cpp.o
+#20 106.1 [143/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/COB/COBLoader.cpp.o
+#20 112.4 [144/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCMaterial.cpp.o
+#20 112.5 [145/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderLoader.cpp.o
+#20 113.1 [146/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCProfile.cpp.o
+#20 114.1 [147/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCUtil.cpp.o
+#20 114.1 [148/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCReaderGen2_2x3.cpp.o
+#20 115.0 [149/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCLoader.cpp.o
+#20 116.9 [150/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCCurve.cpp.o
+#20 118.0 [151/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCGeometry.cpp.o
+#20 119.2 [152/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXTokenizer.cpp.o
+#20 120.2 [153/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXImporter.cpp.o
+#20 121.9 [154/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXUtil.cpp.o
+#20 122.2 [155/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Blender/BlenderScene.cpp.o
+#20 124.4 [156/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXParser.cpp.o
+#20 126.2 [157/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCBoolean.cpp.o
+#20 127.2 [158/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXProperties.cpp.o
+#20 128.3 [159/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXDocument.cpp.o
+#20 128.6 [160/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXMaterial.cpp.o
+#20 130.0 [161/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXModel.cpp.o
+#20 132.0 [162/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXNodeAttribute.cpp.o
+#20 132.2 [163/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/XGL/XGLLoader.cpp.o
+#20 132.4 [164/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXAnimation.cpp.o
+#20 133.2 [165/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXMeshGeometry.cpp.o
+#20 133.8 [166/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXBinaryTokenizer.cpp.o
+#20 134.7 [167/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXDeformer.cpp.o
+#20 135.5 [168/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXDocumentUtil.cpp.o
+#20 136.8 [169/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCOpenings.cpp.o
+#20 138.1 [170/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Q3BSP/Q3BSPFileParser.cpp.o
+#20 139.9 [171/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Q3BSP/Q3BSPFileImporter.cpp.o
+#20 140.3 [172/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Q3D/Q3DLoader.cpp.o
+#20 140.9 [173/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Raw/RawLoader.cpp.o
+#20 141.6 [174/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Terragen/TerragenLoader.cpp.o
+#20 142.1 [175/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STL/STLLoader.cpp.o
+#20 145.1 [176/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/SMD/SMDLoader.cpp.o
+#20 146.3 [177/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Unreal/UnrealLoader.cpp.o
+#20 146.4 [178/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/SIB/SIBImporter.cpp.o
+#20 148.5 [179/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXConverter.cpp.o
+#20 148.9 [180/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X/XFileImporter.cpp.o
+#20 149.5 [181/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Geometry2D.cpp.o
+#20 151.7 [182/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter.cpp.o
+#20 152.3 [183/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Group.cpp.o
+#20 153.3 [184/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Light.cpp.o
+#20 153.8 [185/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X/XFileParser.cpp.o
+#20 154.2 [186/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Geometry3D.cpp.o
+#20 154.5 [187/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Metadata.cpp.o
+#20 155.3 [188/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Networking.cpp.o
+#20 158.2 [189/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Postprocess.cpp.o
+#20 158.4 [190/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF/glTFCommon.cpp.o
+#20 158.7 [191/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Shape.cpp.o
+#20 159.5 [192/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Texturing.cpp.o
+#20 161.4 [193/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DImporter_Rendering.cpp.o
+#20 162.8 [194/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DGeoHelper.cpp.o
+#20 163.8 [195/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DXmlHelper.cpp.o
+#20 165.8 [196/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/OpenGEX/OpenGEXExporter.cpp.o
+#20 166.8 [197/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/D3MFImporter.cpp.o
+#20 168.3 [198/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/D3MFOpcPackage.cpp.o
+#20 170.0 [199/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/XmlSerializer.cpp.o
+#20 170.3 [200/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MMD/MMDImporter.cpp.o
+#20 170.3 [201/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/MMD/MMDPmxParser.cpp.o
+#20 171.5 [202/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Ply/PlyExporter.cpp.o
+#20 171.5 [203/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assbin/AssbinExporter.cpp.o
+#20 171.5 [204/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/M3D/M3DExporter.cpp.o
+#20 171.7 [205/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Obj/ObjExporter.cpp.o
+#20 173.6 [206/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assxml/AssxmlExporter.cpp.o
+#20 176.1 [207/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3DS/3DSExporter.cpp.o
+#20 176.2 [208/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assxml/AssxmlFileWriter.cpp.o
+#20 177.3 [209/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assbin/AssbinFileWriter.cpp.o
+#20 178.6 [210/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXExportNode.cpp.o
+#20 179.1 [211/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXExportProperty.cpp.o
+#20 180.9 [212/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/STL/STLExporter.cpp.o
+#20 183.9 [213/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X/XFileExporter.cpp.o
+#20 187.3 [214/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/3MF/D3MFExporter.cpp.o
+#20 187.4 [215/249] Building C object code/CMakeFiles/assimp.dir/AssetLib/Assjson/cencode.c.o
+#20 187.7 [216/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/X3D/X3DExporter.cpp.o
+#20 188.0 [217/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF/glTFImporter.cpp.o
+#20 192.1 [218/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Collada/ColladaExporter.cpp.o
+#20 192.5 [219/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/unzip/crypt.c.o
+#20 192.7 [220/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assjson/mesh_splitter.cpp.o
+#20 192.9 [221/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/unzip/ioapi.c.o
+#20 194.0 [222/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/unzip/unzip.c.o
+#20 194.5 [223/249] Building CXX object code/CMakeFiles/assimp.dir/Pbrt/PbrtExporter.cpp.o
+#20 194.9 [224/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Assjson/json_exporter.cpp.o
+#20 196.4 [225/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/advancing_front.cc.o
+#20 196.7 [226/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/common/shapes.cc.o
+#20 197.1 [227/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/Step/StepExporter.cpp.o
+#20 197.3 [228/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/cdt.cc.o
+#20 198.6 [229/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/sweep.cc.o
+#20 199.8 [230/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/DDLNode.cpp.o
+#20 199.9 [231/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/IFC/IFCReaderGen1_2x3.cpp.o
+#20 200.6 [232/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/poly2tri/poly2tri/sweep/sweep_context.cc.o
+#20 200.8 [233/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLCommon.cpp.o
+#20 202.1 [234/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcArithmeticCodec.cpp.o
+#20 202.5 [235/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/Value.cpp.o
+#20 202.7 [236/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLStream.cpp.o
+#20 202.8 [237/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcTools.cpp.o
+#20 203.4 [238/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcDynamicVectorDecoder.cpp.o
+#20 203.4 [239/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLParser.cpp.o
+#20 203.5 [240/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/openddlparser/code/OpenDDLExport.cpp.o
+#20 203.8 [241/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcDynamicVectorEncoder.cpp.o
+#20 204.3 [242/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/Open3DGC/o3dgcTriangleFans.cpp.o
+#20 206.3 [243/249] Building CXX object code/CMakeFiles/assimp.dir/__/contrib/clipper/clipper.cpp.o
+#20 207.9 [244/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF2/glTF2Importer.cpp.o
+#20 208.6 [245/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/FBX/FBXExporter.cpp.o
+#20 209.3 [246/249] Building C object code/CMakeFiles/assimp.dir/__/contrib/zip/src/zip.c.o
+#20 210.8 [247/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF2/glTF2Exporter.cpp.o
+#20 212.4 [248/249] Building CXX object code/CMakeFiles/assimp.dir/AssetLib/glTF/glTFExporter.cpp.o
+#20 212.5 [249/249] Linking CXX static library lib/libassimp.a
+#20 212.5 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I/src/assimp/include fuzz/assimp_fuzzer.cc -o /out/assimp_fuzzer /libAFL.a /src/assimp/lib/libassimp.a /src/assimp/lib/libIrrXML.a /src/assimp/lib/libzlibstatic.a
+#20 212.5 clang-14: error: no such file or directory: '/src/assimp/lib/libIrrXML.a'
+#20 212.5 clang-14: error: no such file or directory: '/src/assimp/lib/libzlibstatic.a'
+#20 212.5 Traceback (most recent call last):
+#20 212.5   File "<string>", line 1, in <module>
+#20 212.5   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 212.5     utils.build_benchmark()
+#20 212.5   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 212.5     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 212.5   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 212.5     raise CalledProcessError(retcode, cmd)
+#20 212.5 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/assimp_assimp:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2728522: .afl-assimp_assimp-builder] Error 1

@@ -1,0 +1,1589 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: nginx_nginx.
+INFO:root:Please run "make test-run-afl-nginx_nginx" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d29cd5bcef677e598a275f8b5b2c2d514048f6f47166fb66693491f0f9c5b0c1
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:821c7ff05fd567cb6b5bfc9a747c3e6a509c9fa7fb5a2eb5a5c572a1569aa429
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#12 [internal] load build context
+#12 sha256:ac248b0a69705e857e740f0d9e4255eaa4c7fc8372fea8ffe828697102148347
+#12 DONE 0.0s
+
+#5 [1/9] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/nginx_nginx
+#4 sha256:a809d7c999602b4267417524870fcffb1a02bd239e80492378abf636def0dfee
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/nginx_nginx:latest: not found
+
+#12 [internal] load build context
+#12 sha256:ac248b0a69705e857e740f0d9e4255eaa4c7fc8372fea8ffe828697102148347
+#12 transferring context: 11.92kB done
+#12 DONE 0.0s
+
+#7 [3/9] RUN hg clone http://hg.nginx.org/nginx/
+#7 sha256:f272b8a695c475317b9172913442ae741567378d79db949c37243e01425e3caf
+#7 CACHED
+
+#8 [4/9] RUN git clone --depth 1 https://github.com/google/libprotobuf-mutator.git
+#8 sha256:702890e18d627fbf85e0107096e8f8d5a68c43c66175fe93c62a484368c69588
+#8 CACHED
+
+#9 [5/9] RUN git clone --depth 1 https://github.com/google/fuzzer-test-suite
+#9 sha256:aa9946de6b4d06a28569b8b13c3778277fb3fe4035c8ce66e6d8f295b8abb812
+#9 CACHED
+
+#10 [6/9] RUN (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)
+#10 sha256:fe6827385354f1d5fd29641f5a19dd26c67d90fb9919801fcc163c444611515c
+#10 CACHED
+
+#6 [2/9] RUN apt-get update && apt-get install -y libpcre3-dev zlib1g-dev mercurial ninja-build cmake liblzma-dev libz-dev binutils libtool
+#6 sha256:ac52af53210aa580c2490de48d4bdf6e41047b81e80f91034dc88242e63242a5
+#6 CACHED
+
+#11 [7/9] WORKDIR nginx
+#11 sha256:e8602fedcd8f3d74f6911dd45734011627610e7a8b7cd16b896dc606be692180
+#11 CACHED
+
+#13 [8/9] COPY fuzz /src/fuzz
+#13 sha256:669e30ebcb97a5d22c66fdbfe0ec1c814c517a37d4fe901e54f86c243e4bc462
+#13 DONE 0.1s
+
+#14 [9/9] COPY build.sh add_fuzzers.diff make_fuzzers  /src/
+#14 sha256:baa14f7e6d8a896438180ea8bba680a280a8a62c359baf395b518fe4a003a701
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#15 exporting layers done
+#15 writing image sha256:62f74fd56750646c7029be0edffa942a04b9b9fb18a34af4b732a7bc2ff8b8da done
+#15 naming to gcr.io/fuzzbench/builders/benchmark/nginx_nginx done
+#15 DONE 0.1s
+
+#16 exporting cache
+#16 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#16 preparing build cache for export done
+#16 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/nginx_nginx:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:8b4ad52404ae66a70cae2c5af85f2454b9e4586f07fc101a14f3e0a3b042cb2d
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ead3a751bc8b7f99fec30388effbec0b649a745255f3f2ab48eff2b6cf8c372c
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/nginx_nginx:latest
+#3 sha256:5b622fe714bad71742c456ffef614ad754fbd1677b42749cd405652ad6049071
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/nginx_nginx
+#5 sha256:fdf5e01c5d9068d3b6aa3d7b3e21094143ec9a94633e4307e24e152756594742
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate
+#4 sha256:3d90111fd4865e4b241ca93121689bb76add55189562b0039b18031b5dfbdfca
+#4 ERROR: gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/nginx_nginx
+#5 sha256:fdf5e01c5d9068d3b6aa3d7b3e21094143ec9a94633e4307e24e152756594742
+#5 DONE 0.2s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:5041401b4400127c6d0a6bedf0979131b6af87965eb6442785d81a538f2fd728
+#6 0.338 Cloning into '/afl'...
+#6 1.135 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.135 
+#6 1.135 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.135 changes and commit them, and you can discard any commits you make in this
+#6 1.135 state without impacting any branches by switching back to a branch.
+#6 1.135 
+#6 1.135 If you want to create a new branch to retain commits you create, you may
+#6 1.135 do so (now or later) by using -c with the switch command. Example:
+#6 1.135 
+#6 1.135   git switch -c <new-branch-name>
+#6 1.135 
+#6 1.135 Or undo this operation with:
+#6 1.135 
+#6 1.135   git switch -
+#6 1.135 
+#6 1.135 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.135 
+#6 1.135 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.152 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.152 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.329 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.335 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.699 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.017 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.442 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.591 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 4.986 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.218 ln -sf afl-as as
+#6 5.221 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.223 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.224 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.4s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1b49f9abc18a952cecbaa5b67c5b83544deb468cdf95cbd82b1f8be3a58d43d1
+#7 0.619 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.619 Hit:2 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.624 Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.646 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 0.760 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.452 Reading package lists...
+#7 2.939 Reading package lists...
+#7 4.358 Building dependency tree...
+#7 4.578 Reading state information...
+#7 4.821 wget is already the newest version (1.20.3-1ubuntu2).
+#7 4.821 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+#7 4.825 --2022-02-17 11:21:47--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 4.827 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+#7 4.828 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#7 4.852 HTTP request sent, awaiting response... 200 OK
+#7 4.871 Length: 9177 (9.0K) [text/plain]
+#7 4.871 Saving to: '/afl/afl_driver.cpp'
+#7 4.871 
+#7 4.871      0K ........                                              100% 6.65M=0.001s
+#7 4.873 
+#7 4.873 2022-02-17 11:21:47 (6.65 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 4.873 
+#7 6.577 ar: creating /libAFL.a
+#7 DONE 6.7s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:ca9a08e666892204d557aab059447df3a516b4bd2564358d3f9e45634da85543 done
+#8 naming to gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1d1de67ad57c2094cb2bf0370941fd21be43539d9f1f0f93767b0610f902b531
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:fc04aff1110c7f60230eb176f1f44ada1c1604b8031e41c65605a8904bf140e0
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:68c67e4ea6542bfe1024c885bf415b980be42f46e0555f72400cf7316109645b
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:af7d20b25427a99105ca5b9a14db5326a2d37838d3f69d37d84f065f4e670f8f
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:72dd69409b57d30b4fa3f91b9bfc5fc889a04eded445d8fa7071cbe6dd4be200
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:17d737b8a54a15c2bb2ac32e6630e3e93b1a44c5e11cb4920953d700f22fba21
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:dc49cc7126ee3f5ce6b33fee42fb2b9681267feec3ce57907d74366ad0752310
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:72c57924d0e15b1ac70414591013a5443777e61a51a51459c028464112162ac2 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5d2f472a8ce76f9866851afc64fd65467ba8498d7c7a9423ed9d622ff6db38c8
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2d0e81c06d739ab7a48000341c982e77a046b61bcf6a8e13c376b46174af6c4a
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate:latest
+#3 sha256:b50411a3e10fd64e0a09efc70b801a33b7c4faca532bbd7f8310f23288ff4a35
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7c190854111127d54011bc778004da9763aca95cc9f7c263c0cc0879e5c28d9e
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate
+#6 sha256:8aec164ac39f54c5ef749bb5349753e4ff9246cfc1a6101d1efc16fcad23cf24
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/nginx_nginx
+#5 sha256:e26d210ea4177bc18f98be6cd05728446609df367bf4565afbf01ed4d86b4168
+#5 ERROR: gcr.io/fuzzbench/builders/afl/nginx_nginx:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:7c190854111127d54011bc778004da9763aca95cc9f7c263c0cc0879e5c28d9e
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate
+#6 sha256:8aec164ac39f54c5ef749bb5349753e4ff9246cfc1a6101d1efc16fcad23cf24
+#6 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:61fbb9cf840fea79fa3aaefaa4aac6547bf2ee15504b670200b8df6a2595e45c
+#8 DONE 0.4s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:5d8ceb5fb5df4b0e4ab50f2796ede04a2029f7a6e331fc585a7db519eec42044
+#9 DONE 14.4s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:35adccda819ed756726173a057f9cb2ffe016536f7eb9d7f5fc0581a487337df
+#10 DONE 0.5s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:2e92005ef153e623360ced451e37c9972f8f3729ea1629c56e1859d985bd64aa
+#11 DONE 19.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:ce69c191d4326bb9d2c6d37b03527c2dfd11ddae44b76dfcaf6a4d6f980ba631
+#13 DONE 0.2s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:2ea1a0cdcf4d444f6b28a8577726b930fbd79a0ed7f76d084f422649fb73c2f2
+#14 DONE 0.6s
+
+#15 [stage-1  8/13] COPY benchmarks/nginx_nginx/benchmark.yaml /
+#15 sha256:84b8c6d96ba469f2b709600154adf2b7bce315588bb45a35b17bb67accc75bf4
+#15 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:6f9e46af8326bab206e6e506b698a868701f935557a106cba8363346dc16c9d6
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:434a6254dfd00d2f9bea5799859b4fe648a96090a7149c285f3d7cecd204291d
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3aa778609813a36acd205362d7ca472257bc13b70e51d0cc13b76ebf809a119c
+#18 0.484 Checking out commit cede674e
+#18 0.784 abort: unknown revision 'cede674e'!
+#18 1.674 error: pathspec 'cede674e' did not match any file(s) known to git
+#18 3.715 From https://github.com/google/libprotobuf-mutator
+#18 3.715  * [new tag]         v1.0       -> v1.0
+#18 3.722 error: pathspec 'cede674e' did not match any file(s) known to git
+#18 3.733 error: pathspec 'cede674e' did not match any file(s) known to git
+#18 3.740 error: pathspec 'cede674e' did not match any file(s) known to git
+#18 3.894 abort: unknown revision 'cede674e'!
+#18 4.072 abort: unknown revision 'cede674e'!
+#18 4.165 error: pathspec 'cede674e' did not match any file(s) known to git
+#18 4.243 Checkout unsuccessful.
+#18 DONE 4.7s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:5493c3696ef185ddf1b72b9576191a12c79dfb334b5e5e774c0a8ef8896f4da2
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:3534fe75c3f459ab3d17e04fb254cec00e8d3415b0650eba060f599c9bfaea4f
+#20 0.548 Run fuzzer_build to build the target
+#20 0.662 FUZZ_TARGET = nginx
+#20 0.662 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.662 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.671 Building benchmark nginx_nginx with fuzzer afl
+#20 0.675 + hg import /src/add_fuzzers.diff --no-commit
+#20 1.275 applying /src/add_fuzzers.diff
+#20 1.288 + cp -r /src/fuzz src/
+#20 1.291 + cp /src/make_fuzzers auto/make_fuzzers
+#20 1.293 + cd src/fuzz
+#20 1.293 + rm -rf genfiles
+#20 1.294 + mkdir genfiles
+#20 1.296 + /src/LPM/external.protobuf/bin/protoc http_request_proto.proto --cpp_out=genfiles
+#20 1.301 + cd ../..
+#20 1.301 + auto/configure '--with-ld-opt=-Wl,--wrap=listen -Wl,--wrap=setsockopt -Wl,--wrap=bind -Wl,--wrap=shutdown -Wl,--wrap=connect' --with-http_v2_module
+#20 1.318 checking for OS
+#20 1.321  + Linux 5.13.0-28-generic x86_64
+#20 1.321 checking for C compiler ... found
+#20 1.419  + using Clang C compiler
+#20 1.419 checking for --with-ld-opt="-Wl,--wrap=listen -Wl,--wrap=setsockopt -Wl,--wrap=bind -Wl,--wrap=shutdown -Wl,--wrap=connect" ... found
+#20 1.541 checking for -Wl,-E switch ... found
+#20 1.671 checking for gcc builtin atomic operations ... found
+#20 1.806 checking for C99 variadic macros ... found
+#20 1.950 checking for gcc variadic macros ... found
+#20 2.096 checking for gcc builtin 64 bit byteswap ... found
+#20 2.219 checking for unistd.h ... found
+#20 2.284 checking for inttypes.h ... found
+#20 2.347 checking for limits.h ... found
+#20 2.406 checking for sys/filio.h ... not found
+#20 2.435 checking for sys/param.h ... found
+#20 2.512 checking for sys/mount.h ... found
+#20 2.587 checking for sys/statvfs.h ... found
+#20 2.663 checking for crypt.h ... found
+#20 2.745 checking for Linux specific features
+#20 2.749 checking for epoll ... found
+#20 2.903 checking for EPOLLRDHUP ... found
+#20 3.038 checking for EPOLLEXCLUSIVE ... found
+#20 3.179 checking for eventfd() ... found
+#20 3.321 checking for O_PATH ... found
+#20 3.463 checking for sendfile() ... found
+#20 3.639 checking for sendfile64() ... found
+#20 3.782 checking for sys/prctl.h ... found
+#20 3.853 checking for prctl(PR_SET_DUMPABLE) ... found
+#20 3.990 checking for prctl(PR_SET_KEEPCAPS) ... found
+#20 4.130 checking for capabilities ... found
+#20 4.272 checking for crypt_r() ... found
+#20 4.415 checking for sys/vfs.h ... found
+#20 4.535 checking for UDP_SEGMENT ... found
+#20 4.698 checking for nobody group ... not found
+#20 4.699 checking for nogroup group ... found
+#20 4.699 checking for poll() ... found
+#20 4.832 checking for /dev/poll ... not found
+#20 4.878 checking for kqueue ... not found
+#20 4.923 checking for crypt() ... not found
+#20 5.051 checking for crypt() in libcrypt ... found
+#20 5.499 checking for F_READAHEAD ... not found
+#20 5.547 checking for posix_fadvise() ... found
+#20 5.683 checking for O_DIRECT ... found
+#20 5.814 checking for F_NOCACHE ... not found
+#20 5.860 checking for directio() ... not found
+#20 5.909 checking for statfs() ... found
+#20 6.058 checking for statvfs() ... found
+#20 6.193 checking for dlopen() ... found
+#20 6.330 checking for sched_yield() ... found
+#20 6.466 checking for sched_setaffinity() ... found
+#20 6.601 checking for SO_SETFIB ... not found
+#20 6.650 checking for SO_REUSEPORT ... not found
+#20 6.796 checking for SO_ACCEPTFILTER ... not found
+#20 6.845 checking for SO_BINDANY ... not found
+#20 6.894 checking for IP_TRANSPARENT ... not found
+#20 7.034 checking for IP_BINDANY ... not found
+#20 7.086 checking for IP_BIND_ADDRESS_NO_PORT ... not found
+#20 7.226 checking for IP_RECVDSTADDR ... not found
+#20 7.279 checking for IP_SENDSRCADDR ... not found
+#20 7.330 checking for IP_PKTINFO ... not found
+#20 7.470 checking for IPV6_RECVPKTINFO ... not found
+#20 7.609 checking for TCP_DEFER_ACCEPT ... not found
+#20 7.748 checking for TCP_KEEPIDLE ... not found
+#20 7.890 checking for TCP_FASTOPEN ... not found
+#20 8.031 checking for TCP_INFO ... found
+#20 8.174 checking for accept4() ... found
+#20 8.313 checking for int size ... 4 bytes
+#20 8.460 checking for long size ... 8 bytes
+#20 8.605 checking for long long size ... 8 bytes
+#20 8.750 checking for void * size ... 8 bytes
+#20 8.902 checking for uint32_t ... found
+#20 9.042 checking for uint64_t ... found
+#20 9.182 checking for sig_atomic_t ... found
+#20 9.321 checking for sig_atomic_t size ... 4 bytes
+#20 9.469 checking for socklen_t ... found
+#20 9.600 checking for in_addr_t ... found
+#20 9.732 checking for in_port_t ... found
+#20 9.869 checking for rlim_t ... found
+#20 10.02 checking for uintptr_t ... uintptr_t found
+#20 10.14 checking for system byte ordering ... little endian
+#20 10.27 checking for size_t size ... 8 bytes
+#20 10.42 checking for off_t size ... 8 bytes
+#20 10.57 checking for time_t size ... 8 bytes
+#20 10.73 checking for AF_INET6 ... found
+#20 10.87 checking for setproctitle() ... not found
+#20 11.02 checking for pread() ... found
+#20 11.16 checking for pwrite() ... found
+#20 11.30 checking for pwritev() ... found
+#20 11.44 checking for strerrordesc_np() ... not found
+#20 11.58 checking for sys_nerr ... found
+#20 11.73 checking for localtime_r() ... found
+#20 11.87 checking for clock_gettime(CLOCK_MONOTONIC) ... found
+#20 12.00 checking for posix_memalign() ... found
+#20 12.14 checking for memalign() ... found
+#20 12.30 checking for mmap(MAP_ANON|MAP_SHARED) ... found
+#20 12.45 checking for mmap("/dev/zero", MAP_SHARED) ... found
+#20 12.59 checking for System V shared memory ... found
+#20 12.74 checking for POSIX semaphores ... found
+#20 12.88 checking for struct msghdr.msg_control ... found
+#20 13.02 checking for ioctl(FIONBIO) ... found
+#20 13.16 checking for ioctl(FIONREAD) ... found
+#20 13.30 checking for struct tm.tm_gmtoff ... found
+#20 13.44 checking for struct dirent.d_namlen ... not found
+#20 13.50 checking for struct dirent.d_type ... found
+#20 13.65 checking for sysconf(_SC_NPROCESSORS_ONLN) ... found
+#20 13.79 checking for sysconf(_SC_LEVEL1_DCACHE_LINESIZE) ... found
+#20 13.92 checking for openat(), fstatat() ... found
+#20 14.07 checking for getaddrinfo() ... found
+#20 14.24 checking for PCRE2 library ... not found
+#20 14.29 checking for PCRE library ... found
+#20 14.43 checking for PCRE JIT support ... found
+#20 14.58 checking for zlib library ... found
+#20 14.74 creating objs/Makefile
+#20 15.63 
+#20 15.63 Configuration summary
+#20 15.63   + using system PCRE library
+#20 15.63   + OpenSSL library is not used
+#20 15.63   + using system zlib library
+#20 15.63 
+#20 15.63   nginx path prefix: "/usr/local/nginx"
+#20 15.63   nginx binary file: "/usr/local/nginx/sbin/nginx"
+#20 15.63   nginx modules path: "/usr/local/nginx/modules"
+#20 15.63   nginx configuration prefix: "/usr/local/nginx/conf"
+#20 15.63   nginx configuration file: "/usr/local/nginx/conf/nginx.conf"
+#20 15.63   nginx pid file: "/usr/local/nginx/logs/nginx.pid"
+#20 15.63   nginx error log file: "/usr/local/nginx/logs/error.log"
+#20 15.63   nginx http access log file: "/usr/local/nginx/logs/access.log"
+#20 15.63   nginx http client request body temporary files: "client_body_temp"
+#20 15.63   nginx http proxy temporary files: "proxy_temp"
+#20 15.63   nginx http fastcgi temporary files: "fastcgi_temp"
+#20 15.63   nginx http uwsgi temporary files: "uwsgi_temp"
+#20 15.63   nginx http scgi temporary files: "scgi_temp"
+#20 15.63 
+#20 15.63 + make -f objs/Makefile fuzzers
+#20 15.65 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -o objs/src/fuzz/wrappers.o src/fuzz/wrappers.c
+#20 15.69 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 15.69 	-o objs/src/core/nginx.o \
+#20 15.69 	src/core/nginx.c
+#20 16.07 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 16.07 	-o objs/src/core/ngx_log.o \
+#20 16.07 	src/core/ngx_log.c
+#20 16.31 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 16.31 	-o objs/src/core/ngx_palloc.o \
+#20 16.31 	src/core/ngx_palloc.c
+#20 16.54 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 16.54 	-o objs/src/core/ngx_array.o \
+#20 16.54 	src/core/ngx_array.c
+#20 16.68 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 16.68 	-o objs/src/core/ngx_list.o \
+#20 16.68 	src/core/ngx_list.c
+#20 16.80 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 16.80 	-o objs/src/core/ngx_hash.o \
+#20 16.80 	src/core/ngx_hash.c
+#20 17.25 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 17.25 	-o objs/src/core/ngx_buf.o \
+#20 17.25 	src/core/ngx_buf.c
+#20 17.43 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 17.43 	-o objs/src/core/ngx_queue.o \
+#20 17.43 	src/core/ngx_queue.c
+#20 17.56 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 17.56 	-o objs/src/core/ngx_output_chain.o \
+#20 17.56 	src/core/ngx_output_chain.c
+#20 17.86 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 17.86 	-o objs/src/core/ngx_string.o \
+#20 17.86 	src/core/ngx_string.c
+#20 18.50 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 18.50 	-o objs/src/core/ngx_parse.o \
+#20 18.50 	src/core/ngx_parse.c
+#20 18.66 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 18.66 	-o objs/src/core/ngx_parse_time.o \
+#20 18.66 	src/core/ngx_parse_time.c
+#20 18.84 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 18.84 	-o objs/src/core/ngx_inet.o \
+#20 18.84 	src/core/ngx_inet.c
+#20 19.36 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 19.36 	-o objs/src/core/ngx_file.o \
+#20 19.36 	src/core/ngx_file.c
+#20 19.71 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 19.71 	-o objs/src/core/ngx_crc32.o \
+#20 19.71 	src/core/ngx_crc32.c
+#20 19.84 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 19.84 	-o objs/src/core/ngx_murmurhash.o \
+#20 19.84 	src/core/ngx_murmurhash.c
+#20 19.97 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 19.97 	-o objs/src/core/ngx_md5.o \
+#20 19.97 	src/core/ngx_md5.c
+#20 20.22 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 20.22 	-o objs/src/core/ngx_sha1.o \
+#20 20.22 	src/core/ngx_sha1.c
+#20 20.56 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 20.56 	-o objs/src/core/ngx_rbtree.o \
+#20 20.56 	src/core/ngx_rbtree.c
+#20 20.75 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 20.75 	-o objs/src/core/ngx_radix_tree.o \
+#20 20.75 	src/core/ngx_radix_tree.c
+#20 20.96 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 20.96 	-o objs/src/core/ngx_slab.o \
+#20 20.96 	src/core/ngx_slab.c
+#20 21.25 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 21.25 	-o objs/src/core/ngx_times.o \
+#20 21.25 	src/core/ngx_times.c
+#20 21.46 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 21.46 	-o objs/src/core/ngx_shmtx.o \
+#20 21.46 	src/core/ngx_shmtx.c
+#20 21.62 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 21.62 	-o objs/src/core/ngx_connection.o \
+#20 21.62 	src/core/ngx_connection.c
+#20 21.95 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 21.95 	-o objs/src/core/ngx_cycle.o \
+#20 21.95 	src/core/ngx_cycle.c
+#20 22.36 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 22.36 	-o objs/src/core/ngx_spinlock.o \
+#20 22.36 	src/core/ngx_spinlock.c
+#20 22.49 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 22.49 	-o objs/src/core/ngx_rwlock.o \
+#20 22.49 	src/core/ngx_rwlock.c
+#20 22.70 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 22.70 	-o objs/src/core/ngx_cpuinfo.o \
+#20 22.70 	src/core/ngx_cpuinfo.c
+#20 22.83 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 22.83 	-o objs/src/core/ngx_conf_file.o \
+#20 22.83 	src/core/ngx_conf_file.c
+#20 23.21 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 23.21 	-o objs/src/core/ngx_module.o \
+#20 23.21 	src/core/ngx_module.c
+#20 23.41 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 23.41 	-o objs/src/core/ngx_resolver.o \
+#20 23.41 	src/core/ngx_resolver.c
+#20 24.53 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 24.53 	-o objs/src/core/ngx_open_file_cache.o \
+#20 24.53 	src/core/ngx_open_file_cache.c
+#20 24.88 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 24.88 	-o objs/src/core/ngx_crypt.o \
+#20 24.88 	src/core/ngx_crypt.c
+#20 25.08 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 25.08 	-o objs/src/core/ngx_proxy_protocol.o \
+#20 25.08 	src/core/ngx_proxy_protocol.c
+#20 25.27 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 25.27 	-o objs/src/core/ngx_syslog.o \
+#20 25.27 	src/core/ngx_syslog.c
+#20 25.49 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 25.49 	-o objs/src/event/ngx_event.o \
+#20 25.49 	src/event/ngx_event.c
+#20 25.77 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 25.77 	-o objs/src/event/ngx_event_timer.o \
+#20 25.77 	src/event/ngx_event_timer.c
+#20 25.92 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 25.92 	-o objs/src/event/ngx_event_posted.o \
+#20 25.92 	src/event/ngx_event_posted.c
+#20 26.04 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 26.04 	-o objs/src/event/ngx_event_accept.o \
+#20 26.04 	src/event/ngx_event_accept.c
+#20 26.27 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 26.27 	-o objs/src/event/ngx_event_udp.o \
+#20 26.27 	src/event/ngx_event_udp.c
+#20 26.50 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 26.50 	-o objs/src/event/ngx_event_connect.o \
+#20 26.50 	src/event/ngx_event_connect.c
+#20 26.67 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 26.67 	-o objs/src/event/ngx_event_pipe.o \
+#20 26.67 	src/event/ngx_event_pipe.c
+#20 27.03 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 27.03 	-o objs/src/os/unix/ngx_time.o \
+#20 27.03 	src/os/unix/ngx_time.c
+#20 27.16 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 27.16 	-o objs/src/os/unix/ngx_errno.o \
+#20 27.16 	src/os/unix/ngx_errno.c
+#20 27.28 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 27.28 	-o objs/src/os/unix/ngx_alloc.o \
+#20 27.28 	src/os/unix/ngx_alloc.c
+#20 27.40 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 27.40 	-o objs/src/os/unix/ngx_files.o \
+#20 27.40 	src/os/unix/ngx_files.c
+#20 27.61 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 27.61 	-o objs/src/os/unix/ngx_socket.o \
+#20 27.61 	src/os/unix/ngx_socket.c
+#20 27.74 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 27.74 	-o objs/src/os/unix/ngx_recv.o \
+#20 27.74 	src/os/unix/ngx_recv.c
+#20 27.87 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 27.87 	-o objs/src/os/unix/ngx_readv_chain.o \
+#20 27.87 	src/os/unix/ngx_readv_chain.c
+#20 28.02 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 28.02 	-o objs/src/os/unix/ngx_udp_recv.o \
+#20 28.02 	src/os/unix/ngx_udp_recv.c
+#20 28.15 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 28.15 	-o objs/src/os/unix/ngx_send.o \
+#20 28.15 	src/os/unix/ngx_send.c
+#20 28.28 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 28.28 	-o objs/src/os/unix/ngx_writev_chain.o \
+#20 28.28 	src/os/unix/ngx_writev_chain.c
+#20 28.43 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 28.43 	-o objs/src/os/unix/ngx_udp_send.o \
+#20 28.43 	src/os/unix/ngx_udp_send.c
+#20 28.56 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 28.56 	-o objs/src/os/unix/ngx_udp_sendmsg_chain.o \
+#20 28.56 	src/os/unix/ngx_udp_sendmsg_chain.c
+#20 28.73 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 28.73 	-o objs/src/os/unix/ngx_channel.o \
+#20 28.73 	src/os/unix/ngx_channel.c
+#20 28.88 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 28.88 	-o objs/src/os/unix/ngx_shmem.o \
+#20 28.88 	src/os/unix/ngx_shmem.c
+#20 29.01 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.01 	-o objs/src/os/unix/ngx_process.o \
+#20 29.01 	src/os/unix/ngx_process.c
+#20 29.24 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.24 	-o objs/src/os/unix/ngx_daemon.o \
+#20 29.24 	src/os/unix/ngx_daemon.c
+#20 29.36 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.36 	-o objs/src/os/unix/ngx_setaffinity.o \
+#20 29.36 	src/os/unix/ngx_setaffinity.c
+#20 29.48 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.48 	-o objs/src/os/unix/ngx_setproctitle.o \
+#20 29.48 	src/os/unix/ngx_setproctitle.c
+#20 29.62 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.62 	-o objs/src/os/unix/ngx_posix_init.o \
+#20 29.62 	src/os/unix/ngx_posix_init.c
+#20 29.75 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.75 	-o objs/src/os/unix/ngx_user.o \
+#20 29.75 	src/os/unix/ngx_user.c
+#20 29.87 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.87 	-o objs/src/os/unix/ngx_dlopen.o \
+#20 29.87 	src/os/unix/ngx_dlopen.c
+#20 29.99 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 29.99 	-o objs/src/os/unix/ngx_process_cycle.o \
+#20 29.99 	src/os/unix/ngx_process_cycle.c
+#20 30.57 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 30.57 	-o objs/src/os/unix/ngx_linux_init.o \
+#20 30.57 	src/os/unix/ngx_linux_init.c
+#20 30.70 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 30.70 	-o objs/src/event/modules/ngx_epoll_module.o \
+#20 30.70 	src/event/modules/ngx_epoll_module.c
+#20 30.91 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 30.91 	-o objs/src/os/unix/ngx_linux_sendfile_chain.o \
+#20 30.91 	src/os/unix/ngx_linux_sendfile_chain.c
+#20 31.07 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 31.07 	-o objs/src/core/ngx_regex.o \
+#20 31.07 	src/core/ngx_regex.c
+#20 31.25 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 31.25 	-o objs/src/http/ngx_http.o \
+#20 31.25 	src/http/ngx_http.c
+#20 31.86 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 31.86 	-o objs/src/http/ngx_http_core_module.o \
+#20 31.86 	src/http/ngx_http_core_module.c
+#20 32.87 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 32.87 	-o objs/src/http/ngx_http_special_response.o \
+#20 32.87 	src/http/ngx_http_special_response.c
+#20 33.11 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 33.11 	-o objs/src/http/ngx_http_request.o \
+#20 33.11 	src/http/ngx_http_request.c
+#20 33.81 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 33.81 	-o objs/src/http/ngx_http_parse.o \
+#20 33.81 	src/http/ngx_http_parse.c
+#20 34.33 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 34.33 	-o objs/src/http/modules/ngx_http_log_module.o \
+#20 34.33 	src/http/modules/ngx_http_log_module.c
+#20 34.83 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 34.83 	-o objs/src/http/ngx_http_request_body.o \
+#20 34.83 	src/http/ngx_http_request_body.c
+#20 35.21 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 35.21 	-o objs/src/http/ngx_http_variables.o \
+#20 35.21 	src/http/ngx_http_variables.c
+#20 35.83 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 35.83 	-o objs/src/http/ngx_http_script.o \
+#20 35.83 	src/http/ngx_http_script.c
+#20 36.37 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 36.37 	-o objs/src/http/ngx_http_upstream.o \
+#20 36.37 	src/http/ngx_http_upstream.c
+#20 37.59 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 37.59 	-o objs/src/http/ngx_http_upstream_round_robin.o \
+#20 37.59 	src/http/ngx_http_upstream_round_robin.c
+#20 37.86 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 37.86 	-o objs/src/http/ngx_http_file_cache.o \
+#20 37.86 	src/http/ngx_http_file_cache.c
+#20 38.53 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 38.53 	-o objs/src/http/ngx_http_huff_decode.o \
+#20 38.53 	src/http/ngx_http_huff_decode.c
+#20 38.76 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 38.76 	-o objs/src/http/ngx_http_huff_encode.o \
+#20 38.76 	src/http/ngx_http_huff_encode.c
+#20 38.94 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 38.94 	-o objs/src/http/ngx_http_write_filter_module.o \
+#20 38.94 	src/http/ngx_http_write_filter_module.c
+#20 39.17 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 39.17 	-o objs/src/http/ngx_http_header_filter_module.o \
+#20 39.17 	src/http/ngx_http_header_filter_module.c
+#20 39.40 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 39.40 	-o objs/src/http/modules/ngx_http_chunked_filter_module.o \
+#20 39.40 	src/http/modules/ngx_http_chunked_filter_module.c
+#20 39.60 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 39.60 	-o objs/src/http/v2/ngx_http_v2_filter_module.o \
+#20 39.60 	src/http/v2/ngx_http_v2_filter_module.c
+#20 40.24 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 40.24 	-o objs/src/http/modules/ngx_http_range_filter_module.o \
+#20 40.24 	src/http/modules/ngx_http_range_filter_module.c
+#20 40.55 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 40.55 	-o objs/src/http/modules/ngx_http_gzip_filter_module.o \
+#20 40.55 	src/http/modules/ngx_http_gzip_filter_module.c
+#20 40.87 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 40.87 	-o objs/src/http/ngx_http_postpone_filter_module.o \
+#20 40.87 	src/http/ngx_http_postpone_filter_module.c
+#20 41.04 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 41.04 	-o objs/src/http/modules/ngx_http_ssi_filter_module.o \
+#20 41.04 	src/http/modules/ngx_http_ssi_filter_module.c
+#20 41.77 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 41.77 	-o objs/src/http/modules/ngx_http_charset_filter_module.o \
+#20 41.77 	src/http/modules/ngx_http_charset_filter_module.c
+#20 42.34 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 42.34 	-o objs/src/http/modules/ngx_http_userid_filter_module.o \
+#20 42.34 	src/http/modules/ngx_http_userid_filter_module.c
+#20 42.60 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 42.60 	-o objs/src/http/modules/ngx_http_headers_filter_module.o \
+#20 42.60 	src/http/modules/ngx_http_headers_filter_module.c
+#20 42.88 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 42.88 	-o objs/src/http/ngx_http_copy_filter_module.o \
+#20 42.88 	src/http/ngx_http_copy_filter_module.c
+#20 43.05 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 43.05 	-o objs/src/http/modules/ngx_http_not_modified_filter_module.o \
+#20 43.05 	src/http/modules/ngx_http_not_modified_filter_module.c
+#20 43.23 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 43.23 	-o objs/src/http/v2/ngx_http_v2.o \
+#20 43.23 	src/http/v2/ngx_http_v2.c
+#20 44.60 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 44.60 	-o objs/src/http/v2/ngx_http_v2_table.o \
+#20 44.60 	src/http/v2/ngx_http_v2_table.c
+#20 44.79 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 44.79 	-o objs/src/http/v2/ngx_http_v2_encode.o \
+#20 44.79 	src/http/v2/ngx_http_v2_encode.c
+#20 44.95 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 44.95 	-o objs/src/http/v2/ngx_http_v2_module.o \
+#20 44.95 	src/http/v2/ngx_http_v2_module.c
+#20 45.14 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 45.14 	-o objs/src/http/modules/ngx_http_static_module.o \
+#20 45.14 	src/http/modules/ngx_http_static_module.c
+#20 45.32 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 45.32 	-o objs/src/http/modules/ngx_http_autoindex_module.o \
+#20 45.32 	src/http/modules/ngx_http_autoindex_module.c
+#20 45.68 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 45.68 	-o objs/src/http/modules/ngx_http_index_module.o \
+#20 45.68 	src/http/modules/ngx_http_index_module.c
+#20 45.91 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 45.91 	-o objs/src/http/modules/ngx_http_mirror_module.o \
+#20 45.91 	src/http/modules/ngx_http_mirror_module.c
+#20 46.08 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 46.08 	-o objs/src/http/modules/ngx_http_try_files_module.o \
+#20 46.08 	src/http/modules/ngx_http_try_files_module.c
+#20 46.29 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 46.29 	-o objs/src/http/modules/ngx_http_auth_basic_module.o \
+#20 46.29 	src/http/modules/ngx_http_auth_basic_module.c
+#20 46.49 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 46.49 	-o objs/src/http/modules/ngx_http_access_module.o \
+#20 46.49 	src/http/modules/ngx_http_access_module.c
+#20 46.72 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 46.72 	-o objs/src/http/modules/ngx_http_limit_conn_module.o \
+#20 46.72 	src/http/modules/ngx_http_limit_conn_module.c
+#20 46.98 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 46.98 	-o objs/src/http/modules/ngx_http_limit_req_module.o \
+#20 46.98 	src/http/modules/ngx_http_limit_req_module.c
+#20 47.34 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 47.34 	-o objs/src/http/modules/ngx_http_geo_module.o \
+#20 47.34 	src/http/modules/ngx_http_geo_module.c
+#20 47.87 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 47.87 	-o objs/src/http/modules/ngx_http_map_module.o \
+#20 47.87 	src/http/modules/ngx_http_map_module.c
+#20 48.09 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 48.09 	-o objs/src/http/modules/ngx_http_split_clients_module.o \
+#20 48.09 	src/http/modules/ngx_http_split_clients_module.c
+#20 48.26 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 48.26 	-o objs/src/http/modules/ngx_http_referer_module.o \
+#20 48.26 	src/http/modules/ngx_http_referer_module.c
+#20 48.51 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 48.51 	-o objs/src/http/modules/ngx_http_rewrite_module.o \
+#20 48.51 	src/http/modules/ngx_http_rewrite_module.c
+#20 48.80 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 48.80 	-o objs/src/http/modules/ngx_http_proxy_module.o \
+#20 48.80 	src/http/modules/ngx_http_proxy_module.c
+#20 49.76 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 49.76 	-o objs/src/http/modules/ngx_http_fastcgi_module.o \
+#20 49.76 	src/http/modules/ngx_http_fastcgi_module.c
+#20 50.52 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 50.52 	-o objs/src/http/modules/ngx_http_uwsgi_module.o \
+#20 50.52 	src/http/modules/ngx_http_uwsgi_module.c
+#20 50.99 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 50.99 	-o objs/src/http/modules/ngx_http_scgi_module.o \
+#20 50.99 	src/http/modules/ngx_http_scgi_module.c
+#20 51.45 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 51.45 	-o objs/src/http/modules/ngx_http_grpc_module.o \
+#20 51.45 	src/http/modules/ngx_http_grpc_module.c
+#20 52.39 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 52.39 	-o objs/src/http/modules/ngx_http_memcached_module.o \
+#20 52.39 	src/http/modules/ngx_http_memcached_module.c
+#20 52.62 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 52.62 	-o objs/src/http/modules/ngx_http_empty_gif_module.o \
+#20 52.62 	src/http/modules/ngx_http_empty_gif_module.c
+#20 52.76 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 52.76 	-o objs/src/http/modules/ngx_http_browser_module.o \
+#20 52.76 	src/http/modules/ngx_http_browser_module.c
+#20 53.00 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 53.00 	-o objs/src/http/modules/ngx_http_upstream_hash_module.o \
+#20 53.00 	src/http/modules/ngx_http_upstream_hash_module.c
+#20 53.29 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 53.29 	-o objs/src/http/modules/ngx_http_upstream_ip_hash_module.o \
+#20 53.29 	src/http/modules/ngx_http_upstream_ip_hash_module.c
+#20 53.47 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 53.47 	-o objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
+#20 53.47 	src/http/modules/ngx_http_upstream_least_conn_module.c
+#20 53.65 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 53.65 	-o objs/src/http/modules/ngx_http_upstream_random_module.o \
+#20 53.65 	src/http/modules/ngx_http_upstream_random_module.c
+#20 53.87 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 53.87 	-o objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
+#20 53.87 	src/http/modules/ngx_http_upstream_keepalive_module.c
+#20 54.08 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 \
+#20 54.08 	-o objs/src/http/modules/ngx_http_upstream_zone_module.o \
+#20 54.08 	src/http/modules/ngx_http_upstream_zone_module.c
+#20 54.27 clang -c -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs \
+#20 54.27 	-o objs/ngx_modules.o \
+#20 54.27 	objs/ngx_modules.c
+#20 54.39 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard src/fuzz/http_request_fuzzer.cc 	 src/fuzz/genfiles/http_request_proto.pb.cc 	 -o objs/http_request_fuzzer 	 -I src/core -I src/event -I src/event/modules -I src/os/unix -I objs -I src/http -I src/http/modules -I src/http/v2 	 -I src/fuzz/genfiles/ -I /src/ 	 -I /src/libprotobuf-mutator/ 	 -I /src/LPM/external.protobuf/include 	 /src/LPM/src/libfuzzer/libprotobuf-mutator-libfuzzer.a   	 /src/LPM/src/libprotobuf-mutator.a   	 /src/LPM/external.protobuf/lib/libprotobuf.a 	  \
+#20 54.39 objs/src/fuzz/wrappers.o \
+#20 54.39 objs/src/core/nginx.o \
+#20 54.39 objs/src/core/ngx_log.o \
+#20 54.39 objs/src/core/ngx_palloc.o \
+#20 54.39 objs/src/core/ngx_array.o \
+#20 54.39 objs/src/core/ngx_list.o \
+#20 54.39 objs/src/core/ngx_hash.o \
+#20 54.39 objs/src/core/ngx_buf.o \
+#20 54.39 objs/src/core/ngx_queue.o \
+#20 54.39 objs/src/core/ngx_output_chain.o \
+#20 54.39 objs/src/core/ngx_string.o \
+#20 54.39 objs/src/core/ngx_parse.o \
+#20 54.39 objs/src/core/ngx_parse_time.o \
+#20 54.39 objs/src/core/ngx_inet.o \
+#20 54.39 objs/src/core/ngx_file.o \
+#20 54.39 objs/src/core/ngx_crc32.o \
+#20 54.39 objs/src/core/ngx_murmurhash.o \
+#20 54.39 objs/src/core/ngx_md5.o \
+#20 54.39 objs/src/core/ngx_sha1.o \
+#20 54.39 objs/src/core/ngx_rbtree.o \
+#20 54.39 objs/src/core/ngx_radix_tree.o \
+#20 54.39 objs/src/core/ngx_slab.o \
+#20 54.39 objs/src/core/ngx_times.o \
+#20 54.39 objs/src/core/ngx_shmtx.o \
+#20 54.39 objs/src/core/ngx_connection.o \
+#20 54.39 objs/src/core/ngx_cycle.o \
+#20 54.39 objs/src/core/ngx_spinlock.o \
+#20 54.39 objs/src/core/ngx_rwlock.o \
+#20 54.39 objs/src/core/ngx_cpuinfo.o \
+#20 54.39 objs/src/core/ngx_conf_file.o \
+#20 54.39 objs/src/core/ngx_module.o \
+#20 54.39 objs/src/core/ngx_resolver.o \
+#20 54.39 objs/src/core/ngx_open_file_cache.o \
+#20 54.39 objs/src/core/ngx_crypt.o \
+#20 54.39 objs/src/core/ngx_proxy_protocol.o \
+#20 54.39 objs/src/core/ngx_syslog.o \
+#20 54.39 objs/src/event/ngx_event.o \
+#20 54.39 objs/src/event/ngx_event_timer.o \
+#20 54.39 objs/src/event/ngx_event_posted.o \
+#20 54.39 objs/src/event/ngx_event_accept.o \
+#20 54.39 objs/src/event/ngx_event_udp.o \
+#20 54.39 objs/src/event/ngx_event_connect.o \
+#20 54.39 objs/src/event/ngx_event_pipe.o \
+#20 54.39 objs/src/os/unix/ngx_time.o \
+#20 54.39 objs/src/os/unix/ngx_errno.o \
+#20 54.39 objs/src/os/unix/ngx_alloc.o \
+#20 54.39 objs/src/os/unix/ngx_files.o \
+#20 54.39 objs/src/os/unix/ngx_socket.o \
+#20 54.39 objs/src/os/unix/ngx_recv.o \
+#20 54.39 objs/src/os/unix/ngx_readv_chain.o \
+#20 54.39 objs/src/os/unix/ngx_udp_recv.o \
+#20 54.39 objs/src/os/unix/ngx_send.o \
+#20 54.39 objs/src/os/unix/ngx_writev_chain.o \
+#20 54.39 objs/src/os/unix/ngx_udp_send.o \
+#20 54.39 objs/src/os/unix/ngx_udp_sendmsg_chain.o \
+#20 54.39 objs/src/os/unix/ngx_channel.o \
+#20 54.39 objs/src/os/unix/ngx_shmem.o \
+#20 54.39 objs/src/os/unix/ngx_process.o \
+#20 54.39 objs/src/os/unix/ngx_daemon.o \
+#20 54.39 objs/src/os/unix/ngx_setaffinity.o \
+#20 54.39 objs/src/os/unix/ngx_setproctitle.o \
+#20 54.39 objs/src/os/unix/ngx_posix_init.o \
+#20 54.39 objs/src/os/unix/ngx_user.o \
+#20 54.39 objs/src/os/unix/ngx_dlopen.o \
+#20 54.39 objs/src/os/unix/ngx_process_cycle.o \
+#20 54.39 objs/src/os/unix/ngx_linux_init.o \
+#20 54.39 objs/src/event/modules/ngx_epoll_module.o \
+#20 54.39 objs/src/os/unix/ngx_linux_sendfile_chain.o \
+#20 54.39 objs/src/core/ngx_regex.o \
+#20 54.39 objs/src/http/ngx_http.o \
+#20 54.39 objs/src/http/ngx_http_core_module.o \
+#20 54.39 objs/src/http/ngx_http_special_response.o \
+#20 54.39 objs/src/http/ngx_http_request.o \
+#20 54.39 objs/src/http/ngx_http_parse.o \
+#20 54.39 objs/src/http/modules/ngx_http_log_module.o \
+#20 54.39 objs/src/http/ngx_http_request_body.o \
+#20 54.39 objs/src/http/ngx_http_variables.o \
+#20 54.39 objs/src/http/ngx_http_script.o \
+#20 54.39 objs/src/http/ngx_http_upstream.o \
+#20 54.39 objs/src/http/ngx_http_upstream_round_robin.o \
+#20 54.39 objs/src/http/ngx_http_file_cache.o \
+#20 54.39 objs/src/http/ngx_http_huff_decode.o \
+#20 54.39 objs/src/http/ngx_http_huff_encode.o \
+#20 54.39 objs/src/http/ngx_http_write_filter_module.o \
+#20 54.39 objs/src/http/ngx_http_header_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_chunked_filter_module.o \
+#20 54.39 objs/src/http/v2/ngx_http_v2_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_range_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_gzip_filter_module.o \
+#20 54.39 objs/src/http/ngx_http_postpone_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_ssi_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_charset_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_userid_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_headers_filter_module.o \
+#20 54.39 objs/src/http/ngx_http_copy_filter_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_not_modified_filter_module.o \
+#20 54.39 objs/src/http/v2/ngx_http_v2.o \
+#20 54.39 objs/src/http/v2/ngx_http_v2_table.o \
+#20 54.39 objs/src/http/v2/ngx_http_v2_encode.o \
+#20 54.39 objs/src/http/v2/ngx_http_v2_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_static_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_autoindex_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_index_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_mirror_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_try_files_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_auth_basic_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_access_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_limit_conn_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_limit_req_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_geo_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_map_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_split_clients_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_referer_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_rewrite_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_proxy_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_fastcgi_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_uwsgi_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_scgi_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_grpc_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_memcached_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_empty_gif_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_browser_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_upstream_hash_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_upstream_ip_hash_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_upstream_random_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
+#20 54.39 objs/src/http/modules/ngx_http_upstream_zone_module.o \
+#20 54.39 objs/ngx_modules.o    	 /libAFL.a  \
+#20 54.39 -Wl,--wrap=listen -Wl,--wrap=setsockopt -Wl,--wrap=bind -Wl,--wrap=shutdown -Wl,--wrap=connect -lcrypt -lpcre -lz \
+#20 54.39 -Wl,-E -lcrypt
+#20 59.98 + cp objs/http_request_fuzzer /out/
+#20 60.00 + cp /src/fuzz/http_request_fuzzer.dict /out/
+#20 60.00 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 62.2s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:68be167c2ab72ecccd3fd4cc2a55193b6c70f19ff86ce327a9f80e033446705a done
+#21 naming to gcr.io/fuzzbench/builders/afl/nginx_nginx done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/nginx_nginx:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:bb64293787c5a847bf64f73eeae4f8ad38775e463ce57f19fd05a9dff351f27f
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:86433011a3184880e454f88fd2ce8eb60850db30d7a6ee1a2513a9f2d5bc9a47
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate
+#5 sha256:138a5c6d1b843ed9e932fc47ee2811e38de08ffc27d6cf983a1b815b496845c8
+#5 ERROR: gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5ac680f9a59b4019b6590dca0717b5f94a5c29c075177fb37f8ebc9569640f5 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate 0.0s done
+#6 DONE 0.2s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7e327f2045e46a4968fbd23da1628918f88e2cd269fbf691849fecb100292a2c
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:5848059a54fafb3395edba65703829564c4d6530208331a35d0a2dde6ccef180
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate:latest
+#3 sha256:981faebf56c0e9f7191a68d50e631671757e6631dad3c1c0b0e3edeec78dbb13
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nginx_nginx:latest
+#4 sha256:86a9c5e9e3a85809e02c825e419411292438a8c80fc6ea20165d95b2dc7e3489
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d616fb218a6abbca59cf453d1423657f5b359bf37f6901f660b87607487c739e
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate
+#6 sha256:aa0602d738d75b233e4d0dcbabec058864d146359bafcdf920edb453ad340466
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/nginx_nginx
+#10 sha256:b7fab7368be9ca844ab08b35e1215ae6db588de993c266dfb1c17134d5a40c20
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/nginx_nginx
+#5 sha256:ba161a7f78af9e78d6acf291220c10ab04af2efb608fa6808f21df082c0c5336
+#5 ERROR: gcr.io/fuzzbench/runners/afl/nginx_nginx:latest: not found
+
+#12 [internal] load build context
+#12 sha256:d616fb218a6abbca59cf453d1423657f5b359bf37f6901f660b87607487c739e
+#12 transferring context: 18.45MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/nginx_nginx
+#10 sha256:b7fab7368be9ca844ab08b35e1215ae6db588de993c266dfb1c17134d5a40c20
+#10 DONE 0.6s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:967cb348bda287d32cff29dbf86e032753e59c78b6fb908dd4e988766923d5c5
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:1626160a889d8de380486ac443473c271ba9a9692911592223eca98ddba173f1
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:bce99bf5eaf113130789df85dddd666ca2f8b2ab0f5bd302a18b791894c885ef
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:fef9f5401ca3aa2abe4d609e44d3bd19bdfd13ed4ff8316e9020d3c36df0d5e4
+#11 DONE 0.3s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:32de717848db5d40e1727be7bce87e70ed4551f599ba05cc18214144dc52dca3
+#13 DONE 1.1s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:409060ddd41148e9da114a66a63314d1393ab355cc90d7427f36213a1882c09f
+#14 DONE 0.4s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:df6084f6863802839a95d760ec1438d2896dfae59f2c5d8bca9c103636a18c5b
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:e18fb59ee16267bb8f19397f697763933f5cc64d4356d3dd23a5bb539aed2672
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:09737623401b7c990d1a8bfee9326c62d5385d6c6ee4a609d41711b9c71ab262
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:f3bd1a456bc72470bcf625ac11c3f784102987ed3e2b2b319cc24a9917d7fc9c
+#18 DONE 0.3s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:839296eadf2d5af6a725493cbe2fb4db28708c657ca1964aa05fdb57ee46ff2d
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:d621c855c7e4ec58a361ce1146aa721698f8ee08a0d8a9b98dad96e4251f8675
+#20 DONE 1.2s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:7bd4a94958431b15caf787d21a79b7690abacc5aef6c8924618737c70b828a1c
+#21 writing image sha256:7bd4a94958431b15caf787d21a79b7690abacc5aef6c8924618737c70b828a1c done
+#21 naming to gcr.io/fuzzbench/runners/afl/nginx_nginx 0.0s done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/nginx_nginx:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f6cf8091f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c7ce2640782c23475d9e0252f0c94f96170f0c1fa93df148fcf76b0cdbbe74ef
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:9683fe77f3125fa89ab9c35056cbb241d86e245b2518e843cbc4c48ea48911d1
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/9] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/nginx_nginx
+#4 sha256:a809d7c999602b4267417524870fcffb1a02bd239e80492378abf636def0dfee
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:534c0aafafb881643c005770864200fceb77d56285ec22d0ea9d021db511e6ed
+#12 transferring context: 302B done
+#12 DONE 0.1s
+
+#6 [2/9] RUN apt-get update && apt-get install -y libpcre3-dev zlib1g-dev mercurial ninja-build cmake liblzma-dev libz-dev binutils libtool
+#6 sha256:ac52af53210aa580c2490de48d4bdf6e41047b81e80f91034dc88242e63242a5
+#6 CACHED
+
+#8 [4/9] RUN git clone --depth 1 https://github.com/google/libprotobuf-mutator.git
+#8 sha256:702890e18d627fbf85e0107096e8f8d5a68c43c66175fe93c62a484368c69588
+#8 CACHED
+
+#10 [6/9] RUN (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)
+#10 sha256:fe6827385354f1d5fd29641f5a19dd26c67d90fb9919801fcc163c444611515c
+#10 CACHED
+
+#11 [7/9] WORKDIR nginx
+#11 sha256:e8602fedcd8f3d74f6911dd45734011627610e7a8b7cd16b896dc606be692180
+#11 CACHED
+
+#13 [8/9] COPY fuzz /src/fuzz
+#13 sha256:60b75591340f41970380c10060709ba38c4675254b18a923e5b45916bbf9eeb7
+#13 CACHED
+
+#7 [3/9] RUN hg clone http://hg.nginx.org/nginx/
+#7 sha256:f272b8a695c475317b9172913442ae741567378d79db949c37243e01425e3caf
+#7 CACHED
+
+#9 [5/9] RUN git clone --depth 1 https://github.com/google/fuzzer-test-suite
+#9 sha256:aa9946de6b4d06a28569b8b13c3778277fb3fe4035c8ce66e6d8f295b8abb812
+#9 CACHED
+
+#14 [9/9] COPY build.sh add_fuzzers.diff make_fuzzers  /src/
+#14 sha256:b7006fefa842ce78796ba4042285905e57225797911c6e638c9a596cdb44b50e
+#14 CACHED
+
+#15 exporting to image
+#15 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#15 exporting layers done
+#15 writing image sha256:62f74fd56750646c7029be0edffa942a04b9b9fb18a34af4b732a7bc2ff8b8da done
+#15 naming to gcr.io/fuzzbench/builders/benchmark/nginx_nginx done
+#15 DONE 0.2s
+
+#16 exporting cache
+#16 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#16 preparing build cache for export done
+#16 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a6728ba01573a4ad9c47c5e0d6f45b3749cdaadba010c93b03b08287b7275c08
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f0a2d124f46486817e7b541b82d22a62388c876930077fb02cacd6b9bf2cd0ea
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/nginx_nginx:latest
+#3 sha256:5b622fe714bad71742c456ffef614ad754fbd1677b42749cd405652ad6049071
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/nginx_nginx
+#5 sha256:fdf5e01c5d9068d3b6aa3d7b3e21094143ec9a94633e4307e24e152756594742
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate
+#4 sha256:3d90111fd4865e4b241ca93121689bb76add55189562b0039b18031b5dfbdfca
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:5041401b4400127c6d0a6bedf0979131b6af87965eb6442785d81a538f2fd728
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1b49f9abc18a952cecbaa5b67c5b83544deb468cdf95cbd82b1f8be3a58d43d1
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:ca9a08e666892204d557aab059447df3a516b4bd2564358d3f9e45634da85543 done
+#8 naming to gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:3f4b5506f72f6fedbd4f4aed32ef679349570801029bf780a62d5fb56b82a6c7
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:764b86d6c359b2a739320568d5871b1d4f6e11b28e25d9c7a41461e3bb8dd102
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:c796cafe1bd58aaa173bafcd25960aa245e5bceb568cb613703883c33e8fcc0e
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d7b4007fea723f110614c097e599e3ee99e0023db48f48f154c35b4be3187b9a
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:fbd9adf70160e31106ed8946f67703517982aef77dba14a65d052147c2c1f7dd
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:0179a03b3c8ac6cc52fa80f14a9f5752b5a0c6def6b826f6bb9dec65ecb3335c
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:e3e1eb13936026d01d92fe146e78a06e558d23ff7bcf42634d38b0ce757ecb99
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:72c57924d0e15b1ac70414591013a5443777e61a51a51459c028464112162ac2 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:cd6081b4508ed0c50b48682e9ff2e7e7e0eb65d44367815b748e87da6536cae1
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9eb542362ed717f3d36b41a334ca8efb3ef8da8ce3b931922f554334177f1ca1
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate:latest
+#3 sha256:b50411a3e10fd64e0a09efc70b801a33b7c4faca532bbd7f8310f23288ff4a35
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/nginx_nginx-intermediate
+#6 sha256:8aec164ac39f54c5ef749bb5349753e4ff9246cfc1a6101d1efc16fcad23cf24
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/nginx_nginx
+#5 sha256:e26d210ea4177bc18f98be6cd05728446609df367bf4565afbf01ed4d86b4168
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:f2b6dd67015194e7d927aeb116251d039c4efd20912ddfcb6a0c7d4769f92789
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:61fbb9cf840fea79fa3aaefaa4aac6547bf2ee15504b670200b8df6a2595e45c
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:5d8ceb5fb5df4b0e4ab50f2796ede04a2029f7a6e331fc585a7db519eec42044
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:3d9d54f30059bc966107739951c193ab23777a4f83142cca0ab963954b911155
+#16 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:35adccda819ed756726173a057f9cb2ffe016536f7eb9d7f5fc0581a487337df
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:c691386098df7007aae8655f8873cd2ad8fa1a67ff721d2e00f6a765f9557a90
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:d26b9fa1ac147186124a7773bbc02ff4c94bc3e7bad87c21f143f64429ada23f
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/nginx_nginx/benchmark.yaml /
+#15 sha256:8a1f28f894ce6c5938e09c784c5f38185fbb7a8fac2ab116b9ce6820c5c08af4
+#15 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:0a1b02edad0c06b3df0701804313ac5ce24c149ad7fe3c158e568b4a9a616dd6
+#17 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a4f05f85841c6c7e050760381d46e8c3fa7c35b8d296a91d893de27de78f4c7a
+#19 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:bbc76acafd93016241c098ac42cd09d28e33e8dd057a59af687dbfe41e3154a9
+#18 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:2e92005ef153e623360ced451e37c9972f8f3729ea1629c56e1859d985bd64aa
+#11 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f9785c355db1ea41d580f7e46584486bddde17f64a32ddd59e2482bb75be9c2a
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:68be167c2ab72ecccd3fd4cc2a55193b6c70f19ff86ce327a9f80e033446705a 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/nginx_nginx done
+#21 DONE 0.4s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:0b0047ef89ca33802d8758eed3462b1f50d95a5283ab14f9c77cb9daf29631a4
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:fdfec909e540e9cf3403692e8e6ebc38394ddad75458323824c269d608db61b7
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate
+#5 sha256:138a5c6d1b843ed9e932fc47ee2811e38de08ffc27d6cf983a1b815b496845c8
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5ac680f9a59b4019b6590dca0717b5f94a5c29c075177fb37f8ebc9569640f5
+#6 writing image sha256:d5ac680f9a59b4019b6590dca0717b5f94a5c29c075177fb37f8ebc9569640f5 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:29f4f0ed46bb05be6e9fbbc3963ccf1f9db6f250699da969e07bc1a399d2a512
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:6b416f9082490ee3f16103c21da0f17d2bbdf8ab65dfe1f3c4e251a2f0280e06
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate:latest
+#4 sha256:981faebf56c0e9f7191a68d50e631671757e6631dad3c1c0b0e3edeec78dbb13
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nginx_nginx:latest
+#3 sha256:86a9c5e9e3a85809e02c825e419411292438a8c80fc6ea20165d95b2dc7e3489
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/nginx_nginx-intermediate
+#6 sha256:aa0602d738d75b233e4d0dcbabec058864d146359bafcdf920edb453ad340466
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/nginx_nginx
+#5 sha256:ba161a7f78af9e78d6acf291220c10ab04af2efb608fa6808f21df082c0c5336
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/nginx_nginx
+#10 sha256:b7fab7368be9ca844ab08b35e1215ae6db588de993c266dfb1c17134d5a40c20
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:5892c85a982fb97ad223cdfd33ed433926b7200571d0ac843a3b12254729a542
+#12 transferring context: 18.45MB 0.6s done
+#12 DONE 0.7s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:d0cf1270d5c5111e2c117970713cfa2e73c5f9a117dc7718008db7ecc8c34afc
+#14 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:8ad40c540860830cb576c326e37955cd5d411a4ec5ce31136745a192dd46bbaa
+#18 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:bfeef15e0684465a26b56a6096724cd5546e4315cd5c6de121b087a31e7a2c8a
+#17 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:fef9f5401ca3aa2abe4d609e44d3bd19bdfd13ed4ff8316e9020d3c36df0d5e4
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:5523aff7206eced28c6b98da3c1feb10801e354ec61bcdf07cb7dbfaa25d85c1
+#13 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:bce99bf5eaf113130789df85dddd666ca2f8b2ab0f5bd302a18b791894c885ef
+#9 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:d8dc94782e109fc0131688304fbd9a32b7a5ddcd116ee93b9edc57f6b10670fa
+#15 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:9846f46887fe781cbecdd1abb28bee3874101900185c70c1e376d215165fe587
+#19 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:9582697be61ea6e41e0a491402f28dd812c0de53ea4eada193d90f25ab7acf49
+#16 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:1626160a889d8de380486ac443473c271ba9a9692911592223eca98ddba173f1
+#8 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:967cb348bda287d32cff29dbf86e032753e59c78b6fb908dd4e988766923d5c5
+#7 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:95a4649ae208caa5e3ee483512b25dd43aae97b3d1319aef6f89c0925d20c39b
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:7bd4a94958431b15caf787d21a79b7690abacc5aef6c8924618737c70b828a1c
+#21 writing image sha256:7bd4a94958431b15caf787d21a79b7690abacc5aef6c8924618737c70b828a1c 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/nginx_nginx done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f438236ef70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

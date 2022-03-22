@@ -1,0 +1,1025 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: draco_draco.
+INFO:root:Please run "make test-run-afl-draco_draco" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:2a9ff9ffa264dde0fed24caf78d340c813c29c2707d2bd5bf01e0b2056937c3a
+#2 transferring context: 2B done
+#2 DONE 0.8s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:40d4534d645f1b125e595880db4e6557bde4e332713fafe6b9343d02001dbaec
+#1 transferring dockerfile: 32B done
+#1 DONE 0.8s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#8 [internal] load build context
+#8 sha256:49c5f299d96a1f563c352bc8fe2ebfb5192e84f6f2a970907470c3e6bbc29c33
+#8 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/draco_draco
+#4 sha256:7fe7bdf8e82d0fa29d06198e1adf2922107c9c44f94ab0618482afe6b402e631
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/draco_draco:latest: not found
+
+#8 [internal] load build context
+#8 sha256:49c5f299d96a1f563c352bc8fe2ebfb5192e84f6f2a970907470c3e6bbc29c33
+#8 transferring context: 30B done
+#8 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y git cmake make pkg-config
+#6 sha256:2f2842cda5b14819f68ae0b6b198bcddc5dd1fccd5fe854b336884b3b10ea7d7
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/google/draco draco
+#7 sha256:df0f26a418b1ccfb8949bb66f7d9d9d969a3b13ed98c0577b73d21f6ae0111a9
+#7 CACHED
+
+#9 [4/5] COPY build.sh /src/
+#9 sha256:a232c118d1f021763ed4da029c05730a5044876d956859318c23c36f2965aca5
+#9 CACHED
+
+#10 [5/5] WORKDIR /work/
+#10 sha256:84c365858d935b9cc8f26fc731ad95fa1359031473099191c67fef482434eb4b
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:389e21d375c6cde39bb1cde749200eeb7926eb6e0eb880d86580fcd88cb51488 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/draco_draco done
+#11 DONE 0.2s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/draco_draco:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:ef5d15c260516365430824ab87b781e4dc66b67112d8bf96e4921e28e5a170b7
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:40f02c08d62c2be45dd39e156dc23ea86ce03b29aa8a05202f4224bb6c71bfcd
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/draco_draco:latest
+#3 sha256:15153bbff577630a8d2ce10cfb56c8b8d1a17f269e0f6d25b08a8e37f6ff9766
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/draco_draco
+#5 sha256:d907f20751e4ba1efc474ea776c00c8c183c01afe3cdefc1c974e29bfd4bbe99
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/draco_draco-intermediate
+#4 sha256:d2be8f1700befac57c3721dff0438e53950b4bf6e85777f0dffb07ad4e530276
+#4 ERROR: gcr.io/fuzzbench/builders/afl/draco_draco-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b0514b094f893bd2525bd78c79362294f751be4f15cfdeb12c49a1d358bd66c6
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:689e046f3adc91d9e053a3b1b17cfed337c409e1cc64fc4b528495416e7274cd
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:49cdfa9e6cd60cdb7b73afd9086b742bdf09492a718f92c6efd1b7aa919a0192
+#8 writing image sha256:49cdfa9e6cd60cdb7b73afd9086b742bdf09492a718f92c6efd1b7aa919a0192 done
+#8 naming to gcr.io/fuzzbench/builders/afl/draco_draco-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/draco_draco-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8a562dbd5cdca732fb214623459b8d72773335a7b37496d2061c0ebd9e38e844
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:fea678969b52c9f7f4d37ce0c191a0502b6748d8339b52278e0476dd007128c4
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:51676e8e531402fbaf91297080971f980b4f220d5c0225aaccc25e451b39e941
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:9bf6ffe895f789b03ca66f01d4812afaa08b6fcfd1e9f1fb216a03fd1e37576b
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:7df7b3432cc84c5da23e1219ffddc3a597bd716b7e164c9d25a9d3c68382392e
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:51001b67412bbb122ea622efc50f275baf543be80e6f7c5ebe28731ad2783d63
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:2f2981fa3f5c696911c918c1e100ba6f75fc0e4f36729af242bb47ee38e37a6c
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:84dadf5a6e69b459573a093ee87bc42bf4aa1ecbf8abb82f5c3a0011112f67a0
+#13 writing image sha256:84dadf5a6e69b459573a093ee87bc42bf4aa1ecbf8abb82f5c3a0011112f67a0 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f4ddb8716f7c00df84fe441ce54020702c9eec06913d47d62bca5b3c166409cf
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:88000f0ca9aabfc5d4daed5df3a359cc982dcc215b6f8d71e17d37e1b3d9833c
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/draco_draco-intermediate:latest
+#3 sha256:2c0ee05afb88daf9e6ad9995da9d96a783e3514c3cde64567fce374792fda52b
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2900f17380db61b94fb133eff9412166274479833cd6abbcecf255fad136724a
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/draco_draco-intermediate
+#6 sha256:97a12b2c4af88f6fab202ec0aef55b5d76fad4c50afbc02767864d631b6c1415
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/draco_draco
+#5 sha256:04e8cf2cc1b05d6a0c9850bb7a7a400b04ad7f8cb9e79c7125a7f6cbf04cb3de
+#5 ERROR: gcr.io/fuzzbench/builders/afl/draco_draco:latest: not found
+
+#12 [internal] load build context
+#12 sha256:2900f17380db61b94fb133eff9412166274479833cd6abbcecf255fad136724a
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:0b23e65d517e5023bdb1e864a4c0e8fbbf2ac6d60acb02cbd2d02d65095f0786
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:26e2779a9eafd960ac9faf3e19c25fd055b9ae941e38b80d49e021ec83ff8700
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c844b1d2349ae9f269d09d3d57094a26858749f83e30de8bd47f65ec87d9f5e9
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:69062f25195b5403eb4325b2f85de2ca726e9f2e0464c42e7c22788a09d4dec5
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:ddda7ea7f2f40dced6b85f3c0aa03b7efd6f412a3774248d3735a9877a3d286c
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:5144627e01d4f43cca7012419fe01bba44a6c161ee94563442ac0ec2a6f282d9
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/draco_draco/benchmark.yaml /
+#15 sha256:13efd51ebf752183d7a4c6ed4f617d42386d46e3464342e4a94d1d0c413ce147
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:87d5e3269a3af4d21f3cff7d9dc4770e940eaa1bb1830d2893539246c1327946
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:b7ba2037d5cb288d002550ac7eb93a9c35cef56629ee7188485adef6139d2d00
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:95deba26eadf7f57337f374cc75db2fe137f3c6fdf5ea866581db83d306632d2
+#18 0.484 Checking out commit 84faf557
+#18 17.60 From https://github.com/google/draco
+#18 17.60  * [new tag]         0.10.0     -> 0.10.0
+#18 17.60  * [new tag]         0.9.1      -> 0.9.1
+#18 17.60  * [new tag]         1.0.0      -> 1.0.0
+#18 17.60  * [new tag]         1.0.1      -> 1.0.1
+#18 17.60  * [new tag]         1.1.0      -> 1.1.0
+#18 17.60  * [new tag]         1.2.0      -> 1.2.0
+#18 17.60  * [new tag]         1.2.1      -> 1.2.1
+#18 17.60  * [new tag]         1.2.2      -> 1.2.2
+#18 17.60  * [new tag]         1.2.4      -> 1.2.4
+#18 17.60  * [new tag]         1.2.5      -> 1.2.5
+#18 17.60  * [new tag]         1.3.0      -> 1.3.0
+#18 17.60  * [new tag]         1.3.1      -> 1.3.1
+#18 17.60  * [new tag]         1.3.2      -> 1.3.2
+#18 17.60  * [new tag]         1.3.3      -> 1.3.3
+#18 17.60  * [new tag]         1.3.4      -> 1.3.4
+#18 17.60  * [new tag]         1.3.5      -> 1.3.5
+#18 17.60  * [new tag]         1.3.6      -> 1.3.6
+#18 17.60  * [new tag]         1.4.0      -> 1.4.0
+#18 17.60  * [new tag]         1.4.1      -> 1.4.1
+#18 17.60  * [new tag]         1.4.3      -> 1.4.3
+#18 17.60  * [new tag]         1.5.0      -> 1.5.0
+#18 17.65 error: pathspec '84faf557' did not match any file(s) known to git
+#18 17.65 error: pathspec '84faf557' did not match any file(s) known to git
+#18 17.66 error: pathspec '84faf557' did not match any file(s) known to git
+#18 17.67 error: pathspec '84faf557' did not match any file(s) known to git
+#18 17.71 Checkout unsuccessful.
+#18 DONE 18.4s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a17f87cb0077713dd00c3f5cf866e4077b4e0e46672c5a95b14ae2cc6bf0fac4
+#19 DONE 2.1s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:1d5311531658e7026e4697dadce868fa7f7929553928a0ae2c6c05f928174e60
+#20 0.476 Run fuzzer_build to build the target
+#20 0.588 FUZZ_TARGET = draco
+#20 0.588 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.588 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.592 Building benchmark draco_draco with fuzzer afl
+#20 0.595 + sh /src/draco/src/draco/tools/fuzz/build.sh
+#20 0.803 -- The C compiler identification is Clang 14.0.0
+#20 1.047 -- The CXX compiler identification is Clang 14.0.0
+#20 1.058 -- Detecting C compiler ABI info
+#20 1.208 -- Detecting C compiler ABI info - done
+#20 1.258 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.259 -- Detecting C compile features
+#20 1.260 -- Detecting C compile features - done
+#20 1.266 -- Detecting CXX compiler ABI info
+#20 1.451 -- Detecting CXX compiler ABI info - done
+#20 1.516 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.517 -- Detecting CXX compile features
+#20 1.518 -- Detecting CXX compile features - done
+#20 1.550 -- Found PythonInterp: /usr/bin/python (found version "3.8.10") 
+#20 1.602 -- Configuring done
+#20 1.695 -- Generating done
+#20 1.701 -- Build files have been written to: /work
+#20 1.741 [  1%] Building CXX object CMakeFiles/draco_compression_attributes_pred_schemes_enc.dir/src/draco/compression/attributes/prediction_schemes/prediction_scheme_encoder_factory.cc.o
+#20 1.741 [  2%] Building CXX object CMakeFiles/draco_compression_entropy.dir/src/draco/compression/entropy/shannon_entropy.cc.o
+#20 1.742 [  3%] Building CXX object CMakeFiles/draco_points_dec.dir/src/draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_decoder.cc.o
+#20 1.742 [  4%] Building CXX object CMakeFiles/draco_compression_attributes_dec.dir/src/draco/compression/attributes/attributes_decoder.cc.o
+#20 1.742 [  4%] Building CXX object CMakeFiles/draco_point_cloud.dir/src/draco/point_cloud/point_cloud.cc.o
+#20 1.743 [  4%] Building CXX object CMakeFiles/draco_compression_encode.dir/src/draco/compression/encode.cc.o
+#20 1.743 [  5%] Building CXX object CMakeFiles/draco_animation_dec.dir/src/draco/animation/keyframe_animation_decoder.cc.o
+#20 1.745 [  5%] Building CXX object CMakeFiles/draco_compression_mesh_dec.dir/src/draco/compression/mesh/mesh_decoder.cc.o
+#20 3.838 [  6%] Building CXX object CMakeFiles/draco_compression_entropy.dir/src/draco/compression/entropy/symbol_decoding.cc.o
+#20 4.254 [  7%] Building CXX object CMakeFiles/draco_points_dec.dir/src/draco/compression/point_cloud/algorithms/float_points_tree_decoder.cc.o
+#20 4.474 [  7%] Built target draco_animation_dec
+#20 4.479 [  8%] Building CXX object CMakeFiles/draco_compression_encode.dir/src/draco/compression/expert_encode.cc.o
+#20 4.494 [  9%] Building CXX object CMakeFiles/draco_compression_mesh_dec.dir/src/draco/compression/mesh/mesh_edgebreaker_decoder.cc.o
+#20 4.532 [  9%] Building CXX object CMakeFiles/draco_compression_attributes_dec.dir/src/draco/compression/attributes/kd_tree_attributes_decoder.cc.o
+#20 4.878 [  9%] Built target draco_compression_attributes_pred_schemes_enc
+#20 4.892 [  9%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/corner_table.cc.o
+#20 5.771 [ 10%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/mesh.cc.o
+#20 6.262 [ 11%] Building CXX object CMakeFiles/draco_point_cloud.dir/src/draco/point_cloud/point_cloud_builder.cc.o
+#20 7.796 [ 12%] Building CXX object CMakeFiles/draco_compression_mesh_dec.dir/src/draco/compression/mesh/mesh_edgebreaker_decoder_impl.cc.o
+#20 8.413 [ 13%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/mesh_are_equivalent.cc.o
+#20 8.698 [ 14%] Building CXX object CMakeFiles/draco_compression_mesh_dec.dir/src/draco/compression/mesh/mesh_sequential_decoder.cc.o
+#20 8.742 [ 14%] Built target draco_point_cloud
+#20 8.755 [ 15%] Building CXX object CMakeFiles/draco_compression_point_cloud_enc.dir/src/draco/compression/point_cloud/point_cloud_encoder.cc.o
+#20 9.381 [ 15%] Built target draco_compression_encode
+#20 9.395 [ 15%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/bit_utils.cc.o
+#20 9.545 [ 16%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/bounding_box.cc.o
+#20 9.835 [ 17%] Building CXX object CMakeFiles/draco_compression_entropy.dir/src/draco/compression/entropy/symbol_encoding.cc.o
+#20 11.39 [ 18%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/cycle_timer.cc.o
+#20 11.44 [ 19%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/data_buffer.cc.o
+#20 11.90 [ 20%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/mesh_attribute_corner_table.cc.o
+#20 12.33 [ 20%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/mesh_cleanup.cc.o
+#20 12.39 [ 21%] Building CXX object CMakeFiles/draco_compression_point_cloud_enc.dir/src/draco/compression/point_cloud/point_cloud_kd_tree_encoder.cc.o
+#20 12.58 [ 21%] Built target draco_points_dec
+#20 12.60 [ 22%] Building CXX object CMakeFiles/draco_points_enc.dir/src/draco/compression/point_cloud/algorithms/dynamic_integer_points_kd_tree_encoder.cc.o
+#20 13.40 [ 23%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/decoder_buffer.cc.o
+#20 15.18 [ 23%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/divide.cc.o
+#20 15.23 [ 24%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/draco_types.cc.o
+#20 15.37 [ 25%] Building CXX object CMakeFiles/draco_points_enc.dir/src/draco/compression/point_cloud/algorithms/float_points_tree_encoder.cc.o
+#20 15.86 [ 26%] Building CXX object CMakeFiles/draco_compression_point_cloud_enc.dir/src/draco/compression/point_cloud/point_cloud_sequential_encoder.cc.o
+#20 15.88 [ 27%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/mesh_misc_functions.cc.o
+#20 16.45 [ 28%] Building CXX object CMakeFiles/draco_compression_attributes_dec.dir/src/draco/compression/attributes/sequential_attribute_decoder.cc.o
+#20 16.48 [ 29%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/encoder_buffer.cc.o
+#20 16.64 [ 30%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/hash_utils.cc.o
+#20 17.49 [ 31%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/options.cc.o
+#20 18.80 [ 31%] Building CXX object CMakeFiles/draco_core.dir/src/draco/core/quantization_utils.cc.o
+#20 18.89 [ 32%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/mesh_stripifier.cc.o
+#20 19.42 [ 33%] Building CXX object CMakeFiles/draco_mesh.dir/src/draco/mesh/triangle_soup_mesh_builder.cc.o
+#20 19.60 [ 33%] Built target draco_compression_point_cloud_enc
+#20 19.60 [ 34%] Building CXX object CMakeFiles/draco_compression_attributes_dec.dir/src/draco/compression/attributes/sequential_attribute_decoders_controller.cc.o
+#20 19.80 [ 35%] Building CXX object CMakeFiles/draco_compression_attributes_dec.dir/src/draco/compression/attributes/sequential_integer_attribute_decoder.cc.o
+#20 20.78 [ 35%] Built target draco_core
+#20 20.80 [ 36%] Building CXX object CMakeFiles/draco_metadata_dec.dir/src/draco/metadata/metadata_decoder.cc.o
+#20 20.86 [ 36%] Built target draco_compression_mesh_dec
+#20 20.89 [ 37%] Building CXX object CMakeFiles/draco_metadata_enc.dir/src/draco/metadata/metadata_encoder.cc.o
+#20 22.16 [ 38%] Building CXX object CMakeFiles/draco_metadata.dir/src/draco/metadata/geometry_metadata.cc.o
+#20 22.46 [ 38%] Built target draco_mesh
+#20 22.47 [ 39%] Building CXX object CMakeFiles/draco_animation_enc.dir/src/draco/animation/keyframe_animation_encoder.cc.o
+#20 23.58 [ 39%] Built target draco_metadata_dec
+#20 23.58 [ 39%] Built target draco_metadata_enc
+#20 23.59 [ 39%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/adaptive_rans_bit_decoder.cc.o
+#20 23.60 [ 40%] Building CXX object CMakeFiles/draco_compression_mesh_enc.dir/src/draco/compression/mesh/mesh_edgebreaker_encoder.cc.o
+#20 23.79 [ 41%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/adaptive_rans_bit_encoder.cc.o
+#20 24.31 [ 41%] Building CXX object CMakeFiles/draco_metadata.dir/src/draco/metadata/metadata.cc.o
+#20 24.76 [ 41%] Built target draco_points_enc
+#20 24.77 [ 42%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/direct_bit_decoder.cc.o
+#20 25.41 [ 42%] Built target draco_animation_enc
+#20 25.42 [ 42%] Building CXX object CMakeFiles/draco_animation.dir/src/draco/animation/keyframe_animation.cc.o
+#20 25.57 [ 43%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/direct_bit_encoder.cc.o
+#20 26.39 [ 44%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/rans_bit_decoder.cc.o
+#20 26.82 [ 45%] Building CXX object CMakeFiles/draco_compression_decode.dir/src/draco/compression/decode.cc.o
+#20 27.89 [ 45%] Built target draco_metadata
+#20 27.90 [ 46%] Building CXX object CMakeFiles/draco_attributes.dir/src/draco/attributes/attribute_octahedron_transform.cc.o
+#20 27.97 [ 46%] Building CXX object CMakeFiles/draco_attributes.dir/src/draco/attributes/attribute_quantization_transform.cc.o
+#20 28.02 [ 46%] Building CXX object CMakeFiles/draco_compression_mesh_enc.dir/src/draco/compression/mesh/mesh_edgebreaker_encoder_impl.cc.o
+#20 28.38 [ 46%] Built target draco_animation
+#20 28.40 [ 46%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/file_reader_factory.cc.o
+#20 28.41 [ 46%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/rans_bit_encoder.cc.o
+#20 28.51 [ 47%] Building CXX object CMakeFiles/draco_compression_attributes_dec.dir/src/draco/compression/attributes/sequential_normal_attribute_decoder.cc.o
+#20 29.97 [ 48%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/file_utils.cc.o
+#20 30.41 [ 48%] Built target draco_compression_entropy
+#20 30.43 [ 49%] Building CXX object CMakeFiles/draco_compression_point_cloud_dec.dir/src/draco/compression/point_cloud/point_cloud_decoder.cc.o
+#20 30.65 [ 50%] Building CXX object CMakeFiles/draco_attributes.dir/src/draco/attributes/attribute_transform.cc.o
+#20 31.05 [ 50%] Built target draco_compression_decode
+#20 31.07 [ 51%] Building CXX object CMakeFiles/draco_compression_attributes_enc.dir/src/draco/compression/attributes/attributes_encoder.cc.o
+#20 31.22 [ 52%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/symbol_bit_decoder.cc.o
+#20 31.26 [ 53%] Building CXX object CMakeFiles/draco_attributes.dir/src/draco/attributes/geometry_attribute.cc.o
+#20 32.17 [ 54%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/file_writer_factory.cc.o
+#20 32.87 [ 55%] Building CXX object CMakeFiles/draco_attributes.dir/src/draco/attributes/point_attribute.cc.o
+#20 33.16 [ 56%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/file_writer_utils.cc.o
+#20 33.25 [ 57%] Building CXX object CMakeFiles/draco_compression_bit_coders.dir/src/draco/compression/bit_coders/symbol_bit_encoder.cc.o
+#20 33.75 [ 57%] Building CXX object CMakeFiles/draco_compression_attributes_dec.dir/src/draco/compression/attributes/sequential_quantization_attribute_decoder.cc.o
+#20 33.78 [ 57%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/mesh_io.cc.o
+#20 33.87 [ 58%] Building CXX object CMakeFiles/draco_compression_point_cloud_dec.dir/src/draco/compression/point_cloud/point_cloud_kd_tree_decoder.cc.o
+#20 34.32 [ 59%] Building CXX object CMakeFiles/draco_compression_attributes_enc.dir/src/draco/compression/attributes/kd_tree_attributes_encoder.cc.o
+#20 34.56 [ 60%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/obj_decoder.cc.o
+#20 35.77 [ 60%] Built target draco_compression_bit_coders
+#20 35.79 [ 60%] Built target draco_enc_config
+#20 35.81 [ 60%] Built target draco_dec_config
+#20 35.82 [ 60%] Built target draco_compression_attributes_pred_schemes_dec
+#20 35.84 [ 60%] Built target draco_compression_mesh_traverser
+#20 35.84 [ 61%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/obj_encoder.cc.o
+#20 36.72 [ 61%] Built target draco_compression_attributes_dec
+#20 36.72 [ 62%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/parser_utils.cc.o
+#20 36.97 [ 62%] Building CXX object CMakeFiles/draco_compression_point_cloud_dec.dir/src/draco/compression/point_cloud/point_cloud_sequential_decoder.cc.o
+#20 38.27 [ 63%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/ply_decoder.cc.o
+#20 39.02 [ 63%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/ply_encoder.cc.o
+#20 39.42 [ 64%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/ply_reader.cc.o
+#20 40.32 [ 64%] Built target draco_compression_point_cloud_dec
+#20 40.32 [ 65%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/point_cloud_io.cc.o
+#20 40.80 [ 66%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/stdio_file_reader.cc.o
+#20 41.07 [ 67%] Building CXX object CMakeFiles/draco_compression_mesh_enc.dir/src/draco/compression/mesh/mesh_encoder.cc.o
+#20 42.61 [ 68%] Building CXX object CMakeFiles/draco_io.dir/src/draco/io/stdio_file_writer.cc.o
+#20 43.21 [ 69%] Building CXX object CMakeFiles/draco_compression_mesh_enc.dir/src/draco/compression/mesh/mesh_sequential_encoder.cc.o
+#20 44.01 [ 70%] Building CXX object CMakeFiles/draco_compression_attributes_enc.dir/src/draco/compression/attributes/sequential_attribute_encoder.cc.o
+#20 44.09 [ 70%] Building CXX object CMakeFiles/draco_compression_attributes_enc.dir/src/draco/compression/attributes/sequential_attribute_encoders_controller.cc.o
+#20 44.40 [ 71%] Building CXX object CMakeFiles/draco_compression_attributes_enc.dir/src/draco/compression/attributes/sequential_integer_attribute_encoder.cc.o
+#20 45.36 [ 71%] Built target draco_attributes
+#20 45.37 [ 72%] Building CXX object CMakeFiles/draco_compression_attributes_enc.dir/src/draco/compression/attributes/sequential_normal_attribute_encoder.cc.o
+#20 46.98 [ 73%] Building CXX object CMakeFiles/draco_compression_attributes_enc.dir/src/draco/compression/attributes/sequential_quantization_attribute_encoder.cc.o
+#20 47.73 [ 73%] Built target draco_compression_mesh_enc
+#20 51.60 [ 73%] Built target draco_io
+#20 51.69 [ 73%] Built target draco_compression_attributes_enc
+#20 51.70 [ 74%] Linking CXX static library libdraco.a
+#20 51.75 [ 74%] Built target draco_static
+#20 51.76 [ 75%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/tools/draco_encoder.cc.o
+#20 51.76 [ 75%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/file_reader_factory.cc.o
+#20 51.76 [ 77%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/tools/draco_decoder.cc.o
+#20 51.76 [ 77%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/file_utils.cc.o
+#20 51.76 [ 79%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/file_reader_factory.cc.o
+#20 51.76 [ 79%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/file_writer_factory.cc.o
+#20 51.76 [ 80%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/file_utils.cc.o
+#20 51.76 [ 81%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/file_writer_utils.cc.o
+#20 53.07 [ 82%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/mesh_io.cc.o
+#20 53.22 [ 82%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/file_writer_factory.cc.o
+#20 53.22 [ 82%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/obj_decoder.cc.o
+#20 53.29 [ 83%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/obj_encoder.cc.o
+#20 53.86 [ 84%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/file_writer_utils.cc.o
+#20 53.87 [ 85%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/parser_utils.cc.o
+#20 54.83 [ 86%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/mesh_io.cc.o
+#20 55.21 [ 87%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/ply_decoder.cc.o
+#20 55.24 [ 88%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/obj_decoder.cc.o
+#20 55.26 [ 89%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/obj_encoder.cc.o
+#20 56.17 [ 90%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/ply_encoder.cc.o
+#20 57.56 [ 90%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/ply_reader.cc.o
+#20 58.14 [ 91%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/point_cloud_io.cc.o
+#20 58.24 [ 92%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/stdio_file_reader.cc.o
+#20 59.41 [ 92%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/parser_utils.cc.o
+#20 60.07 [ 93%] Building CXX object CMakeFiles/draco_encoder.dir/src/draco/io/stdio_file_writer.cc.o
+#20 60.15 [ 94%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/ply_decoder.cc.o
+#20 60.21 [ 95%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/ply_encoder.cc.o
+#20 60.47 [ 96%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/ply_reader.cc.o
+#20 61.47 [ 97%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/point_cloud_io.cc.o
+#20 61.75 [ 97%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/stdio_file_reader.cc.o
+#20 61.93 [ 98%] Building CXX object CMakeFiles/draco_decoder.dir/src/draco/io/stdio_file_writer.cc.o
+#20 68.22 [ 99%] Linking CXX executable draco_encoder
+#20 68.71 [ 99%] Built target draco_encoder
+#20 70.75 [100%] Linking CXX executable draco_decoder
+#20 71.15 [100%] Built target draco_decoder
+#20 79.49 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 80.0s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:5f49610b01b2607aa222c4a5f57887509b7f71e6ab95343ce13d10381bf5d069 done
+#21 naming to gcr.io/fuzzbench/builders/afl/draco_draco done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/draco_draco:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:4369029b86b45dd0aefa9b07d3f4104c7498192713873221e90001f5bb5270c4
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5694504cc880b446085d09e3395981adf14b260b8f2d7ac3c7285f020f0cac19
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/draco_draco-intermediate
+#5 sha256:7e3020871e767e99a2b3ec0ea171fab0b48a0b7f8f30fec2610602a61a84ce12
+#5 ERROR: gcr.io/fuzzbench/runners/afl/draco_draco-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:699b97e41a28fbcc77095c5aa70e46af594c5cf6f1edc37471a211d4e29e0e83
+#6 writing image sha256:699b97e41a28fbcc77095c5aa70e46af594c5cf6f1edc37471a211d4e29e0e83 done
+#6 naming to gcr.io/fuzzbench/runners/afl/draco_draco-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/draco_draco-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c0b051d834d6265ddbe9126fc0b62bda4341dde74c66569b896ee392af5ad17a
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:c08a01eabb05f07b3fd142837c8580927715b3bfdd2e39a65d66ba1c4d521b51
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/draco_draco:latest
+#4 sha256:57dc825748a900dabc72735d2233db52ae180107dcc729b960d3f9fbf20b3fc9
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/draco_draco-intermediate:latest
+#3 sha256:0ca4a08e6460bfaae7c62898f714460cc6e9fc65a3a282ff434bcc845adebf7b
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b8477313e8d7c6f8c90f9b3ee18a257cf8c2f83d232b1b62dea0229802c51735
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/draco_draco-intermediate
+#6 sha256:b3829425ee2d6cb61f9179a0629ed9e515ccc03f00a391a01e88e3c462e1b685
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/draco_draco
+#10 sha256:361b2b8c4fabe3e7df9814e46a1db096b0ed138b1a9778127e5e31931cac9787
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/draco_draco
+#5 sha256:cd5b4ab31e0385f8e12f78b8eb274a0e28e0333119d04298fdb63cb966315520
+#5 ERROR: gcr.io/fuzzbench/runners/afl/draco_draco:latest: not found
+
+#12 [internal] load build context
+#12 sha256:b8477313e8d7c6f8c90f9b3ee18a257cf8c2f83d232b1b62dea0229802c51735
+#12 ...
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/draco_draco
+#10 sha256:361b2b8c4fabe3e7df9814e46a1db096b0ed138b1a9778127e5e31931cac9787
+#10 DONE 0.4s
+
+#12 [internal] load build context
+#12 sha256:b8477313e8d7c6f8c90f9b3ee18a257cf8c2f83d232b1b62dea0229802c51735
+#12 transferring context: 18.45MB 0.6s done
+#12 DONE 0.7s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:38ba8dd6cb7f15892252424ecacdecf78edeeda466976767396bb04edcb06002
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:d6085fe81252ecafac684166ab4ad25af2193d74054652a6b0887a1bc444d3bf
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:1a8b842d465d4b4c460f875ced1bb2cdac5ad4e25a74a519f4374f2766ec5b2a
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:e77a053387a700f9c77d1eb56b95a388cd78c764860849da7f1e94632e849808
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:239ddf7fd97338d252e40ed38f5e673627aef3a838590835f592dc87f090601e
+#13 DONE 1.0s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:c7a2ac93a7b467cd72bebe0661c9b75a6a4dc52cfa6f9a45daca2b0686fc5919
+#14 DONE 0.4s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:38d2fe1796e031a29ae2943c02b4e744fcaf785e65b433aab243d02301413fdb
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:8c3bb643a3114ca2cd9a5e429df453133fe58e42ac9d620b98cdddddbe1febf8
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:386e3ad21a1dd2a37cf9f918e46aa7ddb6e3502f4763cbfed48a8b4aec01594f
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:89b00ca0ed77e2dd8b44b135d0c578cf5f5cb66eee54c7e8cdae49701526b48b
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:3e512149ffc31f85e36726a3ff69cb17d5321f9e800e01d8fedb81536a55bff1
+#19 DONE 0.3s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:bed68660c0981729d9f4133e096311163881cf421e2e9e4320c402ceaae8a853
+#20 DONE 0.7s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:1b0aaef635cc7d2d6b28da1e391a95aa83e45e153dd1b5a88bfc77970c534613 done
+#21 naming to gcr.io/fuzzbench/runners/afl/draco_draco done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/draco_draco:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f59e0d8ff70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:34dc4f471d0f97c091708e6f73746db0efaf1ce73789e25c0bc98383e8e62742
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:4b2a89d23a9049238b804a85eb3d68321cb3318a3d5990af5d00d844b94a0f9c
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/draco_draco
+#4 sha256:7fe7bdf8e82d0fa29d06198e1adf2922107c9c44f94ab0618482afe6b402e631
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:b10055b6ac4250a76b44dce8c478df3c8d1bb941dd096cf58a2d40e7c81d45a6
+#8 transferring context: 30B done
+#8 DONE 0.0s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/google/draco draco
+#7 sha256:df0f26a418b1ccfb8949bb66f7d9d9d969a3b13ed98c0577b73d21f6ae0111a9
+#7 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y git cmake make pkg-config
+#6 sha256:2f2842cda5b14819f68ae0b6b198bcddc5dd1fccd5fe854b336884b3b10ea7d7
+#6 CACHED
+
+#9 [4/5] COPY build.sh /src/
+#9 sha256:1b9e2e3441f40b6b3ff09570919493d740f708ef0b41d46123c4fc3b6db88756
+#9 CACHED
+
+#10 [5/5] WORKDIR /work/
+#10 sha256:26f8f884f7f6707a0e950696fcc82bbc805ff37bad964aaa5d581844e32d379f
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:389e21d375c6cde39bb1cde749200eeb7926eb6e0eb880d86580fcd88cb51488
+#11 writing image sha256:389e21d375c6cde39bb1cde749200eeb7926eb6e0eb880d86580fcd88cb51488 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/draco_draco done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:797ed126ae00ecccdff2bf889bb7b343832c9fb291f437b5ff49a59127047980
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a22b447ed8f35b24c9061eb94127f0052d03659fd1a6586f616e54ed6ba0f935
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/draco_draco:latest
+#3 sha256:15153bbff577630a8d2ce10cfb56c8b8d1a17f269e0f6d25b08a8e37f6ff9766
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/draco_draco
+#5 sha256:d907f20751e4ba1efc474ea776c00c8c183c01afe3cdefc1c974e29bfd4bbe99
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/draco_draco-intermediate
+#4 sha256:d2be8f1700befac57c3721dff0438e53950b4bf6e85777f0dffb07ad4e530276
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b0514b094f893bd2525bd78c79362294f751be4f15cfdeb12c49a1d358bd66c6
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:689e046f3adc91d9e053a3b1b17cfed337c409e1cc64fc4b528495416e7274cd
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:49cdfa9e6cd60cdb7b73afd9086b742bdf09492a718f92c6efd1b7aa919a0192
+#8 writing image sha256:49cdfa9e6cd60cdb7b73afd9086b742bdf09492a718f92c6efd1b7aa919a0192 done
+#8 naming to gcr.io/fuzzbench/builders/afl/draco_draco-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0180ce5c3401d945e25cc76ca8dfc273ddeff21bb46366e241d127dc1898754d
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:efd1dd3a2e70b2cb85cc5d0d48e197fc53e1400ca4a5322c22f6d820e7d599cb
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:53bd784b8cc9c11d1e37a0673bd3907a04a3f27fa85bc1b28954656d6d69cf31
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:271674c8d8bbefe5160df0747d352c4c2f234e0f945553e6cc9ee422fb8e5b3b
+#10 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:22916396ae265a82abb766213fabac97a396112948b2bf20d7a0257e342aac3d
+#11 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:a63330eaba91aa8f564f1ec1656bdb7a8ce939bde40e314d6537c3b60d963ac8
+#9 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:e487c28b272ca6d24a4c6dc2ac646041fb476bac0a707879d8cc3131ea590ee7
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:84dadf5a6e69b459573a093ee87bc42bf4aa1ecbf8abb82f5c3a0011112f67a0 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7e6a9bbd861bca61826949a590658ff4cccc9e8ec37d2763849b33f94a182d6a
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:8ad9b54f11da0216584758e4d859f5ca1a5040993f1758376711dce2860d3b71
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/draco_draco-intermediate:latest
+#3 sha256:2c0ee05afb88daf9e6ad9995da9d96a783e3514c3cde64567fce374792fda52b
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/draco_draco
+#5 sha256:04e8cf2cc1b05d6a0c9850bb7a7a400b04ad7f8cb9e79c7125a7f6cbf04cb3de
+#5 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/draco_draco-intermediate
+#6 sha256:97a12b2c4af88f6fab202ec0aef55b5d76fad4c50afbc02767864d631b6c1415
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:523caa20383f28f079142273454ceda9dd579a03e171f148625950f2886c39da
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:0b23e65d517e5023bdb1e864a4c0e8fbbf2ac6d60acb02cbd2d02d65095f0786
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:69062f25195b5403eb4325b2f85de2ca726e9f2e0464c42e7c22788a09d4dec5
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:e100e24ce912c914d6569d2d99d6508e50a595a7f1a2cec2fdbb3748cbedc9a3
+#13 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:2b7a5f470cc47296ac70930eb7a50b2d35a45c0b3f591aec7be36ba91ed7461b
+#18 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:9121c0b46944368fa68aa2078ab91b231914f65830f3b63a192e319ed398494f
+#16 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c844b1d2349ae9f269d09d3d57094a26858749f83e30de8bd47f65ec87d9f5e9
+#10 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:26e2779a9eafd960ac9faf3e19c25fd055b9ae941e38b80d49e021ec83ff8700
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:73b104a1de5a12ea66daf12dadc55b9a255d7421d37963da619f447ad7762bf3
+#14 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:5a8977deadaf25032f2302de71d7949feeb2d6a2d747612ced94d160cbce45aa
+#17 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:588c5414b0e147c56c10ef705553839ccf11a4ca00e2b4a594dbecb8fdc417ec
+#19 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/draco_draco/benchmark.yaml /
+#15 sha256:47e754779ddc21431350e59c1a48ff692b57241ecb79033fa4e214ba0c4af722
+#15 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:075453e7c80cdef9a02f7059bf11cc318a88ecd56f107a50f30149b80f909fc5
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:5f49610b01b2607aa222c4a5f57887509b7f71e6ab95343ce13d10381bf5d069
+#21 writing image sha256:5f49610b01b2607aa222c4a5f57887509b7f71e6ab95343ce13d10381bf5d069 done
+#21 naming to gcr.io/fuzzbench/builders/afl/draco_draco done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:18ffdbbed4473626f105e10142a669cfbd62d45f88e2901910386c9c00656464
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:41da99bb1b8d69ad7cf09d02e77f314fe0983140395872dcea94a6aed2a1f44e
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/draco_draco-intermediate
+#5 sha256:7e3020871e767e99a2b3ec0ea171fab0b48a0b7f8f30fec2610602a61a84ce12
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:699b97e41a28fbcc77095c5aa70e46af594c5cf6f1edc37471a211d4e29e0e83
+#6 writing image sha256:699b97e41a28fbcc77095c5aa70e46af594c5cf6f1edc37471a211d4e29e0e83 done
+#6 naming to gcr.io/fuzzbench/runners/afl/draco_draco-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a972108221b23b263b7ba869171739778d251314bb875aff5dbcc6e78721392c
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:72e9ad24e804f534b7ad950e7a908b7c36c6a444cdb148c818e10c1020e64d35
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/draco_draco:latest
+#4 sha256:57dc825748a900dabc72735d2233db52ae180107dcc729b960d3f9fbf20b3fc9
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/draco_draco-intermediate:latest
+#3 sha256:0ca4a08e6460bfaae7c62898f714460cc6e9fc65a3a282ff434bcc845adebf7b
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/draco_draco-intermediate
+#6 sha256:b3829425ee2d6cb61f9179a0629ed9e515ccc03f00a391a01e88e3c462e1b685
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/draco_draco
+#5 sha256:cd5b4ab31e0385f8e12f78b8eb274a0e28e0333119d04298fdb63cb966315520
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/draco_draco
+#10 sha256:361b2b8c4fabe3e7df9814e46a1db096b0ed138b1a9778127e5e31931cac9787
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:01d5d76be1e7a9ca748e1f02751108cd738819ee773a84048ca413d2d682c52d
+#12 transferring context: 18.45MB 0.6s done
+#12 DONE 0.7s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:9ca0f90988583d4aef4879f7059ff15f119d0b582b64ca0dab59372fdc445761
+#14 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:1f4f095f412621839103ff73047befa655affc6f3c663980bea6c69d32ff09a0
+#13 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:7337e07252f0ef6bb895ea746eff888611f21264de7eb2dcd0661187a7072bf1
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:b8a323874fd7740f47ba1e96a0977fab7efe99c686cfd1d7fae9bbc3c9dae7e4
+#18 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:38ba8dd6cb7f15892252424ecacdecf78edeeda466976767396bb04edcb06002
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:e77a053387a700f9c77d1eb56b95a388cd78c764860849da7f1e94632e849808
+#11 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:04f1f29d3098dede7c409d60f1e06cc1e7adf84fdf0346b148571c2e1b1b4d48
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:65ee4d6ae368879d6e66c2eb5c3efbab2cbce42f9e715c6b0d3ddb60d3161f74
+#19 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:d6085fe81252ecafac684166ab4ad25af2193d74054652a6b0887a1bc444d3bf
+#8 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:f6a430578f961016527dd7a2966e05584e307c85925700ea64ac39912b1d1529
+#15 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:1a8b842d465d4b4c460f875ced1bb2cdac5ad4e25a74a519f4374f2766ec5b2a
+#9 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:a0f6fcb3e89b93dbcd6a53cae3c7711bfb0a93dfd817c488f09cf64d26a0dccb
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:1b0aaef635cc7d2d6b28da1e391a95aa83e45e153dd1b5a88bfc77970c534613 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/draco_draco done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f127bc99f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

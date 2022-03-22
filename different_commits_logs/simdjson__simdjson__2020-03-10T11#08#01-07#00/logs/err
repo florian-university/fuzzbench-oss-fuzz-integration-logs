@@ -1,0 +1,1065 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: simdjson_simdjson.
+INFO:root:Please run "make test-run-afl-simdjson_simdjson" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:3efe149b82895810c7f71f1024c52c16f6124127542cde363a889a8fdaf6c074
+#2 transferring context: 2B done
+#2 DONE 1.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:18b68b3519d122356ecc66e3225a24898936e4e9ea8bc1a88339c5d59d576c20
+#1 transferring dockerfile: 1.24kB done
+#1 DONE 1.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:43087cb27b5beafc68994da0ff9a91c7788827782878c61147ebc0fda3271110
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson
+#4 sha256:4497811b044927baab1deb1350ee0c090f51467c16a26494f9498933e55a33c4
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson:latest: not found
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 CACHED
+
+#10 [internal] load build context
+#10 sha256:43087cb27b5beafc68994da0ff9a91c7788827782878c61147ebc0fda3271110
+#10 transferring context: 729B done
+#10 DONE 0.2s
+
+#6 [2/6] RUN apt-get update && apt-get install -y ninja-build wget
+#6 sha256:a4e657978ebf144ae4bba760a621ffcff8f8fdbe5126be5f7434e31511164464
+#6 0.677 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#6 0.677 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#6 0.677 Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#6 0.763 Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#6 0.796 Get:5 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+#6 1.203 Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1973 kB]
+#6 1.397 Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe i386 Packages [827 kB]
+#6 1.458 Get:8 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1134 kB]
+#6 1.542 Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [752 kB]
+#6 1.598 Get:10 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1547 kB]
+#6 2.189 Fetched 6568 kB in 2s (4222 kB/s)
+#6 2.189 Reading package lists...
+#6 3.683 Reading package lists...
+#6 5.090 Building dependency tree...
+#6 5.302 Reading state information...
+#6 5.566 wget is already the newest version (1.20.3-1ubuntu2).
+#6 5.566 The following NEW packages will be installed:
+#6 5.566   ninja-build
+#6 5.641 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+#6 5.641 Need to get 107 kB of archives.
+#6 5.641 After this operation, 338 kB of additional disk space will be used.
+#6 5.641 Get:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 ninja-build amd64 1.10.0-1build1 [107 kB]
+#6 5.987 debconf: delaying package configuration, since apt-utils is not installed
+#6 6.085 Fetched 107 kB in 0s (803 kB/s)
+#6 6.231 Selecting previously unselected package ninja-build.
+#6 6.231 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21291 files and directories currently installed.)
+#6 6.253 Preparing to unpack .../ninja-build_1.10.0-1build1_amd64.deb ...
+#6 6.309 Unpacking ninja-build (1.10.0-1build1) ...
+#6 6.513 Setting up ninja-build (1.10.0-1build1) ...
+#6 DONE 6.9s
+
+#7 [3/6] RUN wget --quiet https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-Linux-x86_64.sh ;    chmod +x cmake-3.15.4-Linux-x86_64.sh ;     ./cmake-3.15.4-Linux-x86_64.sh --skip-license --prefix="/usr/local"
+#7 sha256:d722e22958994926a81e928b303018d4dc7fb8979748fd1b52ff2d896ba55d3d
+#7 4.553 CMake Installer Version: 3.15.4, Copyright (c) Kitware
+#7 4.553 This is a self-extracting archive.
+#7 4.554 The archive will be extracted to: /usr/local
+#7 4.554 
+#7 4.554 Using target directory: /usr/local
+#7 4.554 Extracting, please wait...
+#7 4.554 
+#7 5.879 Unpacking finished successfully
+#7 DONE 7.0s
+
+#8 [4/6] RUN git clone --depth 1 https://github.com/lemire/simdjson.git simdjson
+#8 sha256:81a9b3f5ee1bc31ab0c6e6786666cadd6467f34dfc20760aef2285f1d5acef9f
+#8 0.472 Cloning into 'simdjson'...
+#8 DONE 2.1s
+
+#9 [5/6] WORKDIR simdjson
+#9 sha256:6362b123d1e5561dde1cc90b53acac27055a5c4122ecee0ae805fc568fee79bc
+#9 DONE 0.3s
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:e34861f349192d7b39721972464c7dd474d138421310efccbed7e59c6e9bf887
+#11 DONE 0.3s
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:33131b7bcaa6a4af15d5a53bdd98d347b18da7008e9e00dca7595b0bf2c18c97 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson done
+#12 DONE 0.2s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:9009f634c2626fa30aa5ddfdfff4789dff3e9a8d0c20d76b7f84062ac0b7aaa3
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:896fdcede4472d78c15d49ca4426a1c176d838c97ed784b438eff058a429a809
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson:latest
+#3 sha256:55870561b20b2363bca7a541cb7e4d310e93f75f9e174e8f42a7b5c9084f1bdc
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson
+#7 sha256:79072ef8fbc2063c2ccbb76e7d16ffb99744adfd7a4b22d767a60410f84f6fcf
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate
+#4 sha256:209f48cb9893b7926bfa6a48b870fa44eb3373aaa971041ac9c156a07f38fa0a
+#4 ERROR: gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate:latest: not found
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson
+#7 sha256:79072ef8fbc2063c2ccbb76e7d16ffb99744adfd7a4b22d767a60410f84f6fcf
+#7 DONE 1.0s
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:955105226da57cbf33663e4203f7a787ad33b7c023415a6a739e1e1d5762733d
+#5 0.501 Cloning into '/afl'...
+#5 1.214 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#5 1.214 
+#5 1.214 You are in 'detached HEAD' state. You can look around, make experimental
+#5 1.214 changes and commit them, and you can discard any commits you make in this
+#5 1.214 state without impacting any branches by switching back to a branch.
+#5 1.214 
+#5 1.214 If you want to create a new branch to retain commits you create, you may
+#5 1.214 do so (now or later) by using -c with the switch command. Example:
+#5 1.214 
+#5 1.214   git switch -c <new-branch-name>
+#5 1.214 
+#5 1.214 Or undo this operation with:
+#5 1.214 
+#5 1.214   git switch -
+#5 1.214 
+#5 1.214 Turn off this advice by setting config variable advice.detachedHead to false
+#5 1.214 
+#5 1.214 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#5 1.250 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#5 1.250 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#5 1.426 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#5 1.431 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#5 3.804 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#5 4.119 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#5 4.547 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#5 4.694 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#5 5.090 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#5 5.354 ln -sf afl-as as
+#5 5.356 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#5 5.359 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#5 5.360 [+] All done! Be sure to review README - it's pretty short and useful.
+#5 DONE 6.8s
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:d366efae1fc48fa18074ab91cfc5e3e7eb23d036c6fd770974ef1422307e80df
+#6 0.759 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#6 0.759 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#6 0.759 Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#6 0.784 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#6 0.878 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#6 1.687 Reading package lists...
+#6 3.173 Reading package lists...
+#6 4.617 Building dependency tree...
+#6 4.829 Reading state information...
+#6 5.077 wget is already the newest version (1.20.3-1ubuntu2).
+#6 5.077 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#6 5.091 --2022-02-16 11:48:09--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#6 5.093 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+#6 5.094 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#6 5.117 HTTP request sent, awaiting response... 200 OK
+#6 5.287 Length: 9177 (9.0K) [text/plain]
+#6 5.287 Saving to: '/afl/afl_driver.cpp'
+#6 5.288 
+#6 5.288      0K ........                                              100% 10.2M=0.001s
+#6 5.288 
+#6 5.288 2022-02-16 11:48:09 (10.2 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#6 5.288 
+#6 7.096 ar: creating /libAFL.a
+#6 DONE 7.5s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:51f983515487b343a0d5a98ecaa61617fd7e2a04bcf6b2649d37ff63cf9f98ce
+#8 writing image sha256:51f983515487b343a0d5a98ecaa61617fd7e2a04bcf6b2649d37ff63cf9f98ce 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2cc2ebf5a7459e90e080ef2708296c046c27d7d2216c69806108b0a93e0ac93e
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d85e17d15116c6794e75ee833e9e4657372bb6b4a07d45b5c46aa8895ac8d99d
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:e200eacb60b0af25f113737d2bac68376a52cc23fb7aef5c8ebf9d492651847e
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:528c33cf722bae23f3438970b2800a6395bc87fbd050c6d0cb1261b0d0b64d68
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:7dfb3685c26e620236d3dd60c3eb4748643e3ec88bae846aad7583593faaa376
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:1f6fa4be9b95afee2dfd9808d8afac2e41173670b409e4491411a6f05eea4004
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:6dd21d280cf9bf5c7ac1b018bc3d11b3e4f103a65f89e2d9b3a3156d56b46934
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:43223bf2650ce1e2bca002f8f1bf4def4f6b6b19f8c2036962ae6d8d7da96876
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:88fac38a3fa0f0f46a0e6d4712cd6d1462adc44e66c0d81183ddd7e73a00fd3f
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate:latest
+#3 sha256:500275a4f8686458996a1a86f0731653e6d865ca0089f59104c2d0e3c9445829
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e13cf9c8e33941670a41515c2d78c3b54aaee572b1d62142fe46e41fff9f46ff
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate
+#6 sha256:b5fedabb2678a68bcff59d38bda81af94a82d9d7f937e497569837413cda50e2
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/simdjson_simdjson
+#5 sha256:ee32168d6a87863750c330eb5e1b5d0284a3409f53f3700d392f6da5dbe88566
+#5 ERROR: gcr.io/fuzzbench/builders/afl/simdjson_simdjson:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:e13cf9c8e33941670a41515c2d78c3b54aaee572b1d62142fe46e41fff9f46ff
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate
+#6 sha256:b5fedabb2678a68bcff59d38bda81af94a82d9d7f937e497569837413cda50e2
+#6 DONE 0.7s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:0a0d71f573aee771d8f13cba8ff3def06f1a87e404424ac6976f1a130c96c840
+#8 DONE 0.6s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:42fc01481b601be812486d3c16c841512c65144b79e6dbbd2ce892b34534c9a2
+#9 DONE 12.9s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:ecd07f606c58ed1f15fc9633f29cfa0a86248ebb5e0f4f539fa56f491e9aeb40
+#10 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:9ff2e327634afadb903ec37276716af42657843d69ceda6d83d0e8a51f28219e
+#11 DONE 22.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:50e87f73d32f9f730fd8443209d42a37efbd05394a86bfba1518847377a40a67
+#13 DONE 1.8s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:b95cb99f70d6c046c2c445834444df8c0650602e56cc24cb1e8eadc20ae088e7
+#14 DONE 1.5s
+
+#15 [stage-1  8/13] COPY benchmarks/simdjson_simdjson/benchmark.yaml /
+#15 sha256:a0165ddafe2ed010f5db6842cacf89e7512123c50eb6c4af521861d178828e0e
+#15 DONE 0.3s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:31f2e14a7a0808a7eb7595374ba3eff792c76e8f2bfb96c07ec9c096061f4c47
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:e26b1ad90877102458cdce3aab6067a627552dec6110776788586adf708a8c60
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:003b39fb41d56a405975428a3da319ff94e2f69975d414ed54aa5bb2e5ad6ba3
+#18 0.503 Checking out commit 71f4914c
+#18 5.391 From https://github.com/lemire/simdjson
+#18 5.391  * [new tag]           v0.0.1     -> v0.0.1
+#18 5.391  * [new tag]           v0.1.0     -> v0.1.0
+#18 5.391  * [new tag]           v0.1.1     -> v0.1.1
+#18 5.392  * [new tag]           v0.1.2     -> v0.1.2
+#18 5.392  * [new tag]           v0.2.0     -> v0.2.0
+#18 5.392  * [new tag]           v0.2.1     -> v0.2.1
+#18 5.393  * [new tag]           v0.3.0     -> v0.3.0
+#18 5.393  * [new tag]           v0.3.1     -> v0.3.1
+#18 5.393  * [new tag]           v0.4.0     -> v0.4.0
+#18 5.393  * [new tag]           v0.4.1     -> v0.4.1
+#18 5.394  * [new tag]           v0.4.2     -> v0.4.2
+#18 5.394  * [new tag]           v0.4.3     -> v0.4.3
+#18 5.394  * [new tag]           v0.4.4     -> v0.4.4
+#18 5.395  * [new tag]           v0.4.5     -> v0.4.5
+#18 5.395  * [new tag]           v0.4.6     -> v0.4.6
+#18 5.395  * [new tag]           v0.5.0     -> v0.5.0
+#18 5.395  * [new tag]           v0.6.0     -> v0.6.0
+#18 5.396  * [new tag]           v0.7.0     -> v0.7.0
+#18 5.396  * [new tag]           v0.8.0     -> v0.8.0
+#18 5.396  * [new tag]           v0.9.0     -> v0.9.0
+#18 5.397  * [new tag]           v0.9.1     -> v0.9.1
+#18 5.397  * [new tag]           v1.0.0     -> v1.0.0
+#18 5.397  * [new tag]           v1.0.1     -> v1.0.1
+#18 5.397  * [new tag]           v1.0.2     -> v1.0.2
+#18 5.406 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 5.411 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 5.417 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 5.452 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 5.527 Checkout unsuccessful.
+#18 DONE 6.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:00fe230a344db8aee1dacb2842068233fde5a07135f6201c2733e9c1c796307e
+#19 DONE 1.2s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:5ecc609154b57f87619e66a1d4ea22917044e333b78d41c8675aaec3e9c36a9d
+#20 0.561 Run fuzzer_build to build the target
+#20 0.691 FUZZ_TARGET = simdjson
+#20 0.691 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.691 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.698 Building benchmark simdjson_simdjson with fuzzer afl
+#20 0.701 + fuzz/ossfuzz.sh
+#20 0.703 + which zip
+#20 0.705 + which cmake
+#20 0.706 + which ninja
+#20 0.708 + fuzz/build_corpus.sh
+#20 0.744 + mkdir -p build
+#20 0.747 + cd build
+#20 0.747 + cmake .. -GNinja -DCMAKE_BUILD_TYPE=Debug -DSIMDJSON_DEVELOPER_MODE=ON -DBUILD_SHARED_LIBS=OFF -DSIMDJSON_ENABLE_FUZZING=On -DSIMDJSON_COMPETITION=Off -DSIMDJSON_FUZZ_LINKMAIN=Off -DSIMDJSON_GOOGLE_BENCHMARKS=Off -DSIMDJSON_DISABLE_DEPRECATED_API=On -DSIMDJSON_FUZZ_LDFLAGS=/libAFL.a
+#20 1.027 -- The CXX compiler identification is Clang 14.0.0
+#20 1.203 -- The C compiler identification is Clang 14.0.0
+#20 1.211 -- Check for working CXX compiler: /usr/local/bin/clang++
+#20 1.410 -- Check for working CXX compiler: /usr/local/bin/clang++ -- works
+#20 1.413 -- Detecting CXX compiler ABI info
+#20 1.593 -- Detecting CXX compiler ABI info - done
+#20 1.621 -- Detecting CXX compile features
+#20 1.622 -- Detecting CXX compile features - done
+#20 1.625 -- Check for working C compiler: /usr/local/bin/clang
+#20 1.771 -- Check for working C compiler: /usr/local/bin/clang -- works
+#20 1.774 -- Detecting C compiler ABI info
+#20 1.917 -- Detecting C compiler ABI info - done
+#20 1.941 -- Detecting C compile features
+#20 1.941 -- Detecting C compile features - done
+#20 1.951 -- Looking for fork
+#20 2.106 -- Looking for fork - found
+#20 2.107 -- Looking for wait
+#20 2.278 -- Looking for wait - found
+#20 2.282 -- Looking for pthread.h
+#20 2.452 -- Looking for pthread.h - found
+#20 2.452 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 2.615 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 2.617 -- Found Threads: TRUE  
+#20 2.645 -- Importing simdjson-data (simdjson/simdjson-data@a5b13babe65c1bba7186b41b43d4cbdc20a5c470)
+#20 5.047 -- Importing cxxopts (jarro2783/cxxopts@794c975)
+#20 5.513 -- cxxopts version 2.2.0
+#20 5.517 -- We have cxxopts as a dependency and we are building the tools (e.g., json2json).
+#20 5.763 -- Found Python3: /usr/local/bin/python3.8 (found version "3.8.6") found components:  Interpreter 
+#20 5.772 -- Including amalgamate_demo test. 
+#20 5.773 -- Including simdjson-singleheader test.
+#20 5.773 -- Including amalgamate_demo_direct_from_repository test.
+#20 5.809 -- We disable the checkperf targets under Ninja.
+#20 5.827 -- Configuring done
+#20 6.017 -- Generating done
+#20 6.019 -- Build files have been written to: /src/simdjson/build
+#20 6.028 + cmake --build . --target all_fuzzers
+#20 12.11 [1/28] Building CXX object fuzz/CMakeFiles/fuzz_parser.dir/fuzz_parser.cpp.o
+#20 12.49 [2/28] Building CXX object fuzz/CMakeFiles/fuzz_utf8.dir/fuzz_utf8.cpp.o
+#20 12.49 [3/28] Building CXX object fuzz/CMakeFiles/fuzz_dump.dir/fuzz_dump.cpp.o
+#20 12.62 [4/28] Building CXX object fuzz/CMakeFiles/fuzz_dump_raw_tape.dir/fuzz_dump_raw_tape.cpp.o
+#20 13.03 [5/28] Building CXX object fuzz/CMakeFiles/fuzz_minifyimpl.dir/fuzz_minifyimpl.cpp.o
+#20 13.15 [6/28] Building CXX object fuzz/CMakeFiles/fuzz_atpointer.dir/fuzz_atpointer.cpp.o
+#20 13.27 [7/28] Building CXX object fuzz/CMakeFiles/fuzz_ndjson.dir/fuzz_ndjson.cpp.o
+#20 14.05 [8/28] Building CXX object fuzz/CMakeFiles/fuzz_element.dir/fuzz_element.cpp.o
+#20 14.18 [9/28] Building CXX object fuzz/CMakeFiles/fuzz_print_json.dir/fuzz_print_json.cpp.o
+#20 17.73 [10/28] Building CXX object fuzz/CMakeFiles/fuzz_implementations.dir/fuzz_implementations.cpp.o
+#20 18.04 [11/28] Building CXX object fuzz/CMakeFiles/fuzz_minify.dir/fuzz_minify.cpp.o
+#20 18.33 [12/28] Building CXX object fuzz/CMakeFiles/fuzz_padded.dir/fuzz_padded.cpp.o
+#20 18.88 [13/28] Building CXX object fuzz/CMakeFiles/fuzz_ondemand.dir/fuzz_ondemand.cpp.o
+#20 22.95 [14/28] Building CXX object CMakeFiles/simdjson.dir/src/simdjson.cpp.o
+#20 23.44 [15/28] Linking CXX static library libsimdjson.a
+#20 23.93 [16/28] Linking CXX executable fuzz/fuzz_implementations
+#20 23.94 [17/28] Linking CXX executable fuzz/fuzz_ndjson
+#20 23.96 [18/28] Linking CXX executable fuzz/fuzz_dump
+#20 23.98 [19/28] Linking CXX executable fuzz/fuzz_dump_raw_tape
+#20 23.99 [20/28] Linking CXX executable fuzz/fuzz_print_json
+#20 24.02 [21/28] Linking CXX executable fuzz/fuzz_minifyimpl
+#20 24.04 [22/28] Linking CXX executable fuzz/fuzz_parser
+#20 24.04 [23/28] Linking CXX executable fuzz/fuzz_utf8
+#20 24.06 [24/28] Linking CXX executable fuzz/fuzz_element
+#20 24.07 [25/28] Linking CXX executable fuzz/fuzz_atpointer
+#20 24.26 [26/28] Linking CXX executable fuzz/fuzz_ondemand
+#20 24.27 [27/28] Linking CXX executable fuzz/fuzz_minify
+#20 24.27 [28/28] Linking CXX executable fuzz/fuzz_padded
+#20 24.27 + cp fuzz/fuzz_atpointer fuzz/fuzz_dump fuzz/fuzz_dump_raw_tape fuzz/fuzz_element fuzz/fuzz_implementations fuzz/fuzz_minify fuzz/fuzz_minifyimpl fuzz/fuzz_ndjson fuzz/fuzz_ondemand fuzz/fuzz_padded fuzz/fuzz_parser fuzz/fuzz_print_json fuzz/fuzz_utf8 /out
+#20 24.32 + ls /out/fuzz_atpointer /out/fuzz_dump /out/fuzz_dump_raw_tape /out/fuzz_element /out/fuzz_implementations /out/fuzz_minify /out/fuzz_minifyimpl /out/fuzz_ndjson /out/fuzz_ondemand /out/fuzz_padded /out/fuzz_parser /out/fuzz_print_json /out/fuzz_utf8
+#20 24.32 + grep -v .zip$
+#20 24.33 + basename /out/fuzz_atpointer
+#20 24.34 + cp ../corpus.zip /out/fuzz_atpointer.zip
+#20 24.34 + basename /out/fuzz_dump
+#20 24.34 + cp ../corpus.zip /out/fuzz_dump.zip
+#20 24.34 + basename /out/fuzz_dump_raw_tape
+#20 24.34 + cp ../corpus.zip /out/fuzz_dump_raw_tape.zip
+#20 24.34 + basename /out/fuzz_element
+#20 24.35 + cp ../corpus.zip /out/fuzz_element.zip
+#20 24.35 + basename /out/fuzz_implementations
+#20 24.35 + cp ../corpus.zip /out/fuzz_implementations.zip
+#20 24.35 + basename /out/fuzz_minify
+#20 24.35 + cp ../corpus.zip /out/fuzz_minify.zip
+#20 24.35 + basename /out/fuzz_minifyimpl
+#20 24.35 + cp ../corpus.zip /out/fuzz_minifyimpl.zip
+#20 24.36 + basename /out/fuzz_ndjson
+#20 24.36 + cp ../corpus.zip /out/fuzz_ndjson.zip
+#20 24.36 + basename /out/fuzz_ondemand
+#20 24.36 + cp ../corpus.zip /out/fuzz_ondemand.zip
+#20 24.36 + basename /out/fuzz_padded
+#20 24.36 + cp ../corpus.zip /out/fuzz_padded.zip
+#20 24.37 + basename /out/fuzz_parser
+#20 24.37 + cp ../corpus.zip /out/fuzz_parser.zip
+#20 24.37 + basename /out/fuzz_print_json
+#20 24.37 + cp ../corpus.zip /out/fuzz_print_json.zip
+#20 24.37 + basename /out/fuzz_utf8
+#20 24.37 + cp ../corpus.zip /out/fuzz_utf8.zip
+#20 24.38 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 25.3s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e99d712131b74dde2d130d92aecb469656455059ca0c9a0b8c6acbe20898d7ff 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/simdjson_simdjson done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/simdjson_simdjson:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:e5640d3daa13f1d1da3ca73e55e6579d90ebf5db7bd018e9cf7e2568ddfe7290
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b48dc2e8d1b187c47b0727dd6a764f20b3a4fc07f98f4da8dd38d0439b1bf05d
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate
+#5 sha256:97f89d33c22a3b38dbc36a3bd34f879bc07a4f17677d513d3bafb3557eaf8740
+#5 ERROR: gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4de6739591422f619b8f3fc7dc61bd603b2c4d5cbff3605584ba9baee69f57d4
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:fe5c3d89a125c66f318d72bb3822c337398c4a442af9740c2b88c019ace0c184
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate:latest
+#3 sha256:9f3cf17fcb717c72721e1a13f47e89026ddd95f7980b5fab6b5653ba135491ff
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/simdjson_simdjson:latest
+#4 sha256:3c386512fea439a12729454447f6bf1ed2a12e02004a63e0303ec9201689c1ef
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2f143e9c6e137abea059da6898e18f6f764a51ebe6ea03559a12a2562242b92a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate
+#6 sha256:9f6a20855afd3e813faae51b8691997b2330b24f2da1865419581f8d902ca854
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/simdjson_simdjson
+#10 sha256:7ec69af273a6936559c2b9e012e5bf3b835658fbfc30ad107dcbe9d237f31469
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/simdjson_simdjson
+#5 sha256:d1f359e2f7fd6f3c637648f547e6b1b2f5b61d0b5a52b7372fc1987696a671e6
+#5 ERROR: gcr.io/fuzzbench/runners/afl/simdjson_simdjson:latest: not found
+
+#12 [internal] load build context
+#12 sha256:2f143e9c6e137abea059da6898e18f6f764a51ebe6ea03559a12a2562242b92a
+#12 transferring context: 17.64MB 0.7s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/simdjson_simdjson
+#10 sha256:7ec69af273a6936559c2b9e012e5bf3b835658fbfc30ad107dcbe9d237f31469
+#10 DONE 1.6s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:4521f5c249fbb2cfa054b531651622b705de5309847e2a5d943d9672b85faa02
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f62c0d314462fce7b5d4f961089a099fe6746c55c953aea12a7da5885aaca1ea
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:a2de7f779da69a578c6a0a6c8d120b5295a3bf70e8cdd41d6b4ed7673cf86eff
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:5bc2df2448393ed795c3d481a9c12984fc2b61897cc47baa79ba3b79db6d33b5
+#11 DONE 0.5s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:fb81c2b855dba7da74e63e81a3e4a3ba261d7fbbbb9a0b145596a23adc85e611
+#13 DONE 1.2s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:539ce2c881394b6a2da2eff73805a495e6404fb89879cfa6372428002c68198b
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:6065dc49ea36bdcd16d34fd8fca391eb288dc8cd025f310d7953d16d087b80e7
+#15 DONE 1.3s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:dc9651a444ad28a8a212763457da6f0bd7a9d6d2f60429a2669e4d8f5d54fda2
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:63e0773934459de8b320f206e24c9fb6f908849829872d551f9d93a95279a99e
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:8bd1bcb1b355f0350b4dfd10801229ac19ba8ded430a2079490b4e4f645ddf41
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:ec374c9fc841498c59162966741ec795bc0d93994525fd3a76a7c5fbfbf5d628
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:8f5757fd454101ea42e085af7234363ac30dc226bea592022dc28634b1080a5a
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:1d8243bcd3794ce2165f88c359ce8f7b33782913706a9dbaf8c61d0d5225e596
+#21 writing image sha256:1d8243bcd3794ce2165f88c359ce8f7b33782913706a9dbaf8c61d0d5225e596 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/simdjson_simdjson done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/simdjson_simdjson:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f0d8674ef70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0543fbe650cb1068e9c666a73164f4b533d1fdf362e004f5422a40b23c1c6efa
+#1 transferring dockerfile: 32B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:91e7078f90d4d696c1f8e788a7bb9ed7fedc33c01d9ea5b0d41e1f5ef7b84d5d
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson
+#4 sha256:4497811b044927baab1deb1350ee0c090f51467c16a26494f9498933e55a33c4
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:45e48f42ec3de40dc8fb48eb0a1baca92aeeaf7a14657e25b9681244bbe585b3
+#10 transferring context: 30B done
+#10 DONE 0.1s
+
+#7 [3/6] RUN wget --quiet https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-Linux-x86_64.sh ;    chmod +x cmake-3.15.4-Linux-x86_64.sh ;     ./cmake-3.15.4-Linux-x86_64.sh --skip-license --prefix="/usr/local"
+#7 sha256:d722e22958994926a81e928b303018d4dc7fb8979748fd1b52ff2d896ba55d3d
+#7 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y ninja-build wget
+#6 sha256:a4e657978ebf144ae4bba760a621ffcff8f8fdbe5126be5f7434e31511164464
+#6 CACHED
+
+#8 [4/6] RUN git clone --depth 1 https://github.com/lemire/simdjson.git simdjson
+#8 sha256:81a9b3f5ee1bc31ab0c6e6786666cadd6467f34dfc20760aef2285f1d5acef9f
+#8 CACHED
+
+#9 [5/6] WORKDIR simdjson
+#9 sha256:6362b123d1e5561dde1cc90b53acac27055a5c4122ecee0ae805fc568fee79bc
+#9 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:89781beb849f7d91f38b23b611ac4914796bcc0c9e08528086147006c8f5ffc0
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:33131b7bcaa6a4af15d5a53bdd98d347b18da7008e9e00dca7595b0bf2c18c97
+#12 writing image sha256:33131b7bcaa6a4af15d5a53bdd98d347b18da7008e9e00dca7595b0bf2c18c97 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:ea1cee51823c7d009ceb94aa6a85514c2a2e68174d9492484ccb08ea142ca33a
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:3600bf5613391fe20b8ade1e5772a36a0aeca4f326648e9809b2af62318a34d5
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson:latest
+#3 sha256:55870561b20b2363bca7a541cb7e4d310e93f75f9e174e8f42a7b5c9084f1bdc
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/simdjson_simdjson
+#5 sha256:79072ef8fbc2063c2ccbb76e7d16ffb99744adfd7a4b22d767a60410f84f6fcf
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate
+#4 sha256:209f48cb9893b7926bfa6a48b870fa44eb3373aaa971041ac9c156a07f38fa0a
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:955105226da57cbf33663e4203f7a787ad33b7c023415a6a739e1e1d5762733d
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:d366efae1fc48fa18074ab91cfc5e3e7eb23d036c6fd770974ef1422307e80df
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:51f983515487b343a0d5a98ecaa61617fd7e2a04bcf6b2649d37ff63cf9f98ce 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8d1f5c93cbd966ca7f9a26139b6b3c784ccc9933458dee39dfced5a04eeee6b6
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5b3d03a0c9a988fde485f0d893a303158acd7c06fc3110669f9aca7f804b8882
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:11fa971f382dfc5109990a46b1c2715c6403d0c1a80e3f5c6c86350956274404
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d8e3db2afaa05fe272917703a3a80b132b7872b3f3cfc64802984ec3ea12e00f
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:388843e85480ee7f5416c6b14935d03e9d62722aef5cb91908c4e87ec1fe4ede
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:2e38e0c4d372c2bfaa91432b12b4cc4525965622fdea8eb5ce641fcbd7573e99
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:b1bf50bc10c4add07f8b6c0828517844b0604221f5e3114c364e16d0c881aa61
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7cfe8189c148e330af79e5f6d19d10560730cafff4f0c771d589f9bf8aca908e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:17110d77c2f15b6661efde8c66335b0f483dda939e7518f5c57e4c5d97031829
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate:latest
+#3 sha256:500275a4f8686458996a1a86f0731653e6d865ca0089f59104c2d0e3c9445829
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/simdjson_simdjson-intermediate
+#6 sha256:b5fedabb2678a68bcff59d38bda81af94a82d9d7f937e497569837413cda50e2
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/simdjson_simdjson
+#5 sha256:ee32168d6a87863750c330eb5e1b5d0284a3409f53f3700d392f6da5dbe88566
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1176feab7e342bb0cac86009a01b4bd7cb3a2cc9a1fe9bc089265e76eff3807b
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:ecd07f606c58ed1f15fc9633f29cfa0a86248ebb5e0f4f539fa56f491e9aeb40
+#10 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:19ec986b0f8a98048412736e0b9be8dce46aca65b6a1841c621f9d710cdf1d04
+#17 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:98cbe887cbda79ab4d3d970e77ed8257bf4df16da8e999d8738ee9e83522a762
+#18 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:42fc01481b601be812486d3c16c841512c65144b79e6dbbd2ce892b34534c9a2
+#9 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:0a0d71f573aee771d8f13cba8ff3def06f1a87e404424ac6976f1a130c96c840
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:3c7030eacee094a5bde0ca2548435b38c99247892be94239044b055f0f012e1d
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/simdjson_simdjson/benchmark.yaml /
+#15 sha256:1703df68d9b27ab8e7279a411b45eaa5dd2f6d0783b4dddafdba0ffbd618fd59
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:6b1ae5c7cbcb39914ad180b7d50ecca909541e5aaf9d894a78e7c096007132b6
+#16 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:df4e41067ebf1c1eea53a0fef1956647f6bc51c71cf2dd12ad34aa3d6c60f01a
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:9ff2e327634afadb903ec37276716af42657843d69ceda6d83d0e8a51f28219e
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:229301669cdfba4fac51d675f5729414db84051772532b5d7ede55d828b91184
+#14 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:dbe93c21b0bbef3b4dc763160540a49fda94681d28308f9d87d288923609421a
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e99d712131b74dde2d130d92aecb469656455059ca0c9a0b8c6acbe20898d7ff 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/simdjson_simdjson done
+#21 DONE 0.6s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:3d8acfe3745f55d8c0e4e92025e29135576845c2fd860baccfe19e7d466fef12
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:65d833b5010a1f9d3f1e282a65938646833c7c1818552be9858888ed607bafbf
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate
+#5 sha256:97f89d33c22a3b38dbc36a3bd34f879bc07a4f17677d513d3bafb3557eaf8740
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b418e03738eb5105b533b71789f51e05ed78110b1746d9630d5b3eb5d29a7b2a
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:69ddcc880fea7b9f427c506f87d2aaa18b5561392aba4a97931ed2712a5407db
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate:latest
+#3 sha256:9f3cf17fcb717c72721e1a13f47e89026ddd95f7980b5fab6b5653ba135491ff
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/simdjson_simdjson:latest
+#4 sha256:3c386512fea439a12729454447f6bf1ed2a12e02004a63e0303ec9201689c1ef
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/simdjson_simdjson-intermediate
+#6 sha256:9f6a20855afd3e813faae51b8691997b2330b24f2da1865419581f8d902ca854
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/simdjson_simdjson
+#5 sha256:d1f359e2f7fd6f3c637648f547e6b1b2f5b61d0b5a52b7372fc1987696a671e6
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/simdjson_simdjson
+#10 sha256:7ec69af273a6936559c2b9e012e5bf3b835658fbfc30ad107dcbe9d237f31469
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e1ab82423736b63fb4f3ccb4fac64db452af8b78bacaa99c55d7187baedcd582
+#12 transferring context: 17.64MB 0.7s done
+#12 DONE 0.8s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f62c0d314462fce7b5d4f961089a099fe6746c55c953aea12a7da5885aaca1ea
+#8 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:478e725c373c13f3146a89f6acfef3c577a8b51bd4d99cb216c60efbf6da3b8c
+#13 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:541e9643c96095835c4525d034da51f06e3099ac933597b22436f3529f7b70db
+#14 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:2fc2c6b6c3bd997b571022712cb1ff7f28ba1a19c9aced8bc7df0cf3c38a0562
+#17 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:9be1e1fee1bd85e443cf60463594162df5ba8e0a3933913d33a3c01c83075df3
+#18 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:f0ace1f8c7fe47dfb8df7574c99069d4ff836c40400018b581b1038add06c6dd
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:5bc2df2448393ed795c3d481a9c12984fc2b61897cc47baa79ba3b79db6d33b5
+#11 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:4521f5c249fbb2cfa054b531651622b705de5309847e2a5d943d9672b85faa02
+#7 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:a2de7f779da69a578c6a0a6c8d120b5295a3bf70e8cdd41d6b4ed7673cf86eff
+#9 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:0429438df23bf8ef5ceadfe7c8ec727675c1e913d51e9a595a84cbff1e5ba2e5
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:3f6db5208d0c72b147b62d2651a7024fa8182c70a3096212d7514ef5227e479b
+#16 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:e04546b1fa041a4b09bf9c47fbe25ea4c3af37e27b72300d16d9a18d4f641c14
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:1d8243bcd3794ce2165f88c359ce8f7b33782913706a9dbaf8c61d0d5225e596 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/simdjson_simdjson done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fb09661ef70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

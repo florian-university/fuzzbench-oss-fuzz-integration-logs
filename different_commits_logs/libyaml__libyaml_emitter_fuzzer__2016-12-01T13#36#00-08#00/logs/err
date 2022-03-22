@@ -1,0 +1,1133 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: libyaml_libyaml_emitter_fuzzer.
+INFO:root:Please run "make test-run-afl-libyaml_libyaml_emitter_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:94333c35aba562543f83ab77c867996cf30b0c6d183923b03697631ca5492cbd
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9e670452e22a48cb41a610319e8a328a43180e931775494954354f45108cf40b
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:250a4fd1d7fb3617109a9a3d783751667ac8702c7ada403d56710bceae2076cc
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer
+#4 sha256:5e1cfb969a90ad6470186d383ab38856899730ea13bc6c7dd592359e3faaa76b
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer:latest: not found
+
+#10 [internal] load build context
+#10 sha256:250a4fd1d7fb3617109a9a3d783751667ac8702c7ada403d56710bceae2076cc
+#10 transferring context: 562B done
+#10 DONE 0.0s
+
+#9 [5/6] WORKDIR libyaml
+#9 sha256:00759ee32ba815dbaf860048b8037afdcd5f16eb33e5ae797860f9cfdc3d913c
+#9 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:52e32c454805a8c94e441551d01b16d090304920e0b4ce6b465dec91bafa72a3
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth=1 https://github.com/yaml/libyaml
+#7 sha256:b0447547ae7c5f19f2d1502b651d7e4c5606f0ccac5707e37c47f518d7984114
+#7 CACHED
+
+#8 [4/6] RUN zip /src/libyaml_seed_corpus.zip libyaml/examples/*
+#8 sha256:cf35ee5485c9d6942c74a5bbfafc8e4cfb587295893838521ef88e14aed93b01
+#8 CACHED
+
+#11 [6/6] COPY build.sh *.h *_fuzzer.c libyaml_fuzzer.options yaml.dict /src/
+#11 sha256:b434630923925956f11eb1f0d4ea64490834575e5b2622e8f740b3fa8b7b175a
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:e842df8dd61cc75a41df150278d671580411c30b7f56f8b08e2576cb76236d7c done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:0419dcc852d59226e9141629367979077aaabc025eaac959d5fa0cf961aaa416
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ba47c2845e19e9234aeddfc1e5fea505305680e11dd36ab8801ca938d157289d
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer:latest
+#3 sha256:15b0368c419e7a57bcb3dca5e39c1d437a333a8d8fad40913bb3580cec379be7
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer
+#5 sha256:8dcf36f8f2d788b6006c08b8e63eeff110e3fb73ea1b67346eae79bd95abe4f9
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#4 sha256:d715d1ab8b37517e77e5b1e7a634cfdedb89531e86c42d860cadcc6e7c808037
+#4 ERROR: gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:44e9b7027ea4b62c911ed0ced458496f91e4aefc62aadadced5b1f7895bb123a
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6027eecf4d6f2923461482ffb471c549076e85f3b649236f8bcbdeedd18649f2
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:dd6477a97dd9ae2234daa9a932e4c3c7ca64d1f15c3b3fe9b9a001d79bf05d77
+#8 writing image sha256:dd6477a97dd9ae2234daa9a932e4c3c7ca64d1f15c3b3fe9b9a001d79bf05d77 done
+#8 naming to gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1dcae2f9bcfcc7959925be7623a4b33a83a8dc8819694320ebeee1009a11cefa
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:dc979d7dc796d7d2ebfb991e115bc8bd9fe5c49b5e6371cbe17d81c4857b93ce
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:2de163c15237333823b15532fc701fe1077a3e8c89dccaa685fdab793fceb8ef
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:3f3aced09c1e442585a29c201ff3a91ced61c767d2c64a596665680bad821825
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:463c393e94dd187c00c5a0e6fe749377173e4c01133e1c7df57cbd8539ac40e7
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:62cbdbcdf8a32514c77267305017c960711f1e4f3b98ccb00ac4d5535c715f5d
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:c72bc7483e9e6233a3b7e869d4b81d9439a2ecf33c5433a982e711a3c811296e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:241f3323526acf82f8401c3f52bb149fd2b00f9977db8c3c6f0b1677bc6b90bb
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e39da5399b28b8aae129a18193efc787594d31d2c07ef7cfde8eabadf5b62b4f
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate:latest
+#3 sha256:67f613b48b1f49704e5d958ad9d9d0df942498f54c8afa44a454b0b9ab1af5bb
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:efb9a267b57337cc2c8e9b3941c733ce3861316a1999a46b06b96dc4ec47934a
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#6 sha256:acd346f6f37364e977505add54145e6f947a20ce489613862610807f86638764
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer
+#5 sha256:de11d714040ca083f293cbfa9dcdf0ff049f4bce3124a6d5046604088c4a8118
+#5 ERROR: gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:efb9a267b57337cc2c8e9b3941c733ce3861316a1999a46b06b96dc4ec47934a
+#12 transferring context: 669.91kB 0.1s done
+#12 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:0c078deee782d53a72b7329ce931d601e55761599d0e0af8650528fb00e66667
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:da4af609afcda312ab1acd602b6cb7e27c6fe278ee29333f34356f51b38bda72
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d03d77d3f38967dde263e6b83afda90fd9d9839ca70575649e0f6205954781eb
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4a0f3eb6e56fdff346f05f7b9e9a5a257560e7b98f1373ca45dfd948830e2885
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c56496bbbde1bc5f6a12b11337cbc55b131500eefb75f25bf6fcc3becf3845e7
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:587ad0f1a4bd61b7975549b069f9123c4a197a7a3d9b6bb86fd17b3041d0f5eb
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libyaml_libyaml_emitter_fuzzer/benchmark.yaml /
+#15 sha256:3e11891193b3108a2cd7bdc22f3c294b40f551d60fa9c0195e591830007c77a5
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:927b9075a51a7a5e8045f29f459beae28b0bd490309d73b3482bd1065044450a
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:87326edc310985e712697cbedcdf915a45b777b5e60e5ef6a3396859045b36c5
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:d967a56703f4bae090fd4adc216c8e39c275c36cc8ae8ab3f2693cb299bd88b7
+#18 0.481 Checking out commit 80534fe8
+#18 1.907 From https://github.com/yaml/libyaml
+#18 1.907  * [new tag]         0.0.1      -> 0.0.1
+#18 1.907  * [new tag]         0.1.1      -> 0.1.1
+#18 1.907  * [new tag]         0.1.2      -> 0.1.2
+#18 1.908  * [new tag]         0.1.3      -> 0.1.3
+#18 1.908  * [new tag]         0.1.4      -> 0.1.4
+#18 1.908  * [new tag]         0.1.5      -> 0.1.5
+#18 1.908  * [new tag]         0.1.6      -> 0.1.6
+#18 1.909  * [new tag]         0.1.7      -> 0.1.7
+#18 1.909  * [new tag]         0.2.1      -> 0.2.1
+#18 1.909  * [new tag]         0.2.2      -> 0.2.2
+#18 1.909  * [new tag]         0.2.2-pre1 -> 0.2.2-pre1
+#18 1.910  * [new tag]         0.2.2-pre2 -> 0.2.2-pre2
+#18 1.910  * [new tag]         0.2.2-pre3 -> 0.2.2-pre3
+#18 1.910  * [new tag]         0.2.3      -> 0.2.3
+#18 1.911  * [new tag]         0.2.4      -> 0.2.4
+#18 1.911  * [new tag]         0.2.5      -> 0.2.5
+#18 1.918 error: pathspec '80534fe8' did not match any file(s) known to git
+#18 1.925 error: pathspec '80534fe8' did not match any file(s) known to git
+#18 1.932 error: pathspec '80534fe8' did not match any file(s) known to git
+#18 1.972 Checkout unsuccessful.
+#18 DONE 2.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:e631b7c85ae53fcfba076cd161b958856ff0c11ab730c47f9ee29e5fdb926a78
+#19 DONE 1.1s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:30b83a100c213d99191fee66b7725dbc7d88fbc9915edba63dc1d982fea8be14
+#20 0.462 Run fuzzer_build to build the target
+#20 0.578 FUZZ_TARGET = libyaml_emitter_fuzzer
+#20 0.578 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.578 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.583 Building benchmark libyaml_libyaml_emitter_fuzzer with fuzzer afl
+#20 0.586 + ./bootstrap
+#20 0.932 autoreconf: Entering directory `.'
+#20 0.933 autoreconf: configure.ac: not using Gettext
+#20 1.933 autoreconf: running: aclocal --force 
+#20 2.838 autoreconf: configure.ac: tracing
+#20 3.383 autoreconf: configure.ac: creating directory config
+#20 3.383 autoreconf: running: libtoolize --copy --force
+#20 3.702 libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+#20 3.702 libtoolize: copying file 'config/ltmain.sh'
+#20 3.931 libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+#20 3.931 libtoolize: and rerunning libtoolize and aclocal.
+#20 3.931 libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+#20 4.839 autoreconf: running: /usr/bin/autoconf --force
+#20 5.547 autoreconf: running: /usr/bin/autoheader --force
+#20 6.080 autoreconf: running: automake --add-missing --copy --force-missing
+#20 6.875 configure.ac:51: installing 'config/compile'
+#20 6.878 configure.ac:56: installing 'config/config.guess'
+#20 6.882 configure.ac:56: installing 'config/config.sub'
+#20 6.885 configure.ac:30: installing 'config/install-sh'
+#20 6.888 configure.ac:30: installing 'config/missing'
+#20 6.999 src/Makefile.am: installing 'config/depcomp'
+#20 7.087 parallel-tests: installing 'config/test-driver'
+#20 7.141 autoreconf: Leaving directory `.'
+#20 7.144 + ./configure
+#20 7.361 checking for a BSD-compatible install... /usr/bin/install -c
+#20 7.376 checking whether build environment is sane... yes
+#20 7.393 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 7.396 checking for gawk... no
+#20 7.397 checking for mawk... mawk
+#20 7.398 checking whether make sets $(MAKE)... yes
+#20 7.416 checking whether make supports nested variables... yes
+#20 7.432 checking for gcc... clang
+#20 7.527 checking whether the C compiler works... yes
+#20 7.659 checking for C compiler default output file name... a.out
+#20 7.661 checking for suffix of executables... 
+#20 7.788 checking whether we are cross compiling... no
+#20 7.917 checking for suffix of object files... o
+#20 7.947 checking whether we are using the GNU C compiler... yes
+#20 7.975 checking whether clang accepts -g... yes
+#20 8.000 checking for clang option to accept ISO C89... none needed
+#20 8.044 checking whether clang understands -c and -o together... yes
+#20 8.090 checking whether make supports the include directive... yes (GNU style)
+#20 8.104 checking dependency style of clang... gcc3
+#20 8.160 checking how to run the C preprocessor... clang -E
+#20 8.256 checking whether ln -s works... yes
+#20 8.257 checking whether make sets $(MAKE)... (cached) yes
+#20 8.279 checking build system type... x86_64-pc-linux-gnu
+#20 8.360 checking host system type... x86_64-pc-linux-gnu
+#20 8.361 checking how to print strings... printf
+#20 8.415 checking for a sed that does not truncate output... /usr/bin/sed
+#20 8.424 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 8.428 checking for egrep... /usr/bin/grep -E
+#20 8.431 checking for fgrep... /usr/bin/grep -F
+#20 8.435 checking for ld used by clang... /usr/bin/ld
+#20 8.454 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 8.457 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 8.463 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 8.496 checking the maximum length of command line arguments... 1572864
+#20 8.508 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 8.508 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 8.509 checking for /usr/bin/ld option to reload object files... -r
+#20 8.510 checking for objdump... objdump
+#20 8.511 checking how to recognize dependent libraries... pass_all
+#20 8.514 checking for dlltool... no
+#20 8.515 checking how to associate runtime and link libraries... printf %s\n
+#20 8.516 checking for ar... ar
+#20 8.518 checking for archiver @FILE support... @
+#20 8.558 checking for strip... strip
+#20 8.559 checking for ranlib... ranlib
+#20 8.560 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 8.734 checking for sysroot... no
+#20 8.735 checking for a working dd... /usr/bin/dd
+#20 8.743 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 8.774 checking for mt... no
+#20 8.775 checking if : is a manifest tool... no
+#20 8.786 checking for ANSI C header files... yes
+#20 9.031 checking for sys/types.h... yes
+#20 9.085 checking for sys/stat.h... yes
+#20 9.145 checking for stdlib.h... yes
+#20 9.200 checking for string.h... yes
+#20 9.260 checking for memory.h... yes
+#20 9.320 checking for strings.h... yes
+#20 9.386 checking for inttypes.h... yes
+#20 9.447 checking for stdint.h... yes
+#20 9.514 checking for unistd.h... yes
+#20 9.576 checking for dlfcn.h... yes
+#20 9.634 checking for objdir... .libs
+#20 9.814 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 9.843 checking for clang option to produce PIC... -fPIC -DPIC
+#20 9.844 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 9.878 checking if clang static flag -static works... yes
+#20 10.05 checking if clang supports -c -o file.o... yes
+#20 10.10 checking if clang supports -c -o file.o... (cached) yes
+#20 10.10 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 10.12 checking whether -lc should be explicitly linked in... no
+#20 10.19 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 10.37 checking how to hardcode library paths into programs... immediate
+#20 10.37 checking whether stripping libraries is possible... yes
+#20 10.37 checking if libtool supports shared libraries... yes
+#20 10.37 checking whether to build shared libraries... yes
+#20 10.37 checking whether to build static libraries... yes
+#20 10.37 checking for doxygen... false
+#20 10.38 checking for ANSI C header files... (cached) yes
+#20 10.38 checking for stdlib.h... (cached) yes
+#20 10.38 checking for an ANSI C-conforming const... yes
+#20 10.41 checking for size_t... yes
+#20 10.57 checking that generated files are newer than configure... done
+#20 10.57 configure: creating ./config.status
+#20 11.36 config.status: creating yaml-0.1.pc
+#20 11.38 config.status: creating include/Makefile
+#20 11.41 config.status: creating src/Makefile
+#20 11.43 config.status: creating Makefile
+#20 11.45 config.status: creating tests/Makefile
+#20 11.48 config.status: creating include/config.h
+#20 11.50 config.status: executing depfiles commands
+#20 11.69 config.status: executing libtool commands
+#20 11.76 ++ nproc
+#20 11.76 + make -j8
+#20 11.77 Making all in include
+#20 11.77 make[1]: Entering directory '/src/libyaml/include'
+#20 11.78 make  all-am
+#20 11.78 make[2]: Entering directory '/src/libyaml/include'
+#20 11.79 make[2]: Leaving directory '/src/libyaml/include'
+#20 11.79 make[1]: Leaving directory '/src/libyaml/include'
+#20 11.79 Making all in src
+#20 11.79 make[1]: Entering directory '/src/libyaml/src'
+#20 11.79 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT api.lo -MD -MP -MF .deps/api.Tpo -c -o api.lo api.c
+#20 11.79 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT reader.lo -MD -MP -MF .deps/reader.Tpo -c -o reader.lo reader.c
+#20 11.79 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT scanner.lo -MD -MP -MF .deps/scanner.Tpo -c -o scanner.lo scanner.c
+#20 11.79 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c -o parser.lo parser.c
+#20 11.79 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT loader.lo -MD -MP -MF .deps/loader.Tpo -c -o loader.lo loader.c
+#20 11.79 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT writer.lo -MD -MP -MF .deps/writer.Tpo -c -o writer.lo writer.c
+#20 11.79 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT emitter.lo -MD -MP -MF .deps/emitter.Tpo -c -o emitter.lo emitter.c
+#20 11.80 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT dumper.lo -MD -MP -MF .deps/dumper.Tpo -c -o dumper.lo dumper.c
+#20 11.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT writer.lo -MD -MP -MF .deps/writer.Tpo -c writer.c  -fPIC -DPIC -o .libs/writer.o
+#20 11.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT loader.lo -MD -MP -MF .deps/loader.Tpo -c loader.c  -fPIC -DPIC -o .libs/loader.o
+#20 11.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT reader.lo -MD -MP -MF .deps/reader.Tpo -c reader.c  -fPIC -DPIC -o .libs/reader.o
+#20 11.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT api.lo -MD -MP -MF .deps/api.Tpo -c api.c  -fPIC -DPIC -o .libs/api.o
+#20 11.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c parser.c  -fPIC -DPIC -o .libs/parser.o
+#20 11.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT scanner.lo -MD -MP -MF .deps/scanner.Tpo -c scanner.c  -fPIC -DPIC -o .libs/scanner.o
+#20 11.87 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT emitter.lo -MD -MP -MF .deps/emitter.Tpo -c emitter.c  -fPIC -DPIC -o .libs/emitter.o
+#20 11.90 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT dumper.lo -MD -MP -MF .deps/dumper.Tpo -c dumper.c  -fPIC -DPIC -o .libs/dumper.o
+#20 11.99 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT writer.lo -MD -MP -MF .deps/writer.Tpo -c writer.c -o writer.o >/dev/null 2>&1
+#20 12.11 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT dumper.lo -MD -MP -MF .deps/dumper.Tpo -c dumper.c -o dumper.o >/dev/null 2>&1
+#20 12.12 mv -f .deps/writer.Tpo .deps/writer.Plo
+#20 12.13 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT reader.lo -MD -MP -MF .deps/reader.Tpo -c reader.c -o reader.o >/dev/null 2>&1
+#20 12.25 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT loader.lo -MD -MP -MF .deps/loader.Tpo -c loader.c -o loader.o >/dev/null 2>&1
+#20 12.33 mv -f .deps/dumper.Tpo .deps/dumper.Plo
+#20 12.38 mv -f .deps/reader.Tpo .deps/reader.Plo
+#20 12.52 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c parser.c -o parser.o >/dev/null 2>&1
+#20 12.63 mv -f .deps/loader.Tpo .deps/loader.Plo
+#20 12.77 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT api.lo -MD -MP -MF .deps/api.Tpo -c api.c -o api.o >/dev/null 2>&1
+#20 12.97 mv -f .deps/parser.Tpo .deps/parser.Plo
+#20 13.46 mv -f .deps/api.Tpo .deps/api.Plo
+#20 13.66 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT emitter.lo -MD -MP -MF .deps/emitter.Tpo -c emitter.c -o emitter.o >/dev/null 2>&1
+#20 14.70 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I../include -I../include -Wall -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT scanner.lo -MD -MP -MF .deps/scanner.Tpo -c scanner.c -o scanner.o >/dev/null 2>&1
+#20 15.11 mv -f .deps/emitter.Tpo .deps/emitter.Plo
+#20 16.82 mv -f .deps/scanner.Tpo .deps/scanner.Plo
+#20 16.83 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -no-undefined -release 0 -version-info 2:9:0  -o libyaml.la -rpath /usr/local/lib api.lo reader.lo scanner.lo parser.lo loader.lo writer.lo emitter.lo dumper.lo  
+#20 16.94 libtool: link: clang -shared  -fPIC -DPIC  .libs/api.o .libs/reader.o .libs/scanner.o .libs/parser.o .libs/loader.o .libs/writer.o .libs/emitter.o .libs/dumper.o    -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -O3   -pthread -Wl,-soname -Wl,libyaml-0.so.2 -o .libs/libyaml-0.so.2.0.9
+#20 17.00 libtool: link: (cd ".libs" && rm -f "libyaml-0.so.2" && ln -s "libyaml-0.so.2.0.9" "libyaml-0.so.2")
+#20 17.01 libtool: link: (cd ".libs" && rm -f "libyaml.so" && ln -s "libyaml-0.so.2.0.9" "libyaml.so")
+#20 17.02 libtool: link: ar cr .libs/libyaml.a  api.o reader.o scanner.o parser.o loader.o writer.o emitter.o dumper.o
+#20 17.03 libtool: link: ranlib .libs/libyaml.a
+#20 17.05 libtool: link: ( cd ".libs" && rm -f "libyaml.la" && ln -s "../libyaml.la" "libyaml.la" )
+#20 17.06 make[1]: Leaving directory '/src/libyaml/src'
+#20 17.06 Making all in .
+#20 17.06 make[1]: Entering directory '/src/libyaml'
+#20 17.06 make[1]: Nothing to be done for 'all-am'.
+#20 17.06 make[1]: Leaving directory '/src/libyaml'
+#20 17.06 Making all in tests
+#20 17.06 make[1]: Entering directory '/src/libyaml/tests'
+#20 17.06 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT run-scanner.o -MD -MP -MF .deps/run-scanner.Tpo -c -o run-scanner.o run-scanner.c
+#20 17.06 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT run-parser.o -MD -MP -MF .deps/run-parser.Tpo -c -o run-parser.o run-parser.c
+#20 17.07 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT run-loader.o -MD -MP -MF .deps/run-loader.Tpo -c -o run-loader.o run-loader.c
+#20 17.07 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT run-emitter.o -MD -MP -MF .deps/run-emitter.Tpo -c -o run-emitter.o run-emitter.c
+#20 17.07 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT run-dumper.o -MD -MP -MF .deps/run-dumper.Tpo -c -o run-dumper.o run-dumper.c
+#20 17.07 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT example-reformatter.o -MD -MP -MF .deps/example-reformatter.Tpo -c -o example-reformatter.o example-reformatter.c
+#20 17.07 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT example-reformatter-alt.o -MD -MP -MF .deps/example-reformatter-alt.Tpo -c -o example-reformatter-alt.o example-reformatter-alt.c
+#20 17.07 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT example-deconstructor.o -MD -MP -MF .deps/example-deconstructor.Tpo -c -o example-deconstructor.o example-deconstructor.c
+#20 17.15 mv -f .deps/run-scanner.Tpo .deps/run-scanner.Po
+#20 17.15 mv -f .deps/run-parser.Tpo .deps/run-parser.Po
+#20 17.15 mv -f .deps/run-loader.Tpo .deps/run-loader.Po
+#20 17.16 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT example-deconstructor-alt.o -MD -MP -MF .deps/example-deconstructor-alt.Tpo -c -o example-deconstructor-alt.o example-deconstructor-alt.c
+#20 17.16 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT run-parser-test-suite.o -MD -MP -MF .deps/run-parser-test-suite.Tpo -c -o run-parser-test-suite.o run-parser-test-suite.c
+#20 17.17 clang -DHAVE_CONFIG_H -I. -I../include  -I../include -Wall   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT run-emitter-test-suite.o -MD -MP -MF .deps/run-emitter-test-suite.Tpo -c -o run-emitter-test-suite.o run-emitter-test-suite.c
+#20 17.18 mv -f .deps/example-reformatter.Tpo .deps/example-reformatter.Po
+#20 17.19 mv -f .deps/example-reformatter-alt.Tpo .deps/example-reformatter-alt.Po
+#20 17.21 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o run-scanner run-scanner.o ../src/libyaml.la 
+#20 17.21 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o run-parser run-parser.o ../src/libyaml.la 
+#20 17.30 mv -f .deps/run-emitter.Tpo .deps/run-emitter.Po
+#20 17.30 mv -f .deps/run-parser-test-suite.Tpo .deps/run-parser-test-suite.Po
+#20 17.31 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o run-loader run-loader.o ../src/libyaml.la 
+#20 17.31 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o run-emitter run-emitter.o ../src/libyaml.la 
+#20 17.33 mv -f .deps/run-dumper.Tpo .deps/run-dumper.Po
+#20 17.33 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o example-reformatter example-reformatter.o ../src/libyaml.la 
+#20 17.39 mv -f .deps/run-emitter-test-suite.Tpo .deps/run-emitter-test-suite.Po
+#20 17.40 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o example-reformatter-alt example-reformatter-alt.o ../src/libyaml.la 
+#20 17.41 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/run-scanner run-scanner.o  ../src/.libs/libyaml.so -pthread
+#20 17.42 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/run-parser run-parser.o  ../src/.libs/libyaml.so -pthread
+#20 17.50 mv -f .deps/example-deconstructor.Tpo .deps/example-deconstructor.Po
+#20 17.50 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/run-loader run-loader.o  ../src/.libs/libyaml.so -pthread
+#20 17.51 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o run-parser-test-suite run-parser-test-suite.o ../src/libyaml.la 
+#20 17.51 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/run-emitter run-emitter.o  ../src/.libs/libyaml.so -pthread
+#20 17.52 mv -f .deps/example-deconstructor-alt.Tpo .deps/example-deconstructor-alt.Po
+#20 17.52 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o run-emitter-test-suite run-emitter-test-suite.o ../src/libyaml.la 
+#20 17.55 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/example-reformatter example-reformatter.o  ../src/.libs/libyaml.so -pthread
+#20 17.58 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o run-dumper run-dumper.o ../src/libyaml.la 
+#20 17.59 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/example-reformatter-alt example-reformatter-alt.o  ../src/.libs/libyaml.so -pthread
+#20 17.59 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o example-deconstructor example-deconstructor.o ../src/libyaml.la 
+#20 17.67 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o example-deconstructor-alt example-deconstructor-alt.o ../src/libyaml.la 
+#20 17.71 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/run-emitter-test-suite run-emitter-test-suite.o  ../src/.libs/libyaml.so -pthread
+#20 17.71 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/run-parser-test-suite run-parser-test-suite.o  ../src/.libs/libyaml.so -pthread
+#20 17.75 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/run-dumper run-dumper.o  ../src/.libs/libyaml.so -pthread
+#20 17.76 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/example-deconstructor example-deconstructor.o  ../src/.libs/libyaml.so -pthread
+#20 17.81 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o .libs/example-deconstructor-alt example-deconstructor-alt.o  ../src/.libs/libyaml.so -pthread
+#20 17.92 make[1]: Leaving directory '/src/libyaml/tests'
+#20 17.92 + for fuzzer in $SRC/*_fuzzer.c
+#20 17.92 ++ basename -s .c /src/libyaml_deconstructor_alt_fuzzer.c
+#20 17.92 + fuzzer_basename=libyaml_deconstructor_alt_fuzzer
+#20 17.93 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_deconstructor_alt_fuzzer.c -o libyaml_deconstructor_alt_fuzzer.o
+#20 18.12 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_deconstructor_alt_fuzzer.o -o /out/libyaml_deconstructor_alt_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 18.36 + cp /src/libyaml_seed_corpus.zip /out/libyaml_deconstructor_alt_fuzzer_seed_corpus.zip
+#20 18.37 + cp /src/libyaml_fuzzer.options /out/libyaml_deconstructor_alt_fuzzer.options
+#20 18.37 + for fuzzer in $SRC/*_fuzzer.c
+#20 18.37 ++ basename -s .c /src/libyaml_deconstructor_fuzzer.c
+#20 18.37 + fuzzer_basename=libyaml_deconstructor_fuzzer
+#20 18.37 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_deconstructor_fuzzer.c -o libyaml_deconstructor_fuzzer.o
+#20 18.61 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_deconstructor_fuzzer.o -o /out/libyaml_deconstructor_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 18.86 + cp /src/libyaml_seed_corpus.zip /out/libyaml_deconstructor_fuzzer_seed_corpus.zip
+#20 18.86 + cp /src/libyaml_fuzzer.options /out/libyaml_deconstructor_fuzzer.options
+#20 18.86 + for fuzzer in $SRC/*_fuzzer.c
+#20 18.86 ++ basename -s .c /src/libyaml_dumper_fuzzer.c
+#20 18.87 + fuzzer_basename=libyaml_dumper_fuzzer
+#20 18.87 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_dumper_fuzzer.c -o libyaml_dumper_fuzzer.o
+#20 18.99 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_dumper_fuzzer.o -o /out/libyaml_dumper_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 19.23 + cp /src/libyaml_seed_corpus.zip /out/libyaml_dumper_fuzzer_seed_corpus.zip
+#20 19.23 + cp /src/libyaml_fuzzer.options /out/libyaml_dumper_fuzzer.options
+#20 19.23 + for fuzzer in $SRC/*_fuzzer.c
+#20 19.23 ++ basename -s .c /src/libyaml_emitter_fuzzer.c
+#20 19.24 + fuzzer_basename=libyaml_emitter_fuzzer
+#20 19.24 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_emitter_fuzzer.c -o libyaml_emitter_fuzzer.o
+#20 19.28 /src/libyaml_emitter_fuzzer.c:155:11: warning: enumeration value 'YAML_NO_EVENT' not handled in switch [-Wswitch]
+#20 19.28   switch (event_from->type) {
+#20 19.28           ^~~~~~~~~~~~~~~~
+#20 19.35 1 warning generated.
+#20 19.36 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_emitter_fuzzer.o -o /out/libyaml_emitter_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 19.61 + cp /src/libyaml_seed_corpus.zip /out/libyaml_emitter_fuzzer_seed_corpus.zip
+#20 19.61 + cp /src/libyaml_fuzzer.options /out/libyaml_emitter_fuzzer.options
+#20 19.62 + for fuzzer in $SRC/*_fuzzer.c
+#20 19.62 ++ basename -s .c /src/libyaml_loader_fuzzer.c
+#20 19.62 + fuzzer_basename=libyaml_loader_fuzzer
+#20 19.62 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_loader_fuzzer.c -o libyaml_loader_fuzzer.o
+#20 19.68 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_loader_fuzzer.o -o /out/libyaml_loader_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 19.92 + cp /src/libyaml_seed_corpus.zip /out/libyaml_loader_fuzzer_seed_corpus.zip
+#20 19.92 + cp /src/libyaml_fuzzer.options /out/libyaml_loader_fuzzer.options
+#20 19.92 + for fuzzer in $SRC/*_fuzzer.c
+#20 19.92 ++ basename -s .c /src/libyaml_parser_fuzzer.c
+#20 19.92 + fuzzer_basename=libyaml_parser_fuzzer
+#20 19.92 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_parser_fuzzer.c -o libyaml_parser_fuzzer.o
+#20 19.97 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_parser_fuzzer.o -o /out/libyaml_parser_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 20.22 + cp /src/libyaml_seed_corpus.zip /out/libyaml_parser_fuzzer_seed_corpus.zip
+#20 20.22 + cp /src/libyaml_fuzzer.options /out/libyaml_parser_fuzzer.options
+#20 20.22 + for fuzzer in $SRC/*_fuzzer.c
+#20 20.22 ++ basename -s .c /src/libyaml_reformatter_alt_fuzzer.c
+#20 20.23 + fuzzer_basename=libyaml_reformatter_alt_fuzzer
+#20 20.23 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_reformatter_alt_fuzzer.c -o libyaml_reformatter_alt_fuzzer.o
+#20 20.28 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_reformatter_alt_fuzzer.o -o /out/libyaml_reformatter_alt_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 20.54 + cp /src/libyaml_seed_corpus.zip /out/libyaml_reformatter_alt_fuzzer_seed_corpus.zip
+#20 20.54 + cp /src/libyaml_fuzzer.options /out/libyaml_reformatter_alt_fuzzer.options
+#20 20.54 + for fuzzer in $SRC/*_fuzzer.c
+#20 20.54 ++ basename -s .c /src/libyaml_reformatter_fuzzer.c
+#20 20.54 + fuzzer_basename=libyaml_reformatter_fuzzer
+#20 20.54 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_reformatter_fuzzer.c -o libyaml_reformatter_fuzzer.o
+#20 20.60 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_reformatter_fuzzer.o -o /out/libyaml_reformatter_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 20.84 + cp /src/libyaml_seed_corpus.zip /out/libyaml_reformatter_fuzzer_seed_corpus.zip
+#20 20.84 + cp /src/libyaml_fuzzer.options /out/libyaml_reformatter_fuzzer.options
+#20 20.84 + for fuzzer in $SRC/*_fuzzer.c
+#20 20.84 ++ basename -s .c /src/libyaml_scanner_fuzzer.c
+#20 20.85 + fuzzer_basename=libyaml_scanner_fuzzer
+#20 20.85 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I /src -Iinclude -c /src/libyaml_scanner_fuzzer.c -o libyaml_scanner_fuzzer.o
+#20 20.90 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 libyaml_scanner_fuzzer.o -o /out/libyaml_scanner_fuzzer /libAFL.a src/.libs/libyaml.a
+#20 21.14 + cp /src/libyaml_seed_corpus.zip /out/libyaml_scanner_fuzzer_seed_corpus.zip
+#20 21.14 + cp /src/libyaml_fuzzer.options /out/libyaml_scanner_fuzzer.options
+#20 21.14 + cp /src/yaml.dict /out/
+#20 21.14 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 21.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:4d212f553669e641363b4b29816a394ebed4eaaa6dc27e4d38e53068f717a84d
+#21 writing image sha256:4d212f553669e641363b4b29816a394ebed4eaaa6dc27e4d38e53068f717a84d done
+#21 naming to gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export 0.0s done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:8aa90b055161ec24a70f9aa4862dd5ab7327b9eaa14cfcc520fa944a3f1c4b0e
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9dbadae5c127c7c47b58ff5717d8a8b0917cf93027abcaa57fad6d15c5399b6a
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#4 sha256:713c0bd0508717343ca2c1e4c48a52c5ac22349e366050dfb0d51aae173a67ab
+#4 ERROR: gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d9f40d7cb66566be4cf76f61b32f7aeadd911c2a15e42f8e38ed73dd55d2641b
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a5f94ab542e1092271436c1daf98c2aef4f0343c02980a53cf3f908bf7c7dfd5
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate:latest
+#4 sha256:e6f799d68759bbfcab58d4575ef5a53d6a3fdea8ba2aab146071a4b6aafe29d2
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer:latest
+#3 sha256:867b199631864009d52fbca96da59a9826e00a02db71052f73da0aa6ff05bf1c
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer
+#5 sha256:b48e39652f69999167e34d41c097b5810bc7d7444e458e9c442f92fe2d3d6afd
+#5 ...
+
+#12 [internal] load build context
+#12 sha256:0b67024a713988bb70789b7d5ef19e1aee59b7436f151c9df875c9e1afc85f0b
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#6 sha256:2e64a38ec9ca0ce3c4dd77fc5117ace355cbf88366d2982dbd9aaca81c9cff01
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer
+#10 sha256:a82a00a850f64fafd9bafad45372e6b6f70436322845dad0fc13815560b4035c
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer
+#5 sha256:b48e39652f69999167e34d41c097b5810bc7d7444e458e9c442f92fe2d3d6afd
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:0b67024a713988bb70789b7d5ef19e1aee59b7436f151c9df875c9e1afc85f0b
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 1.3s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer
+#10 sha256:a82a00a850f64fafd9bafad45372e6b6f70436322845dad0fc13815560b4035c
+#10 DONE 1.2s
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:66d1e8d1d6abc8040dae36faa3681648c9cbdfb619ec1acb93a8a847501a184a
+#9 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:a3ff0b4b67d34d2c6c9eec58339175ecbfdd549ad27eb69725f219aedc7fc016
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:9dd94baaf25b17c63744b34912f6f4f57427967481db8146b699b03af6406eef
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:cb3533d0b6dc5be38576e7681dd067afdc3131b5f60dc06d5489fad59fbca094
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:1a9eff968c9652f23710bfc8f746339d06e3d63cd404308aeb3ea8e3c970c537
+#13 DONE 1.0s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:200e4e96d6c3a6baeb7a2c614bab89d2dceecc127b724269947ce6a53ba055e2
+#14 DONE 0.4s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:f260c69c4eddc3d0fb42098185f949c26d49b24abb392bb8b86f8646186813cc
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:b13493beb1943e5dc33cd0c729f6dc54b38a08578315ad219632baa910fad47f
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:1911f68923435755769a5775c7376096991ac6d5c120f20756dfaefa3c14b18e
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:d452517d91c7fd76b435b3c21dd4831d715605b915121984a262512f4f7ef172
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:cb233903936e1943142c45b716aa7e9203a6ee8b7569000f3ee8c4a5cc720f16
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:d549e6487641205d5eb79e59434f7557050bd0f2b821000c431dc6a1f838c3a8
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:14bdf16e56beed5c44d1d6e8d280b5f4acf54b27cd36b38b536659ccc05278f2 done
+#21 naming to gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Unarchived 9 files from seed corpus /out/libyaml_emitter_fuzzer_seed_corpus.zip.
+INFO:root:Doing final sync.
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:afde72929e9b38146ab3e45f5095f551335e0da6298a6c2deffeaf507e74d58f
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:10dfa558c79265dba31f208eb59c878028be8ac3ca491840814aa44c196b1d82
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:77750d283f2957d1beeddda2e8f6c5604ab5f969a3616e9cac40f4261ca04c0a
+#5 sha256:7999addb2cd81975cd6421c6aaef5643a901995c540a40e8df741ab4c30f6043
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer
+#4 sha256:5e1cfb969a90ad6470186d383ab38856899730ea13bc6c7dd592359e3faaa76b
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:9035bf805f3da79ca1287e27b17c16b699e6ad0bf7e82a6884748f8e17055911
+#10 transferring context: 562B done
+#10 DONE 0.0s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:52e32c454805a8c94e441551d01b16d090304920e0b4ce6b465dec91bafa72a3
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth=1 https://github.com/yaml/libyaml
+#7 sha256:b0447547ae7c5f19f2d1502b651d7e4c5606f0ccac5707e37c47f518d7984114
+#7 CACHED
+
+#9 [5/6] WORKDIR libyaml
+#9 sha256:00759ee32ba815dbaf860048b8037afdcd5f16eb33e5ae797860f9cfdc3d913c
+#9 CACHED
+
+#8 [4/6] RUN zip /src/libyaml_seed_corpus.zip libyaml/examples/*
+#8 sha256:cf35ee5485c9d6942c74a5bbfafc8e4cfb587295893838521ef88e14aed93b01
+#8 CACHED
+
+#11 [6/6] COPY build.sh *.h *_fuzzer.c libyaml_fuzzer.options yaml.dict /src/
+#11 sha256:d48aec73e3ffd50529f5588d2d8803f50db16d59487a1a1d6888a4d204a4f581
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:e842df8dd61cc75a41df150278d671580411c30b7f56f8b08e2576cb76236d7c
+#12 writing image sha256:e842df8dd61cc75a41df150278d671580411c30b7f56f8b08e2576cb76236d7c done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a6471ff3a5750bd31b7ce1bba13e689a87603db3645fd643bdfad391d46e3ac4
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:bbe240e4419f055205888eff7ccb430df28e289c54a0beeefb46c1d59ca87428
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer:latest
+#3 sha256:15b0368c419e7a57bcb3dca5e39c1d437a333a8d8fad40913bb3580cec379be7
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#4 sha256:d715d1ab8b37517e77e5b1e7a634cfdedb89531e86c42d860cadcc6e7c808037
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_emitter_fuzzer
+#5 sha256:8dcf36f8f2d788b6006c08b8e63eeff110e3fb73ea1b67346eae79bd95abe4f9
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:44e9b7027ea4b62c911ed0ced458496f91e4aefc62aadadced5b1f7895bb123a
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6027eecf4d6f2923461482ffb471c549076e85f3b649236f8bcbdeedd18649f2
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:dd6477a97dd9ae2234daa9a932e4c3c7ca64d1f15c3b3fe9b9a001d79bf05d77 done
+#8 naming to gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:43cf803dd07dae3ce753da169e6f172118e66c4864e57b78c52d26a49c50c934
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:44ad14cea555bebf29f77f1e959b62a0a50433f3377b3df5b3d75426437f4ad3
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:77138803d3c57a7ff1ce1eebded458e67c8601d50789ec4599befb4603352271
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:f782e6f77e559723a71f8b06811442c39dbaea73183625015131ebd1252add02
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:ad665f6772a23ef30d3486e5e0d75ccb760072244c491e3eccce7168f4dce3a3
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:5b47093e85825b0fcd7ed4de1f50d06832821ee8cdb9a6514a47a8b184c89728
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:ec6f5bd59ab102c4f0db282a0e57470da04e17fb7ae7795a6cc55cf881a3c8a8
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:db37108b741762d6fc963c78f4ea99d80edbbe38f2ea9e4cf93847b349417cfa done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d45c4f11823144ec258f7a5c5849d38092a57798e69cb7e57d0bb2684592cda7
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b318bc08540965f457333070497fb647c3aa6d528338c042a164ab34548f5983
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate:latest
+#3 sha256:67f613b48b1f49704e5d958ad9d9d0df942498f54c8afa44a454b0b9ab1af5bb
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#6 sha256:acd346f6f37364e977505add54145e6f947a20ce489613862610807f86638764
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer
+#5 sha256:de11d714040ca083f293cbfa9dcdf0ff049f4bce3124a6d5046604088c4a8118
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:366684da6c3caf36ffd59716dbdae326e65ed7c839686570676f6b0a2bdd2f41
+#12 transferring context: 669.91kB 0.1s done
+#12 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:971554b951753db1faf0e2ff1feb102134a4b7074358d66ec6fa1ad37383826e
+#18 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libyaml_libyaml_emitter_fuzzer/benchmark.yaml /
+#15 sha256:f274a9cbb2c59c6a2ac35f449e3f49eaa966f26f20f7a4c9dac2c884161606f2
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:87d607f65747678b2dd3162e0b3c8d251662e13e2b8763c50e37493a46d903e5
+#16 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:c4edb85e92daf2b483f0934746b48191c469bcaf79664e0f8cb4e7792fcdcf67
+#17 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c56496bbbde1bc5f6a12b11337cbc55b131500eefb75f25bf6fcc3becf3845e7
+#10 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4a0f3eb6e56fdff346f05f7b9e9a5a257560e7b98f1373ca45dfd948830e2885
+#9 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:4d9aba3fd9414d27c79e60c0ffdf6e83c8e85b050cae58c072574afa3ad9cadc
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:76b560d1f96d1fd38b86be370ef3228279ee61dc9acc3f4eceb1d7ce2558843d
+#14 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:702a45b677f8a6d9127e32c631e890ccdf59149c809da3da63658b413491bdd3
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:0c078deee782d53a72b7329ce931d601e55761599d0e0af8650528fb00e66667
+#11 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d03d77d3f38967dde263e6b83afda90fd9d9839ca70575649e0f6205954781eb
+#8 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:a55463b9f6abba88e12fe5fd7b4274957c76b221f9a79534a4e1474fcc9a22e7
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:4d212f553669e641363b4b29816a394ebed4eaaa6dc27e4d38e53068f717a84d done
+#21 naming to gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export 0.0s done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:d8dc92e0461c967e4ad86a34e15f36ee5b5a70452e808b66266fe097a4968b07
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f0a727dfa8af77e11c029ecdcf4af364db20090b73f3a39bb597273837357b74
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#5 sha256:713c0bd0508717343ca2c1e4c48a52c5ac22349e366050dfb0d51aae173a67ab
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:70686c9e833fdcefe0775f583d9dcefc617acd878b5bc490ac010e4c1ee4d56c done
+#6 naming to gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a98d50370e0450b8c921b3ec7ad51239e621b33d064a219ff283b8e5818792b6
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:17d7043d9be3efee08384b013b5e041a8b61aea4c2d862d9a73119c3b602c69f
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate:latest
+#3 sha256:e6f799d68759bbfcab58d4575ef5a53d6a3fdea8ba2aab146071a4b6aafe29d2
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer:latest
+#4 sha256:867b199631864009d52fbca96da59a9826e00a02db71052f73da0aa6ff05bf1c
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer-intermediate
+#6 sha256:2e64a38ec9ca0ce3c4dd77fc5117ace355cbf88366d2982dbd9aaca81c9cff01
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer
+#5 sha256:b48e39652f69999167e34d41c097b5810bc7d7444e458e9c442f92fe2d3d6afd
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libyaml_libyaml_emitter_fuzzer
+#10 sha256:a82a00a850f64fafd9bafad45372e6b6f70436322845dad0fc13815560b4035c
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:93fb545bd377c74c79feee0bbb73d0e08b154dc472d284998811e287d95013da
+#12 transferring context: 17.52MB 0.6s done
+#12 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:8a7d5b1143c1506a78993e4ef7af02028f776fc5c4d8412fac0aea8a66bbc13c
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:cfb3d9b8afabe4db77a4a33d593091f74ce6666377fff06422ceca76e5cc132e
+#19 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:d2756da1daf6b19bd51a245d8f24b06c348d1808b581be667ab4f825a80134c9
+#15 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:3de1d994db8e5e4e6ef51bc458219856f3fe2d04cd46a6577afd9102f4327ba6
+#18 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:9dd94baaf25b17c63744b34912f6f4f57427967481db8146b699b03af6406eef
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:66d1e8d1d6abc8040dae36faa3681648c9cbdfb619ec1acb93a8a847501a184a
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:b9cf06494d2aa9a825706871a62cb3808c301002038ec2e4a49a016e5d4f7f6e
+#16 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:cb3533d0b6dc5be38576e7681dd067afdc3131b5f60dc06d5489fad59fbca094
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:9928535733493739bbaebecab1e35c178a39275fa76844c2bb67dda4d4e43e8e
+#13 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:95c50ef1c82cd072ccf0bef96edc3771ba42bfbca33e08519c5215e934be1852
+#14 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:a3ff0b4b67d34d2c6c9eec58339175ecbfdd549ad27eb69725f219aedc7fc016
+#7 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:508dd7940006297ed939e4e2979886a781899afce39dc7537c2b744f836ff3c5
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:14bdf16e56beed5c44d1d6e8d280b5f4acf54b27cd36b38b536659ccc05278f2
+#21 writing image sha256:14bdf16e56beed5c44d1d6e8d280b5f4acf54b27cd36b38b536659ccc05278f2 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/libyaml_libyaml_emitter_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Unarchived 9 files from seed corpus /out/libyaml_emitter_fuzzer_seed_corpus.zip.
+INFO:root:Doing final sync.

@@ -1,0 +1,896 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: mbedtls_mbedtls.
+INFO:root:Please run "make test-run-afl-mbedtls_mbedtls" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:0a1365ebed177d24ee74e6ccf01f1128aa03af5883bb0ff4237c757a31a01742
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:38c8f78cacd78853f991e494542b9e15c76288caacfbcab7c27e21d6e22dfa5c
+#1 transferring dockerfile: 1.17kB done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:0a1365ebed177d24ee74e6ccf01f1128aa03af5883bb0ff4237c757a31a01742
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.7s
+
+#11 [internal] load build context
+#11 sha256:0f309bbee7291281469daecd9f070a48799b5af96e62492e22c6762abf6f9211
+#11 DONE 0.0s
+
+#5 [1/7] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls
+#4 sha256:245b14cffe1e1c95a5f86e8fdb2757281c900a839f07fe3d9ff1475be1301ff1
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls:latest: not found
+
+#6 [2/7] RUN apt-get update && apt-get install -y make cmake
+#6 sha256:f28f09332e9a0660c4efec2a32424dd243e3735f93022c83de1a9eeee8e8942b
+#6 CACHED
+
+#11 [internal] load build context
+#11 sha256:0f309bbee7291281469daecd9f070a48799b5af96e62492e22c6762abf6f9211
+#11 transferring context: 2.17kB done
+#11 DONE 0.1s
+
+#7 [3/7] RUN git clone --depth 1 --branch fuzz https://github.com/catenacyber/mbedtls.git mbedtls
+#7 sha256:0ab1bd4957c3b624ed523fad5f84c4ada816eddf6008c5ebb4758c5b848c0a52
+#7 0.415 Cloning into 'mbedtls'...
+#7 DONE 2.3s
+
+#8 [4/7] RUN git clone --depth 1 https://github.com/google/boringssl.git boringssl
+#8 sha256:74a386e3ebb9b7de03bedf40d6331c927ce853c384e032016c90cd9bae626c4d
+#8 0.421 Cloning into 'boringssl'...
+#8 6.431 Updating files:  96% (5718/5925)Updating files:  97% (5748/5925)Updating files:  98% (5807/5925)Updating files:  99% (5866/5925)Updating files: 100% (5925/5925)Updating files: 100% (5925/5925), done.
+#8 DONE 7.4s
+
+#9 [5/7] RUN git clone --depth 1 https://github.com/openssl/openssl.git openssl
+#9 sha256:0f5e2cd12c35db3558bcede1bfa75b7253a5c553faca678d4dcb2c8261c5e24b
+#9 0.439 Cloning into 'openssl'...
+#9 6.069 Updating files:  45% (11189/24330)Updating files:  46% (11192/24330)Updating files:  47% (11436/24330)Updating files:  48% (11679/24330)Updating files:  49% (11922/24330)Updating files:  50% (12165/24330)Updating files:  51% (12409/24330)Updating files:  52% (12652/24330)Updating files:  53% (12895/24330)Updating files:  54% (13139/24330)Updating files:  55% (13382/24330)Updating files:  56% (13625/24330)Updating files:  57% (13869/24330)Updating files:  58% (14112/24330)Updating files:  59% (14355/24330)Updating files:  60% (14598/24330)Updating files:  61% (14842/24330)Updating files:  62% (15085/24330)Updating files:  63% (15328/24330)Updating files:  64% (15572/24330)Updating files:  65% (15815/24330)Updating files:  66% (16058/24330)Updating files:  67% (16302/24330)Updating files:  68% (16545/24330)Updating files:  69% (16788/24330)Updating files:  70% (17031/24330)Updating files:  71% (17275/24330)Updating files:  72% (17518/24330)Updating files:  73% (17761/24330)Updating files:  74% (18005/24330)Updating files:  75% (18248/24330)Updating files:  76% (18491/24330)Updating files:  77% (18735/24330)Updating files:  78% (18978/24330)Updating files:  79% (19221/24330)Updating files:  80% (19464/24330)Updating files:  81% (19708/24330)Updating files:  82% (19951/24330)Updating files:  83% (20194/24330)Updating files:  84% (20438/24330)Updating files:  85% (20681/24330)Updating files:  86% (20924/24330)Updating files:  87% (21168/24330)Updating files:  88% (21411/24330)Updating files:  89% (21654/24330)Updating files:  90% (21897/24330)Updating files:  91% (22141/24330)Updating files:  92% (22384/24330)Updating files:  93% (22627/24330)Updating files:  94% (22871/24330)Updating files:  95% (23114/24330)Updating files:  96% (23357/24330)Updating files:  97% (23601/24330)Updating files:  98% (23844/24330)Updating files:  99% (24087/24330)Updating files: 100% (24330/24330)Updating files: 100% (24330/24330), done.
+#9 DONE 8.6s
+
+#10 [6/7] WORKDIR mbedtls
+#10 sha256:8559ade23dee8896d1532a3acea57fa55412d30ec3c5f16693548f98b9eb1d2f
+#10 DONE 0.1s
+
+#12 [7/7] COPY build.sh /src/
+#12 sha256:3360a02fc2fbeb3f0b3886572e15ec5bade063d89acad101c57564fc9e2248fb
+#12 DONE 0.1s
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:184ced9330083c578635ed5f55c58605c03f0d6308531e6a9d0f7d370dd36d89 0.0s done
+#13 naming to gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:484b44c53cd50fd86e9f7326053eb6c397477433259c2265f16b5a4b5646765f
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7a98c87c40c8b920a790cade061347d51d5a2c053f9884eee340373bb79fdeb5
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls:latest
+#3 sha256:3bdd0ce5fb50f788c39d87624c1e6ca08dfba5962a5e166b0087e2bc893744de
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls
+#5 sha256:cb90936f2fd79bf2f5303a24d781398987b49aece54e506117bd63aa0072437a
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate
+#4 sha256:49f5404feb138c1d1e30ac060c5f62f0ef242555b08b5348a61cf77d9d2ba4b4
+#4 ERROR: gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls
+#5 sha256:cb90936f2fd79bf2f5303a24d781398987b49aece54e506117bd63aa0072437a
+#5 DONE 0.5s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a9436900d7967dbaea41df14d46e66ccba8ccf3c9fcc97b95f6303c370a551c3
+#6 0.312 Cloning into '/afl'...
+#6 1.191 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.191 
+#6 1.191 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.191 changes and commit them, and you can discard any commits you make in this
+#6 1.191 state without impacting any branches by switching back to a branch.
+#6 1.191 
+#6 1.191 If you want to create a new branch to retain commits you create, you may
+#6 1.191 do so (now or later) by using -c with the switch command. Example:
+#6 1.191 
+#6 1.191   git switch -c <new-branch-name>
+#6 1.191 
+#6 1.191 Or undo this operation with:
+#6 1.191 
+#6 1.191   git switch -
+#6 1.191 
+#6 1.191 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.191 
+#6 1.191 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.209 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.209 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.383 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.388 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.892 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.203 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.632 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.779 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.179 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.415 ln -sf afl-as as
+#6 5.417 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.420 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.421 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 6.0s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:230d30184a15f2bf5f6c2c1aae6f374873cca221f7a4f24927d040a438f8f87e
+#7 0.802 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.802 Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.802 Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 0.802 Hit:4 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.900 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 2.200 Reading package lists...
+#7 3.841 Reading package lists...
+#7 5.287 Building dependency tree...
+#7 5.506 Reading state information...
+#7 5.760 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.760 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 5.768 --2022-02-17 06:55:17--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.770 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+#7 5.772 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#7 5.795 HTTP request sent, awaiting response... 200 OK
+#7 5.967 Length: 9177 (9.0K) [text/plain]
+#7 5.967 Saving to: '/afl/afl_driver.cpp'
+#7 5.967 
+#7 5.967      0K ........                                              100% 8.35M=0.001s
+#7 5.968 
+#7 5.968 2022-02-17 06:55:17 (8.35 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.968 
+#7 7.740 ar: creating /libAFL.a
+#7 DONE 8.1s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:5c142c0b712d726148b5e1af8d01e45049d983c9e9190f08c8ee917372b6fe0e done
+#8 naming to gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c420339a8d0f140021c09dd24412d21f4097611dfcffbe02926541f4cd3530ce
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:93a58ff1a8d7861e2d8ca1ac33466becc0d7ab692c352805b7d1e663945446c2
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:8e41e368259add1d807be0210cb3a171f8b1be7489885cdeae9a63f9150185b6
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:e8d1cd4cdb1b7f105e062f090adf0f326f68d5821114cb6a8e12d52cc34d854d
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:0ffa7ce46b2232b7114b816aecda95521dadfb826e3c7aca7ceb1b567c65b85d
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:5bd056431fd8372657857eec0b9bb063c583b4e0e0ce436dbd1443ce845c555a
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:0132d598a290b962746ae6eaf2cf1ada45c934f3bae62ff052a34489a9f99073
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:c3a86acdae3fb44919108890d4861f6d2bfdc827d3c1ebe37654229c98736ff3
+#13 writing image sha256:c3a86acdae3fb44919108890d4861f6d2bfdc827d3c1ebe37654229c98736ff3 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5b92970600d815ea997d2470fd399b29e30b72088c3fb80c28b592a3505c520d
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:d014ccb23b47080e3b5d81fa874c47a32fb8dbb503afc9aad8e643d75e87f395
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate:latest
+#3 sha256:6d7cf813b1d36e9457e1595ab45ee5ae6782ca93a70d5c0d9120de2dc7363c8e
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:c912971f6548a9b9a21e395e5b82ecf0415c5615aca1eadcc2ddc543203b144f
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate
+#6 sha256:4d1e9d0f5ef7742cafab0346b16f2c23a42ae430f301c3dcc759106cf6a4609f
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls
+#5 sha256:17a1e07982c998f235ad06174407656a9e8c4c065e27603d24e0214a88097cc4
+#5 ERROR: gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:c912971f6548a9b9a21e395e5b82ecf0415c5615aca1eadcc2ddc543203b144f
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate
+#6 sha256:4d1e9d0f5ef7742cafab0346b16f2c23a42ae430f301c3dcc759106cf6a4609f
+#6 DONE 0.5s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:ec039394af2b6dcc2113ce6b9970acf8b757fb33d99de9008531fa20d7e066ef
+#8 DONE 0.6s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:a3513b52a00b5b2ec5118c12f2e592f783041e0afa30e57ed434b94f7b8fcce1
+#9 DONE 14.4s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:ba0f1f21413aa0424edf2a8c732a710c1072c64cfa3e0cc839c6e6cfdb5896d2
+#10 DONE 0.3s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:e94914dcea256227830d8208342375ccb9a1dee420b5900c1671b0bc8d3168b7
+#11 DONE 25.5s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:fed0a3a0471bf2772afd47cb77c29be5f1488c1cea1ee683fcfbc67eec78cbe6
+#13 DONE 0.5s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:770fb67cda8dcf31d6676236ac567c1a429c6c02e406162f596626a82c59906b
+#14 DONE 0.8s
+
+#15 [stage-1  8/13] COPY benchmarks/mbedtls_mbedtls/benchmark.yaml /
+#15 sha256:17bf9e202177f1f3b1d882c775cc52c7b6001ffc364f5bd2875c70ae494d209f
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:c6f2e4db7b268d74cd7b6914854f7223815778f648de07bb0fcd3de376211778
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:f7b2f277ce4a60b6498b30e497c1a5e5177663da8a42db8a4225d05fa6a1f605
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:0535e0ab94d282732f63f0883b567ddf85ec1746fc3a3b54c5e9bdec9824cdcf
+#18 0.463 Checking out commit 27d41639
+#18 11.50 From https://github.com/catenacyber/mbedtls
+#18 11.50  * [new tag]           beta-oob-2               -> beta-oob-2
+#18 11.50  * [new tag]           list                     -> list
+#18 11.50  * [new tag]           mbedos-16.01-release     -> mbedos-16.01-release
+#18 11.50  * [new tag]           mbedos-16.03-release     -> mbedos-16.03-release
+#18 11.50  * [new tag]           mbedos-2016q1-oob1       -> mbedos-2016q1-oob1
+#18 11.50  * [new tag]           mbedos-2016q1-oob2       -> mbedos-2016q1-oob2
+#18 11.50  * [new tag]           mbedos-2016q1-oob3       -> mbedos-2016q1-oob3
+#18 11.50  * [new tag]           mbedos-release-15-11     -> mbedos-release-15-11
+#18 11.50  * [new tag]           mbedos-techcon-oob2      -> mbedos-techcon-oob2
+#18 11.50  * [new tag]           mbedtls-1.3.10           -> mbedtls-1.3.10
+#18 11.50  * [new tag]           mbedtls-1.4-dtls-preview -> mbedtls-1.4-dtls-preview
+#18 11.50  * [new tag]           mbedtls-2.0.0            -> mbedtls-2.0.0
+#18 11.50  * [new tag]           mbedtls-2.1.0            -> mbedtls-2.1.0
+#18 11.50  * [new tag]           mbedtls-2.1.1            -> mbedtls-2.1.1
+#18 11.50  * [new tag]           mbedtls-2.1.2            -> mbedtls-2.1.2
+#18 11.50  * [new tag]           mbedtls-2.2.0            -> mbedtls-2.2.0
+#18 11.50  * [new tag]           mbedtls-2.2.1            -> mbedtls-2.2.1
+#18 11.50  * [new tag]           mbedtls-2.3.0            -> mbedtls-2.3.0
+#18 11.50  * [new tag]           mbedtls-2.4.0            -> mbedtls-2.4.0
+#18 11.50  * [new tag]           mbedtls-2.5.0            -> mbedtls-2.5.0
+#18 11.50  * [new tag]           mbedtls-2.5.1            -> mbedtls-2.5.1
+#18 11.50  * [new tag]           mbedtls-2.6.0            -> mbedtls-2.6.0
+#18 11.50  * [new tag]           mbedtls-2.6.0-rc1        -> mbedtls-2.6.0-rc1
+#18 11.50  * [new tag]           mbedtls-2.7.0            -> mbedtls-2.7.0
+#18 11.51  * [new tag]           mbedtls-2.7.0-rc1        -> mbedtls-2.7.0-rc1
+#18 11.51  * [new tag]           mbedtls-2.8.0            -> mbedtls-2.8.0
+#18 11.51  * [new tag]           mbedtls-2.8.0-rc1        -> mbedtls-2.8.0-rc1
+#18 11.51  * [new tag]           polarssl-1.2.0           -> polarssl-1.2.0
+#18 11.51  * [new tag]           polarssl-1.2.1           -> polarssl-1.2.1
+#18 11.51  * [new tag]           polarssl-1.2.2           -> polarssl-1.2.2
+#18 11.51  * [new tag]           polarssl-1.2.3           -> polarssl-1.2.3
+#18 11.51  * [new tag]           polarssl-1.2.4           -> polarssl-1.2.4
+#18 11.51  * [new tag]           polarssl-1.2.5           -> polarssl-1.2.5
+#18 11.51  * [new tag]           polarssl-1.2.6           -> polarssl-1.2.6
+#18 11.51  * [new tag]           polarssl-1.3.0           -> polarssl-1.3.0
+#18 11.51  * [new tag]           polarssl-1.3.0-rc0       -> polarssl-1.3.0-rc0
+#18 11.51  * [new tag]           polarssl-1.3.1           -> polarssl-1.3.1
+#18 11.51  * [new tag]           polarssl-1.3.2           -> polarssl-1.3.2
+#18 11.51  * [new tag]           polarssl-1.3.3           -> polarssl-1.3.3
+#18 11.51  * [new tag]           polarssl-1.3.4           -> polarssl-1.3.4
+#18 11.51  * [new tag]           polarssl-1.3.5           -> polarssl-1.3.5
+#18 11.51  * [new tag]           polarssl-1.3.6           -> polarssl-1.3.6
+#18 11.51  * [new tag]           polarssl-1.3.7           -> polarssl-1.3.7
+#18 11.51  * [new tag]           polarssl-1.3.8           -> polarssl-1.3.8
+#18 11.51  * [new tag]           polarssl-1.3.9           -> polarssl-1.3.9
+#18 11.51  * [new tag]           yotta-2.2.1              -> yotta-2.2.1
+#18 11.51  * [new tag]           yotta-2.2.2              -> yotta-2.2.2
+#18 11.51  * [new tag]           yotta-2.2.3              -> yotta-2.2.3
+#18 11.51  * [new tag]           yotta-2.3.0              -> yotta-2.3.0
+#18 11.51  * [new tag]           yotta-2.3.1              -> yotta-2.3.1
+#18 11.91 error: pathspec '27d41639' did not match any file(s) known to git
+#18 50.66 From https://github.com/openssl/openssl
+#18 50.66  * [new tag]               BEFORE_engine             -> BEFORE_engine
+#18 50.66  * [new tag]               OpenSSL_0_9_1c            -> OpenSSL_0_9_1c
+#18 50.66  * [new tag]               OpenSSL_0_9_2b            -> OpenSSL_0_9_2b
+#18 50.66  * [new tag]               OpenSSL_0_9_3             -> OpenSSL_0_9_3
+#18 50.67  * [new tag]               OpenSSL_0_9_3a            -> OpenSSL_0_9_3a
+#18 50.67  * [new tag]               OpenSSL_0_9_3beta2        -> OpenSSL_0_9_3beta2
+#18 50.67  * [new tag]               OpenSSL_0_9_4             -> OpenSSL_0_9_4
+#18 50.67  * [new tag]               OpenSSL_0_9_5a            -> OpenSSL_0_9_5a
+#18 50.67  * [new tag]               OpenSSL_0_9_5a-beta1      -> OpenSSL_0_9_5a-beta1
+#18 50.67  * [new tag]               OpenSSL_0_9_5a-beta2      -> OpenSSL_0_9_5a-beta2
+#18 50.67  * [new tag]               OpenSSL_0_9_5beta1        -> OpenSSL_0_9_5beta1
+#18 50.67  * [new tag]               OpenSSL_0_9_5beta2        -> OpenSSL_0_9_5beta2
+#18 50.67  * [new tag]               OpenSSL_0_9_6-beta3       -> OpenSSL_0_9_6-beta3
+#18 50.67  * [new tag]               OpenSSL_1_1_0-pre1        -> OpenSSL_1_1_0-pre1
+#18 50.67  * [new tag]               OpenSSL_1_1_0-pre2        -> OpenSSL_1_1_0-pre2
+#18 50.67  * [new tag]               OpenSSL_1_1_0-pre3        -> OpenSSL_1_1_0-pre3
+#18 50.67  * [new tag]               OpenSSL_1_1_0-pre4        -> OpenSSL_1_1_0-pre4
+#18 50.67  * [new tag]               OpenSSL_1_1_0-pre5        -> OpenSSL_1_1_0-pre5
+#18 50.67  * [new tag]               OpenSSL_1_1_0-pre6        -> OpenSSL_1_1_0-pre6
+#18 50.67  * [new tag]               OpenSSL_1_1_1             -> OpenSSL_1_1_1
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre1        -> OpenSSL_1_1_1-pre1
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre2        -> OpenSSL_1_1_1-pre2
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre3        -> OpenSSL_1_1_1-pre3
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre4        -> OpenSSL_1_1_1-pre4
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre5        -> OpenSSL_1_1_1-pre5
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre6        -> OpenSSL_1_1_1-pre6
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre7        -> OpenSSL_1_1_1-pre7
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre8        -> OpenSSL_1_1_1-pre8
+#18 50.67  * [new tag]               OpenSSL_1_1_1-pre9        -> OpenSSL_1_1_1-pre9
+#18 50.67  * [new tag]               master-post-auto-reformat -> master-post-auto-reformat
+#18 50.67  * [new tag]               master-post-reformat      -> master-post-reformat
+#18 50.67  * [new tag]               master-pre-auto-reformat  -> master-pre-auto-reformat
+#18 50.67  * [new tag]               master-pre-reformat       -> master-pre-reformat
+#18 50.68  * [new tag]               openssl-3.0.0-alpha1      -> openssl-3.0.0-alpha1
+#18 50.68  * [new tag]               openssl-3.0.0-alpha10     -> openssl-3.0.0-alpha10
+#18 50.68  * [new tag]               openssl-3.0.0-alpha11     -> openssl-3.0.0-alpha11
+#18 50.68  * [new tag]               openssl-3.0.0-alpha12     -> openssl-3.0.0-alpha12
+#18 50.68  * [new tag]               openssl-3.0.0-alpha13     -> openssl-3.0.0-alpha13
+#18 50.68  * [new tag]               openssl-3.0.0-alpha14     -> openssl-3.0.0-alpha14
+#18 50.68  * [new tag]               openssl-3.0.0-alpha15     -> openssl-3.0.0-alpha15
+#18 50.68  * [new tag]               openssl-3.0.0-alpha16     -> openssl-3.0.0-alpha16
+#18 50.68  * [new tag]               openssl-3.0.0-alpha17     -> openssl-3.0.0-alpha17
+#18 50.68  * [new tag]               openssl-3.0.0-alpha2      -> openssl-3.0.0-alpha2
+#18 50.68  * [new tag]               openssl-3.0.0-alpha3      -> openssl-3.0.0-alpha3
+#18 50.68  * [new tag]               openssl-3.0.0-alpha4      -> openssl-3.0.0-alpha4
+#18 50.68  * [new tag]               openssl-3.0.0-alpha5      -> openssl-3.0.0-alpha5
+#18 50.68  * [new tag]               openssl-3.0.0-alpha6      -> openssl-3.0.0-alpha6
+#18 50.68  * [new tag]               openssl-3.0.0-alpha7      -> openssl-3.0.0-alpha7
+#18 50.68  * [new tag]               openssl-3.0.0-alpha8      -> openssl-3.0.0-alpha8
+#18 50.68  * [new tag]               openssl-3.0.0-alpha9      -> openssl-3.0.0-alpha9
+#18 50.68  * [new tag]               openssl-3.0.0-beta1       -> openssl-3.0.0-beta1
+#18 50.68  * [new tag]               openssl-3.0.0-beta2       -> openssl-3.0.0-beta2
+#18 53.27 error: pathspec '27d41639' did not match any file(s) known to git
+#18 67.98 error: pathspec '27d41639' did not match any file(s) known to git
+#18 67.99 error: pathspec '27d41639' did not match any file(s) known to git
+#18 67.99 error: pathspec '27d41639' did not match any file(s) known to git
+#18 68.01 error: pathspec '27d41639' did not match any file(s) known to git
+#18 68.05 error: pathspec '27d41639' did not match any file(s) known to git
+#18 68.12 error: pathspec '27d41639' did not match any file(s) known to git
+#18 68.17 Checkout unsuccessful.
+#18 DONE 68.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:860aac47b02a4099be89f9d9129f928dedd698df3c5c0596fb166f7c8a1f2065
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:3da2aef6cb44693af8fdbfc86c0419d566411b87a624bfe2b6e094054168b4ce
+#20 0.558 Run fuzzer_build to build the target
+#20 0.678 FUZZ_TARGET = mbedtls
+#20 0.678 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.678 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.704 Building benchmark mbedtls_mbedtls with fuzzer afl
+#20 0.707 + cmake .
+#20 0.714 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#20 0.714   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#20 0.714   CMake.
+#20 0.714 
+#20 0.714   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#20 0.714   CMake that the project does not need compatibility with older versions.
+#20 0.714 
+#20 0.714 
+#20 0.927 -- The C compiler identification is Clang 14.0.0
+#20 0.942 -- Detecting C compiler ABI info
+#20 1.089 -- Detecting C compiler ABI info - done
+#20 1.140 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.140 -- Detecting C compile features
+#20 1.141 -- Detecting C compile features - done
+#20 1.220 -- Found PythonInterp: /usr/bin/python (found version "3.8.10") 
+#20 1.238 -- Found Perl: /usr/bin/perl (found version "5.30.0") 
+#20 1.297 CMake Error at CMakeLists.txt:189 (add_subdirectory):
+#20 1.297   add_subdirectory given source "crypto/library" which is not an existing
+#20 1.297   directory.
+#20 1.297 
+#20 1.297 
+#20 1.297 CMake Error at CMakeLists.txt:190 (add_subdirectory):
+#20 1.297   add_subdirectory given source "crypto/include" which is not an existing
+#20 1.297   directory.
+#20 1.297 
+#20 1.297 
+#20 1.309 -- Looking for pthread.h
+#20 1.478 -- Looking for pthread.h - found
+#20 1.478 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 1.647 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 1.649 -- Found Threads: TRUE  
+#20 1.650 CMake Warning (dev) at programs/ssl/CMakeLists.txt:37 (target_sources):
+#20 1.650   Policy CMP0076 is not set: target_sources() command converts relative paths
+#20 1.650   to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+#20 1.650   the cmake_policy command to set the policy and suppress this warning.
+#20 1.650 
+#20 1.650   An interface source of target "ssl_client2" has a relative path.
+#20 1.650 This warning is for project developers.  Use -Wno-dev to suppress it.
+#20 1.650 
+#20 1.650 CMake Warning (dev) at programs/ssl/CMakeLists.txt:44 (target_sources):
+#20 1.650   Policy CMP0076 is not set: target_sources() command converts relative paths
+#20 1.650   to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+#20 1.650   the cmake_policy command to set the policy and suppress this warning.
+#20 1.650 
+#20 1.650   An interface source of target "ssl_server2" has a relative path.
+#20 1.650 This warning is for project developers.  Use -Wno-dev to suppress it.
+#20 1.650 
+#20 1.654 CMake Warning (dev) at programs/test/CMakeLists.txt:31 (target_sources):
+#20 1.654   Policy CMP0076 is not set: target_sources() command converts relative paths
+#20 1.654   to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+#20 1.654   the cmake_policy command to set the policy and suppress this warning.
+#20 1.654 
+#20 1.654   An interface source of target "query_compile_time_config" has a relative
+#20 1.654   path.
+#20 1.654 This warning is for project developers.  Use -Wno-dev to suppress it.
+#20 1.654 
+#20 1.911 -- The CXX compiler identification is Clang 14.0.0
+#20 1.924 -- Detecting CXX compiler ABI info
+#20 2.108 -- Detecting CXX compiler ABI info - done
+#20 2.175 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 2.175 -- Detecting CXX compile features
+#20 2.176 -- Detecting CXX compile features - done
+#20 2.309 CMake Error at CMakeLists.txt:204 (add_subdirectory):
+#20 2.309   add_subdirectory given source "crypto/tests" which is not an existing
+#20 2.309   directory.
+#20 2.309 
+#20 2.309 
+#20 2.311 -- Configuring incomplete, errors occurred!
+#20 2.311 See also "/src/mbedtls/CMakeFiles/CMakeOutput.log".
+#20 2.320 Traceback (most recent call last):
+#20 2.320   File "<string>", line 1, in <module>
+#20 2.320   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 2.320     utils.build_benchmark()
+#20 2.320   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 2.320     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 2.320   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 2.321     raise CalledProcessError(retcode, cmd)
+#20 2.321 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2795342: .afl-mbedtls_mbedtls-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:567c5a7490b69787314074d1fa93578c21f1e3fba9374ae6cd3bdd9dee863d02
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9a59179b16e6724ba5603d3943a8d13fd30e02b449a1270b59904e025dc5de88
+#1 transferring dockerfile: 32B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:567c5a7490b69787314074d1fa93578c21f1e3fba9374ae6cd3bdd9dee863d02
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/7] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls
+#4 sha256:245b14cffe1e1c95a5f86e8fdb2757281c900a839f07fe3d9ff1475be1301ff1
+#4 DONE 0.0s
+
+#11 [internal] load build context
+#11 sha256:ce596a126821f167741c881bd12bedd5aae48938410a83d97f4bb9e06c2af3f5
+#11 transferring context: 30B done
+#11 DONE 0.1s
+
+#6 [2/7] RUN apt-get update && apt-get install -y make cmake
+#6 sha256:f28f09332e9a0660c4efec2a32424dd243e3735f93022c83de1a9eeee8e8942b
+#6 CACHED
+
+#7 [3/7] RUN git clone --depth 1 --branch fuzz https://github.com/catenacyber/mbedtls.git mbedtls
+#7 sha256:0ab1bd4957c3b624ed523fad5f84c4ada816eddf6008c5ebb4758c5b848c0a52
+#7 CACHED
+
+#8 [4/7] RUN git clone --depth 1 https://github.com/google/boringssl.git boringssl
+#8 sha256:74a386e3ebb9b7de03bedf40d6331c927ce853c384e032016c90cd9bae626c4d
+#8 CACHED
+
+#9 [5/7] RUN git clone --depth 1 https://github.com/openssl/openssl.git openssl
+#9 sha256:0f5e2cd12c35db3558bcede1bfa75b7253a5c553faca678d4dcb2c8261c5e24b
+#9 CACHED
+
+#10 [6/7] WORKDIR mbedtls
+#10 sha256:8559ade23dee8896d1532a3acea57fa55412d30ec3c5f16693548f98b9eb1d2f
+#10 CACHED
+
+#12 [7/7] COPY build.sh /src/
+#12 sha256:77034d05a0b2be1fc0eadefc45d5e72acc23a87ea427e6f83ae60328fd70f392
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:184ced9330083c578635ed5f55c58605c03f0d6308531e6a9d0f7d370dd36d89 0.0s done
+#13 naming to gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls done
+#13 DONE 0.3s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e2c4ea9f0d89c4ed482a76eac7009909405bdbb294385605568c7319b9ddeb6d
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7a1fee561041e072c7e0dd2ddee1517bfc7abeb3e32f2edfef5a49a6a5489ff9
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls:latest
+#3 sha256:3bdd0ce5fb50f788c39d87624c1e6ca08dfba5962a5e166b0087e2bc893744de
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/mbedtls_mbedtls
+#5 sha256:cb90936f2fd79bf2f5303a24d781398987b49aece54e506117bd63aa0072437a
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate
+#4 sha256:49f5404feb138c1d1e30ac060c5f62f0ef242555b08b5348a61cf77d9d2ba4b4
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a9436900d7967dbaea41df14d46e66ccba8ccf3c9fcc97b95f6303c370a551c3
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:230d30184a15f2bf5f6c2c1aae6f374873cca221f7a4f24927d040a438f8f87e
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:5c142c0b712d726148b5e1af8d01e45049d983c9e9190f08c8ee917372b6fe0e 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:bbb78e3180e536205c22d64c95aefbb5ba80843208560c15d2aa87d430740693
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:83e745ebbd7e5ad838ef9013bd9fd436a4c202a2a05f13192d58bbc25346b003
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:3a343e006a1698b2add45f2046fcbc90bac04870a279f146ffb8083deeb78832
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:202a1c22f0bfacf8c30f931d43bdb5e2fc555050e2078d65641a6f7914b790b6
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:5897dc152f361440342a989b457ee10e117bed1cc6d9c912dadb2bc60a4b7a60
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:1aaeb02f0c3e6961d246c984a9676d80d113a7c3495a50d23ec9d1f56c7d7f6c
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:67123cbf6cdcb4b861c0f40e1f2ef87bb8b3cb19b26ac3e0ac17fd71fc27ece4
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:c3a86acdae3fb44919108890d4861f6d2bfdc827d3c1ebe37654229c98736ff3 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f2f8e4a345f531adbab4d74bf617dbd92066f0d9e813e91ef12d2e4d22813e07
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7c1de6b12809c905c68769fe04ffb2936af2f09f05de50409e3b09fcbf86524d
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate:latest
+#3 sha256:6d7cf813b1d36e9457e1595ab45ee5ae6782ca93a70d5c0d9120de2dc7363c8e
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:bf8948aaafba0dd0e9c1b13cd62eba62667d5b5eb87a0379dadeca1eac1351ab
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls-intermediate
+#6 sha256:4d1e9d0f5ef7742cafab0346b16f2c23a42ae430f301c3dcc759106cf6a4609f
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls
+#5 sha256:17a1e07982c998f235ad06174407656a9e8c4c065e27603d24e0214a88097cc4
+#5 ERROR: gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls:latest: not found
+
+#12 [internal] load build context
+#12 sha256:bf8948aaafba0dd0e9c1b13cd62eba62667d5b5eb87a0379dadeca1eac1351ab
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:78bf64a6056f8e21c9dd14dbbff5bb53f5b02577e794799b5c9dfffc8e07deb1
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:ec039394af2b6dcc2113ce6b9970acf8b757fb33d99de9008531fa20d7e066ef
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:a3513b52a00b5b2ec5118c12f2e592f783041e0afa30e57ed434b94f7b8fcce1
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:ba0f1f21413aa0424edf2a8c732a710c1072c64cfa3e0cc839c6e6cfdb5896d2
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:e94914dcea256227830d8208342375ccb9a1dee420b5900c1671b0bc8d3168b7
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:6726de4e6e61008df83853f9bc7b1f9b73354a9cb846959f32cc194479b10b63
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:4b7014a5e277f4c7a219abf2273ddedadd3faebeccd43970213e52fb7ff0cc1e
+#16 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/mbedtls_mbedtls/benchmark.yaml /
+#15 sha256:3d233970f233ec6a3ab74ccca5aedd053708d8e470acbd0a996f3a210d3cc89f
+#15 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3103c91b51414e2e44d99500a84569dddc9a17f0ccaaf73388c8700b6da005e4
+#18 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:204dc99c3349c4e4349f89bd5f92789cf9ad21d739d6a9e4c74074bf75dcff5b
+#17 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:dbd85b81f864d4fa80c388f4067371f135216591385c8a4ee26b4e5ab161fbbb
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f75ccd064490a51c1c60e025bddbdebefae10613463161e6efbe01afffd2b155
+#20 0.457 Run fuzzer_build to build the target
+#20 0.567 FUZZ_TARGET = mbedtls
+#20 0.567 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.567 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.572 Building benchmark mbedtls_mbedtls with fuzzer afl
+#20 0.575 + cmake .
+#20 0.580 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+#20 0.580   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#20 0.580   CMake.
+#20 0.580 
+#20 0.580   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#20 0.580   CMake that the project does not need compatibility with older versions.
+#20 0.580 
+#20 0.580 
+#20 0.790 -- The C compiler identification is Clang 14.0.0
+#20 0.804 -- Detecting C compiler ABI info
+#20 0.955 -- Detecting C compiler ABI info - done
+#20 1.006 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.007 -- Detecting C compile features
+#20 1.008 -- Detecting C compile features - done
+#20 1.038 -- Found PythonInterp: /usr/bin/python (found version "3.8.10") 
+#20 1.054 -- Found Perl: /usr/bin/perl (found version "5.30.0") 
+#20 1.094 CMake Error at CMakeLists.txt:189 (add_subdirectory):
+#20 1.094   add_subdirectory given source "crypto/library" which is not an existing
+#20 1.094   directory.
+#20 1.094 
+#20 1.094 
+#20 1.094 CMake Error at CMakeLists.txt:190 (add_subdirectory):
+#20 1.094   add_subdirectory given source "crypto/include" which is not an existing
+#20 1.094   directory.
+#20 1.094 
+#20 1.094 
+#20 1.104 -- Looking for pthread.h
+#20 1.272 -- Looking for pthread.h - found
+#20 1.273 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 1.443 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 1.445 -- Found Threads: TRUE  
+#20 1.446 CMake Warning (dev) at programs/ssl/CMakeLists.txt:37 (target_sources):
+#20 1.446   Policy CMP0076 is not set: target_sources() command converts relative paths
+#20 1.446   to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+#20 1.446   the cmake_policy command to set the policy and suppress this warning.
+#20 1.446 
+#20 1.446   An interface source of target "ssl_client2" has a relative path.
+#20 1.446 This warning is for project developers.  Use -Wno-dev to suppress it.
+#20 1.446 
+#20 1.446 CMake Warning (dev) at programs/ssl/CMakeLists.txt:44 (target_sources):
+#20 1.446   Policy CMP0076 is not set: target_sources() command converts relative paths
+#20 1.446   to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+#20 1.446   the cmake_policy command to set the policy and suppress this warning.
+#20 1.446 
+#20 1.446   An interface source of target "ssl_server2" has a relative path.
+#20 1.446 This warning is for project developers.  Use -Wno-dev to suppress it.
+#20 1.446 
+#20 1.448 CMake Warning (dev) at programs/test/CMakeLists.txt:31 (target_sources):
+#20 1.448   Policy CMP0076 is not set: target_sources() command converts relative paths
+#20 1.448   to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+#20 1.448   the cmake_policy command to set the policy and suppress this warning.
+#20 1.448 
+#20 1.448   An interface source of target "query_compile_time_config" has a relative
+#20 1.448   path.
+#20 1.448 This warning is for project developers.  Use -Wno-dev to suppress it.
+#20 1.448 
+#20 1.708 -- The CXX compiler identification is Clang 14.0.0
+#20 1.719 -- Detecting CXX compiler ABI info
+#20 1.906 -- Detecting CXX compiler ABI info - done
+#20 1.979 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.980 -- Detecting CXX compile features
+#20 1.981 -- Detecting CXX compile features - done
+#20 2.002 CMake Error at CMakeLists.txt:204 (add_subdirectory):
+#20 2.002   add_subdirectory given source "crypto/tests" which is not an existing
+#20 2.002   directory.
+#20 2.002 
+#20 2.002 
+#20 2.004 -- Configuring incomplete, errors occurred!
+#20 2.004 See also "/src/mbedtls/CMakeFiles/CMakeOutput.log".
+#20 2.012 Traceback (most recent call last):
+#20 2.012   File "<string>", line 1, in <module>
+#20 2.012   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 2.013     utils.build_benchmark()
+#20 2.013   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 2.013     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 2.013   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 2.013     raise CalledProcessError(retcode, cmd)
+#20 2.013 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/mbedtls_mbedtls:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2795342: .afl-mbedtls_mbedtls-builder] Error 1

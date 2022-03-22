@@ -1,0 +1,808 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: usrsctp_usrsctp.
+INFO:root:Please run "make test-run-afl-usrsctp_usrsctp" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:da3b6f68c168562607f8a34b240c7c8f5ae7319fe246dd5e1aab5808782b2f19
+#1 transferring dockerfile: 928B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:cadcfe591bad673d7f4b0ed9bc0858e2e33b934bc1621aee14778df20551a56e
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:73aee5ae0164d7d2969063296728959b2fb8cb1015ca2bb0b3ed9b10e831e812
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp
+#4 sha256:0144c53d2a6f4f4dc93316f549562e2b095023d64cedb5732ff71b791c3ede73
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp:latest: not found
+
+#9 [internal] load build context
+#9 sha256:73aee5ae0164d7d2969063296728959b2fb8cb1015ca2bb0b3ed9b10e831e812
+#9 transferring context: 1.24kB done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make cmake
+#6 sha256:f28f09332e9a0660c4efec2a32424dd243e3735f93022c83de1a9eeee8e8942b
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/sctplab/usrsctp usrsctp
+#7 sha256:bce0187834f474090478b7f901d15f5541e18a7c2ecce4f87aa7a3a417046838
+#7 CACHED
+
+#8 [4/5] WORKDIR usrsctp
+#8 sha256:5a68fc5e601c6d4b20d50dffe0f0deeb1fe5c49c89bd7fead08fd5d8dfe66ef3
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:cc60a6dc0bcab144cef3f89bc55c3a2396bbfd55434bd21c813adecafeccaa3f
+#10 DONE 0.3s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:b0c1e7892daaf7b45552931be0c29bd1203d254735f3ff058054f5a9ee2fff49
+#11 writing image sha256:b0c1e7892daaf7b45552931be0c29bd1203d254735f3ff058054f5a9ee2fff49 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp 0.0s done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a7273600734e798f39065926531d82364843bec12ee26fd63b45b6757ba7bab3
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:89effe214706026a3be8c7144e78caf97539b5adbdb2f87561c87219833543d4
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp:latest
+#3 sha256:31dd9989ae43997d45f52f76460794cf40247465b42834bde90eb590ffb5434f
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp
+#5 sha256:a2f16ea63723cfff66b9fa752d81478efb97b169c5a42cca07d7c71907190159
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate
+#4 sha256:6f8057d591b04ca6c040aeab3bdb1aac6b21a4602e8c79cf5f41e68f373f911c
+#4 ERROR: gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp
+#5 sha256:a2f16ea63723cfff66b9fa752d81478efb97b169c5a42cca07d7c71907190159
+#5 DONE 0.4s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:252aa1d6aa3980bbdae7376e57a283a85f15e694149946b876daf319ce273a95
+#6 0.429 Cloning into '/afl'...
+#6 1.210 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.210 
+#6 1.210 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.210 changes and commit them, and you can discard any commits you make in this
+#6 1.210 state without impacting any branches by switching back to a branch.
+#6 1.210 
+#6 1.210 If you want to create a new branch to retain commits you create, you may
+#6 1.210 do so (now or later) by using -c with the switch command. Example:
+#6 1.210 
+#6 1.210   git switch -c <new-branch-name>
+#6 1.210 
+#6 1.210 Or undo this operation with:
+#6 1.210 
+#6 1.210   git switch -
+#6 1.210 
+#6 1.210 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.210 
+#6 1.210 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.228 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.228 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.412 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.427 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.878 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.188 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.615 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.763 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.156 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.392 ln -sf afl-as as
+#6 5.393 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.396 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.397 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.8s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6e27866f1a5b307cffcee9035160d94c6d953f3880bfcb55350171d4eef43b94
+#7 0.800 Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 0.800 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.800 Hit:3 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.801 Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.826 Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.712 Reading package lists...
+#7 3.562 Reading package lists...
+#7 4.978 Building dependency tree...
+#7 5.189 Reading state information...
+#7 5.432 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.432 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+#7 5.488 --2022-02-17 16:25:27--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.489 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+#7 5.491 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+#7 5.520 HTTP request sent, awaiting response... 200 OK
+#7 5.551 Length: 9177 (9.0K) [text/plain]
+#7 5.551 Saving to: '/afl/afl_driver.cpp'
+#7 5.552 
+#7 5.552      0K ........                                              100% 10.6M=0.001s
+#7 5.552 
+#7 5.552 2022-02-17 16:25:27 (10.6 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.552 
+#7 7.316 ar: creating /libAFL.a
+#7 DONE 8.0s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:a52e5d076c9ddb8366f07c65160ee4cb94c92c5d625671a68cb0d8501626fd4c
+#8 writing image sha256:a52e5d076c9ddb8366f07c65160ee4cb94c92c5d625671a68cb0d8501626fd4c 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:96d8c88d7ce2d820f810817e577b35e4504f77a6c837d9f66f34ff72901f686c
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a289caa033fb9ed20026ccc8c49629a65c27d33437903ceb3398a032e41c1dc6
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:831753c3d3abdb9e36f25a1a69d8e5233b47a95f5c4d0ad7afc56b619ddae38e
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:495fc8956f8ba6a1ded6e82f72a12d8f3a7054c86eaa0870e78e140666340067
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:11afa9c4f31fb8a917427e2e439bfaedd9a44592bac30c96add0715585d54ad1
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9a52d5b1c8899d2eb62026d3a0083bb89c4fefb4b1ca970c9fcea0a0420af131
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:93aaea7f4b02cdfa7d9dc5301012cb10732ba82e2d9c45c4f1301172a0d9914c
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:4194ef1d23fc015b139743048663e651b15a8f2752b53c16e7b7e39247b68536
+#13 writing image sha256:4194ef1d23fc015b139743048663e651b15a8f2752b53c16e7b7e39247b68536 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:542a1a5d8077141a09a5aed26afec28bf1037750a7e5817738a755bd980b2e83
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:16c2ae6a0e9bfe284b9cbe8b867354807e6a60c16d321c9bc0f9b0109bf372bb
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate:latest
+#3 sha256:6ff96d5bd2ddac35abf459e2900b2e4ed12a527a18860482d1f970ced520fa75
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e5eb7910eff56f1ef49a46e86db2522f6e7b06d0bca3b552d9d70a1eb8436216
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate
+#6 sha256:fb52081d9a4ef39d72ec555d40915b118be1220ab6ea3e0d9271e4aa9c42f258
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp
+#5 sha256:28175d1aef456f68731cedfed436ff52a52a57ae477fdd1ef6388ca1ee02b098
+#5 ERROR: gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:e5eb7910eff56f1ef49a46e86db2522f6e7b06d0bca3b552d9d70a1eb8436216
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate
+#6 sha256:fb52081d9a4ef39d72ec555d40915b118be1220ab6ea3e0d9271e4aa9c42f258
+#6 DONE 0.4s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:8020325c280cabd5baf8e0c254147291da01bdc05809034e571653ba194fc78c
+#8 DONE 0.4s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:b83f03c0f61dfe2baafb4d9bcee0ba335391b1938bd759241a283e5d26e17732
+#9 DONE 15.0s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c51fdf403862ca772df28f0a1a1cd2bd8d74bb3a06151f29e587e35bbc854bca
+#10 DONE 0.5s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:bc9708e012240cebc6e3c09e61e4953316cfb4c70a9d7cdbe5ab81c235ecb906
+#11 DONE 25.7s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:78d0cd5e32f6397fd59ef8b48a8e837bacf756bad34a8f8cc92800ae9c1762cb
+#13 DONE 0.5s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:941698f213249bfdeb4d59ef0cbb13e99f262915f94029ff1ebe643c7f64d158
+#14 DONE 0.9s
+
+#15 [stage-1  8/13] COPY benchmarks/usrsctp_usrsctp/benchmark.yaml /
+#15 sha256:8da9560aa890ae5cb8674714eb085432a09e3db19efbce841a239bdc1b11477c
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:c71be2edd9d38318ac6d3469591e5ea72c6cc7301bdf5d4120ea77210b9830c0
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:e6f4ee37f4d19bca260f166fe8a9090142aab125621cf2962397be2c825d0cd0
+#17 DONE 3.5s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:28a9afffb94765aecc45ddbb4675af805fc295a2cb9a1a4d932ce9982a19d316
+#18 0.868 Checking out commit f7b804f9
+#18 6.201 From https://github.com/sctplab/usrsctp
+#18 6.201  * [new tag]         0.9.3.0    -> 0.9.3.0
+#18 6.201  * [new tag]         0.9.4.0    -> 0.9.4.0
+#18 6.201  * [new tag]         0.9.5.0    -> 0.9.5.0
+#18 6.208 error: pathspec 'f7b804f9' did not match any file(s) known to git
+#18 6.219 error: pathspec 'f7b804f9' did not match any file(s) known to git
+#18 6.226 error: pathspec 'f7b804f9' did not match any file(s) known to git
+#18 6.267 Checkout unsuccessful.
+#18 DONE 7.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a562e6378dc0cbb59dfde24b3ef25e1fda02a08e5a520f5fd861d63f97fbdaf7
+#19 DONE 1.0s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:210836ad67cc10da53a23e99538aaaeb2f550296d60875f494fe4d6c742e0a34
+#20 0.602 Run fuzzer_build to build the target
+#20 0.724 FUZZ_TARGET = usrsctp
+#20 0.724 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.724 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.735 Building benchmark usrsctp_usrsctp with fuzzer afl
+#20 0.739 + cmake -Dsctp_build_programs=0 -Dsctp_debug=0 -Dsctp_build_programs=0 -DCMAKE_BUILD_TYPE=RelWithDebInfo .
+#20 0.946 -- The C compiler identification is Clang 14.0.0
+#20 0.961 -- Detecting C compiler ABI info
+#20 1.116 -- Detecting C compiler ABI info - done
+#20 1.166 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.167 -- Detecting C compile features
+#20 1.168 -- Detecting C compile features - done
+#20 1.172 -- Looking for include file sys/queue.h
+#20 1.327 -- Looking for include file sys/queue.h - found
+#20 1.328 -- Looking for include files sys/socket.h, linux/if_addr.h
+#20 1.496 -- Looking for include files sys/socket.h, linux/if_addr.h - found
+#20 1.497 -- Looking for include files sys/socket.h, linux/rtnetlink.h
+#20 1.671 -- Looking for include files sys/socket.h, linux/rtnetlink.h - found
+#20 1.672 -- Looking for 4 include files sys/types.h, ..., netinet/ip_icmp.h
+#20 1.844 -- Looking for 4 include files sys/types.h, ..., netinet/ip_icmp.h - found
+#20 1.845 -- Looking for 3 include files sys/types.h, ..., net/route.h
+#20 2.010 -- Looking for 3 include files sys/types.h, ..., net/route.h - found
+#20 2.011 -- Looking for include file stdatomic.h
+#20 2.172 -- Looking for include file stdatomic.h - found
+#20 2.173 -- Looking for usrsctp.h
+#20 2.360 -- Looking for usrsctp.h - found
+#20 2.361 -- Performing Test have_sa_len
+#20 2.408 -- Performing Test have_sa_len - Failed
+#20 2.409 -- Performing Test have_sin_len
+#20 2.457 -- Performing Test have_sin_len - Failed
+#20 2.458 -- Performing Test have_sin6_len
+#20 2.508 -- Performing Test have_sin6_len - Failed
+#20 2.509 -- Performing Test have_sconn_len
+#20 2.563 -- Performing Test have_sconn_len - Failed
+#20 2.566 -- Performing Test has_wfloat_equal
+#20 2.708 -- Performing Test has_wfloat_equal - Success
+#20 2.711 -- Performing Test has_wshadow
+#20 2.860 -- Performing Test has_wshadow - Success
+#20 2.863 -- Performing Test has_wpointer_aritih
+#20 3.004 -- Performing Test has_wpointer_aritih - Success
+#20 3.006 -- Performing Test has_wunreachable_code
+#20 3.148 -- Performing Test has_wunreachable_code - Success
+#20 3.151 -- Performing Test has_winit_self
+#20 3.303 -- Performing Test has_winit_self - Success
+#20 3.306 -- Performing Test has_wno_unused_function
+#20 3.458 -- Performing Test has_wno_unused_function - Success
+#20 3.460 -- Performing Test has_wno_unused_parameter
+#20 3.612 -- Performing Test has_wno_unused_parameter - Success
+#20 3.615 -- Performing Test has_wno_unreachable_code
+#20 3.762 -- Performing Test has_wno_unreachable_code - Success
+#20 3.765 -- Performing Test has_wstrict_prototypes
+#20 3.911 -- Performing Test has_wstrict_prototypes - Success
+#20 3.912 -- Compiler flags (CMAKE_C_FLAGS): -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -std=c99 -pedantic -Wall -Wextra -Wfloat-equal -Wshadow -Wpointer-arith -Wunreachable-code -Winit-self -Wno-unused-function -Wno-unused-parameter -Wno-unreachable-code -Wstrict-prototypes -Werror
+#20 3.921 -- Performing Test has_wno_address_of_packed_member
+#20 4.085 -- Performing Test has_wno_address_of_packed_member - Success
+#20 4.087 -- Performing Test has_wno_deprecated_declarations
+#20 4.235 -- Performing Test has_wno_deprecated_declarations - Success
+#20 4.237 -- Looking for pthread.h
+#20 4.410 -- Looking for pthread.h - found
+#20 4.410 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 4.600 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 4.602 -- Found Threads: TRUE  
+#20 4.604 -- Configuring done
+#20 4.618 -- Generating done
+#20 4.619 -- Build files have been written to: /src/usrsctp
+#20 4.622 ++ nproc
+#20 4.624 + make -j8
+#20 4.651 [  4%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_asconf.c.o
+#20 4.652 [  8%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_auth.c.o
+#20 4.652 [ 12%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_bsd_addr.c.o
+#20 4.653 [ 16%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_callout.c.o
+#20 4.653 [ 20%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_cc_functions.c.o
+#20 4.653 [ 25%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_crc32.c.o
+#20 4.654 [ 29%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_indata.c.o
+#20 4.655 [ 33%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_input.c.o
+#20 4.896 [ 37%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_output.c.o
+#20 4.908 [ 45%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_peeloff.c.o
+#20 4.908 [ 45%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_pcb.c.o
+#20 5.133 [ 50%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_sha1.c.o
+#20 5.284 [ 54%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_ss_functions.c.o
+#20 5.741 [ 58%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_sysctl.c.o
+#20 5.838 [ 62%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_timer.c.o
+#20 5.903 [ 66%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_userspace.c.o
+#20 5.949 [ 70%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_usrreq.c.o
+#20 6.078 [ 75%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctputil.c.o
+#20 6.102 [ 79%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet6/sctp6_usrreq.c.o
+#20 6.507 [ 83%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_environment.c.o
+#20 6.662 [ 87%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_mbuf.c.o
+#20 7.012 [ 91%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_recv_thread.c.o
+#20 7.580 [ 95%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_socket.c.o
+#20 11.01 [100%] Linking C static library libusrsctp.a
+#20 11.11 [100%] Built target usrsctp
+#20 11.15 + cd fuzzer
+#20 11.15 + TARGETS='fuzzer_connected fuzzer_unconnected'
+#20 11.15 + for target in $TARGETS
+#20 11.15 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I . -I ../usrsctplib/ -c fuzzer_connected.c -o /out/fuzzer_connected.o
+#20 11.16 clang-14: error: no such file or directory: 'fuzzer_connected.c'
+#20 11.16 Traceback (most recent call last):
+#20 11.16   File "<string>", line 1, in <module>
+#20 11.16   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 11.16     utils.build_benchmark()
+#20 11.16   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 11.16     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 11.16   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 11.16     raise CalledProcessError(retcode, cmd)
+#20 11.16 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2836997: .afl-usrsctp_usrsctp-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:cda13823d7f52dccd9ca23140ab693d9be5defd396f1aabf3a5e2d22b97d37f1
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:19382cd3a92e5d9d810804c910539f31a0329fbef8da97100cb26883500e7f88
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp
+#4 sha256:0144c53d2a6f4f4dc93316f549562e2b095023d64cedb5732ff71b791c3ede73
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:3a5176428e78b720a6d542d51c5a45929ef659707f7faf38d8f25ab57c1f31e3
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make cmake
+#6 sha256:f28f09332e9a0660c4efec2a32424dd243e3735f93022c83de1a9eeee8e8942b
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/sctplab/usrsctp usrsctp
+#7 sha256:bce0187834f474090478b7f901d15f5541e18a7c2ecce4f87aa7a3a417046838
+#7 CACHED
+
+#8 [4/5] WORKDIR usrsctp
+#8 sha256:5a68fc5e601c6d4b20d50dffe0f0deeb1fe5c49c89bd7fead08fd5d8dfe66ef3
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:4930f51c82df468742bcc856d8810058ef1bf73546e05c8ac4899981414df671
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:b0c1e7892daaf7b45552931be0c29bd1203d254735f3ff058054f5a9ee2fff49 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:d8c5ad8c05b4e04963215f3d112bdfa247bd2091651499f5dbb5cfbab3672f6e
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:15be749d86105690dd6d430b7a5056422628a9369541effeb8794c1ee42c0212
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp:latest
+#3 sha256:31dd9989ae43997d45f52f76460794cf40247465b42834bde90eb590ffb5434f
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate
+#4 sha256:6f8057d591b04ca6c040aeab3bdb1aac6b21a4602e8c79cf5f41e68f373f911c
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/usrsctp_usrsctp
+#5 sha256:a2f16ea63723cfff66b9fa752d81478efb97b169c5a42cca07d7c71907190159
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:252aa1d6aa3980bbdae7376e57a283a85f15e694149946b876daf319ce273a95
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6e27866f1a5b307cffcee9035160d94c6d953f3880bfcb55350171d4eef43b94
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:a52e5d076c9ddb8366f07c65160ee4cb94c92c5d625671a68cb0d8501626fd4c 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate done
+#8 DONE 0.6s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:23cb1337fa409cc90341e6571bfa1e33ff452d76896efe225899ab73b355a9ca
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5474c28f16d5cfd4328b7ecb3ef69ffdc017bdc8f41e2fe56f8539da9a427765
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:3b373c2d232b18a49adaaebee54f15f47fe22ad4c70581d5ff1509941b5f5dc3
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:97be3da67dcb5beab9be26020c0d761060bb6f018e346ed39e6fc629d75815d4
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:369b4cc7d566243c48763d650160b4e4932422464d48eba62e2f2fae70abf17d
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:e6c552e6c8485aa16aa839f67b0c1ad84599114235f06f491580c6a48b523e24
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:a0eba2b9736a37815ae87352105a2a5cedeb601c404cb542a98f98684f11039a
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:4194ef1d23fc015b139743048663e651b15a8f2752b53c16e7b7e39247b68536
+#13 writing image sha256:4194ef1d23fc015b139743048663e651b15a8f2752b53c16e7b7e39247b68536 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2535bb58c8c3d68a58b8001c57d3902310c95ac7dc85a16ca448cfa97c4fe674
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d8fa3270439af7db96cbc1409ba8b8059d8366f60775f2ad1e1bac848ee538df
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate:latest
+#3 sha256:6ff96d5bd2ddac35abf459e2900b2e4ed12a527a18860482d1f970ced520fa75
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:687cd689baebe3db8d9e23703edbb6901b67fa8f89472454bc0151fc9da54640
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp-intermediate
+#6 sha256:fb52081d9a4ef39d72ec555d40915b118be1220ab6ea3e0d9271e4aa9c42f258
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp
+#5 sha256:28175d1aef456f68731cedfed436ff52a52a57ae477fdd1ef6388ca1ee02b098
+#5 ERROR: gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp:latest: not found
+
+#12 [internal] load build context
+#12 sha256:687cd689baebe3db8d9e23703edbb6901b67fa8f89472454bc0151fc9da54640
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.3s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:b83f03c0f61dfe2baafb4d9bcee0ba335391b1938bd759241a283e5d26e17732
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:7e20558fa03bf0733d5d9df332f4ca4b00c6e5553392ce3ba9ce0136c088e7cd
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:380b9abe63061b85339cbbdbad2ad5c62a678c50bd37b537f8c7e9e00d3f0c21
+#18 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:5d9fea5d9122542757514eaa4dd8ae4ee6b5910c5fa034a23b52c5a4a0ae6e65
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:1ddb9f25d446ecad83065f2dd91c47b874009969e724183386ab6de10a2c6281
+#14 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:c51fdf403862ca772df28f0a1a1cd2bd8d74bb3a06151f29e587e35bbc854bca
+#10 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/usrsctp_usrsctp/benchmark.yaml /
+#15 sha256:ddf1d40f1997763abc6cc69cb3d2ef424c6792df33a60691b8cdb2ee61b6d84c
+#15 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:eb6244703cd39bde54e44bd4385e551263244e470c254afff326c40f4c26260c
+#17 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:8020325c280cabd5baf8e0c254147291da01bdc05809034e571653ba194fc78c
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:bc9708e012240cebc6e3c09e61e4953316cfb4c70a9d7cdbe5ab81c235ecb906
+#11 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:0bf32f618e461c233147a82a966c7a086e52c4f2c7634a8ed66a874c5b0debad
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:1fbe7cf861d4c68d8bbf869d810ba720e66c4fb8ebf9db7b415a063ab787dc24
+#20 0.603 Run fuzzer_build to build the target
+#20 0.713 FUZZ_TARGET = usrsctp
+#20 0.713 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.713 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.718 Building benchmark usrsctp_usrsctp with fuzzer afl
+#20 0.721 + cmake -Dsctp_build_programs=0 -Dsctp_debug=0 -Dsctp_build_programs=0 -DCMAKE_BUILD_TYPE=RelWithDebInfo .
+#20 0.923 -- The C compiler identification is Clang 14.0.0
+#20 0.937 -- Detecting C compiler ABI info
+#20 1.085 -- Detecting C compiler ABI info - done
+#20 1.137 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.138 -- Detecting C compile features
+#20 1.139 -- Detecting C compile features - done
+#20 1.143 -- Looking for include file sys/queue.h
+#20 1.298 -- Looking for include file sys/queue.h - found
+#20 1.299 -- Looking for include files sys/socket.h, linux/if_addr.h
+#20 1.468 -- Looking for include files sys/socket.h, linux/if_addr.h - found
+#20 1.470 -- Looking for include files sys/socket.h, linux/rtnetlink.h
+#20 1.638 -- Looking for include files sys/socket.h, linux/rtnetlink.h - found
+#20 1.639 -- Looking for 4 include files sys/types.h, ..., netinet/ip_icmp.h
+#20 1.804 -- Looking for 4 include files sys/types.h, ..., netinet/ip_icmp.h - found
+#20 1.805 -- Looking for 3 include files sys/types.h, ..., net/route.h
+#20 1.973 -- Looking for 3 include files sys/types.h, ..., net/route.h - found
+#20 1.974 -- Looking for include file stdatomic.h
+#20 2.141 -- Looking for include file stdatomic.h - found
+#20 2.141 -- Looking for usrsctp.h
+#20 2.320 -- Looking for usrsctp.h - found
+#20 2.321 -- Performing Test have_sa_len
+#20 2.369 -- Performing Test have_sa_len - Failed
+#20 2.370 -- Performing Test have_sin_len
+#20 2.423 -- Performing Test have_sin_len - Failed
+#20 2.424 -- Performing Test have_sin6_len
+#20 2.473 -- Performing Test have_sin6_len - Failed
+#20 2.474 -- Performing Test have_sconn_len
+#20 2.533 -- Performing Test have_sconn_len - Failed
+#20 2.536 -- Performing Test has_wfloat_equal
+#20 2.682 -- Performing Test has_wfloat_equal - Success
+#20 2.685 -- Performing Test has_wshadow
+#20 2.829 -- Performing Test has_wshadow - Success
+#20 2.832 -- Performing Test has_wpointer_aritih
+#20 2.986 -- Performing Test has_wpointer_aritih - Success
+#20 2.989 -- Performing Test has_wunreachable_code
+#20 3.144 -- Performing Test has_wunreachable_code - Success
+#20 3.147 -- Performing Test has_winit_self
+#20 3.299 -- Performing Test has_winit_self - Success
+#20 3.302 -- Performing Test has_wno_unused_function
+#20 3.454 -- Performing Test has_wno_unused_function - Success
+#20 3.457 -- Performing Test has_wno_unused_parameter
+#20 3.606 -- Performing Test has_wno_unused_parameter - Success
+#20 3.609 -- Performing Test has_wno_unreachable_code
+#20 3.752 -- Performing Test has_wno_unreachable_code - Success
+#20 3.755 -- Performing Test has_wstrict_prototypes
+#20 3.910 -- Performing Test has_wstrict_prototypes - Success
+#20 3.911 -- Compiler flags (CMAKE_C_FLAGS): -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -std=c99 -pedantic -Wall -Wextra -Wfloat-equal -Wshadow -Wpointer-arith -Wunreachable-code -Winit-self -Wno-unused-function -Wno-unused-parameter -Wno-unreachable-code -Wstrict-prototypes -Werror
+#20 3.922 -- Performing Test has_wno_address_of_packed_member
+#20 4.071 -- Performing Test has_wno_address_of_packed_member - Success
+#20 4.073 -- Performing Test has_wno_deprecated_declarations
+#20 4.219 -- Performing Test has_wno_deprecated_declarations - Success
+#20 4.223 -- Looking for pthread.h
+#20 4.395 -- Looking for pthread.h - found
+#20 4.396 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 4.563 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 4.565 -- Found Threads: TRUE  
+#20 4.566 -- Configuring done
+#20 4.579 -- Generating done
+#20 4.581 -- Build files have been written to: /src/usrsctp
+#20 4.584 ++ nproc
+#20 4.585 + make -j8
+#20 4.610 [  4%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_asconf.c.o
+#20 4.611 [  8%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_auth.c.o
+#20 4.611 [ 12%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_bsd_addr.c.o
+#20 4.612 [ 16%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_cc_functions.c.o
+#20 4.612 [ 25%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_callout.c.o
+#20 4.612 [ 25%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_crc32.c.o
+#20 4.613 [ 29%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_indata.c.o
+#20 4.613 [ 33%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_input.c.o
+#20 4.849 [ 37%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_output.c.o
+#20 4.866 [ 45%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_pcb.c.o
+#20 4.866 [ 45%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_peeloff.c.o
+#20 5.083 [ 50%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_sha1.c.o
+#20 5.236 [ 54%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_ss_functions.c.o
+#20 5.668 [ 58%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_sysctl.c.o
+#20 5.768 [ 62%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_timer.c.o
+#20 5.840 [ 66%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_userspace.c.o
+#20 5.866 [ 70%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_usrreq.c.o
+#20 6.025 [ 75%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctputil.c.o
+#20 6.079 [ 79%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/netinet6/sctp6_usrreq.c.o
+#20 6.472 [ 83%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_environment.c.o
+#20 6.623 [ 87%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_mbuf.c.o
+#20 6.922 [ 91%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_recv_thread.c.o
+#20 7.478 [ 95%] Building C object usrsctplib/CMakeFiles/usrsctp.dir/user_socket.c.o
+#20 10.62 [100%] Linking C static library libusrsctp.a
+#20 10.66 [100%] Built target usrsctp
+#20 10.71 + cd fuzzer
+#20 10.71 + TARGETS='fuzzer_connected fuzzer_unconnected'
+#20 10.71 + for target in $TARGETS
+#20 10.71 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I . -I ../usrsctplib/ -c fuzzer_connected.c -o /out/fuzzer_connected.o
+#20 10.72 clang-14: error: no such file or directory: 'fuzzer_connected.c'
+#20 10.73 Traceback (most recent call last):
+#20 10.73   File "<string>", line 1, in <module>
+#20 10.73   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 10.73     utils.build_benchmark()
+#20 10.73   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 10.73     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 10.73   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 10.73     raise CalledProcessError(retcode, cmd)
+#20 10.73 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/usrsctp_usrsctp:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2836997: .afl-usrsctp_usrsctp-builder] Error 1

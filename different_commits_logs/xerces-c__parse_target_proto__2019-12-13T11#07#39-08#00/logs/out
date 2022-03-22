@@ -1,0 +1,196 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: xerces-c_parse_target_proto.
+INFO:root:Please run "make test-run-afl-xerces-c_parse_target_proto" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1d2d582738ff5b0fc47d70ff2802dde03df7df1c68aef53d09269c16bc3383cc
+#1 transferring dockerfile: 1.25kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9d6edbbf8167a09b8c8e145baa76f324045f9348931af9d57352d92a08d1e98e
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:01a68973b558b498b617d6b0cde1913b2785e549f932f949ee9b497f2f757c65
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/xerces-c_parse_target_proto
+#4 sha256:905cae1174e1fd966f91f123e74f5994e5321727ae156fddeed0b8cf77ee66b6
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/xerces-c_parse_target_proto:latest: not found
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool wget zlib1g-dev libtool ninja-build cmake subversion
+#6 sha256:49a7be0d1426a251f412403b6f3dd299746dfa7d77c2a0d17974e8e219c1ab51
+#6 CACHED
+
+#7 [3/6] RUN svn co https://svn.apache.org/repos/asf/xerces/c/trunk /src/xerces-c
+#7 sha256:2d69086665ffa0ba5e8cd5f963a9e6563ce2c73682d46e1d7780d66f0f453ddb
+#7 CACHED
+
+#8 [4/6] RUN git clone --depth 1 https://github.com/google/libprotobuf-mutator.git
+#8 sha256:bee7b0dcd969c3fa01d5a1c50ef58aceb1d1ff26454b357d14091e8c06c30b6c
+#8 CACHED
+
+#10 [internal] load build context
+#10 sha256:01a68973b558b498b617d6b0cde1913b2785e549f932f949ee9b497f2f757c65
+#10 transferring context: 20.44kB done
+#10 DONE 0.0s
+
+#9 [5/6] RUN (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)
+#9 sha256:64be309b4d5ca6af803e12213c3728ca03cc31a94bed735864af4240930a4c69
+#9 0.453 -- The CXX compiler identification is Clang 14.0.0
+#9 0.468 -- Detecting CXX compiler ABI info
+#9 0.559 -- Detecting CXX compiler ABI info - done
+#9 0.580 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#9 0.581 -- Detecting CXX compile features
+#9 0.582 -- Detecting CXX compile features - done
+#9 0.662 -- The C compiler identification is Clang 14.0.0
+#9 0.674 -- Detecting C compiler ABI info
+#9 0.758 -- Detecting C compiler ABI info - done
+#9 0.777 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#9 0.777 -- Detecting C compile features
+#9 0.778 -- Detecting C compile features - done
+#9 0.783 -- Looking for pthread.h
+#9 0.877 -- Looking for pthread.h - found
+#9 0.877 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#9 0.978 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+#9 0.978 -- Check if compiler accepts -pthread
+#9 1.082 -- Check if compiler accepts -pthread - yes
+#9 1.085 -- Found Threads: TRUE  
+#9 1.098 -- Could NOT find LibLZMA (missing: LIBLZMA_LIBRARY LIBLZMA_INCLUDE_DIR LIBLZMA_HAS_AUTO_DECODER LIBLZMA_HAS_EASY_ENCODER LIBLZMA_HAS_LZMA_PRESET) 
+#9 1.113 -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+#9 1.114 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_ADDRESS
+#9 1.363 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_ADDRESS - Success
+#9 1.365 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_SCOPE
+#9 1.602 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_SCOPE - Success
+#9 1.604 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_COVERAGE
+#9 1.698 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_COVERAGE - Success
+#9 1.700 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_FUZZER
+#9 1.890 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_FUZZER - Success
+#9 1.892 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_SANITIZE_FUZZER
+#9 1.988 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_SANITIZE_FUZZER - Success
+#9 1.990 -- Performing Test LIB_PROTO_MUTATOR_HAS_WSTRING_CONVERSION
+#9 2.083 -- Performing Test LIB_PROTO_MUTATOR_HAS_WSTRING_CONVERSION - Success
+#9 2.100 -- Could NOT find Protobuf (missing: Protobuf_LIBRARIES Protobuf_INCLUDE_DIR) 
+#9 2.199 -- Configuring done
+#9 2.201 CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+#9 2.201 Please set them or make sure they are set and tested correctly in the CMake files:
+#9 2.201 LIBLZMA_LIBRARY (ADVANCED)
+#9 2.201     linked by target "libxml2_example" in directory /src/libprotobuf-mutator/examples/libxml2
+#9 2.201 
+#9 2.226 -- Generating done
+#9 2.230 CMake Generate step failed.  Build files cannot be regenerated correctly.
+#9 ERROR: executor failed running [/bin/sh -c (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/xerces-c_parse_target_proto:
+------
+------
+ > [5/6] RUN (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja):
+------
+executor failed running [/bin/sh -c (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)]: exit code: 1
+make: *** [docker/generated.mk:71944: .xerces-c_parse_target_proto-project-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7515f8acf0d11f0a93c20e8a095321fc71c72c3f18aa417b5cc6ba72be437c7c
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:af4412fc7812a8d9f1d603347c97da00a2100b7c338d0c50f9c861a845cbc91b
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:57b6f708d0df9511317aef8f055b223a8a77f9847cda996791ae02038e9680e2
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/xerces-c_parse_target_proto
+#4 sha256:905cae1174e1fd966f91f123e74f5994e5321727ae156fddeed0b8cf77ee66b6
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/xerces-c_parse_target_proto:latest: not found
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool wget zlib1g-dev libtool ninja-build cmake subversion
+#6 sha256:49a7be0d1426a251f412403b6f3dd299746dfa7d77c2a0d17974e8e219c1ab51
+#6 CACHED
+
+#7 [3/6] RUN svn co https://svn.apache.org/repos/asf/xerces/c/trunk /src/xerces-c
+#7 sha256:2d69086665ffa0ba5e8cd5f963a9e6563ce2c73682d46e1d7780d66f0f453ddb
+#7 CACHED
+
+#8 [4/6] RUN git clone --depth 1 https://github.com/google/libprotobuf-mutator.git
+#8 sha256:bee7b0dcd969c3fa01d5a1c50ef58aceb1d1ff26454b357d14091e8c06c30b6c
+#8 CACHED
+
+#10 [internal] load build context
+#10 sha256:57b6f708d0df9511317aef8f055b223a8a77f9847cda996791ae02038e9680e2
+#10 transferring context: 300B done
+#10 DONE 0.0s
+
+#9 [5/6] RUN (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)
+#9 sha256:64be309b4d5ca6af803e12213c3728ca03cc31a94bed735864af4240930a4c69
+#9 0.450 -- The CXX compiler identification is Clang 14.0.0
+#9 0.466 -- Detecting CXX compiler ABI info
+#9 0.558 -- Detecting CXX compiler ABI info - done
+#9 0.576 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#9 0.577 -- Detecting CXX compile features
+#9 0.578 -- Detecting CXX compile features - done
+#9 0.658 -- The C compiler identification is Clang 14.0.0
+#9 0.670 -- Detecting C compiler ABI info
+#9 0.754 -- Detecting C compiler ABI info - done
+#9 0.773 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#9 0.773 -- Detecting C compile features
+#9 0.774 -- Detecting C compile features - done
+#9 0.779 -- Looking for pthread.h
+#9 0.879 -- Looking for pthread.h - found
+#9 0.880 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#9 0.975 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+#9 0.975 -- Check if compiler accepts -pthread
+#9 1.072 -- Check if compiler accepts -pthread - yes
+#9 1.075 -- Found Threads: TRUE  
+#9 1.091 -- Could NOT find LibLZMA (missing: LIBLZMA_LIBRARY LIBLZMA_INCLUDE_DIR LIBLZMA_HAS_AUTO_DECODER LIBLZMA_HAS_EASY_ENCODER LIBLZMA_HAS_LZMA_PRESET) 
+#9 1.107 -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+#9 1.108 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_ADDRESS
+#9 1.340 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_ADDRESS - Success
+#9 1.341 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_SCOPE
+#9 1.581 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_SCOPE - Success
+#9 1.584 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_COVERAGE
+#9 1.676 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_COVERAGE - Success
+#9 1.677 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_FUZZER
+#9 1.856 -- Performing Test LIB_PROTO_MUTATOR_HAS_SANITIZE_FUZZER - Success
+#9 1.857 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_SANITIZE_FUZZER
+#9 1.948 -- Performing Test LIB_PROTO_MUTATOR_HAS_NO_SANITIZE_FUZZER - Success
+#9 1.950 -- Performing Test LIB_PROTO_MUTATOR_HAS_WSTRING_CONVERSION
+#9 2.049 -- Performing Test LIB_PROTO_MUTATOR_HAS_WSTRING_CONVERSION - Success
+#9 2.065 -- Could NOT find Protobuf (missing: Protobuf_LIBRARIES Protobuf_INCLUDE_DIR) 
+#9 2.158 -- Configuring done
+#9 2.161 CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
+#9 2.161 Please set them or make sure they are set and tested correctly in the CMake files:
+#9 2.161 LIBLZMA_LIBRARY (ADVANCED)
+#9 2.161     linked by target "libxml2_example" in directory /src/libprotobuf-mutator/examples/libxml2
+#9 2.161 
+#9 2.184 -- Generating done
+#9 2.189 CMake Generate step failed.  Build files cannot be regenerated correctly.
+#9 ERROR: executor failed running [/bin/sh -c (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/xerces-c_parse_target_proto:
+------
+------
+ > [5/6] RUN (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja):
+------
+executor failed running [/bin/sh -c (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)]: exit code: 1
+make: *** [docker/generated.mk:71944: .xerces-c_parse_target_proto-project-builder] Error 1

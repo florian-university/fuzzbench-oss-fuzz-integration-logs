@@ -1,0 +1,1232 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: stb_stb.
+INFO:root:Please run "make test-run-afl-stb_stb" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e6e27e9bdabb86376fd4ce9a39bf8cd613738b7923cdf70ba0eaf129d010fd3b
+#1 transferring dockerfile: 1.52kB done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:6858caff6315c7dee290563a6ab8e37d5e3c0d7c5ffe7f4c58ae2e4c80ab1496
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#14 [internal] load build context
+#14 sha256:021156d5adf448dd74957454c2a26f6f7b5e4e2e1f5e0932e820a842af17882a
+#14 DONE 0.0s
+
+#5 [ 1/10] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/stb_stb
+#4 sha256:4b4da8bab50bb3106f71340ddeaf578e92dcc476b2f0278bca2283082ca929f3
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/stb_stb:latest: not found
+
+#6 [ 2/10] RUN apt-get update &&     apt-get install -y wget tar
+#6 sha256:301ef42c18ff67e239c2f3eb0725876873a0864f6ad835479c7434ff75526231
+#6 CACHED
+
+#7 [ 3/10] RUN git clone --depth 1 https://github.com/nothings/stb.git
+#7 sha256:bd65d1df25481bee75d105e739bbf0a80f8ecbc6f07eca93b91749c10245a334
+#7 CACHED
+
+#8 [ 4/10] RUN wget -O /src/stb/gif.tar.gz https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/imagetestsuite/imagetestsuite-gif-1.00.tar.gz
+#8 sha256:889646613ae83545f2d346c53443a868c9fa6b709492476da0572037a5db9e6f
+#8 CACHED
+
+#9 [ 5/10] RUN wget -O /src/stb/jpg.tar.gz https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/imagetestsuite/imagetestsuite-jpg-1.00.tar.gz
+#9 sha256:0a6a6dabb151790030921f845390208ee4825d69bb4385b41d66ca647c72f472
+#9 CACHED
+
+#14 [internal] load build context
+#14 sha256:021156d5adf448dd74957454c2a26f6f7b5e4e2e1f5e0932e820a842af17882a
+#14 transferring context: 779B done
+#14 DONE 0.1s
+
+#10 [ 6/10] RUN wget -O /src/stb/bmp.zip http://entropymine.com/jason/bmpsuite/releases/bmpsuite-2.6.zip
+#10 sha256:ec35729dfb673d36ae0345b807357d05cadd0b506bfb78d6a3dca4fe715d8dab
+#10 0.544 --2022-02-15 17:44:53--  http://entropymine.com/jason/bmpsuite/releases/bmpsuite-2.6.zip
+#10 0.544 Resolving entropymine.com (entropymine.com)... 66.33.215.167
+#10 0.664 Connecting to entropymine.com (entropymine.com)|66.33.215.167|:80... connected.
+#10 0.764 HTTP request sent, awaiting response... 200 OK
+#10 0.895 Length: 707118 (691K) [application/zip]
+#10 0.895 Saving to: '/src/stb/bmp.zip'
+#10 0.895 
+#10 0.895      0K .......... .......... .......... .......... ..........  7%  250K 3s
+#10 1.096     50K .......... .......... .......... .......... .......... 14%  504K 2s
+#10 1.195    100K .......... .......... .......... .......... .......... 21% 3.96M 1s
+#10 1.207    150K .......... .......... .......... .......... .......... 28% 12.4M 1s
+#10 1.211    200K .......... .......... .......... .......... .......... 36%  542K 1s
+#10 1.303    250K .......... .......... .......... .......... .......... 43% 10.8M 1s
+#10 1.308    300K .......... .......... .......... .......... .......... 50% 13.2M 0s
+#10 1.311    350K .......... .......... .......... .......... .......... 57% 13.0M 0s
+#10 1.315    400K .......... .......... .......... .......... .......... 65%  629K 0s
+#10 1.394    450K .......... .......... .......... .......... .......... 72% 12.9M 0s
+#10 1.398    500K .......... .......... .......... .......... .......... 79% 6.14M 0s
+#10 1.406    550K .......... .......... .......... .......... .......... 86% 13.7M 0s
+#10 1.410    600K .......... .......... .......... .......... .......... 94% 13.7M 0s
+#10 1.414    650K .......... .......... .......... ..........           100% 13.0M=0.5s
+#10 1.416 
+#10 1.416 2022-02-15 17:44:54 (1.29 MB/s) - '/src/stb/bmp.zip' saved [707118/707118]
+#10 1.416 
+#10 DONE 2.9s
+
+#11 [ 7/10] RUN wget -O /src/stb/tga.zip https://github.com/richgel999/tga_test_files/archive/master.zip
+#11 sha256:f5f5e8974edf5e02aa11f6c39e87f366f0dbc6122f17f4a4a3da9ce1affe5aca
+#11 0.602 --2022-02-15 17:44:56--  https://github.com/richgel999/tga_test_files/archive/master.zip
+#11 0.605 Resolving github.com (github.com)... 140.82.121.4
+#11 0.616 Connecting to github.com (github.com)|140.82.121.4|:443... connected.
+#11 0.666 HTTP request sent, awaiting response... 302 Found
+#11 0.860 Location: https://codeload.github.com/richgel999/tga_test_files/zip/refs/heads/master [following]
+#11 0.860 --2022-02-15 17:44:56--  https://codeload.github.com/richgel999/tga_test_files/zip/refs/heads/master
+#11 0.860 Resolving codeload.github.com (codeload.github.com)... 140.82.121.9
+#11 0.874 Connecting to codeload.github.com (codeload.github.com)|140.82.121.9|:443... connected.
+#11 0.897 HTTP request sent, awaiting response... 200 OK
+#11 1.085 Length: unspecified [application/zip]
+#11 1.085 Saving to: '/src/stb/tga.zip'
+#11 1.085 
+#11 1.085      0K .......... .......... .......... .......... .......... 2.39M
+#11 1.106     50K .......... .......... .......... .......... .......... 4.97M
+#11 1.116    100K .......... .......... .......... .......... .......... 12.6M
+#11 1.119    150K .......... .......... .......... .......... .......... 7.70M
+#11 1.126    200K .......... .......... .......... .......... .......... 12.5M
+#11 1.130    250K .......... .......... .......... .......... .......... 11.4M
+#11 1.134    300K .......... .......... .......... .......... .......... 8.34M
+#11 1.140    350K .......... .......... .......... .......... .......... 12.3M
+#11 1.144    400K .......... .......... .......... .......... .......... 8.74M
+#11 1.149    450K .......... .......... .......... .......... .......... 3.11M
+#11 1.165    500K .......... ........                                    13.6M=0.08s
+#11 1.166 
+#11 1.167 2022-02-15 17:44:56 (6.24 MB/s) - '/src/stb/tga.zip' saved [530828]
+#11 1.167 
+#11 DONE 1.6s
+
+#12 [ 8/10] RUN wget -O /src/stb/tests/gif.dict https://raw.githubusercontent.com/mirrorer/afl/master/dictionaries/gif.dict &> /dev/null
+#12 sha256:92c7db079edfb2accd0f363555f054319d0c0ebbadbeb0ec3dc9547e4726ba89
+#12 DONE 0.9s
+
+#13 [ 9/10] WORKDIR stb
+#13 sha256:9f00a76a69ff1c45fe9db5c03eb0b013d438ada5f0ef9a99f6df47829558a3be
+#13 DONE 0.4s
+
+#15 [10/10] COPY build.sh /src/
+#15 sha256:26193aec43f8bd64154fbf302e55a3d1469e92875d1a04027c8bc5b7ea578368
+#15 DONE 0.2s
+
+#16 exporting to image
+#16 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#16 exporting layers done
+#16 writing image sha256:f573fb613f1df2f8d1bd5550363d1af6aa88aac982625bd15a5a8581bbefabef
+#16 writing image sha256:f573fb613f1df2f8d1bd5550363d1af6aa88aac982625bd15a5a8581bbefabef done
+#16 naming to gcr.io/fuzzbench/builders/benchmark/stb_stb done
+#16 DONE 0.3s
+
+#17 exporting cache
+#17 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#17 preparing build cache for export done
+#17 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/stb_stb:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:481271451a961dfe3eaee38c0820ced741c5e0610f944482c96a339d273f1356
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:bedfa31c5b2ec740028a6d21ef373438f3c766c1469e1ece454676dcc0354bea
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/stb_stb:latest
+#3 sha256:1c1680cbd6282a7acf39fce552fe75e181b5ac76e93f876912db11ec31baa314
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/stb_stb
+#5 sha256:056d8df4e910fb09fd6d0b58fc0d94012cb98630a66d81e646e0c7671ab36807
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/stb_stb-intermediate
+#4 sha256:b0d7bf3f802691bf70d6a979b445e5c35217887154d575f89d14f7388a996e1e
+#4 ERROR: gcr.io/fuzzbench/builders/afl/stb_stb-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/stb_stb
+#5 sha256:056d8df4e910fb09fd6d0b58fc0d94012cb98630a66d81e646e0c7671ab36807
+#5 DONE 0.3s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:8dcd4ebdebf1544ed795870abff8687c1b9147f69faa594a99e429f4dd3b5a5a
+#6 0.403 Cloning into '/afl'...
+#6 1.922 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.922 
+#6 1.922 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.922 changes and commit them, and you can discard any commits you make in this
+#6 1.922 state without impacting any branches by switching back to a branch.
+#6 1.922 
+#6 1.922 If you want to create a new branch to retain commits you create, you may
+#6 1.922 do so (now or later) by using -c with the switch command. Example:
+#6 1.922 
+#6 1.922   git switch -c <new-branch-name>
+#6 1.922 
+#6 1.922 Or undo this operation with:
+#6 1.922 
+#6 1.922   git switch -
+#6 1.922 
+#6 1.922 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.922 
+#6 1.922 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.940 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.941 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 2.132 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 2.137 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 4.547 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.861 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 5.289 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 5.440 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.833 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 6.069 ln -sf afl-as as
+#6 6.071 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 6.073 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 6.074 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 6.7s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1159f59d7d207e2f25b7894bb235ddc365ecee414f26779a661f0a4e25db897b
+#7 0.891 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.891 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.900 Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.923 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.009 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.828 Reading package lists...
+#7 4.093 Reading package lists...
+#7 5.511 Building dependency tree...
+#7 5.727 Reading state information...
+#7 5.975 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.975 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+#7 5.990 --2022-02-15 17:45:13--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.992 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.109.133, 185.199.108.133, ...
+#7 5.994 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+#7 6.016 HTTP request sent, awaiting response... 200 OK
+#7 6.036 Length: 9177 (9.0K) [text/plain]
+#7 6.036 Saving to: '/afl/afl_driver.cpp'
+#7 6.036 
+#7 6.036      0K ........                                              100% 10.7M=0.001s
+#7 6.037 
+#7 6.037 2022-02-15 17:45:13 (10.7 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 6.037 
+#7 7.779 ar: creating /libAFL.a
+#7 DONE 8.4s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3576ded0630e3b6fa2d40d920042a3a875df6de11eab520ce92bf11bfb1e5767
+#8 writing image sha256:3576ded0630e3b6fa2d40d920042a3a875df6de11eab520ce92bf11bfb1e5767 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/stb_stb-intermediate 0.0s done
+#8 DONE 0.5s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/stb_stb-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6044a1524e3a02b487c34157b3fff80443d437dae8ecf7c97183c0329dcb9d7e
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:2f84f640613d196a43b69084d21e1fd42fa8ea8021278ceb910c99541d3b7796
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:96cf97c5f7cfe28c6b357b324c5b915ef0481525b8003520119b2d583387e34f
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d03a2b01cccf8cd3ce6366a109879677ef55e822a9524237366cc8dfbee085bd
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:063b235a30a7b92d18b4436e94cc28920df552435669aa5040ba6aff687479bd
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:8a1b3ed1aa37dcfb506802b800fc9ea06986414eaacae24d34222fcbfac94286
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:b11ddeac103abe05805b7bd04aedef87770db4314b6aee112b497a4157fd3ea2
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5bcafeca90d09e5a030feed2ced83edfc14622deae3e4a98f2d89504ec6deb0e
+#13 writing image sha256:5bcafeca90d09e5a030feed2ced83edfc14622deae3e4a98f2d89504ec6deb0e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:77339b08cacc47a9c5a0ec4dfbd93b60cfd543cb530e244d9fd59a2bc0679291
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b7436425977b9ad2c0b0f243bf55b339089971ba69d82f21f3eef51e82f1e267
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/stb_stb-intermediate:latest
+#3 sha256:47b46b909eca03e60acde39e47794a3232e89fddde54c192a88a4e66992abb2c
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:53f352794184825ee8ba1c39faa1a4b0438dbb19451b76f03d7416f89863857d
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/stb_stb
+#5 sha256:486753f8ae1eb799330456822af69d333bf9b41c203fbc2c95adadba147a7ebd
+#5 ERROR: gcr.io/fuzzbench/builders/afl/stb_stb:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:53f352794184825ee8ba1c39faa1a4b0438dbb19451b76f03d7416f89863857d
+#12 transferring context: 669.84kB 0.1s done
+#12 DONE 0.3s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/stb_stb-intermediate
+#6 sha256:acf63f912d73ad43d06da3acfdaf725d7fdba573b8a1363147c7c355a387b15c
+#6 DONE 1.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:cf1b9ad72fc428857f0d565a411dfb302855efdab14c0033800b81168ab8cde8
+#8 DONE 0.8s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:1f5e778c4be8b511966375e1fc48375bba884e963300693d0f3f7f9ba7d4479d
+#9 DONE 22.5s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:5a43f9eb09e8741ca20372d9f87344ad45e65cdbec081a9164dd8c7e33aed08a
+#10 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3939f402ffd1ae24f1a3439ff37dd9675ff640feb6286a8af9cd7dc5755f4e82
+#11 DONE 39.3s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:1051a269de91fb183552a8783872b72229c7bad0474a25625dcb42a58ce18364
+#13 DONE 1.5s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:988bcdca9e6bb533ec3be453aa3bf5472f4b311744a086e972d612767e1db1f3
+#14 DONE 0.9s
+
+#15 [stage-1  8/13] COPY benchmarks/stb_stb/benchmark.yaml /
+#15 sha256:c2bfdc8aab16d4d6ff3120bff0a870c41b45c05fd1023c8667c1e7620fe21460
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:8ab75e9f552c5586578d1c9789543a0ba9f0ca6b660d2ac188deb2d54fe71c6c
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:4b5df7de7ac28e9d5564c276e0891145899893029a3691cec099d15bd3bd67bc
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:587e2d6e76ae90eb6b4b7f9cff7aefbe72a848c389c82dd02d3b41ddcd26856a
+#18 0.542 Checking out commit 84faf557
+#18 3.374 error: pathspec '84faf557' did not match any file(s) known to git
+#18 3.385 error: pathspec '84faf557' did not match any file(s) known to git
+#18 3.393 error: pathspec '84faf557' did not match any file(s) known to git
+#18 3.469 Checkout unsuccessful.
+#18 DONE 3.8s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:26151d9f9afe0fe88f9b4842d8ba7ec7fb58a945908b23978f09aaf235816f41
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:80a394ec0ea9508ec0d3da3886767c7d20486e289e18bbcbf7925d42cecb4ed9
+#20 0.807 Run fuzzer_build to build the target
+#20 0.944 FUZZ_TARGET = stb
+#20 0.944 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.944 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.956 Building benchmark stb_stb with fuzzer afl
+#20 0.960 + /src/stb/tests/ossfuzz.sh
+#20 0.970 clang-14: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+#20 3.907 clang-14: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+#20 10.71   adding: src/stb/tests/pngsuite/iphone/iphone_bgyn6a16.png (stored 0%)
+#20 10.71   adding: src/stb/tests/pngsuite/iphone/iphone_tbyn3p08.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/iphone/iphone_bgwn6a08.png (deflated 12%)
+#20 10.72   adding: src/stb/tests/pngsuite/iphone/iphone_z06n2c08.png (deflated 26%)
+#20 10.72   adding: src/stb/tests/pngsuite/iphone/iphone_basi0g01.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/iphone/iphone_basi3p02.png (deflated 1%)
+#20 10.72   adding: src/stb/tests/pngsuite/iphone/iphone_basi0g02.png (deflated 1%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/oi2n2c16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/basn4a16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/tbwn0g16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/oi9n0g16.png (deflated 53%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/basn0g16.png (deflated 2%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/bggn4a16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/tbgn2c16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/basi6a16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/bgai4a16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/oi1n2c16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/basn2c16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/basi4a16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/tbbn2c16.png (stored 0%)
+#20 10.72   adding: src/stb/tests/pngsuite/16bit/basi0g16.png (stored 0%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/oi4n0g16.png (deflated 7%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/bgyn6a16.png (deflated 0%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/oi9n2c16.png (deflated 63%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/basi2c16.png (stored 0%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/bgan6a16.png (deflated 0%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/oi1n0g16.png (deflated 2%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/oi4n2c16.png (deflated 2%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/oi2n0g16.png (deflated 3%)
+#20 10.73   adding: src/stb/tests/pngsuite/16bit/basn6a16.png (deflated 0%)
+#20 10.73   adding: src/stb/tests/pngsuite/primary/s04i3p01.png (deflated 6%)
+#20 10.73   adding: src/stb/tests/pngsuite/primary/s06n3p02.png (deflated 5%)
+#20 10.73   adding: src/stb/tests/pngsuite/primary/bgai4a08.png (stored 0%)
+#20 10.73   adding: src/stb/tests/pngsuite/primary/tbwn3p08.png (deflated 1%)
+#20 10.73   adding: src/stb/tests/pngsuite/primary/basi3p04.png (deflated 1%)
+#20 10.73   adding: src/stb/tests/pngsuite/primary/s06i3p02.png (deflated 3%)
+#20 10.73   adding: src/stb/tests/pngsuite/primary/s37i3p04.png (deflated 2%)
+#20 10.74   adding: src/stb/tests/pngsuite/primary/z00n2c08.png (deflated 92%)
+#20 10.74   adding: src/stb/tests/pngsuite/primary/basn0g01.png (deflated 3%)
+#20 10.74   adding: src/stb/tests/pngsuite/primary/tp1n3p08.png (deflated 1%)
+#20 10.74   adding: src/stb/tests/pngsuite/primary/s09n3p02.png (deflated 5%)
+#20 10.74   adding: src/stb/tests/pngsuite/primary/basn0g04.png (deflated 3%)
+#20 10.74   adding: src/stb/tests/pngsuite/primary/bgwn6a08.png (deflated 2%)
+#20 10.74   adding: src/stb/tests/pngsuite/primary/tp0n0g08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s39n3p04.png (deflated 3%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basi0g02.png (deflated 2%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basi0g08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s01n3p01.png (deflated 9%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basn2c08.png (deflated 2%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/z06n2c08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basi4a08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/bgan6a08.png (deflated 1%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basn4a08.png (deflated 3%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/tbyn3p08.png (deflated 1%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s38n3p04.png (deflated 7%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s32i3p04.png (deflated 3%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basn3p02.png (deflated 7%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basi2c08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s36n3p04.png (deflated 7%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s07n3p02.png (deflated 7%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/tbrn2c08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basi6a08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s34n3p04.png (deflated 7%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s38i3p04.png (deflated 3%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s34i3p04.png (deflated 3%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basi0g04.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s08i3p02.png (deflated 3%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/s03i3p01.png (deflated 7%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/tp0n2c08.png (stored 0%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/basn6a08.png (deflated 1%)
+#20 10.75   adding: src/stb/tests/pngsuite/primary/z03n2c08.png (stored 0%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/tbbn3p08.png (deflated 1%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/tm3n3p02.png (deflated 13%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s35i3p04.png (deflated 2%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s04n3p01.png (deflated 7%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/basn0g08.png (deflated 4%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s37n3p04.png (deflated 3%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s02n3p01.png (deflated 10%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/basn0g02.png (deflated 6%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s02i3p01.png (deflated 7%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s05n3p02.png (deflated 6%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s40n3p04.png (deflated 7%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s07i3p02.png (deflated 4%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/basi0g01.png (stored 0%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/basi3p08.png (deflated 11%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s33n3p04.png (deflated 4%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/basn3p01.png (deflated 6%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s03n3p01.png (deflated 9%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/tbgn3p08.png (deflated 1%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/tp0n3p08.png (deflated 1%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/basn3p08.png (deflated 15%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s01i3p01.png (deflated 9%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s09i3p02.png (deflated 3%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/tbbn0g04.png (stored 0%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s36i3p04.png (deflated 3%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/basi3p02.png (deflated 3%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/bgbn4a08.png (deflated 4%)
+#20 10.76   adding: src/stb/tests/pngsuite/primary/s32n3p04.png (deflated 7%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/s40i3p04.png (deflated 3%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/s05i3p02.png (deflated 6%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/basn3p04.png (deflated 4%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/s08n3p02.png (deflated 5%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/basi3p01.png (deflated 3%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/z09n2c08.png (stored 0%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/s39i3p04.png (deflated 1%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/s35n3p04.png (deflated 3%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary/s33i3p04.png (deflated 2%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/s04i3p01.png (deflated 12%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/s06n3p02.png (deflated 11%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/bgai4a08.png (deflated 12%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/tbwn3p08.png (stored 0%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/basi3p04.png (deflated 8%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/s06i3p02.png (deflated 11%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/s37i3p04.png (deflated 2%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/z00n2c08.png (deflated 5%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/basn0g01.png (deflated 4%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/tp1n3p08.png (stored 0%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/s09n3p02.png (deflated 8%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/basn0g04.png (deflated 9%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/bgwn6a08.png (deflated 8%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/tp0n0g08.png (stored 0%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/s39n3p04.png (deflated 2%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/basi0g02.png (deflated 7%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/basi0g08.png (deflated 8%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/s01n3p01.png (deflated 13%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/basn2c08.png (deflated 7%)
+#20 10.77   adding: src/stb/tests/pngsuite/primary_check/z06n2c08.png (deflated 5%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basi4a08.png (deflated 12%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/bgan6a08.png (deflated 8%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basn4a08.png (deflated 11%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/tbyn3p08.png (stored 0%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s38n3p04.png (deflated 2%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s32i3p04.png (deflated 3%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basn3p02.png (deflated 6%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basi2c08.png (deflated 8%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s36n3p04.png (deflated 2%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s07n3p02.png (deflated 9%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/tbrn2c08.png (stored 0%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basi6a08.png (deflated 9%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s34n3p04.png (deflated 3%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s38i3p04.png (deflated 2%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s34i3p04.png (deflated 3%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basi0g04.png (deflated 9%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s08i3p02.png (deflated 9%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s03i3p01.png (deflated 12%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/tp0n2c08.png (stored 0%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basn6a08.png (deflated 8%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/z03n2c08.png (deflated 5%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/tbbn3p08.png (stored 0%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/tm3n3p02.png (deflated 14%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s35i3p04.png (deflated 2%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/s04n3p01.png (deflated 12%)
+#20 10.78   adding: src/stb/tests/pngsuite/primary_check/basn0g08.png (deflated 8%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s37n3p04.png (deflated 2%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s02n3p01.png (deflated 12%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basn0g02.png (deflated 7%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s02i3p01.png (deflated 12%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s05n3p02.png (deflated 10%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s40n3p04.png (deflated 2%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s07i3p02.png (deflated 8%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basi0g01.png (deflated 3%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basi3p08.png (deflated 4%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s33n3p04.png (deflated 2%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basn3p01.png (deflated 9%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s03n3p01.png (deflated 12%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/tbgn3p08.png (stored 0%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/tp0n3p08.png (stored 0%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basn3p08.png (deflated 4%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s01i3p01.png (deflated 13%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s09i3p02.png (deflated 8%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/tbbn0g04.png (deflated 0%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s36i3p04.png (deflated 2%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basi3p02.png (deflated 7%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/bgbn4a08.png (deflated 13%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s32n3p04.png (deflated 3%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s40i3p04.png (deflated 2%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s05i3p02.png (deflated 10%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basn3p04.png (deflated 7%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/s08n3p02.png (deflated 9%)
+#20 10.79   adding: src/stb/tests/pngsuite/primary_check/basi3p01.png (deflated 9%)
+#20 10.80   adding: src/stb/tests/pngsuite/primary_check/z09n2c08.png (deflated 5%)
+#20 10.80   adding: src/stb/tests/pngsuite/primary_check/s39i3p04.png (deflated 2%)
+#20 10.80   adding: src/stb/tests/pngsuite/primary_check/s35n3p04.png (deflated 2%)
+#20 10.80   adding: src/stb/tests/pngsuite/primary_check/s33i3p04.png (deflated 2%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xcrn0g04.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xdtn0g01.png (deflated 11%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xs1n0g01.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xhdn0g08.png (deflated 4%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xcsn0g01.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xd3n2c08.png (deflated 2%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xlfn0g04.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xc1n0g08.png (deflated 4%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xd9n2c08.png (deflated 2%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xd0n2c08.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xs7n0g01.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xs2n0g01.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xs4n0g01.png (deflated 3%)
+#20 10.80   adding: src/stb/tests/pngsuite/corrupt/xc9n2c08.png (deflated 2%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/g04n0g16.png (stored 0%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/cdfn2c08.png (stored 0%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/f99n0g04.png (stored 0%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/f01n2c08.png (stored 0%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/cs3n3p08.png (deflated 9%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/cm9n0g04.png (stored 0%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/ps2n2c16.png (deflated 68%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/cthn0g04.png (deflated 42%)
+#20 10.80   adding: src/stb/tests/pngsuite/unused/ct1n0g04.png (deflated 13%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/f00n2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/cm7n0g04.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/cdsn2c08.png (deflated 3%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g03n0g16.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g25n2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/cs5n2c08.png (deflated 4%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/ccwn2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g07n0g16.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/cm0n0g04.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g10n2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/cten0g04.png (deflated 25%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/ct0n0g04.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/ctzn0g04.png (deflated 1%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/ccwn3p08.png (deflated 2%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/f02n2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/cdun2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g10n3p04.png (deflated 4%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/ctfn0g04.png (deflated 21%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/ctgn0g04.png (deflated 34%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g25n0g16.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g07n2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g05n0g16.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/ctjn0g04.png (deflated 22%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/f01n0g08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/g03n2c08.png (stored 0%)
+#20 10.81   adding: src/stb/tests/pngsuite/unused/cs3n2c16.png (deflated 1%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g04n2c08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g10n0g16.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g25n3p04.png (deflated 5%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/cs8n3p08.png (deflated 9%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g05n2c08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g04n3p04.png (deflated 3%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g03n3p04.png (deflated 4%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/f04n0g08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/cs8n2c08.png (deflated 1%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/pp0n6a08.png (deflated 38%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/ps1n2c16.png (deflated 53%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/ps1n0g08.png (deflated 61%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/f03n0g08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/ch1n3p04.png (deflated 5%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/f03n2c08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g05n3p04.png (deflated 4%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/ch2n3p08.png (deflated 38%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/f04n2c08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/f02n0g08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/cdhn2c08.png (deflated 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/pp0n2c16.png (deflated 29%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/g07n3p04.png (deflated 5%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/f00n0g08.png (stored 0%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/ps2n0g08.png (deflated 75%)
+#20 10.82   adding: src/stb/tests/pngsuite/unused/cs5n3p08.png (deflated 7%)
+#20 10.84 tar (child): /src/stbi/jpg.tar.gz: Cannot open: No such file or directory
+#20 10.84 tar (child): Error is not recoverable: exiting now
+#20 10.84 tar: Child returned status 2
+#20 10.84 tar: Error is not recoverable: exiting now
+#20 10.84 Traceback (most recent call last):
+#20 10.84   File "<string>", line 1, in <module>
+#20 10.84   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 10.84     utils.build_benchmark()
+#20 10.84   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 10.84     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 10.84   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 10.84     raise CalledProcessError(retcode, cmd)
+#20 10.84 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 2.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/stb_stb:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2718793: .afl-stb_stb-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:bfe204d438f1dbbc626b9ccbfdb681851e0657777519c5f1e5a5bb213962c3c9
+#2 transferring context:
+#2 transferring context: 2B done
+#2 DONE 0.8s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b2f641b9b41ea9bed7b0724f7d4afa6d315d49514e8622e6554c52c60155e898
+#1 transferring dockerfile: 32B done
+#1 DONE 0.8s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [ 1/10] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/stb_stb
+#4 sha256:4b4da8bab50bb3106f71340ddeaf578e92dcc476b2f0278bca2283082ca929f3
+#4 DONE 0.0s
+
+#14 [internal] load build context
+#14 sha256:5ddeb10c8455714c5cff91526f8900866c7af317a6ec21335d5ae46fcb15fb77
+#14 transferring context: 30B done
+#14 DONE 0.1s
+
+#8 [ 4/10] RUN wget -O /src/stb/gif.tar.gz https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/imagetestsuite/imagetestsuite-gif-1.00.tar.gz
+#8 sha256:889646613ae83545f2d346c53443a868c9fa6b709492476da0572037a5db9e6f
+#8 CACHED
+
+#12 [ 8/10] RUN wget -O /src/stb/tests/gif.dict https://raw.githubusercontent.com/mirrorer/afl/master/dictionaries/gif.dict &> /dev/null
+#12 sha256:92c7db079edfb2accd0f363555f054319d0c0ebbadbeb0ec3dc9547e4726ba89
+#12 CACHED
+
+#11 [ 7/10] RUN wget -O /src/stb/tga.zip https://github.com/richgel999/tga_test_files/archive/master.zip
+#11 sha256:f5f5e8974edf5e02aa11f6c39e87f366f0dbc6122f17f4a4a3da9ce1affe5aca
+#11 CACHED
+
+#9 [ 5/10] RUN wget -O /src/stb/jpg.tar.gz https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/imagetestsuite/imagetestsuite-jpg-1.00.tar.gz
+#9 sha256:0a6a6dabb151790030921f845390208ee4825d69bb4385b41d66ca647c72f472
+#9 CACHED
+
+#10 [ 6/10] RUN wget -O /src/stb/bmp.zip http://entropymine.com/jason/bmpsuite/releases/bmpsuite-2.6.zip
+#10 sha256:ec35729dfb673d36ae0345b807357d05cadd0b506bfb78d6a3dca4fe715d8dab
+#10 CACHED
+
+#13 [ 9/10] WORKDIR stb
+#13 sha256:9f00a76a69ff1c45fe9db5c03eb0b013d438ada5f0ef9a99f6df47829558a3be
+#13 CACHED
+
+#6 [ 2/10] RUN apt-get update &&     apt-get install -y wget tar
+#6 sha256:301ef42c18ff67e239c2f3eb0725876873a0864f6ad835479c7434ff75526231
+#6 CACHED
+
+#7 [ 3/10] RUN git clone --depth 1 https://github.com/nothings/stb.git
+#7 sha256:bd65d1df25481bee75d105e739bbf0a80f8ecbc6f07eca93b91749c10245a334
+#7 CACHED
+
+#15 [10/10] COPY build.sh /src/
+#15 sha256:9ac62e99d512b1180f4833303d1358a36bbc01edb068667208a5131765946dcf
+#15 CACHED
+
+#16 exporting to image
+#16 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#16 exporting layers done
+#16 writing image sha256:f573fb613f1df2f8d1bd5550363d1af6aa88aac982625bd15a5a8581bbefabef 0.0s done
+#16 naming to gcr.io/fuzzbench/builders/benchmark/stb_stb done
+#16 DONE 0.5s
+
+#17 exporting cache
+#17 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#17 preparing build cache for export done
+#17 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e7989659a7adc23677cd8bbc74b4c4e2444fca5aca376cbd9346de3c63f6ded1
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:a47745744892f852a7ebe869c98bd70bc6b0b9844a8fd407f262400356333db0
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/stb_stb:latest
+#3 sha256:1c1680cbd6282a7acf39fce552fe75e181b5ac76e93f876912db11ec31baa314
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/stb_stb-intermediate
+#4 sha256:b0d7bf3f802691bf70d6a979b445e5c35217887154d575f89d14f7388a996e1e
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/stb_stb
+#5 sha256:056d8df4e910fb09fd6d0b58fc0d94012cb98630a66d81e646e0c7671ab36807
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:8dcd4ebdebf1544ed795870abff8687c1b9147f69faa594a99e429f4dd3b5a5a
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1159f59d7d207e2f25b7894bb235ddc365ecee414f26779a661f0a4e25db897b
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3576ded0630e3b6fa2d40d920042a3a875df6de11eab520ce92bf11bfb1e5767 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/stb_stb-intermediate done
+#8 DONE 1.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:5174e59c5f26d34b6e88e792e8abe1c283c5ff417556e01397be356dabd0a075
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c977e78191b7a53e8ee43a751e5a26623e4bda960fe913ae35a78f1a0b0eefdc
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:a653afa9bcb85119e54085f02ae9485db5ece344ef52e87faa4cf0eb7ae40d48
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2b216339a8dd11251bbac88892ed557e36a715e289c354090ae79a64cc418828
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:a7c5ebc8265565dafaf5a584de1c8dc8857cafe4809324aec9c73ccd3e0d5312
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:0938991d136a093985fe1ebd823e372c12239a197c49b50dfbaf81f4061ac72f
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:58e4b2c309e26f95b6e8fdaea8fea857d904c6c3b9cfeec40e98145731a9b472
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5bcafeca90d09e5a030feed2ced83edfc14622deae3e4a98f2d89504ec6deb0e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:fd10317ca97231f53fd4e991c7f23fdaf9ed2611c7f6bc8d079a98c91263ba0e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:3167e370c42ace8621cd39f5b8dcc514bd2c007dfd582d1fd8578592b3b4aabf
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/stb_stb-intermediate:latest
+#4 sha256:47b46b909eca03e60acde39e47794a3232e89fddde54c192a88a4e66992abb2c
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:4e5622650cdde03ad75c266e2ee3bc6e1adb4f7c5fc28e4d0ef59f82e65a6217
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/stb_stb-intermediate
+#6 sha256:acf63f912d73ad43d06da3acfdaf725d7fdba573b8a1363147c7c355a387b15c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/stb_stb
+#5 sha256:486753f8ae1eb799330456822af69d333bf9b41c203fbc2c95adadba147a7ebd
+#5 ERROR: gcr.io/fuzzbench/builders/afl/stb_stb:latest: not found
+
+#12 [internal] load build context
+#12 sha256:4e5622650cdde03ad75c266e2ee3bc6e1adb4f7c5fc28e4d0ef59f82e65a6217
+#12 transferring context: 669.84kB 0.1s done
+#12 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:89ec400d816358b591419dcf73519f7506ee2c9da3fcdf2674a3e36a1bae4df3
+#18 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:cf1b9ad72fc428857f0d565a411dfb302855efdab14c0033800b81168ab8cde8
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:a427f384a87277ef475b8397f060f0ee67a68e41fc65f941d27ac21aace5634d
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/stb_stb/benchmark.yaml /
+#15 sha256:09d45ad3084ecce1bc9408ecc0909c4b8e7f13c5b735ed54bf8c2eb3f29fe63a
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:dc81366a81ddd599906b5d1539bc63d2445d2bf52b42de20486c9c634253021d
+#16 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:5a43f9eb09e8741ca20372d9f87344ad45e65cdbec081a9164dd8c7e33aed08a
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3939f402ffd1ae24f1a3439ff37dd9675ff640feb6286a8af9cd7dc5755f4e82
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:ec68e003f80ed3e8fc80f0c3da794f002c66f4af0100b161cd773243ea7bf4e6
+#14 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:bbebbf675c22015fd325250258d0f8de42bc67472feab43a0909dcd533e3a572
+#17 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:1f5e778c4be8b511966375e1fc48375bba884e963300693d0f3f7f9ba7d4479d
+#9 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:ceff27cf7c8de2f85cdc5eac9866c8917e89009269e43def3da70aced73b4942
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:7ccf7b37e99d854ff80d07b6e1d8eec8bfa41b7de1c1db554be9d0c260fb9aa2
+#20 0.455 Run fuzzer_build to build the target
+#20 0.574 FUZZ_TARGET = stb
+#20 0.574 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.574 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.579 Building benchmark stb_stb with fuzzer afl
+#20 0.582 + /src/stb/tests/ossfuzz.sh
+#20 0.595 clang-14: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+#20 3.388 clang-14: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+#20 10.18   adding: src/stb/tests/pngsuite/iphone/iphone_bgyn6a16.png (stored 0%)
+#20 10.18   adding: src/stb/tests/pngsuite/iphone/iphone_tbyn3p08.png (stored 0%)
+#20 10.18   adding: src/stb/tests/pngsuite/iphone/iphone_bgwn6a08.png (deflated 12%)
+#20 10.18   adding: src/stb/tests/pngsuite/iphone/iphone_z06n2c08.png (deflated 26%)
+#20 10.18   adding: src/stb/tests/pngsuite/iphone/iphone_basi0g01.png (stored 0%)
+#20 10.18   adding: src/stb/tests/pngsuite/iphone/iphone_basi3p02.png (deflated 1%)
+#20 10.18   adding: src/stb/tests/pngsuite/iphone/iphone_basi0g02.png (deflated 1%)
+#20 10.18   adding: src/stb/tests/pngsuite/16bit/oi2n2c16.png (stored 0%)
+#20 10.18   adding: src/stb/tests/pngsuite/16bit/basn4a16.png (stored 0%)
+#20 10.18   adding: src/stb/tests/pngsuite/16bit/tbwn0g16.png (stored 0%)
+#20 10.18   adding: src/stb/tests/pngsuite/16bit/oi9n0g16.png (deflated 53%)
+#20 10.18   adding: src/stb/tests/pngsuite/16bit/basn0g16.png (deflated 2%)
+#20 10.18   adding: src/stb/tests/pngsuite/16bit/bggn4a16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/tbgn2c16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/basi6a16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/bgai4a16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/oi1n2c16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/basn2c16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/basi4a16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/tbbn2c16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/basi0g16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/oi4n0g16.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/bgyn6a16.png (deflated 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/oi9n2c16.png (deflated 63%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/basi2c16.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/bgan6a16.png (deflated 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/oi1n0g16.png (deflated 2%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/oi4n2c16.png (deflated 2%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/oi2n0g16.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/16bit/basn6a16.png (deflated 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s04i3p01.png (deflated 6%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s06n3p02.png (deflated 5%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/bgai4a08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tbwn3p08.png (deflated 1%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi3p04.png (deflated 1%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s06i3p02.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s37i3p04.png (deflated 2%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/z00n2c08.png (deflated 92%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn0g01.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tp1n3p08.png (deflated 1%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s09n3p02.png (deflated 5%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn0g04.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/bgwn6a08.png (deflated 2%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tp0n0g08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s39n3p04.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi0g02.png (deflated 2%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi0g08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s01n3p01.png (deflated 9%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn2c08.png (deflated 2%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/z06n2c08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi4a08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/bgan6a08.png (deflated 1%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn4a08.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tbyn3p08.png (deflated 1%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s38n3p04.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s32i3p04.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn3p02.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi2c08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s36n3p04.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s07n3p02.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tbrn2c08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi6a08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s34n3p04.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s38i3p04.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s34i3p04.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi0g04.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s08i3p02.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s03i3p01.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tp0n2c08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn6a08.png (deflated 1%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/z03n2c08.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tbbn3p08.png (deflated 1%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/tm3n3p02.png (deflated 13%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s35i3p04.png (deflated 2%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s04n3p01.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn0g08.png (deflated 4%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s37n3p04.png (deflated 3%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s02n3p01.png (deflated 10%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn0g02.png (deflated 6%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s02i3p01.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s05n3p02.png (deflated 6%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s40n3p04.png (deflated 7%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s07i3p02.png (deflated 4%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi0g01.png (stored 0%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basi3p08.png (deflated 11%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/s33n3p04.png (deflated 4%)
+#20 10.19   adding: src/stb/tests/pngsuite/primary/basn3p01.png (deflated 6%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s03n3p01.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/tbgn3p08.png (deflated 1%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/tp0n3p08.png (deflated 1%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/basn3p08.png (deflated 15%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s01i3p01.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s09i3p02.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/tbbn0g04.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s36i3p04.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/basi3p02.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/bgbn4a08.png (deflated 4%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s32n3p04.png (deflated 7%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s40i3p04.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s05i3p02.png (deflated 6%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/basn3p04.png (deflated 4%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s08n3p02.png (deflated 5%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/basi3p01.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/z09n2c08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s39i3p04.png (deflated 1%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s35n3p04.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary/s33i3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s04i3p01.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s06n3p02.png (deflated 11%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/bgai4a08.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tbwn3p08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi3p04.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s06i3p02.png (deflated 11%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s37i3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/z00n2c08.png (deflated 5%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn0g01.png (deflated 4%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tp1n3p08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s09n3p02.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn0g04.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/bgwn6a08.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tp0n0g08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s39n3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi0g02.png (deflated 7%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi0g08.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s01n3p01.png (deflated 13%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn2c08.png (deflated 7%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/z06n2c08.png (deflated 5%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi4a08.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/bgan6a08.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn4a08.png (deflated 11%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tbyn3p08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s38n3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s32i3p04.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn3p02.png (deflated 6%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi2c08.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s36n3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s07n3p02.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tbrn2c08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi6a08.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s34n3p04.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s38i3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s34i3p04.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi0g04.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s08i3p02.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s03i3p01.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tp0n2c08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn6a08.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/z03n2c08.png (deflated 5%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tbbn3p08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tm3n3p02.png (deflated 14%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s35i3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s04n3p01.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn0g08.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s37n3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s02n3p01.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn0g02.png (deflated 7%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s02i3p01.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s05n3p02.png (deflated 10%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s40n3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s07i3p02.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi0g01.png (deflated 3%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi3p08.png (deflated 4%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s33n3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn3p01.png (deflated 9%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s03n3p01.png (deflated 12%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tbgn3p08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tp0n3p08.png (stored 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basn3p08.png (deflated 4%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s01i3p01.png (deflated 13%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s09i3p02.png (deflated 8%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/tbbn0g04.png (deflated 0%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/s36i3p04.png (deflated 2%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/basi3p02.png (deflated 7%)
+#20 10.20   adding: src/stb/tests/pngsuite/primary_check/bgbn4a08.png (deflated 13%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/s32n3p04.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/s40i3p04.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/s05i3p02.png (deflated 10%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/basn3p04.png (deflated 7%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/s08n3p02.png (deflated 9%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/basi3p01.png (deflated 9%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/z09n2c08.png (deflated 5%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/s39i3p04.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/s35n3p04.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/primary_check/s33i3p04.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xcrn0g04.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xdtn0g01.png (deflated 11%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xs1n0g01.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xhdn0g08.png (deflated 4%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xcsn0g01.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xd3n2c08.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xlfn0g04.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xc1n0g08.png (deflated 4%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xd9n2c08.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xd0n2c08.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xs7n0g01.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xs2n0g01.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xs4n0g01.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/corrupt/xc9n2c08.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g04n0g16.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cdfn2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f99n0g04.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f01n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cs3n3p08.png (deflated 9%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cm9n0g04.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ps2n2c16.png (deflated 68%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cthn0g04.png (deflated 42%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ct1n0g04.png (deflated 13%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f00n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cm7n0g04.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cdsn2c08.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g03n0g16.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g25n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cs5n2c08.png (deflated 4%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ccwn2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g07n0g16.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cm0n0g04.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g10n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cten0g04.png (deflated 25%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ct0n0g04.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ctzn0g04.png (deflated 1%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ccwn3p08.png (deflated 2%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f02n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cdun2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g10n3p04.png (deflated 4%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ctfn0g04.png (deflated 21%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ctgn0g04.png (deflated 34%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g25n0g16.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g07n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g05n0g16.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ctjn0g04.png (deflated 22%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f01n0g08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g03n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cs3n2c16.png (deflated 1%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g04n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g10n0g16.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g25n3p04.png (deflated 5%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cs8n3p08.png (deflated 9%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g05n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g04n3p04.png (deflated 3%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g03n3p04.png (deflated 4%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f04n0g08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cs8n2c08.png (deflated 1%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/pp0n6a08.png (deflated 38%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ps1n2c16.png (deflated 53%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ps1n0g08.png (deflated 61%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f03n0g08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ch1n3p04.png (deflated 5%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f03n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g05n3p04.png (deflated 4%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ch2n3p08.png (deflated 38%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f04n2c08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f02n0g08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cdhn2c08.png (deflated 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/pp0n2c16.png (deflated 29%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/g07n3p04.png (deflated 5%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/f00n0g08.png (stored 0%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/ps2n0g08.png (deflated 75%)
+#20 10.21   adding: src/stb/tests/pngsuite/unused/cs5n3p08.png (deflated 7%)
+#20 10.22 tar (child): /src/stbi/jpg.tar.gz: Cannot open: No such file or directory
+#20 10.22 tar (child): Error is not recoverable: exiting now
+#20 10.22 tar: Child returned status 2
+#20 10.22 tar: Error is not recoverable: exiting now
+#20 10.22 Traceback (most recent call last):
+#20 10.22   File "<string>", line 1, in <module>
+#20 10.22   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 10.22     utils.build_benchmark()
+#20 10.22   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 10.22     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 10.22   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 10.22     raise CalledProcessError(retcode, cmd)
+#20 10.22 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 2.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/stb_stb:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2718793: .afl-stb_stb-builder] Error 1

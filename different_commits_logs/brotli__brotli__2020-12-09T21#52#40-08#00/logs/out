@@ -1,0 +1,1128 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: brotli_brotli.
+INFO:root:Please run "make test-run-afl-brotli_brotli" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2cbc34b9a991ab60080f10e7e249e1f032828f0febbb38656a664c6106179d05
+#1 transferring dockerfile: 895B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:d6feee1fdd29525fd25b818e2e114c2858cbb3a6ba90a75209b6d1df1bd18de0
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:e2fab17ed130162cfc802f594194ad5ba4fb6128e0c816dd0e69c5d5ee53fe2c
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/brotli_brotli
+#4 sha256:358071e0d6f502d2674d667c3795c1e1561738f9080354bc9795630ac74ca273
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/brotli_brotli:latest: not found
+
+#9 [internal] load build context
+#9 sha256:e2fab17ed130162cfc802f594194ad5ba4fb6128e0c816dd0e69c5d5ee53fe2c
+#9 transferring context: 487B done
+#9 DONE 0.1s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/google/brotli.git
+#7 sha256:0349d43c2a61f5cb762f2e28d1e23c93a101f61f023fb0dd11a5c17e6bf1a787
+#7 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y cmake libtool make
+#6 sha256:c1c2dd231b01827a3a1c847f337ea8daa3215d90ecf33f91865a38f293950552
+#6 CACHED
+
+#8 [4/5] WORKDIR brotli
+#8 sha256:777bc7e2eb8964718a76c5ac6e97ab8aa2620be5debc12b9162dc7620de8cfa6
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:103b47a814d22cddcab466be8214740049258865172c6d5e42c74d12fe22b1e3
+#10 DONE 0.7s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:f20ee692a46f67a1840bde212a113f5485649227e8f3b8f78501e052be56bf8f 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/brotli_brotli 0.0s done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/brotli_brotli:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:7617da6ba731f2dd945a84034da189b1637478c867d366fd47722209a9eeea80
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1b1ed0671cefcdcf570d3a0149ce55a846e54b2efe8b8809aa364e70bb1eaa12
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/brotli_brotli:latest
+#3 sha256:881d0a4c58d537da00869e65361e80cc8486ec2011deb57e875f23ba2b32494a
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/brotli_brotli
+#5 sha256:90be46be22325f8a050d5f8eae7aef7cd639ff0956ff5d86dc678721f7b5f823
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate
+#4 sha256:1fd8bd91ecf9484af3d729c03e894c652f97d297d3545d8db2d45d63b4ed3408
+#4 ERROR: gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/brotli_brotli
+#5 sha256:90be46be22325f8a050d5f8eae7aef7cd639ff0956ff5d86dc678721f7b5f823
+#5 DONE 0.3s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a4c83c016fd26d9f00a4ce15b5bc6f1a4373fdc67934ce92b69db68c6e8158e7
+#6 0.477 Cloning into '/afl'...
+#6 1.827 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.827 
+#6 1.827 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.827 changes and commit them, and you can discard any commits you make in this
+#6 1.827 state without impacting any branches by switching back to a branch.
+#6 1.827 
+#6 1.827 If you want to create a new branch to retain commits you create, you may
+#6 1.827 do so (now or later) by using -c with the switch command. Example:
+#6 1.827 
+#6 1.827   git switch -c <new-branch-name>
+#6 1.827 
+#6 1.827 Or undo this operation with:
+#6 1.827 
+#6 1.827   git switch -
+#6 1.827 
+#6 1.827 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.827 
+#6 1.827 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.844 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.844 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 2.020 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 2.025 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 4.405 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.723 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 5.146 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 5.290 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.695 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.932 ln -sf afl-as as
+#6 5.934 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.936 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.938 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 6.5s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:287bb72a8b57a5f973021eaa2ecdfab895cc47625ea0ea580f057575173ccb41
+#7 0.782 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.782 Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.782 Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 0.782 Hit:4 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.866 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 1.850 Reading package lists...
+#7 3.333 Reading package lists...
+#7 4.746 Building dependency tree...
+#7 4.956 Reading state information...
+#7 5.201 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.201 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 5.205 --2022-02-17 01:01:58--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.208 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+#7 5.209 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+#7 5.231 HTTP request sent, awaiting response... 200 OK
+#7 5.393 Length: 9177 (9.0K) [text/plain]
+#7 5.393 Saving to: '/afl/afl_driver.cpp'
+#7 5.393 
+#7 5.393      0K ........                                              100% 8.39M=0.001s
+#7 5.394 
+#7 5.394 2022-02-17 01:01:58 (8.39 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.394 
+#7 7.142 ar: creating /libAFL.a
+#7 DONE 7.6s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:66459190a5693ad4908877f772a61df0b6aeac986a965304fafd9f7a0e5d0cd7 done
+#8 naming to gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate 0.0s done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:db33b2d84c1d848ee283d9da33eeae0aa629daaa579de390635277d78db34783
+#2 transferring context: 34B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a1d9eee549b0837529803e04751f35f1442940dd02162010991a26997acb8bf7
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:db33b2d84c1d848ee283d9da33eeae0aa629daaa579de390635277d78db34783
+#2 DONE 0.3s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:b97d937b6f6622db613607e980f4fd216e8ee02d1eb7027752f8f64b6999346b
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:e6b731b3f225aee0dcdffe17dfcda356804aec3d761d2cf52d44424322d7e8fa
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:f0b7dd52dfcabeab212e4a63f57540c081fca9702a6ce874ccc6b56e0cf8e888
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:fc16d757bb91a233949cff9622d4a1f320ec467ace7d82f9ea00c87e8ec69406
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:3f4cd4e28b676691229319d929cd5689f92e69f9405a5d6c1476d8e98d71812e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00 0.2s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.9s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:c0677a8e3d346fc0c0056af7a2e27d3e0132dfcb2afb9113e666f5e4a33f24cb
+#2 transferring context: 34B done
+#2 DONE 0.8s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a350ba2be05bfba88f08fbc5e1520703e60e996c188e43d339ccd7c286a095f6
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.8s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate:latest
+#3 sha256:d0e5a65cb0a118d496fb6d532d97d503c50880178aac664770e548a9c6ca8046
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e0502c3c25eb0e4e2031d680d80df28144f862fcb27cba65923d75c3b8aa8a5a
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate
+#6 sha256:3c87d1816624f34d5706a981f464a398af66be6a60df837b01bfa08057716025
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/brotli_brotli
+#5 sha256:ac7afc113502daf6a5fbdd77102a45640f812bec54c97b2d9050944795fdd0be
+#5 ERROR: gcr.io/fuzzbench/builders/afl/brotli_brotli:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate
+#6 sha256:3c87d1816624f34d5706a981f464a398af66be6a60df837b01bfa08057716025
+#6 ...
+
+#12 [internal] load build context
+#12 sha256:e0502c3c25eb0e4e2031d680d80df28144f862fcb27cba65923d75c3b8aa8a5a
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.8s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate
+#6 sha256:3c87d1816624f34d5706a981f464a398af66be6a60df837b01bfa08057716025
+#6 DONE 2.4s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:9e824f087a0a21b72551b951f9fa920604bb02c8235b75409ac98ff74b4d0306
+#8 DONE 0.7s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:e80124ddfbe8b0f83cde0a421adf4ad1796fb0bde2de97f9e5397fd05209e1ec
+#9 DONE 26.6s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:584c195a80eb8094910848003c8252df6c2772f6bec40ddcc272f35fd6dbf16a
+#10 DONE 0.3s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:b5bd90923d7017bc646690e4cf751af21bf16e23502da0fbcbd140cf5a33d49f
+#11 DONE 57.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:464bce11e95b4eb853363856072b6d441f03e246effeebec081292af2da2962e
+#13 DONE 0.5s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:5e4fef2d45c7af575c32d95a7e6ed773d087794b69be33497c9e352cf8d650cc
+#14 DONE 0.9s
+
+#15 [stage-1  8/13] COPY benchmarks/brotli_brotli/benchmark.yaml /
+#15 sha256:08900c24c675b5db499c1e6ec45f628a5d179f2ec45624c491ff489d8606d5e9
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:7617b0e9dd736e66d281563e566a31a955b75e1b5282610b2acd7dd93b094233
+#16 DONE 1.0s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:5ed44e160029f908c859bd5160b7cb007325f9243a990f43307140f3d54f9dc0
+#17 DONE 0.5s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:92b6a211d2099d410f5f7644ed1b99773b431e097b7e2f417809c3dfb9cd5acc
+#18 0.550 Checking out commit 1d5a2cd8
+#18 4.276 From https://github.com/google/brotli
+#18 4.276  * [new tag]         v0.1.0     -> v0.1.0
+#18 4.276  * [new tag]         v0.2.0     -> v0.2.0
+#18 4.276  * [new tag]         v0.3.0     -> v0.3.0
+#18 4.277  * [new tag]         v0.4.0     -> v0.4.0
+#18 4.277  * [new tag]         v0.6.0     -> v0.6.0
+#18 4.277  * [new tag]         v1.0.0     -> v1.0.0
+#18 4.277  * [new tag]         v1.0.1     -> v1.0.1
+#18 4.277  * [new tag]         v1.0.2     -> v1.0.2
+#18 4.278  * [new tag]         v1.0.3     -> v1.0.3
+#18 4.278  * [new tag]         v1.0.4     -> v1.0.4
+#18 4.278  * [new tag]         v1.0.5     -> v1.0.5
+#18 4.278  * [new tag]         v1.0.6     -> v1.0.6
+#18 4.278  * [new tag]         v1.0.7     -> v1.0.7
+#18 4.279  * [new tag]         v1.0.8     -> v1.0.8
+#18 4.279  * [new tag]         v1.0.9     -> v1.0.9
+#18 4.286 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 4.291 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 4.298 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 4.316 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 4.320 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 4.326 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 4.356 Checkout unsuccessful.
+#18 DONE 4.7s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a6d60efbea80f2ab97f3856e98f0fba5ee049a4e442cdc2992fac3834a5c40b7
+#19 DONE 1.2s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:616bac7c8824025005b7fb536505c8dfc92e9c57b141fdcfbcf7a3b604a4699d
+#20 0.528 Run fuzzer_build to build the target
+#20 0.662 FUZZ_TARGET = brotli
+#20 0.662 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.662 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.675 Building benchmark brotli_brotli with fuzzer afl
+#20 0.678 + cmake . -DBUILD_TESTING=OFF
+#20 0.685 CMake Deprecation Warning at CMakeLists.txt:5 (cmake_minimum_required):
+#20 0.685   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#20 0.685   CMake.
+#20 0.685 
+#20 0.685   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#20 0.685   CMake that the project does not need compatibility with older versions.
+#20 0.685 
+#20 0.685 
+#20 0.901 -- The C compiler identification is Clang 14.0.0
+#20 0.915 -- Detecting C compiler ABI info
+#20 1.071 -- Detecting C compiler ABI info - done
+#20 1.122 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.123 -- Detecting C compile features
+#20 1.124 -- Detecting C compile features - done
+#20 1.125 -- Setting build type to Release as none was specified.
+#20 1.126 -- Performing Test BROTLI_EMSCRIPTEN
+#20 1.277 -- Performing Test BROTLI_EMSCRIPTEN - Failed
+#20 1.278 -- Compiler is not EMSCRIPTEN
+#20 1.287 -- Looking for log2
+#20 1.442 -- Looking for log2 - found
+#20 1.456 -- Configuring done
+#20 1.496 -- Generating done
+#20 1.498 -- Build files have been written to: /src/brotli
+#20 1.501 + make clean
+#20 1.551 ++ nproc
+#20 1.570 + make -j8 brotlidec-static
+#20 1.604 [ 16%] Building C object CMakeFiles/brotlicommon-static.dir/c/common/context.c.o
+#20 1.604 [ 16%] Building C object CMakeFiles/brotlicommon-static.dir/c/common/constants.c.o
+#20 1.604 [ 33%] Building C object CMakeFiles/brotlicommon-static.dir/c/common/dictionary.c.o
+#20 1.604 [ 33%] Building C object CMakeFiles/brotlicommon-static.dir/c/common/platform.c.o
+#20 1.605 [ 41%] Building C object CMakeFiles/brotlicommon-static.dir/c/common/shared_dictionary.c.o
+#20 1.606 [ 50%] Building C object CMakeFiles/brotlicommon-static.dir/c/common/transform.c.o
+#20 1.957 [ 58%] Linking C static library libbrotlicommon-static.a
+#20 1.976 [ 58%] Built target brotlicommon-static
+#20 1.988 [ 66%] Building C object CMakeFiles/brotlidec-static.dir/c/dec/bit_reader.c.o
+#20 1.988 [ 75%] Building C object CMakeFiles/brotlidec-static.dir/c/dec/decode.c.o
+#20 1.988 [ 83%] Building C object CMakeFiles/brotlidec-static.dir/c/dec/huffman.c.o
+#20 1.989 [ 91%] Building C object CMakeFiles/brotlidec-static.dir/c/dec/state.c.o
+#20 3.794 [100%] Linking C static library libbrotlidec-static.a
+#20 3.813 [100%] Built target brotlidec-static
+#20 4.035 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -std=c99 -I. -I./c/include c/fuzz/decode_fuzzer.c
+#20 4.075 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard ./decode_fuzzer.o -o /out/decode_fuzzer /libAFL.a ./libbrotlidec-static.a ./libbrotlicommon-static.a
+#20 4.313 + cp java/org/brotli/integration/fuzz_data.zip /out/decode_fuzzer_seed_corpus.zip
+#20 4.333 + chmod a-x /out/decode_fuzzer_seed_corpus.zip
+#20 4.335 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 7.2s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:bbff6f722cc70641ef36280d1fe4099104fb436ae1236bc7ca9746b3737e52a4 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/brotli_brotli 0.0s done
+#21 DONE 0.4s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/brotli_brotli:
+------
+#2 [internal] load .dockerignore
+#2 sha256:5d466b23dfcb34cda72d222e5277f7639c0528fed428e60ca69793de82b269ec
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:54a3ded5a132e959c942aa5cb33dd2a4184294c8791d0733275905134fd0d99b
+#1 transferring dockerfile: 656B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate
+#4 sha256:2a13f8699f8cd527c77a7cc1b84406c2696ccf747454c5813d949155ef2c7174
+#4 ERROR: gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate done
+#6 DONE 0.9s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:241db6b6376a1c52335cb77ee59fe3c34e7c0c3ea2c522aacf12061565a9d978
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:4f17e4c842afee947f0a0b4c54d70139360400f17497dd7e1b24b2d3e10e7530
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/brotli_brotli:latest
+#4 sha256:cc9e973c56b5be6b21d9d5022f4e1995de79e1ec938951ab50b90b3add4d32dd
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate:latest
+#3 sha256:f07fb9d0c0712378b20e4313e9dd927581c426391f7b99ad0de791c315e866df
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:7805216d18d27b3c10122e3f755a208a03422642d9c13d625b7f9e5bc1e73917
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate
+#6 sha256:a2090739cfbe3d38deed85fe0c6b96df998f00d305f6557fb3b9ae334a777343
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/brotli_brotli
+#10 sha256:d48c6143dacd05045fea8a3e020e4ea8674f83541b0761709a0ebf88808b3349
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/brotli_brotli
+#5 sha256:88a7dec5e4ae92830cdd0ac879c5b4e55f2061789e1436e5a1510f9c18abca15
+#5 ERROR: gcr.io/fuzzbench/runners/afl/brotli_brotli:latest: not found
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate
+#6 sha256:a2090739cfbe3d38deed85fe0c6b96df998f00d305f6557fb3b9ae334a777343
+#6 CACHED
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/brotli_brotli
+#10 sha256:d48c6143dacd05045fea8a3e020e4ea8674f83541b0761709a0ebf88808b3349
+#10 DONE 3.4s
+
+#12 [internal] load build context
+#12 sha256:7805216d18d27b3c10122e3f755a208a03422642d9c13d625b7f9e5bc1e73917
+#12 transferring context: 18.35MB 3.7s done
+#12 DONE 3.9s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:bcfdf6fb45ea3c1224208181d14aede69de05441ced7c5ecd9ff71ea082a1c1b
+#7 1.059 Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
+#7 1.059 Hit:2 http://archive.ubuntu.com/ubuntu xenial-updates InRelease
+#7 1.059 Hit:3 http://archive.ubuntu.com/ubuntu xenial-backports InRelease
+#7 1.138 Hit:4 https://packages.cloud.google.com/apt cloud-sdk-xenial InRelease
+#7 1.171 Hit:5 http://security.ubuntu.com/ubuntu xenial-security InRelease
+#7 1.724 Reading package lists...
+#7 5.557 Reading package lists...
+#7 6.855 Building dependency tree...
+#7 7.016 Reading state information...
+#7 7.523 The following additional packages will be installed:
+#7 7.523   libglib2.0-data libgmp-dev libgmpxx4ldbl libgnutls-dev libgnutls-openssl27
+#7 7.523   libgnutls28-dev libgnutlsxx28 libicu55 libidn11-dev liblzo2-2 libp11-kit-dev
+#7 7.524   libshishi-dev libshishi0 libtasn1-6-dev libtasn1-doc nettle-dev pkg-config
+#7 7.524   sgml-base shared-mime-info shishi-common xdg-user-dirs xml-core
+#7 7.525 Suggested packages:
+#7 7.525   lrzip gmp-doc libgmp10-doc libmpfr-dev gnutls-doc gnutls-bin guile-gnutls
+#7 7.525   shishi sgml-base-doc debhelper
+#7 7.527 The following NEW packages will be installed:
+#7 7.527   libarchive13 libglib2.0-0 libglib2.0-data libgmp-dev libgmpxx4ldbl
+#7 7.527   libgnutls-dev libgnutls-openssl27 libgnutls28-dev libgnutlsxx28 libgss3
+#7 7.527   libicu55 libidn11-dev liblzo2-2 libp11-kit-dev libshishi-dev libshishi0
+#7 7.527   libtasn1-6-dev libtasn1-doc libxml2 nettle-dev pkg-config sgml-base
+#7 7.527   shared-mime-info shishi-common xdg-user-dirs xml-core
+#7 7.748 0 upgraded, 26 newly installed, 0 to remove and 0 not upgraded.
+#7 7.748 Need to get 13.7 MB of archives.
+#7 7.748 After this operation, 52.9 MB of additional disk space will be used.
+#7 7.748 Get:1 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libglib2.0-0 amd64 2.48.2-0ubuntu4.8 [1120 kB]
+#7 7.979 Get:2 http://archive.ubuntu.com/ubuntu xenial/main amd64 sgml-base all 1.26+nmu4ubuntu1 [12.5 kB]
+#7 8.294 Get:3 http://archive.ubuntu.com/ubuntu xenial/main amd64 liblzo2-2 amd64 2.08-1.2 [48.7 kB]
+#7 8.369 Get:4 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls-openssl27 amd64 3.4.10-4ubuntu1.9 [21.9 kB]
+#7 8.507 Get:5 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libglib2.0-data all 2.48.2-0ubuntu4.8 [131 kB]
+#7 8.719 Get:6 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libicu55 amd64 55.1-7ubuntu0.5 [7650 kB]
+#7 9.160 Get:7 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libxml2 amd64 2.9.3+dfsg1-1ubuntu0.7 [698 kB]
+#7 9.216 Get:8 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 shared-mime-info amd64 1.5-2ubuntu0.2 [405 kB]
+#7 9.237 Get:9 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 xdg-user-dirs amd64 0.15-2ubuntu6.16.04.1 [61.8 kB]
+#7 9.258 Get:10 http://archive.ubuntu.com/ubuntu xenial/main amd64 xml-core all 0.13+nmu2 [23.3 kB]
+#7 9.265 Get:11 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libarchive13 amd64 3.1.2-11ubuntu0.16.04.8 [262 kB]
+#7 9.278 Get:12 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgmpxx4ldbl amd64 2:6.1.0+dfsg-2 [8948 B]
+#7 9.279 Get:13 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgmp-dev amd64 2:6.1.0+dfsg-2 [314 kB]
+#7 9.303 Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutlsxx28 amd64 3.4.10-4ubuntu1.9 [13.8 kB]
+#7 9.304 Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 nettle-dev amd64 3.2-1ubuntu0.16.04.2 [938 kB]
+#7 9.359 Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libtasn1-6-dev amd64 4.7-3ubuntu0.16.04.3 [85.9 kB]
+#7 9.363 Get:17 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libp11-kit-dev amd64 0.23.2-5~ubuntu16.04.2 [56.6 kB]
+#7 9.365 Get:18 http://archive.ubuntu.com/ubuntu xenial/main amd64 pkg-config amd64 0.29.1-0ubuntu1 [45.0 kB]
+#7 9.381 Get:19 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libidn11-dev amd64 1.32-3ubuntu1.2 [518 kB]
+#7 9.397 Get:20 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls-dev amd64 3.4.10-4ubuntu1.9 [553 kB]
+#7 9.445 Get:21 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgnutls28-dev amd64 3.4.10-4ubuntu1.9 [8156 B]
+#7 9.446 Get:22 http://archive.ubuntu.com/ubuntu xenial/universe amd64 shishi-common all 1.0.2-6build1 [60.6 kB]
+#7 9.447 Get:23 http://archive.ubuntu.com/ubuntu xenial/universe amd64 libshishi0 amd64 1.0.2-6build1 [159 kB]
+#7 9.460 Get:24 http://archive.ubuntu.com/ubuntu xenial/universe amd64 libshishi-dev amd64 1.0.2-6build1 [157 kB]
+#7 9.481 Get:25 http://archive.ubuntu.com/ubuntu xenial/universe amd64 libgss3 amd64 1.0.3-2 [65.2 kB]
+#7 9.493 Get:26 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libtasn1-doc all 4.7-3ubuntu0.16.04.3 [299 kB]
+#7 9.651 debconf: delaying package configuration, since apt-utils is not installed
+#7 9.737 Fetched 13.7 MB in 1s (7566 kB/s)
+#7 9.832 Selecting previously unselected package libglib2.0-0:amd64.
+#7 9.832 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 49411 files and directories currently installed.)
+#7 9.871 Preparing to unpack .../libglib2.0-0_2.48.2-0ubuntu4.8_amd64.deb ...
+#7 9.888 Unpacking libglib2.0-0:amd64 (2.48.2-0ubuntu4.8) ...
+#7 10.13 Selecting previously unselected package sgml-base.
+#7 10.13 Preparing to unpack .../sgml-base_1.26+nmu4ubuntu1_all.deb ...
+#7 10.15 Unpacking sgml-base (1.26+nmu4ubuntu1) ...
+#7 10.29 Selecting previously unselected package liblzo2-2:amd64.
+#7 10.30 Preparing to unpack .../liblzo2-2_2.08-1.2_amd64.deb ...
+#7 10.32 Unpacking liblzo2-2:amd64 (2.08-1.2) ...
+#7 10.44 Selecting previously unselected package libgnutls-openssl27:amd64.
+#7 10.44 Preparing to unpack .../libgnutls-openssl27_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 10.60 Unpacking libgnutls-openssl27:amd64 (3.4.10-4ubuntu1.9) ...
+#7 10.75 Selecting previously unselected package libglib2.0-data.
+#7 10.76 Preparing to unpack .../libglib2.0-data_2.48.2-0ubuntu4.8_all.deb ...
+#7 10.78 Unpacking libglib2.0-data (2.48.2-0ubuntu4.8) ...
+#7 10.90 Selecting previously unselected package libicu55:amd64.
+#7 10.90 Preparing to unpack .../libicu55_55.1-7ubuntu0.5_amd64.deb ...
+#7 10.93 Unpacking libicu55:amd64 (55.1-7ubuntu0.5) ...
+#7 12.24 Selecting previously unselected package libxml2:amd64.
+#7 12.25 Preparing to unpack .../libxml2_2.9.3+dfsg1-1ubuntu0.7_amd64.deb ...
+#7 12.26 Unpacking libxml2:amd64 (2.9.3+dfsg1-1ubuntu0.7) ...
+#7 12.50 Selecting previously unselected package shared-mime-info.
+#7 12.51 Preparing to unpack .../shared-mime-info_1.5-2ubuntu0.2_amd64.deb ...
+#7 12.52 Unpacking shared-mime-info (1.5-2ubuntu0.2) ...
+#7 12.74 Selecting previously unselected package xdg-user-dirs.
+#7 12.74 Preparing to unpack .../xdg-user-dirs_0.15-2ubuntu6.16.04.1_amd64.deb ...
+#7 12.76 Unpacking xdg-user-dirs (0.15-2ubuntu6.16.04.1) ...
+#7 12.99 Selecting previously unselected package xml-core.
+#7 13.00 Preparing to unpack .../xml-core_0.13+nmu2_all.deb ...
+#7 13.02 Unpacking xml-core (0.13+nmu2) ...
+#7 13.20 Selecting previously unselected package libarchive13:amd64.
+#7 13.20 Preparing to unpack .../libarchive13_3.1.2-11ubuntu0.16.04.8_amd64.deb ...
+#7 13.22 Unpacking libarchive13:amd64 (3.1.2-11ubuntu0.16.04.8) ...
+#7 13.41 Selecting previously unselected package libgmpxx4ldbl:amd64.
+#7 13.41 Preparing to unpack .../libgmpxx4ldbl_2%3a6.1.0+dfsg-2_amd64.deb ...
+#7 13.44 Unpacking libgmpxx4ldbl:amd64 (2:6.1.0+dfsg-2) ...
+#7 13.57 Selecting previously unselected package libgmp-dev:amd64.
+#7 13.57 Preparing to unpack .../libgmp-dev_2%3a6.1.0+dfsg-2_amd64.deb ...
+#7 13.59 Unpacking libgmp-dev:amd64 (2:6.1.0+dfsg-2) ...
+#7 13.80 Selecting previously unselected package libgnutlsxx28:amd64.
+#7 13.81 Preparing to unpack .../libgnutlsxx28_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 13.83 Unpacking libgnutlsxx28:amd64 (3.4.10-4ubuntu1.9) ...
+#7 13.94 Selecting previously unselected package nettle-dev.
+#7 13.94 Preparing to unpack .../nettle-dev_3.2-1ubuntu0.16.04.2_amd64.deb ...
+#7 13.95 Unpacking nettle-dev (3.2-1ubuntu0.16.04.2) ...
+#7 14.17 Selecting previously unselected package libtasn1-6-dev:amd64.
+#7 14.17 Preparing to unpack .../libtasn1-6-dev_4.7-3ubuntu0.16.04.3_amd64.deb ...
+#7 14.19 Unpacking libtasn1-6-dev:amd64 (4.7-3ubuntu0.16.04.3) ...
+#7 14.35 Selecting previously unselected package libp11-kit-dev:amd64.
+#7 14.35 Preparing to unpack .../libp11-kit-dev_0.23.2-5~ubuntu16.04.2_amd64.deb ...
+#7 14.37 Unpacking libp11-kit-dev:amd64 (0.23.2-5~ubuntu16.04.2) ...
+#7 14.79 Selecting previously unselected package pkg-config.
+#7 14.79 Preparing to unpack .../pkg-config_0.29.1-0ubuntu1_amd64.deb ...
+#7 14.81 Unpacking pkg-config (0.29.1-0ubuntu1) ...
+#7 14.94 Selecting previously unselected package libidn11-dev.
+#7 14.95 Preparing to unpack .../libidn11-dev_1.32-3ubuntu1.2_amd64.deb ...
+#7 14.96 Unpacking libidn11-dev (1.32-3ubuntu1.2) ...
+#7 15.09 Selecting previously unselected package libgnutls-dev:amd64.
+#7 15.10 Preparing to unpack .../libgnutls-dev_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 15.12 Unpacking libgnutls-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 15.28 Selecting previously unselected package libgnutls28-dev:amd64.
+#7 15.29 Preparing to unpack .../libgnutls28-dev_3.4.10-4ubuntu1.9_amd64.deb ...
+#7 15.31 Unpacking libgnutls28-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 15.42 Selecting previously unselected package shishi-common.
+#7 15.43 Preparing to unpack .../shishi-common_1.0.2-6build1_all.deb ...
+#7 15.44 Unpacking shishi-common (1.0.2-6build1) ...
+#7 15.57 Selecting previously unselected package libshishi0.
+#7 15.57 Preparing to unpack .../libshishi0_1.0.2-6build1_amd64.deb ...
+#7 15.57 Unpacking libshishi0 (1.0.2-6build1) ...
+#7 15.70 Selecting previously unselected package libshishi-dev.
+#7 15.70 Preparing to unpack .../libshishi-dev_1.0.2-6build1_amd64.deb ...
+#7 15.72 Unpacking libshishi-dev (1.0.2-6build1) ...
+#7 15.83 Selecting previously unselected package libgss3.
+#7 15.83 Preparing to unpack .../libgss3_1.0.3-2_amd64.deb ...
+#7 15.84 Unpacking libgss3 (1.0.3-2) ...
+#7 15.96 Selecting previously unselected package libtasn1-doc.
+#7 15.96 Preparing to unpack .../libtasn1-doc_4.7-3ubuntu0.16.04.3_all.deb ...
+#7 15.98 Unpacking libtasn1-doc (4.7-3ubuntu0.16.04.3) ...
+#7 16.08 Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+#7 16.19 Setting up libglib2.0-0:amd64 (2.48.2-0ubuntu4.8) ...
+#7 16.22 No schema files found: doing nothing.
+#7 16.23 Setting up sgml-base (1.26+nmu4ubuntu1) ...
+#7 16.31 Setting up liblzo2-2:amd64 (2.08-1.2) ...
+#7 16.38 Setting up libgnutls-openssl27:amd64 (3.4.10-4ubuntu1.9) ...
+#7 16.42 Setting up libglib2.0-data (2.48.2-0ubuntu4.8) ...
+#7 16.47 Setting up libicu55:amd64 (55.1-7ubuntu0.5) ...
+#7 16.52 Setting up libxml2:amd64 (2.9.3+dfsg1-1ubuntu0.7) ...
+#7 16.56 Setting up shared-mime-info (1.5-2ubuntu0.2) ...
+#7 20.04 Setting up xdg-user-dirs (0.15-2ubuntu6.16.04.1) ...
+#7 20.07 Setting up xml-core (0.13+nmu2) ...
+#7 20.38 Setting up libarchive13:amd64 (3.1.2-11ubuntu0.16.04.8) ...
+#7 20.40 Setting up libgmpxx4ldbl:amd64 (2:6.1.0+dfsg-2) ...
+#7 20.41 Setting up libgmp-dev:amd64 (2:6.1.0+dfsg-2) ...
+#7 20.42 Setting up libgnutlsxx28:amd64 (3.4.10-4ubuntu1.9) ...
+#7 20.43 Setting up nettle-dev (3.2-1ubuntu0.16.04.2) ...
+#7 20.45 Setting up libtasn1-6-dev:amd64 (4.7-3ubuntu0.16.04.3) ...
+#7 20.46 Setting up libp11-kit-dev:amd64 (0.23.2-5~ubuntu16.04.2) ...
+#7 20.47 Setting up pkg-config (0.29.1-0ubuntu1) ...
+#7 20.54 Setting up libidn11-dev (1.32-3ubuntu1.2) ...
+#7 20.55 Setting up libgnutls-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 20.56 Setting up libgnutls28-dev:amd64 (3.4.10-4ubuntu1.9) ...
+#7 20.57 Setting up shishi-common (1.0.2-6build1) ...
+#7 20.60 Setting up libshishi0 (1.0.2-6build1) ...
+#7 20.61 Setting up libshishi-dev (1.0.2-6build1) ...
+#7 20.62 Setting up libgss3 (1.0.3-2) ...
+#7 20.64 Setting up libtasn1-doc (4.7-3ubuntu0.16.04.3) ...
+#7 20.66 Processing triggers for libc-bin (2.23-0ubuntu11.3) ...
+#7 20.68 Processing triggers for sgml-base (1.26+nmu4ubuntu1) ...
+#7 DONE 21.2s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f84ec0d865a03c11db099f32ff47001fe66b575935f47d0c1886ac55e1e6ce8d
+#8 DONE 0.6s
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:6da86722fb19adfb8d1b9756b042ebc8b7323531bb8f1a215222ac2d9ac0ede8
+#9 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:2054aa21e2f61122d1fdaeac7781fb948a558c376fa881818c8d7f04325086a5
+#11 DONE 0.1s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:2d2e5cf430b504a66edaee1bec91605df01d8bd56a1d4087f99537342be1ec95
+#13 DONE 1.2s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:9f82c0ad135a69b4008e8bf3322b685b586b1d0dab795712ec5e0f66400263b0
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:959b12c10b418e364d00ae7fb7f0ea7ba203496a607a309e9cb9a1f3dd3df06a
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:f7bbca3627aef2220e920bb123b25d01a2144fb8a9ae0dcb82f71533ff935755
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:554ce8b3b58aebdd1bd1b0c7f0e6ddeaf016aaf989b465e23a017eac98ebc5cb
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:ce2604ea2b82b1cb8af35ba53afdbb364bc03acdf7308595abaf0e83ebd9d278
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:f0a7dea4507c460193e20e1f41a34a990243709eb4ccad7817ab0cd71675bde3
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:a465ad9cb948aab2e439d0e51b23cd280d104b5c6aa458e8108c681391158faf
+#20 DONE 1.4s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:ce1212db388bb6410496c141029c61293f4a2c359ffd6a60c7bcda1efafb4be6 done
+#21 naming to gcr.io/fuzzbench/runners/afl/brotli_brotli 0.0s done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/brotli_brotli:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f855f9cef70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8e5b691883cb406423e98e5007cd827a212624d106789a3856c6966ae31e4ca3
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f7579b36daf479261c5ccba94583c2e52e92bee3e2b3bb0475b4c9e80fde83de
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.6s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/brotli_brotli
+#4 sha256:358071e0d6f502d2674d667c3795c1e1561738f9080354bc9795630ac74ca273
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:74a6b5c47926b46ea053dc000a51792c9c3b94a29f5251cdb6a694e7d5919176
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y cmake libtool make
+#6 sha256:c1c2dd231b01827a3a1c847f337ea8daa3215d90ecf33f91865a38f293950552
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/google/brotli.git
+#7 sha256:0349d43c2a61f5cb762f2e28d1e23c93a101f61f023fb0dd11a5c17e6bf1a787
+#7 CACHED
+
+#8 [4/5] WORKDIR brotli
+#8 sha256:777bc7e2eb8964718a76c5ac6e97ab8aa2620be5debc12b9162dc7620de8cfa6
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:592db2b2c48c6c03ad34184b79118ab8ac803608db3022057c9938b3a01e17a9
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:f20ee692a46f67a1840bde212a113f5485649227e8f3b8f78501e052be56bf8f
+#11 writing image sha256:f20ee692a46f67a1840bde212a113f5485649227e8f3b8f78501e052be56bf8f done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/brotli_brotli done
+#11 DONE 0.2s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:0ea41bd77db84d50b0ccb7562a71173e8d7dbe6fe81e765306b8549b08af3477
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:938a37c2b3da8b5a2e8f27018e002529f1c1700adb1a61920fbc984bbf9a5640
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/brotli_brotli:latest
+#3 sha256:881d0a4c58d537da00869e65361e80cc8486ec2011deb57e875f23ba2b32494a
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/brotli_brotli
+#5 sha256:90be46be22325f8a050d5f8eae7aef7cd639ff0956ff5d86dc678721f7b5f823
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate
+#4 sha256:1fd8bd91ecf9484af3d729c03e894c652f97d297d3545d8db2d45d63b4ed3408
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:a4c83c016fd26d9f00a4ce15b5bc6f1a4373fdc67934ce92b69db68c6e8158e7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:287bb72a8b57a5f973021eaa2ecdfab895cc47625ea0ea580f057575173ccb41
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:66459190a5693ad4908877f772a61df0b6aeac986a965304fafd9f7a0e5d0cd7 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:757456b21563e3b2cd42a495d63c821523acac2e5accca7b1e7775f204d15d26
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8011a4acafd423403ad3bcf519994aacb610c4867450fc0b5242fb68c3351cd2
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:17026563357633ac7c60f423fca892f1386a7d40bbb02859ff354bfda115b4ba
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9e394af8d6e2cb56ffb5908aede51a5a278812cd3c06bd1d5c1aa209c996ea9e
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:ad56920b29cd46faae180fdf9da04536fc69bd0bf941ed0f53c22b75ae0e1166
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:7604e8dede2cad382fb5b45aefcf7ca903db6d2098c170fd44a3f996a0b05d8d
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:9c2a9aaa21bbdad36e48448a4986dde53203102f0d2191b41ac71f8d7beafe0f
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e8a140da0f0b803265fbfab1c926747ea211fc7b8ba5865dea2df03c0b17db55
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7174b006c87193c1ef9992dc04e495d1eb3739fd33961fe10c3e51a50b0d11ee
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate:latest
+#3 sha256:d0e5a65cb0a118d496fb6d532d97d503c50880178aac664770e548a9c6ca8046
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/brotli_brotli-intermediate
+#6 sha256:3c87d1816624f34d5706a981f464a398af66be6a60df837b01bfa08057716025
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/brotli_brotli
+#5 sha256:ac7afc113502daf6a5fbdd77102a45640f812bec54c97b2d9050944795fdd0be
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2f4706a2b9cf6d672e8ce246e8528e875b92ff9a955119a38a2703844f472a64
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:11d1a9b4a9e1425d7c7a1c4e4fc32f9d5a1ae8d4f843a96be5f1bc3ee55f0b92
+#17 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:4f7f89caa18b2d28e86a58222a75c1f9971b5104f6cf20321879165bb0a2fa85
+#18 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:b5bd90923d7017bc646690e4cf751af21bf16e23502da0fbcbd140cf5a33d49f
+#11 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:9e824f087a0a21b72551b951f9fa920604bb02c8235b75409ac98ff74b4d0306
+#8 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:584c195a80eb8094910848003c8252df6c2772f6bec40ddcc272f35fd6dbf16a
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:0b7a466e36a2a8faddcbe03801da90bc8ce5eff94dfedeffb81c50fc5e52d03a
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/brotli_brotli/benchmark.yaml /
+#15 sha256:78afd2e5700156699188ecfa80d5acf5c95906861297bb9a9e1ced3d97fcd3b1
+#15 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:e80124ddfbe8b0f83cde0a421adf4ad1796fb0bde2de97f9e5397fd05209e1ec
+#9 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:d8939ddc8b44afd9ae436bbf7f6e21be6ae862792fea4532ecb436144bb93f9a
+#19 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:4a2a194baf5adcb3c6e3ef1ab2d0f442cff8e89403d26d040225f805b0da31ce
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:b480c92641289e1f0d857570368ecf89a4f294909ba4a610b21c48b00aa579a1
+#16 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:efd61e0e78aa04c6889e2e12253ab98d7e46037d788291211a9cb381f92f7641
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:bbff6f722cc70641ef36280d1fe4099104fb436ae1236bc7ca9746b3737e52a4
+#21 writing image sha256:bbff6f722cc70641ef36280d1fe4099104fb436ae1236bc7ca9746b3737e52a4 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/brotli_brotli done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:6f1a93bb1ff6d93f46346cb56d6446bbca1514fc58682e1c5ed5f77b98ac2f5e
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:dc63c47a96168f1460e0d3af62e6ff6186c38223480570b622611ccdf218ffee
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate
+#5 sha256:2a13f8699f8cd527c77a7cc1b84406c2696ccf747454c5813d949155ef2c7174
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:14234db106e6dd8724ee3a4f78186d4200c314e71dc72ac226c974d652f6ecb7
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d27b4337854ba5dc016be84108904cb909d5cdf24f2a3b1b1e536c6c6e2ae13c
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/brotli_brotli:latest
+#4 sha256:cc9e973c56b5be6b21d9d5022f4e1995de79e1ec938951ab50b90b3add4d32dd
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate:latest
+#3 sha256:f07fb9d0c0712378b20e4313e9dd927581c426391f7b99ad0de791c315e866df
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/brotli_brotli-intermediate
+#6 sha256:a2090739cfbe3d38deed85fe0c6b96df998f00d305f6557fb3b9ae334a777343
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/brotli_brotli
+#5 sha256:88a7dec5e4ae92830cdd0ac879c5b4e55f2061789e1436e5a1510f9c18abca15
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/brotli_brotli
+#10 sha256:d48c6143dacd05045fea8a3e020e4ea8674f83541b0761709a0ebf88808b3349
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:39558573a3fae226e44158e76ed5a3fb043dd05682169131854ddcbb86bf9445
+#12 transferring context: 18.35MB 0.6s done
+#12 DONE 0.9s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:2c9d8fcf3b2b0630cfba49d4036bc36c43e3b5dbbd5a5fb6bef2b0ba671952e8
+#18 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:6da86722fb19adfb8d1b9756b042ebc8b7323531bb8f1a215222ac2d9ac0ede8
+#9 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:bcfdf6fb45ea3c1224208181d14aede69de05441ced7c5ecd9ff71ea082a1c1b
+#7 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:b201c7ab809a16310dda6bd817a238659246a12ad448471f23351468f15293f0
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:a2f94eaaafa072bf0c640ad75e0dfe40f9da2ed973c7bd0141aa9242794757a5
+#16 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:453583d3fc0c5f85d4809f54acee66cf82fdc6196478efe2d99862371ec23bea
+#17 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f84ec0d865a03c11db099f32ff47001fe66b575935f47d0c1886ac55e1e6ce8d
+#8 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:e437e3040eba35006f8a9c00b7043977db5b360e9f814c26c6a525376480778d
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:2054aa21e2f61122d1fdaeac7781fb948a558c376fa881818c8d7f04325086a5
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:c0b79fb15f268aae976412c7488075be40a68c3a1db5d6da5a20d7f9e7c1c5e3
+#13 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:8612c65d46dfb434f74cc6e7c9a6111dbd8d1c69343027c9a7bf950beca42f1f
+#14 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:a93a35f3d7678e0bb3d9982c893702f0ff51499643974ce725248dd57d1daba4
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:ce1212db388bb6410496c141029c61293f4a2c359ffd6a60c7bcda1efafb4be6 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/brotli_brotli done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7ff390a34f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

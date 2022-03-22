@@ -1,0 +1,1273 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: wpantund_wpantund.
+INFO:root:Please run "make test-run-afl-wpantund_wpantund" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ef5bdcd8cea6455800b71b299bc73a9a969f90c78925c4e130a8adf6180abf94
+#1 transferring dockerfile: 1.09kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:3666210383b8186eb15c25877828bafb1c9cd680d71b8184b829414eaf1401a4
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#7 [internal] load build context
+#7 sha256:ee766aa14bb16da059ea64f3a04aa2c4e75b6a8addfb0eaed004fd0373440ad7
+#7 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund
+#4 sha256:f9b305545f39ce9cf4c1702cebf53393ca041c3511e65199747292f6348826a0
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund:latest: not found
+
+#7 [internal] load build context
+#7 sha256:ee766aa14bb16da059ea64f3a04aa2c4e75b6a8addfb0eaed004fd0373440ad7
+#7 transferring context: 30B done
+#7 DONE 0.0s
+
+#8 [3/5] COPY build.sh *.options /src/
+#8 sha256:e68fe4f19c86107cb7cf61f4d281d13a2e19e9aefbbc6b961eea691be374e5b8
+#8 CACHED
+
+#9 [4/5] RUN git clone --depth 1 https://github.com/openthread/wpantund
+#9 sha256:ab90a0efec3152cb4d9009d5f5ad32f6af3af27fc2ba2d769c197e9ddffdb074
+#9 CACHED
+
+#6 [2/5] RUN apt-get -y update 	&& DEBIAN_FRONTEND=noninteractive 			apt-get install -y -q --no-install-recommends 				gdb 				libdbus-1-dev 				libboost-dev 				pkg-config 				libtool 				autoconf 				autoconf-archive 				automake
+#6 sha256:4f427f29739e0750be0ffdbab62f85d3c7d3fffc4319c837e7d41638e5299d90
+#6 CACHED
+
+#10 [5/5] WORKDIR wpantund
+#10 sha256:d05bd4412e0810b84c392e90b87af7c212b72beeb0d8ee7760b048034ed82220
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:984e7eac360bcd4ec5be01bdac5e02cec1dc868e5f7e5a16559119e9e3fcf8f9 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:13f31cea95ac168523725c925aec58b073c0551af17749a751926839a1701ed0
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:52fb626279d806d13cb8723e377cc4b77619fcf607c565812f03a7edd6fee180
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund:latest
+#3 sha256:cc009d933ce0b743c2baed27d2e686ea48a9b6958681bb1768301a475170f6a7
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund
+#5 sha256:cf484bfc31e66f9ab9a41e56d1a8a930636fb21d916941b9049e78e57a9dab88
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate
+#4 sha256:f421fd3f43f9cb6ded661cc6baed6b83a5bb1678aa19c07704a5359226e313cc
+#4 ERROR: gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:269a5dc6ee8834dcc620365e5f714559ee81569a3a14ae3d9458895199f3c0b8
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:5a03bd40902f0b1e585fc1bcf3dc8733cee022c29e531c0e0fc0f82e4aa7e12b
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:0d9a1e19cdf4dc0f25a6ae459d1a432e33b4807ce5999e4e5acd1eaa2e522529
+#8 writing image sha256:0d9a1e19cdf4dc0f25a6ae459d1a432e33b4807ce5999e4e5acd1eaa2e522529 done
+#8 naming to gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f2452b7e995d5320d9b1787a43991a6cc4452d1504dc817926be71cd90c63b38
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:69ec6e0bf4e5a0abc3d2d01e1074da6ffacfef35f3e997721d8b74bd5ae2c77d
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:891c5161d37da3d0865d8cfa4aeeba53c6f0c6fa43e2aa5647cf1011e7820d4d
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:b97e15932adf1ccb832d486a2477d0e1fd0dace9d59a61d5a795b7da4f6445ed
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:19b55107633990d48c04d9755f600c35b6fe71924b970085786157c7c9f2bcac
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:da366a9415872cdcb816922330c85f86212723a3de78238d938eb109f4e8a8e8
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:ff9dbffc4536101c3e82e0bc937aae7c6c7f98817033c3bbbd653163543478cc
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:72c57924d0e15b1ac70414591013a5443777e61a51a51459c028464112162ac2 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7339e0fea4cc4a451ec5d016c2b51f813363bcbc1676b8bd26e5cbd5caa2d9a3
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2c916f61d905b4e7d613daec10b70ff48ac3cd3dc040a41c7ed04e14cb0593e8
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate:latest
+#3 sha256:e886272ba0d93711b5d23c59ff97184906ad4506542e27391762a21e1cf983ee
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:4c5836b54d0d0d7a30fe0b146e8297b67e35105d903d10fd30cbae134222223f
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate
+#6 sha256:15e9f6b84d1d2d04da5f1ab84b1791e738460010857aede3e8e02807b38a813b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/wpantund_wpantund
+#5 sha256:ec0e8f43b0002a4dfca56dcd3155a32b53475849630b689eaa2716063e3167e6
+#5 ERROR: gcr.io/fuzzbench/builders/afl/wpantund_wpantund:latest: not found
+
+#12 [internal] load build context
+#12 sha256:4c5836b54d0d0d7a30fe0b146e8297b67e35105d903d10fd30cbae134222223f
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:aeef730e82aeb9f5556846b0a533fd311ac1c1211ce519b419c641efaa2d43d6
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:8905335abcaa3ce5354fc1e6567be19f76a7f53cf966af3290ec22a9d10807f4
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:3a37d214e7a2f9cea6d4127dfc1382d9ca7f32e7de254b3a530a91351068fc2a
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:1fa759e0e4a23f0f95b01482624279d9dbe69f286965ccba7422bb138ba7883b
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:44d634c8008bf2c1c73800bb92b0d62c61d67e737d3adbd7dba03ef3e2ce2fb6
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:7bca817b6728e45bfde5cb7d2ab44a2769e5e36cb00ffb5255b90418ee961aa9
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/wpantund_wpantund/benchmark.yaml /
+#15 sha256:a098ad634db2709b617d744de7452d0b8f826ad9284281a2a1a9b5e95ad09f2c
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:ea3f61ac83a5e6c3a8ce9da51bc3886c29b4db6cd7d5412eb5dd8d8974456a1c
+#16 DONE 0.4s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:3854a98d6324243671f067a429d44811b28d2a4294ea93fefa2d8905ab47aa6d
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:cc1f5003f73d2b53ab3204194fa0f7cf96f69bf2d2a6acfa063c495a9091c879
+#18 0.481 Checking out commit 84faf557
+#18 2.686 From https://github.com/openthread/wpantund
+#18 2.686  * [new tag]         0.07.00         -> 0.07.00
+#18 2.686  * [new tag]         0.07.01         -> 0.07.01
+#18 2.686  * [new tag]         0.07.01rc1      -> 0.07.01rc1
+#18 2.687  * [new tag]         0.07.01rc2      -> 0.07.01rc2
+#18 2.687  * [new tag]         latest-release  -> latest-release
+#18 2.687  * [new tag]         latest-unstable -> latest-unstable
+#18 2.693 error: pathspec '84faf557' did not match any file(s) known to git
+#18 2.698 error: pathspec '84faf557' did not match any file(s) known to git
+#18 2.704 error: pathspec '84faf557' did not match any file(s) known to git
+#18 2.734 error: pathspec '84faf557' did not match any file(s) known to git
+#18 2.763 Checkout unsuccessful.
+#18 DONE 3.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:396be5459a6311c17d507aeac4ddf67dc22d664a4a947f8c598e2534163838a9
+#19 DONE 0.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:1ae058d21a1a67d4e844db3b2686caca64cafa2e49cd4f5e90cc695f319c90d8
+#20 0.529 Run fuzzer_build to build the target
+#20 0.648 FUZZ_TARGET = wpantund
+#20 0.648 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.648 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.653 Building benchmark wpantund_wpantund with fuzzer afl
+#20 0.656 + FUZZ_CFLAGS='-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard'
+#20 0.656 + FUZZ_CXXFLAGS='-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard'
+#20 0.657 + unset CFLAGS
+#20 0.657 + unset CXXFLAGS
+#20 0.657 + ./bootstrap.sh
+#20 8.891 libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'm4'.
+#20 8.891 libtoolize: copying file 'm4/ltmain.sh'
+#20 8.967 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 8.967 libtoolize: copying file 'm4/libtool.m4'
+#20 9.009 libtoolize: copying file 'm4/ltoptions.m4'
+#20 9.054 libtoolize: copying file 'm4/ltsugar.m4'
+#20 9.098 libtoolize: copying file 'm4/ltversion.m4'
+#20 9.143 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 19.70 
+#20 19.70 Success. Logs in "/tmp/bootstrap.log.GoXba2"
+#20 19.70 + ./configure --enable-fuzz-targets --disable-shared --enable-static CC=clang CXX=clang++ FUZZ_LIBS=/libAFL.a 'FUZZ_CFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard' 'FUZZ_CXXFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard' LDFLAGS=-lpthread CXXFLAGS=-stdlib=libc++
+#20 19.96 checking for a BSD-compatible install... /usr/bin/install -c
+#20 19.97 checking whether build environment is sane... yes
+#20 19.99 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 20.00 checking for gawk... no
+#20 20.00 checking for mawk... mawk
+#20 20.00 checking whether make sets $(MAKE)... yes
+#20 20.01 checking whether make supports nested variables... yes
+#20 20.03 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 20.03 checking whether make supports nested variables... (cached) yes
+#20 20.03 checking whether to build with code coverage support... no
+#20 20.05 checking build system type... x86_64-pc-linux-gnu
+#20 20.13 checking host system type... x86_64-pc-linux-gnu
+#20 20.13 checking how to print strings... printf
+#20 20.18 checking whether make supports the include directive... yes (GNU style)
+#20 20.20 checking for gcc... clang
+#20 20.27 checking whether the C compiler works... yes
+#20 20.32 checking for C compiler default output file name... a.out
+#20 20.32 checking for suffix of executables... 
+#20 20.38 checking whether we are cross compiling... no
+#20 20.45 checking for suffix of object files... o
+#20 20.47 checking whether we are using the GNU C compiler... yes
+#20 20.50 checking whether clang accepts -g... yes
+#20 20.52 checking for clang option to accept ISO C89... none needed
+#20 20.56 checking whether clang understands -c and -o together... yes
+#20 20.61 checking dependency style of clang... gcc3
+#20 20.66 checking for a sed that does not truncate output... /usr/bin/sed
+#20 20.67 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 20.67 checking for egrep... /usr/bin/grep -E
+#20 20.68 checking for fgrep... /usr/bin/grep -F
+#20 20.68 checking for ld used by clang... /usr/bin/ld
+#20 20.70 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 20.70 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 20.71 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 20.74 checking whether ln -s works... yes
+#20 20.74 checking the maximum length of command line arguments... 1572864
+#20 20.75 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 20.75 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 20.75 checking for /usr/bin/ld option to reload object files... -r
+#20 20.75 checking for objdump... objdump
+#20 20.76 checking how to recognize dependent libraries... pass_all
+#20 20.76 checking for dlltool... no
+#20 20.76 checking how to associate runtime and link libraries... printf %s\n
+#20 20.76 checking for ar... ar
+#20 20.76 checking for archiver @FILE support... @
+#20 20.80 checking for strip... strip
+#20 20.80 checking for ranlib... ranlib
+#20 20.80 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 20.92 checking for sysroot... no
+#20 20.92 checking for a working dd... /usr/bin/dd
+#20 20.92 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 20.95 checking for mt... no
+#20 20.95 checking if : is a manifest tool... no
+#20 20.96 checking how to run the C preprocessor... clang -E
+#20 21.06 checking for ANSI C header files... yes
+#20 21.24 checking for sys/types.h... yes
+#20 21.30 checking for sys/stat.h... yes
+#20 21.35 checking for stdlib.h... yes
+#20 21.41 checking for string.h... yes
+#20 21.47 checking for memory.h... yes
+#20 21.52 checking for strings.h... yes
+#20 21.58 checking for inttypes.h... yes
+#20 21.64 checking for stdint.h... yes
+#20 21.70 checking for unistd.h... yes
+#20 21.76 checking for dlfcn.h... yes
+#20 21.83 checking for objdir... .libs
+#20 21.94 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 21.97 checking for clang option to produce PIC... -fPIC -DPIC
+#20 21.97 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 22.00 checking if clang static flag -static works... yes
+#20 22.11 checking if clang supports -c -o file.o... yes
+#20 22.15 checking if clang supports -c -o file.o... (cached) yes
+#20 22.15 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 22.18 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 22.29 checking how to hardcode library paths into programs... immediate
+#20 22.29 checking whether stripping libraries is possible... yes
+#20 22.29 checking if libtool supports shared libraries... yes
+#20 22.29 checking whether to build shared libraries... no
+#20 22.29 checking whether to build static libraries... yes
+#20 22.30 checking Service group... root
+#20 22.30 checking Service user... root
+#20 22.30 checking NCP Spinel Encrypter libs... none
+#20 22.32 checking for gcc... (cached) clang
+#20 22.39 checking whether we are using the GNU C compiler... (cached) yes
+#20 22.39 checking whether clang accepts -g... (cached) yes
+#20 22.39 checking for clang option to accept ISO C89... (cached) none needed
+#20 22.39 checking whether clang understands -c and -o together... (cached) yes
+#20 22.39 checking dependency style of clang... (cached) gcc3
+#20 22.46 checking whether we are using the GNU C++ compiler... yes
+#20 22.48 checking whether clang++ accepts -g... yes
+#20 22.50 checking dependency style of clang++... gcc3
+#20 22.56 checking how to run the C++ preprocessor... clang++ -E
+#20 22.76 checking for ld used by clang++... /usr/bin/ld -m elf_x86_64
+#20 22.78 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 22.80 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 22.94 checking for clang++ option to produce PIC... -fPIC -DPIC
+#20 22.94 checking if clang++ PIC flag -fPIC -DPIC works... yes
+#20 22.97 checking if clang++ static flag -static works... yes
+#20 23.07 checking if clang++ supports -c -o file.o... yes
+#20 23.11 checking if clang++ supports -c -o file.o... (cached) yes
+#20 23.11 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 23.11 checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+#20 23.12 checking how to hardcode library paths into programs... immediate
+#20 23.13 checking for ANSI C header files... (cached) yes
+#20 23.13 checking whether time.h and sys/time.h may both be included... yes
+#20 23.17 checking for unistd.h... (cached) yes
+#20 23.18 checking errno.h usability... yes
+#20 23.23 checking errno.h presence... yes
+#20 23.25 checking for errno.h... yes
+#20 23.26 checking stdbool.h usability... yes
+#20 23.31 checking stdbool.h presence... yes
+#20 23.33 checking for stdbool.h... yes
+#20 23.34 checking sys/un.h usability... yes
+#20 23.40 checking sys/un.h presence... yes
+#20 23.42 checking for sys/un.h... yes
+#20 23.43 checking sys/wait.h usability... yes
+#20 23.49 checking sys/wait.h presence... yes
+#20 23.52 checking for sys/wait.h... yes
+#20 23.53 checking pty.h usability... yes
+#20 23.59 checking pty.h presence... yes
+#20 23.61 checking for pty.h... yes
+#20 23.62 checking pwd.h usability... yes
+#20 23.68 checking pwd.h presence... yes
+#20 23.70 checking for pwd.h... yes
+#20 23.72 checking execinfo.h usability... yes
+#20 23.77 checking execinfo.h presence... yes
+#20 23.79 checking for execinfo.h... yes
+#20 23.80 checking asm/sigcontext.h usability... yes
+#20 23.86 checking asm/sigcontext.h presence... yes
+#20 23.88 checking for asm/sigcontext.h... yes
+#20 23.89 checking sys/prctl.h usability... yes
+#20 23.95 checking sys/prctl.h presence... yes
+#20 23.97 checking for sys/prctl.h... yes
+#20 23.98 checking for an ANSI C-conforming const... yes
+#20 24.01 checking for size_t... yes
+#20 24.12 checking for ssize_t... yes
+#20 24.24 checking for inline... inline
+#20 24.26 checking for working volatile... yes
+#20 24.29 checking for library containing clock_gettime... none required
+#20 24.36 checking for clock_gettime... yes
+#20 24.44 checking for strlcpy... no
+#20 24.52 checking for strlcat... no
+#20 24.60 checking for alloca... no
+#20 24.68 checking for fgetln... no
+#20 24.76 checking for memcmp... yes
+#20 24.84 checking for memset... yes
+#20 24.92 checking for strtol... yes
+#20 25.01 checking for strdup... yes
+#20 25.09 checking for strndup... yes
+#20 25.56 checking for strlcpy... (cached) no
+#20 25.57 checking for strlcat... (cached) no
+#20 25.57 checking for stpncpy... yes
+#20 25.65 checking for vsnprintf... yes
+#20 25.74 checking for vsprintf... yes
+#20 25.83 checking for snprintf... yes
+#20 25.91 checking for getdtablesize... yes
+#20 25.99 checking for getloadavg... yes
+#20 26.06 checking for pkg-config... /usr/bin/pkg-config
+#20 26.06 checking pkg-config is at least version 0.9.0... yes
+#20 26.07 checking for DBUS... yes
+#20 26.09 checking boost/signals2/signal.hpp usability... yes
+#20 28.99 checking boost/signals2/signal.hpp presence... yes
+#20 29.65 checking for boost/signals2/signal.hpp... yes
+#20 29.66 checking boost/chrono/chrono.hpp usability... yes
+#20 31.11 checking boost/chrono/chrono.hpp presence... yes
+#20 31.30 checking for boost/chrono/chrono.hpp... yes
+#20 31.30 checking readline/readline.h usability... no
+#20 31.36 checking readline/readline.h presence... no
+#20 31.39 checking for readline/readline.h... no
+#20 31.39 checking for forkpty in -lutil... yes
+#20 31.46 checking for pty.h... (cached) yes
+#20 31.48 checking util.h usability... no
+#20 31.54 checking util.h presence... no
+#20 31.57 checking for util.h... no
+#20 31.58 checking phy.h usability... no
+#20 31.64 checking phy.h presence... no
+#20 31.66 checking for phy.h... no
+#20 31.67 checking for forkpty... yes
+#20 31.75 checking for ptsname... yes
+#20 31.84 checking for CONNMAN... no
+#20 31.92 checking that generated files are newer than configure... done
+#20 31.92 configure: creating ./config.status
+#20 32.99 config.status: creating Makefile
+#20 33.01 config.status: creating doxygen.cfg
+#20 33.03 config.status: creating src/Makefile
+#20 33.06 config.status: creating doc/Makefile
+#20 33.09 config.status: creating src/connman-plugin/Makefile
+#20 33.11 config.status: creating src/ipc-dbus/Makefile
+#20 33.14 config.status: creating src/ipc-dbus/wpantund.conf
+#20 33.17 config.status: creating src/wpanctl/Makefile
+#20 33.20 config.status: creating src/wpantund/Makefile
+#20 33.23 config.status: creating src/util/Makefile
+#20 33.26 config.status: creating src/scripts/Makefile
+#20 33.28 config.status: creating src/missing/Makefile
+#20 33.30 config.status: creating src/missing/strlcat/Makefile
+#20 33.33 config.status: creating src/missing/strlcpy/Makefile
+#20 33.36 config.status: creating third_party/Makefile
+#20 33.38 config.status: creating src/ncp-spinel/Makefile
+#20 33.42 config.status: creating src/ncp-dummy/Makefile
+#20 33.44 config.status: creating src/config.h
+#20 33.46 config.status: executing depfiles commands
+#20 34.86 config.status: executing libtool commands
+#20 34.88 
+#20 34.88 = Summary =====================================================================
+#20 34.88 
+#20 34.88 ConnMan Plugin ................. no
+#20 34.88 Using libreadline .............. ???
+#20 34.88 Boost .......................... yes
+#20 34.88 NCP plugins to build ........... spinel
+#20 34.88 Default NCP Plugin ............. spinel
+#20 34.88 Static link NCP plugin ......... yes
+#20 34.88 Fuzzing Targets ................ yes
+#20 34.88 Using udev.......................no
+#20 34.88 
+#20 34.88 warning: libreadline was disabled or not found, interactive
+#20 34.88          wpanctl command line interface will not be enabled!
+#20 34.88 
+#20 34.96 ++ nproc
+#20 34.96 + make -j8
+#20 34.97 Making all in src
+#20 34.98 make[1]: Entering directory '/src/wpantund/src'
+#20 34.99 sed 's/SOURCE_VERSION/"0.07.01-363-ga8f3f76"/' < version.c.in > ../src/version.c
+#20 35.00 make  all-recursive
+#20 35.00 make[2]: Entering directory '/src/wpantund/src'
+#20 35.01 Making all in missing
+#20 35.01 make[3]: Entering directory '/src/wpantund/src/missing'
+#20 35.02 Making all in strlcpy
+#20 35.02 make[4]: Entering directory '/src/wpantund/src/missing/strlcpy'
+#20 35.02   CC       strlcpy.lo
+#20 35.11   CCLD     libstrlcpy.la
+#20 35.25 make[4]: Leaving directory '/src/wpantund/src/missing/strlcpy'
+#20 35.25 Making all in strlcat
+#20 35.25 make[4]: Entering directory '/src/wpantund/src/missing/strlcat'
+#20 35.25   CC       libstrlcat_la-strlcat.lo
+#20 35.34   CCLD     libstrlcat.la
+#20 35.48 make[4]: Leaving directory '/src/wpantund/src/missing/strlcat'
+#20 35.48 make[4]: Entering directory '/src/wpantund/src/missing'
+#20 35.48 make[4]: Nothing to be done for 'all-am'.
+#20 35.48 make[4]: Leaving directory '/src/wpantund/src/missing'
+#20 35.48 make[3]: Leaving directory '/src/wpantund/src/missing'
+#20 35.48 Making all in util
+#20 35.48 make[3]: Entering directory '/src/wpantund/src/util'
+#20 35.48 make[3]: Nothing to be done for 'all'.
+#20 35.48 make[3]: Leaving directory '/src/wpantund/src/util'
+#20 35.48 Making all in wpanctl
+#20 35.49 make[3]: Entering directory '/src/wpantund/src/wpanctl'
+#20 35.51 sed 's/SOURCE_VERSION/"0.07.01-363-ga8f3f76"/' < ../version.c.in > ../../src/wpanctl/version.c
+#20 35.51 make  all-am
+#20 35.52 make[4]: Entering directory '/src/wpantund/src/wpanctl'
+#20 35.52 make[4]: Nothing to be done for 'all-am'.
+#20 35.52 make[4]: Leaving directory '/src/wpantund/src/wpanctl'
+#20 35.52 make[3]: Leaving directory '/src/wpantund/src/wpanctl'
+#20 35.52 Making all in ipc-dbus
+#20 35.52 make[3]: Entering directory '/src/wpantund/src/ipc-dbus'
+#20 35.52 make[3]: Nothing to be done for 'all'.
+#20 35.52 make[3]: Leaving directory '/src/wpantund/src/ipc-dbus'
+#20 35.52 Making all in connman-plugin
+#20 35.53 make[3]: Entering directory '/src/wpantund/src/connman-plugin'
+#20 35.53 make[3]: Nothing to be done for 'all'.
+#20 35.53 make[3]: Leaving directory '/src/wpantund/src/connman-plugin'
+#20 35.53 Making all in ncp-spinel
+#20 35.53 make[3]: Entering directory '/src/wpantund/src/ncp-spinel'
+#20 35.53   CXX      libncp_spinel_fuzz_la-SpinelNCPControlInterface.lo
+#20 35.53   CXX      libncp_spinel_fuzz_la-SpinelNCPInstance.lo
+#20 35.53   CXX      libncp_spinel_fuzz_la-SpinelNCPInstance-DataPump.lo
+#20 35.54   CXX      libncp_spinel_fuzz_la-SpinelNCPInstance-Protothreads.lo
+#20 35.54   CXX      libncp_spinel_fuzz_la-SpinelNCPTask.lo
+#20 35.54   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskDeepSleep.lo
+#20 35.54   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskGetNetworkTopology.lo
+#20 35.54   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskGetMsgBufferCounters.lo
+#20 41.52   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskHostDidWake.lo
+#20 41.64   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskForm.lo
+#20 42.73   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskJoin.lo
+#20 42.87   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskJoinerCommissioning.lo
+#20 43.47   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskLeave.lo
+#20 43.60   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskPeek.lo
+#20 48.05   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskScan.lo
+#20 49.06   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskSendCommand.lo
+#20 49.50   CXX      libncp_spinel_fuzz_la-SpinelNCPTaskWake.lo
+#20 50.16   CXX      libncp_spinel_fuzz_la-SpinelNCPThreadDataset.lo
+#20 50.38   CXX      libncp_spinel_fuzz_la-SpinelNCPVendorCustom.lo
+#20 50.43   CC       libncp_spinel_fuzz_la-spinel.lo
+#20 50.88   CC       libncp_spinel_fuzz_la-spinel-extra.lo
+#20 58.80   CXXLD    libncp-spinel-fuzz.la
+#20 59.12 make[3]: Leaving directory '/src/wpantund/src/ncp-spinel'
+#20 59.12 Making all in ncp-dummy
+#20 59.12 make[3]: Entering directory '/src/wpantund/src/ncp-dummy'
+#20 59.12 make[3]: Nothing to be done for 'all'.
+#20 59.12 make[3]: Leaving directory '/src/wpantund/src/ncp-dummy'
+#20 59.12 Making all in wpantund
+#20 59.13 make[3]: Entering directory '/src/wpantund/src/wpantund'
+#20 59.15 sed 's/SOURCE_VERSION/"0.07.01-363-ga8f3f76"/' < ../version.c.in > ../../src/wpantund/version.c
+#20 59.15 make  all-am
+#20 59.16 make[4]: Entering directory '/src/wpantund/src/wpantund'
+#20 59.16   CXX      wpantund_fuzz-wpantund-fuzz.o
+#20 59.16   CXX      wpantund_fuzz-NCPControlInterface.o
+#20 59.16   CXX      wpantund_fuzz-NCPInstance.o
+#20 59.17   CXX      wpantund_fuzz-NCPInstanceBase.o
+#20 59.17   CXX      wpantund_fuzz-FirmwareUpgrade.o
+#20 59.17   CXX      wpantund_fuzz-StatCollector.o
+#20 59.17   CXX      wpantund_fuzz-RunawayResetBackoffManager.o
+#20 59.17   CXX      wpantund_fuzz-NCPInstanceBase-NetInterface.o
+#20 59.24   CXX      wpantund_fuzz-NCPInstanceBase-Addresses.o
+#20 60.29 In file included from FirmwareUpgrade.cpp:59:
+#20 60.29 ../../third_party/fgetln/fgetln.h:48:26: warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#20 60.29 #if !defined(fgetln) && !HAVE_FGETLN
+#20 60.29                          ^
+#20 60.29 ../../third_party/fgetln/fgetln.h:44:2: note: expanded from macro 'HAVE_FGETLN'
+#20 60.29         defined(__DARWIN_C_LEVEL) && \
+#20 60.29         ^
+#20 60.69 1 warning generated.
+#20 60.71   CXX      wpantund_fuzz-NCPInstanceBase-AsyncIO.o
+#20 67.16   CXX      wpantund_fuzz-NCPTypes.o
+#20 67.43   CXX      wpantund_fuzz-NetworkRetain.o
+#20 67.65   CXX      wpantund_fuzz-Pcap.o
+#20 68.19   CC       wpantund_fuzz-wpan-error.o
+#20 68.26   CXX      wpantund_fuzz-IPv6PacketMatcher.o
+#20 68.98   CXX      wpantund_fuzz-IPv6Helpers.o
+#20 69.18   CC       wpantund_fuzz-tunnel.o
+#20 69.34   CC       wpantund_fuzz-netif-mgmt.o
+#20 69.48   CC       wpantund_fuzz-config-file.o
+#20 69.57 In file included from ../util/config-file.c:44:
+#20 69.57 ../../third_party/fgetln/fgetln.h:48:26: warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined]
+#20 69.57 #if !defined(fgetln) && !HAVE_FGETLN
+#20 69.57                          ^
+#20 69.57 ../../third_party/fgetln/fgetln.h:44:2: note: expanded from macro 'HAVE_FGETLN'
+#20 69.57         defined(__DARWIN_C_LEVEL) && \
+#20 69.57         ^
+#20 69.63   CC       wpantund_fuzz-socket-utils.o
+#20 69.69 1 warning generated.
+#20 69.71   CXX      wpantund_fuzz-any-to.o
+#20 69.75   CC       wpantund_fuzz-string-utils.o
+#20 69.76 ../util/socket-utils.c:387:7: warning: implicit declaration of function 'grantpt' is invalid in C99 [-Wimplicit-function-declaration]
+#20 69.77                 if (grantpt(pty_master_fd) < 0) {
+#20 69.77                     ^
+#20 69.77 ../util/socket-utils.c:392:7: warning: implicit declaration of function 'unlockpt' is invalid in C99 [-Wimplicit-function-declaration]
+#20 69.77                 if (unlockpt(pty_master_fd) < 0) {
+#20 69.77                     ^
+#20 69.77 ../util/socket-utils.c:398:15: warning: implicit declaration of function 'ptsname' is invalid in C99 [-Wimplicit-function-declaration]
+#20 69.78                 if (NULL == ptsname(pty_master_fd)) {
+#20 69.78                             ^
+#20 69.78 ../util/socket-utils.c:398:12: warning: comparison between pointer and integer ('void *' and 'int') [-Wpointer-integer-compare]
+#20 69.78                 if (NULL == ptsname(pty_master_fd)) {
+#20 69.78                     ~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~
+#20 69.79 ../util/socket-utils.c:404:23: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'const char *' [-Wint-conversion]
+#20 69.79                 pty_slave_fd = open(ptsname(pty_master_fd), O_RDWR | O_NOCTTY);
+#20 69.79                                     ^~~~~~~~~~~~~~~~~~~~~~
+#20 69.79 /usr/include/fcntl.h:168:30: note: passing argument to parameter '__file' here
+#20 69.80 extern int open (const char *__file, int __oflag, ...) __nonnull ((1));
+#20 69.80                              ^
+#20 69.80 ../util/socket-utils.c:407:77: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+#20 69.80                         syslog(LOG_CRIT, "Call to open(\"%s\",O_RDWR|O_NOCTTY) failed: %s (%d)", ptsname(pty_master_fd), strerror(errno), errno);
+#20 69.80                                                          ~~                                      ^~~~~~~~~~~~~~~~~~~~~~
+#20 69.80                                                          %d
+#20 69.81 ../util/socket-utils.c:488:13: warning: implicit declaration of function 'ptsname' is invalid in C99 [-Wimplicit-function-declaration]
+#20 69.81         close(open(ptsname(ret_fd), O_RDWR | O_NOCTTY));
+#20 69.81                    ^
+#20 69.81 ../util/socket-utils.c:488:13: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'const char *' [-Wint-conversion]
+#20 69.82         close(open(ptsname(ret_fd), O_RDWR | O_NOCTTY));
+#20 69.82                    ^~~~~~~~~~~~~~~
+#20 69.82 /usr/include/fcntl.h:168:30: note: passing argument to parameter '__file' here
+#20 69.82 extern int open (const char *__file, int __oflag, ...) __nonnull ((1));
+#20 69.82                              ^
+#20 70.07   CC       wpantund_fuzz-time-utils.o
+#20 70.16   CXX      wpantund_fuzz-time-utils-extra.o
+#20 70.17   CC       wpantund_fuzz-nlpt-select.o
+#20 70.17   CXX      wpantund_fuzz-Data.o
+#20 70.21   CXX      wpantund_fuzz-SocketWrapper.o
+#20 70.32 8 warnings generated.
+#20 70.33   CXX      wpantund_fuzz-SocketAdapter.o
+#20 70.38   CXX      wpantund_fuzz-UnixSocket.o
+#20 70.59   CXX      wpantund_fuzz-SuperSocket.o
+#20 71.48   CXX      wpantund_fuzz-EventHandler.o
+#20 71.83   CXX      wpantund_fuzz-TunnelIPv6Interface.o
+#20 72.03   CXX      wpantund_fuzz-ValueMap.o
+#20 72.14   CXX      wpantund_fuzz-Timer.o
+#20 72.31   CC       wpantund_fuzz-sec-random.o
+#20 72.40   CC       wpantund_fuzz-version.o
+#20 79.88   CXXLD    wpantund-fuzz
+#20 80.60 make[4]: Leaving directory '/src/wpantund/src/wpantund'
+#20 80.60 make[3]: Leaving directory '/src/wpantund/src/wpantund'
+#20 80.60 Making all in scripts
+#20 80.61 make[3]: Entering directory '/src/wpantund/src/scripts'
+#20 80.61 make[3]: Nothing to be done for 'all'.
+#20 80.61 make[3]: Leaving directory '/src/wpantund/src/scripts'
+#20 80.61 make[3]: Entering directory '/src/wpantund/src'
+#20 80.61 make[3]: Leaving directory '/src/wpantund/src'
+#20 80.61 make[2]: Leaving directory '/src/wpantund/src'
+#20 80.62 rm ../src/version.c
+#20 80.62 make[1]: Leaving directory '/src/wpantund/src'
+#20 80.62 Making all in doc
+#20 80.62 make[1]: Entering directory '/src/wpantund/doc'
+#20 80.62 make[1]: Nothing to be done for 'all'.
+#20 80.62 make[1]: Leaving directory '/src/wpantund/doc'
+#20 80.62 Making all in third_party
+#20 80.62 make[1]: Entering directory '/src/wpantund/third_party'
+#20 80.62 make[1]: Nothing to be done for 'all'.
+#20 80.62 make[1]: Leaving directory '/src/wpantund/third_party'
+#20 80.63 make[1]: Entering directory '/src/wpantund'
+#20 80.63 make[1]: Nothing to be done for 'all-am'.
+#20 80.63 make[1]: Leaving directory '/src/wpantund'
+#20 80.63 + find . -name '*[-_]fuzz' -type f -exec cp -v '{}' /out ';'
+#20 80.65 './src/wpantund/wpantund-fuzz' -> '/out/wpantund-fuzz'
+#20 80.65 + find . -name '*[-_]fuzz.dict' -type f -exec cp -v '{}' /out ';'
+#20 80.66 + find . -name '*[-_]fuzz.options' -type f -exec cp -v '{}' /out ';'
+#20 80.67 './etc/fuzz-corpus/wpantund-fuzz.options' -> '/out/wpantund-fuzz.options'
+#20 80.68 + for f in etc/fuzz-corpus/*[-_]fuzz
+#20 80.68 ++ basename etc/fuzz-corpus/wpantund-fuzz
+#20 80.68 + fuzzer=wpantund-fuzz
+#20 80.68 + test -d etc/fuzz-corpus/wpantund-fuzz
+#20 80.68 + zip -j /out/wpantund-fuzz_seed_corpus.zip etc/fuzz-corpus/wpantund-fuzz/config-corpus-seed-0001 etc/fuzz-corpus/wpantund-fuzz/config-corpus-seed-0002 etc/fuzz-corpus/wpantund-fuzz/config-corpus-seed-0003 etc/fuzz-corpus/wpantund-fuzz/config-corpus-seed-0004 etc/fuzz-corpus/wpantund-fuzz/config-corpus-seed-0005 etc/fuzz-corpus/wpantund-fuzz/config-corpus-seed-0006 etc/fuzz-corpus/wpantund-fuzz/ncp-corpus-seed-0001 etc/fuzz-corpus/wpantund-fuzz/ncp-corpus-seed-0002 etc/fuzz-corpus/wpantund-fuzz/oss-fuzz-3565
+#20 80.68   adding: config-corpus-seed-0001 (deflated 61%)
+#20 80.68   adding: config-corpus-seed-0002 (deflated 79%)
+#20 80.68   adding: config-corpus-seed-0003 (deflated 84%)
+#20 80.68   adding: config-corpus-seed-0004 (deflated 83%)
+#20 80.68   adding: config-corpus-seed-0005 (deflated 84%)
+#20 80.68   adding: config-corpus-seed-0006 (deflated 77%)
+#20 80.68   adding: ncp-corpus-seed-0001 (deflated 23%)
+#20 80.68   adding: ncp-corpus-seed-0002 (deflated 48%)
+#20 80.68   adding: oss-fuzz-3565 (deflated 39%)
+#20 80.68 + find /out -type f
+#20 80.69 /out/wpantund-fuzz_seed_corpus.zip
+#20 80.69 /out/wpantund-fuzz
+#20 80.69 /out/wpantund-fuzz.options
+#20 80.69 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 80.8s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:b11d448a7e622e8d7ff2623cff38fa158c49f26d2fc1a3d6b601464bccda8051 done
+#21 naming to gcr.io/fuzzbench/builders/afl/wpantund_wpantund done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/wpantund_wpantund:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:b527064f020b360bf6c2ec8121be4bdc948f346e8baa3dbebcea1ce7f1ea065b
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ba6789ce019e062aa01ac8992c86582fbe70411990ba15da7a276c1b5fa906ae
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate
+#4 sha256:36790e64a05960c5f70e641b352ff3101aded5c16f49e5f27c2a3902dd8289f9
+#4 ERROR: gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5ac680f9a59b4019b6590dca0717b5f94a5c29c075177fb37f8ebc9569640f5 done
+#6 naming to gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:47b9affcfa4ce33ffcadf3f40867f22382b3ce1ccb63de1ac741059641930d94
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:c064ab9166f4440dd92e1bc3864921ac7d44075725320d5a9ae8bebfbe27a2dd
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate:latest
+#3 sha256:179a5289e4db335a9b6d14820ad275931dfcd732a60761029e6daa78e72f5383
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wpantund_wpantund:latest
+#4 sha256:8c494d746aeb35a04b5c9ec722a5d015e252f91a9dfdc9974dd016e2d66638d4
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2bb769834ad4c7bda212bb9891fc9b48630e061aff67c6965d2f494cc3e06468
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate
+#6 sha256:917be1e8dc3586c254f94f761e1a3ec589c1165e9924538941cc7369ee8f1a4c
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/wpantund_wpantund
+#10 sha256:80e0052d16bc328328027760985530b177f29a6da8d8114156ccdf3b5ed9167f
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/wpantund_wpantund
+#5 sha256:14b88d0bffa7038319c0e1e1d1238775025cc5717a4a3e53fbedf2fc0e17d30e
+#5 ERROR: gcr.io/fuzzbench/runners/afl/wpantund_wpantund:latest: not found
+
+#12 [internal] load build context
+#12 sha256:2bb769834ad4c7bda212bb9891fc9b48630e061aff67c6965d2f494cc3e06468
+#12 ...
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/wpantund_wpantund
+#10 sha256:80e0052d16bc328328027760985530b177f29a6da8d8114156ccdf3b5ed9167f
+#10 DONE 0.3s
+
+#12 [internal] load build context
+#12 sha256:2bb769834ad4c7bda212bb9891fc9b48630e061aff67c6965d2f494cc3e06468
+#12 transferring context: 18.45MB 0.6s done
+#12 DONE 0.7s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:c6ea58607f74f3d552f26b4a466155ff302df7c3345c5cffe8e48334458d1c01
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:bc88319f2c9212808cf470a5fb7fe4b55769b338cb0aa8f45a5a2f6152ec3e27
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:1851b17d9279c69bf6bdd194335c51f763b9b785c2e8ebbbcd0cfc2c620908eb
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:f21628d3d3705925ca157ea35a295ffd789c500218b0eb19e05449b61975abf9
+#11 DONE 0.1s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:5d339eea7ac2f93ea38bb4fa66b197a4c0c996892cea00b9c4a697031c270b69
+#13 DONE 1.1s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:670b85d2def6c752b6f9d695013a06a8d48acab2138cca8b0586c2e5ecc22e01
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:b2c9b8e5bfbb45b984d2019254d8510d442e68d82c96764315171b24ea47000f
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:f39acad4585485429c4de0ad692d8381d502fa15233102599d9a47af013fd2ca
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:50b74889a2e8f7cc1ff486be66a3842abee5d8d110200bbe6897a749b4b6d6a3
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:174c5978308fe96b4214201dc40e74ad28a8027cc2f0ede635a24caa73a75fb9
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:89393876525f1490b943171e0043b52c584ba274aa2e864bf825c2f0ab36462b
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:4e8884720291bc84cd572bd22acc0ff03816ac988546e8fbc9497a5586871b5f
+#20 DONE 0.7s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:71409e7f68e8358d2422363b16188856a7df6da1abaf9f9bec68142be9cae0d1 done
+#21 naming to gcr.io/fuzzbench/runners/afl/wpantund_wpantund done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/wpantund_wpantund:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f2b13787f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e50ac5652e92e9f67936666c3ba113e62b79b6ff3bb4cab4680c6f8b9c8d5032
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:0c377d55320aa1465323e8d18c4431b1c7b33836ba7ef2d89308e12f083c89fe
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund
+#4 sha256:f9b305545f39ce9cf4c1702cebf53393ca041c3511e65199747292f6348826a0
+#4 DONE 0.0s
+
+#7 [internal] load build context
+#7 sha256:9ed3b83ae329013c687799511ff08f101eca5f9f553e71d47bfdc29fa4aa93df
+#7 transferring context: 30B done
+#7 DONE 0.0s
+
+#9 [4/5] RUN git clone --depth 1 https://github.com/openthread/wpantund
+#9 sha256:00f6a050214942cd84e783a82b212ac7a044c181873e58d61dcb53315c3eea95
+#9 CACHED
+
+#6 [2/5] RUN apt-get -y update 	&& DEBIAN_FRONTEND=noninteractive 			apt-get install -y -q --no-install-recommends 				gdb 				libdbus-1-dev 				libboost-dev 				pkg-config 				libtool 				autoconf 				autoconf-archive 				automake
+#6 sha256:4f427f29739e0750be0ffdbab62f85d3c7d3fffc4319c837e7d41638e5299d90
+#6 CACHED
+
+#8 [3/5] COPY build.sh *.options /src/
+#8 sha256:b6bc09248c402762c55a2382e9965cfc08b7c42329008efa8951bdd71a8e35a9
+#8 CACHED
+
+#10 [5/5] WORKDIR wpantund
+#10 sha256:5b7d45b71a99acc43b8ea6c519501eee48263421e1d703c9f5cbf349454db2cb
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:984e7eac360bcd4ec5be01bdac5e02cec1dc868e5f7e5a16559119e9e3fcf8f9 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e5e0c68d53ed688116be7220240cec68aa09c4ddd0ece28a94c4ecb2ab9ec319
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b6ff975cfef37cfa5ba0f09e6ef6147f635369ea068fbd760e254ecd04329540
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund:latest
+#3 sha256:cc009d933ce0b743c2baed27d2e686ea48a9b6958681bb1768301a475170f6a7
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/wpantund_wpantund
+#5 sha256:cf484bfc31e66f9ab9a41e56d1a8a930636fb21d916941b9049e78e57a9dab88
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate
+#4 sha256:f421fd3f43f9cb6ded661cc6baed6b83a5bb1678aa19c07704a5359226e313cc
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:269a5dc6ee8834dcc620365e5f714559ee81569a3a14ae3d9458895199f3c0b8
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:5a03bd40902f0b1e585fc1bcf3dc8733cee022c29e531c0e0fc0f82e4aa7e12b
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:0d9a1e19cdf4dc0f25a6ae459d1a432e33b4807ce5999e4e5acd1eaa2e522529
+#8 writing image sha256:0d9a1e19cdf4dc0f25a6ae459d1a432e33b4807ce5999e4e5acd1eaa2e522529 done
+#8 naming to gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e00d49703fb51c19ea1fc3b7555cb2a7c732ea892b1e5a280ca557fcaa4011bd
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:03dc4b4944a799d99b305e162834e9c85bbe579b69e75d0a6c100f38b7d9245c
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:9f08a2d07979fb18a75d4c4925e1ac792ed443b6adab96e08fd0131744e2ae00
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:db00a981485275c4791c814f7d28eb4fb3af885efee7a38b2054953366b26e9d
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:a30b08f308f06a73e97b7962acbcdfeb925fb0e9e3ea325f2dfcef8d2cef16b4
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:afe155e03a70032289c0ae16efa82e6767612e479a5cdeac28475e64eea2c813
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:561d472db457938d57cec7ea6323fcf59caec78a9c455d03f20e288259595abf
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:72c57924d0e15b1ac70414591013a5443777e61a51a51459c028464112162ac2 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:50ce61784f08d653e58455731cdc4cd2ba31b0c43fd48eeed01d7eaa84deda13
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f53c511bb07a1b2263cb786e4d0786dd6ac4d4a2b42f1c476ba1246c9d9def0b
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate:latest
+#4 sha256:e886272ba0d93711b5d23c59ff97184906ad4506542e27391762a21e1cf983ee
+#4 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/wpantund_wpantund-intermediate
+#6 sha256:15e9f6b84d1d2d04da5f1ab84b1791e738460010857aede3e8e02807b38a813b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/wpantund_wpantund
+#5 sha256:ec0e8f43b0002a4dfca56dcd3155a32b53475849630b689eaa2716063e3167e6
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:9f6914f7cbf82d64e886f7e82f0637e4bd84ffbfcf0d323513f4c2fa62acf1ca
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:8905335abcaa3ce5354fc1e6567be19f76a7f53cf966af3290ec22a9d10807f4
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:24f782a62c05d065ac103d8fe171664d902c970579e325c8b3d0a839525294e0
+#14 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:ef7d52c8597043c63538c8aaeaf2a45e5a8001926ade7bf0e02165d4c9cf0f80
+#19 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:aeef730e82aeb9f5556846b0a533fd311ac1c1211ce519b419c641efaa2d43d6
+#10 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:44d634c8008bf2c1c73800bb92b0d62c61d67e737d3adbd7dba03ef3e2ce2fb6
+#9 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:1a8a469e934dff562dd2560eec0d61e3bdffc2ea40ba1f04389df7c5086a40f9
+#18 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:47606320372c4baf5f565100c572d4e7a0f280a66b5a5d01954eb0f15c273f6a
+#17 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:1fa759e0e4a23f0f95b01482624279d9dbe69f286965ccba7422bb138ba7883b
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:fb560f15fbc381725c18ec5ae8d6655a1b52822bddfcde14da336defe4aac603
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/wpantund_wpantund/benchmark.yaml /
+#15 sha256:e8332ccb6d305532b06109f7cfd4a4ff982c3da22b609c3f24b134118dbd29fe
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:a5010b17302f55a2dfab0788db48779796c27c83ab574a2568eae1587dc749ed
+#16 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:07dfd2c0c9df77d5b5d4299f4fe5236745bda957d58517665e60f0c0bdb99082
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:b11d448a7e622e8d7ff2623cff38fa158c49f26d2fc1a3d6b601464bccda8051 done
+#21 naming to gcr.io/fuzzbench/builders/afl/wpantund_wpantund done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:c8c070e3e9174e996a837517f7fc4296e50dda1d02a0e8ae6b164ccc2db4b218
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:be7ddee26d668f98ddde545c6855adccf9288dd9c5fb050abca105d6b0fc991a
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate
+#4 sha256:36790e64a05960c5f70e641b352ff3101aded5c16f49e5f27c2a3902dd8289f9
+#4 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d5ac680f9a59b4019b6590dca0717b5f94a5c29c075177fb37f8ebc9569640f5
+#6 writing image sha256:d5ac680f9a59b4019b6590dca0717b5f94a5c29c075177fb37f8ebc9569640f5 done
+#6 naming to gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2c7e1279eaba263b7cd02adb98ae2f4a21be20845111585627087310a44ea1d8
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2f9b2339d4b5f010cf96dd14827f84eca9e5ae70fb2841f007dc7b37a86d0933
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate:latest
+#3 sha256:179a5289e4db335a9b6d14820ad275931dfcd732a60761029e6daa78e72f5383
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wpantund_wpantund:latest
+#4 sha256:8c494d746aeb35a04b5c9ec722a5d015e252f91a9dfdc9974dd016e2d66638d4
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/wpantund_wpantund-intermediate
+#6 sha256:917be1e8dc3586c254f94f761e1a3ec589c1165e9924538941cc7369ee8f1a4c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/wpantund_wpantund
+#5 sha256:14b88d0bffa7038319c0e1e1d1238775025cc5717a4a3e53fbedf2fc0e17d30e
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/wpantund_wpantund
+#10 sha256:80e0052d16bc328328027760985530b177f29a6da8d8114156ccdf3b5ed9167f
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:545e9865dcb9117bec2094c1aacc3aa3e043c00799d90c8628cd84312ea76f9d
+#12 transferring context: 18.45MB 0.6s done
+#12 DONE 0.7s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:5d8206176bb631c58f72603805bb44988b69484fcdf0cd0467bba581ff937f0d
+#19 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:af3f4328b32a91f7e286084196d064b7028b0f95fe1c9abf2e322c75f5913e9f
+#15 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:1851b17d9279c69bf6bdd194335c51f763b9b785c2e8ebbbcd0cfc2c620908eb
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:3d7fb0324c60345ad71b6445bd51cd9816495da77cd1fa44cc9d50adec9c4bfe
+#16 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:bc88319f2c9212808cf470a5fb7fe4b55769b338cb0aa8f45a5a2f6152ec3e27
+#8 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:c6ea58607f74f3d552f26b4a466155ff302df7c3345c5cffe8e48334458d1c01
+#7 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:d1dbfa20699ac3c1f61bbbc64a91576b3b5c01b0471311d2412093093fe9ffa5
+#13 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:131cce5ad40da0dc7962b69988f0a50f0e95c173ed11b9ee47c2307c3d4b4ee1
+#14 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:0da97ebc8d3cdf40cbe0dfedce1c68fbe7ae90ec4607b12d3dc3f707b8cb17ae
+#18 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:029ea8074016b93c4e7d765669eccfe02e10660db0f218563d24f211caa888d4
+#17 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:f21628d3d3705925ca157ea35a295ffd789c500218b0eb19e05449b61975abf9
+#11 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:0e93554225e2eda9a8fda16ee631fd45a66e6a42757de864f316fd8d2a497f13
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:71409e7f68e8358d2422363b16188856a7df6da1abaf9f9bec68142be9cae0d1 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/wpantund_wpantund done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f96f6e38f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

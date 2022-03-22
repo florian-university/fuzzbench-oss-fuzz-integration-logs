@@ -1,0 +1,2477 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: eigen_solver_fuzzer.
+INFO:root:Please run "make test-run-afl-eigen_solver_fuzzer" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:12639013aea4b6c9bbb32753d44b6bfe752743a42ecf8a67f449d097fa624651
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:39029a0ad0d67a7bcc5cc76fd9e2c713878b34ef839e66924917b6a8e1e0f868
+#1 transferring dockerfile: 889B done
+#1 DONE 0.5s
+
+#2 [internal] load .dockerignore
+#2 sha256:12639013aea4b6c9bbb32753d44b6bfe752743a42ecf8a67f449d097fa624651
+#2 transferring context: 2B done
+#2 DONE 1.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:9ccfd73dfa274742aa3e2dc8b79dd577dc152760bb39a47fb0a0d0e5938abc50
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer
+#4 sha256:7419d54c796b217a267e561dc55daf4af55fb1da99681363b048207b52834062
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:9ccfd73dfa274742aa3e2dc8b79dd577dc152760bb39a47fb0a0d0e5938abc50
+#9 transferring context: 10.39kB done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install --yes cmake mercurial
+#6 sha256:bbf0ceb6bd7ee50d30298aae7964fa82fcfe2e6980d997892c3ca1b12a325ed1
+#6 CACHED
+
+#7 [3/5] RUN git clone https://gitlab.com/libeigen/eigen.git
+#7 sha256:3cf3d63549b8d10f2ed92c37c798a1c28377be1f70cd2aed343747ee33b1b288
+#7 CACHED
+
+#8 [4/5] WORKDIR eigen
+#8 sha256:80922b256f934de94dce9bd1a1746b552443cd2cd97bc2a489c3de37712c1a01
+#8 CACHED
+
+#10 [5/5] COPY build.sh *.cc /src/
+#10 sha256:60dd098a69377de6cf63441b351c796f268d4477eae834a46b5629c0cc9c91c7
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:ea334a97743629115cb438b0b3fb6d7e6e67649ee06c960b4d118a0a54696754 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer 0.0s done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:8ece1b1edfdf0ac0aa8c7d0b5d8c384155041c3154be3b9a4d49ee9ed97dc632
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:edf23ba3281061505326bf2a70f29a411398a7fd9b4879e8c498e8285076ff92
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer:latest
+#3 sha256:82a36af392ffaf565a8201d4ef39a088f9f0566fd8414334c45cf3b9ec9da678
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer
+#5 sha256:3b4b8b5227cf677755c1a752d465f16de6ee3ddf986159dd78907160809af4e6
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate
+#4 sha256:70e388139ceeb300ad60fa153f4d86d5deaf2d66e438ee4f7fc7912214b2abc3
+#4 ERROR: gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:9c83276833d532dd7217d1831846fcec695255ecfe720374a8fcb6c8fedbdc92
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c78de88d5d85a8de4a0a568cb36ae1e7988a0588725965801025e2086d201304
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:2815547bf1e2632f8eccd144ee973b56b36ae7c3aea00e425782d9d50bbf838c
+#8 writing image sha256:2815547bf1e2632f8eccd144ee973b56b36ae7c3aea00e425782d9d50bbf838c 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0090992d95e1bb8472ca269df6edb3cf3956bb294c8ba350ce68c05a43d9af23
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:32a04c9138f1160b744a0cbec34d2c91e34f5fe51ff2770f6e456110d10af0f0
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:b2d558d484283326c240658818cef317a7da8ac3f5226907fe391102203ce207
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:40a0b287f37122f7f68bd0d68be4ccba99f4d7f7b81308398a53af149a97b5c8
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:d24a7def00299c229df0251713662d9e4cf0334eb5694cd7896c602ab676d73e
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3ca8dca6996bb8ca39d8043c7ab039ab3d104ef73fe36001fc0ea3e18e491f74
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:f65324efcf472f0a637c38367c4e904ff8319b81a9ed66fc26292da0b8442142
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:34f06c4593e4df95dc9039149da5eb791d004e47dd0cfe3bb65e1dc407d6bc53
+#13 writing image sha256:34f06c4593e4df95dc9039149da5eb791d004e47dd0cfe3bb65e1dc407d6bc53 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:0d9c4ac69768ed77509299c90693193d874df213a2c4c2b58c0a68e9e18a222f
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f051ed0c1c7329fd81087529a858c5c8cbb925f30ea8f4a6c2ff21e322afb24b
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate:latest
+#3 sha256:554bdb82fd89392006ddeb0df51cec5eeb74d3514504012493d45986cd794792
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e80abd01dd79b6d4d2db9f7d54d7881d35f6ee588bc4506fdbe79dd4322782bc
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate
+#6 sha256:fb93280f32d07c52d14e91c99454ffbbf2e0dfb94478115745e1fc266febd52b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer
+#5 sha256:6c7042f5eaa6a5e609995fcb1bf3d720420bb6db5169ded8869b219bfb8a4a07
+#5 ERROR: gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:e80abd01dd79b6d4d2db9f7d54d7881d35f6ee588bc4506fdbe79dd4322782bc
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:319c756413292a4943f52781856fcdee7af5d5505d74527cd0a6804aeda68400
+#11 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:92c0f9f87a871f7b14f3aa45bbd159a25a3d91dc020c9f613aeb7f1c823e8b5b
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:c76b1c9b6903d8ba6f36a99d1b402f5ea6cb1c47c50a6d47db1f191e9ade455a
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:d098f5e933e2beb3656b4ff3ae4a532eec8eeeee56d9d9676ba208083cd503d0
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:a07afe2e7f0f18396ac08e8fe412e6b25c3251eb94e39ab9976329b3a3b55aed
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:36c8a0ef6fde334f86aa61b8cdc4f9b8ee7226abd9ca45d553b9c14c3c716c97
+#14 DONE 1.2s
+
+#15 [stage-1  8/13] COPY benchmarks/eigen_solver_fuzzer/benchmark.yaml /
+#15 sha256:9196b97d035279981935d2094a075bdaa76f9de447d44e3b34f37d13f12b7541
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:8d5947c2076fd6db637aeb4fe02525a9f7528faffa2a9105d7a89ce79262083c
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:3724a8f4ebea47544c483c818b06737cac18fc042ad652b4eee58a0aa7f8427d
+#17 DONE 0.5s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3c75f265a24da6b88971ef704f4a0b79db3c52fad940e3dd1ec1e30264388c24
+#18 0.564 Checking out commit 95a7b675
+#18 0.569 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.584 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.592 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 0.644 Checkout unsuccessful.
+#18 DONE 0.8s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:4f711a2c7b89940d669cd72c979bcc203b8f90233bad2759df8b621c81ad6304
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:efc896fc0947078a97e6fd5bd8d6fc0d22c49515d71e27ddde3c431b63ec7e9e
+#20 0.516 Run fuzzer_build to build the target
+#20 0.639 FUZZ_TARGET = solver_fuzzer
+#20 0.639 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.639 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.644 Building benchmark eigen_solver_fuzzer with fuzzer afl
+#20 0.647 + mkdir build_dir
+#20 0.650 + cd build_dir
+#20 0.650 + cmake ..
+#20 0.858 -- The C compiler identification is Clang 14.0.0
+#20 1.123 -- The CXX compiler identification is Clang 14.0.0
+#20 1.135 -- Detecting C compiler ABI info
+#20 1.292 -- Detecting C compiler ABI info - done
+#20 1.340 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.341 -- Detecting C compile features
+#20 1.342 -- Detecting C compile features - done
+#20 1.348 -- Detecting CXX compiler ABI info
+#20 1.536 -- Detecting CXX compiler ABI info - done
+#20 1.601 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.601 -- Detecting CXX compile features
+#20 1.602 -- Detecting CXX compile features - done
+#20 1.622 -- Performing Test standard_math_library_linked_to_automatically
+#20 2.002 -- Performing Test standard_math_library_linked_to_automatically - Success
+#20 2.003 -- Standard libraries to link to explicitly: none
+#20 2.005 -- Performing Test COMPILER_SUPPORT_WERROR
+#20 2.191 -- Performing Test COMPILER_SUPPORT_WERROR - Success
+#20 2.193 -- Performing Test COMPILER_SUPPORT_pedantic
+#20 2.377 -- Performing Test COMPILER_SUPPORT_pedantic - Success
+#20 2.379 -- Performing Test COMPILER_SUPPORT_Wall
+#20 2.569 -- Performing Test COMPILER_SUPPORT_Wall - Success
+#20 2.571 -- Performing Test COMPILER_SUPPORT_Wextra
+#20 2.752 -- Performing Test COMPILER_SUPPORT_Wextra - Success
+#20 2.754 -- Performing Test COMPILER_SUPPORT_Wundef
+#20 2.938 -- Performing Test COMPILER_SUPPORT_Wundef - Success
+#20 2.940 -- Performing Test COMPILER_SUPPORT_Wcastalign
+#20 3.174 -- Performing Test COMPILER_SUPPORT_Wcastalign - Success
+#20 3.175 -- Performing Test COMPILER_SUPPORT_Wcharsubscripts
+#20 3.367 -- Performing Test COMPILER_SUPPORT_Wcharsubscripts - Success
+#20 3.370 -- Performing Test COMPILER_SUPPORT_Wnonvirtualdtor
+#20 3.551 -- Performing Test COMPILER_SUPPORT_Wnonvirtualdtor - Success
+#20 3.553 -- Performing Test COMPILER_SUPPORT_Wunusedlocaltypedefs
+#20 3.735 -- Performing Test COMPILER_SUPPORT_Wunusedlocaltypedefs - Success
+#20 3.738 -- Performing Test COMPILER_SUPPORT_Wpointerarith
+#20 3.923 -- Performing Test COMPILER_SUPPORT_Wpointerarith - Success
+#20 3.925 -- Performing Test COMPILER_SUPPORT_Wwritestrings
+#20 4.113 -- Performing Test COMPILER_SUPPORT_Wwritestrings - Success
+#20 4.115 -- Performing Test COMPILER_SUPPORT_Wformatsecurity
+#20 4.299 -- Performing Test COMPILER_SUPPORT_Wformatsecurity - Success
+#20 4.301 -- Performing Test COMPILER_SUPPORT_Wshorten64to32
+#20 4.483 -- Performing Test COMPILER_SUPPORT_Wshorten64to32 - Success
+#20 4.485 -- Performing Test COMPILER_SUPPORT_Wlogicalop
+#20 4.522 -- Performing Test COMPILER_SUPPORT_Wlogicalop - Failed
+#20 4.524 -- Performing Test COMPILER_SUPPORT_Wenumconversion
+#20 4.704 -- Performing Test COMPILER_SUPPORT_Wenumconversion - Success
+#20 4.705 -- Performing Test COMPILER_SUPPORT_Wcpp11extensions
+#20 4.887 -- Performing Test COMPILER_SUPPORT_Wcpp11extensions - Success
+#20 4.889 -- Performing Test COMPILER_SUPPORT_Wdoublepromotion
+#20 5.072 -- Performing Test COMPILER_SUPPORT_Wdoublepromotion - Success
+#20 5.074 -- Performing Test COMPILER_SUPPORT_Wshadow
+#20 5.259 -- Performing Test COMPILER_SUPPORT_Wshadow - Success
+#20 5.262 -- Performing Test COMPILER_SUPPORT_Wnopsabi
+#20 5.452 -- Performing Test COMPILER_SUPPORT_Wnopsabi - Success
+#20 5.454 -- Performing Test COMPILER_SUPPORT_Wnovariadicmacros
+#20 5.638 -- Performing Test COMPILER_SUPPORT_Wnovariadicmacros - Success
+#20 5.640 -- Performing Test COMPILER_SUPPORT_Wnolonglong
+#20 5.826 -- Performing Test COMPILER_SUPPORT_Wnolonglong - Success
+#20 5.828 -- Performing Test COMPILER_SUPPORT_fnochecknew
+#20 6.020 -- Performing Test COMPILER_SUPPORT_fnochecknew - Success
+#20 6.023 -- Performing Test COMPILER_SUPPORT_fnocommon
+#20 6.220 -- Performing Test COMPILER_SUPPORT_fnocommon - Success
+#20 6.222 -- Performing Test COMPILER_SUPPORT_fstrictaliasing
+#20 6.417 -- Performing Test COMPILER_SUPPORT_fstrictaliasing - Success
+#20 6.418 -- Performing Test COMPILER_SUPPORT_wd981
+#20 6.455 -- Performing Test COMPILER_SUPPORT_wd981 - Failed
+#20 6.457 -- Performing Test COMPILER_SUPPORT_wd2304
+#20 6.492 -- Performing Test COMPILER_SUPPORT_wd2304 - Failed
+#20 6.494 -- Performing Test COMPILER_SUPPORT_OPENMP
+#20 6.688 -- Performing Test COMPILER_SUPPORT_OPENMP - Success
+#20 6.715 -- Found unsuitable Qt version "" from NOTFOUND
+#20 6.900 -- Looking for a Fortran compiler
+#20 6.952 -- Looking for a Fortran compiler - NOTFOUND
+#20 7.130 -- Looking for pthread.h
+#20 7.300 -- Looking for pthread.h - found
+#20 7.301 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 7.480 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 7.482 -- Found Threads: TRUE  
+#20 7.599 -- Could NOT find CHOLMOD (missing: CHOLMOD_INCLUDES CHOLMOD_LIBRARIES) 
+#20 7.603 -- Could NOT find UMFPACK (missing: UMFPACK_INCLUDES UMFPACK_LIBRARIES) 
+#20 7.606 -- Could NOT find KLU (missing: KLU_INCLUDES KLU_LIBRARIES) 
+#20 7.615 -- Could NOT find SuperLU (missing: SUPERLU_INCLUDES SUPERLU_LIBRARIES SUPERLU_VERSION_OK) (Required is at least version "4.0")
+#20 7.626 -- A version of Pastix has been found but pastix_nompi.h does not exist in the include directory. Because Eigen tests require a version without MPI, we disable the Pastix backend.
+#20 7.629 -- Could NOT find SPQR (missing: SPQR_INCLUDES SPQR_LIBRARIES) 
+#20 7.635 -- Found unsuitable Qt version "" from NOTFOUND
+#20 8.018 -- Performing Test COMPILER_SUPPORT_FASTMATH
+#20 8.200 -- Performing Test COMPILER_SUPPORT_FASTMATH - Success
+#20 8.251 -- Could NOT find Boost (missing: Boost_INCLUDE_DIR) (Required is at least version "1.53.0")
+#20 8.256 CUDA_TOOLKIT_ROOT_DIR not found or specified
+#20 8.264 -- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) (Required is at least version "9.0")
+#20 8.321 -- Could NOT find GoogleHash (missing: GOOGLEHASH_INCLUDES GOOGLEHASH_COMPILE) 
+#20 8.324 -- Could NOT find Adolc (missing: ADOLC_INCLUDES ADOLC_LIBRARIES) 
+#20 8.358 -- Could NOT find MPFR (missing: MPFR_INCLUDES MPFR_LIBRARIES MPFR_VERSION_OK) (Required is at least version "1.0.0")
+#20 8.365 -- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+#20 8.490 CUDA_TOOLKIT_ROOT_DIR not found or specified
+#20 8.497 -- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) (Required is at least version "9.0")
+#20 8.506 -- Found unsuitable Qt version "" from NOTFOUND
+#20 8.506 -- Qt4 not found, so disabling the mandelbrot and opengl demos
+#20 8.511 -- Could NOT find CLANG_FORMAT: Found unsuitable version "0.0", but required is exact version "9" (found CLANG_FORMAT_EXECUTABLE-NOTFOUND)
+#20 8.514 -- Could NOT find CHOLMOD (missing: CHOLMOD_INCLUDES CHOLMOD_LIBRARIES) 
+#20 8.517 -- Could NOT find UMFPACK (missing: UMFPACK_INCLUDES UMFPACK_LIBRARIES) 
+#20 8.519 -- Could NOT find KLU (missing: KLU_INCLUDES KLU_LIBRARIES) 
+#20 8.533 -- Could NOT find SuperLU (missing: SUPERLU_INCLUDES SUPERLU_LIBRARIES SUPERLU_VERSION_OK) (Required is at least version "4.0")
+#20 8.548 -- A version of Pastix has been found but pastix_nompi.h does not exist in the include directory. Because Eigen tests require a version without MPI, we disable the Pastix backend.
+#20 8.549 -- ************************************************************
+#20 8.549 -- ***    Eigen's unit tests configuration summary          ***
+#20 8.549 -- ************************************************************
+#20 8.549 -- 
+#20 8.549 -- Build type:        Release
+#20 8.549 -- Build site:        buildkitsandbox
+#20 8.549 -- Build string:      linux-5.13.0-28-generic-llvm-clang++-14.0.0-sse2-64bit
+#20 8.549 -- Enabled backends:  
+#20 8.549 -- Disabled backends: CHOLMOD,  UMFPACK,  KLU,  SuperLU,  PaStiX,  METIS,  SPQR,  Qt4 support,  Boost.Multiprecision,  GoogleHash,  Adolc,  MPFR C++,  fftw,  OpenGL, 
+#20 8.549 -- Default order:     Column-major
+#20 8.549 -- Maximal matrix/vector size: 320
+#20 8.549 -- SSE2:              Using architecture defaults
+#20 8.549 -- SSE3:              Using architecture defaults
+#20 8.549 -- SSSE3:             Using architecture defaults
+#20 8.549 -- SSE4.1:            Using architecture defaults
+#20 8.549 -- SSE4.2:            Using architecture defaults
+#20 8.550 -- AVX:               Using architecture defaults
+#20 8.550 -- AVX2:              Using architecture defaults
+#20 8.550 -- FMA:               Using architecture defaults
+#20 8.550 -- AVX512:            Using architecture defaults
+#20 8.550 -- AVX512DQ:          Using architecture defaults
+#20 8.550 -- Altivec:           Using architecture defaults
+#20 8.550 -- VSX:               Using architecture defaults
+#20 8.550 -- MIPS MSA:          Using architecture defaults
+#20 8.550 -- ARM NEON:          Using architecture defaults
+#20 8.550 -- ARMv8 NEON:        Using architecture defaults
+#20 8.550 -- S390X ZVECTOR:     Using architecture defaults
+#20 8.550 -- SYCL:              OFF
+#20 8.550 -- CUDA:              OFF
+#20 8.550 -- HIP:               OFF
+#20 8.550 -- 
+#20 8.550 CXX:               /usr/local/bin/clang++
+#20 8.550  CXX_FLAGS:         -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wshorten-64-to-32 -Wenum-conversion -Wc++11-extensions -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing
+#20 8.550  Sparse lib flags:   
+#20 8.550 
+#20 8.550 -- ************************************************************
+#20 8.550 -- 
+#20 8.550 -- Configured Eigen 3.4.90
+#20 8.550 -- 
+#20 8.550 -- Available targets (use: make TARGET):
+#20 8.550 -- ---------+--------------------------------------------------------------
+#20 8.550 -- Target   |   Description
+#20 8.550 -- ---------+--------------------------------------------------------------
+#20 8.550 -- install  | Install Eigen. Headers will be installed to:
+#20 8.550 --          |     <CMAKE_INSTALL_PREFIX>/<INCLUDE_INSTALL_DIR>
+#20 8.550 --          |   Using the following values:
+#20 8.550 --          |     CMAKE_INSTALL_PREFIX: /usr/local
+#20 8.550 --          |     INCLUDE_INSTALL_DIR:  include/eigen3
+#20 8.550 --          |   Change the install location of Eigen headers using:
+#20 8.550 --          |     cmake . -DCMAKE_INSTALL_PREFIX=yourprefix
+#20 8.550 --          |   Or:
+#20 8.550 --          |     cmake . -DINCLUDE_INSTALL_DIR=yourdir
+#20 8.550 -- doc      | Generate the API documentation, requires Doxygen & LaTeX
+#20 8.550 -- check    | Build and run the unit-tests. Read this page:
+#20 8.550 --          |   http://eigen.tuxfamily.org/index.php?title=Tests
+#20 8.550 -- blas     | Build BLAS library (not the same thing as Eigen)
+#20 8.550 -- uninstall| Remove files installed by the install target
+#20 8.550 -- ---------+--------------------------------------------------------------
+#20 8.551 -- 
+#20 8.555 -- Configuring done
+#20 12.24 -- Generating done
+#20 12.51 -- Build files have been written to: /src/eigen/build_dir
+#20 12.59 + make install
+#20 13.38 Install the project...
+#20 13.38 -- Install configuration: "Release"
+#20 13.38 -- Installing: /usr/local/include/eigen3/signature_of_eigen3_matrix_library
+#20 13.38 -- Installing: /usr/local/share/pkgconfig/eigen3.pc
+#20 13.38 -- Installing: /usr/local/include/eigen3/Eigen
+#20 13.38 -- Installing: /usr/local/include/eigen3/Eigen/SuperLUSupport
+#20 13.38 -- Installing: /usr/local/include/eigen3/Eigen/Core
+#20 13.38 -- Installing: /usr/local/include/eigen3/Eigen/QtAlignedMalloc
+#20 13.38 -- Installing: /usr/local/include/eigen3/Eigen/Eigenvalues
+#20 13.38 -- Installing: /usr/local/include/eigen3/Eigen/PardisoSupport
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/SparseCholesky
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/SuperLUSupport
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/SuperLUSupport/SuperLUSupport.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/SuperLUSupport/InternalHeaderCheck.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/IndexedView.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Block.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DenseStorage.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SelfAdjointView.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MathFunctions.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ArrayBase.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/BandMatrix.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Matrix.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MapBase.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/NoAlias.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/BooleanRedux.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CoreEvaluators.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ProductEvaluators.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseTernaryOp.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ForceAlignedAccess.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/Parallelizer.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix_BLAS.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixVector.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix_BLAS.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixVector_BLAS.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularSolverMatrix_BLAS.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixMatrix_BLAS.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointProduct.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralBlockPanelKernel.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularSolverMatrix.h
+#20 13.39 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector_BLAS.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixMatrix.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrixTriangular_BLAS.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularSolverVector.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointRank2Update.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector_BLAS.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Reshaped.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/VectorwiseOp.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseBinaryOp.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/NullaryFunctors.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/UnaryFunctors.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/StlFunctors.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/TernaryFunctors.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Ref.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/HIP
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/HIP/hcc
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/HIP/hcc/math_constants.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/MathFunctions.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/TypeCasting.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/Complex.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/PacketMath.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE/MathFunctions.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE/TypeCasting.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE/PacketMath.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/MathFunctions.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/TypeCasting.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/Complex.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/PacketMath.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/Tuple.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MathFunctions.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductMMA.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductCommon.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/Complex.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixVectorProduct.h
+#20 13.40 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/PacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA/MathFunctions.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA/Complex.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA/PacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/MathFunctions.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/PacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/MathFunctions.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/TypeCasting.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/Complex.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/GeneralBlockPanelKernel.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/UnaryFunctors.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/PacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/MathFunctions.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/Complex.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/PacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/MathFunctions.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/TypeCasting.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/InteropHeaders.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/SyclMemoryModel.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/PacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/TypeCasting.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/Half.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/Settings.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/GenericPacketMath.h
+#20 13.41 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Solve.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/NumTraits.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Assign.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseUnaryOp.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Assign_MKL.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SelfCwiseBinaryOp.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ConditionEstimator.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Transpose.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ForwardDeclarations.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/IntegralConstant.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/MKL_support.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Constants.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Macros.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Serializer.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/SymbolicIndex.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Memory.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/BlasUtil.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Meta.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Stride.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Select.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Fuzzy.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Array.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Random.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Transpositions.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseUnaryView.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Inverse.h
+#20 13.42 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Diagonal.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MatrixBase.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CommaInitializer.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Reverse.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SolverBase.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Replicate.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/AssignEvaluator.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/TriangularMatrix.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CoreIterators.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/VectorBlock.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DiagonalMatrix.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/StableNorm.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ArithmeticSequence.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DiagonalProduct.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Swap.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SolveTriangular.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/IO.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DenseBase.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/PlainObjectBase.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Product.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/GeneralProduct.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Redux.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Dot.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Visitor.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/EigenBase.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Map.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/StlIterators.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ReturnByValue.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/GlobalFunctions.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/PermutationMatrix.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/NestByValue.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/InternalHeaderCheck.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ArrayWrapper.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/EigenSolver.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexEigenSolver.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealSchur.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h
+#20 13.43 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver_LAPACKE.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealSchur_LAPACKE.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/Tridiagonalization.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/PardisoSupport
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/PardisoSupport/PardisoSupport.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/PardisoSupport/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky_impl.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/PaStiXSupport
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/PaStiXSupport/PaStiXSupport.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/PaStiXSupport/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/Ordering.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/Eigen_Colamd.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/MetisSupport
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/MetisSupport/MetisSupport.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/MetisSupport/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Jacobi
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Jacobi/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/HouseholderQR.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/HouseholderQR_LAPACKE.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_LAPACKE.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/CompleteOrthogonalDecomposition.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/InternalHeaderCheck.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/LU
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/arch
+#20 13.44 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/arch/InverseSize4.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/Determinant.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/FullPivLU.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/PartialPivLU_LAPACKE.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/InverseImpl.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/InternalHeaderCheck.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/EulerAngles.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/AlignedBox.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Umeyama.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Transform.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Translation.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/arch
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Hyperplane.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/OrthoMethods.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Rotation2D.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Homogeneous.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Scaling.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/ParametrizedLine.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Quaternion.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/AngleAxis.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/InternalHeaderCheck.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/RotationBase.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/LLT.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/LLT_LAPACKE.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/InternalHeaderCheck.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseQR
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseQR/SparseQR.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseQR/InternalHeaderCheck.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparsePermutation.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseTriangularView.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseVector.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseRef.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseSelfAdjointView.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseDiagonalProduct.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseFuzzy.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseAssign.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseUtil.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseView.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseMap.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseRedux.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h
+#20 13.45 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/TriangularSolver.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseCwiseUnaryOp.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseSparseProductWithPruning.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseTranspose.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseDenseProduct.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseColEtree.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseMatrixBase.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseDot.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseCompressedBase.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseSolverBase.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/InternalHeaderCheck.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseBlock.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseProduct.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseMatrix.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SPQRSupport
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SPQRSupport/SuiteSparseQRSupport.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SPQRSupport/InternalHeaderCheck.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_column_bmod.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_kernel_bmod.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_pruneL.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLUImpl.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_panel_dfs.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_SupernodalMatrix.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_relax_snode.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_heap_relax_snode.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_pivotL.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_Structs.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_Memory.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_panel_bmod.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_column_dfs.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_copy_to_ucol.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_Utils.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/InternalHeaderCheck.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_gemm_kernel.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/CholmodSupport
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/CholmodSupport/CholmodSupport.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/CholmodSupport/InternalHeaderCheck.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/misc
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapack.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/Image.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/Kernel.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/RealSvd2x2.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/blas.h
+#20 13.46 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapacke.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapacke_mangling.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapacke_helpers.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/InternalHeaderCheck.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/UmfPackSupport
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/UmfPackSupport/UmfPackSupport.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/UmfPackSupport/InternalHeaderCheck.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/KLUSupport
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/KLUSupport/KLUSupport.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/KLUSupport/InternalHeaderCheck.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/Householder.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/InternalHeaderCheck.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/details.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/StdVector.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/StdDeque.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/StdList.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/BDCSVD.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/JacobiSVD_LAPACKE.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/SVDBase.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/InternalHeaderCheck.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/SolveWithGuess.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/LeastSquareConjugateGradient.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteCholesky.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/InternalHeaderCheck.h
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/PaStiXSupport
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/OrderingMethods
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/MetisSupport
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/Jacobi
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/QR
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/Sparse
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/LU
+#20 13.47 -- Installing: /usr/local/include/eigen3/Eigen/Geometry
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/Eigen
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/Dense
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/StdDeque
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/Cholesky
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/SparseQR
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/SparseCore
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/SPQRSupport
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/StdList
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/SparseLU
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/CholmodSupport
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/UmfPackSupport
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/KLUSupport
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/Householder
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/StdVector
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/SVD
+#20 13.48 -- Installing: /usr/local/include/eigen3/Eigen/IterativeLinearSolvers
+#20 13.48 -- Installing: /usr/local/share/eigen3/cmake/Eigen3Targets.cmake
+#20 13.48 -- Installing: /usr/local/share/eigen3/cmake/Eigen3Config.cmake
+#20 13.48 -- Installing: /usr/local/share/eigen3/cmake/Eigen3ConfigVersion.cmake
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/AdolcForward
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/AlignedVector3
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/ArpackSupport
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/AutoDiff
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/BVH
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/EulerAngles
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/FFT
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/IterativeSolvers
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/KroneckerProduct
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/LevenbergMarquardt
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/MatrixFunctions
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/MoreVectorization
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/MPRealSupport
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/NonLinearOptimization
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/NumericalDiff
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/OpenGLSupport
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/Polynomials
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/Skyline
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/SparseExtra
+#20 13.48 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/SpecialFunctions
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/Splines
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Eigenvalues
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Eigenvalues/ArpackSelfAdjointEigenSolver.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Eigenvalues/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NumericalDiff
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NumericalDiff/NumericalDiff.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NumericalDiff/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LevenbergMarquardt.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMonestep.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMpar.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMcovar.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMqrsolv.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineUtil.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineProduct.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineMatrix.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineStorage.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineMatrixBase.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineInplaceLU.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/KroneckerProduct
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/KroneckerProduct/KroneckerTensorProduct.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/KroneckerProduct/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/Companion.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/PolynomialSolver.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/PolynomialUtils.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MoreVectorization
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MoreVectorization/MathFunctions.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MoreVectorization/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/Spline.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/SplineFwd.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/SplineFitting.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/InternalHeaderCheck.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/LevenbergMarquardt.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/HybridNonLinearSolver.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/r1updt.h
+#20 13.49 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/covar.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/qrsolv.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/r1mpyq.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/lmpar.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/dogleg.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/chkder.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/InternalHeaderCheck.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/rwupdt.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/fdjac1.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH/KdBVH.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH/BVAlgorithms.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH/InternalHeaderCheck.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsHalf.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsHalf.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsArrayAPI.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsBFloat16.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX512
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX512/BesselFunctions.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX512/SpecialFunctions.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/GPU
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/GPU/SpecialFunctions.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX/BesselFunctions.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX/SpecialFunctions.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/NEON
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/NEON/BesselFunctions.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/NEON/SpecialFunctions.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/HipVectorCompatibility.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsFunctors.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsImpl.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsImpl.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsPacketMath.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsFunctors.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsBFloat16.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsPacketMath.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsArrayAPI.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/InternalHeaderCheck.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/BlockSparseMatrix.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/MatrixMarketIterator.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/RandomSetter.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/MarketIO.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/InternalHeaderCheck.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/AutoDiffScalar.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/AutoDiffJacobian.h
+#20 13.50 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/AutoDiffVector.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/InternalHeaderCheck.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixFunction.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixLogarithm.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/StemFunction.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixExponential.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixSquareRoot.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixPower.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/InternalHeaderCheck.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/ConstrainedConjGrad.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/BiCGSTABL.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IncompleteLU.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/GMRES.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/MINRES.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IterationController.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IDRSTABL.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/Scaling.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/DGMRES.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IDRS.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/InternalHeaderCheck.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT/ei_kissfft_impl.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT/ei_fftw_impl.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT/InternalHeaderCheck.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles/EulerAngles.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles/EulerSystem.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles/InternalHeaderCheck.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/Tensor
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/TensorSymmetry
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/ThreadPool
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/Symmetry.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/util
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/util/TemplateGroupTheory.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/StaticSymmetry.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/DynamicSymmetry.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/InternalHeaderCheck.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/EventCount.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/RunQueue.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadLocal.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadPoolInterface.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadEnvironment.h
+#20 13.51 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/NonBlockingThreadPool.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadCancel.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadYield.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/Barrier.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/InternalHeaderCheck.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/EmulateArray.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/MaxSizeVector.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/CXX11Workarounds.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/CXX11Meta.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReverse.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorChipping.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorFFT.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorTraits.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorForwardDeclarations.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorPatch.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorScan.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReductionSycl.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorShuffling.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMacros.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorImagePatch.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionGpu.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorFixedSize.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConversion.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorInitializer.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorFunctors.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReductionGpu.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionBlocking.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorBroadcasting.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorUInt128.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMeta.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorTrace.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorForcedEval.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorPadding.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDevice.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionCuda.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorExpr.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorRef.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorIO.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceSycl.h
+#20 13.52 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionThreadPool.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMorphing.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceDefault.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionSycl.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionMapper.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceCuda.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDimensionList.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorEvalTo.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMap.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorVolumePatch.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorLayoutSwap.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorBlock.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorStriding.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceGpu.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorScanSycl.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorCostModel.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGlobalFunctions.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDimensions.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorCustomOp.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceThreadPool.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContraction.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/Tensor.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorStorage.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorIndexList.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConcatenation.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGenerator.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReduction.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorInflation.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConvolution.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGpuHipCudaDefines.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorArgMax.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorRandom.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorIntDiv.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConvolutionSycl.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGpuHipCudaUndefines.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/InternalHeaderCheck.h
+#20 13.53 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h
+#20 13.54 + cd ..
+#20 13.54 ++ find /src -name '*_fuzzer.cc'
+#20 13.65 + for fuzzers in $(find $SRC -name '*_fuzzer.cc')
+#20 13.65 ++ basename -s .cc /src/basicstuff_fuzzer.cc
+#20 13.65 + fuzz_basename=basicstuff_fuzzer
+#20 13.65 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I. -Isrc/Eigen/Core /src/basicstuff_fuzzer.cc -o /out/basicstuff_fuzzer /libAFL.a
+#20 14.42 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.42 In file included from ./Eigen/Core:19:
+#20 14.42 ./Eigen/src/Core/util/Macros.h:667:2: error: This compiler appears to be too old to be supported by Eigen
+#20 14.42 #error This compiler appears to be too old to be supported by Eigen
+#20 14.42  ^
+#20 14.86 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.86 In file included from ./Eigen/Core:160:
+#20 14.86 ./Eigen/src/Core/util/Meta.h:228:17: error: 'auto' return without trailing return type; deduced return types are a C++14 extension
+#20 14.86 EIGEN_CONSTEXPR auto index_list_size(const T& x) {
+#20 14.86                 ^
+#20 14.86 ./Eigen/src/Core/util/Meta.h:229:18: error: no template named 'common_type_t' in namespace 'std'; did you mean 'common_type'?
+#20 14.86   using R = std::common_type_t<std::ptrdiff_t, std::make_signed_t<decltype(x.size())>>;
+#20 14.86             ~~~~~^~~~~~~~~~~~~
+#20 14.86                  common_type
+#20 14.86 /usr/local/bin/../include/c++/v1/type_traits:2347:29: note: 'common_type' declared here
+#20 14.86 struct _LIBCPP_TEMPLATE_VIS common_type;
+#20 14.86                             ^
+#20 14.87 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.87 In file included from ./Eigen/Core:160:
+#20 14.87 ./Eigen/src/Core/util/Meta.h:229:53: error: no template named 'make_signed_t' in namespace 'std'; did you mean 'make_signed'?
+#20 14.87   using R = std::common_type_t<std::ptrdiff_t, std::make_signed_t<decltype(x.size())>>;
+#20 14.87                                                ~~~~~^~~~~~~~~~~~~
+#20 14.87                                                     make_signed
+#20 14.87 /usr/local/bin/../include/c++/v1/type_traits:2250:29: note: 'make_signed' declared here
+#20 14.87 struct _LIBCPP_TEMPLATE_VIS make_signed
+#20 14.87                             ^
+#20 14.88 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.88 In file included from ./Eigen/Core:160:
+#20 14.88 ./Eigen/src/Core/util/Meta.h:282:38: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.88 using reduce_all = std::is_same<std::integer_sequence<bool, values..., true>,
+#20 14.88                                 ~~~~~^~~~~~~~~~~~~~~~
+#20 14.88                                      __integer_sequence
+#20 14.88 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.88 struct __integer_sequence {
+#20 14.88        ^
+#20 14.88 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.88 In file included from ./Eigen/Core:160:
+#20 14.88 ./Eigen/src/Core/util/Meta.h:283:10: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.88     std::integer_sequence<bool, true, values...> >;
+#20 14.88     ~~~~~^~~~~~~~~~~~~~~~
+#20 14.88          __integer_sequence
+#20 14.88 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.88 struct __integer_sequence {
+#20 14.88        ^
+#20 14.89 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.89 In file included from ./Eigen/Core:160:
+#20 14.89 ./Eigen/src/Core/util/Meta.h:288:24: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.89     !std::is_same<std::integer_sequence<bool, values..., false>, std::integer_sequence<bool, false, values...> >::value>;
+#20 14.89                   ~~~~~^~~~~~~~~~~~~~~~
+#20 14.89                        __integer_sequence
+#20 14.89 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.89 struct __integer_sequence {
+#20 14.89        ^
+#20 14.89 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.89 In file included from ./Eigen/Core:160:
+#20 14.89 ./Eigen/src/Core/util/Meta.h:288:71: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.89     !std::is_same<std::integer_sequence<bool, values..., false>, std::integer_sequence<bool, false, values...> >::value>;
+#20 14.89                                                                  ~~~~~^~~~~~~~~~~~~~~~
+#20 14.89                                                                       __integer_sequence
+#20 14.89 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.89 struct __integer_sequence {
+#20 14.89        ^
+#20 14.90 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.90 In file included from ./Eigen/Core:160:
+#20 14.90 ./Eigen/src/Core/util/Meta.h:465:16: warning: variable templates are a C++14 extension [-Wc++14-extensions]
+#20 14.90 constexpr bool is_int_or_enum_v = std::is_enum<A>::value || std::is_integral<A>::value;
+#20 14.90                ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:493:3: warning: use of this statement in a constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.90   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.90   ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:496:3: warning: multiple return statements in constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.90   return plain_enum_min(a, b);
+#20 14.90   ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:493:37: note: previous return statement is here
+#20 14.90   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.90                                     ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:494:37: note: previous return statement is here
+#20 14.90   if ((int) a == 1 || (int) b == 1) return 1;
+#20 14.90                                     ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:495:49: note: previous return statement is here
+#20 14.90   if ((int) a == Dynamic || (int) b == Dynamic) return Dynamic;
+#20 14.90                                                 ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:509:3: warning: use of this statement in a constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.90   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.90   ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:514:3: warning: multiple return statements in constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.90   return plain_enum_min(a, b);
+#20 14.90   ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:509:37: note: previous return statement is here
+#20 14.90   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.90                                     ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:510:37: note: previous return statement is here
+#20 14.90   if ((int) a == 1 || (int) b == 1) return 1;
+#20 14.90                                     ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:511:49: note: previous return statement is here
+#20 14.90   if ((int) a == Dynamic && (int) b == Dynamic) return Dynamic;
+#20 14.90                                                 ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:512:27: note: previous return statement is here
+#20 14.90   if ((int) a == Dynamic) return (int) b;
+#20 14.90                           ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:513:27: note: previous return statement is here
+#20 14.90   if ((int) b == Dynamic) return (int) a;
+#20 14.90                           ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:522:3: warning: use of this statement in a constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.90   if ((int) a == Dynamic || (int) b == Dynamic) return Dynamic;
+#20 14.90   ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:523:3: warning: multiple return statements in constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.90   return plain_enum_max(a, b);
+#20 14.90   ^
+#20 14.90 ./Eigen/src/Core/util/Meta.h:522:49: note: previous return statement is here
+#20 14.90   if ((int) a == Dynamic || (int) b == Dynamic) return Dynamic;
+#20 14.90                                                 ^
+#20 14.93 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.93 In file included from ./Eigen/Core:165:
+#20 14.93 ./Eigen/src/Core/util/IntegralConstant.h:66:5: warning: use of this statement in a constexpr constructor is a C++14 extension [-Wc++14-extensions]
+#20 14.93     EIGEN_UNUSED_VARIABLE(other);
+#20 14.93     ^
+#20 14.93 ./Eigen/src/Core/util/Macros.h:917:36: note: expanded from macro 'EIGEN_UNUSED_VARIABLE'
+#20 14.93 #define EIGEN_UNUSED_VARIABLE(var) Eigen::internal::ignore_unused_variable(var);
+#20 14.93                                    ^
+#20 14.94 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.94 In file included from ./Eigen/Core:165:
+#20 14.94 ./Eigen/src/Core/util/IntegralConstant.h:186:33: warning: variable templates are a C++14 extension [-Wc++14-extensions]
+#20 14.94 constexpr internal::FixedInt<N> fix{};
+#20 14.94                                 ^
+#20 17.77 9 warnings and 8 errors generated.
+#20 17.79 Traceback (most recent call last):
+#20 17.79   File "<string>", line 1, in <module>
+#20 17.79   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 17.79     utils.build_benchmark()
+#20 17.79   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 17.79     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 17.79   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 17.79     raise CalledProcessError(retcode, cmd)
+#20 17.79 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2751296: .afl-eigen_solver_fuzzer-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:eaabef3bed1ceb9c8e42ba1ae34f5e9caa4c985b7a3cdeb38b05a0d1e71e4d48
+#1 transferring dockerfile: 32B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:591c72c38f343b7ebaf094d40420a499821443fd637c72133f2034c7d2d4ec30
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer
+#4 sha256:7419d54c796b217a267e561dc55daf4af55fb1da99681363b048207b52834062
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:6a07739ace40c1873acfc062e9b373e8bd91843c2cb57d87f07ffe9c9e45592d
+#9 transferring context: 106B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install --yes cmake mercurial
+#6 sha256:bbf0ceb6bd7ee50d30298aae7964fa82fcfe2e6980d997892c3ca1b12a325ed1
+#6 CACHED
+
+#7 [3/5] RUN git clone https://gitlab.com/libeigen/eigen.git
+#7 sha256:3cf3d63549b8d10f2ed92c37c798a1c28377be1f70cd2aed343747ee33b1b288
+#7 CACHED
+
+#8 [4/5] WORKDIR eigen
+#8 sha256:80922b256f934de94dce9bd1a1746b552443cd2cd97bc2a489c3de37712c1a01
+#8 CACHED
+
+#10 [5/5] COPY build.sh *.cc /src/
+#10 sha256:ef0e22fdb617d731230490f91c27c16c46b7422d29dba7642b2d404c2148028b
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:ea334a97743629115cb438b0b3fb6d7e6e67649ee06c960b4d118a0a54696754 0.1s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:11097b595ccd04b7e4b69f90d2328a50eea9c4ee920dcfbb2f2c72bbc0cbf5d6
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:159e14b9f2718885aa56887425ec6cbdef2c29e87349c1488a4d005dcc2ff842
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer:latest
+#3 sha256:82a36af392ffaf565a8201d4ef39a088f9f0566fd8414334c45cf3b9ec9da678
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate
+#4 sha256:70e388139ceeb300ad60fa153f4d86d5deaf2d66e438ee4f7fc7912214b2abc3
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/eigen_solver_fuzzer
+#5 sha256:3b4b8b5227cf677755c1a752d465f16de6ee3ddf986159dd78907160809af4e6
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:9c83276833d532dd7217d1831846fcec695255ecfe720374a8fcb6c8fedbdc92
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c78de88d5d85a8de4a0a568cb36ae1e7988a0588725965801025e2086d201304
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:2815547bf1e2632f8eccd144ee973b56b36ae7c3aea00e425782d9d50bbf838c 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:b43664a50451319e0642f7d9065f8667e95d8cc2f01689de8617c0de58fedda8
+#2 transferring context: 34B done
+#2 DONE 0.3s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:41c246c39954d22f3352ae6ce5700a50209e0b45754b53196429f5de0feae5f4
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:486f75d8fb752707fd4fdf9d1f532958bca30912d00bc51523891fe5a431b3d5
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3a92a1751b03cbf9b971a96e8f9ecc17f4517beb37a4bea5a0c11eebe97f043e
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:501a1e910d83ab0946b60a0250847b86fdca560246b3925e356cbb06abdcfc55
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:62308c5443618a5c1cc80e7a294cf2da5d69aa672ad586369f2297332cfbd54b
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:f00dc9ec5928c0d7a7b3ee0ef94ffeefd5d7632362e4a942cd01cadb5a759f23
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:34f06c4593e4df95dc9039149da5eb791d004e47dd0cfe3bb65e1dc407d6bc53 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2232d54649d99f5cf1b9ee75d7986f907faa508d32d67522428df7c1d8a45541
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d1fb13902aa1934a23622cd4faaee35d489f1acc498efb181bb631e5c4801682
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate:latest
+#3 sha256:554bdb82fd89392006ddeb0df51cec5eeb74d3514504012493d45986cd794792
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2123b9feb9db23933872a82d9486c9a6fc1cd8ac94a1712f106a1b4ae12f1aa4
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer-intermediate
+#6 sha256:fb93280f32d07c52d14e91c99454ffbbf2e0dfb94478115745e1fc266febd52b
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer
+#5 sha256:6c7042f5eaa6a5e609995fcb1bf3d720420bb6db5169ded8869b219bfb8a4a07
+#5 ERROR: gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:2123b9feb9db23933872a82d9486c9a6fc1cd8ac94a1712f106a1b4ae12f1aa4
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:d098f5e933e2beb3656b4ff3ae4a532eec8eeeee56d9d9676ba208083cd503d0
+#10 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/eigen_solver_fuzzer/benchmark.yaml /
+#15 sha256:f41a4944bd29506efa791b93b50ddbd74a2f4560955e694f71c0df5a717babcf
+#15 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:92c0f9f87a871f7b14f3aa45bbd159a25a3d91dc020c9f613aeb7f1c823e8b5b
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:c76b1c9b6903d8ba6f36a99d1b402f5ea6cb1c47c50a6d47db1f191e9ade455a
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:284c2ed1c0ca8c4254648223e9b01f68db802882444f50c272476b8f3e945054
+#14 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:21c448a1683135e38ae701fee688ced657eec595432a42e809cd64d5ea204aac
+#13 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:319c756413292a4943f52781856fcdee7af5d5505d74527cd0a6804aeda68400
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:fe8f50b95b9dedfd81e9618cc85fd401e702f82940351671ab0d6a23e5a9376f
+#16 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:62e1795c36070655a0c4032dc5eb6c85b591ed09cab24830e28f2f31a35d837d
+#17 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:23d93795aa1a20040970b1e575c8f4627580018ad6c123f435f9dcf4bb5ef7a2
+#18 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:16a5f7e6afef57db214515229ccda8c19c4fa66483753ca2b75679094d6121e8
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:3ed1623674704408e6b37513352984b897643b534c202044387017b7338294ea
+#20 0.463 Run fuzzer_build to build the target
+#20 0.575 FUZZ_TARGET = solver_fuzzer
+#20 0.575 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.575 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.585 Building benchmark eigen_solver_fuzzer with fuzzer afl
+#20 0.589 + mkdir build_dir
+#20 0.590 + cd build_dir
+#20 0.590 + cmake ..
+#20 0.804 -- The C compiler identification is Clang 14.0.0
+#20 1.064 -- The CXX compiler identification is Clang 14.0.0
+#20 1.075 -- Detecting C compiler ABI info
+#20 1.230 -- Detecting C compiler ABI info - done
+#20 1.278 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.278 -- Detecting C compile features
+#20 1.279 -- Detecting C compile features - done
+#20 1.285 -- Detecting CXX compiler ABI info
+#20 1.472 -- Detecting CXX compiler ABI info - done
+#20 1.545 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.545 -- Detecting CXX compile features
+#20 1.546 -- Detecting CXX compile features - done
+#20 1.575 -- Performing Test standard_math_library_linked_to_automatically
+#20 1.941 -- Performing Test standard_math_library_linked_to_automatically - Success
+#20 1.941 -- Standard libraries to link to explicitly: none
+#20 1.943 -- Performing Test COMPILER_SUPPORT_WERROR
+#20 2.127 -- Performing Test COMPILER_SUPPORT_WERROR - Success
+#20 2.130 -- Performing Test COMPILER_SUPPORT_pedantic
+#20 2.316 -- Performing Test COMPILER_SUPPORT_pedantic - Success
+#20 2.318 -- Performing Test COMPILER_SUPPORT_Wall
+#20 2.510 -- Performing Test COMPILER_SUPPORT_Wall - Success
+#20 2.512 -- Performing Test COMPILER_SUPPORT_Wextra
+#20 2.703 -- Performing Test COMPILER_SUPPORT_Wextra - Success
+#20 2.705 -- Performing Test COMPILER_SUPPORT_Wundef
+#20 2.903 -- Performing Test COMPILER_SUPPORT_Wundef - Success
+#20 2.906 -- Performing Test COMPILER_SUPPORT_Wcastalign
+#20 3.091 -- Performing Test COMPILER_SUPPORT_Wcastalign - Success
+#20 3.094 -- Performing Test COMPILER_SUPPORT_Wcharsubscripts
+#20 3.277 -- Performing Test COMPILER_SUPPORT_Wcharsubscripts - Success
+#20 3.279 -- Performing Test COMPILER_SUPPORT_Wnonvirtualdtor
+#20 3.464 -- Performing Test COMPILER_SUPPORT_Wnonvirtualdtor - Success
+#20 3.466 -- Performing Test COMPILER_SUPPORT_Wunusedlocaltypedefs
+#20 3.647 -- Performing Test COMPILER_SUPPORT_Wunusedlocaltypedefs - Success
+#20 3.649 -- Performing Test COMPILER_SUPPORT_Wpointerarith
+#20 3.836 -- Performing Test COMPILER_SUPPORT_Wpointerarith - Success
+#20 3.838 -- Performing Test COMPILER_SUPPORT_Wwritestrings
+#20 4.020 -- Performing Test COMPILER_SUPPORT_Wwritestrings - Success
+#20 4.022 -- Performing Test COMPILER_SUPPORT_Wformatsecurity
+#20 4.220 -- Performing Test COMPILER_SUPPORT_Wformatsecurity - Success
+#20 4.222 -- Performing Test COMPILER_SUPPORT_Wshorten64to32
+#20 4.411 -- Performing Test COMPILER_SUPPORT_Wshorten64to32 - Success
+#20 4.413 -- Performing Test COMPILER_SUPPORT_Wlogicalop
+#20 4.450 -- Performing Test COMPILER_SUPPORT_Wlogicalop - Failed
+#20 4.452 -- Performing Test COMPILER_SUPPORT_Wenumconversion
+#20 4.638 -- Performing Test COMPILER_SUPPORT_Wenumconversion - Success
+#20 4.641 -- Performing Test COMPILER_SUPPORT_Wcpp11extensions
+#20 4.824 -- Performing Test COMPILER_SUPPORT_Wcpp11extensions - Success
+#20 4.826 -- Performing Test COMPILER_SUPPORT_Wdoublepromotion
+#20 5.036 -- Performing Test COMPILER_SUPPORT_Wdoublepromotion - Success
+#20 5.037 -- Performing Test COMPILER_SUPPORT_Wshadow
+#20 5.243 -- Performing Test COMPILER_SUPPORT_Wshadow - Success
+#20 5.246 -- Performing Test COMPILER_SUPPORT_Wnopsabi
+#20 5.431 -- Performing Test COMPILER_SUPPORT_Wnopsabi - Success
+#20 5.432 -- Performing Test COMPILER_SUPPORT_Wnovariadicmacros
+#20 5.621 -- Performing Test COMPILER_SUPPORT_Wnovariadicmacros - Success
+#20 5.623 -- Performing Test COMPILER_SUPPORT_Wnolonglong
+#20 5.807 -- Performing Test COMPILER_SUPPORT_Wnolonglong - Success
+#20 5.809 -- Performing Test COMPILER_SUPPORT_fnochecknew
+#20 5.997 -- Performing Test COMPILER_SUPPORT_fnochecknew - Success
+#20 5.999 -- Performing Test COMPILER_SUPPORT_fnocommon
+#20 6.195 -- Performing Test COMPILER_SUPPORT_fnocommon - Success
+#20 6.198 -- Performing Test COMPILER_SUPPORT_fstrictaliasing
+#20 6.381 -- Performing Test COMPILER_SUPPORT_fstrictaliasing - Success
+#20 6.382 -- Performing Test COMPILER_SUPPORT_wd981
+#20 6.419 -- Performing Test COMPILER_SUPPORT_wd981 - Failed
+#20 6.420 -- Performing Test COMPILER_SUPPORT_wd2304
+#20 6.458 -- Performing Test COMPILER_SUPPORT_wd2304 - Failed
+#20 6.460 -- Performing Test COMPILER_SUPPORT_OPENMP
+#20 6.663 -- Performing Test COMPILER_SUPPORT_OPENMP - Success
+#20 6.690 -- Found unsuitable Qt version "" from NOTFOUND
+#20 6.877 -- Looking for a Fortran compiler
+#20 6.931 -- Looking for a Fortran compiler - NOTFOUND
+#20 7.108 -- Looking for pthread.h
+#20 7.282 -- Looking for pthread.h - found
+#20 7.283 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 7.450 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 7.453 -- Found Threads: TRUE  
+#20 7.574 -- Could NOT find CHOLMOD (missing: CHOLMOD_INCLUDES CHOLMOD_LIBRARIES) 
+#20 7.578 -- Could NOT find UMFPACK (missing: UMFPACK_INCLUDES UMFPACK_LIBRARIES) 
+#20 7.581 -- Could NOT find KLU (missing: KLU_INCLUDES KLU_LIBRARIES) 
+#20 7.590 -- Could NOT find SuperLU (missing: SUPERLU_INCLUDES SUPERLU_LIBRARIES SUPERLU_VERSION_OK) (Required is at least version "4.0")
+#20 7.600 -- A version of Pastix has been found but pastix_nompi.h does not exist in the include directory. Because Eigen tests require a version without MPI, we disable the Pastix backend.
+#20 7.603 -- Could NOT find SPQR (missing: SPQR_INCLUDES SPQR_LIBRARIES) 
+#20 7.609 -- Found unsuitable Qt version "" from NOTFOUND
+#20 7.972 -- Performing Test COMPILER_SUPPORT_FASTMATH
+#20 8.160 -- Performing Test COMPILER_SUPPORT_FASTMATH - Success
+#20 8.203 -- Could NOT find Boost (missing: Boost_INCLUDE_DIR) (Required is at least version "1.53.0")
+#20 8.211 CUDA_TOOLKIT_ROOT_DIR not found or specified
+#20 8.222 -- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) (Required is at least version "9.0")
+#20 8.277 -- Could NOT find GoogleHash (missing: GOOGLEHASH_INCLUDES GOOGLEHASH_COMPILE) 
+#20 8.280 -- Could NOT find Adolc (missing: ADOLC_INCLUDES ADOLC_LIBRARIES) 
+#20 8.314 -- Could NOT find MPFR (missing: MPFR_INCLUDES MPFR_LIBRARIES MPFR_VERSION_OK) (Required is at least version "1.0.0")
+#20 8.320 -- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+#20 8.446 CUDA_TOOLKIT_ROOT_DIR not found or specified
+#20 8.455 -- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) (Required is at least version "9.0")
+#20 8.468 -- Found unsuitable Qt version "" from NOTFOUND
+#20 8.468 -- Qt4 not found, so disabling the mandelbrot and opengl demos
+#20 8.474 -- Could NOT find CLANG_FORMAT: Found unsuitable version "0.0", but required is exact version "9" (found CLANG_FORMAT_EXECUTABLE-NOTFOUND)
+#20 8.478 -- Could NOT find CHOLMOD (missing: CHOLMOD_INCLUDES CHOLMOD_LIBRARIES) 
+#20 8.482 -- Could NOT find UMFPACK (missing: UMFPACK_INCLUDES UMFPACK_LIBRARIES) 
+#20 8.484 -- Could NOT find KLU (missing: KLU_INCLUDES KLU_LIBRARIES) 
+#20 8.493 -- Could NOT find SuperLU (missing: SUPERLU_INCLUDES SUPERLU_LIBRARIES SUPERLU_VERSION_OK) (Required is at least version "4.0")
+#20 8.503 -- A version of Pastix has been found but pastix_nompi.h does not exist in the include directory. Because Eigen tests require a version without MPI, we disable the Pastix backend.
+#20 8.504 -- ************************************************************
+#20 8.504 -- ***    Eigen's unit tests configuration summary          ***
+#20 8.504 -- ************************************************************
+#20 8.504 -- 
+#20 8.504 -- Build type:        Release
+#20 8.504 -- Build site:        buildkitsandbox
+#20 8.504 -- Build string:      linux-5.13.0-28-generic-llvm-clang++-14.0.0-sse2-64bit
+#20 8.504 -- Enabled backends:  
+#20 8.504 -- Disabled backends: CHOLMOD,  UMFPACK,  KLU,  SuperLU,  PaStiX,  METIS,  SPQR,  Qt4 support,  Boost.Multiprecision,  GoogleHash,  Adolc,  MPFR C++,  fftw,  OpenGL, 
+#20 8.504 -- Default order:     Column-major
+#20 8.504 -- Maximal matrix/vector size: 320
+#20 8.504 -- SSE2:              Using architecture defaults
+#20 8.504 -- SSE3:              Using architecture defaults
+#20 8.504 -- SSSE3:             Using architecture defaults
+#20 8.504 -- SSE4.1:            Using architecture defaults
+#20 8.504 -- SSE4.2:            Using architecture defaults
+#20 8.504 -- AVX:               Using architecture defaults
+#20 8.504 -- AVX2:              Using architecture defaults
+#20 8.504 -- FMA:               Using architecture defaults
+#20 8.504 -- AVX512:            Using architecture defaults
+#20 8.504 -- AVX512DQ:          Using architecture defaults
+#20 8.504 -- Altivec:           Using architecture defaults
+#20 8.504 -- VSX:               Using architecture defaults
+#20 8.504 -- MIPS MSA:          Using architecture defaults
+#20 8.505 -- ARM NEON:          Using architecture defaults
+#20 8.505 -- ARMv8 NEON:        Using architecture defaults
+#20 8.505 -- S390X ZVECTOR:     Using architecture defaults
+#20 8.505 -- SYCL:              OFF
+#20 8.505 -- CUDA:              OFF
+#20 8.505 -- HIP:               OFF
+#20 8.505 -- 
+#20 8.505 CXX:               /usr/local/bin/clang++
+#20 8.505  CXX_FLAGS:         -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wshorten-64-to-32 -Wenum-conversion -Wc++11-extensions -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing
+#20 8.505  Sparse lib flags:   
+#20 8.505 
+#20 8.505 -- ************************************************************
+#20 8.505 -- 
+#20 8.505 -- Configured Eigen 3.4.90
+#20 8.505 -- 
+#20 8.505 -- Available targets (use: make TARGET):
+#20 8.505 -- ---------+--------------------------------------------------------------
+#20 8.505 -- Target   |   Description
+#20 8.505 -- ---------+--------------------------------------------------------------
+#20 8.505 -- install  | Install Eigen. Headers will be installed to:
+#20 8.505 --          |     <CMAKE_INSTALL_PREFIX>/<INCLUDE_INSTALL_DIR>
+#20 8.505 --          |   Using the following values:
+#20 8.505 --          |     CMAKE_INSTALL_PREFIX: /usr/local
+#20 8.505 --          |     INCLUDE_INSTALL_DIR:  include/eigen3
+#20 8.505 --          |   Change the install location of Eigen headers using:
+#20 8.505 --          |     cmake . -DCMAKE_INSTALL_PREFIX=yourprefix
+#20 8.505 --          |   Or:
+#20 8.505 --          |     cmake . -DINCLUDE_INSTALL_DIR=yourdir
+#20 8.505 -- doc      | Generate the API documentation, requires Doxygen & LaTeX
+#20 8.505 -- check    | Build and run the unit-tests. Read this page:
+#20 8.505 --          |   http://eigen.tuxfamily.org/index.php?title=Tests
+#20 8.505 -- blas     | Build BLAS library (not the same thing as Eigen)
+#20 8.505 -- uninstall| Remove files installed by the install target
+#20 8.505 -- ---------+--------------------------------------------------------------
+#20 8.505 -- 
+#20 8.509 -- Configuring done
+#20 12.11 -- Generating done
+#20 12.37 -- Build files have been written to: /src/eigen/build_dir
+#20 12.45 + make install
+#20 13.22 Install the project...
+#20 13.22 -- Install configuration: "Release"
+#20 13.22 -- Installing: /usr/local/include/eigen3/signature_of_eigen3_matrix_library
+#20 13.22 -- Installing: /usr/local/share/pkgconfig/eigen3.pc
+#20 13.22 -- Installing: /usr/local/include/eigen3/Eigen
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/SuperLUSupport
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/Core
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/QtAlignedMalloc
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/Eigenvalues
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/PardisoSupport
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/SparseCholesky
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/SuperLUSupport
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/SuperLUSupport/SuperLUSupport.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/SuperLUSupport/InternalHeaderCheck.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/IndexedView.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Block.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DenseStorage.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SelfAdjointView.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MathFunctions.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ArrayBase.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/BandMatrix.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Matrix.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MapBase.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/NoAlias.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/BooleanRedux.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CoreEvaluators.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ProductEvaluators.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseTernaryOp.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ForceAlignedAccess.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/Parallelizer.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix_BLAS.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixVector.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix_BLAS.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixVector_BLAS.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularSolverMatrix_BLAS.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixMatrix_BLAS.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointProduct.h
+#20 13.23 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralBlockPanelKernel.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularSolverMatrix.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixVector_BLAS.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularMatrixMatrix.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrixTriangular_BLAS.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/TriangularSolverVector.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointRank2Update.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector_BLAS.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Reshaped.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/VectorwiseOp.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseBinaryOp.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/NullaryFunctors.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/UnaryFunctors.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/StlFunctors.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/functors/TernaryFunctors.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Ref.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/HIP
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/HIP/hcc
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/HIP/hcc/math_constants.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/MathFunctions.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/TypeCasting.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/Complex.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/PacketMath.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE/MathFunctions.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE/TypeCasting.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SVE/PacketMath.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/MathFunctions.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/TypeCasting.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/Complex.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/PacketMath.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/GPU/Tuple.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MathFunctions.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductMMA.h
+#20 13.24 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductCommon.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/Complex.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixVectorProduct.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/PacketMath.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA/MathFunctions.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA/Complex.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/MSA/PacketMath.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/MathFunctions.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/PacketMath.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/MathFunctions.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/TypeCasting.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/Complex.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/GeneralBlockPanelKernel.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/UnaryFunctors.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/PacketMath.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/MathFunctions.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/Complex.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/PacketMath.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/MathFunctions.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/TypeCasting.h
+#20 13.25 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/InteropHeaders.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/SyclMemoryModel.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/PacketMath.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/TypeCasting.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/Half.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/Settings.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/GenericPacketMath.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Solve.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/NumTraits.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Assign.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseUnaryOp.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Assign_MKL.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SelfCwiseBinaryOp.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ConditionEstimator.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Transpose.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ForwardDeclarations.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/IntegralConstant.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/MKL_support.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Constants.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Macros.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Serializer.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/NonMPL2.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/SymbolicIndex.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Memory.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/BlasUtil.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/util/Meta.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Stride.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Select.h
+#20 13.26 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Fuzzy.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Array.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Random.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Transpositions.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CwiseUnaryView.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Inverse.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Diagonal.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MatrixBase.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CommaInitializer.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Reverse.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SolverBase.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Replicate.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/AssignEvaluator.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/TriangularMatrix.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/CoreIterators.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/VectorBlock.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DiagonalMatrix.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/StableNorm.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ArithmeticSequence.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DiagonalProduct.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Swap.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/SolveTriangular.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/IO.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/DenseBase.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/PlainObjectBase.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Product.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/GeneralProduct.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Redux.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Dot.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Visitor.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/EigenBase.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/Map.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/StlIterators.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ReturnByValue.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/GlobalFunctions.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/PermutationMatrix.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/NestByValue.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/InternalHeaderCheck.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Core/ArrayWrapper.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/EigenSolver.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexEigenSolver.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h
+#20 13.27 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealSchur.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver_LAPACKE.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealSchur_LAPACKE.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/Tridiagonalization.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/plugins/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/PardisoSupport
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/PardisoSupport/PardisoSupport.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/PardisoSupport/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCholesky/SimplicialCholesky_impl.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/PaStiXSupport
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/PaStiXSupport/PaStiXSupport.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/PaStiXSupport/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/Ordering.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/Amd.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/Eigen_Colamd.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/OrderingMethods/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/MetisSupport
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/MetisSupport/MetisSupport.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/MetisSupport/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Jacobi
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Jacobi/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/Jacobi/Jacobi.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/HouseholderQR.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/HouseholderQR_LAPACKE.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR_LAPACKE.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/CompleteOrthogonalDecomposition.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/QR/InternalHeaderCheck.h
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/LU
+#20 13.28 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/PartialPivLU.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/arch
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/arch/InverseSize4.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/Determinant.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/FullPivLU.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/PartialPivLU_LAPACKE.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/InverseImpl.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/LU/InternalHeaderCheck.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/EulerAngles.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/AlignedBox.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Umeyama.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Transform.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Translation.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/arch
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Hyperplane.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/OrthoMethods.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Rotation2D.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Homogeneous.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Scaling.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/ParametrizedLine.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/Quaternion.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/AngleAxis.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/InternalHeaderCheck.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Geometry/RotationBase.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/LLT.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/LDLT.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/LLT_LAPACKE.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/Cholesky/InternalHeaderCheck.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseQR
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseQR/SparseQR.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseQR/InternalHeaderCheck.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparsePermutation.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseTriangularView.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseVector.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseRef.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseSelfAdjointView.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseDiagonalProduct.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseFuzzy.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseAssign.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseUtil.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseView.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseMap.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseRedux.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseCwiseBinaryOp.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/TriangularSolver.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseCwiseUnaryOp.h
+#20 13.29 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseSparseProductWithPruning.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseTranspose.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/AmbiVector.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseDenseProduct.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseColEtree.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseMatrixBase.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseDot.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseCompressedBase.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseSolverBase.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/InternalHeaderCheck.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseBlock.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseProduct.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/SparseMatrix.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseCore/CompressedStorage.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SPQRSupport
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SPQRSupport/SuiteSparseQRSupport.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SPQRSupport/InternalHeaderCheck.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_column_bmod.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_kernel_bmod.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_pruneL.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLUImpl.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_panel_dfs.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_SupernodalMatrix.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_relax_snode.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_heap_relax_snode.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_pivotL.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_Structs.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_Memory.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_panel_bmod.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_column_dfs.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_copy_to_ucol.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_Utils.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/InternalHeaderCheck.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/SparseLU/SparseLU_gemm_kernel.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/CholmodSupport
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/CholmodSupport/CholmodSupport.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/CholmodSupport/InternalHeaderCheck.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/misc
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapack.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/Image.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/Kernel.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/RealSvd2x2.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/blas.h
+#20 13.30 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapacke.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapacke_mangling.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/lapacke_helpers.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/misc/InternalHeaderCheck.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/UmfPackSupport
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/UmfPackSupport/UmfPackSupport.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/UmfPackSupport/InternalHeaderCheck.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/KLUSupport
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/KLUSupport/KLUSupport.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/KLUSupport/InternalHeaderCheck.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/HouseholderSequence.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/Householder.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/Householder/InternalHeaderCheck.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/details.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/StdVector.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/StdDeque.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/StlSupport/StdList.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/BDCSVD.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/JacobiSVD_LAPACKE.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/UpperBidiagonalization.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/JacobiSVD.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/SVDBase.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/SVD/InternalHeaderCheck.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/SolveWithGuess.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/LeastSquareConjugateGradient.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteCholesky.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/src/IterativeLinearSolvers/InternalHeaderCheck.h
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/PaStiXSupport
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/OrderingMethods
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/MetisSupport
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/Jacobi
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/QR
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/Sparse
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/LU
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/Geometry
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/Eigen
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/Dense
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/StdDeque
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/Cholesky
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/SparseQR
+#20 13.31 -- Installing: /usr/local/include/eigen3/Eigen/SparseCore
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/SPQRSupport
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/StdList
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/SparseLU
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/CholmodSupport
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/UmfPackSupport
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/KLUSupport
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/Householder
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/StdVector
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/SVD
+#20 13.32 -- Installing: /usr/local/include/eigen3/Eigen/IterativeLinearSolvers
+#20 13.32 -- Installing: /usr/local/share/eigen3/cmake/Eigen3Targets.cmake
+#20 13.32 -- Installing: /usr/local/share/eigen3/cmake/Eigen3Config.cmake
+#20 13.32 -- Installing: /usr/local/share/eigen3/cmake/Eigen3ConfigVersion.cmake
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/AdolcForward
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/AlignedVector3
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/ArpackSupport
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/AutoDiff
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/BVH
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/EulerAngles
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/FFT
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/IterativeSolvers
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/KroneckerProduct
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/LevenbergMarquardt
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/MatrixFunctions
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/MoreVectorization
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/MPRealSupport
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/NonLinearOptimization
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/NumericalDiff
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/OpenGLSupport
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/Polynomials
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/Skyline
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/SparseExtra
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/SpecialFunctions
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/Splines
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Eigenvalues
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Eigenvalues/ArpackSelfAdjointEigenSolver.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Eigenvalues/InternalHeaderCheck.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NumericalDiff
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NumericalDiff/NumericalDiff.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NumericalDiff/InternalHeaderCheck.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LevenbergMarquardt.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMonestep.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMpar.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMcovar.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/LMqrsolv.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/LevenbergMarquardt/InternalHeaderCheck.h
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline
+#20 13.32 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineUtil.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineProduct.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineMatrix.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineStorage.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineMatrixBase.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/SkylineInplaceLU.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Skyline/InternalHeaderCheck.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/KroneckerProduct
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/KroneckerProduct/KroneckerTensorProduct.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/KroneckerProduct/InternalHeaderCheck.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/Companion.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/PolynomialSolver.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/PolynomialUtils.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/InternalHeaderCheck.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MoreVectorization
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MoreVectorization/MathFunctions.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MoreVectorization/InternalHeaderCheck.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/Spline.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/SplineFwd.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/SplineFitting.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/Splines/InternalHeaderCheck.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/LevenbergMarquardt.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/HybridNonLinearSolver.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/r1updt.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/covar.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/qrsolv.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/r1mpyq.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/lmpar.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/dogleg.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/chkder.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/InternalHeaderCheck.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/rwupdt.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/fdjac1.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH/KdBVH.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH/BVAlgorithms.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/BVH/InternalHeaderCheck.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsHalf.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsHalf.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsArrayAPI.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsBFloat16.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX512
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX512/BesselFunctions.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX512/SpecialFunctions.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/GPU
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/GPU/SpecialFunctions.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX/BesselFunctions.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/AVX/SpecialFunctions.h
+#20 13.33 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/NEON
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/NEON/BesselFunctions.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/arch/NEON/SpecialFunctions.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/HipVectorCompatibility.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsFunctors.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsImpl.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsImpl.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsPacketMath.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsFunctors.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/SpecialFunctionsBFloat16.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsPacketMath.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/BesselFunctionsArrayAPI.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SpecialFunctions/InternalHeaderCheck.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/BlockSparseMatrix.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/MatrixMarketIterator.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/RandomSetter.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/MarketIO.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/SparseExtra/InternalHeaderCheck.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/AutoDiffScalar.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/AutoDiffJacobian.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/AutoDiffVector.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/AutoDiff/InternalHeaderCheck.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixFunction.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixLogarithm.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/StemFunction.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixExponential.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixSquareRoot.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/MatrixPower.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/MatrixFunctions/InternalHeaderCheck.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/ConstrainedConjGrad.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/BiCGSTABL.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IncompleteLU.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/GMRES.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/MINRES.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IterationController.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IDRSTABL.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/Scaling.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/DGMRES.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/IDRS.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/IterativeSolvers/InternalHeaderCheck.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT/ei_kissfft_impl.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT/ei_fftw_impl.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/FFT/InternalHeaderCheck.h
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles
+#20 13.34 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles/EulerAngles.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles/EulerSystem.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/src/EulerAngles/InternalHeaderCheck.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/Tensor
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/TensorSymmetry
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/ThreadPool
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/Symmetry.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/util
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/util/TemplateGroupTheory.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/StaticSymmetry.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/DynamicSymmetry.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/TensorSymmetry/InternalHeaderCheck.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/EventCount.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/RunQueue.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadLocal.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadPoolInterface.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadEnvironment.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/NonBlockingThreadPool.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadCancel.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/ThreadYield.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/Barrier.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/ThreadPool/InternalHeaderCheck.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/EmulateArray.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/MaxSizeVector.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/CXX11Workarounds.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/util/CXX11Meta.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReverse.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorChipping.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorAssign.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorFFT.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorTraits.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorForwardDeclarations.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorPatch.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorScan.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReductionSycl.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorShuffling.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMacros.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorImagePatch.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionGpu.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorFixedSize.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConversion.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorInitializer.h
+#20 13.35 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorFunctors.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReductionGpu.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionBlocking.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorBroadcasting.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorUInt128.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMeta.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorBase.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorTrace.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorForcedEval.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorPadding.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDevice.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionCuda.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorExpr.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorRef.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorIO.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceSycl.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionThreadPool.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMorphing.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceDefault.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionSycl.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContractionMapper.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceCuda.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDimensionList.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorEvalTo.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorMap.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorEvaluator.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorVolumePatch.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorLayoutSwap.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorBlock.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorStriding.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceGpu.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorScanSycl.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorCostModel.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGlobalFunctions.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDimensions.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorCustomOp.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorDeviceThreadPool.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorContraction.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/Tensor.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorStorage.h
+#20 13.36 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorIndexList.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConcatenation.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGenerator.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorReduction.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorInflation.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConvolution.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGpuHipCudaDefines.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorArgMax.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorRandom.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorIntDiv.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorConvolutionSycl.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorGpuHipCudaUndefines.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/InternalHeaderCheck.h
+#20 13.37 -- Installing: /usr/local/include/eigen3/unsupported/Eigen/CXX11/src/Tensor/TensorExecutor.h
+#20 13.37 + cd ..
+#20 13.37 ++ find /src -name '*_fuzzer.cc'
+#20 13.47 + for fuzzers in $(find $SRC -name '*_fuzzer.cc')
+#20 13.48 ++ basename -s .cc /src/basicstuff_fuzzer.cc
+#20 13.48 + fuzz_basename=basicstuff_fuzzer
+#20 13.48 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I. -Isrc/Eigen/Core /src/basicstuff_fuzzer.cc -o /out/basicstuff_fuzzer /libAFL.a
+#20 14.24 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.24 In file included from ./Eigen/Core:19:
+#20 14.24 ./Eigen/src/Core/util/Macros.h:667:2: error: This compiler appears to be too old to be supported by Eigen
+#20 14.24 #error This compiler appears to be too old to be supported by Eigen
+#20 14.24  ^
+#20 14.69 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.69 In file included from ./Eigen/Core:160:
+#20 14.69 ./Eigen/src/Core/util/Meta.h:228:17: error: 'auto' return without trailing return type; deduced return types are a C++14 extension
+#20 14.69 EIGEN_CONSTEXPR auto index_list_size(const T& x) {
+#20 14.69                 ^
+#20 14.70 ./Eigen/src/Core/util/Meta.h:229:18: error: no template named 'common_type_t' in namespace 'std'; did you mean 'common_type'?
+#20 14.70   using R = std::common_type_t<std::ptrdiff_t, std::make_signed_t<decltype(x.size())>>;
+#20 14.70             ~~~~~^~~~~~~~~~~~~
+#20 14.70                  common_type
+#20 14.70 /usr/local/bin/../include/c++/v1/type_traits:2347:29: note: 'common_type' declared here
+#20 14.70 struct _LIBCPP_TEMPLATE_VIS common_type;
+#20 14.70                             ^
+#20 14.70 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.70 In file included from ./Eigen/Core:160:
+#20 14.70 ./Eigen/src/Core/util/Meta.h:229:53: error: no template named 'make_signed_t' in namespace 'std'; did you mean 'make_signed'?
+#20 14.70   using R = std::common_type_t<std::ptrdiff_t, std::make_signed_t<decltype(x.size())>>;
+#20 14.70                                                ~~~~~^~~~~~~~~~~~~
+#20 14.70                                                     make_signed
+#20 14.70 /usr/local/bin/../include/c++/v1/type_traits:2250:29: note: 'make_signed' declared here
+#20 14.70 struct _LIBCPP_TEMPLATE_VIS make_signed
+#20 14.70                             ^
+#20 14.71 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.71 In file included from ./Eigen/Core:160:
+#20 14.71 ./Eigen/src/Core/util/Meta.h:282:38: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.71 using reduce_all = std::is_same<std::integer_sequence<bool, values..., true>,
+#20 14.71                                 ~~~~~^~~~~~~~~~~~~~~~
+#20 14.71                                      __integer_sequence
+#20 14.71 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.71 struct __integer_sequence {
+#20 14.71        ^
+#20 14.71 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.71 In file included from ./Eigen/Core:160:
+#20 14.71 ./Eigen/src/Core/util/Meta.h:283:10: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.71     std::integer_sequence<bool, true, values...> >;
+#20 14.71     ~~~~~^~~~~~~~~~~~~~~~
+#20 14.71          __integer_sequence
+#20 14.71 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.71 struct __integer_sequence {
+#20 14.71        ^
+#20 14.72 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.72 In file included from ./Eigen/Core:160:
+#20 14.72 ./Eigen/src/Core/util/Meta.h:288:24: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.72     !std::is_same<std::integer_sequence<bool, values..., false>, std::integer_sequence<bool, false, values...> >::value>;
+#20 14.72                   ~~~~~^~~~~~~~~~~~~~~~
+#20 14.72                        __integer_sequence
+#20 14.72 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.72 struct __integer_sequence {
+#20 14.72        ^
+#20 14.73 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.73 In file included from ./Eigen/Core:160:
+#20 14.73 ./Eigen/src/Core/util/Meta.h:288:71: error: no template named 'integer_sequence' in namespace 'std'; did you mean '__integer_sequence'?
+#20 14.73     !std::is_same<std::integer_sequence<bool, values..., false>, std::integer_sequence<bool, false, values...> >::value>;
+#20 14.73                                                                  ~~~~~^~~~~~~~~~~~~~~~
+#20 14.73                                                                       __integer_sequence
+#20 14.73 /usr/local/bin/../include/c++/v1/__tuple:89:8: note: '__integer_sequence' declared here
+#20 14.73 struct __integer_sequence {
+#20 14.73        ^
+#20 14.73 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.73 In file included from ./Eigen/Core:160:
+#20 14.73 ./Eigen/src/Core/util/Meta.h:465:16: warning: variable templates are a C++14 extension [-Wc++14-extensions]
+#20 14.73 constexpr bool is_int_or_enum_v = std::is_enum<A>::value || std::is_integral<A>::value;
+#20 14.73                ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:493:3: warning: use of this statement in a constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.73   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.73   ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:496:3: warning: multiple return statements in constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.73   return plain_enum_min(a, b);
+#20 14.73   ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:493:37: note: previous return statement is here
+#20 14.73   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.73                                     ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:494:37: note: previous return statement is here
+#20 14.73   if ((int) a == 1 || (int) b == 1) return 1;
+#20 14.73                                     ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:495:49: note: previous return statement is here
+#20 14.73   if ((int) a == Dynamic || (int) b == Dynamic) return Dynamic;
+#20 14.73                                                 ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:509:3: warning: use of this statement in a constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.73   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.73   ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:514:3: warning: multiple return statements in constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.73   return plain_enum_min(a, b);
+#20 14.73   ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:509:37: note: previous return statement is here
+#20 14.73   if ((int) a == 0 || (int) b == 0) return 0;
+#20 14.73                                     ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:510:37: note: previous return statement is here
+#20 14.73   if ((int) a == 1 || (int) b == 1) return 1;
+#20 14.73                                     ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:511:49: note: previous return statement is here
+#20 14.73   if ((int) a == Dynamic && (int) b == Dynamic) return Dynamic;
+#20 14.73                                                 ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:512:27: note: previous return statement is here
+#20 14.73   if ((int) a == Dynamic) return (int) b;
+#20 14.73                           ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:513:27: note: previous return statement is here
+#20 14.73   if ((int) b == Dynamic) return (int) a;
+#20 14.73                           ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:522:3: warning: use of this statement in a constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.73   if ((int) a == Dynamic || (int) b == Dynamic) return Dynamic;
+#20 14.73   ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:523:3: warning: multiple return statements in constexpr function is a C++14 extension [-Wc++14-extensions]
+#20 14.73   return plain_enum_max(a, b);
+#20 14.73   ^
+#20 14.73 ./Eigen/src/Core/util/Meta.h:522:49: note: previous return statement is here
+#20 14.73   if ((int) a == Dynamic || (int) b == Dynamic) return Dynamic;
+#20 14.73                                                 ^
+#20 14.76 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.76 In file included from ./Eigen/Core:165:
+#20 14.76 ./Eigen/src/Core/util/IntegralConstant.h:66:5: warning: use of this statement in a constexpr constructor is a C++14 extension [-Wc++14-extensions]
+#20 14.76     EIGEN_UNUSED_VARIABLE(other);
+#20 14.76     ^
+#20 14.76 ./Eigen/src/Core/util/Macros.h:917:36: note: expanded from macro 'EIGEN_UNUSED_VARIABLE'
+#20 14.76 #define EIGEN_UNUSED_VARIABLE(var) Eigen::internal::ignore_unused_variable(var);
+#20 14.76                                    ^
+#20 14.76 In file included from /src/basicstuff_fuzzer.cc:17:
+#20 14.76 In file included from ./Eigen/Core:165:
+#20 14.76 ./Eigen/src/Core/util/IntegralConstant.h:186:33: warning: variable templates are a C++14 extension [-Wc++14-extensions]
+#20 14.76 constexpr internal::FixedInt<N> fix{};
+#20 14.76                                 ^
+#20 17.59 9 warnings and 8 errors generated.
+#20 17.61 Traceback (most recent call last):
+#20 17.61   File "<string>", line 1, in <module>
+#20 17.61   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 17.61     utils.build_benchmark()
+#20 17.61   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 17.61     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 17.61   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 17.61     raise CalledProcessError(retcode, cmd)
+#20 17.61 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/eigen_solver_fuzzer:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2751296: .afl-eigen_solver_fuzzer-builder] Error 1

@@ -1,0 +1,940 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: jsoncpp_json_proto_converter.
+INFO:root:Please run "make test-run-afl-jsoncpp_json_proto_converter" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:19705557a1e48f75672549e7c406445f73061ee4ad0a567f569e0d60bfb632a8
+#1 transferring dockerfile: 1.16kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:fa9c4a8261d5581ae2f984907d438caf6923ed67d9e923dd0c8867b854538f0f
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#4 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#4 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:eec4ef7d29d217cae227e6f2741922052896b43a5f222d3ee18daec9b183313e
+#9 DONE 0.0s
+
+#11 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter
+#11 sha256:9abbae859ada7bb35471ab178fa8d91d31bd29ff7ae69e78fd0680dc08e23d27
+#11 ERROR: gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter:latest: not found
+
+#9 [internal] load build context
+#9 sha256:eec4ef7d29d217cae227e6f2741922052896b43a5f222d3ee18daec9b183313e
+#9 transferring context: 1.10kB done
+#9 DONE 0.0s
+
+#8 [5/6] WORKDIR jsoncpp
+#8 sha256:cbdff4815e92ea4ac5ee595d948ecdc8a4c82534f193905decaff43ab403797d
+#8 CACHED
+
+#5 [2/6] RUN apt-get update && apt-get install -y build-essential make curl wget
+#5 sha256:3087e187513d77ecc1535537a06f4c9d39c13aadd99e1447149bf0fa3a8174d8
+#5 CACHED
+
+#6 [3/6] RUN wget https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-Linux-x86_64.sh;     chmod +x cmake-3.14.5-Linux-x86_64.sh;     ./cmake-3.14.5-Linux-x86_64.sh --skip-license --prefix="/usr/local"
+#6 sha256:dd422adc272c30e53b499de68f70257a97e0eed141ae50a710b2ed82a669f320
+#6 CACHED
+
+#7 [4/6] RUN git clone --depth 1 https://github.com/open-source-parsers/jsoncpp
+#7 sha256:65152877d7189f4ce98c67fadc12167f49541f74674f53a252f575a98f1d797f
+#7 CACHED
+
+#10 [6/6] COPY build.sh /src/
+#10 sha256:95cc4cce54d34c7c1f6dd3351d29d2af5586df1c56644715df350e800703f7f9
+#10 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:37a00d7e4076cd1705f8642c5681bbd7c5e9e787442977251a1dfe97f639d324 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:36681f7e642652c0c7234d3e886c314a64c506eaf26ad54472f1ed479ba50717
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:41e591a74482f3181ebdf338763d72cca0e76a6e2874c8d97af3ada491180a6b
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter:latest
+#3 sha256:4276b096fa484530916537902334f90a1514c3b307e0e72ec5758a707fc2263c
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter
+#7 sha256:20d8b6b3cfcb463fb3647ad0a18dfbed3f49d09fe0d2e427ed7c0f2fdc10519d
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate
+#4 sha256:68fa25b5d5681e5eb14511e09c6640a5686fa56593a435470c34f0f57929e2b6
+#4 ERROR: gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:d595b4cca4a04e5d9f195691f60392b614d7f46093ec41851777568aa44c0bb8
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:5b6bab4dc0d47abe87ad7b2226e1cbae1ca895bd11217c499c8144ed7b728f14
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:7d3c6be3fd8edb4136d7c1cde233c425f6580d8c3a742c6aaeb7f6f2c7c5ef8e done
+#8 naming to gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:3e27e9ced2ee4cc5d62ae9ef4de39c0ae821ccae1e6e50501db03bd5cef68618
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2344b5f04d4cd28c0d660f1940fccbe8abf8ef7af3938fd051bcedca8523b384
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#12 importing cache manifest from gcr.io/fuzzbench/base-image
+#12 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#12 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/ubuntu:xenial
+#4 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#4 DONE 0.0s
+
+#7 [internal] load build context
+#7 sha256:702f5100f5e2130b6d4b0aac3e85455511d2c5a22315382b63717a1a713c0ed1
+#7 transferring context: 559B 0.0s done
+#7 DONE 0.1s
+
+#6 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#6 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#6 CACHED
+
+#8 [4/7] COPY ./requirements.txt /
+#8 sha256:06bfe29fc463ffb37531023f49bdbdb34a5f7886408bf93167b5388800c01284
+#8 CACHED
+
+#5 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#5 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#5 CACHED
+
+#9 [5/7] RUN pip3 install -r /requirements.txt
+#9 sha256:013c656a5129b96ca18f6a8d41c190363eb02aa72c7db1eebe78e0296f21c344
+#9 CACHED
+
+#10 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#10 sha256:39b9226f07ce232fdfb3f6f13ecbbe67335760399204cf5c8324d4799ea55d83
+#10 CACHED
+
+#11 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#11 sha256:a25a0484d9d59b4027a3046479d64ceece0f8ced06094a3095e0998e085290c1
+#11 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:e1fa3f275ef7ad2553590e7204281a5a2ad685bd7462476fda6757b0aea51a9c done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:faa50c66383a24b4899ed52d28bbf2152e4877b530a4c71026ef2afb604cdf75
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f4ec30ab6a2409a620cfa38c926ccddf4784efff9400e630d6a3415f99009612
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate:latest
+#4 sha256:502bbb9155700ec758df16cc521095a6bcf137dd6ae355cb696959dd1e8d6cc7
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:3c386c4a1503b8e8e6d5501475bc7d6e804671f85ff11075de5f1caecce3a43b
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate
+#6 sha256:972adc4933c03360a1d376212d71aa08ca8d989615ce53ea256072b7a7cb9195
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter
+#5 sha256:fdbadc7a7ffe85ed74f1fc8a6749b3649b875c3c2e487526df6fdf69e238daf0
+#5 ERROR: gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter:latest: not found
+
+#12 [internal] load build context
+#12 sha256:3c386c4a1503b8e8e6d5501475bc7d6e804671f85ff11075de5f1caecce3a43b
+#12 transferring context: 669.91kB 0.2s done
+#12 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:4a90a47e6b20616bf227dc269dd8120263f4ac993e6bf06470e992b4bac82cf7
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:7a254415d3f720873f6e0424630e197a52ec98e97540fb3f6ddd961efe697adf
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:754558f35bcf1f9e32ca8954173eb9273ffa55a05affec05c8b44d0098bf56a0
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:8a4f97dc2661f608a6c1d842cdcf7115d838a1bd47401901073497452ef3fa29
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:ca3fb0c67eac2db07080b7416f0e614eca2ba010efe3b10f6abd7e3dca29ee3b
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:482f4e7859ad393064875100fb373d64c393419ba44a286de8eb7665350bb4b1
+#14 DONE 1.8s
+
+#15 [stage-1  8/13] COPY benchmarks/jsoncpp_json_proto_converter/benchmark.yaml /
+#15 sha256:a0ae14af4f3a6a4eb5e863bc92ea46a241c762c796b2f87926c77bb2a4274454
+#15 DONE 0.3s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:812c6ce5954b801ff056e18d55113d8c2fc34614755f6b920d7bb9d8f605f9bb
+#16 DONE 1.2s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:9906bd42f7eeefc0a9b267ba02162701b523bec4020c6a3a86d05cddd6457115
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:6e655a9e880260d69646e20f757f6c7ae7650d9a674111757bd37c6b0445a5eb
+#18 1.388 Checking out commit 71f4914c
+#18 4.080 From https://github.com/open-source-parsers/jsoncpp
+#18 4.081  * [new tag]         1.0.0      -> 1.0.0
+#18 4.081  * [new tag]         1.1.0      -> 1.1.0
+#18 4.082  * [new tag]         1.2.0      -> 1.2.0
+#18 4.082  * [new tag]         1.3.0      -> 1.3.0
+#18 4.083  * [new tag]         1.4.0      -> 1.4.0
+#18 4.084  * [new tag]         1.4.1      -> 1.4.1
+#18 4.084  * [new tag]         1.4.2      -> 1.4.2
+#18 4.085  * [new tag]         1.4.3      -> 1.4.3
+#18 4.085  * [new tag]         1.4.4      -> 1.4.4
+#18 4.086  * [new tag]         1.5.4      -> 1.5.4
+#18 4.087  * [new tag]         1.6.0      -> 1.6.0
+#18 4.088  * [new tag]         1.6.1      -> 1.6.1
+#18 4.088  * [new tag]         1.6.2      -> 1.6.2
+#18 4.089  * [new tag]         1.6.5      -> 1.6.5
+#18 4.090  * [new tag]         1.7.0      -> 1.7.0
+#18 4.091  * [new tag]         1.7.1      -> 1.7.1
+#18 4.091  * [new tag]         1.7.2      -> 1.7.2
+#18 4.092  * [new tag]         1.7.3      -> 1.7.3
+#18 4.093  * [new tag]         1.7.4      -> 1.7.4
+#18 4.094  * [new tag]         1.7.5      -> 1.7.5
+#18 4.094  * [new tag]         1.7.6      -> 1.7.6
+#18 4.095  * [new tag]         1.7.7      -> 1.7.7
+#18 4.096  * [new tag]         1.8.0      -> 1.8.0
+#18 4.096  * [new tag]         1.8.1      -> 1.8.1
+#18 4.097  * [new tag]         1.8.2      -> 1.8.2
+#18 4.098  * [new tag]         1.8.3      -> 1.8.3
+#18 4.099  * [new tag]         1.8.4      -> 1.8.4
+#18 4.099  * [new tag]         1.9.0      -> 1.9.0
+#18 4.100  * [new tag]         1.9.1      -> 1.9.1
+#18 4.101  * [new tag]         1.9.2      -> 1.9.2
+#18 4.102  * [new tag]         1.9.3      -> 1.9.3
+#18 4.102  * [new tag]         1.9.4      -> 1.9.4
+#18 4.103  * [new tag]         1.9.5      -> 1.9.5
+#18 4.104  * [new tag]         svn-import -> svn-import
+#18 4.114 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 4.122 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 4.134 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 4.242 Checkout unsuccessful.
+#18 DONE 4.5s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:04b98587e3044285927c87ca757f40754e46e0d32a3319ad736b0a4b57847d36
+#19 DONE 1.3s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:f2e10fbe6defacef6a10b3d345102d14399a6c08a1dc5a7fd476675d5f6be171
+#20 1.153 Run fuzzer_build to build the target
+#20 1.434 FUZZ_TARGET = json_proto_converter
+#20 1.434 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.434 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.445 Building benchmark jsoncpp_json_proto_converter with fuzzer afl
+#20 1.450 + mkdir -p build
+#20 1.453 + cd build
+#20 1.454 + cmake -DCMAKE_CXX_COMPILER=clang++ '-DCMAKE_CXX_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard' -DBUILD_SHARED_LIBS=OFF -G 'Unix Makefiles' ..
+#20 1.953 -- The CXX compiler identification is Clang 14.0.0
+#20 1.971 -- Check for working CXX compiler: /usr/local/bin/clang++
+#20 2.398 -- Check for working CXX compiler: /usr/local/bin/clang++ -- works
+#20 2.401 -- Detecting CXX compiler ABI info
+#20 2.779 -- Detecting CXX compiler ABI info - done
+#20 2.843 -- Detecting CXX compile features
+#20 5.398 -- Detecting CXX compile features - done
+#20 5.400 -- JsonCpp Version: 1.9.5
+#20 5.444 -- Looking for C++ include clocale
+#20 5.889 -- Looking for C++ include clocale - found
+#20 5.890 -- Looking for localeconv
+#20 6.348 -- Looking for localeconv - found
+#20 6.349 -- Looking for C++ include sys/types.h
+#20 6.797 -- Looking for C++ include sys/types.h - found
+#20 6.799 -- Looking for C++ include stdint.h
+#20 7.214 -- Looking for C++ include stdint.h - found
+#20 7.219 -- Looking for C++ include stddef.h
+#20 7.671 -- Looking for C++ include stddef.h - found
+#20 7.672 -- Check size of lconv
+#20 8.159 -- Check size of lconv - done
+#20 8.160 -- Performing Test HAVE_DECIMAL_POINT
+#20 8.605 -- Performing Test HAVE_DECIMAL_POINT - Success
+#20 9.057 -- Found Python3: /usr/local/bin/python3.8 (found version "3.8.6") found components:  Interpreter 
+#20 9.069 -- Configuring done
+#20 9.148 -- Generating done
+#20 9.163 -- Build files have been written to: /src/jsoncpp/build
+#20 9.168 + make
+#20 9.227 Scanning dependencies of target jsoncpp_object
+#20 9.249 [  7%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_reader.cpp.o
+#20 20.37 [ 15%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_value.cpp.o
+#20 28.09 [ 23%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_writer.cpp.o
+#20 34.54 [ 23%] Built target jsoncpp_object
+#20 34.56 Scanning dependencies of target jsoncpp_static
+#20 34.56 [ 30%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_reader.cpp.o
+#20 45.66 [ 38%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_value.cpp.o
+#20 53.48 [ 46%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_writer.cpp.o
+#20 59.83 [ 53%] Linking CXX static library ../../lib/libjsoncpp.a
+#20 60.05 [ 53%] Built target jsoncpp_static
+#20 60.07 Scanning dependencies of target jsontestrunner_exe
+#20 60.08 [ 61%] Building CXX object src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o
+#20 65.26 [ 69%] Linking CXX executable ../../bin/jsontestrunner_exe
+#20 65.89 [ 69%] Built target jsontestrunner_exe
+#20 65.91 Scanning dependencies of target jsoncpp_test
+#20 65.92 [ 76%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/jsontest.cpp.o
+#20 72.39 [ 84%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/fuzz.cpp.o
+#20 75.05 [ 92%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/main.cpp.o
+#20 100.8 [100%] Linking CXX executable ../../bin/jsoncpp_test
+#20 101.6 Testing ValueTest/checkNormalizeFloatingPointStr: OK
+#20 101.6 Testing ValueTest/memberCount: OK
+#20 101.6 Testing ValueTest/objects: OK
+#20 101.6 Testing ValueTest/arrays: OK
+#20 101.6 Testing ValueTest/resizeArray: OK
+#20 101.6 Testing ValueTest/resizePopulatesAllMissingElements: OK
+#20 101.6 Testing ValueTest/getArrayValue: OK
+#20 101.6 Testing ValueTest/arrayIssue252: OK
+#20 101.6 Testing ValueTest/arrayInsertAtRandomIndex: OK
+#20 101.6 Testing ValueTest/null: OK
+#20 101.6 Testing ValueTest/strings: OK
+#20 101.6 Testing ValueTest/bools: OK
+#20 101.6 Testing ValueTest/integers: OK
+#20 101.6 Testing ValueTest/nonIntegers: OK
+#20 101.6 Testing ValueTest/compareNull: OK
+#20 101.6 Testing ValueTest/compareInt: OK
+#20 101.6 Testing ValueTest/compareUInt: OK
+#20 101.6 Testing ValueTest/compareDouble: OK
+#20 101.6 Testing ValueTest/compareString: OK
+#20 101.6 Testing ValueTest/compareBoolean: OK
+#20 101.6 Testing ValueTest/compareArray: OK
+#20 101.6 Testing ValueTest/compareObject: OK
+#20 101.6 Testing ValueTest/compareType: OK
+#20 101.6 Testing ValueTest/CopyObject: OK
+#20 101.6 Testing ValueTest/typeChecksThrowExceptions: OK
+#20 101.6 Testing ValueTest/offsetAccessors: OK
+#20 101.6 Testing ValueTest/StaticString: OK
+#20 101.6 Testing ValueTest/WideString: OK
+#20 101.6 Testing ValueTest/CommentBefore: OK
+#20 101.6 Testing ValueTest/zeroes: OK
+#20 101.6 Testing ValueTest/zeroesInKeys: OK
+#20 101.6 Testing ValueTest/specialFloats: OK
+#20 101.6 Testing ValueTest/precision: OK
+#20 101.6 Testing ValueTest/searchValueByPath: OK
+#20 101.6 Testing FastWriterTest/dropNullPlaceholders: OK
+#20 101.6 Testing FastWriterTest/enableYAMLCompatibility: OK
+#20 101.6 Testing FastWriterTest/omitEndingLineFeed: OK
+#20 101.6 Testing FastWriterTest/writeNumericValue: OK
+#20 101.6 Testing FastWriterTest/writeArrays: OK
+#20 101.6 Testing FastWriterTest/writeNestedObjects: OK
+#20 101.6 Testing StyledWriterTest/writeNumericValue: OK
+#20 101.6 Testing StyledWriterTest/writeArrays: OK
+#20 101.6 Testing StyledWriterTest/writeNestedObjects: OK
+#20 101.6 Testing StyledWriterTest/multiLineArray: OK
+#20 101.6 Testing StyledWriterTest/writeValueWithComment: OK
+#20 101.6 Testing StyledStreamWriterTest/writeNumericValue: OK
+#20 101.6 Testing StyledStreamWriterTest/writeArrays: OK
+#20 101.6 Testing StyledStreamWriterTest/writeNestedObjects: OK
+#20 101.6 Testing StyledStreamWriterTest/multiLineArray: OK
+#20 101.6 Testing StyledStreamWriterTest/writeValueWithComment: OK
+#20 101.6 Testing StreamWriterTest/writeNumericValue: OK
+#20 101.6 Testing StreamWriterTest/writeArrays: OK
+#20 101.6 Testing StreamWriterTest/writeNestedObjects: OK
+#20 101.6 Testing StreamWriterTest/multiLineArray: OK
+#20 101.6 Testing StreamWriterTest/dropNullPlaceholders: OK
+#20 101.6 Testing StreamWriterTest/enableYAMLCompatibility: OK
+#20 101.6 Testing StreamWriterTest/indentation: OK
+#20 101.6 Testing StreamWriterTest/writeZeroes: OK
+#20 101.6 Testing StreamWriterTest/unicode: OK
+#20 101.6 Testing StreamWriterTest/escapeControlCharacters: OK
+#20 101.6 Testing ReaderTest/parseWithNoErrors: OK
+#20 101.6 Testing ReaderTest/parseObject: OK
+#20 101.6 Testing ReaderTest/parseArray: OK
+#20 101.6 Testing ReaderTest/parseString: OK
+#20 101.6 Testing ReaderTest/parseComment: OK
+#20 101.6 Testing ReaderTest/streamParseWithNoErrors: OK
+#20 101.6 Testing ReaderTest/parseWithNoErrorsTestingOffsets: OK
+#20 101.6 Testing ReaderTest/parseWithOneError: OK
+#20 101.6 Testing ReaderTest/parseSpecialFloat: OK
+#20 101.6 Testing ReaderTest/strictModeParseNumber: OK
+#20 101.6 Testing ReaderTest/parseChineseWithOneError: OK
+#20 101.6 Testing ReaderTest/parseWithDetailError: OK
+#20 101.6 Testing ReaderTest/pushErrorTest: OK
+#20 101.6 Testing ReaderTest/allowNumericKeysTest: OK
+#20 101.6 Testing CharReaderTest/parseWithNoErrors: OK
+#20 101.6 Testing CharReaderTest/parseWithNoErrorsTestingOffsets: OK
+#20 101.6 Testing CharReaderTest/parseNumber: OK
+#20 101.6 Testing CharReaderTest/parseString: OK
+#20 101.6 Testing CharReaderTest/parseComment: OK
+#20 101.6 Testing CharReaderTest/parseObjectWithErrors: OK
+#20 101.6 Testing CharReaderTest/parseArrayWithErrors: OK
+#20 101.6 Testing CharReaderTest/parseWithOneError: OK
+#20 101.6 Testing CharReaderTest/parseChineseWithOneError: OK
+#20 101.6 Testing CharReaderTest/parseWithDetailError: OK
+#20 101.6 Testing CharReaderTest/parseWithStackLimit: OK
+#20 101.6 Testing CharReaderTest/testOperator: OK
+#20 101.6 Testing CharReaderStrictModeTest/dupKeys: OK
+#20 101.6 Testing CharReaderFailIfExtraTest/issue164: OK
+#20 101.6 Testing CharReaderFailIfExtraTest/issue107: OK
+#20 101.6 Testing CharReaderFailIfExtraTest/commentAfterObject: OK
+#20 101.6 Testing CharReaderFailIfExtraTest/commentAfterArray: OK
+#20 101.6 Testing CharReaderFailIfExtraTest/commentAfterBool: OK
+#20 101.6 Testing CharReaderFailIfExtraTest/parseComment: OK
+#20 101.6 Testing CharReaderAllowDropNullTest/issue178: OK
+#20 101.6 Testing CharReaderAllowNumericKeysTest/allowNumericKeys: OK
+#20 101.6 Testing CharReaderAllowSingleQuotesTest/issue182: OK
+#20 101.6 Testing CharReaderAllowZeroesTest/issue176: OK
+#20 101.6 Testing CharReaderAllowSpecialFloatsTest/specialFloat: OK
+#20 101.6 Testing CharReaderAllowSpecialFloatsTest/issue209: OK
+#20 101.6 Testing EscapeSequenceTest/readerParseEscapeSequence: OK
+#20 101.6 Testing EscapeSequenceTest/charReaderParseEscapeSequence: OK
+#20 101.6 Testing EscapeSequenceTest/writeEscapeSequence: OK
+#20 101.6 Testing BuilderTest/settings: OK
+#20 101.6 Testing BomTest/skipBom: OK
+#20 101.6 Testing BomTest/notSkipBom: OK
+#20 101.6 Testing IteratorTest/convert: OK
+#20 101.6 Testing IteratorTest/decrement: OK
+#20 101.6 Testing IteratorTest/reverseIterator: OK
+#20 101.6 Testing IteratorTest/distance: OK
+#20 101.6 Testing IteratorTest/nullValues: OK
+#20 101.6 Testing IteratorTest/staticStringKey: OK
+#20 101.6 Testing IteratorTest/names: OK
+#20 101.6 Testing IteratorTest/indexes: OK
+#20 101.6 Testing IteratorTest/constness: OK
+#20 101.6 Testing RValueTest/moveConstruction: OK
+#20 101.6 Testing FuzzTest/fuzzDoesntCrash: OK
+#20 101.6 Testing MemberTemplateAs/BehavesSameAsNamedAs: OK
+#20 101.6 Testing MemberTemplateIs/BehavesSameAsNamedIs: OK
+#20 101.6 Testing VersionTest/VersionNumbersMatch: OK
+#20 101.6 All 119 tests passed
+#20 101.6 [100%] Built target jsoncpp_test
+#20 101.6 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I../include /libAFL.a ../src/test_lib_json/fuzz.cpp -o /out/jsoncpp_fuzzer src/lib_json/libjsoncpp.a
+#20 101.6 clang-14: error: no such file or directory: 'src/lib_json/libjsoncpp.a'
+#20 101.6 Traceback (most recent call last):
+#20 101.6   File "<string>", line 1, in <module>
+#20 101.6   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 101.6     utils.build_benchmark()
+#20 101.6   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 101.6     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 101.6   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 101.6     raise CalledProcessError(retcode, cmd)
+#20 101.6 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2834471: .afl-jsoncpp_json_proto_converter-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e4efa06ed4ba9ccbc7ce4cfb5fb4ecc9382b34f375b8d48b2f65b039287c96a7
+#1 transferring dockerfile: 32B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:8ee63023e08e0fc5070806664457e7caa3e823dfd7d9ed4ae1572bbae3eba507
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#10 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#10 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#10 DONE 0.0s
+
+#9 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter
+#9 sha256:9abbae859ada7bb35471ab178fa8d91d31bd29ff7ae69e78fd0680dc08e23d27
+#9 DONE 0.0s
+
+#11 [internal] load build context
+#11 sha256:c866536da5a65ae108b2388c30177227a7cf2b8980672e22d376e8d738b5197d
+#11 transferring context: 30B done
+#11 DONE 0.0s
+
+#6 [4/6] RUN git clone --depth 1 https://github.com/open-source-parsers/jsoncpp
+#6 sha256:65152877d7189f4ce98c67fadc12167f49541f74674f53a252f575a98f1d797f
+#6 CACHED
+
+#7 [5/6] WORKDIR jsoncpp
+#7 sha256:cbdff4815e92ea4ac5ee595d948ecdc8a4c82534f193905decaff43ab403797d
+#7 CACHED
+
+#4 [2/6] RUN apt-get update && apt-get install -y build-essential make curl wget
+#4 sha256:3087e187513d77ecc1535537a06f4c9d39c13aadd99e1447149bf0fa3a8174d8
+#4 CACHED
+
+#5 [3/6] RUN wget https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-Linux-x86_64.sh;     chmod +x cmake-3.14.5-Linux-x86_64.sh;     ./cmake-3.14.5-Linux-x86_64.sh --skip-license --prefix="/usr/local"
+#5 sha256:dd422adc272c30e53b499de68f70257a97e0eed141ae50a710b2ed82a669f320
+#5 CACHED
+
+#8 [6/6] COPY build.sh /src/
+#8 sha256:4170a71f53a36fe389fb871a973214dcac015c0cdb7af75b093b11c96c9ed53c
+#8 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:37a00d7e4076cd1705f8642c5681bbd7c5e9e787442977251a1dfe97f639d324
+#12 writing image sha256:37a00d7e4076cd1705f8642c5681bbd7c5e9e787442977251a1dfe97f639d324 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a249119ad7154fdd49073066b2b7cb135b1135ca0f595911402de3574ff5af17
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:178dad3b125d056a8390cc555789342ee8ee60f7d52877e233dce3b8b438d65d
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter:latest
+#3 sha256:4276b096fa484530916537902334f90a1514c3b307e0e72ec5758a707fc2263c
+#3 DONE 0.0s
+
+#7 importing cache manifest from gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate
+#7 sha256:68fa25b5d5681e5eb14511e09c6640a5686fa56593a435470c34f0f57929e2b6
+#7 DONE 0.0s
+
+#6 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/jsoncpp_json_proto_converter
+#6 sha256:20d8b6b3cfcb463fb3647ad0a18dfbed3f49d09fe0d2e427ed7c0f2fdc10519d
+#6 DONE 0.0s
+
+#4 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#4 sha256:d595b4cca4a04e5d9f195691f60392b614d7f46093ec41851777568aa44c0bb8
+#4 CACHED
+
+#5 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#5 sha256:5b6bab4dc0d47abe87ad7b2226e1cbae1ca895bd11217c499c8144ed7b728f14
+#5 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:7d3c6be3fd8edb4136d7c1cde233c425f6580d8c3a742c6aaeb7f6f2c7c5ef8e done
+#8 naming to gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c336f5de25945766cf5ee9ae08169a79f82cf699ffc8bb60b8b7dbfa6dc87be6
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:059cb7e9847d6f888b4fb4c1f6039821dfd451c5b5386e83e7f11f1e8e3bf107
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:6885797507e67d246a0f55ac5402c44027bc563c6ac8cd7ad908c80db9161416
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:449b77238f470a8411cef6c29e8d195c378ee8931ff9a667cb8f41b3399ec4f4
+#9 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:a3f2b80b9cf67d6b413b27710ebe4f264f2fcaee69462a1ed68b9f4c0dbeb018
+#11 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:547a0b31e75506b8e7dc2e6b58fe8acd03861373ff9c2bb5dfaf1deb336b4a48
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:bb9ba0a713ab7f2e1acd499d2abc7a57dd207a679f941a74bb50d0bda2272e55
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:e1fa3f275ef7ad2553590e7204281a5a2ad685bd7462476fda6757b0aea51a9c
+#13 writing image sha256:e1fa3f275ef7ad2553590e7204281a5a2ad685bd7462476fda6757b0aea51a9c done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5f593c416e8b44200ec9df4954a4d28f8c6ac3c4a5947ab8c12fdc7435cf5408
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:685d5ef0a79f21d7abcee4f80f7ceaed30e425d87f6023d7b06aeba8ae889be0
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate:latest
+#3 sha256:502bbb9155700ec758df16cc521095a6bcf137dd6ae355cb696959dd1e8d6cc7
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:5f3586a78db7bec29c295fe480675ff1f2c397631269b111f0cb303f17689917
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter-intermediate
+#6 sha256:972adc4933c03360a1d376212d71aa08ca8d989615ce53ea256072b7a7cb9195
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter
+#5 sha256:fdbadc7a7ffe85ed74f1fc8a6749b3649b875c3c2e487526df6fdf69e238daf0
+#5 ERROR: gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter:latest: not found
+
+#12 [internal] load build context
+#12 sha256:5f3586a78db7bec29c295fe480675ff1f2c397631269b111f0cb303f17689917
+#12 transferring context: 669.91kB 0.2s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:754558f35bcf1f9e32ca8954173eb9273ffa55a05affec05c8b44d0098bf56a0
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:74ac2e8223a23f1120d856704da63e3b4f2c32387be52d7aa5a30703ba97c599
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:77d7533aa7428a4dd1b58d525affe9ad40ecd3607b02b1d03d4a8a1a0437c1c8
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:f45fd5e455c3a31394d390f63c90627a624c8dadcac7293a5c1c826660584b69
+#18 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:4a90a47e6b20616bf227dc269dd8120263f4ac993e6bf06470e992b4bac82cf7
+#8 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/jsoncpp_json_proto_converter/benchmark.yaml /
+#15 sha256:b576cf8fea2fe2f7b79ee7b77b8158f0cb9677d30c605ccc50303aeb87c43861
+#15 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:9131fec0cdd6d9d63fc57d5682fe0ced6c7db791295e17d56d799c048af5f7f3
+#13 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:7a254415d3f720873f6e0424630e197a52ec98e97540fb3f6ddd961efe697adf
+#9 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:5c0f894c11b60ef17fb0b5262ceef6a23d9a8f610503ef6570fb4cae50c2b471
+#17 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:8a4f97dc2661f608a6c1d842cdcf7115d838a1bd47401901073497452ef3fa29
+#11 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:ae3bfeea9074673a7761df6981efae6059c5cae84419c345cdc173e6b4e87a26
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:ef21708f1123c52a6c1f769b5b60913d36b3223b7c1790b9f323e82a9114055b
+#20 1.306 Run fuzzer_build to build the target
+#20 1.557 FUZZ_TARGET = json_proto_converter
+#20 1.557 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.557 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.567 Building benchmark jsoncpp_json_proto_converter with fuzzer afl
+#20 1.572 + mkdir -p build
+#20 1.579 + cd build
+#20 1.579 + cmake -DCMAKE_CXX_COMPILER=clang++ '-DCMAKE_CXX_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard' -DBUILD_SHARED_LIBS=OFF -G 'Unix Makefiles' ..
+#20 2.074 -- The CXX compiler identification is Clang 14.0.0
+#20 2.096 -- Check for working CXX compiler: /usr/local/bin/clang++
+#20 2.502 -- Check for working CXX compiler: /usr/local/bin/clang++ -- works
+#20 2.505 -- Detecting CXX compiler ABI info
+#20 2.940 -- Detecting CXX compiler ABI info - done
+#20 3.008 -- Detecting CXX compile features
+#20 5.701 -- Detecting CXX compile features - done
+#20 5.703 -- JsonCpp Version: 1.9.5
+#20 5.736 -- Looking for C++ include clocale
+#20 6.185 -- Looking for C++ include clocale - found
+#20 6.186 -- Looking for localeconv
+#20 6.617 -- Looking for localeconv - found
+#20 6.619 -- Looking for C++ include sys/types.h
+#20 7.046 -- Looking for C++ include sys/types.h - found
+#20 7.047 -- Looking for C++ include stdint.h
+#20 7.497 -- Looking for C++ include stdint.h - found
+#20 7.499 -- Looking for C++ include stddef.h
+#20 7.963 -- Looking for C++ include stddef.h - found
+#20 7.964 -- Check size of lconv
+#20 8.511 -- Check size of lconv - done
+#20 8.513 -- Performing Test HAVE_DECIMAL_POINT
+#20 8.971 -- Performing Test HAVE_DECIMAL_POINT - Success
+#20 9.434 -- Found Python3: /usr/local/bin/python3.8 (found version "3.8.6") found components:  Interpreter 
+#20 9.445 -- Configuring done
+#20 9.531 -- Generating done
+#20 9.546 -- Build files have been written to: /src/jsoncpp/build
+#20 9.551 + make
+#20 9.600 Scanning dependencies of target jsoncpp_object
+#20 9.614 [  7%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_reader.cpp.o
+#20 20.75 [ 15%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_value.cpp.o
+#20 28.39 [ 23%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_object.dir/json_writer.cpp.o
+#20 34.77 [ 23%] Built target jsoncpp_object
+#20 34.79 Scanning dependencies of target jsoncpp_static
+#20 34.80 [ 30%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_reader.cpp.o
+#20 45.80 [ 38%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_value.cpp.o
+#20 53.54 [ 46%] Building CXX object src/lib_json/CMakeFiles/jsoncpp_static.dir/json_writer.cpp.o
+#20 59.87 [ 53%] Linking CXX static library ../../lib/libjsoncpp.a
+#20 59.97 [ 53%] Built target jsoncpp_static
+#20 60.02 Scanning dependencies of target jsontestrunner_exe
+#20 60.04 [ 61%] Building CXX object src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o
+#20 65.24 [ 69%] Linking CXX executable ../../bin/jsontestrunner_exe
+#20 65.90 [ 69%] Built target jsontestrunner_exe
+#20 65.92 Scanning dependencies of target jsoncpp_test
+#20 65.93 [ 76%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/jsontest.cpp.o
+#20 72.42 [ 84%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/fuzz.cpp.o
+#20 75.12 [ 92%] Building CXX object src/test_lib_json/CMakeFiles/jsoncpp_test.dir/main.cpp.o
+#20 100.5 [100%] Linking CXX executable ../../bin/jsoncpp_test
+#20 101.3 Testing ValueTest/checkNormalizeFloatingPointStr: OK
+#20 101.3 Testing ValueTest/memberCount: OK
+#20 101.3 Testing ValueTest/objects: OK
+#20 101.3 Testing ValueTest/arrays: OK
+#20 101.3 Testing ValueTest/resizeArray: OK
+#20 101.3 Testing ValueTest/resizePopulatesAllMissingElements: OK
+#20 101.3 Testing ValueTest/getArrayValue: OK
+#20 101.3 Testing ValueTest/arrayIssue252: OK
+#20 101.3 Testing ValueTest/arrayInsertAtRandomIndex: OK
+#20 101.3 Testing ValueTest/null: OK
+#20 101.3 Testing ValueTest/strings: OK
+#20 101.3 Testing ValueTest/bools: OK
+#20 101.3 Testing ValueTest/integers: OK
+#20 101.3 Testing ValueTest/nonIntegers: OK
+#20 101.3 Testing ValueTest/compareNull: OK
+#20 101.3 Testing ValueTest/compareInt: OK
+#20 101.3 Testing ValueTest/compareUInt: OK
+#20 101.3 Testing ValueTest/compareDouble: OK
+#20 101.3 Testing ValueTest/compareString: OK
+#20 101.3 Testing ValueTest/compareBoolean: OK
+#20 101.3 Testing ValueTest/compareArray: OK
+#20 101.3 Testing ValueTest/compareObject: OK
+#20 101.3 Testing ValueTest/compareType: OK
+#20 101.3 Testing ValueTest/CopyObject: OK
+#20 101.3 Testing ValueTest/typeChecksThrowExceptions: OK
+#20 101.3 Testing ValueTest/offsetAccessors: OK
+#20 101.3 Testing ValueTest/StaticString: OK
+#20 101.3 Testing ValueTest/WideString: OK
+#20 101.3 Testing ValueTest/CommentBefore: OK
+#20 101.3 Testing ValueTest/zeroes: OK
+#20 101.3 Testing ValueTest/zeroesInKeys: OK
+#20 101.3 Testing ValueTest/specialFloats: OK
+#20 101.3 Testing ValueTest/precision: OK
+#20 101.3 Testing ValueTest/searchValueByPath: OK
+#20 101.3 Testing FastWriterTest/dropNullPlaceholders: OK
+#20 101.3 Testing FastWriterTest/enableYAMLCompatibility: OK
+#20 101.3 Testing FastWriterTest/omitEndingLineFeed: OK
+#20 101.3 Testing FastWriterTest/writeNumericValue: OK
+#20 101.3 Testing FastWriterTest/writeArrays: OK
+#20 101.3 Testing FastWriterTest/writeNestedObjects: OK
+#20 101.3 Testing StyledWriterTest/writeNumericValue: OK
+#20 101.3 Testing StyledWriterTest/writeArrays: OK
+#20 101.3 Testing StyledWriterTest/writeNestedObjects: OK
+#20 101.3 Testing StyledWriterTest/multiLineArray: OK
+#20 101.3 Testing StyledWriterTest/writeValueWithComment: OK
+#20 101.3 Testing StyledStreamWriterTest/writeNumericValue: OK
+#20 101.3 Testing StyledStreamWriterTest/writeArrays: OK
+#20 101.3 Testing StyledStreamWriterTest/writeNestedObjects: OK
+#20 101.3 Testing StyledStreamWriterTest/multiLineArray: OK
+#20 101.3 Testing StyledStreamWriterTest/writeValueWithComment: OK
+#20 101.3 Testing StreamWriterTest/writeNumericValue: OK
+#20 101.3 Testing StreamWriterTest/writeArrays: OK
+#20 101.3 Testing StreamWriterTest/writeNestedObjects: OK
+#20 101.3 Testing StreamWriterTest/multiLineArray: OK
+#20 101.3 Testing StreamWriterTest/dropNullPlaceholders: OK
+#20 101.3 Testing StreamWriterTest/enableYAMLCompatibility: OK
+#20 101.3 Testing StreamWriterTest/indentation: OK
+#20 101.3 Testing StreamWriterTest/writeZeroes: OK
+#20 101.3 Testing StreamWriterTest/unicode: OK
+#20 101.3 Testing StreamWriterTest/escapeControlCharacters: OK
+#20 101.3 Testing ReaderTest/parseWithNoErrors: OK
+#20 101.3 Testing ReaderTest/parseObject: OK
+#20 101.3 Testing ReaderTest/parseArray: OK
+#20 101.3 Testing ReaderTest/parseString: OK
+#20 101.3 Testing ReaderTest/parseComment: OK
+#20 101.3 Testing ReaderTest/streamParseWithNoErrors: OK
+#20 101.3 Testing ReaderTest/parseWithNoErrorsTestingOffsets: OK
+#20 101.3 Testing ReaderTest/parseWithOneError: OK
+#20 101.3 Testing ReaderTest/parseSpecialFloat: OK
+#20 101.3 Testing ReaderTest/strictModeParseNumber: OK
+#20 101.3 Testing ReaderTest/parseChineseWithOneError: OK
+#20 101.3 Testing ReaderTest/parseWithDetailError: OK
+#20 101.3 Testing ReaderTest/pushErrorTest: OK
+#20 101.3 Testing ReaderTest/allowNumericKeysTest: OK
+#20 101.3 Testing CharReaderTest/parseWithNoErrors: OK
+#20 101.3 Testing CharReaderTest/parseWithNoErrorsTestingOffsets: OK
+#20 101.3 Testing CharReaderTest/parseNumber: OK
+#20 101.3 Testing CharReaderTest/parseString: OK
+#20 101.3 Testing CharReaderTest/parseComment: OK
+#20 101.3 Testing CharReaderTest/parseObjectWithErrors: OK
+#20 101.3 Testing CharReaderTest/parseArrayWithErrors: OK
+#20 101.3 Testing CharReaderTest/parseWithOneError: OK
+#20 101.3 Testing CharReaderTest/parseChineseWithOneError: OK
+#20 101.3 Testing CharReaderTest/parseWithDetailError: OK
+#20 101.3 Testing CharReaderTest/parseWithStackLimit: OK
+#20 101.3 Testing CharReaderTest/testOperator: OK
+#20 101.3 Testing CharReaderStrictModeTest/dupKeys: OK
+#20 101.3 Testing CharReaderFailIfExtraTest/issue164: OK
+#20 101.3 Testing CharReaderFailIfExtraTest/issue107: OK
+#20 101.3 Testing CharReaderFailIfExtraTest/commentAfterObject: OK
+#20 101.3 Testing CharReaderFailIfExtraTest/commentAfterArray: OK
+#20 101.3 Testing CharReaderFailIfExtraTest/commentAfterBool: OK
+#20 101.3 Testing CharReaderFailIfExtraTest/parseComment: OK
+#20 101.3 Testing CharReaderAllowDropNullTest/issue178: OK
+#20 101.3 Testing CharReaderAllowNumericKeysTest/allowNumericKeys: OK
+#20 101.3 Testing CharReaderAllowSingleQuotesTest/issue182: OK
+#20 101.3 Testing CharReaderAllowZeroesTest/issue176: OK
+#20 101.3 Testing CharReaderAllowSpecialFloatsTest/specialFloat: OK
+#20 101.3 Testing CharReaderAllowSpecialFloatsTest/issue209: OK
+#20 101.3 Testing EscapeSequenceTest/readerParseEscapeSequence: OK
+#20 101.3 Testing EscapeSequenceTest/charReaderParseEscapeSequence: OK
+#20 101.3 Testing EscapeSequenceTest/writeEscapeSequence: OK
+#20 101.3 Testing BuilderTest/settings: OK
+#20 101.3 Testing BomTest/skipBom: OK
+#20 101.3 Testing BomTest/notSkipBom: OK
+#20 101.3 Testing IteratorTest/convert: OK
+#20 101.3 Testing IteratorTest/decrement: OK
+#20 101.3 Testing IteratorTest/reverseIterator: OK
+#20 101.3 Testing IteratorTest/distance: OK
+#20 101.3 Testing IteratorTest/nullValues: OK
+#20 101.3 Testing IteratorTest/staticStringKey: OK
+#20 101.3 Testing IteratorTest/names: OK
+#20 101.3 Testing IteratorTest/indexes: OK
+#20 101.3 Testing IteratorTest/constness: OK
+#20 101.3 Testing RValueTest/moveConstruction: OK
+#20 101.3 Testing FuzzTest/fuzzDoesntCrash: OK
+#20 101.3 Testing MemberTemplateAs/BehavesSameAsNamedAs: OK
+#20 101.3 Testing MemberTemplateIs/BehavesSameAsNamedIs: OK
+#20 101.3 Testing VersionTest/VersionNumbersMatch: OK
+#20 101.3 All 119 tests passed
+#20 101.4 [100%] Built target jsoncpp_test
+#20 101.4 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I../include /libAFL.a ../src/test_lib_json/fuzz.cpp -o /out/jsoncpp_fuzzer src/lib_json/libjsoncpp.a
+#20 101.4 clang-14: error: no such file or directory: 'src/lib_json/libjsoncpp.a'
+#20 101.4 Traceback (most recent call last):
+#20 101.4   File "<string>", line 1, in <module>
+#20 101.4   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 101.4     utils.build_benchmark()
+#20 101.4   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 101.4     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 101.4   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 101.4     raise CalledProcessError(retcode, cmd)
+#20 101.4 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/jsoncpp_json_proto_converter:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2834471: .afl-jsoncpp_json_proto_converter-builder] Error 1

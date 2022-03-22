@@ -1,0 +1,935 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: lame_lame.
+INFO:root:Please run "make test-run-afl-lame_lame" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:0a74db6fd33d0ca89bc59b674a11fe53620a777263e942863743bc2bb64fdaf9
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:65113d6f06bd563496aa685addf33f1a10d393eb929b934d6acf96cca8459178
+#1 transferring dockerfile: 983B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:abb7770b9dbf5dcafd04e9af9e1d27a06b80bae3c011fdec0f9a7e84a5799249
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lame_lame
+#4 sha256:fda4b9112aa422771d8333007573c30a5caaad8b69b2d57c1775316aa4319fee
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/lame_lame:latest: not found
+
+#9 [internal] load build context
+#9 sha256:abb7770b9dbf5dcafd04e9af9e1d27a06b80bae3c011fdec0f9a7e84a5799249
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool subversion
+#6 sha256:c8db7138b88b7571321f5ba7c4be1defd0aeb9721fb6ec5a91f200db17e1e4f7
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/guidovranken/LAME-fuzzers
+#7 sha256:337f52293929be5f8542547ec5c6e2031743b39ca22fef4e4086e8e3038b6454
+#7 CACHED
+
+#8 [4/5] RUN svn checkout https://svn.code.sf.net/p/lame/svn/trunk/lame /src/lame
+#8 sha256:b6bc1394826a47fde9bf80de04689c844f01a46f880ed580be4b7bd56339bf0f
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:c4296bf74a241591af4151226bfe8c684771abc6b9c1557afd04ce0e6d66d0ee
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:2ea79a90e078db3aeb53bdff8d626369140ce3bebe211bb72007883495b2d157
+#11 writing image sha256:2ea79a90e078db3aeb53bdff8d626369140ce3bebe211bb72007883495b2d157 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/lame_lame 0.0s done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lame_lame:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:3cdcc44034d9940674fea47def10ac4c3fb976190d2316a52434040b7aa517fa
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:eaeb8586b92c73ca7471fb5ee546e84764662c39dc10a4658f7b37aaa6e5fcbb
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/lame_lame:latest
+#3 sha256:a807305410d722ff25a29bd8121fe2d6854066dd7aa3905c8d89afb934a4f891
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/lame_lame
+#5 sha256:00c0320181d50c53ab4a65cb9a7f1382a7300b1031c6d602ee12c93d187d522f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/lame_lame-intermediate
+#4 sha256:7b82de54ad6363ceed6495fd777a8f8a8af809ecc815cd67e76f98ce86d2ecef
+#4 ERROR: gcr.io/fuzzbench/builders/afl/lame_lame-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:883354532f81c311280e43b48c63f1110f191d4f0abc033cd87f492dddb7e369
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:194b9d3fd78e0114d35514524638352cf45ce5cf454ce129c0e93b78a61826a7
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:ef00da5b71e29eb15b8880c76eb25661e9fb384746210952cc3b3a011b643686 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/lame_lame-intermediate 0.0s done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/lame_lame-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:19446c3212a242783b8e7600f5db3748e31175067296a5b402dfbb8259b72680
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d54c6c82e47dd0aafc7b458b7cee7d565a4e2bfeae001e226018faae87e5c9e6
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:23080b57128db7a69c3ba4da9812ca9aa48e4dda2e52f54c76e4e3524d1f0a9f
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:979c460dc932b922c9d9e41be91062261900fd7d379d737561b811ba2ebf8ace
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:aac277879c8d091a9edb118a9de74a8dbf0a807d928772b4a540825c9d5cda95
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:11fc2309d9dfda8738c83e424dfdaa8d1c39b28fdcc35ad854404f57ef814ef1
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:b2eaefda9251189ccbbc29990b43e0cb1943ee29f3bedf68f2f4653794d0aec3
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:b63d9e35e1d27432ba62a0e358b3878140f549eb12be87f86addae674564f405
+#13 writing image sha256:b63d9e35e1d27432ba62a0e358b3878140f549eb12be87f86addae674564f405 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:becfa629b5be898102630bf3a74cefd20370a053910aa3701f076ab7eccc84fe
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:92c2d0b77315d2add7f08dd6803b332ad4f48b4983d0097b295e7c3f0dd4c311
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lame_lame-intermediate:latest
+#3 sha256:575c886b063ff1c3c775621c84e3e77c3853a80086dc084efb91bc9db51f2df1
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:5a35a039d9c9a5a664b2b28670740cda58d895e7e620061fbbc3b579ac31a194
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/lame_lame-intermediate
+#6 sha256:726876ffeeb8dbc148a7bb1ddccfb8b0f77fc86fe1d35e7e81f853407c3b1653
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/lame_lame
+#5 sha256:566aed26761cc7b0d5c24f98ca832bbbf78be79a414eb79be36ca9f5f98cac52
+#5 ERROR: gcr.io/fuzzbench/builders/afl/lame_lame:latest: not found
+
+#12 [internal] load build context
+#12 sha256:5a35a039d9c9a5a664b2b28670740cda58d895e7e620061fbbc3b579ac31a194
+#12 transferring context: 669.85kB 0.1s done
+#12 DONE 0.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:256dddb24d39f0b248a3e15bd1a868c8c82f3da0bd35715abf3a817736ed47ec
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:17ad0dfaeb9f374e8d226ebcf62c5a87e5f78c5aaa04d74891b9a73d86ea86d5
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:45499117559a90548e8b582d445e38288a0eef49118b51e59698af87fa273c9e
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:83ee48907ed340535c901af88fd0568c6efde947f553a9d13aea9e8b23e96360
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:a708ba16ce9ac968fa168bc040e6f3fd1e197f8d23fa93f7dc63369a15fec294
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:86728993b7866a57ae4587a4533e446eed569407bf4ba3bc1def8a990ef83c92
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/lame_lame/benchmark.yaml /
+#15 sha256:e90d6be4e3d0bd7de937f59e0d80ba0719241215ebb8ad249d2d375f155fbe1d
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:9dbbead4ee9c7a1b217558897add016bcf8a50dd2bc51f9b8ff1de7f9cec7c3b
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:72b82e94968bc86343ea5d55b8f24d382f2f869082c1c3a90c07aecd6700cb3e
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:b57d206778dff6bef1986a1f079e63dc16826bf6b31104e3e63bc660559a93a4
+#18 0.467 Checking out commit d561c49a
+#18 1.132 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 1.136 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 1.143 error: pathspec 'd561c49a' did not match any file(s) known to git
+#18 1.210 Checkout unsuccessful.
+#18 DONE 2.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:f2279ff596423326fc03b6ab7ff2a5b823a9dde705211afa282786a2cc93f493
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:8d6c9dffcec0deb3d3dfcf57911997811d00e0e9f7a2a4211f1af6a0cac80abc
+#20 0.571 Run fuzzer_build to build the target
+#20 0.683 FUZZ_TARGET = lame
+#20 0.683 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.683 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.688 Building benchmark lame_lame with fuzzer afl
+#20 0.690 + cd /src/lame
+#20 0.690 + ./configure
+#20 0.918 checking build system type... x86_64-pc-linux-gnu
+#20 0.977 checking host system type... x86_64-pc-linux-gnu
+#20 0.978 checking for a BSD-compatible install... /usr/bin/install -c
+#20 0.992 checking whether build environment is sane... yes
+#20 1.009 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 1.013 checking for gawk... no
+#20 1.014 checking for mawk... mawk
+#20 1.015 checking whether make sets $(MAKE)... yes
+#20 1.032 checking whether make supports nested variables... yes
+#20 1.047 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 1.048 checking whether make supports the include directive... yes (GNU style)
+#20 1.061 checking for pkg-config... no
+#20 1.063 checking for gcc... clang
+#20 1.130 checking whether the C compiler works... yes
+#20 1.259 checking for C compiler default output file name... a.out
+#20 1.261 checking for suffix of executables... 
+#20 1.384 checking whether we are cross compiling... no
+#20 1.525 checking for suffix of object files... o
+#20 1.555 checking whether we are using the GNU C compiler... yes
+#20 1.584 checking whether clang accepts -g... yes
+#20 1.609 checking for clang option to accept ISO C89... none needed
+#20 1.651 checking whether clang understands -c and -o together... yes
+#20 1.695 checking dependency style of clang... gcc3
+#20 1.748 checking how to run the C preprocessor... clang -E
+#20 1.848 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 1.853 checking for egrep... /usr/bin/grep -E
+#20 1.856 checking for ANSI C header files... yes
+#20 2.115 checking for sys/types.h... yes
+#20 2.166 checking for sys/stat.h... yes
+#20 2.226 checking for stdlib.h... yes
+#20 2.283 checking for string.h... yes
+#20 2.344 checking for memory.h... yes
+#20 2.407 checking for strings.h... yes
+#20 2.470 checking for inttypes.h... yes
+#20 2.540 checking for stdint.h... yes
+#20 2.600 checking for unistd.h... yes
+#20 2.661 checking minix/config.h usability... no
+#20 2.726 checking minix/config.h presence... no
+#20 2.750 checking for minix/config.h... no
+#20 2.751 checking whether it is safe to define __EXTENSIONS__... yes
+#20 2.810 checking for library containing strerror... none required
+#20 2.940 checking how to print strings... printf
+#20 2.999 checking for a sed that does not truncate output... /usr/bin/sed
+#20 3.008 checking for fgrep... /usr/bin/grep -F
+#20 3.012 checking for ld used by clang... /usr/bin/ld
+#20 3.031 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 3.034 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 3.039 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 3.073 checking whether ln -s works... yes
+#20 3.074 checking the maximum length of command line arguments... 1572864
+#20 3.086 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 3.087 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 3.087 checking for /usr/bin/ld option to reload object files... -r
+#20 3.089 checking for objdump... objdump
+#20 3.090 checking how to recognize dependent libraries... pass_all
+#20 3.092 checking for dlltool... no
+#20 3.093 checking how to associate runtime and link libraries... printf %s\n
+#20 3.094 checking for ar... ar
+#20 3.096 checking for archiver @FILE support... @
+#20 3.137 checking for strip... strip
+#20 3.138 checking for ranlib... ranlib
+#20 3.139 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 3.317 checking for sysroot... no
+#20 3.318 checking for a working dd... /usr/bin/dd
+#20 3.325 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 3.356 checking for mt... no
+#20 3.357 checking if : is a manifest tool... no
+#20 3.367 checking for dlfcn.h... yes
+#20 3.437 checking for objdir... .libs
+#20 3.606 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 3.638 checking for clang option to produce PIC... -fPIC -DPIC
+#20 3.639 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 3.669 checking if clang static flag -static works... yes
+#20 3.844 checking if clang supports -c -o file.o... yes
+#20 3.889 checking if clang supports -c -o file.o... (cached) yes
+#20 3.889 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 3.910 checking whether -lc should be explicitly linked in... no
+#20 3.969 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 4.142 checking how to hardcode library paths into programs... immediate
+#20 4.142 checking whether stripping libraries is possible... yes
+#20 4.145 checking if libtool supports shared libraries... yes
+#20 4.146 checking whether to build shared libraries... yes
+#20 4.146 checking whether to build static libraries... yes
+#20 4.148 checking for gcc... (cached) clang
+#20 4.217 checking whether we are using the GNU C compiler... (cached) yes
+#20 4.218 checking whether clang accepts -g... (cached) yes
+#20 4.218 checking for clang option to accept ISO C89... (cached) none needed
+#20 4.219 checking whether clang understands -c and -o together... (cached) yes
+#20 4.220 checking dependency style of clang... (cached) gcc3
+#20 4.222 checking compiler... clang
+#20 4.234 checking version of clang... 14.0.0
+#20 4.247 checking dmalloc.h usability... no
+#20 4.314 checking dmalloc.h presence... no
+#20 4.342 checking for dmalloc.h... no
+#20 4.343 checking for ANSI C header files... (cached) yes
+#20 4.348 checking errno.h usability... yes
+#20 4.415 checking errno.h presence... yes
+#20 4.441 checking for errno.h... yes
+#20 4.453 checking fcntl.h usability... yes
+#20 4.516 checking fcntl.h presence... yes
+#20 4.539 checking for fcntl.h... yes
+#20 4.551 checking limits.h usability... yes
+#20 4.620 checking limits.h presence... yes
+#20 4.641 checking for limits.h... yes
+#20 4.652 checking for stdint.h... (cached) yes
+#20 4.664 checking for string.h... (cached) yes
+#20 4.676 checking sys/soundcard.h usability... yes
+#20 4.739 checking sys/soundcard.h presence... yes
+#20 4.762 checking for sys/soundcard.h... yes
+#20 4.774 checking sys/time.h usability... yes
+#20 4.841 checking sys/time.h presence... yes
+#20 4.860 checking for sys/time.h... yes
+#20 4.872 checking for unistd.h... (cached) yes
+#20 4.884 checking linux/soundcard.h usability... yes
+#20 4.947 checking linux/soundcard.h presence... yes
+#20 4.967 checking for linux/soundcard.h... yes
+#20 4.974 checking working SSE intrinsics... yes
+#20 5.071 checking for an ANSI C-conforming const... yes
+#20 5.102 checking for inline... inline
+#20 5.129 checking whether byte ordering is bigendian... no
+#20 5.245 checking for special C compiler options needed for large files... no
+#20 5.245 checking for _FILE_OFFSET_BITS value needed for large files... no
+#20 5.279 checking size of short... 2
+#20 5.458 checking size of unsigned short... 2
+#20 5.632 checking size of int... 4
+#20 5.804 checking size of unsigned int... 4
+#20 5.985 checking size of long... 8
+#20 6.164 checking size of unsigned long... 8
+#20 6.338 checking size of long long... 8
+#20 6.516 checking size of unsigned long long... 8
+#20 6.695 checking size of float... 4
+#20 6.875 checking size of double... 8
+#20 7.051 checking for long double with more range or precision than double... yes
+#20 7.084 checking for uint8_t... yes
+#20 7.226 checking for int8_t... yes
+#20 7.370 checking for uint16_t... yes
+#20 7.509 checking for int16_t... yes
+#20 7.648 checking for uint32_t... yes
+#20 7.795 checking for int32_t... yes
+#20 7.933 checking for uint64_t... yes
+#20 8.310 checking for int64_t... yes
+#20 8.453 checking for IEEE854 compliant 80 bit floats... yes
+#20 8.585 checking for ieee854_float80_t... no
+#20 8.659 checking for ieee754_float64_t... no
+#20 8.729 checking for ieee754_float32_t... no
+#20 8.805 checking for size_t... yes
+#20 8.941 checking whether time.h and sys/time.h may both be included... yes
+#20 8.979 checking for working alloca.h... yes
+#20 9.106 checking for alloca... yes
+#20 9.410 checking for gettimeofday... yes
+#20 9.550 checking for strtol... yes
+#20 9.696 checking for socket... yes
+#20 9.833 checking termcap.h usability... no
+#20 9.903 checking termcap.h presence... no
+#20 9.931 checking for termcap.h... no
+#20 9.932 checking ncurses/termcap.h usability... no
+#20 10.01 checking ncurses/termcap.h presence... no
+#20 10.04 checking for ncurses/termcap.h... no
+#20 10.04 checking for initscr in -ltermcap... no
+#20 10.11 checking for initscr in -lcurses... no
+#20 10.19 checking for initscr in -lncurses... no
+#20 10.27 checking langinfo.h usability... yes
+#20 10.33 checking langinfo.h presence... yes
+#20 10.35 checking for langinfo.h... yes
+#20 10.35 checking for nl_langinfo... yes
+#20 10.48 checking for ld... /usr/bin/ld -m elf_x86_64
+#20 10.48 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 10.49 checking for shared library run path origin... done
+#20 10.53 checking 32-bit host C ABI... no
+#20 10.55 checking for ELF binary format... yes
+#20 10.57 checking for the common suffixes of directories in the library search path... lib,lib,lib64
+#20 10.61 checking for iconv... yes
+#20 10.76 checking for working iconv... yes
+#20 10.91 checking for iconv declaration... 
+#20 10.95          extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+#20 10.95 checking for cos in -lm... yes
+#20 11.08 checking for cos in -lffm... no
+#20 11.16 checking for cos in -lcpml... no
+#20 11.24 checking for gtk-config... no
+#20 11.24 checking for GTK - version >= 1.2.0... no
+#20 11.24 *** The gtk-config script installed by GTK could not be found
+#20 11.24 *** If GTK was installed in PREFIX, make sure PREFIX/bin is in
+#20 11.24 *** your path, or set the GTK_CONFIG environment variable to the
+#20 11.24 *** full path to gtk-config.
+#20 11.24 checking use of ElectricFence malloc debugging... no
+#20 11.25 checking use of file io... lame
+#20 11.25 checking use of analyzer hooks... yes
+#20 11.25 checking for mpg123... no
+#20 11.25 checking use of external mpg123 decoder... configure: error: no, libmpg123 not found
+#20 11.34 Traceback (most recent call last):
+#20 11.34   File "<string>", line 1, in <module>
+#20 11.34   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 11.34     utils.build_benchmark()
+#20 11.34   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 11.34     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 11.34   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 11.34     raise CalledProcessError(retcode, cmd)
+#20 11.34 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/lame_lame:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2806471: .afl-lame_lame-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:51b2f939356300a29275165100f5c25b6ab25bc170bd3c47d8eb255a9f1878bc
+#1 transferring dockerfile:
+#1 transferring dockerfile: 32B done
+#1 DONE 0.5s
+
+#2 [internal] load .dockerignore
+#2 sha256:d0fa9f9ed67c56846e953ccf176eead6eed6aa4720059799885ea2ab9022b87c
+#2 transferring context: 2B done
+#2 DONE 0.6s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lame_lame
+#4 sha256:fda4b9112aa422771d8333007573c30a5caaad8b69b2d57c1775316aa4319fee
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:dee4d8353571ecec901ecde2ed2e9589a610ebd2dc7118433360e439177c5be1
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool subversion
+#6 sha256:c8db7138b88b7571321f5ba7c4be1defd0aeb9721fb6ec5a91f200db17e1e4f7
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/guidovranken/LAME-fuzzers
+#7 sha256:337f52293929be5f8542547ec5c6e2031743b39ca22fef4e4086e8e3038b6454
+#7 CACHED
+
+#8 [4/5] RUN svn checkout https://svn.code.sf.net/p/lame/svn/trunk/lame /src/lame
+#8 sha256:b6bc1394826a47fde9bf80de04689c844f01a46f880ed580be4b7bd56339bf0f
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:6d26c0abdacfcf005255ce9f2361fa63c76fd19734e862a4aef7f817e8b8879a
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:2ea79a90e078db3aeb53bdff8d626369140ce3bebe211bb72007883495b2d157 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/lame_lame done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:1be2c4c34b9d0957ff8c7775ebf51e0e762f40ad2dd4f00b14e9cc1ceef1cce7
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:6010758ebe310f3de2e2900724f2fff443fd6c072cb0139b10389ed3c4773adb
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/lame_lame:latest
+#3 sha256:a807305410d722ff25a29bd8121fe2d6854066dd7aa3905c8d89afb934a4f891
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/lame_lame
+#5 sha256:00c0320181d50c53ab4a65cb9a7f1382a7300b1031c6d602ee12c93d187d522f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/lame_lame-intermediate
+#4 sha256:7b82de54ad6363ceed6495fd777a8f8a8af809ecc815cd67e76f98ce86d2ecef
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:883354532f81c311280e43b48c63f1110f191d4f0abc033cd87f492dddb7e369
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:194b9d3fd78e0114d35514524638352cf45ce5cf454ce129c0e93b78a61826a7
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:ef00da5b71e29eb15b8880c76eb25661e9fb384746210952cc3b3a011b643686 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/lame_lame-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7734a1ae277331a387055397d92a80a64089d6fe15533837d1b1b297ec968757
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:e426af494682956bbe3b14e1b34b5ee34fd8d0557189dae383aee8d2d5a3fdc3
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:d34712078421f764e27f9e17396cf68dce40fbf565cf618c07700da05a6e3b13
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:0c2f2d52d7f0c87fc04c43bb1a2445e342ca5c6d4d57d9c395fb6a909c39a0a5
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:d80ea986fe6ed766066cdcde37cd00712c149c9be32148bac09de096c891020e
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:a40b21e67bce327bdfea61d25511b635e7382427672031d15825ee38371e2f79
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:ef44210292974818d3643323ee3441c4aafaac3fd7b86e9d88a5556fc5518147
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:b63d9e35e1d27432ba62a0e358b3878140f549eb12be87f86addae674564f405
+#13 writing image sha256:b63d9e35e1d27432ba62a0e358b3878140f549eb12be87f86addae674564f405 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:0af2eb7f487dfcdfc5376ea7b8a5b00d0fb3afe87d7ffe5f1ef429e10b9fbe0c
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f3e208715d26c286e461d16f8febeb667f5581121090ea6962c8e57e497aede2
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lame_lame-intermediate:latest
+#3 sha256:575c886b063ff1c3c775621c84e3e77c3853a80086dc084efb91bc9db51f2df1
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:255b8d1efe04fee970338e6d728ab7935217ebdc2c3540cb60076e9e9ef14276
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/lame_lame-intermediate
+#6 sha256:726876ffeeb8dbc148a7bb1ddccfb8b0f77fc86fe1d35e7e81f853407c3b1653
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/lame_lame
+#5 sha256:566aed26761cc7b0d5c24f98ca832bbbf78be79a414eb79be36ca9f5f98cac52
+#5 ERROR: gcr.io/fuzzbench/builders/afl/lame_lame:latest: not found
+
+#12 [internal] load build context
+#12 sha256:255b8d1efe04fee970338e6d728ab7935217ebdc2c3540cb60076e9e9ef14276
+#12 transferring context: 669.85kB 0.1s done
+#12 DONE 0.2s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:a4505134b73206f27e4888ba1b3bda841bc4efdcf41ba5ba984db0b1449dbdc5
+#17 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:e4aec93545f7be0de89b9ea6c31d850adac3860786a07e88ddb9a8e71d1ff3b4
+#18 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:45499117559a90548e8b582d445e38288a0eef49118b51e59698af87fa273c9e
+#9 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:17ad0dfaeb9f374e8d226ebcf62c5a87e5f78c5aaa04d74891b9a73d86ea86d5
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:36fa1455ce310f5072a32338b5fd88b94504efbb27e5053ab0d20bb24e9ae19f
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/lame_lame/benchmark.yaml /
+#15 sha256:14feb8df8212ac0760d01bf62c96818b9cc4f67e968bab2d2c3a4e2f28bfd424
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:b6ed1bf803137d9f9fbd47195519a718f7fd23a6ae24c61802c8fa044fefe388
+#16 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:83ee48907ed340535c901af88fd0568c6efde947f553a9d13aea9e8b23e96360
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:a708ba16ce9ac968fa168bc040e6f3fd1e197f8d23fa93f7dc63369a15fec294
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:3d82ef3e1142150ab548d79a8e6af881be503fb21643e5cd5c86d5117f78cc3b
+#14 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:d5803c316b7247226d824364ca61d2ecd78f0b3afb7caecb85cf2ac5ac0e6ded
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:2899c82a1fff3ba3b4a2620db05ed6443b473bebd68e33bf95b4f3124da3d5c5
+#20 0.442 Run fuzzer_build to build the target
+#20 0.553 FUZZ_TARGET = lame
+#20 0.553 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.553 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.558 Building benchmark lame_lame with fuzzer afl
+#20 0.561 + cd /src/lame
+#20 0.561 + ./configure
+#20 0.780 checking build system type... x86_64-pc-linux-gnu
+#20 0.841 checking host system type... x86_64-pc-linux-gnu
+#20 0.842 checking for a BSD-compatible install... /usr/bin/install -c
+#20 0.857 checking whether build environment is sane... yes
+#20 0.874 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 0.878 checking for gawk... no
+#20 0.879 checking for mawk... mawk
+#20 0.879 checking whether make sets $(MAKE)... yes
+#20 0.897 checking whether make supports nested variables... yes
+#20 0.913 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 0.914 checking whether make supports the include directive... yes (GNU style)
+#20 0.928 checking for pkg-config... no
+#20 0.930 checking for gcc... clang
+#20 1.001 checking whether the C compiler works... yes
+#20 1.130 checking for C compiler default output file name... a.out
+#20 1.131 checking for suffix of executables... 
+#20 1.249 checking whether we are cross compiling... no
+#20 1.384 checking for suffix of object files... o
+#20 1.416 checking whether we are using the GNU C compiler... yes
+#20 1.443 checking whether clang accepts -g... yes
+#20 1.469 checking for clang option to accept ISO C89... none needed
+#20 1.514 checking whether clang understands -c and -o together... yes
+#20 1.554 checking dependency style of clang... gcc3
+#20 1.609 checking how to run the C preprocessor... clang -E
+#20 1.703 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 1.707 checking for egrep... /usr/bin/grep -E
+#20 1.710 checking for ANSI C header files... yes
+#20 1.963 checking for sys/types.h... yes
+#20 2.015 checking for sys/stat.h... yes
+#20 2.070 checking for stdlib.h... yes
+#20 2.125 checking for string.h... yes
+#20 2.185 checking for memory.h... yes
+#20 2.243 checking for strings.h... yes
+#20 2.301 checking for inttypes.h... yes
+#20 2.363 checking for stdint.h... yes
+#20 2.431 checking for unistd.h... yes
+#20 2.492 checking minix/config.h usability... no
+#20 2.553 checking minix/config.h presence... no
+#20 2.580 checking for minix/config.h... no
+#20 2.581 checking whether it is safe to define __EXTENSIONS__... yes
+#20 2.640 checking for library containing strerror... none required
+#20 2.780 checking how to print strings... printf
+#20 2.835 checking for a sed that does not truncate output... /usr/bin/sed
+#20 2.845 checking for fgrep... /usr/bin/grep -F
+#20 2.848 checking for ld used by clang... /usr/bin/ld
+#20 2.866 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 2.871 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 2.875 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 2.909 checking whether ln -s works... yes
+#20 2.909 checking the maximum length of command line arguments... 1572864
+#20 2.920 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 2.921 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 2.921 checking for /usr/bin/ld option to reload object files... -r
+#20 2.922 checking for objdump... objdump
+#20 2.923 checking how to recognize dependent libraries... pass_all
+#20 2.925 checking for dlltool... no
+#20 2.926 checking how to associate runtime and link libraries... printf %s\n
+#20 2.927 checking for ar... ar
+#20 2.928 checking for archiver @FILE support... @
+#20 2.969 checking for strip... strip
+#20 2.970 checking for ranlib... ranlib
+#20 2.971 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 3.146 checking for sysroot... no
+#20 3.147 checking for a working dd... /usr/bin/dd
+#20 3.154 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 3.185 checking for mt... no
+#20 3.186 checking if : is a manifest tool... no
+#20 3.195 checking for dlfcn.h... yes
+#20 3.271 checking for objdir... .libs
+#20 3.439 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 3.471 checking for clang option to produce PIC... -fPIC -DPIC
+#20 3.471 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 3.501 checking if clang static flag -static works... yes
+#20 3.678 checking if clang supports -c -o file.o... yes
+#20 3.722 checking if clang supports -c -o file.o... (cached) yes
+#20 3.722 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 3.744 checking whether -lc should be explicitly linked in... no
+#20 3.799 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 3.972 checking how to hardcode library paths into programs... immediate
+#20 3.973 checking whether stripping libraries is possible... yes
+#20 3.976 checking if libtool supports shared libraries... yes
+#20 3.976 checking whether to build shared libraries... yes
+#20 3.977 checking whether to build static libraries... yes
+#20 3.979 checking for gcc... (cached) clang
+#20 4.049 checking whether we are using the GNU C compiler... (cached) yes
+#20 4.050 checking whether clang accepts -g... (cached) yes
+#20 4.051 checking for clang option to accept ISO C89... (cached) none needed
+#20 4.052 checking whether clang understands -c and -o together... (cached) yes
+#20 4.053 checking dependency style of clang... (cached) gcc3
+#20 4.055 checking compiler... clang
+#20 4.066 checking version of clang... 14.0.0
+#20 4.078 checking dmalloc.h usability... no
+#20 4.144 checking dmalloc.h presence... no
+#20 4.171 checking for dmalloc.h... no
+#20 4.172 checking for ANSI C header files... (cached) yes
+#20 4.177 checking errno.h usability... yes
+#20 4.240 checking errno.h presence... yes
+#20 4.260 checking for errno.h... yes
+#20 4.270 checking fcntl.h usability... yes
+#20 4.334 checking fcntl.h presence... yes
+#20 4.354 checking for fcntl.h... yes
+#20 4.365 checking limits.h usability... yes
+#20 4.426 checking limits.h presence... yes
+#20 4.449 checking for limits.h... yes
+#20 4.460 checking for stdint.h... (cached) yes
+#20 4.472 checking for string.h... (cached) yes
+#20 4.484 checking sys/soundcard.h usability... yes
+#20 4.546 checking sys/soundcard.h presence... yes
+#20 4.573 checking for sys/soundcard.h... yes
+#20 4.584 checking sys/time.h usability... yes
+#20 4.646 checking sys/time.h presence... yes
+#20 4.806 checking for sys/time.h... yes
+#20 4.818 checking for unistd.h... (cached) yes
+#20 4.828 checking linux/soundcard.h usability... yes
+#20 4.895 checking linux/soundcard.h presence... yes
+#20 4.921 checking for linux/soundcard.h... yes
+#20 4.928 checking working SSE intrinsics... yes
+#20 5.017 checking for an ANSI C-conforming const... yes
+#20 5.049 checking for inline... inline
+#20 5.071 checking whether byte ordering is bigendian... no
+#20 5.190 checking for special C compiler options needed for large files... no
+#20 5.190 checking for _FILE_OFFSET_BITS value needed for large files... no
+#20 5.224 checking size of short... 2
+#20 5.400 checking size of unsigned short... 2
+#20 5.578 checking size of int... 4
+#20 5.758 checking size of unsigned int... 4
+#20 5.931 checking size of long... 8
+#20 6.107 checking size of unsigned long... 8
+#20 6.285 checking size of long long... 8
+#20 6.460 checking size of unsigned long long... 8
+#20 6.634 checking size of float... 4
+#20 6.806 checking size of double... 8
+#20 6.984 checking for long double with more range or precision than double... yes
+#20 7.022 checking for uint8_t... yes
+#20 7.155 checking for int8_t... yes
+#20 7.295 checking for uint16_t... yes
+#20 7.427 checking for int16_t... yes
+#20 7.562 checking for uint32_t... yes
+#20 7.702 checking for int32_t... yes
+#20 7.834 checking for uint64_t... yes
+#20 7.979 checking for int64_t... yes
+#20 8.175 checking for IEEE854 compliant 80 bit floats... yes
+#20 8.302 checking for ieee854_float80_t... no
+#20 8.378 checking for ieee754_float64_t... no
+#20 8.458 checking for ieee754_float32_t... no
+#20 8.534 checking for size_t... yes
+#20 8.683 checking whether time.h and sys/time.h may both be included... yes
+#20 8.720 checking for working alloca.h... yes
+#20 8.849 checking for alloca... yes
+#20 8.982 checking for gettimeofday... yes
+#20 9.121 checking for strtol... yes
+#20 9.261 checking for socket... yes
+#20 9.397 checking termcap.h usability... no
+#20 9.464 checking termcap.h presence... no
+#20 9.493 checking for termcap.h... no
+#20 9.494 checking ncurses/termcap.h usability... no
+#20 9.561 checking ncurses/termcap.h presence... no
+#20 9.588 checking for ncurses/termcap.h... no
+#20 9.589 checking for initscr in -ltermcap... no
+#20 9.690 checking for initscr in -lcurses... no
+#20 9.833 checking for initscr in -lncurses... no
+#20 9.909 checking langinfo.h usability... yes
+#20 9.981 checking langinfo.h presence... yes
+#20 10.00 checking for langinfo.h... yes
+#20 10.01 checking for nl_langinfo... yes
+#20 10.14 checking for ld... /usr/bin/ld -m elf_x86_64
+#20 10.14 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 10.15 checking for shared library run path origin... done
+#20 10.19 checking 32-bit host C ABI... no
+#20 10.21 checking for ELF binary format... yes
+#20 10.24 checking for the common suffixes of directories in the library search path... lib,lib,lib64
+#20 10.28 checking for iconv... yes
+#20 10.42 checking for working iconv... yes
+#20 10.57 checking for iconv declaration... 
+#20 10.62          extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+#20 10.62 checking for cos in -lm... yes
+#20 10.83 checking for cos in -lffm... no
+#20 10.90 checking for cos in -lcpml... no
+#20 10.97 checking for gtk-config... no
+#20 10.97 checking for GTK - version >= 1.2.0... no
+#20 10.98 *** The gtk-config script installed by GTK could not be found
+#20 10.98 *** If GTK was installed in PREFIX, make sure PREFIX/bin is in
+#20 10.98 *** your path, or set the GTK_CONFIG environment variable to the
+#20 10.98 *** full path to gtk-config.
+#20 10.98 checking use of ElectricFence malloc debugging... no
+#20 10.98 checking use of file io... lame
+#20 10.98 checking use of analyzer hooks... yes
+#20 10.98 checking for mpg123... no
+#20 10.98 checking use of external mpg123 decoder... configure: error: no, libmpg123 not found
+#20 11.07 Traceback (most recent call last):
+#20 11.07   File "<string>", line 1, in <module>
+#20 11.07   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 11.07     utils.build_benchmark()
+#20 11.07   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 11.07     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 11.07   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 11.07     raise CalledProcessError(retcode, cmd)
+#20 11.07 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/lame_lame:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2806471: .afl-lame_lame-builder] Error 1

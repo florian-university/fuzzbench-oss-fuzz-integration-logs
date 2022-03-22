@@ -1,0 +1,1298 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: jansson_jansson.
+INFO:root:Please run "make test-run-afl-jansson_jansson" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5216078ce9af161410d17accb2d3e51aa90bae0a4b37f65d419e4434c3a0736f
+#1 transferring dockerfile: 888B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:553a17490047215bb6983fb6c0de5f6c7fd840de1a5a1f0c40764d252e9e0978
+#2 transferring context: 2B done
+#2 DONE 0.9s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#8 [internal] load build context
+#8 sha256:e3f87734fd4ece3dddc5040dda4cc46a023949e2b92c59fbe1b6b50a3966d3af
+#8 DONE 0.0s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jansson_jansson
+#4 sha256:d0918eef45a407b6032dbec40e66102156d3746d8667a54d74a38bc193e6a798
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/jansson_jansson:latest: not found
+
+#8 [internal] load build context
+#8 sha256:e3f87734fd4ece3dddc5040dda4cc46a023949e2b92c59fbe1b6b50a3966d3af
+#8 transferring context: 30B done
+#8 DONE 0.1s
+
+#6 [2/4] RUN git clone --depth 1 https://github.com/akheron/jansson.git /src/jansson
+#6 sha256:383016e289cf3758f12cc23eb8e2b865aa05c3d7462c57b98d56d9d3e94b0b2b
+#6 CACHED
+
+#7 [3/4] WORKDIR /src/jansson
+#7 sha256:e4beb9daea277f9b6589ecb28dc249be51ac59af9261ae1fd306af0f170e24ba
+#7 CACHED
+
+#9 [4/4] COPY build.sh /src/
+#9 sha256:47df85c7c4e5ebfc4b9d21615526d87e5dc5017306c76adba00eb417ed849e3b
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:3ededaf5dc08546442bc5652b0ca342e77b6da7db687d82ab7d56ba6ece51f52 done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/jansson_jansson done
+#10 DONE 0.2s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jansson_jansson:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:4c2cf1ab991e707c0933f146ef1bcc1b812a9fb1aab8966bd0ad5fe82eb70c40
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:3e86b12fe1dd58b701a99668265bd4a8e4b4b04af5e9f69ddbfe60fbbf096fd3
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/jansson_jansson:latest
+#3 sha256:f9acbf4a1f586fb91c6bca3a2f4cb1676b6c1ef5e1c42cb05699a17586ee784b
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/jansson_jansson
+#5 sha256:27c5f9227932bd580d0db4348703b09ff8dffb64936d5f16dde6d2690bb7585e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate
+#4 sha256:f4a7b84c5f23d33301924ff046695698e2954770c15612d5aa0f6bdb820e7c3e
+#4 ERROR: gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:c8d15923aa339fb2117cc47377da8381717dc7da4addb78d846a81b9733586a6
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:04cd0b7c4a3b1736b43dfaf32c2ac880f7050e48a00b380f2a808df89f1bb1b1
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:f8a7e27873ed946e6447b5a9579e2d79c1141152d8b73c3855dc80cc4d95e5ac 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate 0.0s done
+#8 DONE 0.6s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:3809562a9ed9cce32126d58cb4c4153a9b2c9c1ae6832d684e00f8dd2ef51e64
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:af4a97815370c572359d986b5093af86241a07fb79eac075785055ac2607f610
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:c0b108a4b73f75ac428a91a7deafea727893502a57bac6970990b909b9539dd9
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.3s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:d97d2ae89e45a9542a9880197e576bfd96e0d1cdb86c0eb465ef3fecafcfb3f3
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:159406ecd1cd052b194674421ad8e14e2508e5775fce63e85d779818f9adbfac
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:b309d60b360839992f31678bbd8ce512579f1a8740924b09863894031d9aeaba
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:7f6d211e7cb618c51f371536b9d044557109936f3e7870aeb695bcb69ed9db6e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:b912c3e2a192c2a5792c1eb57a9f841f2bcff8a9d7fb9be34e4e6a7f1bd29c8e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:1b30cac5a4c87d4a673a9795099189aba5f6e4584f2e25f6d566a96c2fe28cbc
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:09c4a65b0f9cbe448cbdf98ca556bd331c11b80e39ebe7413e4cea91a7ae1494
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate:latest
+#3 sha256:51a4cbdea169ef9db609d7df2e074d96de7c325bf3d2e1f40816815a963d3538
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:5fdc03f7ef8708d71e7adc1dd1485b8a31ae28d64384ef8cfc67021bc50edeab
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate
+#6 sha256:096f45d8934013fe277027a2d8de2598456fa2d447cd47a23ac982bfc4ee9b95
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/jansson_jansson
+#5 sha256:b7e25a4bd81938b199828db3b3ee182bb6329cd1c299efb97f1bf4d64e276cc3
+#5 ERROR: gcr.io/fuzzbench/builders/afl/jansson_jansson:latest: not found
+
+#12 [internal] load build context
+#12 sha256:5fdc03f7ef8708d71e7adc1dd1485b8a31ae28d64384ef8cfc67021bc50edeab
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:5dc6604488f8f243bd34e2737b3a1c8b698c15cd422ac394bb9bce3519a17f53
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:121b947db2214558b348ca34f204d6898a71ec8fd6b181b23c6aa2c2e3f33d35
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:ef63d0104169e182ea6b3e0c0e6a2d9ca68cc5f40f4e88df0c0546d145cc8904
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:e47169b66b858becd97c3811b247d2d7d81aaf97bf03f4073c1dcdc2d569b783
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:a19274ce2ca5c620305453a327ade7bbd03b9c210be19d032174d9c7c6a2261e
+#11 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:69a60084526ff584d08acb148317df0740daa0a0d7f49b4607389ad2ebf67a82
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/jansson_jansson/benchmark.yaml /
+#15 sha256:a9f9fa1faa464abedb52472b69bb620d20431c296d6ead7ddabe5520cd90099c
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:6846e01d4fd8317eec0a47315012d93116e3e6e57a9ca15a9f0761eeb6b32849
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:fa8c1fd28295dac9f03d6ffb5fd8803699a234c6e22a5c418b62cb700ede8a58
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:eaebf50cc517a920fa9eaeef0453b5aa23a03deb1da455e20d25dc045e8f8bed
+#18 0.484 Checking out commit 632d9739
+#18 2.175 From https://github.com/akheron/jansson
+#18 2.175  * [new tag]         v1.0       -> v1.0
+#18 2.175  * [new tag]         v1.0.1     -> v1.0.1
+#18 2.175  * [new tag]         v1.0.2     -> v1.0.2
+#18 2.175  * [new tag]         v1.0.3     -> v1.0.3
+#18 2.176  * [new tag]         v1.0.4     -> v1.0.4
+#18 2.176  * [new tag]         v1.1       -> v1.1
+#18 2.176  * [new tag]         v1.1.1     -> v1.1.1
+#18 2.176  * [new tag]         v1.1.2     -> v1.1.2
+#18 2.177  * [new tag]         v1.1.3     -> v1.1.3
+#18 2.177  * [new tag]         v1.2       -> v1.2
+#18 2.177  * [new tag]         v1.2.1     -> v1.2.1
+#18 2.178  * [new tag]         v1.3       -> v1.3
+#18 2.178  * [new tag]         v2.0       -> v2.0
+#18 2.178  * [new tag]         v2.0.1     -> v2.0.1
+#18 2.179  * [new tag]         v2.1       -> v2.1
+#18 2.179  * [new tag]         v2.10      -> v2.10
+#18 2.179  * [new tag]         v2.11      -> v2.11
+#18 2.180  * [new tag]         v2.12      -> v2.12
+#18 2.180  * [new tag]         v2.13      -> v2.13
+#18 2.180  * [new tag]         v2.13.1    -> v2.13.1
+#18 2.181  * [new tag]         v2.14      -> v2.14
+#18 2.181  * [new tag]         v2.2       -> v2.2
+#18 2.181  * [new tag]         v2.2.1     -> v2.2.1
+#18 2.182  * [new tag]         v2.3       -> v2.3
+#18 2.182  * [new tag]         v2.3.1     -> v2.3.1
+#18 2.182  * [new tag]         v2.4       -> v2.4
+#18 2.183  * [new tag]         v2.5       -> v2.5
+#18 2.183  * [new tag]         v2.6       -> v2.6
+#18 2.183  * [new tag]         v2.7       -> v2.7
+#18 2.183  * [new tag]         v2.8       -> v2.8
+#18 2.184  * [new tag]         v2.9       -> v2.9
+#18 2.206 error: pathspec '632d9739' did not match any file(s) known to git
+#18 2.211 error: pathspec '632d9739' did not match any file(s) known to git
+#18 2.218 error: pathspec '632d9739' did not match any file(s) known to git
+#18 2.286 Checkout unsuccessful.
+#18 DONE 2.9s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:256a282ea81e7ca7fa926b5bdcf0025c3e9da0dba5e52d315ec5fcf07cdedb2f
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:120918e629c8ec3c11e24f27cce73b92bc34adbfadae881670add892e507fc48
+#20 0.584 Run fuzzer_build to build the target
+#20 0.698 FUZZ_TARGET = jansson
+#20 0.698 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.698 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.703 Building benchmark jansson_jansson with fuzzer afl
+#20 0.706 + ./test/ossfuzz/ossfuzz.sh
+#20 0.707 CC: clang
+#20 0.707 CXX: clang++
+#20 0.707 LIB_FUZZING_ENGINE: /libAFL.a
+#20 0.707 CFLAGS: -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard
+#20 0.707 CXXFLAGS: -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard
+#20 0.707 OUT: /out
+#20 0.779 Reading package lists...
+#20 2.217 Building dependency tree...
+#20 2.429 Reading state information...
+#20 2.644 The following additional packages will be installed:
+#20 2.645   autoconf autotools-dev libltdl-dev libltdl7 libsigsegv2 m4
+#20 2.647 Suggested packages:
+#20 2.647   autoconf-archive gnu-standards autoconf-doc gettext libtool-doc gfortran
+#20 2.647   | fortran95-compiler gcj-jdk m4-doc
+#20 2.716 The following NEW packages will be installed:
+#20 2.719   autoconf automake autotools-dev libltdl-dev libltdl7 libsigsegv2 libtool m4
+#20 2.802 0 upgraded, 8 newly installed, 0 to remove and 1 not upgraded.
+#20 2.802 Need to get 1457 kB of archives.
+#20 2.802 After this operation, 6651 kB of additional disk space will be used.
+#20 2.802 Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 libsigsegv2 amd64 2.12-2 [13.9 kB]
+#20 2.828 Get:2 http://archive.ubuntu.com/ubuntu focal/main amd64 m4 amd64 1.4.18-4 [199 kB]
+#20 2.897 Get:3 http://archive.ubuntu.com/ubuntu focal/main amd64 autoconf all 2.69-11.1 [321 kB]
+#20 2.932 Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 autotools-dev all 20180224.1 [39.6 kB]
+#20 2.937 Get:5 http://archive.ubuntu.com/ubuntu focal/main amd64 automake all 1:1.16.1-4ubuntu6 [522 kB]
+#20 2.990 Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libltdl7 amd64 2.4.6-14 [38.5 kB]
+#20 2.993 Get:7 http://archive.ubuntu.com/ubuntu focal/main amd64 libltdl-dev amd64 2.4.6-14 [162 kB]
+#20 3.005 Get:8 http://archive.ubuntu.com/ubuntu focal/main amd64 libtool all 2.4.6-14 [161 kB]
+#20 3.267 debconf: delaying package configuration, since apt-utils is not installed
+#20 3.384 Fetched 1457 kB in 0s (5085 kB/s)
+#20 3.459 Selecting previously unselected package libsigsegv2:amd64.
+#20 3.459 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21291 files and directories currently installed.)
+#20 3.480 Preparing to unpack .../0-libsigsegv2_2.12-2_amd64.deb ...
+#20 3.516 Unpacking libsigsegv2:amd64 (2.12-2) ...
+#20 3.616 Selecting previously unselected package m4.
+#20 3.619 Preparing to unpack .../1-m4_1.4.18-4_amd64.deb ...
+#20 3.634 Unpacking m4 (1.4.18-4) ...
+#20 3.748 Selecting previously unselected package autoconf.
+#20 3.751 Preparing to unpack .../2-autoconf_2.69-11.1_all.deb ...
+#20 3.768 Unpacking autoconf (2.69-11.1) ...
+#20 3.908 Selecting previously unselected package autotools-dev.
+#20 3.911 Preparing to unpack .../3-autotools-dev_20180224.1_all.deb ...
+#20 3.925 Unpacking autotools-dev (20180224.1) ...
+#20 4.056 Selecting previously unselected package automake.
+#20 4.059 Preparing to unpack .../4-automake_1%3a1.16.1-4ubuntu6_all.deb ...
+#20 4.067 Unpacking automake (1:1.16.1-4ubuntu6) ...
+#20 4.257 Selecting previously unselected package libltdl7:amd64.
+#20 4.260 Preparing to unpack .../5-libltdl7_2.4.6-14_amd64.deb ...
+#20 4.274 Unpacking libltdl7:amd64 (2.4.6-14) ...
+#20 4.371 Selecting previously unselected package libltdl-dev:amd64.
+#20 4.374 Preparing to unpack .../6-libltdl-dev_2.4.6-14_amd64.deb ...
+#20 4.392 Unpacking libltdl-dev:amd64 (2.4.6-14) ...
+#20 4.527 Selecting previously unselected package libtool.
+#20 4.530 Preparing to unpack .../7-libtool_2.4.6-14_all.deb ...
+#20 4.547 Unpacking libtool (2.4.6-14) ...
+#20 4.706 Setting up autotools-dev (20180224.1) ...
+#20 4.765 Setting up libsigsegv2:amd64 (2.12-2) ...
+#20 4.814 Setting up libltdl7:amd64 (2.4.6-14) ...
+#20 4.872 Setting up libtool (2.4.6-14) ...
+#20 4.928 Setting up m4 (1.4.18-4) ...
+#20 4.973 Setting up autoconf (2.69-11.1) ...
+#20 5.026 Setting up automake (1:1.16.1-4ubuntu6) ...
+#20 5.068 update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+#20 5.068 update-alternatives: warning: skip creation of /usr/share/man/man1/automake.1.gz because associated file /usr/share/man/man1/automake-1.16.1.gz (of link group automake) doesn't exist
+#20 5.068 update-alternatives: warning: skip creation of /usr/share/man/man1/aclocal.1.gz because associated file /usr/share/man/man1/aclocal-1.16.1.gz (of link group automake) doesn't exist
+#20 5.083 Setting up libltdl-dev:amd64 (2.4.6-14) ...
+#20 5.120 Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
+#20 8.498 libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, '.'.
+#20 8.498 libtoolize: copying file './ltmain.sh'
+#20 8.723 libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+#20 8.723 libtoolize: and rerunning libtoolize and aclocal.
+#20 8.723 libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+#20 11.35 configure.ac:11: installing './compile'
+#20 11.35 configure.ac:13: installing './config.guess'
+#20 11.35 configure.ac:13: installing './config.sub'
+#20 11.36 configure.ac:5: installing './install-sh'
+#20 11.36 configure.ac:5: installing './missing'
+#20 11.40 parallel-tests: installing './test-driver'
+#20 11.48 src/Makefile.am: installing './depcomp'
+#20 11.97 checking for a BSD-compatible install... /usr/bin/install -c
+#20 11.98 checking whether build environment is sane... yes
+#20 12.00 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 12.00 checking for gawk... no
+#20 12.01 checking for mawk... mawk
+#20 12.01 checking whether make sets $(MAKE)... yes
+#20 12.02 checking whether make supports nested variables... yes
+#20 12.04 checking for gcc... clang
+#20 12.11 checking whether the C compiler works... yes
+#20 12.23 checking for C compiler default output file name... a.out
+#20 12.23 checking for suffix of executables... 
+#20 12.35 checking whether we are cross compiling... no
+#20 12.48 checking for suffix of object files... o
+#20 12.51 checking whether we are using the GNU C compiler... yes
+#20 12.54 checking whether clang accepts -g... yes
+#20 12.56 checking for clang option to accept ISO C89... none needed
+#20 12.61 checking whether clang understands -c and -o together... yes
+#20 12.65 checking whether make supports the include directive... yes (GNU style)
+#20 12.67 checking dependency style of clang... gcc3
+#20 12.79 checking whether we are using the GNU C++ compiler... yes
+#20 12.82 checking whether clang++ accepts -g... yes
+#20 12.84 checking dependency style of clang++... gcc3
+#20 12.92 checking build system type... x86_64-pc-linux-gnu
+#20 13.00 checking host system type... x86_64-pc-linux-gnu
+#20 13.00 checking how to print strings... printf
+#20 13.05 checking for a sed that does not truncate output... /usr/bin/sed
+#20 13.06 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 13.07 checking for egrep... /usr/bin/grep -E
+#20 13.07 checking for fgrep... /usr/bin/grep -F
+#20 13.07 checking for ld used by clang... /usr/bin/ld
+#20 13.09 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 13.10 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 13.10 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 13.14 checking whether ln -s works... yes
+#20 13.14 checking the maximum length of command line arguments... 1572864
+#20 13.15 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 13.15 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 13.15 checking for /usr/bin/ld option to reload object files... -r
+#20 13.15 checking for objdump... objdump
+#20 13.15 checking how to recognize dependent libraries... pass_all
+#20 13.15 checking for dlltool... no
+#20 13.15 checking how to associate runtime and link libraries... printf %s\n
+#20 13.15 checking for ar... ar
+#20 13.16 checking for archiver @FILE support... @
+#20 13.20 checking for strip... strip
+#20 13.20 checking for ranlib... ranlib
+#20 13.20 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 13.37 checking for sysroot... no
+#20 13.37 checking for a working dd... /usr/bin/dd
+#20 13.38 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 13.41 checking for mt... no
+#20 13.41 checking if : is a manifest tool... no
+#20 13.42 checking how to run the C preprocessor... clang -E
+#20 13.52 checking for ANSI C header files... yes
+#20 13.76 checking for sys/types.h... yes
+#20 13.82 checking for sys/stat.h... yes
+#20 13.88 checking for stdlib.h... yes
+#20 13.93 checking for string.h... yes
+#20 13.99 checking for memory.h... yes
+#20 14.05 checking for strings.h... yes
+#20 14.11 checking for inttypes.h... yes
+#20 14.17 checking for stdint.h... yes
+#20 14.24 checking for unistd.h... yes
+#20 14.30 checking for dlfcn.h... yes
+#20 14.35 checking for objdir... .libs
+#20 14.53 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 14.56 checking for clang option to produce PIC... -fPIC -DPIC
+#20 14.56 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 14.59 checking if clang static flag -static works... yes
+#20 14.77 checking if clang supports -c -o file.o... yes
+#20 14.82 checking if clang supports -c -o file.o... (cached) yes
+#20 14.82 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 14.84 checking whether -lc should be explicitly linked in... no
+#20 14.90 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 15.07 checking how to hardcode library paths into programs... immediate
+#20 15.07 checking whether stripping libraries is possible... yes
+#20 15.08 checking if libtool supports shared libraries... yes
+#20 15.08 checking whether to build shared libraries... yes
+#20 15.08 checking whether to build static libraries... yes
+#20 15.08 checking how to run the C++ preprocessor... clang++ -E
+#20 15.38 checking for ld used by clang++... /usr/bin/ld -m elf_x86_64
+#20 15.40 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 15.42 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 15.57 checking for clang++ option to produce PIC... -fPIC -DPIC
+#20 15.57 checking if clang++ PIC flag -fPIC -DPIC works... yes
+#20 15.60 checking if clang++ static flag -static works... yes
+#20 15.81 checking if clang++ supports -c -o file.o... yes
+#20 15.86 checking if clang++ supports -c -o file.o... (cached) yes
+#20 15.86 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 15.86 checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+#20 15.87 checking how to hardcode library paths into programs... immediate
+#20 15.87 checking endian.h usability... yes
+#20 15.93 checking endian.h presence... yes
+#20 15.95 checking for endian.h... yes
+#20 15.97 checking fcntl.h usability... yes
+#20 16.02 checking fcntl.h presence... yes
+#20 16.04 checking for fcntl.h... yes
+#20 16.06 checking locale.h usability... yes
+#20 16.11 checking locale.h presence... yes
+#20 16.13 checking for locale.h... yes
+#20 16.15 checking sched.h usability... yes
+#20 16.20 checking sched.h presence... yes
+#20 16.22 checking for sched.h... yes
+#20 16.24 checking for unistd.h... (cached) yes
+#20 16.25 checking sys/param.h usability... yes
+#20 16.31 checking sys/param.h presence... yes
+#20 16.34 checking for sys/param.h... yes
+#20 16.35 checking for sys/stat.h... (cached) yes
+#20 16.36 checking sys/time.h usability... yes
+#20 16.42 checking sys/time.h presence... yes
+#20 16.44 checking for sys/time.h... yes
+#20 16.45 checking for sys/types.h... (cached) yes
+#20 16.46 checking for int32_t... yes
+#20 16.60 checking for uint32_t... yes
+#20 16.66 checking for uint16_t... yes
+#20 16.72 checking for uint8_t... yes
+#20 16.79 checking for unsigned long long int... yes
+#20 16.91 checking for long long int... yes
+#20 17.05 checking for inline... inline
+#20 17.08 checking for close... yes
+#20 17.22 checking for getpid... yes
+#20 17.36 checking for gettimeofday... yes
+#20 17.49 checking for localeconv... yes
+#20 17.63 checking for open... yes
+#20 17.77 checking for read... yes
+#20 17.91 checking for sched_yield... yes
+#20 18.05 checking for strtoll... yes
+#20 18.19 checking for gcc __sync builtins... yes
+#20 18.32 checking for gcc __atomic builtins... yes
+#20 18.45 checking for -Bsymbolic-functions linker flag... no
+#20 18.51 checking whether __GLIBC__ is declared... yes
+#20 18.57 checking for -Wno-format-truncation... no
+#20 18.63 checking that generated files are newer than configure... done
+#20 18.63 configure: creating ./config.status
+#20 19.70 config.status: creating jansson.pc
+#20 19.72 config.status: creating Makefile
+#20 19.74 config.status: creating doc/Makefile
+#20 19.76 config.status: creating src/Makefile
+#20 19.79 config.status: creating src/jansson_config.h
+#20 19.82 config.status: creating test/Makefile
+#20 19.84 config.status: creating test/bin/Makefile
+#20 19.87 config.status: creating test/ossfuzz/Makefile
+#20 19.90 config.status: creating test/suites/Makefile
+#20 19.92 config.status: creating test/suites/api/Makefile
+#20 19.95 config.status: creating jansson_private_config.h
+#20 19.97 config.status: executing depfiles commands
+#20 20.27 config.status: executing libtool commands
+#20 20.37 make  all-recursive
+#20 20.37 make[1]: Entering directory '/src/jansson'
+#20 20.38 Making all in doc
+#20 20.38 make[2]: Entering directory '/src/jansson/doc'
+#20 20.38 make[2]: Nothing to be done for 'all'.
+#20 20.38 make[2]: Leaving directory '/src/jansson/doc'
+#20 20.38 Making all in src
+#20 20.39 make[2]: Entering directory '/src/jansson/src'
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT dump.lo -MD -MP -MF .deps/dump.Tpo -c -o dump.lo dump.c
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT error.lo -MD -MP -MF .deps/error.Tpo -c -o error.lo error.c
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT hashtable.lo -MD -MP -MF .deps/hashtable.Tpo -c -o hashtable.lo hashtable.c
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT hashtable_seed.lo -MD -MP -MF .deps/hashtable_seed.Tpo -c -o hashtable_seed.lo hashtable_seed.c
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT load.lo -MD -MP -MF .deps/load.Tpo -c -o load.lo load.c
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT memory.lo -MD -MP -MF .deps/memory.Tpo -c -o memory.lo memory.c
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT pack_unpack.lo -MD -MP -MF .deps/pack_unpack.Tpo -c -o pack_unpack.lo pack_unpack.c
+#20 20.39 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT strbuffer.lo -MD -MP -MF .deps/strbuffer.Tpo -c -o strbuffer.lo strbuffer.c
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT error.lo -MD -MP -MF .deps/error.Tpo -c error.c  -fPIC -DPIC -o .libs/error.o
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT memory.lo -MD -MP -MF .deps/memory.Tpo -c memory.c  -fPIC -DPIC -o .libs/memory.o
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT hashtable_seed.lo -MD -MP -MF .deps/hashtable_seed.Tpo -c hashtable_seed.c  -fPIC -DPIC -o .libs/hashtable_seed.o
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT dump.lo -MD -MP -MF .deps/dump.Tpo -c dump.c  -fPIC -DPIC -o .libs/dump.o
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT load.lo -MD -MP -MF .deps/load.Tpo -c load.c  -fPIC -DPIC -o .libs/load.o
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT pack_unpack.lo -MD -MP -MF .deps/pack_unpack.Tpo -c pack_unpack.c  -fPIC -DPIC -o .libs/pack_unpack.o
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT strbuffer.lo -MD -MP -MF .deps/strbuffer.Tpo -c strbuffer.c  -fPIC -DPIC -o .libs/strbuffer.o
+#20 20.47 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT hashtable.lo -MD -MP -MF .deps/hashtable.Tpo -c hashtable.c  -fPIC -DPIC -o .libs/hashtable.o
+#20 20.55 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT memory.lo -MD -MP -MF .deps/memory.Tpo -c memory.c -o memory.o >/dev/null 2>&1
+#20 20.56 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT error.lo -MD -MP -MF .deps/error.Tpo -c error.c -o error.o >/dev/null 2>&1
+#20 20.57 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT hashtable_seed.lo -MD -MP -MF .deps/hashtable_seed.Tpo -c hashtable_seed.c -o hashtable_seed.o >/dev/null 2>&1
+#20 20.58 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT strbuffer.lo -MD -MP -MF .deps/strbuffer.Tpo -c strbuffer.c -o strbuffer.o >/dev/null 2>&1
+#20 20.65 mv -f .deps/memory.Tpo .deps/memory.Plo
+#20 20.65 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT strconv.lo -MD -MP -MF .deps/strconv.Tpo -c -o strconv.lo strconv.c
+#20 20.67 mv -f .deps/error.Tpo .deps/error.Plo
+#20 20.68 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf.lo -MD -MP -MF .deps/utf.Tpo -c -o utf.lo utf.c
+#20 20.68 mv -f .deps/hashtable_seed.Tpo .deps/hashtable_seed.Plo
+#20 20.69 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT value.lo -MD -MP -MF .deps/value.Tpo -c -o value.lo value.c
+#20 20.69 mv -f .deps/strbuffer.Tpo .deps/strbuffer.Plo
+#20 20.69 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..    -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT version.lo -MD -MP -MF .deps/version.Tpo -c -o version.lo version.c
+#20 20.76 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf.lo -MD -MP -MF .deps/utf.Tpo -c utf.c  -fPIC -DPIC -o .libs/utf.o
+#20 20.77 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT strconv.lo -MD -MP -MF .deps/strconv.Tpo -c strconv.c  -fPIC -DPIC -o .libs/strconv.o
+#20 20.77 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT value.lo -MD -MP -MF .deps/value.Tpo -c value.c  -fPIC -DPIC -o .libs/value.o
+#20 20.77 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT version.lo -MD -MP -MF .deps/version.Tpo -c version.c  -fPIC -DPIC -o .libs/version.o
+#20 20.84 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT version.lo -MD -MP -MF .deps/version.Tpo -c version.c -o version.o >/dev/null 2>&1
+#20 20.85 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT hashtable.lo -MD -MP -MF .deps/hashtable.Tpo -c hashtable.c -o hashtable.o >/dev/null 2>&1
+#20 20.85 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT dump.lo -MD -MP -MF .deps/dump.Tpo -c dump.c -o dump.o >/dev/null 2>&1
+#20 20.89 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT utf.lo -MD -MP -MF .deps/utf.Tpo -c utf.c -o utf.o >/dev/null 2>&1
+#20 20.91 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT strconv.lo -MD -MP -MF .deps/strconv.Tpo -c strconv.c -o strconv.o >/dev/null 2>&1
+#20 20.93 mv -f .deps/version.Tpo .deps/version.Plo
+#20 21.01 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT load.lo -MD -MP -MF .deps/load.Tpo -c load.c -o load.o >/dev/null 2>&1
+#20 21.02 mv -f .deps/utf.Tpo .deps/utf.Plo
+#20 21.05 mv -f .deps/strconv.Tpo .deps/strconv.Plo
+#20 21.14 mv -f .deps/dump.Tpo .deps/dump.Plo
+#20 21.22 mv -f .deps/hashtable.Tpo .deps/hashtable.Plo
+#20 21.30 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT pack_unpack.lo -MD -MP -MF .deps/pack_unpack.Tpo -c pack_unpack.c -o pack_unpack.o >/dev/null 2>&1
+#20 21.36 mv -f .deps/load.Tpo .deps/load.Plo
+#20 21.40 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -Wall -Wextra -Wdeclaration-after-statement -Wshadow -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT value.lo -MD -MP -MF .deps/value.Tpo -c value.c -o value.o >/dev/null 2>&1
+#20 21.80 mv -f .deps/pack_unpack.Tpo .deps/pack_unpack.Plo
+#20 21.93 mv -f .deps/value.Tpo .deps/value.Plo
+#20 21.93 /bin/bash ../libtool  --tag=CC   --mode=link clang -Wall -Wextra -Wdeclaration-after-statement -Wshadow  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -no-undefined -export-symbols-regex '^json_|^jansson_' -version-info 18:0:14 -Wl,--default-symver   -o libjansson.la -rpath /usr/local/lib dump.lo error.lo hashtable.lo hashtable_seed.lo load.lo memory.lo pack_unpack.lo strbuffer.lo strconv.lo utf.lo value.lo version.lo  
+#20 22.07 libtool: link: /usr/bin/nm -B  .libs/dump.o .libs/error.o .libs/hashtable.o .libs/hashtable_seed.o .libs/load.o .libs/memory.o .libs/pack_unpack.o .libs/strbuffer.o .libs/strconv.o .libs/utf.o .libs/value.o .libs/version.o   | sed -n -e 's/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d' | /usr/bin/sed 's/.* //' | sort | uniq > .libs/libjansson.exp
+#20 22.08 libtool: link: /usr/bin/grep -E -e "^json_|^jansson_" ".libs/libjansson.exp" > ".libs/libjansson.expT"
+#20 22.09 libtool: link: mv -f ".libs/libjansson.expT" ".libs/libjansson.exp"
+#20 22.10 libtool: link: echo "{ global:" > .libs/libjansson.ver
+#20 22.10 libtool: link:  cat .libs/libjansson.exp | sed -e "s/\(.*\)/\1;/" >> .libs/libjansson.ver
+#20 22.11 libtool: link:  echo "local: *; };" >> .libs/libjansson.ver
+#20 22.11 libtool: link:  clang -shared  -fPIC -DPIC  .libs/dump.o .libs/error.o .libs/hashtable.o .libs/hashtable_seed.o .libs/load.o .libs/memory.o .libs/pack_unpack.o .libs/strbuffer.o .libs/strconv.o .libs/utf.o .libs/value.o .libs/version.o    -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -O3 -Wl,--default-symver   -pthread -Wl,-soname -Wl,libjansson.so.4 -Wl,-version-script -Wl,.libs/libjansson.ver -o .libs/libjansson.so.4.14.0
+#20 22.17 libtool: link: (cd ".libs" && rm -f "libjansson.so.4" && ln -s "libjansson.so.4.14.0" "libjansson.so.4")
+#20 22.18 libtool: link: (cd ".libs" && rm -f "libjansson.so" && ln -s "libjansson.so.4.14.0" "libjansson.so")
+#20 22.19 libtool: link: ar cr .libs/libjansson.a  dump.o error.o hashtable.o hashtable_seed.o load.o memory.o pack_unpack.o strbuffer.o strconv.o utf.o value.o version.o
+#20 22.20 libtool: link: ranlib .libs/libjansson.a
+#20 22.30 libtool: link: ( cd ".libs" && rm -f "libjansson.la" && ln -s "../libjansson.la" "libjansson.la" )
+#20 22.31 make[2]: Leaving directory '/src/jansson/src'
+#20 22.31 Making all in test
+#20 22.31 make[2]: Entering directory '/src/jansson/test'
+#20 22.32 Making all in bin
+#20 22.32 make[3]: Entering directory '/src/jansson/test/bin'
+#20 22.32 make[3]: Nothing to be done for 'all'.
+#20 22.32 make[3]: Leaving directory '/src/jansson/test/bin'
+#20 22.32 Making all in suites
+#20 22.32 make[3]: Entering directory '/src/jansson/test/suites'
+#20 22.33 Making all in api
+#20 22.33 make[4]: Entering directory '/src/jansson/test/suites/api'
+#20 22.33 make[4]: Nothing to be done for 'all'.
+#20 22.33 make[4]: Leaving directory '/src/jansson/test/suites/api'
+#20 22.34 make[4]: Entering directory '/src/jansson/test/suites'
+#20 22.34 make[4]: Nothing to be done for 'all-am'.
+#20 22.34 make[4]: Leaving directory '/src/jansson/test/suites'
+#20 22.34 make[3]: Leaving directory '/src/jansson/test/suites'
+#20 22.34 Making all in ossfuzz
+#20 22.34 make[3]: Entering directory '/src/jansson/test/ossfuzz'
+#20 22.34 clang++ -DHAVE_CONFIG_H -I. -I../..  -I../../src -I../../src    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -MT json_load_dump_fuzzer-json_load_dump_fuzzer.o -MD -MP -MF .deps/json_load_dump_fuzzer-json_load_dump_fuzzer.Tpo -c -o json_load_dump_fuzzer-json_load_dump_fuzzer.o `test -f 'json_load_dump_fuzzer.cc' || echo './'`json_load_dump_fuzzer.cc
+#20 22.34 clang++ -DHAVE_CONFIG_H -I. -I../..  -I../../src -I../../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -MT libstandaloneengine_a-standaloneengine.o -MD -MP -MF .deps/libstandaloneengine_a-standaloneengine.Tpo -c -o libstandaloneengine_a-standaloneengine.o `test -f 'standaloneengine.cc' || echo './'`standaloneengine.cc
+#20 22.41 mv -f .deps/libstandaloneengine_a-standaloneengine.Tpo .deps/libstandaloneengine_a-standaloneengine.Po
+#20 22.41 rm -f libstandaloneengine.a
+#20 22.41 ar cru libstandaloneengine.a libstandaloneengine_a-standaloneengine.o 
+#20 22.41 ar: `u' modifier ignored since `D' is the default (see `U')
+#20 22.41 ranlib libstandaloneengine.a
+#20 22.42 mv -f .deps/json_load_dump_fuzzer-json_load_dump_fuzzer.Tpo .deps/json_load_dump_fuzzer-json_load_dump_fuzzer.Po
+#20 22.43 /bin/bash ../../libtool  --tag=CXX   --mode=link clang++   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard  -static  -o json_load_dump_fuzzer json_load_dump_fuzzer-json_load_dump_fuzzer.o ../../src/libjansson.la /libAFL.a  
+#20 22.65 libtool: link: clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o json_load_dump_fuzzer json_load_dump_fuzzer-json_load_dump_fuzzer.o  ../../src/.libs/libjansson.a /libAFL.a -pthread
+#20 22.86 make[3]: Leaving directory '/src/jansson/test/ossfuzz'
+#20 22.86 make[3]: Entering directory '/src/jansson/test'
+#20 22.86 make[3]: Nothing to be done for 'all-am'.
+#20 22.86 make[3]: Leaving directory '/src/jansson/test'
+#20 22.86 make[2]: Leaving directory '/src/jansson/test'
+#20 22.87 make[2]: Entering directory '/src/jansson'
+#20 22.87 make[2]: Leaving directory '/src/jansson'
+#20 22.87 make[1]: Leaving directory '/src/jansson'
+#20 22.88 'test/ossfuzz/json_load_dump_fuzzer' -> '/out/json_load_dump_fuzzer'
+#20 22.89   adding: test/suites/valid/utf-8-string/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-negative-exponent/input (stored 0%)
+#20 22.89   adding: test/suites/valid/simple-ascii-string/input (stored 0%)
+#20 22.89   adding: test/suites/valid/true/input (stored 0%)
+#20 22.89   adding: test/suites/valid/simple-int-0/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-positive-exponent/input (stored 0%)
+#20 22.89   adding: test/suites/valid/empty-object/input (stored 0%)
+#20 22.89   adding: test/suites/valid/utf-surrogate-four-byte-encoding/input (stored 0%)
+#20 22.89   adding: test/suites/valid/negative-int/input (stored 0%)
+#20 22.89   adding: test/suites/valid/escaped-utf-control-char/input (stored 0%)
+#20 22.89   adding: test/suites/valid/two-byte-utf-8/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-underflow/input (deflated 19%)
+#20 22.89   adding: test/suites/valid/false/input (stored 0%)
+#20 22.89   adding: test/suites/valid/empty-object-in-array/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-subnormal-number/input (stored 0%)
+#20 22.89   adding: test/suites/valid/negative-zero/input (stored 0%)
+#20 22.89   adding: test/suites/valid/null/input (stored 0%)
+#20 22.89   adding: test/suites/valid/empty-string/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-fraction-exponent/input (stored 0%)
+#20 22.89   adding: test/suites/valid/empty-array/input (stored 0%)
+#20 22.89   adding: test/suites/valid/one-byte-utf-8/input (stored 0%)
+#20 22.89   adding: test/suites/valid/negative-one/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-capital-e-negative-exponent/input (stored 0%)
+#20 22.89   adding: test/suites/valid/three-byte-utf-8/input (stored 0%)
+#20 22.89   adding: test/suites/valid/simple-int-1/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-capital-e-positive-exponent/input (stored 0%)
+#20 22.89   adding: test/suites/valid/complex-array/input (deflated 23%)
+#20 22.89   adding: test/suites/valid/simple-object/input (stored 0%)
+#20 22.89   adding: test/suites/valid/string-escapes/input (stored 0%)
+#20 22.89   adding: test/suites/valid/simple-real/input (stored 0%)
+#20 22.89   adding: test/suites/valid/short-string/input (stored 0%)
+#20 22.89   adding: test/suites/valid/simple-int-123/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-exponent/input (stored 0%)
+#20 22.89   adding: test/suites/valid/real-capital-e/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/real-positive-overflow/input (deflated 13%)
+#20 22.89   adding: test/suites/invalid/real-truncated-at-point/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/null-byte-outside-string/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/lone-open-bracket/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/unterminated-array-and-object/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/truncated-unicode-surrogate/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/unterminated-key/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/object-no-colon/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/unicode-identifier/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/object-no-value/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/bracket-comma/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/unterminated-empty-key/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/invalid-negative-real/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/bracket-one-comma/input (stored 0%)
+#20 22.89   adding: test/suites/invalid/too-big-negative-integer/input (deflated 71%)
+#20 22.89   adding: test/suites/invalid/recursion-depth/input (deflated 100%)
+#20 22.90   adding: test/suites/invalid/invalid-escape/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/real-negative-overflow/input (deflated 12%)
+#20 22.90   adding: test/suites/invalid/invalid-identifier/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/extra-comma-in-multiline-array/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/unterminated-object-and-array/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/real-truncated-at-e/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/unterminated-array/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/real-garbage-after-e/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/invalid-negative-integer/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/lone-second-surrogate/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/negative-integer-starting-with-zero/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/object-in-unterminated-array/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/object-apostrophes/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/empty/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/object-unterminated-value/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/garbage-at-the-end/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/unterminated-string/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/extra-comma-in-array/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/brace-comma/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/null-escape-in-string/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/null/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/tab-character-in-string/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/null-byte-in-string/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/too-big-positive-integer/input (deflated 73%)
+#20 22.90   adding: test/suites/invalid/object-garbage-at-end/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/minus-sign-without-number/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/garbage-after-newline/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/integer-starting-with-zero/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/lone-open-brace/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/null-byte-in-object-key/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/apostrophe/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/invalid-unicode-escape/input (stored 0%)
+#20 22.90   adding: test/suites/invalid/invalid-second-surrogate/input (deflated 11%)
+#20 22.90   adding: test/suites/invalid/ascii-unicode-identifier/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/indent-compact-object/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/array/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/compact-array/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/indent-compact-array/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/ensure-ascii/input (deflated 41%)
+#20 22.90   adding: test/suites/encoding-flags/compact-object/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/indent-array/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/real-precision/input (deflated 37%)
+#20 22.90   adding: test/suites/encoding-flags/preserve-order/input (deflated 16%)
+#20 22.90   adding: test/suites/encoding-flags/object/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/indent-object/input (stored 0%)
+#20 22.90   adding: test/suites/encoding-flags/sort-keys/input (deflated 17%)
+#20 22.90   adding: test/suites/invalid-unicode/overlong-3-byte-encoding/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/lone-utf-8-continuation-byte/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-identifier/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/not-in-unicode-range/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-array/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-after-backslash/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-int/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-escape/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/overlong-ascii-encoding/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/lone-invalid-utf-8/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-string/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-real-after-e/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/overlong-4-byte-encoding/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/encoded-surrogate-half/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/truncated-utf-8/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/restricted-utf-8/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-bigger-int/input (stored 0%)
+#20 22.90   adding: test/suites/invalid-unicode/invalid-utf-8-in-exponent/input (stored 0%)
+#20 22.90 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 30.8s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:f5572ab92452a58dec7b0440a58ec0368736a7708a287be4533abf0ff56d8b19 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/jansson_jansson done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/jansson_jansson:
+------
+#2 [internal] load .dockerignore
+#2 sha256:62a2a0f85906b3373ebb5414b96dd885a3c24905a04726acb75466994e836818
+#2 ...
+
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:c2ab408c6830eca22fa8063cbb4259de19d1680eb87da4b4668709faa15d285c
+#1 transferring dockerfile: 656B done
+#1 DONE 0.6s
+
+#2 [internal] load .dockerignore
+#2 sha256:62a2a0f85906b3373ebb5414b96dd885a3c24905a04726acb75466994e836818
+#2 transferring context: 2B done
+#2 DONE 0.6s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate
+#5 sha256:c4d516d0c8a99f76d365f831611012a0fee1e74926e46b39736a56575879b98d
+#5 ERROR: gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:ef5050d5fe8bf51cb56cecae0e385750bb903ad50343de42ba23a2d900ab35c4
+#6 writing image sha256:ef5050d5fe8bf51cb56cecae0e385750bb903ad50343de42ba23a2d900ab35c4 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate 0.0s done
+#6 DONE 0.2s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1b7a474fdccb926e6c54b49487be73810d0a7ca266f6357d42292d5ccc96399d
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1de1d40a2a6bddafc1205d6a8d65142c4602ec0d848ddf40fb62445494c05eb9
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate:latest
+#3 sha256:95ad90b92711b570aeb561ee90dce585c31b81bcc0b9b8f789fc0bda47597fd3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jansson_jansson:latest
+#4 sha256:23e299d4d3ff6ca0e9eec9550aff6ed95826eda459c351ef1114cf4aa6f12e83
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e4c9f1cc245b0639d97441d6fff03e984f2bb696cff075b8da09c57d6a41940f
+#12 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/jansson_jansson
+#10 sha256:eea4f589959c0c1d7dc7772d4cd983bc07ab434f23ae48582bf4647bffeceddb
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/jansson_jansson
+#5 sha256:cb572c2ebd0cde885f1efb8c77a787b3d0d72521087087a33b460c94f94cd540
+#5 ERROR: gcr.io/fuzzbench/runners/afl/jansson_jansson:latest: not found
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate
+#6 sha256:72e494c30b2d68f20c167db5b0605a5a98b2bb5a3eb43037c37ae193c5c51f48
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e4c9f1cc245b0639d97441d6fff03e984f2bb696cff075b8da09c57d6a41940f
+#12 transferring context: 19.00MB 0.6s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/jansson_jansson
+#10 sha256:eea4f589959c0c1d7dc7772d4cd983bc07ab434f23ae48582bf4647bffeceddb
+#10 DONE 1.3s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:d7f3109a81d55e4e1af67eb91bab25f139c33e9a68c62738d35ed556865a0919
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:b8c1de2d984f248916c9b9dfa532591a2410b920e99f662c6e2857aa42a47a70
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:f63173cba7124da52bb3854b132869a430f3d095b0a22532ca9f886382af5df7
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:ee353d396f5e1ca702268f496f0849b303cc4b9db3a9cdad99b5c66ab06b1017
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:7e301bbbeee6452a7d745ad56f0dd7e2f0f1823094e6e6d51224822dee262dde
+#13 DONE 0.9s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:485250b1d086291936d26929614c3eea1f2e34f0c655c0eb14b7ccd66e104e23
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:e0c61887750a4fdc10d0a7d61cdbac46faa5d943a03e524dc82007d9a50e7fc6
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:c446a518ac2fc31cc215d50d35b98c7a780e34b6f2c1b8b1ef85b4f0704666dc
+#16 DONE 1.0s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:b33a5565b1dc6a8436e95cf0d6e58e9cb5c36d7d78ae701fd05c13d343ef9f7f
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:8f5a78e2f3dab53516cb42377d8dcf47eff0e9215279a7968ccc136b553737a5
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:264208b79b674ccb11f924f400eea6d4e208a73fea913c281fb5f2e95cbb3f5c
+#19 DONE 0.3s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:4740a991e16a9b3641267cfa19b9c9369deb510ff6746c32e81af9d850b1b4f2
+#20 DONE 1.0s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:876410f9990563ea4483d31fa98167f4c73eb70abb832e8d7b4cba1edb78624f done
+#21 naming to gcr.io/fuzzbench/runners/afl/jansson_jansson done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/jansson_jansson:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fa29f452ee0> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:a3a12d381745e52a7b66f4b4f7e725b36815b8065d1c9a69503d2beecec0bb6a
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:75d9f17f9ed6033de6ff6c9c5337d1faa832de87ac6f28299207b092f6dba1c3
+#1 transferring dockerfile: 32B done
+#1 DONE 0.7s
+
+#2 [internal] load .dockerignore
+#2 sha256:a3a12d381745e52a7b66f4b4f7e725b36815b8065d1c9a69503d2beecec0bb6a
+#2 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:112044a9815d235113677d459cf2ece740a51f2b85081c8f66943dcdc72ddf7f
+#5 sha256:4aee4bf9f7280ac8b7f02b8d29e6e084dd034d2c294b4e3e05d8ce7048a1450f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jansson_jansson
+#4 sha256:d0918eef45a407b6032dbec40e66102156d3746d8667a54d74a38bc193e6a798
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:91b811173d0f160acd99b2fb4003bcb19dcf504ed69ea1a17aad368fc7847db2
+#8 transferring context: 30B done
+#8 DONE 0.1s
+
+#6 [2/4] RUN git clone --depth 1 https://github.com/akheron/jansson.git /src/jansson
+#6 sha256:383016e289cf3758f12cc23eb8e2b865aa05c3d7462c57b98d56d9d3e94b0b2b
+#6 CACHED
+
+#7 [3/4] WORKDIR /src/jansson
+#7 sha256:e4beb9daea277f9b6589ecb28dc249be51ac59af9261ae1fd306af0f170e24ba
+#7 CACHED
+
+#9 [4/4] COPY build.sh /src/
+#9 sha256:4e0890510c50e4e2e8f82e1359f9d09d581a3168129303d133d3724aa0f169f2
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:3ededaf5dc08546442bc5652b0ca342e77b6da7db687d82ab7d56ba6ece51f52 0.0s done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/jansson_jansson done
+#10 DONE 0.3s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:95fe4af16e2ebcba25cc19066352054f34dc50b386828df27f08b8e8ceca230a
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1c218ced04d822dff8bf5b2fbb6100cd84183f94fc7550e8edcafb86de74d8e7
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/jansson_jansson:latest
+#3 sha256:f9acbf4a1f586fb91c6bca3a2f4cb1676b6c1ef5e1c42cb05699a17586ee784b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate
+#4 sha256:f4a7b84c5f23d33301924ff046695698e2954770c15612d5aa0f6bdb820e7c3e
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/jansson_jansson
+#5 sha256:27c5f9227932bd580d0db4348703b09ff8dffb64936d5f16dde6d2690bb7585e
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:c8d15923aa339fb2117cc47377da8381717dc7da4addb78d846a81b9733586a6
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:04cd0b7c4a3b1736b43dfaf32c2ac880f7050e48a00b380f2a808df89f1bb1b1
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:f8a7e27873ed946e6447b5a9579e2d79c1141152d8b73c3855dc80cc4d95e5ac 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate done
+#8 DONE 0.5s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b91c88dfc583b5148e08ab5066c6e539d23ba1d9b91d084194ebe1ed572bf295
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b4a79a83fb875733de37c9252a5ae4ac1aa526be5ab0288c08a07b07da7f963d
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:f691b488d54d1dac8ab6bea140edb17ba8200984545d7237be97a13b35dde6aa
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ebcb95f2d0118fb274f6f65c82170d897f038568ed310d2ffcfc324862f4c963
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:22633c259ade83f668def9dfe00a4791a44df586cdf8682d55726c7d9c7f9147
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:f0b505cb0af41a424634653cf947b7a3aa034e087bb08f36330ab80d1cccc09e
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:f787d68873fae895ea915ba04e4c375aaa18c00c1bbab155433391f4cf70749e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:b912c3e2a192c2a5792c1eb57a9f841f2bcff8a9d7fb9be34e4e6a7f1bd29c8e 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:5baae0c0da470e863b5bfa00e4a8493d1d58dafe306be02506888851ea0befb1
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:e6b209fbd329f9306b5f4db103ce51ab0bf1e79767812b78e9ae6e4ed62fd50e
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate:latest
+#3 sha256:51a4cbdea169ef9db609d7df2e074d96de7c325bf3d2e1f40816815a963d3538
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/jansson_jansson-intermediate
+#6 sha256:096f45d8934013fe277027a2d8de2598456fa2d447cd47a23ac982bfc4ee9b95
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/jansson_jansson
+#5 sha256:b7e25a4bd81938b199828db3b3ee182bb6329cd1c299efb97f1bf4d64e276cc3
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:025f49afbeec78cd7b1ead6b7049c028b905b3f8848d43ab3c373bef28ec9d60
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:39bb2db7bfb4d4d63ca35b6c612fc68dbdbf74239f5ec54b769ba09f93ed6d1e
+#17 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:c763c169ea16ebc00773e2766b3e525f8e32526f95ebdf3d0cba07fa5f6a0553
+#13 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:e47169b66b858becd97c3811b247d2d7d81aaf97bf03f4073c1dcdc2d569b783
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:a19274ce2ca5c620305453a327ade7bbd03b9c210be19d032174d9c7c6a2261e
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:3f288be3a8ae182f053d1ee2670204a1b9cbafef457199820299f10c7d949627
+#16 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:11e70e99f401c2eeabb86cb18b2777d5ee467f0cff13a92cbb8b0636a733b1ca
+#19 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/jansson_jansson/benchmark.yaml /
+#15 sha256:9cb9c02d8d28b29cad56a0157bfc405013767a3e045509ada03e19daa9b1a915
+#15 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:121b947db2214558b348ca34f204d6898a71ec8fd6b181b23c6aa2c2e3f33d35
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:ef63d0104169e182ea6b3e0c0e6a2d9ca68cc5f40f4e88df0c0546d145cc8904
+#9 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:b9d4df3ec24585b6cdb281541e5a9fd8f4d667645af63f56ab24da558c0c4282
+#18 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:516da34e85bbe185ab249adfce9a3494b3d2d2fd82b18bec833b8e3e46ca96de
+#14 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:bcabebe197a22d98c7c4bdd9f24525869671c9b7a7c49e16609a6ad44cabdab5
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:f5572ab92452a58dec7b0440a58ec0368736a7708a287be4533abf0ff56d8b19 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/jansson_jansson done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:debae4b1d582ee40183141b72ad13ede828482f8e647f13963b20df492532768
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:72ad57e713633b9bff39d1194aafa2a92508a432b431559cf17969144f66a351
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate
+#5 sha256:c4d516d0c8a99f76d365f831611012a0fee1e74926e46b39736a56575879b98d
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:ef5050d5fe8bf51cb56cecae0e385750bb903ad50343de42ba23a2d900ab35c4
+#6 writing image sha256:ef5050d5fe8bf51cb56cecae0e385750bb903ad50343de42ba23a2d900ab35c4 done
+#6 naming to gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:30c4ec3944e39c0b21f2deebd9abd841bc8a00c576369e4280e68a3aa4051266
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:3775e74e2e05a829be3a18a9119949e5c13d810a1f1190594cca73d9ee094aba
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jansson_jansson:latest
+#4 sha256:23e299d4d3ff6ca0e9eec9550aff6ed95826eda459c351ef1114cf4aa6f12e83
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate:latest
+#3 sha256:95ad90b92711b570aeb561ee90dce585c31b81bcc0b9b8f789fc0bda47597fd3
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/jansson_jansson-intermediate
+#6 sha256:72e494c30b2d68f20c167db5b0605a5a98b2bb5a3eb43037c37ae193c5c51f48
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/jansson_jansson
+#5 sha256:cb572c2ebd0cde885f1efb8c77a787b3d0d72521087087a33b460c94f94cd540
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/jansson_jansson
+#10 sha256:eea4f589959c0c1d7dc7772d4cd983bc07ab434f23ae48582bf4647bffeceddb
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:41eaef1471b89a288155290ff8d6906166224a37a7e634c63bb4d43287704496
+#12 transferring context: 19.00MB 0.7s done
+#12 DONE 1.0s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:c0ff5b8593764fd33f2f9362647281ceb47e0c3994aba605c2325a38242e4397
+#19 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:d7f3109a81d55e4e1af67eb91bab25f139c33e9a68c62738d35ed556865a0919
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:ee353d396f5e1ca702268f496f0849b303cc4b9db3a9cdad99b5c66ab06b1017
+#11 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:ac03d7bceec0281b7320ccfdb309285e93c2545fea48a1a19daedbf9f82e2f6e
+#14 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:2782a656c88f59ea20b48b2f711e8c43731be43dfdaadef3b4000756c39d7c61
+#17 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:aacb6a1c66078b35acc91701d3699586527ce05101002479a8eb50f47feb31d0
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:c6f5f664a72d9eb68d06c09cd1d0cb6e1af18802207b12c119dd94b8106173f3
+#18 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:b8c1de2d984f248916c9b9dfa532591a2410b920e99f662c6e2857aa42a47a70
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:f63173cba7124da52bb3854b132869a430f3d095b0a22532ca9f886382af5df7
+#9 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:feb5101127583c2e8dd60135d3e08d72ecebb4dc9205f7afa221511f3a509de6
+#13 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:79770cd160a5dbdeb46b9964d53fdc95b3ff6a2b9fe2009440758eef36c89a86
+#15 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:07c409e8abefba0ca8e04bfa0ad3bdeaacc6f87da0400470a4bc41e16052f599
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:876410f9990563ea4483d31fa98167f4c73eb70abb832e8d7b4cba1edb78624f
+#21 writing image sha256:876410f9990563ea4483d31fa98167f4c73eb70abb832e8d7b4cba1edb78624f 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/jansson_jansson done
+#21 DONE 0.8s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f6c0fe9cee0> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

@@ -1,0 +1,888 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: nestegg_nestegg.
+INFO:root:Please run "make test-run-afl-nestegg_nestegg" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:f40231aa95f7f2a7037a3328d75966920a025a7aa12db06eaa27d370b064d206
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d74dcf7cba3315aa0fc411ebb281084b8eaad3e835d241fdb31180132565699b
+#1 transferring dockerfile: 32B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:f40231aa95f7f2a7037a3328d75966920a025a7aa12db06eaa27d370b064d206
+#2 transferring context: 2B done
+#2 DONE 0.5s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#10 [internal] load build context
+#10 sha256:8812af9d9bfba591ca4ed7165151cc8380364f16ecd0559e6d489f2a46db9e0d
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg
+#4 sha256:8c1daf3870b1fc6d1da62e237f923efab641c162fe21eec7c36bdb37fbb128c4
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg:latest: not found
+
+#10 [internal] load build context
+#10 sha256:8812af9d9bfba591ca4ed7165151cc8380364f16ecd0559e6d489f2a46db9e0d
+#10 transferring context: 30B done
+#10 DONE 0.2s
+
+#6 [2/6] RUN apt-get update && apt-get install -y subversion wget
+#6 sha256:f78ea23f5db6606f375e22541f9f292561bbe931887c3f023988025d231189d2
+#6 CACHED
+
+#7 [3/6] RUN git clone https://github.com/kinetiknz/nestegg.git
+#7 sha256:5703757a04b770e4461659025a317e7275f65588aea4e8bb0b9f49f5b64af22a
+#7 CACHED
+
+#8 [4/6] RUN svn export https://github.com/webmproject/libwebm.git/trunk/testing/testdata/
+#8 sha256:6108717871a437c7dab8579f452230ecf85f2075c7c41d4b5991912fbfae2f73
+#8 CACHED
+
+#9 [5/6] WORKDIR nestegg
+#9 sha256:60706c8ced8188d9d41c823c8f368070b87b6a15b453673ee381ec4e071d6225
+#9 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:5cdd9cf8102f8d7455506d7859656efa7bdb96085dae546a4851aacf4dbbdd3c
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:fd931e746323b29a26e4366aa52e5798bdffa045decce3b8c2c4ad86655aa68c
+#12 writing image sha256:fd931e746323b29a26e4366aa52e5798bdffa045decce3b8c2c4ad86655aa68c 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg 0.0s done
+#12 DONE 0.4s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:f407b99ad0fd8a8691278fd822a203ed883a0d64a1c538405b3c2bb158ba1a10
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:db57ff87b1a8f2938cdf0285fe8343e65b85201b4c44eb06ea05fa63f624f94e
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg:latest
+#3 sha256:fd13cb571ed995dbf84af23c1180b66d4e2e73c2635bd56c72ba50e5a342e59c
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg
+#5 sha256:8c58ec6969b5c0069add4c55f1fdd24b1e93970bfa6a72bd2ff1adcf9624fb1d
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate
+#4 sha256:52f5bdad35f030df6af441e368dd594beb744186628ae09c5492551da55be16d
+#4 ERROR: gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b1f3fc2b2910e855d947af579f8abccaa2316e007599ae2fe1d92cadce7455fd
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1d24ce734bc98c5becd652cc75811d5b67c298019518cebe447b5bcb2079aff6
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:686cf3ce944578a8b4efbd29922d0b693f3f087afb08fdacab9399678acebc2a done
+#8 naming to gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:55749ba2c770b6d806ea33648b85308872b2e0c72272880049f203427e32e44d
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:a6c92de92a3941471087506644dabead975e1c7921bb99a4f1e57071fe05313b
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:27f5d61dc321d868ccdfddd4bec35e8d97d40acc4cf0880547442d112a793fc7
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:691297b81035188f642ce61eba953beb5f1288d4c8e7e603fc199c213a1a573d
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:c3bbcd0199188aa58e76b0bf67f999ba620d3542cc067044f9f9668e143c952f
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9425a020b79b4086b0fefe391239711213ce67e571651da4705145c345567cc5
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:678e1cf9e2bb8bf98599a99a4490e5a5534ca7360652ae45bb726c775b1e6f51
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:1767cba9d414b8073146fc0d64727a101fbe686a69c0ad37e58d6b95c9352dad
+#2 transferring context: 34B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8e1da13a26daaf6bfb0ca019f7864f69f7528eaf1a1c84fe3710223a81aabcde
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.7s
+
+#2 [internal] load .dockerignore
+#2 sha256:1767cba9d414b8073146fc0d64727a101fbe686a69c0ad37e58d6b95c9352dad
+#2 DONE 0.8s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate:latest
+#3 sha256:db3cc3bdea4b97e94d08e6cf983108fc01c0ed8b7624b71f0ff28f29452631a9
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:df53e95b3fd8d569cbecbbd61f8299a1152df895a80066e658635895b6f85341
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate
+#6 sha256:aa3e8f3ce972e14a84ede68e63e5d1090606b937dce3688c5de9046b048fd8f5
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/nestegg_nestegg
+#5 sha256:ee15c2460a1b2928ff8f8d66800b4c379588a3cf1c58bae0e97c2f8a892936a4
+#5 ERROR: gcr.io/fuzzbench/builders/afl/nestegg_nestegg:latest: not found
+
+#12 [internal] load build context
+#12 sha256:df53e95b3fd8d569cbecbbd61f8299a1152df895a80066e658635895b6f85341
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:e27536ecc229a3c62bc6ce1bedd42bc71afbf8c42e517fbe61c3fecbc1bf5da2
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:30ced295ae249d2cfbe971a7e0ecbee23ce1bbb81ec117a96440ba1bf5a8ee16
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:fd2a039ef31448b887bcb0c5d5cf3602be45f6a365e94784a46e242de6eb7854
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:7763f9dc5be081fa9858d9f772139b880b9edc75b20f60c7328ece2304829726
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d5a7c2f6456c8a5f60ad72d83cb2544e67c4c89ebaca5ac75ca5bbb95bca9786
+#8 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:ad39212d03c328fb0380e25e9f47bd54f7a2ada9557e0cb82e0b04849ccb2c4c
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/nestegg_nestegg/benchmark.yaml /
+#15 sha256:f6bd71ea629bb5cfbb85e67a61b07d1e636ba9776ab1da88859c3b1de98789ea
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:01b5276b51d33dd2d038658615692a7ce1dee8cda2cf7c4665f568e5fbe4b476
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:c663e0a09cc4858b631c8eb1b0aa602968dea0957fdc7e82a6347a36bf1d0b87
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:afd4a3bd0f06af8e9413647e711e382389d64e6483221f2c84ea23677a8b7d94
+#18 0.503 Checking out commit 84faf557
+#18 0.507 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.511 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.517 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.533 error: pathspec '84faf557' did not match any file(s) known to git
+#18 0.561 Checkout unsuccessful.
+#18 DONE 1.5s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:cfe433625491f036cb19f325b19cfd6239553030f8c284f9a74aa384a3eccc32
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:af67b258c0502b725e01ffcaed8a127b0ad9dff1f086a17d5aa61cf226f03829
+#20 0.544 Run fuzzer_build to build the target
+#20 0.657 FUZZ_TARGET = nestegg
+#20 0.657 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.657 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.662 Building benchmark nestegg_nestegg with fuzzer afl
+#20 0.665 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -I./include src/nestegg.c
+#20 1.621 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/fuzz -I./include nestegg.o test/fuzz.cc /libAFL.a
+#20 1.961 + mkdir corpus/
+#20 1.964 + cp -R ../testdata/accurate_cluster_duration.webm ../testdata/accurate_cluster_duration_last_frame.webm ../testdata/accurate_cluster_duration_two_tracks.webm ../testdata/bbb_480p_vp9_opus_1second.webm ../testdata/block_with_additional.webm ../testdata/chapters.webm ../testdata/colour.webm ../testdata/cues_before_clusters.webm ../testdata/discard_padding.webm ../testdata/estimate_duration.webm ../testdata/fixed_size_cluster_timecode.webm ../testdata/force_new_cluster.webm ../testdata/long_tag_string.webm ../testdata/max_cluster_duration.webm ../testdata/max_cluster_size.webm ../testdata/metadata_block.webm ../testdata/output_cues.webm ../testdata/projection.webm ../testdata/segment_duration.webm ../testdata/segment_info.webm ../testdata/set_cues_track_number.webm ../testdata/set_pixelwidth_pixelheight.webm ../testdata/set_segment_duration.webm ../testdata/simple_block.webm ../testdata/test_stereo_left_right.webm ../testdata/tracks.webm ../testdata/webm_doctype.webm corpus/
+#20 1.978 + cp test/media/bug1200148.webm test/media/bug1480003.webm test/media/bug1539686.webm test/media/bug1592193.webm test/media/bug603918.webm test/media/dancer1.webm test/media/dancer1rb.webm test/media/demo_short.webm test/media/detodos.webm test/media/seek.webm test/media/seek_encrypted.webm test/media/seek_sub.webm test/media/split.webm test/media/subsample_encrypted.webm corpus/
+#20 1.985 + zip -rj0 /out/fuzz_seed_corpus.zip corpus/accurate_cluster_duration.webm corpus/accurate_cluster_duration_last_frame.webm corpus/accurate_cluster_duration_two_tracks.webm corpus/bbb_480p_vp9_opus_1second.webm corpus/block_with_additional.webm corpus/bug1200148.webm corpus/bug1480003.webm corpus/bug1539686.webm corpus/bug1592193.webm corpus/bug603918.webm corpus/chapters.webm corpus/colour.webm corpus/cues_before_clusters.webm corpus/dancer1.webm corpus/dancer1rb.webm corpus/demo_short.webm corpus/detodos.webm corpus/discard_padding.webm corpus/estimate_duration.webm corpus/fixed_size_cluster_timecode.webm corpus/force_new_cluster.webm corpus/long_tag_string.webm corpus/max_cluster_duration.webm corpus/max_cluster_size.webm corpus/metadata_block.webm corpus/output_cues.webm corpus/projection.webm corpus/seek.webm corpus/seek_encrypted.webm corpus/seek_sub.webm corpus/segment_duration.webm corpus/segment_info.webm corpus/set_cues_track_number.webm corpus/set_pixelwidth_pixelheight.webm corpus/set_segment_duration.webm corpus/simple_block.webm corpus/split.webm corpus/subsample_encrypted.webm corpus/test_stereo_left_right.webm corpus/tracks.webm corpus/webm_doctype.webm
+#20 1.988   adding: accurate_cluster_duration.webm (stored 0%)
+#20 1.988   adding: accurate_cluster_duration_last_frame.webm (stored 0%)
+#20 1.988   adding: accurate_cluster_duration_two_tracks.webm (stored 0%)
+#20 1.988   adding: bbb_480p_vp9_opus_1second.webm (stored 0%)
+#20 1.989   adding: block_with_additional.webm (stored 0%)
+#20 1.989   adding: bug1200148.webm (stored 0%)
+#20 1.989   adding: bug1480003.webm (stored 0%)
+#20 1.989   adding: bug1539686.webm (stored 0%)
+#20 1.989   adding: bug1592193.webm (stored 0%)
+#20 1.991   adding: bug603918.webm (stored 0%)
+#20 1.992   adding: chapters.webm (stored 0%)
+#20 1.992   adding: colour.webm (stored 0%)
+#20 1.992   adding: cues_before_clusters.webm (stored 0%)
+#20 1.992   adding: dancer1.webm (stored 0%)
+#20 1.994   adding: dancer1rb.webm (stored 0%)
+#20 1.996   adding: demo_short.webm (stored 0%)
+#20 1.997   adding: detodos.webm (stored 0%)
+#20 1.997   adding: discard_padding.webm (stored 0%)
+#20 1.997   adding: estimate_duration.webm (stored 0%)
+#20 1.997   adding: fixed_size_cluster_timecode.webm (stored 0%)
+#20 1.997   adding: force_new_cluster.webm (stored 0%)
+#20 1.997   adding: long_tag_string.webm (stored 0%)
+#20 1.997   adding: max_cluster_duration.webm (stored 0%)
+#20 1.997   adding: max_cluster_size.webm (stored 0%)
+#20 1.997   adding: metadata_block.webm (stored 0%)
+#20 1.997   adding: output_cues.webm (stored 0%)
+#20 1.998   adding: projection.webm (stored 0%)
+#20 1.998   adding: seek.webm (stored 0%)
+#20 1.999   adding: seek_encrypted.webm (stored 0%)
+#20 2.000   adding: seek_sub.webm (stored 0%)
+#20 2.001   adding: segment_duration.webm (stored 0%)
+#20 2.001   adding: segment_info.webm (stored 0%)
+#20 2.001   adding: set_cues_track_number.webm (stored 0%)
+#20 2.001   adding: set_pixelwidth_pixelheight.webm (stored 0%)
+#20 2.001   adding: set_segment_duration.webm (stored 0%)
+#20 2.002   adding: simple_block.webm (stored 0%)
+#20 2.002   adding: split.webm (stored 0%)
+#20 2.002   adding: subsample_encrypted.webm (stored 0%)
+#20 2.003   adding: test_stereo_left_right.webm (stored 0%)
+#20 2.003   adding: tracks.webm (stored 0%)
+#20 2.003   adding: webm_doctype.webm (stored 0%)
+#20 2.004 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 2.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:839983de660e26efdf9e339c2018276ff1beb486065a0e8859627cf55d4ab442 done
+#21 naming to gcr.io/fuzzbench/builders/afl/nestegg_nestegg done
+#21 DONE 0.4s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/nestegg_nestegg:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:2181dd12accc2434d64549400e98b8b415c83bd3afa00b542b144d245c71524c
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b0b7d4e7cf77e7c7da2a68ec3957323045e480fb9bb0bd4b410835e5bbb3e8a9
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate
+#4 sha256:e1ab557e8983c73bc658eb312fe89b5961cef9a209f829159c4d0d186726a3b8
+#4 ERROR: gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate:
+------
+#2 [internal] load .dockerignore
+#2 sha256:cda63decfad338d09b4559396a3d95dd8f735fe6c8a7f7faca855766bc55214a
+#2 transferring context: 34B done
+#2 DONE 0.6s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:e3901499599e5f38911ac03436a88ede5b2f446b0371b0f807bc5b6682a28702
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.6s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nestegg_nestegg:latest
+#4 sha256:11ad8364dc2b5c3798370e06b8358464b82f233a68b48a7c710e3dbebd1fb1e2
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate:latest
+#3 sha256:75a5aff3af23336ae628ec7998d3f17954580d1d67358f7fd0ce4200638e18c5
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:60c1f79059b9006b3157133ffb000666e35d3d98cbb19f0bb0e7f7321abbd32d
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate
+#6 sha256:59f875698ffee4241ae42628d2020e3462f516b875be038b69aa03d4613828f9
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/nestegg_nestegg
+#10 sha256:6060946d557209de1cdcad886048243a99a8566b3a8cd679064442a57d08672c
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/nestegg_nestegg
+#5 sha256:b0a7cf39715d482b5e72064b51bc3a49fc2570e225f0ba61fc00011bf6da15d5
+#5 ERROR: gcr.io/fuzzbench/runners/afl/nestegg_nestegg:latest: not found
+
+#12 [internal] load build context
+#12 sha256:60c1f79059b9006b3157133ffb000666e35d3d98cbb19f0bb0e7f7321abbd32d
+#12 transferring context: 17.60MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/nestegg_nestegg
+#10 sha256:6060946d557209de1cdcad886048243a99a8566b3a8cd679064442a57d08672c
+#10 DONE 1.4s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:59011e5b0e401ab83d3f198253f3c144fcf40beb5e1856e23deec716ffd0eb2e
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f8e229b19f25163214d051e88fd1807ce448a7d9d46babe603ee20ecb6613e11
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:daf733bc0e3c5ea828d4614f46b1ec56fb8f885167745d800b25239c53cb9d60
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:33858046200ea1028b91750311732f08cbe475e50fe85247bb12ef33fdc20047
+#11 DONE 0.4s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:9f39d46a78dc611fb138cb9c3fc2b26dc673f8e0c6c32cc8b82ecdd636c9c74f
+#13 DONE 1.3s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:bb72fa935785ae63b6e0324cf091ae222bfc1d512bf3ca785a2f689add1cd0e9
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:26c7d3f2e001999402be27e72e458fded4d0098009dadd9005dc3ca7ce2406ee
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:7411f781768f6dd4a0fe34873fe8b5ab5fb993be30a26cf6e917061656943c82
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:08b8fc02f2156e2f4daf203d916556ac0ff4dfe9770ce2f2604f5f081277f579
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:70ebc05c51a945fc3e4f16962faf83cc5a12727426346b0ab284c7140fb7db2d
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:8a06993806061c8cccdcf3378e2f2264107ee60909705a7c6725554f5d59b80a
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:0147c8da418399667fd325e82b8139e93126432d406609e2be20cd21f80ce1d0
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:39917e01c1c020ad2895f395dc1fb6474780a9717fd7c4bb6d89c80f815e5c76
+#21 writing image sha256:39917e01c1c020ad2895f395dc1fb6474780a9717fd7c4bb6d89c80f815e5c76 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/nestegg_nestegg done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/nestegg_nestegg:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f7b32b35f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:4dc9309d4c2ed871ca4de4eb59dd37e7b7cc70dc58094e12cf44f8ee3fe1ef15
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:89ef892ece7ecce1bb98170d5dbbd90d432dd67bbfa04407b054f4e23bcc226a
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg
+#4 sha256:8c1daf3870b1fc6d1da62e237f923efab641c162fe21eec7c36bdb37fbb128c4
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:cd942822e234a52760b0f0cf702ed39076728874621bf8b7918d18864655a9e1
+#10 transferring context: 30B done
+#10 DONE 0.1s
+
+#9 [5/6] WORKDIR nestegg
+#9 sha256:60706c8ced8188d9d41c823c8f368070b87b6a15b453673ee381ec4e071d6225
+#9 CACHED
+
+#8 [4/6] RUN svn export https://github.com/webmproject/libwebm.git/trunk/testing/testdata/
+#8 sha256:6108717871a437c7dab8579f452230ecf85f2075c7c41d4b5991912fbfae2f73
+#8 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y subversion wget
+#6 sha256:f78ea23f5db6606f375e22541f9f292561bbe931887c3f023988025d231189d2
+#6 CACHED
+
+#7 [3/6] RUN git clone https://github.com/kinetiknz/nestegg.git
+#7 sha256:5703757a04b770e4461659025a317e7275f65588aea4e8bb0b9f49f5b64af22a
+#7 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:fe9c9f53ec2c58c3ecc0caefd8542aaeebec96278d61e8b6e8775d81ea3b5654
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:fd931e746323b29a26e4366aa52e5798bdffa045decce3b8c2c4ad86655aa68c 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg done
+#12 DONE 0.3s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:761bf3b4f88c15deb03f225d8b4bf19e345068dd501b57528621b2da5e1a10b0
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:6e6332a9086f789fa374451ca81d5fe57f4cef0e699d461215ffd014ead058d0
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg:latest
+#3 sha256:fd13cb571ed995dbf84af23c1180b66d4e2e73c2635bd56c72ba50e5a342e59c
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/nestegg_nestegg
+#5 sha256:8c58ec6969b5c0069add4c55f1fdd24b1e93970bfa6a72bd2ff1adcf9624fb1d
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate
+#4 sha256:52f5bdad35f030df6af441e368dd594beb744186628ae09c5492551da55be16d
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b1f3fc2b2910e855d947af579f8abccaa2316e007599ae2fe1d92cadce7455fd
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1d24ce734bc98c5becd652cc75811d5b67c298019518cebe447b5bcb2079aff6
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:686cf3ce944578a8b4efbd29922d0b693f3f087afb08fdacab9399678acebc2a
+#8 writing image sha256:686cf3ce944578a8b4efbd29922d0b693f3f087afb08fdacab9399678acebc2a 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:c556ea0beeab60a55837ca804c6aff3be3d3c2b7d9e90cb76dc6ef9d5894f752
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:19f4a3800dd8a0ce6e7b0639dcbc6d4a5e204cc211ca188222c2ff9f085396ed
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:1fb072cb138e2185877cabba94ef1171f58e51f73ea200557210930abaf6f9ed
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2519637477b2b6b6bcb247fe1e8a8e96011b34137bb5d6694ea280fdaa04e3a6
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:b338d60404a3c7b915665933cb5093eeab12debbe4ebbeec7ebc9fd71bc24714
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:8d50854789ce2b046bae3ce32dc0afa35d6448e2d341fd7ae4842ba5aef83310
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:40b24193c93f914adb3bd7f309277deafb70288012fbfa01b1899b5cbce0adf3
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:df281d1fd7a4a925c33de2b4875d12edf251d200ee01970be3987804d14a8fab
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:0e74f674e06954eb2742e7900fb24596e2d4e48c74e3c76706efcece9fc55a3b
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate:latest
+#3 sha256:db3cc3bdea4b97e94d08e6cf983108fc01c0ed8b7624b71f0ff28f29452631a9
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/nestegg_nestegg-intermediate
+#6 sha256:aa3e8f3ce972e14a84ede68e63e5d1090606b937dce3688c5de9046b048fd8f5
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/nestegg_nestegg
+#5 sha256:ee15c2460a1b2928ff8f8d66800b4c379588a3cf1c58bae0e97c2f8a892936a4
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1498f60d6c6df82b7bdf638c712f4d9063f000dffdfa15e609d1e4455d08f86e
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:9257eacd782c34ab1ef0bea6edd63ac8948e74de683a33004ad11f57d0fbc45e
+#13 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:ae062e83deb70b3b75048dfbe57cad7570843a72c4a0dd8827de64d434cfc8b4
+#18 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/nestegg_nestegg/benchmark.yaml /
+#15 sha256:3ee2a6898f7a044d8714007b7aa666ceda17e24742e5cfa382e931d8be0f956f
+#15 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:04f83cc14d90e752269e222c48b09fcc2c66df38ee30efa77e45771b987c1806
+#19 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:e8cb2ee0c3bfd5ee96dae3f9b3827cd5228c8b6f1825d6bc86db682d5bb0673f
+#16 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:fd2a039ef31448b887bcb0c5d5cf3602be45f6a365e94784a46e242de6eb7854
+#11 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:bb1fac7950e21adada542afa251ab74d818ed4fbd29593386d2d01dbb8ecd536
+#17 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:c84daeba5da8b899b6f243c26cfc4e594b3d1051c705ed9d12e8c0be86d1d62e
+#14 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:e27536ecc229a3c62bc6ce1bedd42bc71afbf8c42e517fbe61c3fecbc1bf5da2
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:30ced295ae249d2cfbe971a7e0ecbee23ce1bbb81ec117a96440ba1bf5a8ee16
+#10 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d5a7c2f6456c8a5f60ad72d83cb2544e67c4c89ebaca5ac75ca5bbb95bca9786
+#8 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:9c0f13ebb19daf0b83ffd30f1346e0872be9f96c40467ecfa9b2732f572e8be7
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:839983de660e26efdf9e339c2018276ff1beb486065a0e8859627cf55d4ab442 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/nestegg_nestegg done
+#21 DONE 0.6s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:1b1d7ec3df9bf716378aa173666648a0cdefc8ccc37e7a0dc6e4feeaea8631c0
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:ff598b780f832317364a3868d2771da8fe972b4610b95a2ec67bf1729482b8d0
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate
+#5 sha256:e1ab557e8983c73bc658eb312fe89b5961cef9a209f829159c4d0d186726a3b8
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2a1dd62c6f514fe6918cb5117eb7e6026138bad9cbd25d79c39d39563922ba44
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:ad9cf5dc90d5477578927db16d45c19721d470a909f20e8b0ce0f9b4b98d0ef4
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate:latest
+#3 sha256:75a5aff3af23336ae628ec7998d3f17954580d1d67358f7fd0ce4200638e18c5
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/nestegg_nestegg:latest
+#4 sha256:11ad8364dc2b5c3798370e06b8358464b82f233a68b48a7c710e3dbebd1fb1e2
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/nestegg_nestegg-intermediate
+#6 sha256:59f875698ffee4241ae42628d2020e3462f516b875be038b69aa03d4613828f9
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/nestegg_nestegg
+#5 sha256:b0a7cf39715d482b5e72064b51bc3a49fc2570e225f0ba61fc00011bf6da15d5
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/nestegg_nestegg
+#10 sha256:6060946d557209de1cdcad886048243a99a8566b3a8cd679064442a57d08672c
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:8f9fa8acba7c1874405de91a037cd2d020a17d06b90c8eb61dd33c41e478be25
+#12 transferring context: 17.60MB 0.6s done
+#12 DONE 0.8s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:5c92e0c1df8cd25226a7867621e932f907edeca3bf13a948655aeeaba8ef948b
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:37c5d4fb06f01560345335ee363c8283289445b5c2921863a55a7b90c6476e84
+#18 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:38c2f9c65e52c0d70ae8ed526bead60bf0c84ff4771a1a710ce4ad64215df673
+#19 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:e3911f81f3b58c9c8ef76e10b4be65d654a92e613cbe232d53e14b4bfc77c773
+#14 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:c8d91524bd93967a9105174fffbee4a04b2ddb25c0ea2290b57a1721ce056162
+#17 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:f8e229b19f25163214d051e88fd1807ce448a7d9d46babe603ee20ecb6613e11
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:daf733bc0e3c5ea828d4614f46b1ec56fb8f885167745d800b25239c53cb9d60
+#9 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:736cda36c154b0312ee7962d2d46d1c935e21ebadacc415e4cac6c74873b97e5
+#13 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:33858046200ea1028b91750311732f08cbe475e50fe85247bb12ef33fdc20047
+#11 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:883bd630cc83976b39e822a61c3cd34b93fbf3be8b7ce61d81bf97132000d24b
+#15 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:59011e5b0e401ab83d3f198253f3c144fcf40beb5e1856e23deec716ffd0eb2e
+#7 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:fec88403a32146d18dccf5202770ce26a16c76bd29c8c035e4a85f197dadfd92
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:39917e01c1c020ad2895f395dc1fb6474780a9717fd7c4bb6d89c80f815e5c76
+#21 writing image sha256:39917e01c1c020ad2895f395dc1fb6474780a9717fd7c4bb6d89c80f815e5c76 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/nestegg_nestegg done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f6efa88ff70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

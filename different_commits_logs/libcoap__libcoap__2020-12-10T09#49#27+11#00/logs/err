@@ -1,0 +1,1202 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: libcoap_libcoap.
+INFO:root:Please run "make test-run-afl-libcoap_libcoap" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:4c4e8edaa043a2a3786165bef6db08062660a6206ef665742c560354ec2cecc5
+#2 transferring context: 2B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9da5b00b9fbda1bb61ada34ca496733c8764ee7373e507bd922d333388300510
+#1 transferring dockerfile: 931B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:4c4e8edaa043a2a3786165bef6db08062660a6206ef665742c560354ec2cecc5
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:cccfd5385e368250bcf9bf374afd4f5d56969dec45cd9da65181ed30695c1a60
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap
+#4 sha256:5e75753f93ff8db33014dbd0aec29d403fa6039611fef397ee4f33c3e697d965
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap:latest: not found
+
+#9 [internal] load build context
+#9 sha256:cccfd5385e368250bcf9bf374afd4f5d56969dec45cd9da65181ed30695c1a60
+#9 transferring context: 942B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool     pkg-config
+#6 sha256:5957c15ea336e23163a53d9a7d223df93727b6605daf7ffa1f89b698ccaa12ce
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/obgm/libcoap.git libcoap
+#7 sha256:a480433fe3d0880f9edbb4289088e3750b84f675b89ff49676e912978ae81eca
+#7 CACHED
+
+#8 [4/5] WORKDIR libcoap
+#8 sha256:71ad700559604b0b014766cbd3e9a5cdd51b2a2e451b805735ddecf637d80670
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:3d9f698d0cdd59e41453a23771d82bfe190462b8971bc9ae161567e16569dcba
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:16416d09cd48c3b6ebdc9ae460f39714efb40edb1242dcdcb98d0b5d477a34c3
+#11 writing image sha256:16416d09cd48c3b6ebdc9ae460f39714efb40edb1242dcdcb98d0b5d477a34c3 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap done
+#11 DONE 0.4s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:0df76a70c89af0095f9861b5454702438b3d496f2dacabc23455581a76586caa
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:9178f8ff56b78c901cc29aa49d202819aa3ea25bea14a4c73b3c2c8d70a91a46
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap:latest
+#3 sha256:f0a4a40bdc7ad5f3041f8e3800a4c8e0edf3e896fe9f9c03b18860010b6f5c7b
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap
+#5 sha256:4cf9839dfd59add16745f804cfe5fbdd568b9793b927f1b73d04fd2fc6fb54e8
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate
+#4 sha256:b4b38bb8d46d630c9205058e12d86f18ba302f148051749aab15f8dd8fdbc29d
+#4 ERROR: gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:9b82135892ba69945294bcbecb56d8206a6b5e3575a6cdcb35386419f7b50d0e
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6eda95f373fabb4a9c8bc9c95b39d476fa1602db0942f67726161818a12641b8
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:5d3b1334e7020818fa112f6d7b514c35f79902a51550400995e50f6d311ed038 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate 0.0s done
+#8 DONE 0.7s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9a93e3016a58d0e6d14edeb8f3c07e86bf18910e793188869bdc7f870cf6690a
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:b7c1485106710c715df37101f6fde6589b43de12bfd1ddb30d4d1d9ab0c32e40
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:4563bca827c969092c1006dd2ee69edcb15183e6ca6948a2484be0f38b7bde3a
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9244ebe7720fa57bca6297233577b79aee7b0f1c4ab9b5dfcc9a093c24a1d9e4
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:508fc3d4fd6619b577070756a29f4f94a62aec2fc96f8c7683f802ca382b363c
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:eaad71dd7cda90c5caf4d2a815ac2dcff66c08e488e3c99d6a42e40afd126693
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:0a9e08527e2faccde29136c15e52c05bec7155207516318e8acb812d71afa57c
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:7d9957eb6f280da9248cb8afce2961dbcb27e41d89cdfd8167167cb748135959
+#13 writing image sha256:7d9957eb6f280da9248cb8afce2961dbcb27e41d89cdfd8167167cb748135959 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4cd0cb916d2a9d13a61c51dd5a6a2df962ab746f1a98e7439b025abac6683ba5
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d8917848a6ea0de2c6298843ca226607497b6f8de3657d7889556dee3d73ea4e
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate:latest
+#3 sha256:6ef438917449281df559796ed243d0351a1c533a4801f5995b07b989e04f0e7c
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:852da437914a64121a04b4959caaac2b196de118f84f41ed5340fb3cb6d271a8
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate
+#6 sha256:af71f9dc5ff013ae780c772b210eff8b0027db7277041b4f2f7b88611fb54e27
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libcoap_libcoap
+#5 sha256:a60b6769d548e5569b5b114c9e7ecefb82b4bf2ebb40e3f464c1c64d9bec9d02
+#5 ERROR: gcr.io/fuzzbench/builders/afl/libcoap_libcoap:latest: not found
+
+#12 [internal] load build context
+#12 sha256:852da437914a64121a04b4959caaac2b196de118f84f41ed5340fb3cb6d271a8
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:93b4e719d4793f2c72542d9d5cc02e060c91437b0345d3a137dd6f73ad24edc6
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:840c65a50aa08f63d105cf9eff04d95778e3dbcaca2c4a1e07cff0e80805f6ee
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:310314d9daea97a6a18b9e38417954a249cbbc2a3ba44fe2e5cf011449ef1b63
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:8e143e31cbe7280e74093a88f9da04ea4c26579fc6216b1785bf371d34b0e8b1
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:3f22becf8e381308d528b9c485c2ba4598189d0a7fae1ca41895d47d3c5285e3
+#8 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:3f5fe5872619f30f86404104365a8de19e70b6f403f785f9862bb61dfe09d3f2
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libcoap_libcoap/benchmark.yaml /
+#15 sha256:c22545241f1a0cee6bede30208f14ad0d3c25379c908e69f132e77242df1a228
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:97c6eb90cf597a787409851f328fd89768e5d3f4ba9ef4dad2728c96372eea61
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:5da02e729e3af2cb0aeafa5b307da18fbd3d7edf28c81c3f6ee2dcf0fd75eacd
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3aefb257db1cf3425e4c3976f068caf380f7bf93f50aa429d3846a2f9495d9f8
+#18 0.596 Checking out commit 84faf557
+#18 4.504 From https://github.com/obgm/libcoap
+#18 4.504  * [new tag]         bsd-licensed  -> bsd-licensed
+#18 4.505  * [new tag]         coap-lwip     -> coap-lwip
+#18 4.505  * [new tag]         coap-tinydtls -> coap-tinydtls
+#18 4.505  * [new tag]         v4.1.1        -> v4.1.1
+#18 4.506  * [new tag]         v4.1.2        -> v4.1.2
+#18 4.506  * [new tag]         v4.2.0        -> v4.2.0
+#18 4.506  * [new tag]         v4.2.0-rc1    -> v4.2.0-rc1
+#18 4.507  * [new tag]         v4.2.0-rc2    -> v4.2.0-rc2
+#18 4.507  * [new tag]         v4.2.0-rc3    -> v4.2.0-rc3
+#18 4.507  * [new tag]         v4.2.0-rc4    -> v4.2.0-rc4
+#18 4.508  * [new tag]         v4.2.1        -> v4.2.1
+#18 4.508  * [new tag]         v4.3.0        -> v4.3.0
+#18 4.508  * [new tag]         v4.3.0-rc1    -> v4.3.0-rc1
+#18 4.508  * [new tag]         v4.3.0-rc2    -> v4.3.0-rc2
+#18 4.509  * [new tag]         v4.3.0-rc3    -> v4.3.0-rc3
+#18 4.509  * [new tag]         v4.3.0-rc4    -> v4.3.0-rc4
+#18 4.509  * [new tag]         v4_1_1        -> v4_1_1
+#18 4.639 error: pathspec '84faf557' did not match any file(s) known to git
+#18 4.644 error: pathspec '84faf557' did not match any file(s) known to git
+#18 4.651 error: pathspec '84faf557' did not match any file(s) known to git
+#18 4.691 Checkout unsuccessful.
+#18 DONE 5.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:aae431b3c69590f82d30f0838eb627668c99f92f930dc5d18207e46fe9fb3c7c
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:ea9718f49a3b9a577b1a2db6dd8e82477db411bf5538c728d09ce18cd91528ff
+#20 0.577 Run fuzzer_build to build the target
+#20 0.690 FUZZ_TARGET = libcoap
+#20 0.690 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.690 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.694 Building benchmark libcoap_libcoap with fuzzer afl
+#20 0.697 + ./autogen.sh
+#20 0.698 
+#20 0.698 [HINT] You can run 'autogen.sh --clean' to remove all generated files by the autotools.
+#20 0.698 
+#20 0.699 Found 'autoconf'.
+#20 0.701 Found 'aclocal'.
+#20 0.702 Found 'pkg-config'.
+#20 0.703 
+#20 0.703 Couldn't find 'libtool'!
+#20 0.705 Found 'libtoolize'.
+#20 0.705 
+#20 0.705   --->  Found all needed tools! That's fine.
+#20 0.705 
+#20 0.708 Generating needed autotools files for libcoap by running autoreconf ...
+#20 1.047 autoreconf: Entering directory `.'
+#20 1.052 autoreconf: configure.ac: not using Gettext
+#20 2.052 autoreconf: running: aclocal --force ${ACLOCAL_FLAGS} -I m4
+#20 4.051 autoreconf: configure.ac: tracing
+#20 4.687 autoreconf: configure.ac: adding subdirectory ext/tinydtls to autoreconf
+#20 4.689 autoreconf: Entering directory `ext/tinydtls'
+#20 4.690 autoreconf: configure.ac: not using Autoconf
+#20 4.690 autoreconf: Leaving directory `ext/tinydtls'
+#20 4.690 autoreconf: running: libtoolize --copy --force
+#20 5.015 libtoolize: putting auxiliary files in '.'.
+#20 5.015 libtoolize: copying file './ltmain.sh'
+#20 5.068 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 5.068 libtoolize: copying file 'm4/libtool.m4'
+#20 5.123 libtoolize: copying file 'm4/ltoptions.m4'
+#20 5.179 libtoolize: copying file 'm4/ltsugar.m4'
+#20 5.235 libtoolize: copying file 'm4/ltversion.m4'
+#20 5.293 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 7.438 autoreconf: running: /usr/bin/autoconf --force
+#20 8.318 autoreconf: running: /usr/bin/autoheader --force
+#20 8.944 autoreconf: running: automake --add-missing --copy --force-missing
+#20 9.863 configure.ac:44: installing './ar-lib'
+#20 9.866 configure.ac:39: installing './compile'
+#20 9.868 configure.ac:51: installing './config.guess'
+#20 9.872 configure.ac:51: installing './config.sub'
+#20 9.875 configure.ac:29: installing './install-sh'
+#20 9.878 configure.ac:29: installing './missing'
+#20 9.904 Makefile.am: installing './INSTALL'
+#20 9.928 Makefile.am: installing './depcomp'
+#20 10.29 autoreconf: Leaving directory `.'
+#20 10.29 
+#20 10.29 You can now run './configure --help' to see possible configuration options.
+#20 10.29 Otherwise process the configure script to create the makefiles and generated helper files.
+#20 10.29 
+#20 10.29 + ./configure --disable-doxygen --disable-manpages --disable-dtls
+#20 10.53 checking for a BSD-compatible install... /usr/bin/install -c
+#20 10.54 checking whether build environment is sane... yes
+#20 10.56 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 10.56 checking for gawk... no
+#20 10.56 checking for mawk... mawk
+#20 10.56 checking whether make sets $(MAKE)... yes
+#20 10.58 checking whether make supports nested variables... yes
+#20 10.59 checking for pkg-config... /usr/bin/pkg-config
+#20 10.59 checking pkg-config is at least version 0.20... yes
+#20 10.60 checking whether make supports nested variables... (cached) yes
+#20 10.60 checking whether to enable assertions... yes
+#20 10.60 checking for gcc... clang
+#20 10.67 checking whether the C compiler works... yes
+#20 10.79 checking for C compiler default output file name... a.out
+#20 10.79 checking for suffix of executables... 
+#20 10.92 checking whether we are cross compiling... no
+#20 11.05 checking for suffix of object files... o
+#20 11.08 checking whether we are using the GNU C compiler... yes
+#20 11.11 checking whether clang accepts -g... yes
+#20 11.13 checking for clang option to accept ISO C89... none needed
+#20 11.17 checking whether clang understands -c and -o together... yes
+#20 11.21 checking whether make supports the include directive... yes (GNU style)
+#20 11.23 checking dependency style of clang... gcc3
+#20 11.28 checking for a sed that does not truncate output... /usr/bin/sed
+#20 11.29 checking for ar... ar
+#20 11.29 checking the archiver (ar) interface... ar
+#20 11.32 checking whether ln -s works... yes
+#20 11.32 checking how to run the C preprocessor... clang -E
+#20 11.42 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 11.42 checking for egrep... /usr/bin/grep -E
+#20 11.42 checking for ANSI C header files... yes
+#20 11.68 checking for sys/types.h... yes
+#20 11.73 checking for sys/stat.h... yes
+#20 11.79 checking for stdlib.h... yes
+#20 11.85 checking for string.h... yes
+#20 11.91 checking for memory.h... yes
+#20 11.96 checking for strings.h... yes
+#20 12.02 checking for inttypes.h... yes
+#20 12.09 checking for stdint.h... yes
+#20 12.15 checking for unistd.h... yes
+#20 12.21 checking whether byte ordering is bigendian... no
+#20 12.35 checking build system type... x86_64-pc-linux-gnu
+#20 12.42 checking host system type... x86_64-pc-linux-gnu
+#20 12.42 checking how to print strings... printf
+#20 12.48 checking for a sed that does not truncate output... (cached) /usr/bin/sed
+#20 12.48 checking for fgrep... /usr/bin/grep -F
+#20 12.49 checking for ld used by clang... /usr/bin/ld
+#20 12.51 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 12.51 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 12.52 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 12.55 checking the maximum length of command line arguments... 1572864
+#20 12.56 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 12.56 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 12.56 checking for /usr/bin/ld option to reload object files... -r
+#20 12.56 checking for objdump... objdump
+#20 12.57 checking how to recognize dependent libraries... pass_all
+#20 12.57 checking for dlltool... no
+#20 12.57 checking how to associate runtime and link libraries... printf %s\n
+#20 12.57 checking for archiver @FILE support... @
+#20 12.61 checking for strip... strip
+#20 12.62 checking for ranlib... ranlib
+#20 12.62 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 12.80 checking for sysroot... no
+#20 12.80 checking for a working dd... /usr/bin/dd
+#20 12.81 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 12.84 checking for mt... no
+#20 12.84 checking if : is a manifest tool... no
+#20 12.85 checking for dlfcn.h... yes
+#20 12.91 checking for objdir... .libs
+#20 13.08 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 13.11 checking for clang option to produce PIC... -fPIC -DPIC
+#20 13.11 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 13.14 checking if clang static flag -static works... yes
+#20 13.32 checking if clang supports -c -o file.o... yes
+#20 13.37 checking if clang supports -c -o file.o... (cached) yes
+#20 13.37 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 13.39 checking whether -lc should be explicitly linked in... no
+#20 13.45 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 13.62 checking how to hardcode library paths into programs... immediate
+#20 13.63 checking whether stripping libraries is possible... yes
+#20 13.63 checking if libtool supports shared libraries... yes
+#20 13.63 checking whether to build shared libraries... yes
+#20 13.63 checking whether to build static libraries... yes
+#20 13.63 checking whether C compiler accepts -Wlogical-op... no
+#20 13.67 checking whether C compiler accepts -fdiagnostics-color... yes
+#20 13.70 checking whether C compiler accepts -Wunused-result... yes
+#20 13.74 checking whether the linker accepts -Wl,--version-script=./libcoap-3.map... yes
+#20 13.87 configure: WARNING: gcov is disabled
+#20 13.88 checking for ctags... no
+#20 13.88 configure: ==> Note: '(ex)ctags' command not found!
+#20 13.88 configure: WARNING: ==> Without ctags you will be unable to run the target 'update-map-file'!
+#20 13.88 configure: WARNING: ==> This is no problem if you just want to build the library libcoap.
+#20 13.88 checking assert.h usability... yes
+#20 13.94 checking assert.h presence... yes
+#20 13.95 checking for assert.h... yes
+#20 13.97 checking arpa/inet.h usability... yes
+#20 14.03 checking arpa/inet.h presence... yes
+#20 14.05 checking for arpa/inet.h... yes
+#20 14.07 checking limits.h usability... yes
+#20 14.12 checking limits.h presence... yes
+#20 14.14 checking for limits.h... yes
+#20 14.15 checking netdb.h usability... yes
+#20 14.22 checking netdb.h presence... yes
+#20 14.24 checking for netdb.h... yes
+#20 14.26 checking netinet/in.h usability... yes
+#20 14.32 checking netinet/in.h presence... yes
+#20 14.35 checking for netinet/in.h... yes
+#20 14.36 checking pthread.h usability... yes
+#20 14.42 checking pthread.h presence... yes
+#20 14.45 checking for pthread.h... yes
+#20 14.46 checking for stdlib.h... (cached) yes
+#20 14.47 checking for string.h... (cached) yes
+#20 14.49 checking for strings.h... (cached) yes
+#20 14.50 checking sys/socket.h usability... yes
+#20 14.56 checking sys/socket.h presence... yes
+#20 14.58 checking for sys/socket.h... yes
+#20 14.59 checking sys/time.h usability... yes
+#20 14.65 checking sys/time.h presence... yes
+#20 14.67 checking for sys/time.h... yes
+#20 14.69 checking time.h usability... yes
+#20 14.74 checking time.h presence... yes
+#20 14.77 checking for time.h... yes
+#20 14.78 checking for unistd.h... (cached) yes
+#20 14.79 checking sys/unistd.h usability... yes
+#20 14.85 checking sys/unistd.h presence... yes
+#20 14.87 checking for sys/unistd.h... yes
+#20 14.88 checking syslog.h usability... yes
+#20 14.94 checking syslog.h presence... yes
+#20 14.96 checking for syslog.h... yes
+#20 14.97 checking sys/ioctl.h usability... yes
+#20 15.03 checking sys/ioctl.h presence... yes
+#20 15.05 checking for sys/ioctl.h... yes
+#20 15.06 checking net/if.h usability... yes
+#20 15.14 checking net/if.h presence... yes
+#20 15.16 checking for net/if.h... yes
+#20 15.17 checking sys/epoll.h usability... yes
+#20 15.23 checking sys/epoll.h presence... yes
+#20 15.25 checking for sys/epoll.h... yes
+#20 15.26 checking sys/timerfd.h usability... yes
+#20 15.31 checking sys/timerfd.h presence... yes
+#20 15.34 checking for sys/timerfd.h... yes
+#20 15.34 checking for size_t... yes
+#20 15.47 checking for ssize_t... yes
+#20 15.61 checking for memset... yes
+#20 15.76 checking for select... yes
+#20 15.90 checking for socket... yes
+#20 16.04 checking for strcasecmp... yes
+#20 16.18 checking for strrchr... yes
+#20 16.33 checking for getaddrinfo... yes
+#20 16.47 checking for strnlen... yes
+#20 16.61 checking for malloc... yes
+#20 16.75 checking for pthread_mutex_lock... yes
+#20 16.89 checking for getrandom... yes
+#20 17.03 checking for if_nametoindex... yes
+#20 17.16 checking for library containing socket... none required
+#20 17.28 checking for library containing inet_ntop... none required
+#20 17.41 checking for library containing clock_gettime... none required
+#20 17.54 checking for struct cmsghdr... yes
+#20 17.67 checking operating system... Linux
+#20 17.72 checking that generated files are newer than configure... done
+#20 17.72 configure: creating ./config.status
+#20 18.52 config.status: creating Makefile
+#20 18.55 config.status: creating coap_config.h.lwip
+#20 18.57 config.status: creating coap_config.h.riot
+#20 18.59 config.status: creating coap_config.h.windows
+#20 18.61 config.status: creating doc/Makefile
+#20 18.64 config.status: creating examples/Makefile
+#20 18.66 config.status: creating include/coap3/coap.h
+#20 18.69 config.status: creating include/coap3/coap.h.windows
+#20 18.72 config.status: creating man/coap.txt
+#20 18.74 config.status: creating man/coap_async.txt
+#20 18.77 config.status: creating man/coap_attribute.txt
+#20 18.80 config.status: creating man/coap_block.txt
+#20 18.82 config.status: creating man/coap_cache.txt
+#20 18.85 config.status: creating man/coap_context.txt
+#20 18.88 config.status: creating man/coap_encryption.txt
+#20 18.91 config.status: creating man/coap_endpoint_client.txt
+#20 18.94 config.status: creating man/coap_endpoint_server.txt
+#20 18.96 config.status: creating man/coap_handler.txt
+#20 18.99 config.status: creating man/coap_io.txt
+#20 19.02 config.status: creating man/coap_keepalive.txt
+#20 19.05 config.status: creating man/coap_logging.txt
+#20 19.07 config.status: creating man/coap_observe.txt
+#20 19.10 config.status: creating man/coap_pdu_access.txt
+#20 19.13 config.status: creating man/coap_pdu_setup.txt
+#20 19.16 config.status: creating man/coap_recovery.txt
+#20 19.18 config.status: creating man/coap_resource.txt
+#20 19.21 config.status: creating man/coap_session.txt
+#20 19.24 config.status: creating man/coap_string.txt
+#20 19.26 config.status: creating man/coap_tls_library.txt
+#20 19.29 config.status: creating man/coap-client.txt
+#20 19.32 config.status: creating man/coap-server.txt
+#20 19.34 config.status: creating man/coap-rd.txt
+#20 19.37 config.status: creating man/Makefile
+#20 19.40 config.status: creating tests/test_common.h
+#20 19.42 config.status: creating tests/Makefile
+#20 19.45 config.status: creating tests/oss-fuzz/Makefile.ci
+#20 19.48 config.status: creating libcoap-3-notls.pc
+#20 19.50 config.status: creating coap_config.h
+#20 19.51 config.status: executing depfiles commands
+#20 20.03 config.status: executing libtool commands
+#20 20.05 
+#20 20.05 libcoap configuration summary:
+#20 20.05       libcoap package version  : "4.3.0"
+#20 20.05       libcoap library version  : "3.0.0"
+#20 20.05       libcoap API version      : "3"
+#20 20.05       libcoap DTLS lib extn    : "-notls"
+#20 20.05       host system              : "x86_64-pc-linux-gnu"
+#20 20.05       build with server support: "yes"
+#20 20.05       build with client support: "yes"
+#20 20.05       build with TCP support   : "yes"
+#20 20.05       build DTLS support       : "no"
+#20 20.05       add default names        : "yes"
+#20 20.05       build using epoll        : "yes"
+#20 20.05       enable small stack size  : "no"
+#20 20.05       enable separate responses: "yes"
+#20 20.05       build doxygen pages      : "no"
+#20 20.05       build man pages          : "no"
+#20 20.05       build unit test binary   : "no"
+#20 20.05       build examples           : "yes"
+#20 20.06       install examples source  : "yes"
+#20 20.06       build with gcov support  : "no"
+#20 20.06       build shared library     : "yes"
+#20 20.06       build static library     : "yes"
+#20 20.15 ++ nproc
+#20 20.15 + make -j8
+#20 20.16 make  all-recursive
+#20 20.17 make[1]: Entering directory '/src/libcoap'
+#20 20.17 Making all in .
+#20 20.18 make[2]: Entering directory '/src/libcoap'
+#20 20.22   CC       src/libcoap_3-notls_la-address.lo
+#20 20.24   CC       src/libcoap_3-notls_la-async.lo
+#20 20.26   CC       src/libcoap_3-notls_la-block.lo
+#20 20.27   CC       src/libcoap_3-notls_la-coap_asn1.lo
+#20 20.30   CC       src/libcoap_3-notls_la-coap_cache.lo
+#20 20.31   CC       src/libcoap_3-notls_la-coap_debug.lo
+#20 20.33   CC       src/libcoap_3-notls_la-coap_event.lo
+#20 20.35   CC       src/libcoap_3-notls_la-coap_hashkey.lo
+#20 20.72   CC       src/libcoap_3-notls_la-coap_gnutls.lo
+#20 20.81   CC       src/libcoap_3-notls_la-coap_io.lo
+#20 20.83   CC       src/libcoap_3-notls_la-coap_mbedtls.lo
+#20 20.85   CC       src/libcoap_3-notls_la-coap_notls.lo
+#20 20.88   CC       src/libcoap_3-notls_la-coap_openssl.lo
+#20 21.05   CC       src/libcoap_3-notls_la-coap_prng.lo
+#20 21.23   CC       src/libcoap_3-notls_la-coap_session.lo
+#20 21.27   CC       src/libcoap_3-notls_la-coap_tcp.lo
+#20 21.33   CC       src/libcoap_3-notls_la-coap_time.lo
+#20 21.36   CC       src/libcoap_3-notls_la-coap_tinydtls.lo
+#20 21.46   CC       src/libcoap_3-notls_la-encode.lo
+#20 21.49   CC       src/libcoap_3-notls_la-mem.lo
+#20 21.76   CC       src/libcoap_3-notls_la-net.lo
+#20 21.79   CC       src/libcoap_3-notls_la-option.lo
+#20 21.88   CC       src/libcoap_3-notls_la-pdu.lo
+#20 21.91   CC       src/libcoap_3-notls_la-resource.lo
+#20 21.94   CC       src/libcoap_3-notls_la-str.lo
+#20 22.04   CC       src/libcoap_3-notls_la-subscribe.lo
+#20 22.43   CC       src/libcoap_3-notls_la-uri.lo
+#20 24.31   CCLD     libcoap-3-notls.la
+#20 24.68 make[2]: Leaving directory '/src/libcoap'
+#20 24.68 Making all in man
+#20 24.69 make[2]: Entering directory '/src/libcoap/man'
+#20 24.69   CC       examples-code-check.o
+#20 24.89   CCLD     examples-code-check
+#20 25.15 make[2]: Leaving directory '/src/libcoap/man'
+#20 25.16 Making all in doc
+#20 25.16 make[2]: Entering directory '/src/libcoap/doc'
+#20 25.16 make[2]: Nothing to be done for 'all'.
+#20 25.16 make[2]: Leaving directory '/src/libcoap/doc'
+#20 25.16 Making all in tests
+#20 25.16 make[2]: Entering directory '/src/libcoap/tests'
+#20 25.16 make[2]: Nothing to be done for 'all'.
+#20 25.16 make[2]: Leaving directory '/src/libcoap/tests'
+#20 25.17 Making all in examples
+#20 25.17 make[2]: Entering directory '/src/libcoap/examples'
+#20 25.17   CC       coap-client.o
+#20 25.17   CC       coap_server-notls-coap-server.o
+#20 25.17   CC       coap-rd.o
+#20 25.17   CC       coap_server-coap-server.o
+#20 25.49   CCLD     coap-rd-notls
+#20 25.49   CCLD     coap-rd
+#20 25.81   CCLD     coap-client-notls
+#20 25.81   CCLD     coap-client
+#20 26.03   CCLD     coap-server-notls
+#20 26.19   CCLD     coap-server
+#20 26.44 make[2]: Leaving directory '/src/libcoap/examples'
+#20 26.44 make[1]: Leaving directory '/src/libcoap'
+#20 26.44 + make -C tests/oss-fuzz -f Makefile.oss-fuzz
+#20 26.44 make: Entering directory '/src/libcoap/tests/oss-fuzz'
+#20 26.44 make -f Makefile.ci
+#20 26.44 make[1]: Entering directory '/src/libcoap/tests/oss-fuzz'
+#20 26.44 clang -I../../include -I../../include -pedantic -Wall -Wcast-qual -Wextra -Wformat-security -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wshadow -Wstrict-prototypes -Wswitch-default -Wswitch-enum -Wunused -Wwrite-strings  -Wunused-result  -std=c99 -Wno-missing-prototypes -Wno-missing-declarations -c split_uri_target.c -o /out/split_uri_target.o
+#20 26.49 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I../../include -I../../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard /out/split_uri_target.o ../../.libs/libcoap-3-notls.a  -lFuzzingEngine  -o /out/split_uri_fuzzer
+#20 26.76 clang -I../../include -I../../include -pedantic -Wall -Wcast-qual -Wextra -Wformat-security -Winline -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wshadow -Wstrict-prototypes -Wswitch-default -Wswitch-enum -Wunused -Wwrite-strings  -Wunused-result  -std=c99 -Wno-missing-prototypes -Wno-missing-declarations -c pdu_parse_target.c -o /out/pdu_parse_target.o
+#20 26.81 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I../../include -I../../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard /out/pdu_parse_target.o ../../.libs/libcoap-3-notls.a  -lFuzzingEngine  -o /out/pdu_parse_fuzzer
+#20 27.07 make[1]: Leaving directory '/src/libcoap/tests/oss-fuzz'
+#20 27.07 make: Leaving directory '/src/libcoap/tests/oss-fuzz'
+#20 27.07 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 27.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e8931af0c6022eecb573ed2b3b40cc6bd61b374189538a295241926a30bc9a06
+#21 writing image sha256:e8931af0c6022eecb573ed2b3b40cc6bd61b374189538a295241926a30bc9a06 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/libcoap_libcoap 0.0s done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libcoap_libcoap:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:9ec5f7fcd66d1982c9ac8216034dfe79c8726efdf97f9b93ace0096852f57db8
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f92699c342cf92d585bd88c88491955bad5ac4718785286a37e7c8768028288e
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate
+#5 sha256:09e89413f66157f5aed2a3a0bf3829eb4b2c03ef42024933bdcf647e848af39c
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d6ef9598633e2b22257ba08817eb6ccd322e87a4e99484dbf38ac2af66ba9490 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate 0.0s done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d781c4a4113eaeb627c1bb0aaef87c72c4c49dd84d4ec22219560c071dffc917
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:2473d33fbcca5c4ec4901cf9268dd9c5e20d473c83c51981f6dc1e26a2ab6f07
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate:latest
+#3 sha256:309fed72e26b5ef16c2369c88d1e9c4f1ad5bb8fbc1b126115e5462e0c50aa02
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libcoap_libcoap:latest
+#4 sha256:dcf22f82eb44d0c558f94f82f5ab036b693e887988a76d43c687d31f42dd6282
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d42fcd9f2aeb4058dc4ce8124c8676cdf210bd3d241330e349ef7ff79da9ab2a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate
+#6 sha256:7c8cf038c557978000f5047729d07662161fa72965be924ca8ec58ae5dc0ade9
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libcoap_libcoap
+#10 sha256:c3b020a98f66a7d65b8251fb0309cf572d1c48a65b03593c49b74e1c60bc1a6c
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libcoap_libcoap
+#5 sha256:0be28e3906427ef7b884ae798f619124dfa57f7883d2acd2910045b3dceea387
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libcoap_libcoap:latest: not found
+
+#12 [internal] load build context
+#12 sha256:d42fcd9f2aeb4058dc4ce8124c8676cdf210bd3d241330e349ef7ff79da9ab2a
+#12 transferring context: 18.47MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libcoap_libcoap
+#10 sha256:c3b020a98f66a7d65b8251fb0309cf572d1c48a65b03593c49b74e1c60bc1a6c
+#10 DONE 0.8s
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:f15863a37cde8213f1869c96a68665edfc7371fc10005a61dff0d9e49b386dba
+#9 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:701ad541726e349c2c3a1a34e1bdaaaeeaebd04ada57466b8b7c50ae7906cf1c
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:7faad69af57dd9739984dfb73a011a68a1b217ee6b3f97db33ee373e21ae8e53
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:18c5314205f545de055c9ac84e64b55cdaf2ce10f8a739a36c22ffdb9230a0cf
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:9ecf032ccc5030eaebf51827d2d09ee8d6713d31a1e9c4351e74759105104f29
+#13 DONE 1.3s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:1f8bfe4e086c1bb82666370027903021aa4ddebf2444337446537f6f3dc61f33
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:bc959ec4b44b48cff5278265ef22b7f7df49c7cb28965b1ed1452ee67285dc21
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:0c9ea14a25af4c065d7fed90a641a5b7e344c7502854d596f631692a5ae79a08
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:2626be8f3e0543e3214a2d2fcca3b8862c48e2a0b3aa1d8998c868b96abc5d06
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:cd635a68d2947b64b6afe55eb2bb416312845710b2d7df28e6fac8b8b3a7aa08
+#18 DONE 0.3s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:6232ce8aa2eea3aac62607b2825e2e332eec2878704d9cb32386a5f8fedf92b0
+#19 DONE 0.3s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:c949fa8a234784e52c4ebac2705672d7cc42f98373d7e608c1259bfd28854a5f
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:c5916f170639dd2d437e58dc5382b7c8d49ee90360725278bfc19d05d1999301 done
+#21 naming to gcr.io/fuzzbench/runners/afl/libcoap_libcoap 0.0s done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libcoap_libcoap:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7efe9af9df70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6910ae7fdefce7cbdee2da78972413c90983333366ff38af1c16daf8aafc3f70
+#1 transferring dockerfile: 32B done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:375570ceb76ebc538e696f46e0502eee123cff03a29a3ddb7b27abd02a39cef9
+#2 transferring context: 2B done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap
+#4 sha256:5e75753f93ff8db33014dbd0aec29d403fa6039611fef397ee4f33c3e697d965
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:30c06a10eb5719ecd0fe70e079b0d852899a39f307d896ff3f8ce57ecc22ff2b
+#9 transferring context: 30B done
+#9 DONE 0.1s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool     pkg-config
+#6 sha256:5957c15ea336e23163a53d9a7d223df93727b6605daf7ffa1f89b698ccaa12ce
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/obgm/libcoap.git libcoap
+#7 sha256:a480433fe3d0880f9edbb4289088e3750b84f675b89ff49676e912978ae81eca
+#7 CACHED
+
+#8 [4/5] WORKDIR libcoap
+#8 sha256:71ad700559604b0b014766cbd3e9a5cdd51b2a2e451b805735ddecf637d80670
+#8 CACHED
+
+#10 [5/5] COPY build.sh /src/
+#10 sha256:358d41f8f7532d2712b637ee9c659cc061e015fe72e6111e21969de1d5212214
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:16416d09cd48c3b6ebdc9ae460f39714efb40edb1242dcdcb98d0b5d477a34c3 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:7cc3383015a57a6587d889aa3644e6b13f087b639a28273ecb1f16dc2939d1a1
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:d7bfa0b8431773c1afcb69ef528ea27020c5eac3937862190cfa8738b773f7c1
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap:latest
+#3 sha256:f0a4a40bdc7ad5f3041f8e3800a4c8e0edf3e896fe9f9c03b18860010b6f5c7b
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libcoap_libcoap
+#5 sha256:4cf9839dfd59add16745f804cfe5fbdd568b9793b927f1b73d04fd2fc6fb54e8
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate
+#4 sha256:b4b38bb8d46d630c9205058e12d86f18ba302f148051749aab15f8dd8fdbc29d
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:9b82135892ba69945294bcbecb56d8206a6b5e3575a6cdcb35386419f7b50d0e
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6eda95f373fabb4a9c8bc9c95b39d476fa1602db0942f67726161818a12641b8
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:5d3b1334e7020818fa112f6d7b514c35f79902a51550400995e50f6d311ed038 done
+#8 naming to gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4332144c19b5b65f0fa956822cb776abc36d805103109eada6d082a92efd0b4b
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.00kB done
+#1 ...
+
+#2 [internal] load .dockerignore
+#2 sha256:ace9eb8ee9b100a00aea5d9de051567f954784605effd0e1f4d27ba62a2ae25d
+#2 transferring context: 34B done
+#2 DONE 0.6s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4332144c19b5b65f0fa956822cb776abc36d805103109eada6d082a92efd0b4b
+#1 DONE 1.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:485e1bc13fd68add4d1b72eb6a18862e153c97fef37048e12bb864af7bc0cc92
+#8 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:485e1bc13fd68add4d1b72eb6a18862e153c97fef37048e12bb864af7bc0cc92
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.6s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:8cf76f78cbdc84b33a3c7984b2edc28277efed5174210452092c72e930e764bb
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:20342a79eea9b8921fe9a04a515c4adac42a2f8bd059a249c13128ce6b615c35
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:483fd749954cb73c4f7aa2ad10c2dc4dea0c4054596f19e62dadc1564d1a8394
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:b05160f4969d7f26c3d6f067d7c8374d0abcd2131efb19900a9f9d84c4380d00
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:7d9957eb6f280da9248cb8afce2961dbcb27e41d89cdfd8167167cb748135959
+#13 writing image sha256:7d9957eb6f280da9248cb8afce2961dbcb27e41d89cdfd8167167cb748135959 0.1s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.8s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:c1587004080658001836a699bd52826242b30b42624b887464c779380eafa48a
+#2 transferring context:
+#2 transferring context: 34B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:982c30ee21a00cb974ff71e038f5d5d8bd85a77f530c41f0b0b9c0fc1f822ab9
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 1.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:c1587004080658001836a699bd52826242b30b42624b887464c779380eafa48a
+#2 DONE 1.3s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate:latest
+#3 sha256:6ef438917449281df559796ed243d0351a1c533a4801f5995b07b989e04f0e7c
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libcoap_libcoap-intermediate
+#6 sha256:af71f9dc5ff013ae780c772b210eff8b0027db7277041b4f2f7b88611fb54e27
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libcoap_libcoap
+#5 sha256:a60b6769d548e5569b5b114c9e7ecefb82b4bf2ebb40e3f464c1c64d9bec9d02
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:bb6fa9e121cb2f6bc024a0ad4ea958d3ee87a66a4d6ff263faeb51d550af900c
+#12 transferring context: 669.87kB 0.1s done
+#12 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:3f22becf8e381308d528b9c485c2ba4598189d0a7fae1ca41895d47d3c5285e3
+#8 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:840c65a50aa08f63d105cf9eff04d95778e3dbcaca2c4a1e07cff0e80805f6ee
+#10 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:29831f782b426579629e182d3fa7127081ee21ff436d00f51261a715a7f9f502
+#17 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:d12ee3cbb56de026cd941d9e3308c1280aa19c5e906b268beab24cff66b81afd
+#14 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:310314d9daea97a6a18b9e38417954a249cbbc2a3ba44fe2e5cf011449ef1b63
+#11 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:604d332e7e94572e9132d237403f2f2b677700103023c1f7d3c479cbf97dfdbf
+#19 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:6df0433bac450f9071d98ed1d216cd85e1f0b9fac6b4e10c25cf6259a157c58e
+#13 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/libcoap_libcoap/benchmark.yaml /
+#15 sha256:cbe4e69a1ddeee4e4b6fcd9d19a094517fbfbd12a70bb3b4c18b32980537a0c6
+#15 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:794178f2818eb02e0523e740cd9d816d60d82b330446505d2d66a2805f5d7e7d
+#16 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:93b4e719d4793f2c72542d9d5cc02e060c91437b0345d3a137dd6f73ad24edc6
+#9 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:b69e5ea5e64bf81a2a3f49029c4f5b9ad0736db4f829d45c86eb62e04c9913ad
+#18 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:768fb128c81501cbe0ab632d1ae8ab5e6beb8bae88a4c47f6ef3f392b7104df7
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e8931af0c6022eecb573ed2b3b40cc6bd61b374189538a295241926a30bc9a06 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/libcoap_libcoap done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:a5b48d4a13e2dcd6a197b92943a21a1d7e893b8a6f640959e709eafb43a4d990
+#2 transferring context:
+#2 transferring context: 2B done
+#2 DONE 0.7s
+
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:c2107ae2bc9455d57317e1e4e89bf4a18d9351c8e74170ce67d57f28787d968f
+#1 transferring dockerfile: 656B done
+#1 DONE 0.7s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate
+#5 sha256:09e89413f66157f5aed2a3a0bf3829eb4b2c03ef42024933bdcf647e848af39c
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d6ef9598633e2b22257ba08817eb6ccd322e87a4e99484dbf38ac2af66ba9490
+#6 writing image sha256:d6ef9598633e2b22257ba08817eb6ccd322e87a4e99484dbf38ac2af66ba9490 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1f426d40b08fdeae676955ff1b14f40f5cb750886d01e5fa1299341c52cfe6ab
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:0ef68cd092dbec3004a0759d227ab1a0cd6da52a61ffb35ba1ae544b4f6256e8
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate:latest
+#3 sha256:309fed72e26b5ef16c2369c88d1e9c4f1ad5bb8fbc1b126115e5462e0c50aa02
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libcoap_libcoap:latest
+#4 sha256:dcf22f82eb44d0c558f94f82f5ab036b693e887988a76d43c687d31f42dd6282
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libcoap_libcoap-intermediate
+#6 sha256:7c8cf038c557978000f5047729d07662161fa72965be924ca8ec58ae5dc0ade9
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libcoap_libcoap
+#5 sha256:0be28e3906427ef7b884ae798f619124dfa57f7883d2acd2910045b3dceea387
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libcoap_libcoap
+#10 sha256:c3b020a98f66a7d65b8251fb0309cf572d1c48a65b03593c49b74e1c60bc1a6c
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:3360c3c7029ada8b1b31fdef5323fcfbbae4f7bc518d09e56eb501ad56903a48
+#12 transferring context: 18.47MB 0.6s done
+#12 DONE 1.3s
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:7faad69af57dd9739984dfb73a011a68a1b217ee6b3f97db33ee373e21ae8e53
+#8 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:18c5314205f545de055c9ac84e64b55cdaf2ce10f8a739a36c22ffdb9230a0cf
+#11 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:9eac2a3781a93ae0f7ff7afebe03ef9c9dc9a7abc71a57d417a50064f0269208
+#14 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:701ad541726e349c2c3a1a34e1bdaaaeeaebd04ada57466b8b7c50ae7906cf1c
+#7 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:76c40554593d8510f90c4abf316b055025b251928c4fe9cbcbe775bd08a99ba5
+#17 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:f26908b658eea0ef857aaa32e2b8fa759b95861546c557bb3ce97491eeaaf0d0
+#19 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:ee7a16718c8ab73a31a91a2d0fea8116c2e6bbac9457affb2f731561a5ad5776
+#18 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:56294f667ad0002cd772a6bbcd4663b975a822e7f9795410fc25f85ba51bb1cf
+#13 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:964609a43a347e7f9ef1ed45f724df576b29bdf200950d84c8c099ba172b4eff
+#15 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:f15863a37cde8213f1869c96a68665edfc7371fc10005a61dff0d9e49b386dba
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:73aa30f59c9a8872f52ae0ec7e253512a1a9f57ca611d893a0704720953c4d26
+#16 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:f64a56ff0829482d4472478c531a6e5ffc433d59687b6ac083531c26ab6c31ad
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:c5916f170639dd2d437e58dc5382b7c8d49ee90360725278bfc19d05d1999301 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/libcoap_libcoap done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f0ce29dff70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

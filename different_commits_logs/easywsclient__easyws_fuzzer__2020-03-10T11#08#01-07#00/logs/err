@@ -1,0 +1,820 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: easywsclient_easyws_fuzzer.
+INFO:root:Please run "make test-run-afl-easywsclient_easyws_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d4f87a41b52deac2bc42e7afdd75b7d8b10fa9cb8b522192738ef1ab5332bc29
+#1 transferring dockerfile: 963B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5a8138fda1bea16a98d7d5ae5b613cbc0d5c72c930fa6ef93d9c1d13fe1a14fa
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:f37154791c3071d56941658846fc9fb1123f566cc4d212bc28ed26642ad60a41
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer
+#4 sha256:b62cfd012d2ce9be5b2a5b4f4121254bdf0b896ac8a8d27b667b87c11df90bc6
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:f37154791c3071d56941658846fc9fb1123f566cc4d212bc28ed26642ad60a41
+#9 transferring context: 67B done
+#9 DONE 0.2s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:e94c22665874d420ced0c3b871f4947e168d3bab9afd9b749baffcff0f8f695f
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/dhbaird/easywsclient easywsclient
+#7 sha256:06891c4131972fb7cf997b81c1fe0eb5e7da2b4c423487f0c60885838c9f2449
+#7 CACHED
+
+#8 [4/5] WORKDIR easywsclient
+#8 sha256:3c576b5769494f45749bc4307c9f186ec3c58bc3bb29ceef4575e4f2fe2dafb7
+#8 CACHED
+
+#10 [5/5] COPY build.sh *.cpp /src/
+#10 sha256:228d1caa5718d999c64c34a313bd8f5ea7e6bf558a263d6d490b96e640334359
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:f904d549ebf2224342ac4ae4dfd92b19ffa81c1da8815d7d071d4778235ef551 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a6682bfa13e5b06765a580b8686d37f7a88c609465b417bb51789c88f72c9499
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:95156a03ada91992808ccb4012d3e01a9b7735b2d5880052d20b967da62eba6b
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer:latest
+#3 sha256:7ed1bc231479c43fc9cb628bb3eb45c11924757ad30b18a5ae7a68b04091622e
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer
+#7 sha256:5f3dcc35b9b809b720ee10d7f242945ed3a1f2ebabaad2c8d5876ea452578db5
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate
+#4 sha256:38bc6ebf542e6fbeef3a663b7866f75bba602b20ecd943a404a722ccc1573200
+#4 ERROR: gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:2ecb425445d381cdd68c2278592ae5be917218116002741b650d8386b448625b
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:a6e0d589ec8ce067daa041ad7cbd5921f846f7ebdd898b88e42c4aa7c33c8a52
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:a744eeb8ad1e29244d95965c4697e60c23636ee450393b858066071576dd91ca done
+#8 naming to gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate 0.0s done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9e882725d4d55ed85a69e7588124f509b5423c7ff5a1971bd5f10310d8d7277a
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:2aaedb15f3d74d46cd0faeeef2b63c2bc3aeb3187d83c7ec3a189c0851983c9c
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:00731c5cc20579344022ebb1f72f6dff2de56dd4b796d65503cc87f685709103
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2e156fe1e61ed7d852c180e0611a9221fd2fe619b43f379589733a58b2b204ed
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:6a0e42fc6d982a8471d0eec17a8eb8a498045b7f87bb6d264505f616e2d9bc7f
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:8a80ac0a287870d1f223b7f85a3c72c54cfd7b7a6710b991906c2ddbc7b346b5
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:96a842da6b7938cebf0fa246981f1c6e910e5402f360093d8936dd10188c37b3
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8b9d0f2df836f52f119b7d02d3861827ccf9a719f6e4ec455b8ac8407015fce5
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:141e2e3e0893fe01461c8610a4cbdcc1d06c599be37d3b1ade52164556e9445f
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate:latest
+#3 sha256:143c60c92e5d9e1c5de234501bec0fbb0d12883d4f3862af14964541f25dbb17
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:47770437dd12016339f25202025699aa0c44e72b189233551652dac6811444d1
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate
+#6 sha256:ff827db7ed10be66272de60b7068365350d689c083511e02197be9ac3685f73e
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer
+#5 sha256:cf2d2bae490a8bd7393ac4f15ba9b1e67526ec9a816b56a14163e7039f6b581d
+#5 ERROR: gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:47770437dd12016339f25202025699aa0c44e72b189233551652dac6811444d1
+#12 transferring context: 669.90kB 0.1s done
+#12 DONE 0.1s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:fdcaf62f11171a7ce3b99079405a8be6770e7801c06bf5d48fbbc28d41defdcf
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:a614e5c59265ea8845cd98a230c05b3aad914e190a9636ebe2b9f6efc43caad9
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:fbe1eb37064f87ffcb126807031fdb635a5868c8824e5b64f55ec47cc05110af
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:f0ef1da3bce4089c5ade26e7921633f728177b6a533f6077ab681e226caffb7d
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:22501b13b5e401942aa2508d988f5ece5dbadf5d631573ffa004873489b4f764
+#8 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:cb0db78467fc98b6ea0ffb4d80787d56cce413c3db4b734bad764d2fcadbad31
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/easywsclient_easyws_fuzzer/benchmark.yaml /
+#15 sha256:e193012eb88c7a6d2c10afff5612c323fb110cc9643d09fddee7e0a00aabd390
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:461eed7de9f474a245c26f1d87416dce6d0e91bbe8d2f79acf5db7adf784ff81
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:d1ce63346f4da41cf7ea0e51b974748cded9e59aea9bc61d607c901787e07ebd
+#17 DONE 0.5s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:5f4699b7bb1daec9e71ae7ccc8596d4a3407ca81b7288ca7fc918206134ed957
+#18 0.607 Checking out commit 71f4914c
+#18 1.189 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 1.194 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 1.201 error: pathspec '71f4914c' did not match any file(s) known to git
+#18 1.258 Checkout unsuccessful.
+#18 DONE 1.5s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:90c6f2c8c5caccd808f27a7fbdad07bf6ee5e69c2fd1a6b861639e95ac7b584f
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:738480ffd66e89be338129154a2807635f6f798769ce42f14e1d5995cf1bee14
+#20 0.513 Run fuzzer_build to build the target
+#20 0.624 FUZZ_TARGET = easyws_fuzzer
+#20 0.624 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.624 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.633 Building benchmark easywsclient_easyws_fuzzer with fuzzer afl
+#20 0.637 ++ find /src -name '*_fuzzer.cpp'
+#20 0.660 + for f in $(find $SRC -name '*_fuzzer.cpp')
+#20 0.660 ++ basename -s .cpp /src/easyws_fuzzer.cpp
+#20 0.669 + b=easyws_fuzzer
+#20 0.669 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -g easywsclient.cpp -I. /src/easyws_fuzzer.cpp -o /out/easyws_fuzzer /libAFL.a
+#20 3.930 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 4.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:8afb9b980501d8ae9a11488f4366db5cc17d4f89535214ffd46ef37a53508ecf 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer 0.0s done
+#21 DONE 0.5s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:112ab1a40acf537dfd4f733563841191841b6a21a57f4657b6519032783973ec
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:e531212f1ad43ff576a47baf8e5ff1d86f5cc1fed511f7da4e50774708a9e381
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate
+#5 sha256:79a66bc7441b9dcb3b39dd1e772b2a34ffb07f6102dd988c9e300236d122a410
+#5 ERROR: gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate 0.0s done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f064a09abc9811ca6ca31ec8ef166551ab57adbf83361c47ffcc472887975726
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:6441768bb582a7056c52904f23602fcd631628cae8a372b305845a5ae89d62fc
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate:latest
+#3 sha256:da1dcbc6fc8cd12f84d06aa2f49da2e12e877d0c9361118e8865b818b3395489
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer:latest
+#4 sha256:9bb1fb5acbb8641269b94a499d6ea3432ec8320b72f623f53fe4caa8ea2bfb33
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:a7c7eecbea8cfbf836fe18246a96499352427e313a88955ad163bdf847ddca32
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate
+#6 sha256:511e10928291dcaa68b4b199d2ea664303056340e4745802beaf5fd39591e347
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer
+#10 sha256:c582c50547adee2c68596f1bc74a01288577450c96f4f13ff9e49d43a833a8bd
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer
+#5 sha256:ae73779a6cee7918be92eb42c723fc58c25ef69b2b18d974a00ffd6ad1e43879
+#5 ERROR: gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:a7c7eecbea8cfbf836fe18246a96499352427e313a88955ad163bdf847ddca32
+#12 transferring context: 18.36MB 0.7s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer
+#10 sha256:c582c50547adee2c68596f1bc74a01288577450c96f4f13ff9e49d43a833a8bd
+#10 DONE 1.0s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:4e78311b4099dd3af4a0b7af3654c6bd9d25c67ebfaae37d2a8767efa0f2d7a9
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:305a5e4836b160afeb236a482317a70e6971a10d957bcc3e53884187d33d9bd1
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:7077dd499229edbe639fa305cd0599217ee69690482175f3bfa7c13844ea1f66
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:787dca3a618ef76afd3b834cb315e21116f92d44577e62f3cdecef9697509d30
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:143a2931fc3e8f71efe1099d9c3de3d9b22d20abc3e4618f7d5b87153b514d30
+#13 DONE 1.8s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:364d3e0465c25932e159d844321a7b2199a6e55ad79c459c4ea205659da54791
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:9ecae8ed92f5c1e252016d15001e6cb7bd7b54f5db0e53411f413570ae9c7f53
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:6b6946a064d7eba0aba434d057f4331f177db1e096b571b236a3e3415acd2fab
+#16 DONE 0.9s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:bd1756de60db6da9fdbb957a3505c8e629e9f2a0a228112f304b7cb8d36bd888
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:dc7c16e2a2e44d4730eeac090023f68255760903d0c696a9cb32360ab35ba4e7
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:ac6e125402a1020e74ec31db634a8f37e5e925ede2c4ed9adba7dbe12f87cdee
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:7685d1b7cbbf271ad44ca0483daf1848420cce6d55793e567893109d9ebc7184
+#20 DONE 1.0s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6804151b1a4e6da39eb3316effd267fa78946912f1f6f783e754d926cfb08ffc
+#21 writing image sha256:6804151b1a4e6da39eb3316effd267fa78946912f1f6f783e754d926cfb08ffc done
+#21 naming to gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Doing final sync.
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:bd9c7a18cca3217e56e9143ade5115ccc02b26209c11068cb636c5be54b902bf
+#1 transferring dockerfile: 32B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:0d29b8c3df09e8d764c40dc460b26b3517d70df10f0764654678b1c6686ebab7
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer
+#4 sha256:b62cfd012d2ce9be5b2a5b4f4121254bdf0b896ac8a8d27b667b87c11df90bc6
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:98f7bb769ea8982da64a16a1f50b2669d32eff91f3840d61c087aae7c3586259
+#9 transferring context: 67B done
+#9 DONE 0.1s
+
+#8 [4/5] WORKDIR easywsclient
+#8 sha256:3c576b5769494f45749bc4307c9f186ec3c58bc3bb29ceef4575e4f2fe2dafb7
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:e94c22665874d420ced0c3b871f4947e168d3bab9afd9b749baffcff0f8f695f
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/dhbaird/easywsclient easywsclient
+#7 sha256:06891c4131972fb7cf997b81c1fe0eb5e7da2b4c423487f0c60885838c9f2449
+#7 CACHED
+
+#10 [5/5] COPY build.sh *.cpp /src/
+#10 sha256:6e8857ca64ca238a113f2241a7b6dfc2b9573055c58308de80720d4a8fa30856
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:f904d549ebf2224342ac4ae4dfd92b19ffa81c1da8815d7d071d4778235ef551 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:475e8a4994fd5fa4766c1d4aead6cb144af7976c635737d51aacce152be204ce
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:50df19761ae70f01674449370295cfa0a04b500a15b0e65a2da8c9431b00c9fe
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer:latest
+#3 sha256:7ed1bc231479c43fc9cb628bb3eb45c11924757ad30b18a5ae7a68b04091622e
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate
+#4 sha256:38bc6ebf542e6fbeef3a663b7866f75bba602b20ecd943a404a722ccc1573200
+#4 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/easywsclient_easyws_fuzzer
+#5 sha256:5f3dcc35b9b809b720ee10d7f242945ed3a1f2ebabaad2c8d5876ea452578db5
+#5 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:2ecb425445d381cdd68c2278592ae5be917218116002741b650d8386b448625b
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:a6e0d589ec8ce067daa041ad7cbd5921f846f7ebdd898b88e42c4aa7c33c8a52
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:a744eeb8ad1e29244d95965c4697e60c23636ee450393b858066071576dd91ca done
+#8 naming to gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:d39f7f8a50563c9d4bda955f4cb888140123aace9c7c70503ddd583833ccd145
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:16112187b30c63a0fbeea6e5848c8d897e069e90d20c7105de83ffb86de20439
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:7a9b38ecadf39e985795793388951f448dfd2defeedb041c794cc9e47b84236e
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:1b34a7c63eb3b5e33a1b4defb6f38d1a0e97ab7f335775e2fc64a048d692b077
+#11 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:dabe50d863b15b22f12fb4bd01fec2d1a3afc5e6f542f7c89ef09b8f39de65cb
+#10 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:33858682b5b459be25676daff5592afa798d2d0f6f06b4e0d177e47a273d60f1
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:114fa2438e3baf412f9699ed5f9328511af86910c4081cddfe994470b930a17f
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f0a6e2c90b9429076cded82fb18e115d226dbe158d519383e4bc5f9803ae5b00 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:70a1603ee0e48b54a032bcc91570d6492de31f3e6f91c49de1a332bb626cbb3b
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f3a3b76318b9d496859f3d38830f1a0d7fedef555d64599e3de2db57989af9c0
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate:latest
+#3 sha256:143c60c92e5d9e1c5de234501bec0fbb0d12883d4f3862af14964541f25dbb17
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer-intermediate
+#6 sha256:ff827db7ed10be66272de60b7068365350d689c083511e02197be9ac3685f73e
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer
+#5 sha256:cf2d2bae490a8bd7393ac4f15ba9b1e67526ec9a816b56a14163e7039f6b581d
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:858fab0945c0910b55424a0911e2ff28871abebeb0d44e1b7541f7f4f4f71d2c
+#12 transferring context: 669.90kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:a614e5c59265ea8845cd98a230c05b3aad914e190a9636ebe2b9f6efc43caad9
+#10 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:71e9833cd4b5272a8b602097a1c199eadd3ec2d50d8c7466a8cd81ff2397549a
+#18 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:fefd335687f98fde732c4dfca80d3e172820f87e9516e6ce482b09a05881b5c6
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/easywsclient_easyws_fuzzer/benchmark.yaml /
+#15 sha256:dfe831cd1bf157191a3924d03a99238082416ea41608c17d88865f017f379424
+#15 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:fdcaf62f11171a7ce3b99079405a8be6770e7801c06bf5d48fbbc28d41defdcf
+#9 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:3245af9a84d7afa3b4664e3aef9df02c1b002ade17ff8cf77a891f9a4d15ce88
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:22501b13b5e401942aa2508d988f5ece5dbadf5d631573ffa004873489b4f764
+#8 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:13a3833035853fa505bb56f0e22f016cdbb847755954cfccc1cb0860b9d967e3
+#17 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:a5b011d5f9e4bd2ad2f985bc519a2288ac653f6d9841334db6da901738a6cabc
+#19 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:fbe1eb37064f87ffcb126807031fdb635a5868c8824e5b64f55ec47cc05110af
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:3dedd763feed97d79f570b25f0e616bfefd44cb9574724d633b211a589c213b1
+#16 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:58748ad361a57ddec36c4a3ee140152c9e54030fad5af97b9eb1156694a3d8fd
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:8afb9b980501d8ae9a11488f4366db5cc17d4f89535214ffd46ef37a53508ecf 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:fd219aee00358166f818e0b604da3ea965df52494afbe5d866e35e210cb52a29
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:837eb58a5ec61822fc3fa4b4ac3b77b2cf8c1f6d90112852de24a597bbac16c2
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate
+#5 sha256:79a66bc7441b9dcb3b39dd1e772b2a34ffb07f6102dd988c9e300236d122a410
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:0141915220e4784464cbf5b4df45ebe0ca86417eb51733f6e5b060f061ce7857 done
+#6 naming to gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4ccca6d3ffe6cff63fe57b829473da444570633c52d40705937dda9832ac5005
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:4f092bbef51f1b2d156780b36f4ddb73458f4fce1c93727a2c1538e0cba6655f
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer:latest
+#4 sha256:9bb1fb5acbb8641269b94a499d6ea3432ec8320b72f623f53fe4caa8ea2bfb33
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate:latest
+#3 sha256:da1dcbc6fc8cd12f84d06aa2f49da2e12e877d0c9361118e8865b818b3395489
+#3 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer-intermediate
+#6 sha256:511e10928291dcaa68b4b199d2ea664303056340e4745802beaf5fd39591e347
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer
+#5 sha256:ae73779a6cee7918be92eb42c723fc58c25ef69b2b18d974a00ffd6ad1e43879
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/easywsclient_easyws_fuzzer
+#10 sha256:c582c50547adee2c68596f1bc74a01288577450c96f4f13ff9e49d43a833a8bd
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b9ea367a80d8192224fba5e0eee0c3778cc3f5d220922a5e40f9889a63655e17
+#12 transferring context: 18.36MB 0.6s done
+#12 DONE 0.7s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:b619c1517e563a20bfb71a2df600d8cdb4ccc1525d34f7c2c670cdfd46588f46
+#19 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:4e78311b4099dd3af4a0b7af3654c6bd9d25c67ebfaae37d2a8767efa0f2d7a9
+#7 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:6e71a580b4e80fa0b502b69a241c7b96f6f8e3b3918f956ce27ba4cfc5f2cacb
+#14 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:787dca3a618ef76afd3b834cb315e21116f92d44577e62f3cdecef9697509d30
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:f040d3b8d957ba5f348a05af39534ebaae64c1da3ec69c79601ba66af4584ad3
+#13 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:a9b743cf85bf4c928c1043eecad14f12570a673097dbb901954e95091f71cab1
+#15 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:305a5e4836b160afeb236a482317a70e6971a10d957bcc3e53884187d33d9bd1
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:7077dd499229edbe639fa305cd0599217ee69690482175f3bfa7c13844ea1f66
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:5e9c56a0b9ad511d51ce3ee541cc31b2577b49d1053e1a5d297ff034e1862165
+#16 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:160a82ec4d766786c3de808d7d00da096b8f9a5f30aac973b7b971ff872894ab
+#18 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:277740429206526b2eb7e98b95be513b112440ac9e8223bae2a4fdeac968776f
+#17 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:f0deaf1591621225f29e968f8ce73136da4d252185b82e82e862057a384dd257
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:6804151b1a4e6da39eb3316effd267fa78946912f1f6f783e754d926cfb08ffc 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/easywsclient_easyws_fuzzer done
+#21 DONE 0.7s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Doing final sync.

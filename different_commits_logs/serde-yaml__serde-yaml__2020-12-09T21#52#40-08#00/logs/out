@@ -1,0 +1,603 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: serde-yaml_serde-yaml.
+INFO:root:Please run "make test-run-afl-serde-yaml_serde-yaml" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:0df27356b0e775680ebcd459b1933c5beea56b34bffe849bc8ffa85c50f19213
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:75cb80a001173909f340375b9082be1c53786814898876f70c6bba2fdf971bd4
+#1 transferring dockerfile: 845B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#8 [internal] load build context
+#8 sha256:c2c46cf5b947b81bf7070e449f7d49d958744ea1396760a58d71aa5318b9a86d
+#8 DONE 0.0s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml
+#4 sha256:85259c6ebe5bd9b2a31d2bd2c191ba111b7da5f7f751c0f368c665da1cf47710
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml:latest: not found
+
+#8 [internal] load build context
+#8 sha256:c2c46cf5b947b81bf7070e449f7d49d958744ea1396760a58d71aa5318b9a86d
+#8 transferring context: 30B done
+#8 DONE 0.1s
+
+#6 [2/4] RUN git clone --depth 1 https://github.com/dtolnay/serde-yaml serde-yaml
+#6 sha256:9ae9f8c160e9a150ae92943fa6205ce9417451cb3955254259311bcee64e8a50
+#6 CACHED
+
+#7 [3/4] WORKDIR /src
+#7 sha256:a334e0582916ff2c976ae032724d49f63d3e27be0e23b902433269251b2403bc
+#7 CACHED
+
+#9 [4/4] COPY build.sh /src/
+#9 sha256:c242f693cc1a882bcd2786a4f173d435b8c69e0798730a192e6058464839a309
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:1f50091f43ce8186bcb7413c533133c6b2eadcb5ee4ec2767e000f27a16b4381 done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml done
+#10 DONE 0.2s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:2ea8e3c82cbf458de15411c3fdf861379d118828fdb8e17da47291d9d9971c5c
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:35729ad9860030ece20389db8de60062b2277e923633c06cd98b350a16d58297
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml:latest
+#3 sha256:2a676dc045c27f1d2eab8c71f1063a72d7ae40e30d422d9997d40d72286fa7c2
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml
+#5 sha256:5e71e678181d9838f2aaaea50c47590591f288fee1afca9a75e470778ae5bd59
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate
+#4 sha256:bc6587aba5b587532ffeb25a644601b2a17046c28f9a00f223a692e7a24d2c87
+#4 ERROR: gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:fbc3a840f14504db877bae0e65787a08f34e9370c67b5552b39d597c8467d6e5
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c9cf9d95a8c5d9a0dc35ed3d776bb448573e07e502ee79e459713714566f3eb0
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:7320c2872e34e0fe1f4320614d5e18442b48e7281a33004ed3f5284717b91020
+#8 writing image sha256:7320c2872e34e0fe1f4320614d5e18442b48e7281a33004ed3f5284717b91020 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate 0.0s done
+#8 DONE 0.7s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6c897899f283b98a36ba588906ef65b98f10513ece26b5390c13c801982d8ab2
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:46a20e28815ec0eda761b24026862fcb970e900d0fb5883c6a4d941395bef789
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:b3606c8c62dbaac6ce685a72075448d68a74ef2be37f7c1c72cb2410dcd06a48
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.1s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:2b1fb792ba1d237d2a070c1a03d35c7a3b674526d44ed4cd86acd0a90c5e6958
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:ae9b51ed01788d5ee3d80fc4f8f1023a8020fffbd88dbfba0d26a46f1138a3ed
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:05f6a206b6f379d2b3fde42a2aff1254cc626eb9943b6d446be6c2e83bdb0452
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:64a948ecb2729b72b76628fef151110a021aa711ea50b436fa659b64f90a1a21
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6ea75ebfb5bc6007b1c9995e9bdf07c622d3f5788897f30dc7596fea1177a556
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:377a5e1b5264b3acaab6380bd3d74e707211294defdc469169e4780c7ad7db65
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate:latest
+#3 sha256:435a8f617b1411623d6de8f0d1f6fd25588684a0fa0c7370388571fb8c2fe4f7
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:73669756672319f74198d623c822bc31070488ea685e19338247619458ec7c70
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate
+#6 sha256:67b885c70ee2eb8aa5e6bdbe1c90acc665564a4bc905d54c203be019652e5d9c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml
+#5 sha256:70dfb70b60f277d2de65469c0310f6c362e8d9288cea4e7242526ebcfa8e66d8
+#5 ERROR: gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml:latest: not found
+
+#12 [internal] load build context
+#12 sha256:73669756672319f74198d623c822bc31070488ea685e19338247619458ec7c70
+#12 transferring context: 669.89kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:b4ab00b83e4f7cf8155dd86d0d5c3317e62b33af179c05a29df3063eff6315ee
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:3a3f222e3205787194bd09e61000d79f6a8073e1c4ad1ee0de48cae735016f3d
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:abc85ce61278e7bc9de82fe3747a9879f9987f0959172432aa8b7cab9b6e0a99
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:0404fb583bdb3c279f3fdaacb0911e99b630a80fa92b7458e4dbe438254c03af
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:211b04f9056f52321612cb9574bcba5ed85bec661950ed6f488930065da7394a
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:e3eed41cda8ff9cc6b64d4216c9062cbbacdd0b20c15103ca31c1a4ba1d3010e
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/serde-yaml_serde-yaml/benchmark.yaml /
+#15 sha256:488ff49e8b0b18fc2a649a222a4046cb3073cf291dcd58e0ae19ea446f64b924
+#15 DONE 0.3s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:1cdf9e77b32fe17d340ca18962e3c2de08d4ab7c5dfc556d96e4baa5ab47c0c8
+#16 DONE 0.4s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:e7f4aa44c62978332f6b8665a760179f26265bea57e1bd60d33edc03228136b0
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3dbe923d7dbed56853512999b43cd6dbe9413095b4921c4daf622fb7480b58c9
+#18 0.515 Checking out commit 1d5a2cd8
+#18 2.672 From https://github.com/dtolnay/serde-yaml
+#18 2.672  * [new tag]         0.1.0      -> 0.1.0
+#18 2.672  * [new tag]         0.2.0      -> 0.2.0
+#18 2.673  * [new tag]         0.2.1      -> 0.2.1
+#18 2.673  * [new tag]         0.2.2      -> 0.2.2
+#18 2.673  * [new tag]         0.2.3      -> 0.2.3
+#18 2.673  * [new tag]         0.2.4      -> 0.2.4
+#18 2.674  * [new tag]         0.2.5      -> 0.2.5
+#18 2.674  * [new tag]         0.3.0      -> 0.3.0
+#18 2.674  * [new tag]         0.4.0      -> 0.4.0
+#18 2.675  * [new tag]         0.4.0-rc1  -> 0.4.0-rc1
+#18 2.675  * [new tag]         0.4.1      -> 0.4.1
+#18 2.675  * [new tag]         0.5.0      -> 0.5.0
+#18 2.676  * [new tag]         0.5.1      -> 0.5.1
+#18 2.676  * [new tag]         0.6.0      -> 0.6.0
+#18 2.676  * [new tag]         0.6.0-rc1  -> 0.6.0-rc1
+#18 2.677  * [new tag]         0.6.1      -> 0.6.1
+#18 2.677  * [new tag]         0.6.2      -> 0.6.2
+#18 2.677  * [new tag]         0.7.0      -> 0.7.0
+#18 2.678  * [new tag]         0.7.1      -> 0.7.1
+#18 2.678  * [new tag]         0.7.2      -> 0.7.2
+#18 2.678  * [new tag]         0.7.3      -> 0.7.3
+#18 2.679  * [new tag]         0.7.4      -> 0.7.4
+#18 2.679  * [new tag]         0.7.5      -> 0.7.5
+#18 2.679  * [new tag]         0.8.0      -> 0.8.0
+#18 2.680  * [new tag]         0.8.1      -> 0.8.1
+#18 2.680  * [new tag]         0.8.10     -> 0.8.10
+#18 2.680  * [new tag]         0.8.11     -> 0.8.11
+#18 2.680  * [new tag]         0.8.12     -> 0.8.12
+#18 2.681  * [new tag]         0.8.13     -> 0.8.13
+#18 2.681  * [new tag]         0.8.14     -> 0.8.14
+#18 2.681  * [new tag]         0.8.15     -> 0.8.15
+#18 2.681  * [new tag]         0.8.16     -> 0.8.16
+#18 2.682  * [new tag]         0.8.17     -> 0.8.17
+#18 2.682  * [new tag]         0.8.18     -> 0.8.18
+#18 2.682  * [new tag]         0.8.19     -> 0.8.19
+#18 2.682  * [new tag]         0.8.2      -> 0.8.2
+#18 2.683  * [new tag]         0.8.20     -> 0.8.20
+#18 2.683  * [new tag]         0.8.21     -> 0.8.21
+#18 2.683  * [new tag]         0.8.22     -> 0.8.22
+#18 2.683  * [new tag]         0.8.23     -> 0.8.23
+#18 2.684  * [new tag]         0.8.3      -> 0.8.3
+#18 2.684  * [new tag]         0.8.4      -> 0.8.4
+#18 2.684  * [new tag]         0.8.5      -> 0.8.5
+#18 2.684  * [new tag]         0.8.6      -> 0.8.6
+#18 2.685  * [new tag]         0.8.7      -> 0.8.7
+#18 2.685  * [new tag]         0.8.8      -> 0.8.8
+#18 2.685  * [new tag]         0.8.9      -> 0.8.9
+#18 2.691 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 2.696 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 2.703 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 2.741 Checkout unsuccessful.
+#18 DONE 3.1s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:492505cafe98ca2893fb86dd1307ec303febfb4ab2eaffa1c488b0ef027a9a10
+#19 DONE 1.2s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:d52a2d16b72e4ce20f894b94eb030d9f505267134ac9c3b0e44cd59f7e4d7bdc
+#20 0.524 Run fuzzer_build to build the target
+#20 0.634 FUZZ_TARGET = serde-yaml
+#20 0.634 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.634 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.639 Building benchmark serde-yaml_serde-yaml with fuzzer afl
+#20 0.642 + cd /src/serde-yaml
+#20 0.642 + cargo fuzz build -O
+#20 0.646 /usr/local/bin/cargo: line 55: /rust/bin/cargo: No such file or directory
+#20 0.647 Traceback (most recent call last):
+#20 0.647   File "<string>", line 1, in <module>
+#20 0.647   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 0.647     utils.build_benchmark()
+#20 0.647   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 0.647     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 0.647   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 0.647     raise CalledProcessError(retcode, cmd)
+#20 0.647 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2716653: .afl-serde-yaml_serde-yaml-builder] Error 1
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:77c3b41ec15b33ba8b6150089e83a30081f2c965ced8358e2113c6d9a905f3ab
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:401a2c738fe4a65f800c901758223f404d851a83859ef6d4669a0eff25db31ba
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/4] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml
+#4 sha256:85259c6ebe5bd9b2a31d2bd2c191ba111b7da5f7f751c0f368c665da1cf47710
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:bc28a20c547044e4f7c67ec1a27b53bdbd124e8b2a06889479c880ebb7b3e265
+#8 transferring context: 30B done
+#8 DONE 0.0s
+
+#7 [3/4] WORKDIR /src
+#7 sha256:a334e0582916ff2c976ae032724d49f63d3e27be0e23b902433269251b2403bc
+#7 CACHED
+
+#6 [2/4] RUN git clone --depth 1 https://github.com/dtolnay/serde-yaml serde-yaml
+#6 sha256:9ae9f8c160e9a150ae92943fa6205ce9417451cb3955254259311bcee64e8a50
+#6 CACHED
+
+#9 [4/4] COPY build.sh /src/
+#9 sha256:772aff9fd8221e56d69d4deb5efa89497b7802bd5ad407a6f5dc38fd98e8fe18
+#9 CACHED
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers done
+#10 writing image sha256:1f50091f43ce8186bcb7413c533133c6b2eadcb5ee4ec2767e000f27a16b4381 done
+#10 naming to gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml done
+#10 DONE 0.1s
+
+#11 exporting cache
+#11 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#11 preparing build cache for export done
+#11 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:9d22a6e144d4a98ec9a543f9b835d74e3eeaccb9ae857f01fa3fc120b0eac984
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:acd8b8a3d40c0832619d4ecb7d00b71f76b0e571fda940a212da3f8cbc06f1ea
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml:latest
+#3 sha256:2a676dc045c27f1d2eab8c71f1063a72d7ae40e30d422d9997d40d72286fa7c2
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/serde-yaml_serde-yaml
+#5 sha256:5e71e678181d9838f2aaaea50c47590591f288fee1afca9a75e470778ae5bd59
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate
+#4 sha256:bc6587aba5b587532ffeb25a644601b2a17046c28f9a00f223a692e7a24d2c87
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:fbc3a840f14504db877bae0e65787a08f34e9370c67b5552b39d597c8467d6e5
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:c9cf9d95a8c5d9a0dc35ed3d776bb448573e07e502ee79e459713714566f3eb0
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:7320c2872e34e0fe1f4320614d5e18442b48e7281a33004ed3f5284717b91020
+#8 writing image sha256:7320c2872e34e0fe1f4320614d5e18442b48e7281a33004ed3f5284717b91020 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:b27802a8f5cf5effccf4aa1b84c621f66682bff600840d7d4ebd1e4fa9e0c5ab
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:0f17830b73bfb57a236b1204d078a0e95c38515b804c6534e057e1bbb2c17a71
+#2 transferring context: 34B done
+#2 DONE 0.5s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:0481cddf5e360849bd173a5b1c3781eeb934889780e8c61d0ba7113d2525ff06
+#8 transferring context: 559B 0.0s done
+#8 DONE 0.3s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ee8156c211b4133652c3976c00b7124eb155a3ab7b94c0b380b98eee970dd8a3
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:7b726827974b7fd9f39abf7f9ad8b877e61f682054d54ff84a8ba86dbe559ee0
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:f454727a709c8033b10d2bbebab6051a7255934a8be6ffbbb6d0d725f95f6162
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:9c3166edcc9c3bab8dc6beafbfbbfaef37fa482f35aa95e23fe5a7ae256e0617
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.1s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.5s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:c21f8b6c2438874c05d4ec98111605e571a44838b1d7e92c0b028e4992068256
+#2 transferring context: 34B done
+#2 ...
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:88e3587586289ad791f1f69937ec295e40c44e4721fc47f5c2d7fbb4dd16ca66
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.4s
+
+#2 [internal] load .dockerignore
+#2 sha256:c21f8b6c2438874c05d4ec98111605e571a44838b1d7e92c0b028e4992068256
+#2 DONE 0.5s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate:latest
+#3 sha256:435a8f617b1411623d6de8f0d1f6fd25588684a0fa0c7370388571fb8c2fe4f7
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:4ed8f9c6482fe8691cdf809f93d5f3c483264652fd77e7aa6cf9a2da75475c51
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml-intermediate
+#6 sha256:67b885c70ee2eb8aa5e6bdbe1c90acc665564a4bc905d54c203be019652e5d9c
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml
+#5 sha256:70dfb70b60f277d2de65469c0310f6c362e8d9288cea4e7242526ebcfa8e66d8
+#5 ERROR: gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml:latest: not found
+
+#12 [internal] load build context
+#12 sha256:4ed8f9c6482fe8691cdf809f93d5f3c483264652fd77e7aa6cf9a2da75475c51
+#12 transferring context: 669.89kB 0.1s done
+#12 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:dd6d5762d90ed773b96632753bea777ad2d513c9c73be9f31e76bf1f2d1d94dc
+#17 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:3a3f222e3205787194bd09e61000d79f6a8073e1c4ad1ee0de48cae735016f3d
+#9 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:b5fbd9ee7a93604d0d90ac950b3f7c14199a1c50b2d626e3647026f49d1f4447
+#16 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:88dd0f3915fcaa6c710df2038562cdce6de3f7cb5d06e0dc530ab485bdcfa3f2
+#18 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:6e3c65cf1e7975697b0935f6090d7b1959528710a5df24ac485c5befa547ba11
+#14 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:0404fb583bdb3c279f3fdaacb0911e99b630a80fa92b7458e4dbe438254c03af
+#11 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:abc85ce61278e7bc9de82fe3747a9879f9987f0959172432aa8b7cab9b6e0a99
+#10 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/serde-yaml_serde-yaml/benchmark.yaml /
+#15 sha256:12dc9a84fdf3ba945a130e1ae78ec92011d652b55c6fd377bdec963af6f44aca
+#15 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:b4ab00b83e4f7cf8155dd86d0d5c3317e62b33af179c05a29df3063eff6315ee
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:a975196f61a1b0251e550ccffd35452e9ac22b3133c732e9ceacede03e76dc7c
+#13 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:5aa64dda5faea41400e4a12af97e37e57cb50bd5f3c4ba6f3cf7e2161fc28708
+#19 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:bd75e7de00b810bb4b831dc4349b902a8968e209cfe4cc4905ee7481153fd453
+#20 1.446 Run fuzzer_build to build the target
+#20 1.585 FUZZ_TARGET = serde-yaml
+#20 1.585 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.585 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.592 Building benchmark serde-yaml_serde-yaml with fuzzer afl
+#20 1.595 + cd /src/serde-yaml
+#20 1.595 + cargo fuzz build -O
+#20 1.599 /usr/local/bin/cargo: line 55: /rust/bin/cargo: No such file or directory
+#20 1.600 Traceback (most recent call last):
+#20 1.600   File "<string>", line 1, in <module>
+#20 1.600   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 1.600     utils.build_benchmark()
+#20 1.600   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 1.600     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 1.600   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 1.601     raise CalledProcessError(retcode, cmd)
+#20 1.601 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 127.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/serde-yaml_serde-yaml:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:2716653: .afl-serde-yaml_serde-yaml-builder] Error 1

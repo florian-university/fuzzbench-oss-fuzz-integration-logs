@@ -1,0 +1,236 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: firefox_target.
+INFO:root:Please run "make test-run-afl-firefox_target" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4ff2148ec80a9ec7fc4c515e210f4f74a2c40556f0c22fc3711ce57f312584dd
+#1 transferring dockerfile: 1.34kB done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:12255602650f98a47b12979255714a04e21f94eb7826ce9abdbf0eb79c4fb8f1
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.9s
+
+#12 [internal] load build context
+#12 sha256:799697413db5935bc45bb7162dd7e5d880134ec580b706bdf835c2d7cbd940ff
+#12 DONE 0.0s
+
+#5 [1/8] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target
+#4 sha256:3a67bf70b24f60503314b32fad2331f5c838f74c4ebfaa7bb0255f90a65a572b
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/firefox_target:latest: not found
+
+#6 [2/8] RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
+#6 sha256:f82fa34c776b43d499d261ad68e3b9bf1b9c18593fcb174afb0fbc6fac015b19
+#6 CACHED
+
+#7 [3/8] RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends   gawk   libstdc++6   python   software-properties-common
+#7 sha256:1e9a5bd5c91a5963c47aa32582043ca0814481c45166e1a8ddfde573bed911bd
+#7 CACHED
+
+#8 [4/8] RUN git clone --depth 1 https://github.com/mozilla/gecko-dev mozilla-central
+#8 sha256:d609b2d48882e92914df45c55bea2f8dca2a167f3f2315b7358e57203e87b99d
+#8 CACHED
+
+#9 [5/8] RUN git clone --depth 1 https://github.com/mozillasecurity/fuzzdata
+#9 sha256:49333123108af236e5cb5e20b636d9514bcd3ff6151ec30c804a13214c28eff2
+#9 CACHED
+
+#10 [6/8] WORKDIR mozilla-central
+#10 sha256:94815f554566c2ce61eeb9328f14f2bc5dc0b5dba6ceb61d5e92ec08545e3837
+#10 CACHED
+
+#12 [internal] load build context
+#12 sha256:799697413db5935bc45bb7162dd7e5d880134ec580b706bdf835c2d7cbd940ff
+#12 transferring context: 6.41kB done
+#12 DONE 0.2s
+
+#11 [7/8] RUN ./mach bootstrap --no-interactive --application-choice browser
+#11 sha256:03b1c31eb5ed58b0e338620a3e8b953aeaccaeefffacc7b0cb934872b97e91c4
+#11 1.338 created virtual environment CPython3.8.3.final.0-64 in 75ms
+#11 1.338   creator CPython3Posix(dest=/root/.mozbuild/srcdirs/mozilla-central-704b0a121bdf/_virtualenvs/mach, clear=False, no_vcs_ignore=False, global=False)
+#11 1.338   activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator
+#11 4.982 Collecting glean-sdk==43.0.2
+#11 5.047   Downloading glean_sdk-43.0.2-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+#11 5.813 Collecting glean-parser==4.4.0
+#11 5.830   Downloading glean_parser-4.4.0-py3-none-any.whl (86 kB)
+#11 6.883 Collecting cffi>=1.13.0
+#11 6.900   Downloading cffi-1.15.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (446 kB)
+#11 7.015 Requirement already satisfied: jsonschema>=3.0.2 in ./third_party/python/jsonschema (from glean-parser==4.4.0->glean-sdk==43.0.2) (3.2.0)
+#11 7.017 Requirement already satisfied: yamllint>=1.18.0 in ./third_party/python/yamllint (from glean-parser==4.4.0->glean-sdk==43.0.2) (1.23.0)
+#11 7.019 Requirement already satisfied: diskcache>=4 in ./third_party/python/diskcache (from glean-parser==4.4.0->glean-sdk==43.0.2) (4.1.0)
+#11 7.021 Requirement already satisfied: Jinja2>=2.10.1 in ./third_party/python/Jinja2 (from glean-parser==4.4.0->glean-sdk==43.0.2) (2.11.3)
+#11 7.023 Requirement already satisfied: PyYAML>=5.3.1 in ./third_party/python/PyYAML/lib3 (from glean-parser==4.4.0->glean-sdk==43.0.2) (5.4.1)
+#11 7.024 Requirement already satisfied: Click>=7 in ./third_party/python/click (from glean-parser==4.4.0->glean-sdk==43.0.2) (7.1.2)
+#11 7.026 Requirement already satisfied: appdirs>=1.4 in ./third_party/python/appdirs (from glean-parser==4.4.0->glean-sdk==43.0.2) (1.4.4)
+#11 7.630 Collecting pycparser
+#11 7.646   Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+#11 7.894 Requirement already satisfied: MarkupSafe>=0.23 in ./third_party/python/MarkupSafe/src (from Jinja2>=2.10.1->glean-parser==4.4.0->glean-sdk==43.0.2) (1.1.1)
+#11 7.923 Requirement already satisfied: setuptools in ./third_party/python/setuptools (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (51.2.0)
+#11 7.925 Requirement already satisfied: pyrsistent>=0.14.0 in ./third_party/python/pyrsistent (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (0.16.0)
+#11 7.927 Requirement already satisfied: six>=1.11.0 in ./third_party/python/six (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (1.13.0)
+#11 7.929 Requirement already satisfied: attrs>=17.4.0 in ./third_party/python/attrs (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (19.2.0)
+#11 7.985 Requirement already satisfied: pathspec>=0.5.3 in ./third_party/python/pathspec (from yamllint>=1.18.0->glean-parser==4.4.0->glean-sdk==43.0.2) (0.9.0)
+#11 8.361 Installing collected packages: pycparser, glean-parser, cffi, glean-sdk
+#11 9.208 Successfully installed cffi-1.15.0 glean-parser-4.4.0 glean-sdk-43.0.2 pycparser-2.21
+#11 12.80 Collecting psutil<=5.8.0,>=5.4.2
+#11 12.88   Downloading psutil-5.8.0-cp38-cp38-manylinux2010_x86_64.whl (296 kB)
+#11 13.43 Installing collected packages: psutil
+#11 13.83 Successfully installed psutil-5.8.0
+#11 16.77 Collecting zstandard<=0.17.0,>=0.11.1
+#11 16.84   Downloading zstandard-0.17.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.5 MB)
+#11 17.63 Installing collected packages: zstandard
+#11 17.81 Successfully installed zstandard-0.17.0
+#11 19.99 Mach and the build system store shared state in a common directory
+#11 19.99 on the filesystem. The following directory will be created:
+#11 19.99 
+#11 19.99   /root/.mozbuild
+#11 19.99 
+#11 19.99 If you would like to use a different directory, hit CTRL+c, set the
+#11 19.99 MOZBUILD_STATE_PATH environment variable to the directory you'd like to
+#11 19.99 use, and run Mach again.
+#11 19.99 
+#11 19.99 Press ENTER/RETURN to continue or CTRL+c to abort.
+#11 19.99 
+#11 19.99 
+#11 19.99 Creating default state directory: /root/.mozbuild
+#11 19.99 Creating local state directory: /root/.mozbuild/srcdirs/mozilla-central-704b0a121bdf
+#11 19.99 It looks like you passed an unrecognized argument into mach.
+#11 19.99 
+#11 19.99 The bootstrap command does not accept the arguments: --no-interactive
+#11 19.99 
+#11 ERROR: executor failed running [/bin/sh -c ./mach bootstrap --no-interactive --application-choice browser]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target:
+------
+------
+ > [7/8] RUN ./mach bootstrap --no-interactive --application-choice browser:
+------
+executor failed running [/bin/sh -c ./mach bootstrap --no-interactive --application-choice browser]: exit code: 1
+make: *** [docker/generated.mk:14248: .firefox_target-project-builder] Error 1
+/bin/sh: 1: source: not found
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7c786a0c54669e1c9c6b17738a8ffb91f0e64b27d691896d9585d36c8df255de
+#1 transferring dockerfile: 32B done
+#1 DONE 0.3s
+
+#2 [internal] load .dockerignore
+#2 sha256:35488c8ecacb03bafc5f2b1f7931a819736d5c5f38c01dce4e26c7563c601f09
+#2 transferring context: 2B done
+#2 DONE 0.3s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#12 [internal] load build context
+#12 sha256:e7081e012e2173830309d6d4f8e3b0f6f43d9c58a4036c8d9701e626e48ce0e8
+#12 DONE 0.0s
+
+#5 [1/8] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
+#5 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target
+#4 sha256:3a67bf70b24f60503314b32fad2331f5c838f74c4ebfaa7bb0255f90a65a572b
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/firefox_target:latest: not found
+
+#12 [internal] load build context
+#12 sha256:e7081e012e2173830309d6d4f8e3b0f6f43d9c58a4036c8d9701e626e48ce0e8
+#12 ...
+
+#6 [2/8] RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
+#6 sha256:f82fa34c776b43d499d261ad68e3b9bf1b9c18593fcb174afb0fbc6fac015b19
+#6 CACHED
+
+#7 [3/8] RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends   gawk   libstdc++6   python   software-properties-common
+#7 sha256:1e9a5bd5c91a5963c47aa32582043ca0814481c45166e1a8ddfde573bed911bd
+#7 CACHED
+
+#8 [4/8] RUN git clone --depth 1 https://github.com/mozilla/gecko-dev mozilla-central
+#8 sha256:d609b2d48882e92914df45c55bea2f8dca2a167f3f2315b7358e57203e87b99d
+#8 CACHED
+
+#9 [5/8] RUN git clone --depth 1 https://github.com/mozillasecurity/fuzzdata
+#9 sha256:49333123108af236e5cb5e20b636d9514bcd3ff6151ec30c804a13214c28eff2
+#9 CACHED
+
+#10 [6/8] WORKDIR mozilla-central
+#10 sha256:94815f554566c2ce61eeb9328f14f2bc5dc0b5dba6ceb61d5e92ec08545e3837
+#10 CACHED
+
+#12 [internal] load build context
+#12 sha256:e7081e012e2173830309d6d4f8e3b0f6f43d9c58a4036c8d9701e626e48ce0e8
+#12 transferring context: 411B done
+#12 DONE 0.3s
+
+#11 [7/8] RUN ./mach bootstrap --no-interactive --application-choice browser
+#11 sha256:03b1c31eb5ed58b0e338620a3e8b953aeaccaeefffacc7b0cb934872b97e91c4
+#11 1.701 created virtual environment CPython3.8.3.final.0-64 in 77ms
+#11 1.701   creator CPython3Posix(dest=/root/.mozbuild/srcdirs/mozilla-central-704b0a121bdf/_virtualenvs/mach, clear=False, no_vcs_ignore=False, global=False)
+#11 1.701   activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator
+#11 5.297 Collecting glean-sdk==43.0.2
+#11 5.363   Downloading glean_sdk-43.0.2-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+#11 6.829 Collecting cffi>=1.13.0
+#11 6.846   Downloading cffi-1.15.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (446 kB)
+#11 7.417 Collecting glean-parser==4.4.0
+#11 7.433   Downloading glean_parser-4.4.0-py3-none-any.whl (86 kB)
+#11 7.498 Requirement already satisfied: diskcache>=4 in ./third_party/python/diskcache (from glean-parser==4.4.0->glean-sdk==43.0.2) (4.1.0)
+#11 7.499 Requirement already satisfied: Jinja2>=2.10.1 in ./third_party/python/Jinja2 (from glean-parser==4.4.0->glean-sdk==43.0.2) (2.11.3)
+#11 7.501 Requirement already satisfied: jsonschema>=3.0.2 in ./third_party/python/jsonschema (from glean-parser==4.4.0->glean-sdk==43.0.2) (3.2.0)
+#11 7.503 Requirement already satisfied: Click>=7 in ./third_party/python/click (from glean-parser==4.4.0->glean-sdk==43.0.2) (7.1.2)
+#11 7.505 Requirement already satisfied: appdirs>=1.4 in ./third_party/python/appdirs (from glean-parser==4.4.0->glean-sdk==43.0.2) (1.4.4)
+#11 7.507 Requirement already satisfied: PyYAML>=5.3.1 in ./third_party/python/PyYAML/lib3 (from glean-parser==4.4.0->glean-sdk==43.0.2) (5.4.1)
+#11 7.508 Requirement already satisfied: yamllint>=1.18.0 in ./third_party/python/yamllint (from glean-parser==4.4.0->glean-sdk==43.0.2) (1.23.0)
+#11 7.821 Collecting pycparser
+#11 7.836   Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+#11 7.882 Requirement already satisfied: MarkupSafe>=0.23 in ./third_party/python/MarkupSafe/src (from Jinja2>=2.10.1->glean-parser==4.4.0->glean-sdk==43.0.2) (1.1.1)
+#11 7.912 Requirement already satisfied: setuptools in ./third_party/python/setuptools (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (51.2.0)
+#11 7.913 Requirement already satisfied: six>=1.11.0 in ./third_party/python/six (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (1.13.0)
+#11 7.915 Requirement already satisfied: pyrsistent>=0.14.0 in ./third_party/python/pyrsistent (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (0.16.0)
+#11 7.917 Requirement already satisfied: attrs>=17.4.0 in ./third_party/python/attrs (from jsonschema>=3.0.2->glean-parser==4.4.0->glean-sdk==43.0.2) (19.2.0)
+#11 7.973 Requirement already satisfied: pathspec>=0.5.3 in ./third_party/python/pathspec (from yamllint>=1.18.0->glean-parser==4.4.0->glean-sdk==43.0.2) (0.9.0)
+#11 8.345 Installing collected packages: pycparser, glean-parser, cffi, glean-sdk
+#11 8.989 Successfully installed cffi-1.15.0 glean-parser-4.4.0 glean-sdk-43.0.2 pycparser-2.21
+#11 12.66 Collecting psutil<=5.8.0,>=5.4.2
+#11 12.72   Downloading psutil-5.8.0-cp38-cp38-manylinux2010_x86_64.whl (296 kB)
+#11 13.49 Installing collected packages: psutil
+#11 13.80 Successfully installed psutil-5.8.0
+#11 16.75 Collecting zstandard<=0.17.0,>=0.11.1
+#11 16.83   Downloading zstandard-0.17.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.5 MB)
+#11 17.64 Installing collected packages: zstandard
+#11 17.83 Successfully installed zstandard-0.17.0
+#11 19.91 Mach and the build system store shared state in a common directory
+#11 19.91 on the filesystem. The following directory will be created:
+#11 19.91 
+#11 19.91   /root/.mozbuild
+#11 19.91 
+#11 19.91 If you would like to use a different directory, hit CTRL+c, set the
+#11 19.91 MOZBUILD_STATE_PATH environment variable to the directory you'd like to
+#11 19.91 use, and run Mach again.
+#11 19.91 
+#11 19.91 Press ENTER/RETURN to continue or CTRL+c to abort.
+#11 19.91 
+#11 19.91 
+#11 19.91 Creating default state directory: /root/.mozbuild
+#11 19.91 Creating local state directory: /root/.mozbuild/srcdirs/mozilla-central-704b0a121bdf
+#11 19.91 It looks like you passed an unrecognized argument into mach.
+#11 19.91 
+#11 19.91 The bootstrap command does not accept the arguments: --no-interactive
+#11 19.91 
+#11 ERROR: executor failed running [/bin/sh -c ./mach bootstrap --no-interactive --application-choice browser]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target:
+------
+------
+ > [7/8] RUN ./mach bootstrap --no-interactive --application-choice browser:
+------
+executor failed running [/bin/sh -c ./mach bootstrap --no-interactive --application-choice browser]: exit code: 1
+make: *** [docker/generated.mk:14248: .firefox_target-project-builder] Error 1

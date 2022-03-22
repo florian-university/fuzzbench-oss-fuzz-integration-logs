@@ -1,0 +1,1346 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: hoextdown_hoextdown.
+INFO:root:Please run "make test-run-afl-hoextdown_hoextdown" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:4797785a4fbbee2e41325bdfd23e57375c86d4c051366b1ace084afed68ab9c1
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6367a199c9b33788db9ed22709c27ce94bf2976f61ce4aa7c124622551032a92
+#1 transferring dockerfile: 938B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:30d41df25d71490fc080fe1982e0cf35874385947f7d7ead27d65c6b1e987f55
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown
+#4 sha256:e0d35d45802ae1042bab7ca37eb32381c2fe19e438294f9e4d91968b7af0e557
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown:latest: not found
+
+#9 [internal] load build context
+#9 sha256:30d41df25d71490fc080fe1982e0cf35874385947f7d7ead27d65c6b1e987f55
+#9 transferring context: 107B done
+#9 DONE 0.2s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/kjdev/hoextdown.git hoextdown
+#7 sha256:01ac8f80ba8358f00fc51cfaf8fdade3eb7e4e37841a3a7b4b4a9a6a73bb4e7d
+#7 CACHED
+
+#8 [4/5] WORKDIR hoextdown
+#8 sha256:52c3969fd94a12398e26424499d47b8856e446715d327bae3d92b00823221c14
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:e94c22665874d420ced0c3b871f4947e168d3bab9afd9b749baffcff0f8f695f
+#6 CACHED
+
+#10 [5/5] COPY build.sh *.options *.dict /src/
+#10 sha256:5ac9e8a80fbb084958ff54433b08dd53e27a28d03572e4301249f8527be9ce65
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:c79b8e036988adeda1eee969c586a7ae825daaac1ba6aef19f74e099a8a603ac 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown done
+#11 DONE 0.9s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:05e153c2d842b2842d33a85d6a5665a97a5fb83031e3c712730b66899d62c469
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f336474a0bf2aed0a2ad50a1f583338d6f2e690d2db18943726aee4342e86085
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown:latest
+#3 sha256:4e8b50f59037d87a62776ade4035ca7cf8b489bb5c66cf847f99cc19ea2c4976
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown
+#5 sha256:b8e806d0750380342a72bb758c50b73b850f41653283e01996c4ac6480aacc8e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate
+#4 sha256:77d27b7f0d1e313a68b7348fd7ce7311a33e232de285bab8a7f070e43df6a3ce
+#4 ERROR: gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:c626dfa61f3d68e3cffdeb480d9351206c2bef982f306f8064e5e6f89b03abf7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6298495a3456433274f295ca8c53a2ad6e58a1d8dd4e5516a0cd4c85333a065f
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:7ccf8d38810dc40f9d730a98a5154f8dcef7048618ba01f5bbb881883e5d4de9 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate 0.0s done
+#8 DONE 0.4s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9f3874e41b08bc76b12b9488572e3d481e39aebcbf6429276decab28ba8d8ca5
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.2s
+
+#2 [internal] load .dockerignore
+#2 sha256:aab7753bf980299ccb9e530314af9b3c0f8f9f7d3b22b6badb8acd8d2de2c12c
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:51b9c0f96d2d73e80cf09a870034c89313909a383ab65f9409ea8b3b61a68864
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:923c82c0afb8ee896b0265c46dc7faa06b22907648ca7e15c900e90c8cb977d1
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:527dbf759de79e639d169ab71121305dd9952b6618023692d16cc1bdaa18ac50
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:98e7e90274aa19890a31002ce38a50c3698ec56e9b75657699a20f0f8e7578b8
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:8a93cd0aec24a3a6df64344d501a290e89f340e0eaf53d979e71fdfec3adb578
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7fddb1c11443ac8c5f81a6b75a80b0563fbf6a90ad3217cf0e73d101986bfe52
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:6b0b8e11fc4cd5e0137d4031cd924b02711ef95cf8d3ccfa8df71f34b275c6b2
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate:latest
+#3 sha256:12dab3e14366b14c4b5980348a45649be149bbbe4080c32fd291cc6dfc889464
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:6ee373c6f552c43a649cd0e7beb3bbcd8c564f314129e8ac07c29c2d56e95d58
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate
+#6 sha256:7dcc01d0e10c057c4a4945c9ec741026ccf03de37381672f90dc6e807b368c64
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown
+#5 sha256:469a8e59ee44913b2efbe8e91ee23c1171c7ff90296d5c2d0070e669cb4552d6
+#5 ERROR: gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown:latest: not found
+
+#12 [internal] load build context
+#12 sha256:6ee373c6f552c43a649cd0e7beb3bbcd8c564f314129e8ac07c29c2d56e95d58
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:d451d6320b27e3b089b24a28e6461394d754a5aba09ebd1a6c2aecc6911b7e06
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:fdd7f2bd264857773995f1b478fdae09b9443e09cca489bfd8a9e0a0c1820e79
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:ca680bdb1fde79f78265bf3c70ad623af118cc91b4c3236c8f1cbbb2fdaf588a
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:6cb4ed16d63966b27d38e7e039f191799404988735a3eedab1b0987a18fcb06c
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:988ed9942b8da4ee90146f11e0eabb89a0c30d05c7b1ce82613bf8c100c4f8c5
+#9 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:55a0918af2e791be8f90c0dc70b5eab94719bfd58aa216842976ff334f42e9df
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/hoextdown_hoextdown/benchmark.yaml /
+#15 sha256:ce962bdb36551049ec25f4fbe60059e49c466f7d82863ebc33b3276f3f3f6318
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:a980dc547d6d0db35c74a1887b7da141bf7e424f0dfb47f71c17e4cc9a99c788
+#16 DONE 0.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:dfd6572d447aae20e96abfe6bf93590217ef0ea9c728c833e2b2e010147976d8
+#17 DONE 0.7s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:9b7ca549d3e6bd5c539af9b2268cfdc03a2fa957329ba4c7d2707dff173a255d
+#18 0.630 Checking out commit 84faf557
+#18 2.265 From https://github.com/kjdev/hoextdown
+#18 2.265  * [new tag]         2.0.0.4    -> 2.0.0.4
+#18 2.265  * [new tag]         2.0.0.5    -> 2.0.0.5
+#18 2.265  * [new tag]         2.0.0.6    -> 2.0.0.6
+#18 2.266  * [new tag]         3.0.0.1    -> 3.0.0.1
+#18 2.266  * [new tag]         3.0.0.2    -> 3.0.0.2
+#18 2.266  * [new tag]         3.0.0.3    -> 3.0.0.3
+#18 2.267  * [new tag]         3.0.0.4    -> 3.0.0.4
+#18 2.267  * [new tag]         3.0.1.1    -> 3.0.1.1
+#18 2.267  * [new tag]         3.0.1.2    -> 3.0.1.2
+#18 2.267  * [new tag]         3.0.2.1    -> 3.0.2.1
+#18 2.268  * [new tag]         3.0.3.1    -> 3.0.3.1
+#18 2.268  * [new tag]         3.0.3.2    -> 3.0.3.2
+#18 2.268  * [new tag]         3.0.3.3    -> 3.0.3.3
+#18 2.269  * [new tag]         3.0.4.1    -> 3.0.4.1
+#18 2.269  * [new tag]         3.0.4.2    -> 3.0.4.2
+#18 2.269  * [new tag]         3.0.4.3    -> 3.0.4.3
+#18 2.270  * [new tag]         3.0.4.4    -> 3.0.4.4
+#18 2.270  * [new tag]         3.0.5.1    -> 3.0.5.1
+#18 2.270  * [new tag]         3.0.5.2    -> 3.0.5.2
+#18 2.270  * [new tag]         3.0.6.1    -> 3.0.6.1
+#18 2.271  * [new tag]         3.0.7.1    -> 3.0.7.1
+#18 2.271  * [new tag]         3.0.7.10   -> 3.0.7.10
+#18 2.271  * [new tag]         3.0.7.11   -> 3.0.7.11
+#18 2.272  * [new tag]         3.0.7.12   -> 3.0.7.12
+#18 2.272  * [new tag]         3.0.7.13   -> 3.0.7.13
+#18 2.272  * [new tag]         3.0.7.14   -> 3.0.7.14
+#18 2.272  * [new tag]         3.0.7.15   -> 3.0.7.15
+#18 2.273  * [new tag]         3.0.7.16   -> 3.0.7.16
+#18 2.273  * [new tag]         3.0.7.17   -> 3.0.7.17
+#18 2.273  * [new tag]         3.0.7.18   -> 3.0.7.18
+#18 2.273  * [new tag]         3.0.7.19   -> 3.0.7.19
+#18 2.273  * [new tag]         3.0.7.2    -> 3.0.7.2
+#18 2.274  * [new tag]         3.0.7.3    -> 3.0.7.3
+#18 2.274  * [new tag]         3.0.7.4    -> 3.0.7.4
+#18 2.274  * [new tag]         3.0.7.5    -> 3.0.7.5
+#18 2.275  * [new tag]         3.0.7.6    -> 3.0.7.6
+#18 2.275  * [new tag]         3.0.7.7    -> 3.0.7.7
+#18 2.275  * [new tag]         3.0.7.8    -> 3.0.7.8
+#18 2.275  * [new tag]         3.0.7.9    -> 3.0.7.9
+#18 2.282 error: pathspec '84faf557' did not match any file(s) known to git
+#18 2.589 error: pathspec '84faf557' did not match any file(s) known to git
+#18 2.596 error: pathspec '84faf557' did not match any file(s) known to git
+#18 2.927 Checkout unsuccessful.
+#18 DONE 4.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:62a1dae8ebdf5addf84d0b3835d3ca3d71348dd9219acdc51a3705fac4e77b64
+#19 DONE 0.8s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:4b805b87594ffc3925411fe7c61466494afcb40b098314315817c28d9f53b296
+#20 0.602 Run fuzzer_build to build the target
+#20 0.723 FUZZ_TARGET = hoextdown
+#20 0.723 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.723 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.728 Building benchmark hoextdown_hoextdown with fuzzer afl
+#20 0.731 + sed -i 's/^CFLAGS.*//g' Makefile
+#20 0.752 ++ nproc
+#20 0.755 + make -j8 all
+#20 0.760 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/autolink.o src/autolink.c
+#20 0.761 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/buffer.o src/buffer.c
+#20 0.762 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/context_test.o src/context_test.c
+#20 0.762 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/document.o src/document.c
+#20 0.762 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/escape.o src/escape.c
+#20 0.763 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/html.o src/html.c
+#20 0.766 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -Wno-static-in-inline -c -o src/html_blocks.o src/html_blocks.c
+#20 0.766 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/html5_blocks.o src/html5_blocks.c
+#20 0.836 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/html_smartypants.o src/html_smartypants.c
+#20 0.837 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/stack.o src/stack.c
+#20 0.908 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/hash.o src/hash.c
+#20 0.932 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o src/version.o src/version.c
+#20 0.940 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o bin/hoedown.o bin/hoedown.c
+#20 0.958 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC -c -o bin/smartypants.o bin/smartypants.c
+#20 3.591 clang -Wl,-soname,libhoedown.so.3 -shared src/autolink.o src/buffer.o src/context_test.o src/document.o src/escape.o src/html.o src/html_blocks.o src/html5_blocks.o src/html_smartypants.o src/stack.o src/hash.o src/version.o  -o libhoedown.so.3
+#20 3.591 ar rcs libhoedown.a src/autolink.o src/buffer.o src/context_test.o src/document.o src/escape.o src/html.o src/html_blocks.o src/html5_blocks.o src/html_smartypants.o src/stack.o src/hash.o src/version.o
+#20 3.592 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC bin/hoedown.o src/autolink.o src/buffer.o src/context_test.o src/document.o src/escape.o src/html.o src/html_blocks.o src/html5_blocks.o src/html_smartypants.o src/stack.o src/hash.o src/version.o  -o hoedown
+#20 3.592 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Isrc -fPIC bin/smartypants.o src/autolink.o src/buffer.o src/context_test.o src/document.o src/escape.o src/html.o src/html_blocks.o src/html5_blocks.o src/html_smartypants.o src/stack.o src/hash.o src/version.o  -o smartypants
+#20 3.677 ln -f -s libhoedown.so.3 libhoedown.so
+#20 3.760 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -std=c99 -Isrc /src/hoextdown/test/hoedown_fuzzer.c -o /work/hoedown_fuzzer.o
+#20 3.803 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -Isrc /work/hoedown_fuzzer.o -o /out/hoedown_fuzzer /libAFL.a /src/hoextdown/libhoedown.a
+#20 4.096 + cp /src/hoextdown_fuzzer.options /out/
+#20 4.099 + cp /src/hoextdown.dict /out/
+#20 4.100 + mkdir -p corpus
+#20 4.103 + find /src/hoextdown/test -type f -name '*.text'
+#20 4.103 + read in_file
+#20 4.105 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Strong and em together.text'
+#20 4.105 ++ cut -c 1-32
+#20 4.109 + out_file=a5965cf73cdb12837c4afd51ac504725
+#20 4.109 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Strong and em together.text'
+#20 4.111 + read in_file
+#20 4.112 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Links, shortcut references.text'
+#20 4.112 ++ cut -c 1-32
+#20 4.114 + out_file=01f2b6903e98e8a694d0393c95cb1555
+#20 4.114 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Links, shortcut references.text'
+#20 4.115 + read in_file
+#20 4.116 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Literal quotes in titles.text'
+#20 4.116 ++ cut -c 1-32
+#20 4.117 + out_file=4460a749dd04c2113bda93c7c9667344
+#20 4.117 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Literal quotes in titles.text'
+#20 4.119 + read in_file
+#20 4.120 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Nested blockquotes.text'
+#20 4.120 ++ cut -c 1-32
+#20 4.121 + out_file=96d2ba8f50956b7339ab65fba5e99df0
+#20 4.121 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Nested blockquotes.text'
+#20 4.123 + read in_file
+#20 4.124 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Inline HTML comments.text'
+#20 4.124 ++ cut -c 1-32
+#20 4.125 + out_file=86d7ae6a43668c0c108a21fb4a988a70
+#20 4.125 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Inline HTML comments.text'
+#20 4.127 + read in_file
+#20 4.128 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Ordered and unordered lists.text'
+#20 4.128 ++ cut -c 1-32
+#20 4.129 + out_file=47c9a278405005b8a212e7ea890cb262
+#20 4.129 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Ordered and unordered lists.text'
+#20 4.131 + read in_file
+#20 4.132 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Hard-wrapped paragraphs with list-like lines.text'
+#20 4.132 ++ cut -c 1-32
+#20 4.133 + out_file=dbdb43aba77e6e4bb41f4899d53a7fab
+#20 4.133 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Hard-wrapped paragraphs with list-like lines.text'
+#20 4.135 + read in_file
+#20 4.136 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Inline HTML (Simple).text'
+#20 4.136 ++ cut -c 1-32
+#20 4.137 + out_file=5e6e568082eb3aeae05b0254a2caa9c2
+#20 4.137 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Inline HTML (Simple).text'
+#20 4.138 + read in_file
+#20 4.139 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Backslash escapes.text'
+#20 4.139 ++ cut -c 1-32
+#20 4.141 + out_file=8cefe3fc22a3f379928fe9db55dbbc23
+#20 4.141 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Backslash escapes.text'
+#20 4.142 + read in_file
+#20 4.143 ++ sha1sum /src/hoextdown/test/MarkdownTest_1.0.3/Tests/Tabs.text
+#20 4.143 ++ cut -c 1-32
+#20 4.144 + out_file=b0adaece75515ac7448a2b615d261e8a
+#20 4.144 + cat /src/hoextdown/test/MarkdownTest_1.0.3/Tests/Tabs.text
+#20 4.146 + read in_file
+#20 4.147 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Code Spans.text'
+#20 4.147 ++ cut -c 1-32
+#20 4.148 + out_file=186be906a12490b680f0449d347efe87
+#20 4.148 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Code Spans.text'
+#20 4.149 + read in_file
+#20 4.150 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Amps and angle encoding.text'
+#20 4.150 ++ cut -c 1-32
+#20 4.152 + out_file=6d740a68b68e683679afe0294268348e
+#20 4.152 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Amps and angle encoding.text'
+#20 4.153 + read in_file
+#20 4.154 ++ sha1sum /src/hoextdown/test/MarkdownTest_1.0.3/Tests/Tidyness.text
+#20 4.154 ++ cut -c 1-32
+#20 4.155 + out_file=a5e4ed3ce1f9457ee381250da3968316
+#20 4.155 + cat /src/hoextdown/test/MarkdownTest_1.0.3/Tests/Tidyness.text
+#20 4.156 + read in_file
+#20 4.157 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Code Blocks.text'
+#20 4.157 ++ cut -c 1-32
+#20 4.159 + out_file=fb0ac98951a1dda39191c0aa1b324468
+#20 4.159 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Code Blocks.text'
+#20 4.160 + read in_file
+#20 4.161 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Inline HTML (Advanced).text'
+#20 4.161 ++ cut -c 1-32
+#20 4.163 + out_file=0b3971aa092a8a9eb7d66bca9021fa8d
+#20 4.163 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Inline HTML (Advanced).text'
+#20 4.164 + read in_file
+#20 4.165 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Horizontal rules.text'
+#20 4.165 ++ cut -c 1-32
+#20 4.167 + out_file=e1df81ddeef72f15fe07bada6651acdc
+#20 4.167 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Horizontal rules.text'
+#20 4.168 + read in_file
+#20 4.169 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Links, inline style.text'
+#20 4.169 ++ cut -c 1-32
+#20 4.170 + out_file=61f21fe86c80107a1e02b9d115b37f79
+#20 4.170 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Links, inline style.text'
+#20 4.171 + read in_file
+#20 4.172 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Auto links.text'
+#20 4.172 ++ cut -c 1-32
+#20 4.174 + out_file=b66caf8f0038a2e7f5d71869100b2369
+#20 4.174 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Auto links.text'
+#20 4.175 + read in_file
+#20 4.176 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Markdown Documentation - Syntax.text'
+#20 4.176 ++ cut -c 1-32
+#20 4.177 + out_file=d2355cf274b05623c711005243a80f28
+#20 4.177 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Markdown Documentation - Syntax.text'
+#20 4.179 + read in_file
+#20 4.180 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Links, reference style.text'
+#20 4.180 ++ cut -c 1-32
+#20 4.181 + out_file=09d463e1df71c114edda99034eba421e
+#20 4.181 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Links, reference style.text'
+#20 4.183 + read in_file
+#20 4.184 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Markdown Documentation - Basics.text'
+#20 4.184 ++ cut -c 1-32
+#20 4.185 + out_file=f976cabc54f3d10686e18b11942bdb57
+#20 4.185 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Markdown Documentation - Basics.text'
+#20 4.186 + read in_file
+#20 4.187 ++ sha1sum '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Blockquotes with code blocks.text'
+#20 4.187 ++ cut -c 1-32
+#20 4.189 + out_file=b1ffbbb51d848bfaf4be7a3b756f6912
+#20 4.189 + cat '/src/hoextdown/test/MarkdownTest_1.0.3/Tests/Blockquotes with code blocks.text'
+#20 4.190 + read in_file
+#20 4.191 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Activation.text
+#20 4.191 ++ cut -c 1-32
+#20 4.193 + out_file=e477070990acf835413a91fd2867a944
+#20 4.193 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Activation.text
+#20 4.194 + read in_file
+#20 4.195 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_FencedCode.text
+#20 4.195 ++ cut -c 1-32
+#20 4.196 + out_file=dfaa91cfa926ab0178ce0c367347c7cd
+#20 4.196 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_FencedCode.text
+#20 4.198 + read in_file
+#20 4.199 ++ sha1sum /src/hoextdown/test/Tests/extras/List_Item_Fenced_Code_First_Line.text
+#20 4.199 ++ cut -c 1-32
+#20 4.200 + out_file=1795d7f808f68e6dd2655e9db68d6d64
+#20 4.200 + cat /src/hoextdown/test/Tests/extras/List_Item_Fenced_Code_First_Line.text
+#20 4.202 + read in_file
+#20 4.203 ++ sha1sum /src/hoextdown/test/Tests/extras/List_Item_First_Line.text
+#20 4.203 ++ cut -c 1-32
+#20 4.204 + out_file=ffc42895097183163ff79772f91b5692
+#20 4.204 + cat /src/hoextdown/test/Tests/extras/List_Item_First_Line.text
+#20 4.205 + read in_file
+#20 4.206 ++ sha1sum /src/hoextdown/test/Tests/extras/FencedCode_Script.text
+#20 4.206 ++ cut -c 1-32
+#20 4.208 + out_file=8e3e44cfd4d0e4cd240f88c37ba5abce
+#20 4.208 + cat /src/hoextdown/test/Tests/extras/FencedCode_Script.text
+#20 4.209 + read in_file
+#20 4.210 ++ sha1sum /src/hoextdown/test/Tests/extras/Toc_Header_Empty.text
+#20 4.210 ++ cut -c 1-32
+#20 4.212 + out_file=279d035b1d7451a6f43ea1d1f67d7fd6
+#20 4.212 + cat /src/hoextdown/test/Tests/extras/Toc_Header_Empty.text
+#20 4.213 + read in_file
+#20 4.214 ++ sha1sum /src/hoextdown/test/Tests/extras/Blockquote_Empty_Line.text
+#20 4.214 ++ cut -c 1-32
+#20 4.216 + out_file=d54e3205965c2e2f64afa4af1fe4a917
+#20 4.216 + cat /src/hoextdown/test/Tests/extras/Blockquote_Empty_Line.text
+#20 4.217 + read in_file
+#20 4.218 ++ sha1sum /src/hoextdown/test/Tests/extras/HTML5_Block.text
+#20 4.218 ++ cut -c 1-32
+#20 4.219 + out_file=605e58a4caf6f50a8c4779e065b83136
+#20 4.219 + cat /src/hoextdown/test/Tests/extras/HTML5_Block.text
+#20 4.220 + read in_file
+#20 4.221 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Tables.text
+#20 4.221 ++ cut -c 1-32
+#20 4.223 + out_file=975207ce2fc7bcd3def2421edadb1737
+#20 4.223 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Tables.text
+#20 4.224 + read in_file
+#20 4.225 ++ sha1sum /src/hoextdown/test/Tests/extras/Attributes.text
+#20 4.225 ++ cut -c 1-32
+#20 4.227 + out_file=aa971c2665b19b779f154f1c6d7aae72
+#20 4.227 + cat /src/hoextdown/test/Tests/extras/Attributes.text
+#20 4.228 + read in_file
+#20 4.229 ++ sha1sum /src/hoextdown/test/Tests/extras/Footnotes.text
+#20 4.229 ++ cut -c 1-32
+#20 4.231 + out_file=b404ae66ecbd16fe4475aa7aee6cdc10
+#20 4.231 + cat /src/hoextdown/test/Tests/extras/Footnotes.text
+#20 4.232 + read in_file
+#20 4.233 ++ sha1sum /src/hoextdown/test/Tests/extras/Meta_Block_Multi.text
+#20 4.233 ++ cut -c 1-32
+#20 4.234 + out_file=e21d5603497b51b3dd7215b5940fd96f
+#20 4.234 + cat /src/hoextdown/test/Tests/extras/Meta_Block_Multi.text
+#20 4.236 + read in_file
+#20 4.237 ++ sha1sum /src/hoextdown/test/Tests/extras/Tasks.text
+#20 4.237 ++ cut -c 1-32
+#20 4.238 + out_file=a19003fe1109eb51e0dea6cdc37ef091
+#20 4.238 + cat /src/hoextdown/test/Tests/extras/Tasks.text
+#20 4.240 + read in_file
+#20 4.240 ++ sha1sum /src/hoextdown/test/Tests/extras/Multiline_Table_Malformed.text
+#20 4.241 ++ cut -c 1-32
+#20 4.242 + out_file=e5112e501b8658b282fdf08a62b69a48
+#20 4.242 + cat /src/hoextdown/test/Tests/extras/Multiline_Table_Malformed.text
+#20 4.243 + read in_file
+#20 4.244 ++ sha1sum /src/hoextdown/test/Tests/extras/Line_Continue.text
+#20 4.244 ++ cut -c 1-32
+#20 4.246 + out_file=551389660d7c375ea1a2f3aa2b4c5950
+#20 4.246 + cat /src/hoextdown/test/Tests/extras/Line_Continue.text
+#20 4.247 + read in_file
+#20 4.248 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Codespan.text
+#20 4.248 ++ cut -c 1-32
+#20 4.249 + out_file=8afca6291b50edeb248f16e8071b7089
+#20 4.249 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Codespan.text
+#20 4.251 + read in_file
+#20 4.252 ++ sha1sum /src/hoextdown/test/Tests/extras/Meta_Block.text
+#20 4.252 ++ cut -c 1-32
+#20 4.253 + out_file=5a13679db696871f8bb5db08ec0d8332
+#20 4.253 + cat /src/hoextdown/test/Tests/extras/Meta_Block.text
+#20 4.255 + read in_file
+#20 4.256 ++ sha1sum /src/hoextdown/test/Tests/extras/Header_Empty.text
+#20 4.256 ++ cut -c 1-32
+#20 4.257 + out_file=7d8d97c9741b9615b670d16b5e3dc03d
+#20 4.257 + cat /src/hoextdown/test/Tests/extras/Header_Empty.text
+#20 4.259 + read in_file
+#20 4.259 ++ sha1sum /src/hoextdown/test/Tests/extras/List_Item_FencedCode.text
+#20 4.259 ++ cut -c 1-32
+#20 4.261 + out_file=59b6dcfd3417327c06f8263c18edd091
+#20 4.261 + cat /src/hoextdown/test/Tests/extras/List_Item_FencedCode.text
+#20 4.262 + read in_file
+#20 4.263 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Links.text
+#20 4.263 ++ cut -c 1-32
+#20 4.265 + out_file=18f7694d85108b110bcbd58bd4d8978c
+#20 4.265 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Links.text
+#20 4.266 + read in_file
+#20 4.267 ++ sha1sum /src/hoextdown/test/Tests/extras/Emphases_Intra_Underline.text
+#20 4.267 ++ cut -c 1-32
+#20 4.269 + out_file=28bedac28506f9daa201cc6790fd3ac8
+#20 4.269 + cat /src/hoextdown/test/Tests/extras/Emphases_Intra_Underline.text
+#20 4.270 + read in_file
+#20 4.271 ++ sha1sum /src/hoextdown/test/Tests/extras/Header_Empty_Attribute.text
+#20 4.271 ++ cut -c 1-32
+#20 4.273 + out_file=7d8d97c9741b9615b670d16b5e3dc03d
+#20 4.273 + cat /src/hoextdown/test/Tests/extras/Header_Empty_Attribute.text
+#20 4.274 + read in_file
+#20 4.275 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Escaped.text
+#20 4.275 ++ cut -c 1-32
+#20 4.276 + out_file=4bb9005f00e346fb97294e08bb5bdbd1
+#20 4.276 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Escaped.text
+#20 4.278 + read in_file
+#20 4.278 ++ sha1sum /src/hoextdown/test/Tests/extras/HTML_Block.text
+#20 4.278 ++ cut -c 1-32
+#20 4.280 + out_file=9339513416621a567f8c1a7a8974fb36
+#20 4.280 + cat /src/hoextdown/test/Tests/extras/HTML_Block.text
+#20 4.281 + read in_file
+#20 4.282 ++ sha1sum /src/hoextdown/test/Tests/extras/More_Tables.text
+#20 4.282 ++ cut -c 1-32
+#20 4.284 + out_file=3d2d56446889a18791e45eaf1718061e
+#20 4.284 + cat /src/hoextdown/test/Tests/extras/More_Tables.text
+#20 4.285 + read in_file
+#20 4.286 ++ sha1sum /src/hoextdown/test/Tests/extras/Toc_Render.text
+#20 4.286 ++ cut -c 1-32
+#20 4.287 + out_file=f0c2bbe3a65d21cd9e79b1310b6b5b68
+#20 4.287 + cat /src/hoextdown/test/Tests/extras/Toc_Render.text
+#20 4.289 + read in_file
+#20 4.290 ++ sha1sum /src/hoextdown/test/Tests/extras/Escape_Backticks.text
+#20 4.290 ++ cut -c 1-32
+#20 4.291 + out_file=57796194ee7ed4a6b4034d91d5bb03fa
+#20 4.291 + cat /src/hoextdown/test/Tests/extras/Escape_Backticks.text
+#20 4.292 + read in_file
+#20 4.293 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Paragraphs.text
+#20 4.293 ++ cut -c 1-32
+#20 4.295 + out_file=6fc08444cfa31c8093f1de02bdd3a820
+#20 4.295 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Paragraphs.text
+#20 4.296 + read in_file
+#20 4.297 ++ sha1sum /src/hoextdown/test/Tests/extras/Script_Tags.text
+#20 4.297 ++ cut -c 1-32
+#20 4.299 + out_file=84a4bd2c0313991ce25ab0018b6fa072
+#20 4.299 + cat /src/hoextdown/test/Tests/extras/Script_Tags.text
+#20 4.300 + read in_file
+#20 4.301 ++ sha1sum /src/hoextdown/test/Tests/extras/Toc.text
+#20 4.301 ++ cut -c 1-32
+#20 4.303 + out_file=aff233df1c6d564cc21d1f4e4cc607c6
+#20 4.303 + cat /src/hoextdown/test/Tests/extras/Toc.text
+#20 4.304 + read in_file
+#20 4.305 ++ sha1sum /src/hoextdown/test/Tests/extras/HTML_Nested.text
+#20 4.305 ++ cut -c 1-32
+#20 4.306 + out_file=34cfd8bfba15f25082beadcefd8c6971
+#20 4.306 + cat /src/hoextdown/test/Tests/extras/HTML_Nested.text
+#20 4.308 + read in_file
+#20 4.308 ++ sha1sum /src/hoextdown/test/Tests/extras/issues_46.text
+#20 4.308 ++ cut -c 1-32
+#20 4.310 + out_file=0d53cc5c54a630ebdafb4febaa4afdcd
+#20 4.310 + cat /src/hoextdown/test/Tests/extras/issues_46.text
+#20 4.311 + read in_file
+#20 4.312 ++ sha1sum /src/hoextdown/test/Tests/extras/Multiline_Table.text
+#20 4.312 ++ cut -c 1-32
+#20 4.314 + out_file=684dab002d23182d97c346901e7879b3
+#20 4.314 + cat /src/hoextdown/test/Tests/extras/Multiline_Table.text
+#20 4.315 + read in_file
+#20 4.316 ++ sha1sum /src/hoextdown/test/Tests/extras/Table_Escape_Pipe.text
+#20 4.316 ++ cut -c 1-32
+#20 4.318 + out_file=15345895f3f11fd9b7015bf5349b2f1d
+#20 4.318 + cat /src/hoextdown/test/Tests/extras/Table_Escape_Pipe.text
+#20 4.319 + read in_file
+#20 4.320 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Lists.text
+#20 4.320 ++ cut -c 1-32
+#20 4.321 + out_file=619fb8b5b886b04f8be0089bff19c3d1
+#20 4.321 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Lists.text
+#20 4.323 + read in_file
+#20 4.323 ++ sha1sum /src/hoextdown/test/Tests/extras/Link_Attributes.text
+#20 4.324 ++ cut -c 1-32
+#20 4.325 + out_file=5b2f9f8fb323d198d370fde4247ebb60
+#20 4.325 + cat /src/hoextdown/test/Tests/extras/Link_Attributes.text
+#20 4.327 + read in_file
+#20 4.327 ++ sha1sum /src/hoextdown/test/Tests/extras/issues_47.text
+#20 4.328 ++ cut -c 1-32
+#20 4.329 + out_file=5b8c0e1e9575e6df564958667a53dee8
+#20 4.329 + cat /src/hoextdown/test/Tests/extras/issues_47.text
+#20 4.330 + read in_file
+#20 4.331 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Multiline_Table.text
+#20 4.331 ++ cut -c 1-32
+#20 4.333 + out_file=fd71accfdaf2f6019a25d095276b4d65
+#20 4.333 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Multiline_Table.text
+#20 4.334 + read in_file
+#20 4.335 ++ sha1sum /src/hoextdown/test/Tests/extras/Radio.text
+#20 4.335 ++ cut -c 1-32
+#20 4.337 + out_file=b6166788163b15f44454fb224e6dd31e
+#20 4.337 + cat /src/hoextdown/test/Tests/extras/Radio.text
+#20 4.338 + read in_file
+#20 4.339 ++ sha1sum /src/hoextdown/test/Tests/extras/Codespans.text
+#20 4.339 ++ cut -c 1-32
+#20 4.341 + out_file=c431cc9addf8b502104007ca9164fb6b
+#20 4.341 + cat /src/hoextdown/test/Tests/extras/Codespans.text
+#20 4.342 + read in_file
+#20 4.343 ++ sha1sum /src/hoextdown/test/Tests/extras/Toc_Header_Empty_Attribute.text
+#20 4.343 ++ cut -c 1-32
+#20 4.344 + out_file=279d035b1d7451a6f43ea1d1f67d7fd6
+#20 4.344 + cat /src/hoextdown/test/Tests/extras/Toc_Header_Empty_Attribute.text
+#20 4.346 + read in_file
+#20 4.347 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_CodeBlock.text
+#20 4.347 ++ cut -c 1-32
+#20 4.348 + out_file=95d9f20dd94288cd65f55859c0bddd40
+#20 4.348 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_CodeBlock.text
+#20 4.349 + read in_file
+#20 4.350 ++ sha1sum /src/hoextdown/test/Tests/extras/Header_ID.text
+#20 4.350 ++ cut -c 1-32
+#20 4.352 + out_file=3c53a2a7ccffe97b1ba0aaa1561caa4e
+#20 4.352 + cat /src/hoextdown/test/Tests/extras/Header_ID.text
+#20 4.353 + read in_file
+#20 4.354 ++ sha1sum /src/hoextdown/test/Tests/extras/Definition_Lists.text
+#20 4.354 ++ cut -c 1-32
+#20 4.356 + out_file=693e4b70f67cb82bf2006734a6aa066b
+#20 4.356 + cat /src/hoextdown/test/Tests/extras/Definition_Lists.text
+#20 4.357 + read in_file
+#20 4.358 ++ sha1sum /src/hoextdown/test/Tests/extras/Special_Attribute_Headers.text
+#20 4.358 ++ cut -c 1-32
+#20 4.360 + out_file=93f173c141b33512e1597e1985d320ed
+#20 4.360 + cat /src/hoextdown/test/Tests/extras/Special_Attribute_Headers.text
+#20 4.361 + read in_file
+#20 4.362 ++ sha1sum '/src/hoextdown/test/Tests/Formatting in Table of Contents.text'
+#20 4.362 ++ cut -c 1-32
+#20 4.364 + out_file=6085351a2a699b5abadf6fc3c9a1b06c
+#20 4.364 + cat '/src/hoextdown/test/Tests/Formatting in Table of Contents.text'
+#20 4.365 + read in_file
+#20 4.366 ++ sha1sum /src/hoextdown/test/Tests/Underline.text
+#20 4.366 ++ cut -c 1-32
+#20 4.367 + out_file=b51d01cd4d67b834bf4f881600c60c7c
+#20 4.367 + cat /src/hoextdown/test/Tests/Underline.text
+#20 4.368 + read in_file
+#20 4.369 ++ sha1sum /src/hoextdown/test/Tests/Headers.text
+#20 4.369 ++ cut -c 1-32
+#20 4.371 + out_file=c94bdcbaa7ebec0c846c57beee57d0a9
+#20 4.371 + cat /src/hoextdown/test/Tests/Headers.text
+#20 4.372 + read in_file
+#20 4.373 ++ sha1sum /src/hoextdown/test/Tests/CommentsInMiddleOfLine.text
+#20 4.373 ++ cut -c 1-32
+#20 4.375 + out_file=385837cffc84c8c42c88124cadb6d1cd
+#20 4.375 + cat /src/hoextdown/test/Tests/CommentsInMiddleOfLine.text
+#20 4.376 + read in_file
+#20 4.377 ++ sha1sum /src/hoextdown/test/Tests/Table.text
+#20 4.377 ++ cut -c 1-32
+#20 4.379 + out_file=abd20beb74744ccf1b18cab72279a26e
+#20 4.379 + cat /src/hoextdown/test/Tests/Table.text
+#20 4.380 + read in_file
+#20 4.381 ++ sha1sum /src/hoextdown/test/Tests/EmptyHeaders.text
+#20 4.381 ++ cut -c 1-32
+#20 4.382 + out_file=b2e2eb51b895e15f850bb5dd123bc928
+#20 4.382 + cat /src/hoextdown/test/Tests/EmptyHeaders.text
+#20 4.384 + read in_file
+#20 4.385 ++ sha1sum /src/hoextdown/test/Tests/Math.text
+#20 4.385 ++ cut -c 1-32
+#20 4.386 + out_file=c9b211d380773f332e832918227205f6
+#20 4.386 + cat /src/hoextdown/test/Tests/Math.text
+#20 4.388 + read in_file
+#20 4.388 ++ sha1sum '/src/hoextdown/test/Tests/Escape character.text'
+#20 4.388 ++ cut -c 1-32
+#20 4.390 + out_file=9fee56671b62bd3c807dd9e84c62086e
+#20 4.390 + cat '/src/hoextdown/test/Tests/Escape character.text'
+#20 4.392 + read in_file
+#20 4.392 ++ sha1sum /src/hoextdown/test/Tests/Images.text
+#20 4.392 ++ cut -c 1-32
+#20 4.394 + out_file=7c7b19ecbc6b4aaeacf3ee250bb19fe8
+#20 4.394 + cat /src/hoextdown/test/Tests/Images.text
+#20 4.395 + read in_file
+#20 4.396 + zip -j /out/hoextdown_fuzzer_corpus.zip corpus/01f2b6903e98e8a694d0393c95cb1555 corpus/09d463e1df71c114edda99034eba421e corpus/0b3971aa092a8a9eb7d66bca9021fa8d corpus/0d53cc5c54a630ebdafb4febaa4afdcd corpus/15345895f3f11fd9b7015bf5349b2f1d corpus/1795d7f808f68e6dd2655e9db68d6d64 corpus/186be906a12490b680f0449d347efe87 corpus/18f7694d85108b110bcbd58bd4d8978c corpus/279d035b1d7451a6f43ea1d1f67d7fd6 corpus/28bedac28506f9daa201cc6790fd3ac8 corpus/34cfd8bfba15f25082beadcefd8c6971 corpus/385837cffc84c8c42c88124cadb6d1cd corpus/3c53a2a7ccffe97b1ba0aaa1561caa4e corpus/3d2d56446889a18791e45eaf1718061e corpus/4460a749dd04c2113bda93c7c9667344 corpus/47c9a278405005b8a212e7ea890cb262 corpus/4bb9005f00e346fb97294e08bb5bdbd1 corpus/551389660d7c375ea1a2f3aa2b4c5950 corpus/57796194ee7ed4a6b4034d91d5bb03fa corpus/59b6dcfd3417327c06f8263c18edd091 corpus/5a13679db696871f8bb5db08ec0d8332 corpus/5b2f9f8fb323d198d370fde4247ebb60 corpus/5b8c0e1e9575e6df564958667a53dee8 corpus/5e6e568082eb3aeae05b0254a2caa9c2 corpus/605e58a4caf6f50a8c4779e065b83136 corpus/6085351a2a699b5abadf6fc3c9a1b06c corpus/619fb8b5b886b04f8be0089bff19c3d1 corpus/61f21fe86c80107a1e02b9d115b37f79 corpus/684dab002d23182d97c346901e7879b3 corpus/693e4b70f67cb82bf2006734a6aa066b corpus/6d740a68b68e683679afe0294268348e corpus/6fc08444cfa31c8093f1de02bdd3a820 corpus/7c7b19ecbc6b4aaeacf3ee250bb19fe8 corpus/7d8d97c9741b9615b670d16b5e3dc03d corpus/84a4bd2c0313991ce25ab0018b6fa072 corpus/86d7ae6a43668c0c108a21fb4a988a70 corpus/8afca6291b50edeb248f16e8071b7089 corpus/8cefe3fc22a3f379928fe9db55dbbc23 corpus/8e3e44cfd4d0e4cd240f88c37ba5abce corpus/9339513416621a567f8c1a7a8974fb36 corpus/93f173c141b33512e1597e1985d320ed corpus/95d9f20dd94288cd65f55859c0bddd40 corpus/96d2ba8f50956b7339ab65fba5e99df0 corpus/975207ce2fc7bcd3def2421edadb1737 corpus/9fee56671b62bd3c807dd9e84c62086e corpus/a19003fe1109eb51e0dea6cdc37ef091 corpus/a5965cf73cdb12837c4afd51ac504725 corpus/a5e4ed3ce1f9457ee381250da3968316 corpus/aa971c2665b19b779f154f1c6d7aae72 corpus/abd20beb74744ccf1b18cab72279a26e corpus/aff233df1c6d564cc21d1f4e4cc607c6 corpus/b0adaece75515ac7448a2b615d261e8a corpus/b1ffbbb51d848bfaf4be7a3b756f6912 corpus/b2e2eb51b895e15f850bb5dd123bc928 corpus/b404ae66ecbd16fe4475aa7aee6cdc10 corpus/b51d01cd4d67b834bf4f881600c60c7c corpus/b6166788163b15f44454fb224e6dd31e corpus/b66caf8f0038a2e7f5d71869100b2369 corpus/c431cc9addf8b502104007ca9164fb6b corpus/c94bdcbaa7ebec0c846c57beee57d0a9 corpus/c9b211d380773f332e832918227205f6 corpus/d2355cf274b05623c711005243a80f28 corpus/d54e3205965c2e2f64afa4af1fe4a917 corpus/dbdb43aba77e6e4bb41f4899d53a7fab corpus/dfaa91cfa926ab0178ce0c367347c7cd corpus/e1df81ddeef72f15fe07bada6651acdc corpus/e21d5603497b51b3dd7215b5940fd96f corpus/e477070990acf835413a91fd2867a944 corpus/e5112e501b8658b282fdf08a62b69a48 corpus/f0c2bbe3a65d21cd9e79b1310b6b5b68 corpus/f976cabc54f3d10686e18b11942bdb57 corpus/fb0ac98951a1dda39191c0aa1b324468 corpus/fd71accfdaf2f6019a25d095276b4d65 corpus/ffc42895097183163ff79772f91b5692
+#20 4.413   adding: 01f2b6903e98e8a694d0393c95cb1555 (deflated 44%)
+#20 4.413   adding: 09d463e1df71c114edda99034eba421e (deflated 56%)
+#20 4.414   adding: 0b3971aa092a8a9eb7d66bca9021fa8d (deflated 35%)
+#20 4.414   adding: 0d53cc5c54a630ebdafb4febaa4afdcd (deflated 24%)
+#20 4.414   adding: 15345895f3f11fd9b7015bf5349b2f1d (deflated 54%)
+#20 4.414   adding: 1795d7f808f68e6dd2655e9db68d6d64 (deflated 47%)
+#20 4.414   adding: 186be906a12490b680f0449d347efe87 (deflated 21%)
+#20 4.414   adding: 18f7694d85108b110bcbd58bd4d8978c (deflated 54%)
+#20 4.414   adding: 279d035b1d7451a6f43ea1d1f67d7fd6 (deflated 60%)
+#20 4.414   adding: 28bedac28506f9daa201cc6790fd3ac8 (deflated 17%)
+#20 4.414   adding: 34cfd8bfba15f25082beadcefd8c6971 (deflated 39%)
+#20 4.414   adding: 385837cffc84c8c42c88124cadb6d1cd (deflated 30%)
+#20 4.415   adding: 3c53a2a7ccffe97b1ba0aaa1561caa4e (deflated 28%)
+#20 4.415   adding: 3d2d56446889a18791e45eaf1718061e (deflated 65%)
+#20 4.415   adding: 4460a749dd04c2113bda93c7c9667344 (deflated 38%)
+#20 4.415   adding: 47c9a278405005b8a212e7ea890cb262 (deflated 56%)
+#20 4.415   adding: 4bb9005f00e346fb97294e08bb5bdbd1 (deflated 50%)
+#20 4.415   adding: 551389660d7c375ea1a2f3aa2b4c5950 (deflated 30%)
+#20 4.415   adding: 57796194ee7ed4a6b4034d91d5bb03fa (deflated 15%)
+#20 4.415   adding: 59b6dcfd3417327c06f8263c18edd091 (deflated 17%)
+#20 4.415   adding: 5a13679db696871f8bb5db08ec0d8332 (deflated 7%)
+#20 4.415   adding: 5b2f9f8fb323d198d370fde4247ebb60 (deflated 46%)
+#20 4.416   adding: 5b8c0e1e9575e6df564958667a53dee8 (deflated 41%)
+#20 4.416   adding: 5e6e568082eb3aeae05b0254a2caa9c2 (deflated 54%)
+#20 4.416   adding: 605e58a4caf6f50a8c4779e065b83136 (deflated 53%)
+#20 4.416   adding: 6085351a2a699b5abadf6fc3c9a1b06c (deflated 11%)
+#20 4.416   adding: 619fb8b5b886b04f8be0089bff19c3d1 (deflated 65%)
+#20 4.416   adding: 61f21fe86c80107a1e02b9d115b37f79 (deflated 51%)
+#20 4.416   adding: 684dab002d23182d97c346901e7879b3 (deflated 73%)
+#20 4.416   adding: 693e4b70f67cb82bf2006734a6aa066b (deflated 59%)
+#20 4.417   adding: 6d740a68b68e683679afe0294268348e (deflated 45%)
+#20 4.417   adding: 6fc08444cfa31c8093f1de02bdd3a820 (deflated 61%)
+#20 4.417   adding: 7c7b19ecbc6b4aaeacf3ee250bb19fe8 (deflated 42%)
+#20 4.417   adding: 7d8d97c9741b9615b670d16b5e3dc03d (deflated 60%)
+#20 4.417   adding: 84a4bd2c0313991ce25ab0018b6fa072 (deflated 43%)
+#20 4.417   adding: 86d7ae6a43668c0c108a21fb4a988a70 (deflated 37%)
+#20 4.417   adding: 8afca6291b50edeb248f16e8071b7089 (deflated 21%)
+#20 4.417   adding: 8cefe3fc22a3f379928fe9db55dbbc23 (deflated 59%)
+#20 4.418   adding: 8e3e44cfd4d0e4cd240f88c37ba5abce (deflated 54%)
+#20 4.418   adding: 9339513416621a567f8c1a7a8974fb36 (deflated 20%)
+#20 4.418   adding: 93f173c141b33512e1597e1985d320ed (deflated 48%)
+#20 4.418   adding: 95d9f20dd94288cd65f55859c0bddd40 (deflated 37%)
+#20 4.418   adding: 96d2ba8f50956b7339ab65fba5e99df0 (deflated 17%)
+#20 4.418   adding: 975207ce2fc7bcd3def2421edadb1737 (deflated 50%)
+#20 4.418   adding: 9fee56671b62bd3c807dd9e84c62086e (deflated 54%)
+#20 4.418   adding: a19003fe1109eb51e0dea6cdc37ef091 (deflated 40%)
+#20 4.418   adding: a5965cf73cdb12837c4afd51ac504725 (deflated 39%)
+#20 4.418   adding: a5e4ed3ce1f9457ee381250da3968316 (deflated 31%)
+#20 4.418   adding: aa971c2665b19b779f154f1c6d7aae72 (deflated 50%)
+#20 4.419   adding: abd20beb74744ccf1b18cab72279a26e (deflated 52%)
+#20 4.419   adding: aff233df1c6d564cc21d1f4e4cc607c6 (deflated 23%)
+#20 4.419   adding: b0adaece75515ac7448a2b615d261e8a (deflated 59%)
+#20 4.419   adding: b1ffbbb51d848bfaf4be7a3b756f6912 (deflated 50%)
+#20 4.419   adding: b2e2eb51b895e15f850bb5dd123bc928 (deflated 4%)
+#20 4.419   adding: b404ae66ecbd16fe4475aa7aee6cdc10 (deflated 47%)
+#20 4.419   adding: b51d01cd4d67b834bf4f881600c60c7c (stored 0%)
+#20 4.419   adding: b6166788163b15f44454fb224e6dd31e (deflated 55%)
+#20 4.419   adding: b66caf8f0038a2e7f5d71869100b2369 (deflated 46%)
+#20 4.420   adding: c431cc9addf8b502104007ca9164fb6b (deflated 33%)
+#20 4.420   adding: c94bdcbaa7ebec0c846c57beee57d0a9 (deflated 25%)
+#20 4.420   adding: c9b211d380773f332e832918227205f6 (deflated 48%)
+#20 4.420   adding: d2355cf274b05623c711005243a80f28 (deflated 66%)
+#20 4.422   adding: d54e3205965c2e2f64afa4af1fe4a917 (deflated 31%)
+#20 4.422   adding: dbdb43aba77e6e4bb41f4899d53a7fab (deflated 26%)
+#20 4.422   adding: dfaa91cfa926ab0178ce0c367347c7cd (deflated 66%)
+#20 4.422   adding: e1df81ddeef72f15fe07bada6651acdc (deflated 56%)
+#20 4.422   adding: e21d5603497b51b3dd7215b5940fd96f (deflated 47%)
+#20 4.422   adding: e477070990acf835413a91fd2867a944 (deflated 62%)
+#20 4.422   adding: e5112e501b8658b282fdf08a62b69a48 (deflated 4%)
+#20 4.422   adding: f0c2bbe3a65d21cd9e79b1310b6b5b68 (deflated 31%)
+#20 4.422   adding: f976cabc54f3d10686e18b11942bdb57 (deflated 63%)
+#20 4.423   adding: fb0ac98951a1dda39191c0aa1b324468 (deflated 44%)
+#20 4.423   adding: fd71accfdaf2f6019a25d095276b4d65 (deflated 64%)
+#20 4.423   adding: ffc42895097183163ff79772f91b5692 (deflated 36%)
+#20 4.424 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 5.2s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:8acf30131ae434ea33292c6eef30d6b385c107ffedd5e46a968bd01667331993
+#21 writing image sha256:8acf30131ae434ea33292c6eef30d6b385c107ffedd5e46a968bd01667331993 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown done
+#21 DONE 0.4s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:924f1dae6c443b142c54e947c11edc1dee280074020e2f436b7113a9dc70f8fe
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:11e03c817929edfe0c8e61fec592f5d400019915086a010e8f206fdf6903c2d1
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate
+#4 sha256:f083b18aaa3c01414dd98779abc314a06261fe5a6d8e53e43f7166d032c6a8b7
+#4 ERROR: gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f done
+#6 naming to gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate 0.0s done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:51b16eb63120457d19c1378a5e95dc2827583abb06338cf8757c180489486623
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:8f1b095d14b10aea86fad889306a8019da4a0f7884b69070494da6c455a9a5ac
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown:latest
+#4 sha256:e586268148cd8bbf492f91c1e91d46a8f44d4bda8e825455a05224fa6dc1bd74
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate:latest
+#3 sha256:b53f4a987b697b375c70755eb1026a3cec4583b0e754b1957e29c1f2660c8686
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:6f16d5dd9f8ce25d35477d2c4115e115edac1ccf832b0d079430a2fd794a3007
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate
+#6 sha256:31949417a02b16769de1760d75392c78ad70402a49a3920a388585b2c6cf600a
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown
+#10 sha256:5a2a80627dd28bf6f48b95234b028a0b3d66fc009b31ea771b9f83297e2768c5
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown
+#5 sha256:ca1f25a735f908615bf3130d8f7f327096c0123e131d25ff6e945918ebb3c895
+#5 ERROR: gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown:latest: not found
+
+#12 [internal] load build context
+#12 sha256:6f16d5dd9f8ce25d35477d2c4115e115edac1ccf832b0d079430a2fd794a3007
+#12 transferring context: 17.65MB 0.6s done
+#12 DONE 0.8s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown
+#10 sha256:5a2a80627dd28bf6f48b95234b028a0b3d66fc009b31ea771b9f83297e2768c5
+#10 DONE 1.2s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:029380e25e475020459d02e15649127161679cbabeb0b131e587e0f934f4ac54
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:852d70b5b8a68b4c2dd386b9bf961a21af9a5504c1b50db1920fbd080b792de2
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:fcf8eb8207f930812e8c4bf14621f913f1bac25636e4f2e6ab43eeaa10fe1c9a
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:e2b799ec1e792e2bd9de111165cb0b5fd72756d26611af42078ad250b646eb32
+#11 DONE 0.4s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:846e373789dc1e68c0ebfff9623ed5726c26644237a9d66f9870e26a47962f1c
+#13 DONE 1.1s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:d3f74684b7ead7b6107a3010ce9f796bec87b518b7572c9b1b1d429ca1426381
+#14 DONE 0.6s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:543e1933fa74484a37f1a78bfa0bd8e390c688c6cea63e77e43f14351388afd6
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:2389e403730b7c173035e4dd3a063e58b09dd31dc532fcb35dda24517153b8f2
+#16 DONE 1.4s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:107789793c3c08a1beae30443e3f492182c73db6ccc6f235732d806423e4f654
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:b3a1eef9df417f3f44735ecbd41c1f93b29045a94286dc038affffbd0bc8382c
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:0a94f01d0bb379d36043df43955dc1c693178522564d6a22c09cf9dfc81ce057
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:409d38fcc79606dbd4d787a9323dca6759e117f90e05131642435de1e34673df
+#20 DONE 0.7s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:ae131b75725e2a0a6469ffdc826b763d99635165f4f48cf4524f250226f04cdc
+#21 writing image sha256:ae131b75725e2a0a6469ffdc826b763d99635165f4f48cf4524f250226f04cdc 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown 0.0s done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f9e63745f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:6a990b82559b46b97a088685d89e47e54ea7abeb937886bcf9ea30defe1a750e
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7ba563644bfe5c3d896ff876e9671a6472896324a1a612760a99def650e8c3c7
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:4ad017ca53699eda684c1c444948c93a4af848fe34baee3a765d3c4693fe6a56
+#5 sha256:3f10b3978a3951f6e2692fa5e5890ee5a755650381dedece7198ed0b1dcdaa8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown
+#4 sha256:e0d35d45802ae1042bab7ca37eb32381c2fe19e438294f9e4d91968b7af0e557
+#4 DONE 0.0s
+
+#9 [internal] load build context
+#9 sha256:97a86b947a9c5d5ac5249e29b32cd87367fafdb1abc5f588525b01ac3a289060
+#9 transferring context: 107B done
+#9 DONE 0.1s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/kjdev/hoextdown.git hoextdown
+#7 sha256:01ac8f80ba8358f00fc51cfaf8fdade3eb7e4e37841a3a7b4b4a9a6a73bb4e7d
+#7 CACHED
+
+#8 [4/5] WORKDIR hoextdown
+#8 sha256:52c3969fd94a12398e26424499d47b8856e446715d327bae3d92b00823221c14
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:e94c22665874d420ced0c3b871f4947e168d3bab9afd9b749baffcff0f8f695f
+#6 CACHED
+
+#10 [5/5] COPY build.sh *.options *.dict /src/
+#10 sha256:fb3aeeb30342b00eb2a887569cccc1c7acf788366c5debb93d881b5258c405e3
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:c79b8e036988adeda1eee969c586a7ae825daaac1ba6aef19f74e099a8a603ac 0.0s done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown done
+#11 DONE 0.3s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:b0724f2fc352964c1f01bb8fbb7244d9e42b4239badbce088a079e683e52a5b5
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:3841ba14747300f756c59ed2217e2d86c52aba67776bfd9c29d3a132c3cf5782
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown:latest
+#3 sha256:4e8b50f59037d87a62776ade4035ca7cf8b489bb5c66cf847f99cc19ea2c4976
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/hoextdown_hoextdown
+#5 sha256:b8e806d0750380342a72bb758c50b73b850f41653283e01996c4ac6480aacc8e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate
+#4 sha256:77d27b7f0d1e313a68b7348fd7ce7311a33e232de285bab8a7f070e43df6a3ce
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:c626dfa61f3d68e3cffdeb480d9351206c2bef982f306f8064e5e6f89b03abf7
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:6298495a3456433274f295ca8c53a2ad6e58a1d8dd4e5516a0cd4c85333a065f
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:7ccf8d38810dc40f9d730a98a5154f8dcef7048618ba01f5bbb881883e5d4de9
+#8 writing image sha256:7ccf8d38810dc40f9d730a98a5154f8dcef7048618ba01f5bbb881883e5d4de9 done
+#8 naming to gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate done
+#8 DONE 0.2s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#2 [internal] load .dockerignore
+#2 sha256:054e341a513636428964668f999d19c41953a987662aa499bc815117cfc74b17
+#2 transferring context: 34B done
+#2 DONE 0.7s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a1de0b29876901139ecf916835e1fa273caadfb4bde51f012f4480a41a713e0f
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.9s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:365d1ccac0a47fe59fe83fb469ea9ab3c466fb69e547c6649a9d8bcdf48a05b8
+#8 transferring context: 559B 0.1s done
+#8 DONE 0.2s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:e27dd9f5c9bd5d7ab1c956a396eef8dbaf2c2f753c1b4ecdb71d5ee092315fc1
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:ae96a6903c0a5b3ee501f6402d09ee1bd9fae53c28944e8f01cba9b40d80f29a
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:0b15fe7e7d50ad81bf58d82e08eba2c3c46ef55c313f07200f5576ed61d9a26a
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:60cf485bc136a113f73fa07898f4328ffd48c6d73de0e58601023460b0626992
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:139540fb22a119f888cb3e5ed6e013e8d868574697f5fb839e5da9e23de73e0a 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:7bd1f390fd84716e6cc254ee33ee1d017a216b766540ece5931037f6ffcee639
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:fd78ca2b2a76aa5857eed1aa0f67409829637d564b2ad0d2eafb04bea46aedda
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate:latest
+#3 sha256:12dab3e14366b14c4b5980348a45649be149bbbe4080c32fd291cc6dfc889464
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown-intermediate
+#6 sha256:7dcc01d0e10c057c4a4945c9ec741026ccf03de37381672f90dc6e807b368c64
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown
+#5 sha256:469a8e59ee44913b2efbe8e91ee23c1171c7ff90296d5c2d0070e669cb4552d6
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d70b2597ab70a105c72a257b29bbc2045c1e08d39cfa2e85eea8af0b667f32aa
+#12 transferring context: 669.88kB 0.1s done
+#12 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:fdd7f2bd264857773995f1b478fdae09b9443e09cca489bfd8a9e0a0c1820e79
+#11 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/hoextdown_hoextdown/benchmark.yaml /
+#15 sha256:04770d303841ab7ac3afd10c58d32a8fc2c3545322ebb03b35adb97c869d3f9a
+#15 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:5235c6e81068bb2ad4997f6e233e8fc290c05fcffce54f93e943f59021589be3
+#19 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:6cb4ed16d63966b27d38e7e039f191799404988735a3eedab1b0987a18fcb06c
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:988ed9942b8da4ee90146f11e0eabb89a0c30d05c7b1ce82613bf8c100c4f8c5
+#9 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:90557c344380f875b65268633127c8b276be41b6769961e88a5ab2befe2192eb
+#17 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:d45717d9db5280dd30c3f3378079cee186533fcf2c7d2098b9be44ec8fb96b5a
+#18 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:1974fb0e848b1d2f632625dd8a3a84c67041192dfe9647f01a3e7db27dfe18b3
+#16 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:10dbb726337fe06b957f456eaa523909e28efbb34f52dc7c3983a88dce239f9f
+#14 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:d451d6320b27e3b089b24a28e6461394d754a5aba09ebd1a6c2aecc6911b7e06
+#10 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:63bc7dcec064352f29da2475ecb81d7fba7f6be8096c37b84c5550b2aae09510
+#13 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:b974b3d35f6546301563da9ee6b371fcd6263c7dc9dcb6de99865685599d94f7
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:8acf30131ae434ea33292c6eef30d6b385c107ffedd5e46a968bd01667331993
+#21 writing image sha256:8acf30131ae434ea33292c6eef30d6b385c107ffedd5e46a968bd01667331993 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown done
+#21 DONE 0.6s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:6e77b0ae9551de65d4aeaca051d435f0de64fc9779d43351b5f6a42644b48a6c
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:bcde579e971da6d6f76a6b9a62621479c8ccbf8210a4d58f1b6f3b4ad5ee3621
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate
+#5 sha256:f083b18aaa3c01414dd98779abc314a06261fe5a6d8e53e43f7166d032c6a8b7
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f
+#6 writing image sha256:3e4588a9aebaeeab0d6e65a047af35e4caf540bb58ccd8719f28cf6fa6b3868f 0.0s done
+#6 naming to gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ebb2bb7c2be2fcc69a7df0bec6f62cc721831979ee4eb724effba1b12b71c79b
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5bcba2e218f96415476b40b58f9759bca8a1d6174fa0420af0a4bd21505dc2f9
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate:latest
+#3 sha256:b53f4a987b697b375c70755eb1026a3cec4583b0e754b1957e29c1f2660c8686
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown:latest
+#4 sha256:e586268148cd8bbf492f91c1e91d46a8f44d4bda8e825455a05224fa6dc1bd74
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown-intermediate
+#6 sha256:31949417a02b16769de1760d75392c78ad70402a49a3920a388585b2c6cf600a
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown
+#5 sha256:ca1f25a735f908615bf3130d8f7f327096c0123e131d25ff6e945918ebb3c895
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/hoextdown_hoextdown
+#10 sha256:5a2a80627dd28bf6f48b95234b028a0b3d66fc009b31ea771b9f83297e2768c5
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:2c524f241fa10905c07dd58be2f2af67940f1f1a3e5ef0946bf906a9a9585fbc
+#12 transferring context: 17.65MB 0.6s done
+#12 DONE 0.7s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:8507688719c2a93f58e7e6861f95229cbde862b4cab84ff5f717cf1187b9cd66
+#15 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:cdfe2741a660e38dc66041010fc0b848004a619cd79ee0cd29780d58d9e76a2e
+#17 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:f5e9898a4197794fba8614198a18e8a67a6ca9d50c343b3fdbd5f7e8c1cafb97
+#16 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:852d70b5b8a68b4c2dd386b9bf961a21af9a5504c1b50db1920fbd080b792de2
+#8 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:708c31910805c77ec5062d46896b6b19ce4e4dab7ac5a3070c931f3f8ef2c13f
+#18 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:344e92fb16275ce42fd20e02e830bc368590ab5d0efa0d509dfb86b5015dbb61
+#14 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:029380e25e475020459d02e15649127161679cbabeb0b131e587e0f934f4ac54
+#7 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:c8b4676f05ac6e8b2dbee28be95445f9616b077fc25cbb1d2ae0ce59ff345141
+#13 CACHED
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:389dd560b51932423f66ecea6b56d2c9d97ee1a5f4e61aa5db1873c5b85df9a5
+#19 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:fcf8eb8207f930812e8c4bf14621f913f1bac25636e4f2e6ab43eeaa10fe1c9a
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:e2b799ec1e792e2bd9de111165cb0b5fd72756d26611af42078ad250b646eb32
+#11 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:4bdba0bb7615836f80781445d39e83b1a5d8ab982a6f0c583f7b92d1db3f0b36
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:ae131b75725e2a0a6469ffdc826b763d99635165f4f48cf4524f250226f04cdc 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/hoextdown_hoextdown done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f205f975f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

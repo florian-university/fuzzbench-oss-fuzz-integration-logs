@@ -1,0 +1,2498 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: speex_speex.
+INFO:root:Please run "make test-run-afl-speex_speex" to test integration.
+#2 [internal] load .dockerignore
+#2 sha256:b956940716c9c95838d8cefc76ad53bc5ab164a3e99d7e14d249042660b6fc89
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:87c3f82cbc61967c8de8fc31ff12d046b8878797294edfea5bb978145674e40c
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#10 [internal] load build context
+#10 sha256:1792594372bfe3c9779dde97058b5459510f043cbedd682b0363aaccb6c2c0fc
+#10 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/speex_speex
+#4 sha256:b910db76b0a3a02dea58a1a4f3027847abca4844eea101514b2d0e59bc73e194
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/speex_speex:latest: not found
+
+#10 [internal] load build context
+#10 sha256:1792594372bfe3c9779dde97058b5459510f043cbedd682b0363aaccb6c2c0fc
+#10 transferring context: 30B done
+#10 DONE 0.1s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf libtool pkg-config wget
+#6 sha256:6f897781b3aedc8c5cc568e27931eabce6273d0332a5c823e74f665361d9980b
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://gitlab.xiph.org/xiph/ogg.git
+#7 sha256:5e1951bedd009337cf2ba2b529a74b802e0cdf1af3c1cdd5915790bb3d036679
+#7 CACHED
+
+#8 [4/6] RUN git clone --depth 1 https://gitlab.xiph.org/xiph/speex.git speex
+#8 sha256:34e9c6b1da4f04d0deed35c9be96c1e8380d99eef7b5afdd84cd336f086be1cc
+#8 CACHED
+
+#9 [5/6] WORKDIR speex
+#9 sha256:0b9ec36775320eaef5400d2eeb291279fcfe800dd41aa3bc555d1428fbc6131b
+#9 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:c6debcb5c578e965b59b14b5fdb7086d26be53151eb300fbaa9e67099941c3ec
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:20927c501ca1e06fc0ad773914b2ead5cbcd47f14e5df07c8c223071ab539328
+#12 writing image sha256:20927c501ca1e06fc0ad773914b2ead5cbcd47f14e5df07c8c223071ab539328 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/speex_speex done
+#12 DONE 0.2s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/speex_speex:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e15a589a40a7ecd193eb3a4bf146e2364b3c304423748cae85fab8bbd1a61c6b
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:af094a38a244766864b8306cb593aa05e298036fe21c94977580fafc0f8d62f4
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/speex_speex:latest
+#3 sha256:999a8a8d22566e02fbebd65874e84cd7b36fb43fcf999c744925d7c5836ff03e
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/speex_speex
+#5 sha256:c3f68564481f352f6b10464f5a39f8d6fb981632698355bfd1b2443c02b3c421
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/speex_speex-intermediate
+#4 sha256:d3672d075e873167966d2999eb1ee2dce092156c8a2924d04a81e3aba25136c5
+#4 ERROR: gcr.io/fuzzbench/builders/afl/speex_speex-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:683248e2b7a37f53f6b4a8016f3e748cf7d3615562e1f3b0d9bc9d5b7484317a
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:10a1ca6aece61f506b863eea4ecb2c73b6d41bce3b25b8150d0aa3b52d8f465d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:b405a86209be29affa4438e16b02479bcbc9514af5f88ba0c465a64de4672658 done
+#8 naming to gcr.io/fuzzbench/builders/afl/speex_speex-intermediate done
+#8 DONE 0.3s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/speex_speex-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:bb446dfbd06b55a116bd90c56423d2b5e98059d6dff3eb22065012a202bdb6f7
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:be63381f7c7d846fe461578ffbb5a0e8aaaedb9500f47ae76b7024937b29205d
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:ddf5ffb5074b176c6364c9859d7f15133dd79f1c182aaec7f2077641600f946f
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:9eb93146f86e2e805509ee918ba0bc26912deb8897172c744ec07e507e6e4ae7
+#11 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:04fcd1403411e0843c3660a68be69809a36b92d2fa7764e715d88d05d21932db
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:bdfc61a3ef0c9d76811715205476fd875cd18c6a6f0c08f49386178f059eee75
+#10 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:6f5a328e8f63b7ce3068dfc44712ead151dde5397b94383d1ee3a0a72ab2530a
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f557c92ec767931348a1b00bd18eaf6123b84a42ba94df40aa576b2c5c87f105 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:44ae05ef1c25ea76d12f1c7ccc6828f8fe40c415facfbc227827afa50b6ce7d4
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:c598b89bc390db90e217021a82382c3228038dd1bc18e763e1b27330870a6f9c
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/speex_speex-intermediate:latest
+#3 sha256:5053563725b4b9b6d09dcd90bb46670fe3a2767f97049e6c7c1d1a673d1357b5
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:a126ebe5ed4ebb8ac8ea4dc09d9196d964a7a5d437d6d946b084a7814053db22
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/speex_speex-intermediate
+#6 sha256:d977c750b5a23becaf0ae2b9e14ea1963f39cb3126e3b8cd271d392801b2670a
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/speex_speex
+#5 sha256:219bd54f6c2275e458681035f42b8708298f0087536d41c407e4bd5b2b1977fb
+#5 ERROR: gcr.io/fuzzbench/builders/afl/speex_speex:latest: not found
+
+#12 [internal] load build context
+#12 sha256:a126ebe5ed4ebb8ac8ea4dc09d9196d964a7a5d437d6d946b084a7814053db22
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.2s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:c1f680223dbd1f682ac57fec53e543c61991548606cbbe8f3ade289b62548751
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:8621e1c67626c0ceffe0f52e4bb1ba45bd4652913d76ed86127b9271309911fe
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:4d07cab94617d0d60114edc48170c6ad201df93debb2f439ec09da9936879ca1
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:14920440be0866936d8d4a1b442ee2ec1c025a2aee96fe08af3a87bf0ef66820
+#13 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:70e479b0dcce2ca8dccbf05f9c9fa88f7decf90472086f712e7fa8be03005d5a
+#8 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:695e74956f81ccbcb7e5050a1fbf66a4917f4da723a48262c76740fa5b40e528
+#14 CACHED
+
+#15 [stage-1  8/13] COPY benchmarks/speex_speex/benchmark.yaml /
+#15 sha256:e4769ce9897cd5f44870141a2fe5fecd60b208c8d97a791a54b764da47213c5d
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:8ffd62040394c0550156f242920078117cf4908af540ff0812414415a309e4f7
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:f48ffe708d32dd4c39e0cca1fcfd8db42c06aad1deaf60cd5530ee196b10ee92
+#17 DONE 0.4s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:1e2b67ab7e97270b42a1b109f4ec0173b3add4a707c28b1ff0b15b7cf7222a32
+#18 0.582 Checking out commit 95a7b675
+#18 5.196 From https://gitlab.xiph.org/xiph/speex
+#18 5.196  * [new tag]         Initial          -> Initial
+#18 5.196  * [new tag]         Speex-0.0.1      -> Speex-0.0.1
+#18 5.197  * [new tag]         Speex-0.0.2      -> Speex-0.0.2
+#18 5.197  * [new tag]         Speex-0.0.3      -> Speex-0.0.3
+#18 5.197  * [new tag]         Speex-0.1.0      -> Speex-0.1.0
+#18 5.197  * [new tag]         Speex-0.1.1      -> Speex-0.1.1
+#18 5.197  * [new tag]         Speex-0.1.2      -> Speex-0.1.2
+#18 5.198  * [new tag]         Speex-0.2.0      -> Speex-0.2.0
+#18 5.198  * [new tag]         Speex-0.3.0      -> Speex-0.3.0
+#18 5.198  * [new tag]         Speex-0.4.0      -> Speex-0.4.0
+#18 5.199  * [new tag]         Speex-0.5.0      -> Speex-0.5.0
+#18 5.199  * [new tag]         Speex-0.8        -> Speex-0.8
+#18 5.199  * [new tag]         Speex-1.0        -> Speex-1.0
+#18 5.200  * [new tag]         Speex-1.0beta1   -> Speex-1.0beta1
+#18 5.200  * [new tag]         Speex-1.0beta2   -> Speex-1.0beta2
+#18 5.200  * [new tag]         Speex-1.0beta3   -> Speex-1.0beta3
+#18 5.201  * [new tag]         Speex-1.0beta4   -> Speex-1.0beta4
+#18 5.201  * [new tag]         Speex-1.0rc1     -> Speex-1.0rc1
+#18 5.201  * [new tag]         Speex-1.0rc2     -> Speex-1.0rc2
+#18 5.202  * [new tag]         Speex-1.0rc3     -> Speex-1.0rc3
+#18 5.202  * [new tag]         Speex-1.1        -> Speex-1.1
+#18 5.202  * [new tag]         Speex-1.1.10     -> Speex-1.1.10
+#18 5.203  * [new tag]         Speex-1.1.11     -> Speex-1.1.11
+#18 5.203  * [new tag]         Speex-1.1.11.1   -> Speex-1.1.11.1
+#18 5.203  * [new tag]         Speex-1.1.12     -> Speex-1.1.12
+#18 5.204  * [new tag]         Speex-1.1.2      -> Speex-1.1.2
+#18 5.204  * [new tag]         Speex-1.1.3      -> Speex-1.1.3
+#18 5.204  * [new tag]         Speex-1.1.4      -> Speex-1.1.4
+#18 5.205  * [new tag]         Speex-1.1.5      -> Speex-1.1.5
+#18 5.205  * [new tag]         Speex-1.1.6      -> Speex-1.1.6
+#18 5.205  * [new tag]         Speex-1.1.7      -> Speex-1.1.7
+#18 5.206  * [new tag]         Speex-1.1.8      -> Speex-1.1.8
+#18 5.206  * [new tag]         Speex-1.1.9      -> Speex-1.1.9
+#18 5.206  * [new tag]         Speex-1.2.0      -> Speex-1.2.0
+#18 5.207  * [new tag]         Speex-1.2beta1   -> Speex-1.2beta1
+#18 5.207  * [new tag]         Speex-1.2beta2   -> Speex-1.2beta2
+#18 5.207  * [new tag]         Speex-1.2beta3   -> Speex-1.2beta3
+#18 5.208  * [new tag]         Speex-1.2beta3.1 -> Speex-1.2beta3.1
+#18 5.208  * [new tag]         Speex-1.2beta3.2 -> Speex-1.2beta3.2
+#18 5.208  * [new tag]         Speex-1.2rc1     -> Speex-1.2rc1
+#18 5.209  * [new tag]         Speex-1.2rc2     -> Speex-1.2rc2
+#18 5.209  * [new tag]         speex-1.2beta2   -> speex-1.2beta2
+#18 5.216 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 8.690 From https://gitlab.xiph.org/xiph/ogg
+#18 8.690  * [new tag]         v1.1.1     -> v1.1.1
+#18 8.690  * [new tag]         v1.1.2     -> v1.1.2
+#18 8.691  * [new tag]         v1.1.3     -> v1.1.3
+#18 8.691  * [new tag]         v1.1.4     -> v1.1.4
+#18 8.691  * [new tag]         v1.2.0     -> v1.2.0
+#18 8.691  * [new tag]         v1.2.1     -> v1.2.1
+#18 8.691  * [new tag]         v1.2.2     -> v1.2.2
+#18 8.692  * [new tag]         v1.3.0     -> v1.3.0
+#18 8.692  * [new tag]         v1.3.1     -> v1.3.1
+#18 8.692  * [new tag]         v1.3.2     -> v1.3.2
+#18 8.692  * [new tag]         v1.3.3     -> v1.3.3
+#18 8.693  * [new tag]         v1.3.4     -> v1.3.4
+#18 8.693  * [new tag]         v1.3.5     -> v1.3.5
+#18 8.700 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 8.713 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 8.720 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 8.738 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 8.746 error: pathspec '95a7b675' did not match any file(s) known to git
+#18 8.775 Checkout unsuccessful.
+#18 DONE 11.3s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:cca21405576b420d22d41df7507319557fa76cf746475a822e4243d26673c15d
+#19 DONE 2.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:9cf8834b8b25719ae227a2cacd355d73f782395063fd4d0ca5d72add151075ba
+#20 0.588 Run fuzzer_build to build the target
+#20 0.699 FUZZ_TARGET = speex
+#20 0.699 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.699 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.703 Building benchmark speex_speex with fuzzer afl
+#20 0.707 /src/ogg /src/speex
+#20 0.707 + pushd /src/ogg
+#20 0.707 + ./autogen.sh
+#20 0.709 Updating build configuration files for libogg, please wait....
+#20 4.771 libtoolize: putting auxiliary files in '.'.
+#20 4.771 libtoolize: copying file './ltmain.sh'
+#20 4.814 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 4.814 libtoolize: copying file 'm4/libtool.m4'
+#20 4.849 libtoolize: copying file 'm4/ltoptions.m4'
+#20 4.888 libtoolize: copying file 'm4/ltsugar.m4'
+#20 4.927 libtoolize: copying file 'm4/ltversion.m4'
+#20 4.968 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 9.044 configure.ac:5: installing './compile'
+#20 9.048 configure.ac:5: installing './config.guess'
+#20 9.050 configure.ac:5: installing './config.sub'
+#20 9.053 configure.ac:9: installing './install-sh'
+#20 9.057 configure.ac:9: installing './missing'
+#20 9.265 src/Makefile.am: installing './depcomp'
+#20 9.322 + ./configure --prefix=/work --enable-static --disable-shared --disable-crc
+#20 9.572 checking build system type... x86_64-pc-linux-gnu
+#20 9.647 checking host system type... x86_64-pc-linux-gnu
+#20 9.648 checking how to print strings... printf
+#20 9.706 checking for gcc... clang
+#20 9.772 checking whether the C compiler works... yes
+#20 9.887 checking for C compiler default output file name... a.out
+#20 9.889 checking for suffix of executables... 
+#20 10.01 checking whether we are cross compiling... no
+#20 10.14 checking for suffix of object files... o
+#20 10.17 checking whether we are using the GNU C compiler... yes
+#20 10.20 checking whether clang accepts -g... yes
+#20 10.22 checking for clang option to accept ISO C89... none needed
+#20 10.26 checking whether clang understands -c and -o together... yes
+#20 10.30 checking for a sed that does not truncate output... /usr/bin/sed
+#20 10.31 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 10.31 checking for egrep... /usr/bin/grep -E
+#20 10.32 checking for fgrep... /usr/bin/grep -F
+#20 10.32 checking for ld used by clang... /usr/bin/ld
+#20 10.34 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 10.34 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 10.35 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 10.38 checking whether ln -s works... yes
+#20 10.38 checking the maximum length of command line arguments... 1572864
+#20 10.39 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 10.39 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 10.39 checking for /usr/bin/ld option to reload object files... -r
+#20 10.39 checking for objdump... objdump
+#20 10.40 checking how to recognize dependent libraries... pass_all
+#20 10.40 checking for dlltool... no
+#20 10.40 checking how to associate runtime and link libraries... printf %s\n
+#20 10.40 checking for ar... ar
+#20 10.40 checking for archiver @FILE support... @
+#20 10.44 checking for strip... strip
+#20 10.44 checking for ranlib... ranlib
+#20 10.44 checking for gawk... no
+#20 10.44 checking for mawk... mawk
+#20 10.44 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 10.62 checking for sysroot... no
+#20 10.62 checking for a working dd... /usr/bin/dd
+#20 10.62 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 10.66 checking for mt... no
+#20 10.66 checking if : is a manifest tool... no
+#20 10.67 checking how to run the C preprocessor... clang -E
+#20 10.77 checking for ANSI C header files... yes
+#20 11.01 checking for sys/types.h... yes
+#20 11.06 checking for sys/stat.h... yes
+#20 11.12 checking for stdlib.h... yes
+#20 11.17 checking for string.h... yes
+#20 11.23 checking for memory.h... yes
+#20 11.29 checking for strings.h... yes
+#20 11.35 checking for inttypes.h... yes
+#20 11.42 checking for stdint.h... yes
+#20 11.48 checking for unistd.h... yes
+#20 11.54 checking for dlfcn.h... yes
+#20 11.60 checking for objdir... .libs
+#20 11.77 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 11.79 checking for clang option to produce PIC... -fPIC -DPIC
+#20 11.79 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 11.82 checking if clang static flag -static works... yes
+#20 11.99 checking if clang supports -c -o file.o... yes
+#20 12.04 checking if clang supports -c -o file.o... (cached) yes
+#20 12.04 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 12.06 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 12.23 checking how to hardcode library paths into programs... immediate
+#20 12.23 checking whether stripping libraries is possible... yes
+#20 12.23 checking if libtool supports shared libraries... yes
+#20 12.24 checking whether to build shared libraries... no
+#20 12.24 checking whether to build static libraries... yes
+#20 12.24 checking for a BSD-compatible install... /usr/bin/install -c
+#20 12.25 checking whether build environment is sane... yes
+#20 12.27 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 12.27 checking whether make sets $(MAKE)... yes
+#20 12.29 checking whether make supports the include directive... yes (GNU style)
+#20 12.31 checking whether make supports nested variables... yes
+#20 12.32 checking dependency style of clang... gcc3
+#20 12.38 checking whether to enable maintainer-specific portions of Makefiles... yes
+#20 12.38 checking for gcc... (cached) clang
+#20 12.45 checking whether we are using the GNU C compiler... (cached) yes
+#20 12.45 checking whether clang accepts -g... (cached) yes
+#20 12.45 checking for clang option to accept ISO C89... (cached) none needed
+#20 12.45 checking whether clang understands -c and -o together... (cached) yes
+#20 12.46 checking for ANSI C header files... (cached) yes
+#20 12.46 checking for inttypes.h... (cached) yes
+#20 12.46 checking for stdint.h... (cached) yes
+#20 12.46 checking for sys/types.h... (cached) yes
+#20 12.46 checking for an ANSI C-conforming const... yes
+#20 12.49 checking size of int16_t... 2
+#20 12.65 checking size of uint16_t... 2
+#20 12.82 checking size of u_int16_t... 2
+#20 12.98 checking size of int32_t... 4
+#20 13.15 checking size of uint32_t... 4
+#20 13.31 checking size of u_int32_t... 4
+#20 13.48 checking size of int64_t... 8
+#20 13.65 checking size of uint64_t... 8
+#20 13.81 checking size of short... 2
+#20 13.99 checking size of int... 4
+#20 14.15 checking size of long... 8
+#20 14.33 checking size of long long... 8
+#20 14.48 checking for working memcmp... yes
+#20 14.70 checking that generated files are newer than configure... done
+#20 14.70 configure: creating ./config.status
+#20 15.48 config.status: creating Makefile
+#20 15.50 config.status: creating src/Makefile
+#20 15.52 config.status: creating doc/Makefile
+#20 15.55 config.status: creating doc/libogg/Makefile
+#20 15.58 config.status: creating include/Makefile
+#20 15.60 config.status: creating include/ogg/Makefile
+#20 15.63 config.status: creating include/ogg/config_types.h
+#20 15.65 config.status: creating libogg.spec
+#20 15.67 config.status: creating ogg.pc
+#20 15.69 config.status: creating ogg-uninstalled.pc
+#20 15.72 config.status: creating config.h
+#20 15.73 config.status: executing libtool commands
+#20 15.75 config.status: executing depfiles commands
+#20 15.90 + make clean
+#20 15.91 Making clean in src
+#20 15.91 make[1]: Entering directory '/src/ogg/src'
+#20 15.91 test -z "libogg.la" || rm -f libogg.la
+#20 15.92 rm -f ./so_locations
+#20 15.92 rm -rf .libs _libs
+#20 15.93  rm -f test_bitwise test_framing
+#20 15.93 rm -f *.o
+#20 15.93 rm -f *.lo
+#20 15.94 make[1]: Leaving directory '/src/ogg/src'
+#20 15.94 Making clean in include
+#20 15.94 make[1]: Entering directory '/src/ogg/include'
+#20 15.95 Making clean in ogg
+#20 15.95 make[2]: Entering directory '/src/ogg/include/ogg'
+#20 15.95 rm -rf .libs _libs
+#20 15.95 rm -f *.lo
+#20 15.96 make[2]: Leaving directory '/src/ogg/include/ogg'
+#20 15.96 make[2]: Entering directory '/src/ogg/include'
+#20 15.96 rm -rf .libs _libs
+#20 15.96 rm -f *.lo
+#20 15.96 make[2]: Leaving directory '/src/ogg/include'
+#20 15.96 make[1]: Leaving directory '/src/ogg/include'
+#20 15.96 Making clean in doc
+#20 15.97 make[1]: Entering directory '/src/ogg/doc'
+#20 15.97 Making clean in libogg
+#20 15.98 make[2]: Entering directory '/src/ogg/doc/libogg'
+#20 15.98 rm -rf .libs _libs
+#20 15.98 rm -f *.lo
+#20 15.98 make[2]: Leaving directory '/src/ogg/doc/libogg'
+#20 15.99 make[2]: Entering directory '/src/ogg/doc'
+#20 15.99 rm -rf .libs _libs
+#20 15.99 rm -f *.lo
+#20 15.99 make[2]: Leaving directory '/src/ogg/doc'
+#20 15.99 make[1]: Leaving directory '/src/ogg/doc'
+#20 16.00 make[1]: Entering directory '/src/ogg'
+#20 16.00 rm -rf .libs _libs
+#20 16.00 rm -f *.lo
+#20 16.00 make[1]: Leaving directory '/src/ogg'
+#20 16.00 ++ nproc
+#20 16.01 + make -j8
+#20 16.01 make  all-recursive
+#20 16.02 make[1]: Entering directory '/src/ogg'
+#20 16.02 Making all in src
+#20 16.03 make[2]: Entering directory '/src/ogg/src'
+#20 16.03 clang -DHAVE_CONFIG_H -I. -I..  -I../include -I../include  -D_V_SELFTEST -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT test_bitwise-bitwise.o -MD -MP -MF .deps/test_bitwise-bitwise.Tpo -c -o test_bitwise-bitwise.o `test -f 'bitwise.c' || echo './'`bitwise.c
+#20 16.03 clang -DHAVE_CONFIG_H -I. -I..  -I../include -I../include  -D_V_SELFTEST -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT test_framing-framing.o -MD -MP -MF .deps/test_framing-framing.Tpo -c -o test_framing-framing.o `test -f 'framing.c' || echo './'`framing.c
+#20 16.03 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I../include -I../include   -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT framing.lo -MD -MP -MF .deps/framing.Tpo -c -o framing.lo framing.c
+#20 16.03 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I../include -I../include   -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT bitwise.lo -MD -MP -MF .deps/bitwise.Tpo -c -o bitwise.lo bitwise.c
+#20 16.08 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT bitwise.lo -MD -MP -MF .deps/bitwise.Tpo -c bitwise.c -o bitwise.o
+#20 16.08 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I../include -I../include -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT framing.lo -MD -MP -MF .deps/framing.Tpo -c framing.c -o framing.o
+#20 16.27 mv -f .deps/bitwise.Tpo .deps/bitwise.Plo
+#20 16.48 mv -f .deps/framing.Tpo .deps/framing.Plo
+#20 16.48 /bin/bash ../libtool  --tag=CC   --mode=link clang  -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -no-undefined -version-info 8:5:8  -o libogg.la -rpath /work/lib framing.lo bitwise.lo  
+#20 16.58 libtool: link: ar cr .libs/libogg.a  framing.o bitwise.o
+#20 16.58 libtool: link: ranlib .libs/libogg.a
+#20 16.60 libtool: link: ( cd ".libs" && rm -f "libogg.la" && ln -s "../libogg.la" "libogg.la" )
+#20 16.85 mv -f .deps/test_bitwise-bitwise.Tpo .deps/test_bitwise-bitwise.Po
+#20 16.86 /bin/bash ../libtool  --tag=CC   --mode=link clang -D_V_SELFTEST -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o test_bitwise test_bitwise-bitwise.o  
+#20 16.95 libtool: link: clang -D_V_SELFTEST -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o test_bitwise test_bitwise-bitwise.o  -pthread
+#20 17.19 mv -f .deps/test_framing-framing.Tpo .deps/test_framing-framing.Po
+#20 17.20 /bin/bash ../libtool  --tag=CC   --mode=link clang -D_V_SELFTEST -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard   -o test_framing test_framing-framing.o  
+#20 17.30 libtool: link: clang -D_V_SELFTEST -O2 -Wall -ffast-math -fsigned-char -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -o test_framing test_framing-framing.o  -pthread
+#20 17.40 make[2]: Leaving directory '/src/ogg/src'
+#20 17.40 Making all in include
+#20 17.40 make[2]: Entering directory '/src/ogg/include'
+#20 17.41 Making all in ogg
+#20 17.41 make[3]: Entering directory '/src/ogg/include/ogg'
+#20 17.41 make[3]: Nothing to be done for 'all'.
+#20 17.41 make[3]: Leaving directory '/src/ogg/include/ogg'
+#20 17.41 make[3]: Entering directory '/src/ogg/include'
+#20 17.41 make[3]: Nothing to be done for 'all-am'.
+#20 17.41 make[3]: Leaving directory '/src/ogg/include'
+#20 17.41 make[2]: Leaving directory '/src/ogg/include'
+#20 17.41 Making all in doc
+#20 17.42 make[2]: Entering directory '/src/ogg/doc'
+#20 17.42 Making all in libogg
+#20 17.43 make[3]: Entering directory '/src/ogg/doc/libogg'
+#20 17.43 make[3]: Nothing to be done for 'all'.
+#20 17.43 make[3]: Leaving directory '/src/ogg/doc/libogg'
+#20 17.43 make[3]: Entering directory '/src/ogg/doc'
+#20 17.43 make[3]: Nothing to be done for 'all-am'.
+#20 17.43 make[3]: Leaving directory '/src/ogg/doc'
+#20 17.43 make[2]: Leaving directory '/src/ogg/doc'
+#20 17.43 make[2]: Entering directory '/src/ogg'
+#20 17.44 make[2]: Leaving directory '/src/ogg'
+#20 17.44 make[1]: Leaving directory '/src/ogg'
+#20 17.44 + make install
+#20 17.45 Making install in src
+#20 17.46 make[1]: Entering directory '/src/ogg/src'
+#20 17.47 make[2]: Entering directory '/src/ogg/src'
+#20 17.48  /usr/bin/mkdir -p '/work/lib'
+#20 17.48  /bin/bash ../libtool   --mode=install /usr/bin/install -c   libogg.la '/work/lib'
+#20 17.52 libtool: install: /usr/bin/install -c .libs/libogg.lai /work/lib/libogg.la
+#20 17.52 libtool: install: /usr/bin/install -c .libs/libogg.a /work/lib/libogg.a
+#20 17.52 libtool: install: chmod 644 /work/lib/libogg.a
+#20 17.53 libtool: install: ranlib /work/lib/libogg.a
+#20 17.59 libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out:/sbin" ldconfig -n /work/lib
+#20 17.59 ----------------------------------------------------------------------
+#20 17.59 Libraries have been installed in:
+#20 17.59    /work/lib
+#20 17.59 
+#20 17.59 If you ever happen to want to link against installed libraries
+#20 17.59 in a given directory, LIBDIR, you must either use libtool, and
+#20 17.59 specify the full pathname of the library, or use the '-LLIBDIR'
+#20 17.59 flag during linking and do at least one of the following:
+#20 17.59    - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+#20 17.59      during execution
+#20 17.59    - add LIBDIR to the 'LD_RUN_PATH' environment variable
+#20 17.59      during linking
+#20 17.59    - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+#20 17.59    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+#20 17.59 
+#20 17.59 See any operating system documentation about shared libraries for
+#20 17.59 more information, such as the ld(1) and ld.so(8) manual pages.
+#20 17.59 ----------------------------------------------------------------------
+#20 17.60 make[2]: Nothing to be done for 'install-data-am'.
+#20 17.60 make[2]: Leaving directory '/src/ogg/src'
+#20 17.60 make[1]: Leaving directory '/src/ogg/src'
+#20 17.60 Making install in include
+#20 17.60 make[1]: Entering directory '/src/ogg/include'
+#20 17.61 Making install in ogg
+#20 17.61 make[2]: Entering directory '/src/ogg/include/ogg'
+#20 17.61 make[3]: Entering directory '/src/ogg/include/ogg'
+#20 17.61 make[3]: Nothing to be done for 'install-exec-am'.
+#20 17.62  /usr/bin/mkdir -p '/work/include/ogg'
+#20 17.62  /usr/bin/install -c -m 644 config_types.h '/work/include/ogg'
+#20 17.62  /usr/bin/mkdir -p '/work/include/ogg'
+#20 17.63  /usr/bin/install -c -m 644 ogg.h os_types.h '/work/include/ogg'
+#20 17.63 make[3]: Leaving directory '/src/ogg/include/ogg'
+#20 17.63 make[2]: Leaving directory '/src/ogg/include/ogg'
+#20 17.64 make[2]: Entering directory '/src/ogg/include'
+#20 17.64 make[3]: Entering directory '/src/ogg/include'
+#20 17.64 make[3]: Nothing to be done for 'install-exec-am'.
+#20 17.64 make[3]: Nothing to be done for 'install-data-am'.
+#20 17.64 make[3]: Leaving directory '/src/ogg/include'
+#20 17.64 make[2]: Leaving directory '/src/ogg/include'
+#20 17.64 make[1]: Leaving directory '/src/ogg/include'
+#20 17.64 Making install in doc
+#20 17.64 make[1]: Entering directory '/src/ogg/doc'
+#20 17.65 Making install in libogg
+#20 17.65 make[2]: Entering directory '/src/ogg/doc/libogg'
+#20 17.66 make[3]: Entering directory '/src/ogg/doc/libogg'
+#20 17.66 make[3]: Nothing to be done for 'install-exec-am'.
+#20 17.66  /usr/bin/mkdir -p '/work/share/doc/libogg/libogg'
+#20 17.67  /usr/bin/install -c -m 644 bitpacking.html datastructures.html decoding.html encoding.html general.html index.html ogg_iovec_t.html ogg_packet.html ogg_packet_clear.html ogg_page.html ogg_page_bos.html ogg_page_checksum_set.html ogg_page_continued.html ogg_page_eos.html ogg_page_granulepos.html ogg_page_packets.html ogg_page_pageno.html ogg_page_serialno.html ogg_page_version.html ogg_stream_check.html ogg_stream_clear.html ogg_stream_destroy.html ogg_stream_eos.html ogg_stream_flush.html ogg_stream_flush_fill.html ogg_stream_init.html ogg_stream_iovecin.html ogg_stream_packetin.html ogg_stream_packetout.html ogg_stream_packetpeek.html ogg_stream_pagein.html ogg_stream_pageout.html ogg_stream_pageout_fill.html ogg_stream_reset.html ogg_stream_reset_serialno.html ogg_stream_state.html ogg_sync_buffer.html ogg_sync_check.html ogg_sync_clear.html ogg_sync_destroy.html '/work/share/doc/libogg/libogg'
+#20 17.68  /usr/bin/install -c -m 644 ogg_sync_init.html ogg_sync_pageout.html ogg_sync_pageseek.html ogg_sync_reset.html ogg_sync_state.html ogg_sync_wrote.html oggpack_adv.html oggpack_adv1.html oggpack_bits.html oggpack_buffer.html oggpack_bytes.html oggpack_get_buffer.html oggpack_look.html oggpack_look1.html oggpack_read.html oggpack_read1.html oggpack_readinit.html oggpack_reset.html oggpack_write.html oggpack_writealign.html oggpack_writecheck.html oggpack_writeclear.html oggpack_writecopy.html oggpack_writeinit.html oggpack_writetrunc.html overview.html reference.html style.css '/work/share/doc/libogg/libogg'
+#20 17.68 make[3]: Leaving directory '/src/ogg/doc/libogg'
+#20 17.68 make[2]: Leaving directory '/src/ogg/doc/libogg'
+#20 17.69 make[2]: Entering directory '/src/ogg/doc'
+#20 17.69 make[3]: Entering directory '/src/ogg/doc'
+#20 17.69 make[3]: Nothing to be done for 'install-exec-am'.
+#20 17.69  /usr/bin/mkdir -p '/work/share/doc/libogg'
+#20 17.70  /usr/bin/install -c -m 644 framing.html index.html oggstream.html ogg-multiplex.html fish_xiph_org.png multiplex1.png packets.png pages.png stream.png vorbisword2.png white-ogg.png white-xifish.png rfc3533.txt rfc5334.txt skeleton.html '/work/share/doc/libogg'
+#20 17.70 make[3]: Leaving directory '/src/ogg/doc'
+#20 17.70 make[2]: Leaving directory '/src/ogg/doc'
+#20 17.70 make[1]: Leaving directory '/src/ogg/doc'
+#20 17.71 make[1]: Entering directory '/src/ogg'
+#20 17.72 make[2]: Entering directory '/src/ogg'
+#20 17.72 make[2]: Nothing to be done for 'install-exec-am'.
+#20 17.72  /usr/bin/mkdir -p '/work/share/aclocal'
+#20 17.72  /usr/bin/install -c -m 644 ogg.m4 '/work/share/aclocal'
+#20 17.73  /usr/bin/mkdir -p '/work/lib/pkgconfig'
+#20 17.73  /usr/bin/install -c -m 644 ogg.pc '/work/lib/pkgconfig'
+#20 17.73 make[2]: Leaving directory '/src/ogg'
+#20 17.73 make[1]: Leaving directory '/src/ogg'
+#20 17.74 + popd
+#20 17.74 + ./autogen.sh
+#20 17.74 /src/speex
+#20 17.74 Updating build configuration files, please wait....
+#20 21.91 libtoolize: putting auxiliary files in '.'.
+#20 21.91 libtoolize: copying file './ltmain.sh'
+#20 21.95 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 21.95 libtoolize: copying file 'm4/libtool.m4'
+#20 21.99 libtoolize: copying file 'm4/ltoptions.m4'
+#20 22.04 libtoolize: copying file 'm4/ltsugar.m4'
+#20 22.09 libtoolize: copying file 'm4/ltversion.m4'
+#20 22.14 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 26.45 configure.ac:31: installing './compile'
+#20 26.45 configure.ac:29: installing './config.guess'
+#20 26.45 configure.ac:29: installing './config.sub'
+#20 26.46 configure.ac:26: installing './install-sh'
+#20 26.46 configure.ac:26: installing './missing'
+#20 26.64 libspeex/Makefile.am: installing './depcomp'
+#20 27.44 + export 'CFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -DDISABLE_NOTIFICATIONS -DDISABLE_WARNINGS'
+#20 27.44 + CFLAGS='-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -DDISABLE_NOTIFICATIONS -DDISABLE_WARNINGS'
+#20 27.44 + PKG_CONFIG_PATH=/work/lib/pkgconfig
+#20 27.44 + ./configure --prefix=/work --enable-static --disable-shared --enable-fixed
+#20 27.59 configure: WARNING: unrecognized options: --enable-fixed
+#20 27.67 checking whether make supports nested variables... yes
+#20 27.67 checking for a BSD-compatible install... /usr/bin/install -c
+#20 27.69 checking whether build environment is sane... yes
+#20 27.70 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 27.71 checking for gawk... no
+#20 27.71 checking for mawk... mawk
+#20 27.71 checking whether make sets $(MAKE)... yes
+#20 27.73 checking whether to enable maintainer-specific portions of Makefiles... yes
+#20 27.75 checking build system type... x86_64-pc-linux-gnu
+#20 27.83 checking host system type... x86_64-pc-linux-gnu
+#20 27.83 checking how to print strings... printf
+#20 27.89 checking whether make supports the include directive... yes (GNU style)
+#20 27.90 checking for gcc... clang
+#20 27.97 checking whether the C compiler works... yes
+#20 28.10 checking for C compiler default output file name... a.out
+#20 28.10 checking for suffix of executables... 
+#20 28.22 checking whether we are cross compiling... no
+#20 28.36 checking for suffix of object files... o
+#20 28.39 checking whether we are using the GNU C compiler... yes
+#20 28.42 checking whether clang accepts -g... yes
+#20 28.45 checking for clang option to accept ISO C89... none needed
+#20 28.49 checking whether clang understands -c and -o together... yes
+#20 28.53 checking dependency style of clang... gcc3
+#20 28.59 checking for a sed that does not truncate output... /usr/bin/sed
+#20 28.60 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 28.60 checking for egrep... /usr/bin/grep -E
+#20 28.60 checking for fgrep... /usr/bin/grep -F
+#20 28.61 checking for ld used by clang... /usr/bin/ld
+#20 28.63 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 28.63 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 28.64 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 28.67 checking whether ln -s works... yes
+#20 28.67 checking the maximum length of command line arguments... 1572864
+#20 28.68 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 28.68 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 28.68 checking for /usr/bin/ld option to reload object files... -r
+#20 28.69 checking for objdump... objdump
+#20 28.69 checking how to recognize dependent libraries... pass_all
+#20 28.69 checking for dlltool... dlltool
+#20 28.69 checking how to associate runtime and link libraries... printf %s\n
+#20 28.69 checking for ar... ar
+#20 28.69 checking for archiver @FILE support... @
+#20 28.73 checking for strip... strip
+#20 28.73 checking for ranlib... ranlib
+#20 28.74 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 28.91 checking for sysroot... no
+#20 28.91 checking for a working dd... /usr/bin/dd
+#20 28.92 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 28.95 checking for mt... no
+#20 28.95 checking if : is a manifest tool... no
+#20 28.96 checking how to run the C preprocessor... clang -E
+#20 29.06 checking for ANSI C header files... yes
+#20 29.30 checking for sys/types.h... yes
+#20 29.36 checking for sys/stat.h... yes
+#20 29.42 checking for stdlib.h... yes
+#20 29.47 checking for string.h... yes
+#20 29.53 checking for memory.h... yes
+#20 29.59 checking for strings.h... yes
+#20 29.65 checking for inttypes.h... yes
+#20 29.71 checking for stdint.h... yes
+#20 29.77 checking for unistd.h... yes
+#20 29.84 checking for dlfcn.h... yes
+#20 29.89 checking for objdir... .libs
+#20 30.07 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 30.10 checking for clang option to produce PIC... -fPIC -DPIC
+#20 30.10 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 30.13 checking if clang static flag -static works... yes
+#20 30.31 checking if clang supports -c -o file.o... yes
+#20 30.35 checking if clang supports -c -o file.o... (cached) yes
+#20 30.35 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 30.37 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 30.56 checking how to hardcode library paths into programs... immediate
+#20 30.56 checking whether stripping libraries is possible... yes
+#20 30.56 checking if libtool supports shared libraries... yes
+#20 30.56 checking whether to build shared libraries... no
+#20 30.56 checking whether to build static libraries... yes
+#20 30.57 checking whether byte ordering is bigendian... no
+#20 30.68 checking for an ANSI C-conforming const... yes
+#20 30.71 checking for inline... inline
+#20 30.73 checking for C/C++ restrict keyword... __restrict
+#20 30.77 checking for C99 variable-size arrays... yes
+#20 30.80 checking alloca.h usability... yes
+#20 30.86 checking alloca.h presence... yes
+#20 30.88 checking for alloca.h... yes
+#20 30.89 checking getopt.h usability... yes
+#20 30.95 checking getopt.h presence... yes
+#20 30.97 checking for getopt.h... yes
+#20 30.98 checking for alloca... yes
+#20 31.02 checking for SSE in current arch/CFLAGS... yes
+#20 31.20 checking for ELF visibility... yes
+#20 31.24 checking sys/soundcard.h usability... yes
+#20 31.30 checking sys/soundcard.h presence... yes
+#20 31.32 checking for sys/soundcard.h... yes
+#20 31.33 checking sys/audioio.h usability... no
+#20 31.40 checking sys/audioio.h presence... no
+#20 31.42 checking for sys/audioio.h... no
+#20 31.43 checking for cos in -lm... yes
+#20 31.58 checking for getopt_long... yes
+#20 31.72 checking for pkg-config... /usr/bin/pkg-config
+#20 31.72 checking pkg-config is at least version 0.9.0... yes
+#20 31.73 checking for OGG... yes
+#20 31.74 checking for SPEEXDSP... no
+#20 31.75 checking size of int16_t... 2
+#20 31.92 checking size of uint16_t... 2
+#20 32.10 checking size of u_int16_t... 2
+#20 32.27 checking size of int32_t... 4
+#20 32.44 checking size of uint32_t... 4
+#20 32.62 checking size of u_int32_t... 4
+#20 32.79 checking size of short... 2
+#20 32.96 checking size of int... 4
+#20 33.13 checking size of long... 8
+#20 33.29 checking if clang accepts -Wall... yes
+#20 33.41 checking that generated files are newer than configure... done
+#20 33.41 configure: creating ./config.status
+#20 34.20 config.status: creating Makefile
+#20 34.22 config.status: creating libspeex/Makefile
+#20 34.25 config.status: creating src/Makefile
+#20 34.28 config.status: creating doc/Makefile
+#20 34.30 config.status: creating Speex.spec
+#20 34.32 config.status: creating include/Makefile
+#20 34.35 config.status: creating include/speex/Makefile
+#20 34.37 config.status: creating speex.pc
+#20 34.39 config.status: creating win32/Makefile
+#20 34.42 config.status: creating win32/libspeex/Makefile
+#20 34.45 config.status: creating win32/speexenc/Makefile
+#20 34.47 config.status: creating win32/speexdec/Makefile
+#20 34.50 config.status: creating symbian/Makefile
+#20 34.53 config.status: creating win32/VS2003/Makefile
+#20 34.55 config.status: creating win32/VS2003/tests/Makefile
+#20 34.58 config.status: creating win32/VS2003/libspeex/Makefile
+#20 34.60 config.status: creating win32/VS2003/speexdec/Makefile
+#20 34.63 config.status: creating win32/VS2003/speexenc/Makefile
+#20 34.66 config.status: creating win32/VS2005/Makefile
+#20 34.68 config.status: creating win32/VS2005/libspeex/Makefile
+#20 34.71 config.status: creating win32/VS2005/speexdec/Makefile
+#20 34.74 config.status: creating win32/VS2005/speexenc/Makefile
+#20 34.76 config.status: creating win32/VS2005/tests/Makefile
+#20 34.79 config.status: creating win32/VS2008/Makefile
+#20 34.81 config.status: creating win32/VS2008/speexdec/Makefile
+#20 34.84 config.status: creating win32/VS2008/tests/Makefile
+#20 34.87 config.status: creating win32/VS2008/libspeex/Makefile
+#20 34.89 config.status: creating win32/VS2008/speexenc/Makefile
+#20 34.92 config.status: creating include/speex/speex_config_types.h
+#20 34.95 config.status: creating ti/Makefile
+#20 34.97 config.status: creating ti/speex_C54_test/Makefile
+#20 35.00 config.status: creating ti/speex_C55_test/Makefile
+#20 35.03 config.status: creating ti/speex_C64_test/Makefile
+#20 35.05 config.status: creating config.h
+#20 35.07 config.status: executing depfiles commands
+#20 35.52 config.status: executing libtool commands
+#20 35.54 configure: WARNING: unrecognized options: --enable-fixed
+#20 35.54 Type "make; make install" to compile and install Speex
+#20 35.61 ++ nproc
+#20 35.61 + make -j8
+#20 35.62 make  all-recursive
+#20 35.63 make[1]: Entering directory '/src/speex'
+#20 35.63 Making all in libspeex
+#20 35.64 make[2]: Entering directory '/src/speex/libspeex'
+#20 35.64   CC       testenc.o
+#20 35.64   CC       cb_search.lo
+#20 35.64   CC       exc_10_32_table.lo
+#20 35.64   CC       exc_8_128_table.lo
+#20 35.64   CC       filters.lo
+#20 35.64   CC       gain_table.lo
+#20 35.65   CC       hexc_table.lo
+#20 35.65   CC       high_lsp_tables.lo
+#20 35.76   CC       lsp.lo
+#20 35.77   CC       ltp.lo
+#20 35.77   CC       speex.lo
+#20 35.77   CC       stereo.lo
+#20 35.78   CC       vbr.lo
+#20 35.79   CC       vq.lo
+#20 36.01   CC       bits.lo
+#20 36.07   CC       exc_10_16_table.lo
+#20 36.09   CC       exc_20_32_table.lo
+#20 36.11   CC       exc_5_256_table.lo
+#20 36.20   CC       exc_5_64_table.lo
+#20 36.20   CC       gain_table_lbr.lo
+#20 36.21   CC       hexc_10_32_table.lo
+#20 36.23   CC       lpc.lo
+#20 36.32   CC       lsp_tables_nb.lo
+#20 36.33   CC       modes.lo
+#20 36.33   CC       modes_wb.lo
+#20 36.37   CC       nb_celp.lo
+#20 36.45   CC       quant_lsp.lo
+#20 36.45   CC       sb_celp.lo
+#20 36.50   CC       speex_callbacks.lo
+#20 36.51   CC       speex_header.lo
+#20 36.63   CC       window.lo
+#20 36.69   CC       testenc_wb.o
+#20 36.71   CC       testenc_uwb.o
+#20 37.77   CCLD     libspeex.la
+#20 37.98   CCLD     testenc
+#20 37.98   CCLD     testenc_wb
+#20 37.98   CCLD     testenc_uwb
+#20 38.26 make[2]: Leaving directory '/src/speex/libspeex'
+#20 38.26 Making all in include
+#20 38.27 make[2]: Entering directory '/src/speex/include'
+#20 38.27 Making all in speex
+#20 38.28 make[3]: Entering directory '/src/speex/include/speex'
+#20 38.28 make[3]: Nothing to be done for 'all'.
+#20 38.28 make[3]: Leaving directory '/src/speex/include/speex'
+#20 38.28 make[3]: Entering directory '/src/speex/include'
+#20 38.28 make[3]: Nothing to be done for 'all-am'.
+#20 38.28 make[3]: Leaving directory '/src/speex/include'
+#20 38.28 make[2]: Leaving directory '/src/speex/include'
+#20 38.28 Making all in doc
+#20 38.28 make[2]: Entering directory '/src/speex/doc'
+#20 38.28 make[2]: Nothing to be done for 'all'.
+#20 38.28 make[2]: Leaving directory '/src/speex/doc'
+#20 38.28 Making all in win32
+#20 38.29 make[2]: Entering directory '/src/speex/win32'
+#20 38.29 Making all in libspeex
+#20 38.30 make[3]: Entering directory '/src/speex/win32/libspeex'
+#20 38.30 make[3]: Nothing to be done for 'all'.
+#20 38.30 make[3]: Leaving directory '/src/speex/win32/libspeex'
+#20 38.30 Making all in speexenc
+#20 38.30 make[3]: Entering directory '/src/speex/win32/speexenc'
+#20 38.30 make[3]: Nothing to be done for 'all'.
+#20 38.30 make[3]: Leaving directory '/src/speex/win32/speexenc'
+#20 38.30 Making all in speexdec
+#20 38.30 make[3]: Entering directory '/src/speex/win32/speexdec'
+#20 38.30 make[3]: Nothing to be done for 'all'.
+#20 38.30 make[3]: Leaving directory '/src/speex/win32/speexdec'
+#20 38.30 Making all in VS2003
+#20 38.31 make[3]: Entering directory '/src/speex/win32/VS2003'
+#20 38.31 Making all in libspeex
+#20 38.32 make[4]: Entering directory '/src/speex/win32/VS2003/libspeex'
+#20 38.32 make[4]: Nothing to be done for 'all'.
+#20 38.32 make[4]: Leaving directory '/src/speex/win32/VS2003/libspeex'
+#20 38.32 Making all in speexenc
+#20 38.32 make[4]: Entering directory '/src/speex/win32/VS2003/speexenc'
+#20 38.32 make[4]: Nothing to be done for 'all'.
+#20 38.32 make[4]: Leaving directory '/src/speex/win32/VS2003/speexenc'
+#20 38.32 Making all in speexdec
+#20 38.32 make[4]: Entering directory '/src/speex/win32/VS2003/speexdec'
+#20 38.32 make[4]: Nothing to be done for 'all'.
+#20 38.32 make[4]: Leaving directory '/src/speex/win32/VS2003/speexdec'
+#20 38.32 Making all in tests
+#20 38.33 make[4]: Entering directory '/src/speex/win32/VS2003/tests'
+#20 38.33 make[4]: Nothing to be done for 'all'.
+#20 38.33 make[4]: Leaving directory '/src/speex/win32/VS2003/tests'
+#20 38.33 make[4]: Entering directory '/src/speex/win32/VS2003'
+#20 38.33 make[4]: Nothing to be done for 'all-am'.
+#20 38.33 make[4]: Leaving directory '/src/speex/win32/VS2003'
+#20 38.33 make[3]: Leaving directory '/src/speex/win32/VS2003'
+#20 38.33 Making all in VS2005
+#20 38.34 make[3]: Entering directory '/src/speex/win32/VS2005'
+#20 38.34 Making all in libspeex
+#20 38.34 make[4]: Entering directory '/src/speex/win32/VS2005/libspeex'
+#20 38.34 make[4]: Nothing to be done for 'all'.
+#20 38.34 make[4]: Leaving directory '/src/speex/win32/VS2005/libspeex'
+#20 38.35 Making all in speexenc
+#20 38.35 make[4]: Entering directory '/src/speex/win32/VS2005/speexenc'
+#20 38.35 make[4]: Nothing to be done for 'all'.
+#20 38.35 make[4]: Leaving directory '/src/speex/win32/VS2005/speexenc'
+#20 38.35 Making all in speexdec
+#20 38.35 make[4]: Entering directory '/src/speex/win32/VS2005/speexdec'
+#20 38.35 make[4]: Nothing to be done for 'all'.
+#20 38.35 make[4]: Leaving directory '/src/speex/win32/VS2005/speexdec'
+#20 38.35 Making all in tests
+#20 38.36 make[4]: Entering directory '/src/speex/win32/VS2005/tests'
+#20 38.36 make[4]: Nothing to be done for 'all'.
+#20 38.36 make[4]: Leaving directory '/src/speex/win32/VS2005/tests'
+#20 38.36 make[4]: Entering directory '/src/speex/win32/VS2005'
+#20 38.36 make[4]: Nothing to be done for 'all-am'.
+#20 38.36 make[4]: Leaving directory '/src/speex/win32/VS2005'
+#20 38.36 make[3]: Leaving directory '/src/speex/win32/VS2005'
+#20 38.36 Making all in VS2008
+#20 38.36 make[3]: Entering directory '/src/speex/win32/VS2008'
+#20 38.37 Making all in libspeex
+#20 38.37 make[4]: Entering directory '/src/speex/win32/VS2008/libspeex'
+#20 38.37 make[4]: Nothing to be done for 'all'.
+#20 38.37 make[4]: Leaving directory '/src/speex/win32/VS2008/libspeex'
+#20 38.37 Making all in speexenc
+#20 38.38 make[4]: Entering directory '/src/speex/win32/VS2008/speexenc'
+#20 38.38 make[4]: Nothing to be done for 'all'.
+#20 38.38 make[4]: Leaving directory '/src/speex/win32/VS2008/speexenc'
+#20 38.38 Making all in speexdec
+#20 38.38 make[4]: Entering directory '/src/speex/win32/VS2008/speexdec'
+#20 38.38 make[4]: Nothing to be done for 'all'.
+#20 38.38 make[4]: Leaving directory '/src/speex/win32/VS2008/speexdec'
+#20 38.38 Making all in tests
+#20 38.38 make[4]: Entering directory '/src/speex/win32/VS2008/tests'
+#20 38.38 make[4]: Nothing to be done for 'all'.
+#20 38.38 make[4]: Leaving directory '/src/speex/win32/VS2008/tests'
+#20 38.39 make[4]: Entering directory '/src/speex/win32/VS2008'
+#20 38.39 make[4]: Nothing to be done for 'all-am'.
+#20 38.39 make[4]: Leaving directory '/src/speex/win32/VS2008'
+#20 38.39 make[3]: Leaving directory '/src/speex/win32/VS2008'
+#20 38.39 make[3]: Entering directory '/src/speex/win32'
+#20 38.39 make[3]: Nothing to be done for 'all-am'.
+#20 38.39 make[3]: Leaving directory '/src/speex/win32'
+#20 38.39 make[2]: Leaving directory '/src/speex/win32'
+#20 38.39 Making all in symbian
+#20 38.39 make[2]: Entering directory '/src/speex/symbian'
+#20 38.39 make[2]: Nothing to be done for 'all'.
+#20 38.39 make[2]: Leaving directory '/src/speex/symbian'
+#20 38.40 Making all in ti
+#20 38.40 make[2]: Entering directory '/src/speex/ti'
+#20 38.41 Making all in speex_C54_test
+#20 38.41 make[3]: Entering directory '/src/speex/ti/speex_C54_test'
+#20 38.41 make[3]: Nothing to be done for 'all'.
+#20 38.41 make[3]: Leaving directory '/src/speex/ti/speex_C54_test'
+#20 38.41 Making all in speex_C55_test
+#20 38.41 make[3]: Entering directory '/src/speex/ti/speex_C55_test'
+#20 38.41 make[3]: Nothing to be done for 'all'.
+#20 38.41 make[3]: Leaving directory '/src/speex/ti/speex_C55_test'
+#20 38.41 Making all in speex_C64_test
+#20 38.42 make[3]: Entering directory '/src/speex/ti/speex_C64_test'
+#20 38.42 make[3]: Nothing to be done for 'all'.
+#20 38.42 make[3]: Leaving directory '/src/speex/ti/speex_C64_test'
+#20 38.42 make[3]: Entering directory '/src/speex/ti'
+#20 38.42 make[3]: Nothing to be done for 'all-am'.
+#20 38.42 make[3]: Leaving directory '/src/speex/ti'
+#20 38.42 make[2]: Leaving directory '/src/speex/ti'
+#20 38.42 Making all in src
+#20 38.42 make[2]: Entering directory '/src/speex/src'
+#20 38.43   CC       speexenc.o
+#20 38.43   CC       wav_io.o
+#20 38.43   CC       skeleton.o
+#20 38.43   CC       speexdec.o
+#20 38.49 speexenc.c:345:8: warning: variable 'bytes_written' set but not used [-Wunused-but-set-variable]
+#20 38.49    int bytes_written=0, ret, result;
+#20 38.49        ^
+#20 38.51 speexdec.c:670:58: warning: implicit conversion from 'int' to 'float' changes value from 2147483647 to 2147483648 [-Wimplicit-const-int-float-conversion]
+#20 38.51                if (loss_percent>0 && 100*((float)rand())/RAND_MAX<loss_percent)
+#20 38.51                                                         ~^~~~~~~~
+#20 38.51 /usr/include/stdlib.h:86:18: note: expanded from macro 'RAND_MAX'
+#20 38.51 #define RAND_MAX        2147483647
+#20 38.51                         ^~~~~~~~~~
+#20 38.70 1 warning generated.
+#20 38.71   CCLD     speexdec
+#20 38.83 1 warning generated.
+#20 38.84   CCLD     speexenc
+#20 39.10 make[2]: Leaving directory '/src/speex/src'
+#20 39.11 make[2]: Entering directory '/src/speex'
+#20 39.11 make[2]: Leaving directory '/src/speex'
+#20 39.11 make[1]: Leaving directory '/src/speex'
+#20 39.11 + make install
+#20 39.12 Making install in libspeex
+#20 39.14 make[1]: Entering directory '/src/speex/libspeex'
+#20 39.16 make[2]: Entering directory '/src/speex/libspeex'
+#20 39.16  /usr/bin/mkdir -p '/work/lib'
+#20 39.17  /bin/bash ../libtool   --mode=install /usr/bin/install -c   libspeex.la '/work/lib'
+#20 39.21 libtool: install: /usr/bin/install -c .libs/libspeex.lai /work/lib/libspeex.la
+#20 39.21 libtool: install: /usr/bin/install -c .libs/libspeex.a /work/lib/libspeex.a
+#20 39.22 libtool: install: chmod 644 /work/lib/libspeex.a
+#20 39.22 libtool: install: ranlib /work/lib/libspeex.a
+#20 39.29 libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out:/sbin" ldconfig -n /work/lib
+#20 39.29 ----------------------------------------------------------------------
+#20 39.29 Libraries have been installed in:
+#20 39.29    /work/lib
+#20 39.29 
+#20 39.29 If you ever happen to want to link against installed libraries
+#20 39.29 in a given directory, LIBDIR, you must either use libtool, and
+#20 39.29 specify the full pathname of the library, or use the '-LLIBDIR'
+#20 39.29 flag during linking and do at least one of the following:
+#20 39.29    - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+#20 39.29      during execution
+#20 39.29    - add LIBDIR to the 'LD_RUN_PATH' environment variable
+#20 39.29      during linking
+#20 39.29    - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+#20 39.30    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+#20 39.30 
+#20 39.30 See any operating system documentation about shared libraries for
+#20 39.30 more information, such as the ld(1) and ld.so(8) manual pages.
+#20 39.30 ----------------------------------------------------------------------
+#20 39.30 make[2]: Nothing to be done for 'install-data-am'.
+#20 39.30 make[2]: Leaving directory '/src/speex/libspeex'
+#20 39.30 make[1]: Leaving directory '/src/speex/libspeex'
+#20 39.30 Making install in include
+#20 39.30 make[1]: Entering directory '/src/speex/include'
+#20 39.31 Making install in speex
+#20 39.31 make[2]: Entering directory '/src/speex/include/speex'
+#20 39.31 make[3]: Entering directory '/src/speex/include/speex'
+#20 39.31 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.32  /usr/bin/mkdir -p '/work/include/speex'
+#20 39.32  /usr/bin/install -c -m 644 speex_config_types.h '/work/include/speex'
+#20 39.32  /usr/bin/mkdir -p '/work/include/speex'
+#20 39.33  /usr/bin/install -c -m 644 speex.h speex_bits.h speex_callbacks.h speex_header.h speex_stereo.h speex_types.h '/work/include/speex'
+#20 39.33 make[3]: Leaving directory '/src/speex/include/speex'
+#20 39.33 make[2]: Leaving directory '/src/speex/include/speex'
+#20 39.34 make[2]: Entering directory '/src/speex/include'
+#20 39.34 make[3]: Entering directory '/src/speex/include'
+#20 39.34 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.34 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.34 make[3]: Leaving directory '/src/speex/include'
+#20 39.34 make[2]: Leaving directory '/src/speex/include'
+#20 39.34 make[1]: Leaving directory '/src/speex/include'
+#20 39.34 Making install in doc
+#20 39.35 make[1]: Entering directory '/src/speex/doc'
+#20 39.35 make[2]: Entering directory '/src/speex/doc'
+#20 39.35 make[2]: Nothing to be done for 'install-exec-am'.
+#20 39.35  /usr/bin/mkdir -p '/work/share/doc/speex'
+#20 39.36  /usr/bin/install -c -m 644 manual.pdf '/work/share/doc/speex'
+#20 39.36 make[2]: Leaving directory '/src/speex/doc'
+#20 39.36 make[1]: Leaving directory '/src/speex/doc'
+#20 39.36 Making install in win32
+#20 39.36 make[1]: Entering directory '/src/speex/win32'
+#20 39.37 Making install in libspeex
+#20 39.37 make[2]: Entering directory '/src/speex/win32/libspeex'
+#20 39.38 make[3]: Entering directory '/src/speex/win32/libspeex'
+#20 39.38 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.38 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.38 make[3]: Leaving directory '/src/speex/win32/libspeex'
+#20 39.38 make[2]: Leaving directory '/src/speex/win32/libspeex'
+#20 39.38 Making install in speexenc
+#20 39.38 make[2]: Entering directory '/src/speex/win32/speexenc'
+#20 39.39 make[3]: Entering directory '/src/speex/win32/speexenc'
+#20 39.39 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.39 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.39 make[3]: Leaving directory '/src/speex/win32/speexenc'
+#20 39.39 make[2]: Leaving directory '/src/speex/win32/speexenc'
+#20 39.39 Making install in speexdec
+#20 39.39 make[2]: Entering directory '/src/speex/win32/speexdec'
+#20 39.39 make[3]: Entering directory '/src/speex/win32/speexdec'
+#20 39.39 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.39 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.39 make[3]: Leaving directory '/src/speex/win32/speexdec'
+#20 39.39 make[2]: Leaving directory '/src/speex/win32/speexdec'
+#20 39.40 Making install in VS2003
+#20 39.40 make[2]: Entering directory '/src/speex/win32/VS2003'
+#20 39.41 Making install in libspeex
+#20 39.41 make[3]: Entering directory '/src/speex/win32/VS2003/libspeex'
+#20 39.41 make[4]: Entering directory '/src/speex/win32/VS2003/libspeex'
+#20 39.41 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.41 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.41 make[4]: Leaving directory '/src/speex/win32/VS2003/libspeex'
+#20 39.41 make[3]: Leaving directory '/src/speex/win32/VS2003/libspeex'
+#20 39.41 Making install in speexenc
+#20 39.42 make[3]: Entering directory '/src/speex/win32/VS2003/speexenc'
+#20 39.42 make[4]: Entering directory '/src/speex/win32/VS2003/speexenc'
+#20 39.42 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.42 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.42 make[4]: Leaving directory '/src/speex/win32/VS2003/speexenc'
+#20 39.42 make[3]: Leaving directory '/src/speex/win32/VS2003/speexenc'
+#20 39.42 Making install in speexdec
+#20 39.42 make[3]: Entering directory '/src/speex/win32/VS2003/speexdec'
+#20 39.43 make[4]: Entering directory '/src/speex/win32/VS2003/speexdec'
+#20 39.43 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.43 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.43 make[4]: Leaving directory '/src/speex/win32/VS2003/speexdec'
+#20 39.43 make[3]: Leaving directory '/src/speex/win32/VS2003/speexdec'
+#20 39.43 Making install in tests
+#20 39.43 make[3]: Entering directory '/src/speex/win32/VS2003/tests'
+#20 39.44 make[4]: Entering directory '/src/speex/win32/VS2003/tests'
+#20 39.44 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.44 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.44 make[4]: Leaving directory '/src/speex/win32/VS2003/tests'
+#20 39.44 make[3]: Leaving directory '/src/speex/win32/VS2003/tests'
+#20 39.44 make[3]: Entering directory '/src/speex/win32/VS2003'
+#20 39.45 make[4]: Entering directory '/src/speex/win32/VS2003'
+#20 39.45 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.45 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.45 make[4]: Leaving directory '/src/speex/win32/VS2003'
+#20 39.45 make[3]: Leaving directory '/src/speex/win32/VS2003'
+#20 39.45 make[2]: Leaving directory '/src/speex/win32/VS2003'
+#20 39.45 Making install in VS2005
+#20 39.45 make[2]: Entering directory '/src/speex/win32/VS2005'
+#20 39.46 Making install in libspeex
+#20 39.46 make[3]: Entering directory '/src/speex/win32/VS2005/libspeex'
+#20 39.47 make[4]: Entering directory '/src/speex/win32/VS2005/libspeex'
+#20 39.47 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.47 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.47 make[4]: Leaving directory '/src/speex/win32/VS2005/libspeex'
+#20 39.47 make[3]: Leaving directory '/src/speex/win32/VS2005/libspeex'
+#20 39.47 Making install in speexenc
+#20 39.47 make[3]: Entering directory '/src/speex/win32/VS2005/speexenc'
+#20 39.48 make[4]: Entering directory '/src/speex/win32/VS2005/speexenc'
+#20 39.48 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.48 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.48 make[4]: Leaving directory '/src/speex/win32/VS2005/speexenc'
+#20 39.48 make[3]: Leaving directory '/src/speex/win32/VS2005/speexenc'
+#20 39.48 Making install in speexdec
+#20 39.48 make[3]: Entering directory '/src/speex/win32/VS2005/speexdec'
+#20 39.48 make[4]: Entering directory '/src/speex/win32/VS2005/speexdec'
+#20 39.48 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.48 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.48 make[4]: Leaving directory '/src/speex/win32/VS2005/speexdec'
+#20 39.48 make[3]: Leaving directory '/src/speex/win32/VS2005/speexdec'
+#20 39.48 Making install in tests
+#20 39.49 make[3]: Entering directory '/src/speex/win32/VS2005/tests'
+#20 39.49 make[4]: Entering directory '/src/speex/win32/VS2005/tests'
+#20 39.49 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.49 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.49 make[4]: Leaving directory '/src/speex/win32/VS2005/tests'
+#20 39.49 make[3]: Leaving directory '/src/speex/win32/VS2005/tests'
+#20 39.50 make[3]: Entering directory '/src/speex/win32/VS2005'
+#20 39.50 make[4]: Entering directory '/src/speex/win32/VS2005'
+#20 39.50 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.50 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.50 make[4]: Leaving directory '/src/speex/win32/VS2005'
+#20 39.50 make[3]: Leaving directory '/src/speex/win32/VS2005'
+#20 39.50 make[2]: Leaving directory '/src/speex/win32/VS2005'
+#20 39.50 Making install in VS2008
+#20 39.50 make[2]: Entering directory '/src/speex/win32/VS2008'
+#20 39.51 Making install in libspeex
+#20 39.51 make[3]: Entering directory '/src/speex/win32/VS2008/libspeex'
+#20 39.52 make[4]: Entering directory '/src/speex/win32/VS2008/libspeex'
+#20 39.52 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.52 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.52 make[4]: Leaving directory '/src/speex/win32/VS2008/libspeex'
+#20 39.52 make[3]: Leaving directory '/src/speex/win32/VS2008/libspeex'
+#20 39.52 Making install in speexenc
+#20 39.52 make[3]: Entering directory '/src/speex/win32/VS2008/speexenc'
+#20 39.53 make[4]: Entering directory '/src/speex/win32/VS2008/speexenc'
+#20 39.53 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.53 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.53 make[4]: Leaving directory '/src/speex/win32/VS2008/speexenc'
+#20 39.53 make[3]: Leaving directory '/src/speex/win32/VS2008/speexenc'
+#20 39.53 Making install in speexdec
+#20 39.53 make[3]: Entering directory '/src/speex/win32/VS2008/speexdec'
+#20 39.54 make[4]: Entering directory '/src/speex/win32/VS2008/speexdec'
+#20 39.54 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.54 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.54 make[4]: Leaving directory '/src/speex/win32/VS2008/speexdec'
+#20 39.54 make[3]: Leaving directory '/src/speex/win32/VS2008/speexdec'
+#20 39.54 Making install in tests
+#20 39.54 make[3]: Entering directory '/src/speex/win32/VS2008/tests'
+#20 39.54 make[4]: Entering directory '/src/speex/win32/VS2008/tests'
+#20 39.54 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.54 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.54 make[4]: Leaving directory '/src/speex/win32/VS2008/tests'
+#20 39.54 make[3]: Leaving directory '/src/speex/win32/VS2008/tests'
+#20 39.55 make[3]: Entering directory '/src/speex/win32/VS2008'
+#20 39.55 make[4]: Entering directory '/src/speex/win32/VS2008'
+#20 39.55 make[4]: Nothing to be done for 'install-exec-am'.
+#20 39.55 make[4]: Nothing to be done for 'install-data-am'.
+#20 39.55 make[4]: Leaving directory '/src/speex/win32/VS2008'
+#20 39.55 make[3]: Leaving directory '/src/speex/win32/VS2008'
+#20 39.55 make[2]: Leaving directory '/src/speex/win32/VS2008'
+#20 39.55 make[2]: Entering directory '/src/speex/win32'
+#20 39.56 make[3]: Entering directory '/src/speex/win32'
+#20 39.56 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.56 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.56 make[3]: Leaving directory '/src/speex/win32'
+#20 39.56 make[2]: Leaving directory '/src/speex/win32'
+#20 39.56 make[1]: Leaving directory '/src/speex/win32'
+#20 39.56 Making install in symbian
+#20 39.56 make[1]: Entering directory '/src/speex/symbian'
+#20 39.57 make[2]: Entering directory '/src/speex/symbian'
+#20 39.57 make[2]: Nothing to be done for 'install-exec-am'.
+#20 39.57 make[2]: Nothing to be done for 'install-data-am'.
+#20 39.57 make[2]: Leaving directory '/src/speex/symbian'
+#20 39.57 make[1]: Leaving directory '/src/speex/symbian'
+#20 39.57 Making install in ti
+#20 39.57 make[1]: Entering directory '/src/speex/ti'
+#20 39.58 Making install in speex_C54_test
+#20 39.58 make[2]: Entering directory '/src/speex/ti/speex_C54_test'
+#20 39.59 make[3]: Entering directory '/src/speex/ti/speex_C54_test'
+#20 39.59 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.59 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.59 make[3]: Leaving directory '/src/speex/ti/speex_C54_test'
+#20 39.59 make[2]: Leaving directory '/src/speex/ti/speex_C54_test'
+#20 39.59 Making install in speex_C55_test
+#20 39.59 make[2]: Entering directory '/src/speex/ti/speex_C55_test'
+#20 39.59 make[3]: Entering directory '/src/speex/ti/speex_C55_test'
+#20 39.59 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.59 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.59 make[3]: Leaving directory '/src/speex/ti/speex_C55_test'
+#20 39.59 make[2]: Leaving directory '/src/speex/ti/speex_C55_test'
+#20 39.59 Making install in speex_C64_test
+#20 39.60 make[2]: Entering directory '/src/speex/ti/speex_C64_test'
+#20 39.60 make[3]: Entering directory '/src/speex/ti/speex_C64_test'
+#20 39.60 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.60 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.60 make[3]: Leaving directory '/src/speex/ti/speex_C64_test'
+#20 39.60 make[2]: Leaving directory '/src/speex/ti/speex_C64_test'
+#20 39.60 make[2]: Entering directory '/src/speex/ti'
+#20 39.61 make[3]: Entering directory '/src/speex/ti'
+#20 39.61 make[3]: Nothing to be done for 'install-exec-am'.
+#20 39.61 make[3]: Nothing to be done for 'install-data-am'.
+#20 39.61 make[3]: Leaving directory '/src/speex/ti'
+#20 39.61 make[2]: Leaving directory '/src/speex/ti'
+#20 39.61 make[1]: Leaving directory '/src/speex/ti'
+#20 39.61 Making install in src
+#20 39.63 make[1]: Entering directory '/src/speex/src'
+#20 39.64 make[2]: Entering directory '/src/speex/src'
+#20 39.64  /usr/bin/mkdir -p '/work/bin'
+#20 39.65   /bin/bash ../libtool   --mode=install /usr/bin/install -c speexenc speexdec '/work/bin'
+#20 39.69 libtool: install: /usr/bin/install -c speexenc /work/bin/speexenc
+#20 39.70 libtool: install: /usr/bin/install -c speexdec /work/bin/speexdec
+#20 39.71  /usr/bin/mkdir -p '/work/share/man/man1'
+#20 39.72  /usr/bin/install -c -m 644 speexenc.1 speexdec.1 '/work/share/man/man1'
+#20 39.73 make[2]: Leaving directory '/src/speex/src'
+#20 39.73 make[1]: Leaving directory '/src/speex/src'
+#20 39.73 make[1]: Entering directory '/src/speex'
+#20 39.74 make[2]: Entering directory '/src/speex'
+#20 39.74 make[2]: Nothing to be done for 'install-exec-am'.
+#20 39.74  /usr/bin/mkdir -p '/work/share/aclocal'
+#20 39.75  /usr/bin/install -c -m 644 speex.m4 '/work/share/aclocal'
+#20 39.75  /usr/bin/mkdir -p '/work/lib/pkgconfig'
+#20 39.75  /usr/bin/install -c -m 644 speex.pc '/work/lib/pkgconfig'
+#20 39.76 make[2]: Leaving directory '/src/speex'
+#20 39.76 make[1]: Leaving directory '/src/speex'
+#20 39.76 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard contrib/oss-fuzz/speexdec_fuzzer.cc -o /out/speex_decode_fuzzer_fixed -L/work/lib -I/work/include /libAFL.a -lspeex -logg
+#20 40.29 + PKG_CONFIG_PATH=/work/lib/pkgconfig
+#20 40.29 + ./configure --prefix=/work --enable-static --disable-shared
+#20 40.51 checking whether make supports nested variables... yes
+#20 40.51 checking for a BSD-compatible install... /usr/bin/install -c
+#20 40.53 checking whether build environment is sane... yes
+#20 40.55 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 40.55 checking for gawk... no
+#20 40.55 checking for mawk... mawk
+#20 40.55 checking whether make sets $(MAKE)... yes
+#20 40.58 checking whether to enable maintainer-specific portions of Makefiles... yes
+#20 40.60 checking build system type... x86_64-pc-linux-gnu
+#20 40.67 checking host system type... x86_64-pc-linux-gnu
+#20 40.68 checking how to print strings... printf
+#20 40.73 checking whether make supports the include directive... yes (GNU style)
+#20 40.74 checking for gcc... clang
+#20 40.81 checking whether the C compiler works... yes
+#20 40.93 checking for C compiler default output file name... a.out
+#20 40.93 checking for suffix of executables... 
+#20 41.06 checking whether we are cross compiling... no
+#20 41.19 checking for suffix of object files... o
+#20 41.22 checking whether we are using the GNU C compiler... yes
+#20 41.25 checking whether clang accepts -g... yes
+#20 41.27 checking for clang option to accept ISO C89... none needed
+#20 41.32 checking whether clang understands -c and -o together... yes
+#20 41.36 checking dependency style of clang... gcc3
+#20 41.42 checking for a sed that does not truncate output... /usr/bin/sed
+#20 41.43 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 41.43 checking for egrep... /usr/bin/grep -E
+#20 41.43 checking for fgrep... /usr/bin/grep -F
+#20 41.44 checking for ld used by clang... /usr/bin/ld
+#20 41.45 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 41.46 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 41.46 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 41.50 checking whether ln -s works... yes
+#20 41.50 checking the maximum length of command line arguments... 1572864
+#20 41.51 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 41.51 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 41.51 checking for /usr/bin/ld option to reload object files... -r
+#20 41.51 checking for objdump... objdump
+#20 41.51 checking how to recognize dependent libraries... pass_all
+#20 41.51 checking for dlltool... dlltool
+#20 41.51 checking how to associate runtime and link libraries... printf %s\n
+#20 41.52 checking for ar... ar
+#20 41.52 checking for archiver @FILE support... @
+#20 41.56 checking for strip... strip
+#20 41.56 checking for ranlib... ranlib
+#20 41.56 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 41.73 checking for sysroot... no
+#20 41.73 checking for a working dd... /usr/bin/dd
+#20 41.74 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 41.77 checking for mt... no
+#20 41.77 checking if : is a manifest tool... no
+#20 41.78 checking how to run the C preprocessor... clang -E
+#20 41.88 checking for ANSI C header files... yes
+#20 42.13 checking for sys/types.h... yes
+#20 42.18 checking for sys/stat.h... yes
+#20 42.24 checking for stdlib.h... yes
+#20 42.30 checking for string.h... yes
+#20 42.36 checking for memory.h... yes
+#20 42.42 checking for strings.h... yes
+#20 42.48 checking for inttypes.h... yes
+#20 42.54 checking for stdint.h... yes
+#20 42.60 checking for unistd.h... yes
+#20 42.66 checking for dlfcn.h... yes
+#20 42.72 checking for objdir... .libs
+#20 42.88 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 42.92 checking for clang option to produce PIC... -fPIC -DPIC
+#20 42.92 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 42.95 checking if clang static flag -static works... yes
+#20 43.12 checking if clang supports -c -o file.o... yes
+#20 43.17 checking if clang supports -c -o file.o... (cached) yes
+#20 43.17 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 43.19 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 43.35 checking how to hardcode library paths into programs... immediate
+#20 43.35 checking whether stripping libraries is possible... yes
+#20 43.36 checking if libtool supports shared libraries... yes
+#20 43.36 checking whether to build shared libraries... no
+#20 43.36 checking whether to build static libraries... yes
+#20 43.36 checking whether byte ordering is bigendian... no
+#20 43.47 checking for an ANSI C-conforming const... yes
+#20 43.50 checking for inline... inline
+#20 43.53 checking for C/C++ restrict keyword... __restrict
+#20 43.56 checking for C99 variable-size arrays... yes
+#20 43.59 checking alloca.h usability... yes
+#20 43.65 checking alloca.h presence... yes
+#20 43.67 checking for alloca.h... yes
+#20 43.68 checking getopt.h usability... yes
+#20 43.74 checking getopt.h presence... yes
+#20 43.76 checking for getopt.h... yes
+#20 43.77 checking for alloca... yes
+#20 43.81 checking for SSE in current arch/CFLAGS... yes
+#20 44.00 checking for ELF visibility... yes
+#20 44.03 checking sys/soundcard.h usability... yes
+#20 44.09 checking sys/soundcard.h presence... yes
+#20 44.12 checking for sys/soundcard.h... yes
+#20 44.13 checking sys/audioio.h usability... no
+#20 44.19 checking sys/audioio.h presence... no
+#20 44.22 checking for sys/audioio.h... no
+#20 44.22 checking for cos in -lm... yes
+#20 44.35 checking for getopt_long... yes
+#20 44.49 checking for pkg-config... /usr/bin/pkg-config
+#20 44.49 checking pkg-config is at least version 0.9.0... yes
+#20 44.49 checking for OGG... yes
+#20 44.51 checking for SPEEXDSP... no
+#20 44.52 checking size of int16_t... 2
+#20 44.70 checking size of uint16_t... 2
+#20 44.88 checking size of u_int16_t... 2
+#20 45.04 checking size of int32_t... 4
+#20 45.21 checking size of uint32_t... 4
+#20 45.38 checking size of u_int32_t... 4
+#20 45.55 checking size of short... 2
+#20 45.72 checking size of int... 4
+#20 45.88 checking size of long... 8
+#20 46.05 checking if clang accepts -Wall... yes
+#20 46.16 checking that generated files are newer than configure... done
+#20 46.16 configure: creating ./config.status
+#20 46.96 config.status: creating Makefile
+#20 46.98 config.status: creating libspeex/Makefile
+#20 47.00 config.status: creating src/Makefile
+#20 47.03 config.status: creating doc/Makefile
+#20 47.06 config.status: creating Speex.spec
+#20 47.08 config.status: creating include/Makefile
+#20 47.11 config.status: creating include/speex/Makefile
+#20 47.13 config.status: creating speex.pc
+#20 47.15 config.status: creating win32/Makefile
+#20 47.18 config.status: creating win32/libspeex/Makefile
+#20 47.21 config.status: creating win32/speexenc/Makefile
+#20 47.23 config.status: creating win32/speexdec/Makefile
+#20 47.26 config.status: creating symbian/Makefile
+#20 47.28 config.status: creating win32/VS2003/Makefile
+#20 47.31 config.status: creating win32/VS2003/tests/Makefile
+#20 47.34 config.status: creating win32/VS2003/libspeex/Makefile
+#20 47.36 config.status: creating win32/VS2003/speexdec/Makefile
+#20 47.39 config.status: creating win32/VS2003/speexenc/Makefile
+#20 47.41 config.status: creating win32/VS2005/Makefile
+#20 47.44 config.status: creating win32/VS2005/libspeex/Makefile
+#20 47.47 config.status: creating win32/VS2005/speexdec/Makefile
+#20 47.49 config.status: creating win32/VS2005/speexenc/Makefile
+#20 47.52 config.status: creating win32/VS2005/tests/Makefile
+#20 47.54 config.status: creating win32/VS2008/Makefile
+#20 47.57 config.status: creating win32/VS2008/speexdec/Makefile
+#20 47.60 config.status: creating win32/VS2008/tests/Makefile
+#20 47.62 config.status: creating win32/VS2008/libspeex/Makefile
+#20 47.65 config.status: creating win32/VS2008/speexenc/Makefile
+#20 47.67 config.status: creating include/speex/speex_config_types.h
+#20 47.70 config.status: creating ti/Makefile
+#20 47.73 config.status: creating ti/speex_C54_test/Makefile
+#20 47.76 config.status: creating ti/speex_C55_test/Makefile
+#20 47.78 config.status: creating ti/speex_C64_test/Makefile
+#20 47.81 config.status: creating config.h
+#20 47.82 config.status: config.h is unchanged
+#20 47.82 config.status: executing depfiles commands
+#20 48.02 config.status: executing libtool commands
+#20 48.04 Type "make; make install" to compile and install Speex
+#20 48.11 ++ nproc
+#20 48.11 + make -j8
+#20 48.12 make  all-recursive
+#20 48.13 make[1]: Entering directory '/src/speex'
+#20 48.13 Making all in libspeex
+#20 48.15 make[2]: Entering directory '/src/speex/libspeex'
+#20 48.15   CC       testenc.o
+#20 48.15   CC       cb_search.lo
+#20 48.15   CC       filters.lo
+#20 48.15   CC       lsp.lo
+#20 48.15   CC       ltp.lo
+#20 48.15   CC       speex.lo
+#20 48.15   CC       stereo.lo
+#20 48.15   CC       vbr.lo
+#20 48.30   CC       vq.lo
+#20 48.40   CC       bits.lo
+#20 48.46   CC       lpc.lo
+#20 48.49   CC       modes.lo
+#20 48.54   CC       modes_wb.lo
+#20 48.65   CC       nb_celp.lo
+#20 48.67   CC       quant_lsp.lo
+#20 48.69   CC       sb_celp.lo
+#20 48.76   CC       speex_callbacks.lo
+#20 48.78   CC       speex_header.lo
+#20 48.96   CC       window.lo
+#20 48.98   CC       testenc_wb.o
+#20 49.09   CC       testenc_uwb.o
+#20 49.98   CCLD     libspeex.la
+#20 50.19   CCLD     testenc
+#20 50.19   CCLD     testenc_wb
+#20 50.19   CCLD     testenc_uwb
+#20 50.47 make[2]: Leaving directory '/src/speex/libspeex'
+#20 50.47 Making all in include
+#20 50.47 make[2]: Entering directory '/src/speex/include'
+#20 50.48 Making all in speex
+#20 50.48 make[3]: Entering directory '/src/speex/include/speex'
+#20 50.48 make[3]: Nothing to be done for 'all'.
+#20 50.48 make[3]: Leaving directory '/src/speex/include/speex'
+#20 50.49 make[3]: Entering directory '/src/speex/include'
+#20 50.49 make[3]: Nothing to be done for 'all-am'.
+#20 50.49 make[3]: Leaving directory '/src/speex/include'
+#20 50.49 make[2]: Leaving directory '/src/speex/include'
+#20 50.49 Making all in doc
+#20 50.49 make[2]: Entering directory '/src/speex/doc'
+#20 50.49 make[2]: Nothing to be done for 'all'.
+#20 50.49 make[2]: Leaving directory '/src/speex/doc'
+#20 50.49 Making all in win32
+#20 50.50 make[2]: Entering directory '/src/speex/win32'
+#20 50.50 Making all in libspeex
+#20 50.51 make[3]: Entering directory '/src/speex/win32/libspeex'
+#20 50.51 make[3]: Nothing to be done for 'all'.
+#20 50.51 make[3]: Leaving directory '/src/speex/win32/libspeex'
+#20 50.51 Making all in speexenc
+#20 50.51 make[3]: Entering directory '/src/speex/win32/speexenc'
+#20 50.51 make[3]: Nothing to be done for 'all'.
+#20 50.51 make[3]: Leaving directory '/src/speex/win32/speexenc'
+#20 50.51 Making all in speexdec
+#20 50.51 make[3]: Entering directory '/src/speex/win32/speexdec'
+#20 50.51 make[3]: Nothing to be done for 'all'.
+#20 50.51 make[3]: Leaving directory '/src/speex/win32/speexdec'
+#20 50.51 Making all in VS2003
+#20 50.52 make[3]: Entering directory '/src/speex/win32/VS2003'
+#20 50.52 Making all in libspeex
+#20 50.53 make[4]: Entering directory '/src/speex/win32/VS2003/libspeex'
+#20 50.53 make[4]: Nothing to be done for 'all'.
+#20 50.53 make[4]: Leaving directory '/src/speex/win32/VS2003/libspeex'
+#20 50.53 Making all in speexenc
+#20 50.53 make[4]: Entering directory '/src/speex/win32/VS2003/speexenc'
+#20 50.53 make[4]: Nothing to be done for 'all'.
+#20 50.53 make[4]: Leaving directory '/src/speex/win32/VS2003/speexenc'
+#20 50.53 Making all in speexdec
+#20 50.53 make[4]: Entering directory '/src/speex/win32/VS2003/speexdec'
+#20 50.53 make[4]: Nothing to be done for 'all'.
+#20 50.53 make[4]: Leaving directory '/src/speex/win32/VS2003/speexdec'
+#20 50.53 Making all in tests
+#20 50.54 make[4]: Entering directory '/src/speex/win32/VS2003/tests'
+#20 50.54 make[4]: Nothing to be done for 'all'.
+#20 50.54 make[4]: Leaving directory '/src/speex/win32/VS2003/tests'
+#20 50.54 make[4]: Entering directory '/src/speex/win32/VS2003'
+#20 50.54 make[4]: Nothing to be done for 'all-am'.
+#20 50.54 make[4]: Leaving directory '/src/speex/win32/VS2003'
+#20 50.54 make[3]: Leaving directory '/src/speex/win32/VS2003'
+#20 50.54 Making all in VS2005
+#20 50.54 make[3]: Entering directory '/src/speex/win32/VS2005'
+#20 50.55 Making all in libspeex
+#20 50.55 make[4]: Entering directory '/src/speex/win32/VS2005/libspeex'
+#20 50.55 make[4]: Nothing to be done for 'all'.
+#20 50.55 make[4]: Leaving directory '/src/speex/win32/VS2005/libspeex'
+#20 50.55 Making all in speexenc
+#20 50.56 make[4]: Entering directory '/src/speex/win32/VS2005/speexenc'
+#20 50.56 make[4]: Nothing to be done for 'all'.
+#20 50.56 make[4]: Leaving directory '/src/speex/win32/VS2005/speexenc'
+#20 50.56 Making all in speexdec
+#20 50.56 make[4]: Entering directory '/src/speex/win32/VS2005/speexdec'
+#20 50.56 make[4]: Nothing to be done for 'all'.
+#20 50.56 make[4]: Leaving directory '/src/speex/win32/VS2005/speexdec'
+#20 50.56 Making all in tests
+#20 50.56 make[4]: Entering directory '/src/speex/win32/VS2005/tests'
+#20 50.56 make[4]: Nothing to be done for 'all'.
+#20 50.56 make[4]: Leaving directory '/src/speex/win32/VS2005/tests'
+#20 50.57 make[4]: Entering directory '/src/speex/win32/VS2005'
+#20 50.57 make[4]: Nothing to be done for 'all-am'.
+#20 50.57 make[4]: Leaving directory '/src/speex/win32/VS2005'
+#20 50.57 make[3]: Leaving directory '/src/speex/win32/VS2005'
+#20 50.57 Making all in VS2008
+#20 50.57 make[3]: Entering directory '/src/speex/win32/VS2008'
+#20 50.58 Making all in libspeex
+#20 50.58 make[4]: Entering directory '/src/speex/win32/VS2008/libspeex'
+#20 50.58 make[4]: Nothing to be done for 'all'.
+#20 50.58 make[4]: Leaving directory '/src/speex/win32/VS2008/libspeex'
+#20 50.58 Making all in speexenc
+#20 50.58 make[4]: Entering directory '/src/speex/win32/VS2008/speexenc'
+#20 50.58 make[4]: Nothing to be done for 'all'.
+#20 50.58 make[4]: Leaving directory '/src/speex/win32/VS2008/speexenc'
+#20 50.59 Making all in speexdec
+#20 50.59 make[4]: Entering directory '/src/speex/win32/VS2008/speexdec'
+#20 50.59 make[4]: Nothing to be done for 'all'.
+#20 50.59 make[4]: Leaving directory '/src/speex/win32/VS2008/speexdec'
+#20 50.59 Making all in tests
+#20 50.59 make[4]: Entering directory '/src/speex/win32/VS2008/tests'
+#20 50.59 make[4]: Nothing to be done for 'all'.
+#20 50.59 make[4]: Leaving directory '/src/speex/win32/VS2008/tests'
+#20 50.60 make[4]: Entering directory '/src/speex/win32/VS2008'
+#20 50.60 make[4]: Nothing to be done for 'all-am'.
+#20 50.60 make[4]: Leaving directory '/src/speex/win32/VS2008'
+#20 50.60 make[3]: Leaving directory '/src/speex/win32/VS2008'
+#20 50.60 make[3]: Entering directory '/src/speex/win32'
+#20 50.60 make[3]: Nothing to be done for 'all-am'.
+#20 50.60 make[3]: Leaving directory '/src/speex/win32'
+#20 50.60 make[2]: Leaving directory '/src/speex/win32'
+#20 50.60 Making all in symbian
+#20 50.60 make[2]: Entering directory '/src/speex/symbian'
+#20 50.60 make[2]: Nothing to be done for 'all'.
+#20 50.60 make[2]: Leaving directory '/src/speex/symbian'
+#20 50.60 Making all in ti
+#20 50.61 make[2]: Entering directory '/src/speex/ti'
+#20 50.61 Making all in speex_C54_test
+#20 50.62 make[3]: Entering directory '/src/speex/ti/speex_C54_test'
+#20 50.62 make[3]: Nothing to be done for 'all'.
+#20 50.62 make[3]: Leaving directory '/src/speex/ti/speex_C54_test'
+#20 50.62 Making all in speex_C55_test
+#20 50.62 make[3]: Entering directory '/src/speex/ti/speex_C55_test'
+#20 50.62 make[3]: Nothing to be done for 'all'.
+#20 50.62 make[3]: Leaving directory '/src/speex/ti/speex_C55_test'
+#20 50.62 Making all in speex_C64_test
+#20 50.63 make[3]: Entering directory '/src/speex/ti/speex_C64_test'
+#20 50.63 make[3]: Nothing to be done for 'all'.
+#20 50.63 make[3]: Leaving directory '/src/speex/ti/speex_C64_test'
+#20 50.63 make[3]: Entering directory '/src/speex/ti'
+#20 50.63 make[3]: Nothing to be done for 'all-am'.
+#20 50.63 make[3]: Leaving directory '/src/speex/ti'
+#20 50.63 make[2]: Leaving directory '/src/speex/ti'
+#20 50.63 Making all in src
+#20 50.64 make[2]: Entering directory '/src/speex/src'
+#20 50.64   CC       speexenc.o
+#20 50.64   CC       wav_io.o
+#20 50.65   CC       speexdec.o
+#20 50.71 speexenc.c:345:8: warning: variable 'bytes_written' set but not used [-Wunused-but-set-variable]
+#20 50.71    int bytes_written=0, ret, result;
+#20 50.71        ^
+#20 50.73 speexdec.c:670:58: warning: implicit conversion from 'int' to 'float' changes value from 2147483647 to 2147483648 [-Wimplicit-const-int-float-conversion]
+#20 50.73                if (loss_percent>0 && 100*((float)rand())/RAND_MAX<loss_percent)
+#20 50.73                                                         ~^~~~~~~~
+#20 50.73 /usr/include/stdlib.h:86:18: note: expanded from macro 'RAND_MAX'
+#20 50.73 #define RAND_MAX        2147483647
+#20 50.73                         ^~~~~~~~~~
+#20 50.92 1 warning generated.
+#20 50.93   CCLD     speexdec
+#20 51.05 1 warning generated.
+#20 51.06   CCLD     speexenc
+#20 51.33 make[2]: Leaving directory '/src/speex/src'
+#20 51.33 make[2]: Entering directory '/src/speex'
+#20 51.34 make[2]: Leaving directory '/src/speex'
+#20 51.34 make[1]: Leaving directory '/src/speex'
+#20 51.34 + make install
+#20 51.35 Making install in libspeex
+#20 51.37 make[1]: Entering directory '/src/speex/libspeex'
+#20 51.38 make[2]: Entering directory '/src/speex/libspeex'
+#20 51.39  /usr/bin/mkdir -p '/work/lib'
+#20 51.39  /bin/bash ../libtool   --mode=install /usr/bin/install -c   libspeex.la '/work/lib'
+#20 51.43 libtool: install: /usr/bin/install -c .libs/libspeex.lai /work/lib/libspeex.la
+#20 51.43 libtool: install: /usr/bin/install -c .libs/libspeex.a /work/lib/libspeex.a
+#20 51.44 libtool: install: chmod 644 /work/lib/libspeex.a
+#20 51.44 libtool: install: ranlib /work/lib/libspeex.a
+#20 51.52 libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out:/sbin" ldconfig -n /work/lib
+#20 51.52 ----------------------------------------------------------------------
+#20 51.52 Libraries have been installed in:
+#20 51.52    /work/lib
+#20 51.52 
+#20 51.52 If you ever happen to want to link against installed libraries
+#20 51.52 in a given directory, LIBDIR, you must either use libtool, and
+#20 51.52 specify the full pathname of the library, or use the '-LLIBDIR'
+#20 51.52 flag during linking and do at least one of the following:
+#20 51.52    - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+#20 51.52      during execution
+#20 51.52    - add LIBDIR to the 'LD_RUN_PATH' environment variable
+#20 51.52      during linking
+#20 51.52    - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+#20 51.52    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+#20 51.52 
+#20 51.52 See any operating system documentation about shared libraries for
+#20 51.52 more information, such as the ld(1) and ld.so(8) manual pages.
+#20 51.52 ----------------------------------------------------------------------
+#20 51.52 make[2]: Nothing to be done for 'install-data-am'.
+#20 51.52 make[2]: Leaving directory '/src/speex/libspeex'
+#20 51.52 make[1]: Leaving directory '/src/speex/libspeex'
+#20 51.52 Making install in include
+#20 51.52 make[1]: Entering directory '/src/speex/include'
+#20 51.53 Making install in speex
+#20 51.53 make[2]: Entering directory '/src/speex/include/speex'
+#20 51.54 make[3]: Entering directory '/src/speex/include/speex'
+#20 51.54 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.54  /usr/bin/mkdir -p '/work/include/speex'
+#20 51.55  /usr/bin/install -c -m 644 speex_config_types.h '/work/include/speex'
+#20 51.55  /usr/bin/mkdir -p '/work/include/speex'
+#20 51.56  /usr/bin/install -c -m 644 speex.h speex_bits.h speex_callbacks.h speex_header.h speex_stereo.h speex_types.h '/work/include/speex'
+#20 51.56 make[3]: Leaving directory '/src/speex/include/speex'
+#20 51.56 make[2]: Leaving directory '/src/speex/include/speex'
+#20 51.56 make[2]: Entering directory '/src/speex/include'
+#20 51.57 make[3]: Entering directory '/src/speex/include'
+#20 51.57 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.57 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.57 make[3]: Leaving directory '/src/speex/include'
+#20 51.57 make[2]: Leaving directory '/src/speex/include'
+#20 51.57 make[1]: Leaving directory '/src/speex/include'
+#20 51.57 Making install in doc
+#20 51.57 make[1]: Entering directory '/src/speex/doc'
+#20 51.58 make[2]: Entering directory '/src/speex/doc'
+#20 51.58 make[2]: Nothing to be done for 'install-exec-am'.
+#20 51.58  /usr/bin/mkdir -p '/work/share/doc/speex'
+#20 51.58  /usr/bin/install -c -m 644 manual.pdf '/work/share/doc/speex'
+#20 51.59 make[2]: Leaving directory '/src/speex/doc'
+#20 51.59 make[1]: Leaving directory '/src/speex/doc'
+#20 51.59 Making install in win32
+#20 51.59 make[1]: Entering directory '/src/speex/win32'
+#20 51.60 Making install in libspeex
+#20 51.60 make[2]: Entering directory '/src/speex/win32/libspeex'
+#20 51.60 make[3]: Entering directory '/src/speex/win32/libspeex'
+#20 51.60 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.60 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.60 make[3]: Leaving directory '/src/speex/win32/libspeex'
+#20 51.60 make[2]: Leaving directory '/src/speex/win32/libspeex'
+#20 51.60 Making install in speexenc
+#20 51.61 make[2]: Entering directory '/src/speex/win32/speexenc'
+#20 51.61 make[3]: Entering directory '/src/speex/win32/speexenc'
+#20 51.61 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.61 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.61 make[3]: Leaving directory '/src/speex/win32/speexenc'
+#20 51.61 make[2]: Leaving directory '/src/speex/win32/speexenc'
+#20 51.61 Making install in speexdec
+#20 51.62 make[2]: Entering directory '/src/speex/win32/speexdec'
+#20 51.62 make[3]: Entering directory '/src/speex/win32/speexdec'
+#20 51.62 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.62 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.62 make[3]: Leaving directory '/src/speex/win32/speexdec'
+#20 51.62 make[2]: Leaving directory '/src/speex/win32/speexdec'
+#20 51.62 Making install in VS2003
+#20 51.62 make[2]: Entering directory '/src/speex/win32/VS2003'
+#20 51.63 Making install in libspeex
+#20 51.63 make[3]: Entering directory '/src/speex/win32/VS2003/libspeex'
+#20 51.64 make[4]: Entering directory '/src/speex/win32/VS2003/libspeex'
+#20 51.64 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.64 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.64 make[4]: Leaving directory '/src/speex/win32/VS2003/libspeex'
+#20 51.64 make[3]: Leaving directory '/src/speex/win32/VS2003/libspeex'
+#20 51.64 Making install in speexenc
+#20 51.64 make[3]: Entering directory '/src/speex/win32/VS2003/speexenc'
+#20 51.65 make[4]: Entering directory '/src/speex/win32/VS2003/speexenc'
+#20 51.65 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.65 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.65 make[4]: Leaving directory '/src/speex/win32/VS2003/speexenc'
+#20 51.65 make[3]: Leaving directory '/src/speex/win32/VS2003/speexenc'
+#20 51.65 Making install in speexdec
+#20 51.65 make[3]: Entering directory '/src/speex/win32/VS2003/speexdec'
+#20 51.65 make[4]: Entering directory '/src/speex/win32/VS2003/speexdec'
+#20 51.65 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.65 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.65 make[4]: Leaving directory '/src/speex/win32/VS2003/speexdec'
+#20 51.65 make[3]: Leaving directory '/src/speex/win32/VS2003/speexdec'
+#20 51.66 Making install in tests
+#20 51.66 make[3]: Entering directory '/src/speex/win32/VS2003/tests'
+#20 51.66 make[4]: Entering directory '/src/speex/win32/VS2003/tests'
+#20 51.66 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.66 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.66 make[4]: Leaving directory '/src/speex/win32/VS2003/tests'
+#20 51.66 make[3]: Leaving directory '/src/speex/win32/VS2003/tests'
+#20 51.67 make[3]: Entering directory '/src/speex/win32/VS2003'
+#20 51.67 make[4]: Entering directory '/src/speex/win32/VS2003'
+#20 51.67 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.67 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.67 make[4]: Leaving directory '/src/speex/win32/VS2003'
+#20 51.67 make[3]: Leaving directory '/src/speex/win32/VS2003'
+#20 51.67 make[2]: Leaving directory '/src/speex/win32/VS2003'
+#20 51.67 Making install in VS2005
+#20 51.68 make[2]: Entering directory '/src/speex/win32/VS2005'
+#20 51.68 Making install in libspeex
+#20 51.69 make[3]: Entering directory '/src/speex/win32/VS2005/libspeex'
+#20 51.69 make[4]: Entering directory '/src/speex/win32/VS2005/libspeex'
+#20 51.69 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.69 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.69 make[4]: Leaving directory '/src/speex/win32/VS2005/libspeex'
+#20 51.69 make[3]: Leaving directory '/src/speex/win32/VS2005/libspeex'
+#20 51.69 Making install in speexenc
+#20 51.69 make[3]: Entering directory '/src/speex/win32/VS2005/speexenc'
+#20 51.70 make[4]: Entering directory '/src/speex/win32/VS2005/speexenc'
+#20 51.70 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.70 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.70 make[4]: Leaving directory '/src/speex/win32/VS2005/speexenc'
+#20 51.70 make[3]: Leaving directory '/src/speex/win32/VS2005/speexenc'
+#20 51.70 Making install in speexdec
+#20 51.70 make[3]: Entering directory '/src/speex/win32/VS2005/speexdec'
+#20 51.71 make[4]: Entering directory '/src/speex/win32/VS2005/speexdec'
+#20 51.71 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.71 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.71 make[4]: Leaving directory '/src/speex/win32/VS2005/speexdec'
+#20 51.71 make[3]: Leaving directory '/src/speex/win32/VS2005/speexdec'
+#20 51.71 Making install in tests
+#20 51.71 make[3]: Entering directory '/src/speex/win32/VS2005/tests'
+#20 51.71 make[4]: Entering directory '/src/speex/win32/VS2005/tests'
+#20 51.71 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.71 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.71 make[4]: Leaving directory '/src/speex/win32/VS2005/tests'
+#20 51.72 make[3]: Leaving directory '/src/speex/win32/VS2005/tests'
+#20 51.72 make[3]: Entering directory '/src/speex/win32/VS2005'
+#20 51.72 make[4]: Entering directory '/src/speex/win32/VS2005'
+#20 51.72 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.72 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.72 make[4]: Leaving directory '/src/speex/win32/VS2005'
+#20 51.72 make[3]: Leaving directory '/src/speex/win32/VS2005'
+#20 51.72 make[2]: Leaving directory '/src/speex/win32/VS2005'
+#20 51.72 Making install in VS2008
+#20 51.73 make[2]: Entering directory '/src/speex/win32/VS2008'
+#20 51.73 Making install in libspeex
+#20 51.74 make[3]: Entering directory '/src/speex/win32/VS2008/libspeex'
+#20 51.74 make[4]: Entering directory '/src/speex/win32/VS2008/libspeex'
+#20 51.74 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.74 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.74 make[4]: Leaving directory '/src/speex/win32/VS2008/libspeex'
+#20 51.74 make[3]: Leaving directory '/src/speex/win32/VS2008/libspeex'
+#20 51.74 Making install in speexenc
+#20 51.74 make[3]: Entering directory '/src/speex/win32/VS2008/speexenc'
+#20 51.75 make[4]: Entering directory '/src/speex/win32/VS2008/speexenc'
+#20 51.75 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.75 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.75 make[4]: Leaving directory '/src/speex/win32/VS2008/speexenc'
+#20 51.75 make[3]: Leaving directory '/src/speex/win32/VS2008/speexenc'
+#20 51.75 Making install in speexdec
+#20 51.75 make[3]: Entering directory '/src/speex/win32/VS2008/speexdec'
+#20 51.76 make[4]: Entering directory '/src/speex/win32/VS2008/speexdec'
+#20 51.76 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.76 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.76 make[4]: Leaving directory '/src/speex/win32/VS2008/speexdec'
+#20 51.76 make[3]: Leaving directory '/src/speex/win32/VS2008/speexdec'
+#20 51.76 Making install in tests
+#20 51.76 make[3]: Entering directory '/src/speex/win32/VS2008/tests'
+#20 51.76 make[4]: Entering directory '/src/speex/win32/VS2008/tests'
+#20 51.76 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.76 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.76 make[4]: Leaving directory '/src/speex/win32/VS2008/tests'
+#20 51.76 make[3]: Leaving directory '/src/speex/win32/VS2008/tests'
+#20 51.77 make[3]: Entering directory '/src/speex/win32/VS2008'
+#20 51.77 make[4]: Entering directory '/src/speex/win32/VS2008'
+#20 51.77 make[4]: Nothing to be done for 'install-exec-am'.
+#20 51.77 make[4]: Nothing to be done for 'install-data-am'.
+#20 51.77 make[4]: Leaving directory '/src/speex/win32/VS2008'
+#20 51.77 make[3]: Leaving directory '/src/speex/win32/VS2008'
+#20 51.77 make[2]: Leaving directory '/src/speex/win32/VS2008'
+#20 51.78 make[2]: Entering directory '/src/speex/win32'
+#20 51.78 make[3]: Entering directory '/src/speex/win32'
+#20 51.78 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.78 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.78 make[3]: Leaving directory '/src/speex/win32'
+#20 51.78 make[2]: Leaving directory '/src/speex/win32'
+#20 51.78 make[1]: Leaving directory '/src/speex/win32'
+#20 51.78 Making install in symbian
+#20 51.78 make[1]: Entering directory '/src/speex/symbian'
+#20 51.79 make[2]: Entering directory '/src/speex/symbian'
+#20 51.79 make[2]: Nothing to be done for 'install-exec-am'.
+#20 51.79 make[2]: Nothing to be done for 'install-data-am'.
+#20 51.79 make[2]: Leaving directory '/src/speex/symbian'
+#20 51.79 make[1]: Leaving directory '/src/speex/symbian'
+#20 51.79 Making install in ti
+#20 51.79 make[1]: Entering directory '/src/speex/ti'
+#20 51.80 Making install in speex_C54_test
+#20 51.80 make[2]: Entering directory '/src/speex/ti/speex_C54_test'
+#20 51.81 make[3]: Entering directory '/src/speex/ti/speex_C54_test'
+#20 51.81 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.81 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.81 make[3]: Leaving directory '/src/speex/ti/speex_C54_test'
+#20 51.81 make[2]: Leaving directory '/src/speex/ti/speex_C54_test'
+#20 51.81 Making install in speex_C55_test
+#20 51.81 make[2]: Entering directory '/src/speex/ti/speex_C55_test'
+#20 51.81 make[3]: Entering directory '/src/speex/ti/speex_C55_test'
+#20 51.81 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.81 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.81 make[3]: Leaving directory '/src/speex/ti/speex_C55_test'
+#20 51.81 make[2]: Leaving directory '/src/speex/ti/speex_C55_test'
+#20 51.81 Making install in speex_C64_test
+#20 51.82 make[2]: Entering directory '/src/speex/ti/speex_C64_test'
+#20 51.82 make[3]: Entering directory '/src/speex/ti/speex_C64_test'
+#20 51.82 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.82 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.82 make[3]: Leaving directory '/src/speex/ti/speex_C64_test'
+#20 51.82 make[2]: Leaving directory '/src/speex/ti/speex_C64_test'
+#20 51.83 make[2]: Entering directory '/src/speex/ti'
+#20 51.83 make[3]: Entering directory '/src/speex/ti'
+#20 51.83 make[3]: Nothing to be done for 'install-exec-am'.
+#20 51.83 make[3]: Nothing to be done for 'install-data-am'.
+#20 51.83 make[3]: Leaving directory '/src/speex/ti'
+#20 51.83 make[2]: Leaving directory '/src/speex/ti'
+#20 51.83 make[1]: Leaving directory '/src/speex/ti'
+#20 51.83 Making install in src
+#20 51.85 make[1]: Entering directory '/src/speex/src'
+#20 51.86 make[2]: Entering directory '/src/speex/src'
+#20 51.86  /usr/bin/mkdir -p '/work/bin'
+#20 51.87   /bin/bash ../libtool   --mode=install /usr/bin/install -c speexenc speexdec '/work/bin'
+#20 51.91 libtool: install: /usr/bin/install -c speexenc /work/bin/speexenc
+#20 51.92 libtool: install: /usr/bin/install -c speexdec /work/bin/speexdec
+#20 51.94  /usr/bin/mkdir -p '/work/share/man/man1'
+#20 51.94  /usr/bin/install -c -m 644 speexenc.1 speexdec.1 '/work/share/man/man1'
+#20 51.95 make[2]: Leaving directory '/src/speex/src'
+#20 51.95 make[1]: Leaving directory '/src/speex/src'
+#20 51.95 make[1]: Entering directory '/src/speex'
+#20 51.96 make[2]: Entering directory '/src/speex'
+#20 51.96 make[2]: Nothing to be done for 'install-exec-am'.
+#20 51.96  /usr/bin/mkdir -p '/work/share/aclocal'
+#20 51.96  /usr/bin/install -c -m 644 speex.m4 '/work/share/aclocal'
+#20 51.97  /usr/bin/mkdir -p '/work/lib/pkgconfig'
+#20 51.97  /usr/bin/install -c -m 644 speex.pc '/work/lib/pkgconfig'
+#20 51.98 make[2]: Leaving directory '/src/speex'
+#20 51.98 make[1]: Leaving directory '/src/speex'
+#20 51.98 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard contrib/oss-fuzz/speexdec_fuzzer.cc -o /out/speex_decode_fuzzer_float -L/work/lib -I/work/include /libAFL.a -lspeex -logg
+#20 52.51 + cd src/
+#20 52.51 + ./generate-samples.sh
+#20 52.51 --2022-02-18 02:23:17--  https://www.speex.org/samples/audio/male.wav
+#20 52.52 Resolving www.speex.org (www.speex.org)... 140.211.166.31
+#20 52.52 Connecting to www.speex.org (www.speex.org)|140.211.166.31|:443... connected.
+#20 52.86 HTTP request sent, awaiting response... 200 OK
+#20 53.37 Length: 96044 (94K) [application/octet-stream]
+#20 53.37 Saving to: ‘male.wav’
+#20 53.37 
+#20 53.37      0K .......... .......... .......... .......... .......... 53%  295K 0s
+#20 53.54     50K .......... .......... .......... .......... ...       100% 17.7M=0.2s
+#20 53.54 
+#20 53.54 2022-02-18 02:23:19 (545 KB/s) - ‘male.wav’ saved [96044/96044]
+#20 53.54 
+#20 53.55 --2022-02-18 02:23:19--  https://www.speex.org/samples/audio/female.wav
+#20 53.55 Resolving www.speex.org (www.speex.org)... 140.211.166.31
+#20 53.55 Connecting to www.speex.org (www.speex.org)|140.211.166.31|:443... connected.
+#20 53.90 HTTP request sent, awaiting response... 200 OK
+#20 54.40 Length: 96044 (94K) [application/octet-stream]
+#20 54.40 Saving to: ‘female.wav’
+#20 54.40 
+#20 54.40      0K .......... .......... .......... .......... .......... 53%  295K 0s
+#20 54.57     50K .......... .......... .......... .......... ...       100% 20.9M=0.2s
+#20 54.57 
+#20 54.57 2022-02-18 02:23:20 (547 KB/s) - ‘female.wav’ saved [96044/96044]
+#20 54.57 
+#20 54.58 --2022-02-18 02:23:20--  https://www.speex.org/samples/audio/wb_male.wav
+#20 54.58 Resolving www.speex.org (www.speex.org)... 140.211.166.31
+#20 54.58 Connecting to www.speex.org (www.speex.org)|140.211.166.31|:443... connected.
+#20 54.93 HTTP request sent, awaiting response... 200 OK
+#20 55.44 Length: 212992 (208K) [application/octet-stream]
+#20 55.44 Saving to: ‘wb_male.wav’
+#20 55.44 
+#20 55.44      0K .......... .......... .......... .......... .......... 24%  292K 1s
+#20 55.61     50K .......... .......... .......... .......... .......... 48%  295K 0s
+#20 55.78    100K .......... .......... .......... .......... .......... 72% 13.1M 0s
+#20 55.79    150K .......... .......... .......... .......... .......... 96% 1.24M 0s
+#20 55.82    200K ........                                              100% 71.6M=0.4s
+#20 55.83 
+#20 55.83 2022-02-18 02:23:21 (542 KB/s) - ‘wb_male.wav’ saved [212992/212992]
+#20 55.83 
+#20 55.83 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 55.87 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 55.97 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.01 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.11 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.17 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.27 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.32 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.43 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.51 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.61 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.68 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.78 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.85 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 56.94 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 57.01 Encoding 8000 Hz audio using narrowband mode (mono)
+#20 57.11 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 57.19 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 57.36 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 57.43 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 57.60 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 57.70 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 57.87 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 57.96 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 58.13 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 58.24 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 58.41 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 58.60 Encoding 16000 Hz audio using wideband (sub-band CELP) mode (mono)
+#20 58.76 + zip -j0r /out/speex_decode_fuzzer_fixed_seed_corpus.zip ./samples/
+#20 58.76   adding: male_speex_11_vbr.spx (stored 0%)
+#20 58.76   adding: wb_male_speex_28_vbr.spx (stored 0%)
+#20 58.76   adding: female_speex_4_vbr.spx (stored 0%)
+#20 58.77   adding: male_speex_15.spx (stored 0%)
+#20 58.77   adding: male_speex_4.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_17.spx (stored 0%)
+#20 58.77   adding: female_speex_8.spx (stored 0%)
+#20 58.77   adding: female_speex_15.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_18.spx (stored 0%)
+#20 58.77   adding: male_speex_11.spx (stored 0%)
+#20 58.77   adding: male_speex_15_vbr.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_12.spx (stored 0%)
+#20 58.77   adding: male_speex_8.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_10.spx (stored 0%)
+#20 58.77   adding: male_speex_8_vbr.spx (stored 0%)
+#20 58.77   adding: female_speex_8_vbr.spx (stored 0%)
+#20 58.77   adding: male_speex_4_vbr.spx (stored 0%)
+#20 58.77   adding: female_speex_11.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_12_vbr.spx (stored 0%)
+#20 58.77   adding: female_speex_11_vbr.spx (stored 0%)
+#20 58.77   adding: female_speex_4.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_17_vbr.spx (stored 0%)
+#20 58.77   adding: female_speex_15_vbr.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_21_vbr.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_10_vbr.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_21.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_28.spx (stored 0%)
+#20 58.77   adding: wb_male_speex_18_vbr.spx (stored 0%)
+#20 58.77 + cp /out/speex_decode_fuzzer_fixed_seed_corpus.zip /out/speex_decode_fuzzer_float_seed_corpus.zip
+#20 58.77 + cd ..
+#20 58.77 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 58.9s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:cef07ee42e7e57e11078714ed92228545bf72c7d201df297d1916fd0a08fb377 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/speex_speex done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/speex_speex:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:991c84f31cc8138ce5941cb39fc3e47c53ab9a839ed495ef6b461a5cdf4a2735
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:4bf72d2cff821063abcdb6f73431b1649187b4d2b5fb7f5a48fa4ac353621b77
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/speex_speex-intermediate
+#4 sha256:04d8f8d92d692dd860178b03ac817112bcc74dc52d764b6ad2da958c1ba36ae7
+#4 ERROR: gcr.io/fuzzbench/runners/afl/speex_speex-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d09efa43381a497746e202979d0712951a207bb2cdf345b917972d55dd9af291
+#6 writing image sha256:d09efa43381a497746e202979d0712951a207bb2cdf345b917972d55dd9af291 done
+#6 naming to gcr.io/fuzzbench/runners/afl/speex_speex-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/speex_speex-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:30acb53406f339493e058a3d711932fd29fa6bf33232841a89431c62c9e30fbd
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:95f7c4d35e448cd236289e929bd8231f9d2ba2834edce65fc255896b3ef83867
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/speex_speex:latest
+#4 sha256:86aa158f90c0ca9ce348227d85ec25a3b0c80c0d681da2c49c08db8e37170c34
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/speex_speex-intermediate:latest
+#3 sha256:5d5c76f830aef11807aceef4e04fa9e07c32fc1a7b2bbb931319491c78e06cd1
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:d374b3b3efda9285ecd1bc2d4d79c1a9a96e63f1eb7de4e83841ce791a4515c5
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/speex_speex-intermediate
+#6 sha256:b8f6ee65b5c4380512f27184723c339bb7faac34c16319fd684d77b253bb8060
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/speex_speex
+#10 sha256:34f7867be80b3b6ce48177e8e5ba48746ba6969de7bee5bbd09d744aaa9a8904
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/speex_speex
+#5 sha256:49ac18b8f12db6986c8dc53d831491d0264d56bcd185ea36e9cb978e7232e9e8
+#5 ERROR: gcr.io/fuzzbench/runners/afl/speex_speex:latest: not found
+
+#12 [internal] load build context
+#12 sha256:d374b3b3efda9285ecd1bc2d4d79c1a9a96e63f1eb7de4e83841ce791a4515c5
+#12 ...
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/speex_speex
+#10 sha256:34f7867be80b3b6ce48177e8e5ba48746ba6969de7bee5bbd09d744aaa9a8904
+#10 DONE 0.3s
+
+#12 [internal] load build context
+#12 sha256:d374b3b3efda9285ecd1bc2d4d79c1a9a96e63f1eb7de4e83841ce791a4515c5
+#12 transferring context: 18.93MB 0.6s done
+#12 DONE 1.5s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:a6ee5a027d136c30969244cbd98b6ca8a03346ef7d9994857d2e806b5e96347a
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:cae36967151339c3034da33f754da1e5b624491ee1b1407d7a535ae5128b30d8
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:e986ec06cb0bb25c22f6d5f29e006c1554711c6b4e55816ec46fff9312295603
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:a68c8b82eb46d951b0bfad270815b9e57a86665665974166c8526ca4f9325ac4
+#11 DONE 0.2s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:c71a602e7b96d7a1c47d3ce65edb4eeb81d1a523ab2845ad4afa87757e740b7c
+#13 DONE 1.5s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:0c789f1f800311ca3b92913253db4f1d236a9bd86a5bb42eefffab8a886d89d8
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:beb96c4db84d0508b634f291634ce5e4cd64ed44f0b176c2d47087ab3c30e2ec
+#15 DONE 0.8s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:1c257d4cd81ae993d80f30eed787345d5d220d9d727713503273509ffd06e1a4
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:eea8a1b39dac94c664df45d7cc2a39d6cf0d1c6e6a4554e20a84499083fd4f61
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:8f7374e8f33dab682104ec1dba82ae2010f8eaa4f8e872d700882309142134af
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:5cbdf1e37d24ee890864ef302fc3323f7fc9f6e33f0b400f4b7166c9a7e36ccb
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:417a4d428cea0938dc63a81cc35f8e9049e7c0f619f3d365ec8f73e2423bc4d8
+#20 DONE 0.6s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:76de8108f88f9c17af57e2a35a258199c82b7f3676574cd14808f789a0a9334f done
+#21 naming to gcr.io/fuzzbench/runners/afl/speex_speex done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/speex_speex:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f14b4871f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+/bin/sh: 1: source: not found
+#2 [internal] load .dockerignore
+#2 sha256:5459068fbcc882e7a400c716e524149eb3a2cc11f52f9d07d9c37508e0cabb9d
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8bafefa024e58cb9ad29e80280725e63c3a9645ca4134f3344f2af2c7c7446e3
+#1 transferring dockerfile: 32B done
+#1 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:41d7bbe7827592680a606c9bba1aeb6e23c7502ce8b633923b06542f4c706e7c
+#5 sha256:660db69324ed478291dd329cbbfe422dccbc173f9ab806c069fac341073eab8c
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/speex_speex
+#4 sha256:b910db76b0a3a02dea58a1a4f3027847abca4844eea101514b2d0e59bc73e194
+#4 DONE 0.0s
+
+#10 [internal] load build context
+#10 sha256:55e1cda214752aad40e5a1c02ab7438f6ac3bc13b80ebe8d3f8d52e6668618c7
+#10 transferring context: 30B done
+#10 DONE 0.0s
+
+#8 [4/6] RUN git clone --depth 1 https://gitlab.xiph.org/xiph/speex.git speex
+#8 sha256:34e9c6b1da4f04d0deed35c9be96c1e8380d99eef7b5afdd84cd336f086be1cc
+#8 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://gitlab.xiph.org/xiph/ogg.git
+#7 sha256:5e1951bedd009337cf2ba2b529a74b802e0cdf1af3c1cdd5915790bb3d036679
+#7 CACHED
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf libtool pkg-config wget
+#6 sha256:6f897781b3aedc8c5cc568e27931eabce6273d0332a5c823e74f665361d9980b
+#6 CACHED
+
+#9 [5/6] WORKDIR speex
+#9 sha256:0b9ec36775320eaef5400d2eeb291279fcfe800dd41aa3bc555d1428fbc6131b
+#9 CACHED
+
+#11 [6/6] COPY build.sh /src/
+#11 sha256:75d3a934bdc8c36aa912a2670fc53249480b92d6c94e81d8426922f71f1d21b2
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:20927c501ca1e06fc0ad773914b2ead5cbcd47f14e5df07c8c223071ab539328 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/speex_speex done
+#12 DONE 0.2s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:adc589fd8a20c7c7908fb3fee75a7f8e21482b3cad43450ba91980bc443187f0
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a0c11c9a8ea9aa27707ab47ae407d421e30b5b4cc1c36d3fc6a0e42ccc383e2d
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/speex_speex:latest
+#3 sha256:999a8a8d22566e02fbebd65874e84cd7b36fb43fcf999c744925d7c5836ff03e
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/speex_speex
+#5 sha256:c3f68564481f352f6b10464f5a39f8d6fb981632698355bfd1b2443c02b3c421
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/speex_speex-intermediate
+#4 sha256:d3672d075e873167966d2999eb1ee2dce092156c8a2924d04a81e3aba25136c5
+#4 DONE 0.0s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:683248e2b7a37f53f6b4a8016f3e748cf7d3615562e1f3b0d9bc9d5b7484317a
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:10a1ca6aece61f506b863eea4ecb2c73b6d41bce3b25b8150d0aa3b52d8f465d
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:b405a86209be29affa4438e16b02479bcbc9514af5f88ba0c465a64de4672658 done
+#8 naming to gcr.io/fuzzbench/builders/afl/speex_speex-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:9b370557a28b2723ab89e150dd4d9cd5746f2484603a0ed283da405d22a9c6ee
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:90340df0d562c8bbd261fbd0612fc0f127c530c8bd7cf075cb788a01cd26cfa7
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:091ed56d1c29498e4d7dcb5e87989e25205ab6a461cdfdebfaddc23a50f5ed49
+#8 transferring context: 559B 0.2s done
+#8 DONE 0.2s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:478081616567cded83ed93659c5046074e496dee55e0cbbdffe8049d01e4641b
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:4bfff5bd3fed61c715c1875cec49e07a4c0bcc09c54b8e9b04173d84f56b719f
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:929075a527cf2fd998cfab52cfa9e8abb73ed15b5a913b50f6c719abfbd26315
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:03705c9ea506990deb803bd93e5ae27021bb2cd2052906c08407734126b72c4e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:f557c92ec767931348a1b00bd18eaf6123b84a42ba94df40aa576b2c5c87f105
+#13 writing image sha256:f557c92ec767931348a1b00bd18eaf6123b84a42ba94df40aa576b2c5c87f105 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:c6748105de38b9fcc41f343b9b928df6e2d70566e5c5d96673da828ae44b50a5
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:d292a264d3a844ce3af9c5f53ec030475a862d830a6102c9f45a7cbd9a552c07
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/speex_speex-intermediate:latest
+#3 sha256:5053563725b4b9b6d09dcd90bb46670fe3a2767f97049e6c7c1d1a673d1357b5
+#3 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/speex_speex-intermediate
+#6 sha256:d977c750b5a23becaf0ae2b9e14ea1963f39cb3126e3b8cd271d392801b2670a
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/speex_speex
+#5 sha256:219bd54f6c2275e458681035f42b8708298f0087536d41c407e4bd5b2b1977fb
+#5 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:033a4a3a9ae787c5e5b8a4c96de87b68fa843ba9e289264c8d744a6cc3337fc6
+#12 transferring context: 669.86kB 0.1s done
+#12 DONE 0.1s
+
+#15 [stage-1  8/13] COPY benchmarks/speex_speex/benchmark.yaml /
+#15 sha256:737b4151ae7df01264bd89e1455924521ee8c85ae93ca6615deb2836d210a7ba
+#15 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:4d07cab94617d0d60114edc48170c6ad201df93debb2f439ec09da9936879ca1
+#11 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:c1f680223dbd1f682ac57fec53e543c61991548606cbbe8f3ade289b62548751
+#9 CACHED
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:67d8cf8dfab70a430edbdd1d1697d5c4e4b4fba3b80557d60a08d73ca30cad2a
+#19 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:70e479b0dcce2ca8dccbf05f9c9fa88f7decf90472086f712e7fa8be03005d5a
+#8 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:8621e1c67626c0ceffe0f52e4bb1ba45bd4652913d76ed86127b9271309911fe
+#10 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:80a3c0df04ebfac3ce8f3d42169329ba12eecdb8727074a0af86cf821cbead4a
+#14 CACHED
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:d537725f244f2a4af01d6c70067eba7244cf9e530c1725f4d0f6a9ca071ef33a
+#16 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:6864c423f44cff5853d86deb2af01b32dbd3aba0e9ce0663c36a71195675d889
+#13 CACHED
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:85c29df2084df9da53a4000b016208d6d8a7c0e854511a3bac15433450d1330c
+#17 CACHED
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:4a46b5b80041fee316f2c5f1ce00684ddd806eea26eb2f3e1e33afeaeba8e7ab
+#18 CACHED
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:fbbe7cfa7d0c43cb331ba4f245155d9b7ff5549fbc6ba9f9650c7602c6aeab6f
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:cef07ee42e7e57e11078714ed92228545bf72c7d201df297d1916fd0a08fb377
+#21 writing image sha256:cef07ee42e7e57e11078714ed92228545bf72c7d201df297d1916fd0a08fb377 done
+#21 naming to gcr.io/fuzzbench/builders/afl/speex_speex done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:2d5f1a7e1c876b2204c6842c3bb09213e13a157dc556fd2b32c0faff828f11fa
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:4524993fa29a0665145e5b9f1fef06fbd832074f0671867490189d82405af2e4
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/speex_speex-intermediate
+#5 sha256:04d8f8d92d692dd860178b03ac817112bcc74dc52d764b6ad2da958c1ba36ae7
+#5 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:d09efa43381a497746e202979d0712951a207bb2cdf345b917972d55dd9af291
+#6 writing image sha256:d09efa43381a497746e202979d0712951a207bb2cdf345b917972d55dd9af291 done
+#6 naming to gcr.io/fuzzbench/runners/afl/speex_speex-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:3b415bb94425c558ba4106b3d4c061073c42db9696355319ffc8b3f82b188ca3
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:113553643176188a595b96be036186693061584fa07c2a2a985071559dc051ad
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/speex_speex-intermediate:latest
+#3 sha256:5d5c76f830aef11807aceef4e04fa9e07c32fc1a7b2bbb931319491c78e06cd1
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/speex_speex:latest
+#4 sha256:86aa158f90c0ca9ce348227d85ec25a3b0c80c0d681da2c49c08db8e37170c34
+#4 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/speex_speex-intermediate
+#6 sha256:b8f6ee65b5c4380512f27184723c339bb7faac34c16319fd684d77b253bb8060
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/speex_speex
+#5 sha256:49ac18b8f12db6986c8dc53d831491d0264d56bcd185ea36e9cb978e7232e9e8
+#5 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/speex_speex
+#10 sha256:34f7867be80b3b6ce48177e8e5ba48746ba6969de7bee5bbd09d744aaa9a8904
+#10 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:33e369e33aaac4d27100f0e405df1dd864185cc080f571d09234e75751af33a3
+#12 transferring context: 18.93MB 0.7s done
+#12 DONE 0.7s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:e92c6d66c4a0773c12f56d5b6f923783be91cc0871b43f769cfc06e31ca0fe6f
+#19 CACHED
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:68fa9297f6ee7b62b122e14ed44e24ba14ad1e021ba831bfc91395c20d6707bf
+#17 CACHED
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:a6ee5a027d136c30969244cbd98b6ca8a03346ef7d9994857d2e806b5e96347a
+#7 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:a68c8b82eb46d951b0bfad270815b9e57a86665665974166c8526ca4f9325ac4
+#11 CACHED
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:ff333f90b741ad3c2d0e0a83adf5d2a17b391b157147ea6401f6909c296e4247
+#16 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:cae36967151339c3034da33f754da1e5b624491ee1b1407d7a535ae5128b30d8
+#8 CACHED
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:dad41fd96976c21303688aa7f901898671a4d81f849364d21760f63d37e54258
+#14 CACHED
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:8570afd960abd6c0facad81d751ad332beed91df2fefb5c0571a6516f5432e7d
+#15 CACHED
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:1a08390ef4493e98198cec58d03cf90d64632392f5067d1beee0d19548187231
+#18 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:e986ec06cb0bb25c22f6d5f29e006c1554711c6b4e55816ec46fff9312295603
+#9 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:1952a4bbd749d500c79e63a1fd9b969f9480d0aa00a2891418937af99f4be283
+#13 CACHED
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:d5f3b5592c47377333525b12b42e0a7806ca8be941311bc242a1d1cb03c822d4
+#20 CACHED
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:76de8108f88f9c17af57e2a35a258199c82b7f3676574cd14808f789a0a9334f 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/speex_speex done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fb22ae90f70> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
