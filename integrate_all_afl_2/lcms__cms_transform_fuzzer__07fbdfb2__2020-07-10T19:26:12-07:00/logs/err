@@ -1,0 +1,840 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: lcms_cms_transform_fuzzer.
+INFO:root:Please run "make test-run-afl-lcms_cms_transform_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:93a4d5301cc477186f48aa0cbcb06586f07a2bc08ca7be74914b6ed1eb888f8a
+#1 transferring dockerfile: 996B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:5e8c93148dbd5837339106d49cae512068bd99eb59c00990beae5ae2d19cb22e
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:a8cd0306cd75f98dd438db3b0aebb268b8f2816e0ccde3ce04e744ecd870d85a
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lcms_cms_transform_fuzzer
+#4 sha256:db72334a42e2a96aeb0278b8a7fe3edbfc4ff19c80fbeae5edda459d6b6e82b1
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/lcms_cms_transform_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:a8cd0306cd75f98dd438db3b0aebb268b8f2816e0ccde3ce04e744ecd870d85a
+#9 transferring context: 7.24kB done
+#9 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:425dc7a252565eeea60f3de4c59c779438ad25f6692cfd7941a8ec9fc7a73f78
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/mm2/Little-CMS.git lcms
+#7 sha256:f2b92d8f6cdac005e6c3a020269dd316ac5e3d120b0850edf9e7f670a74bd6ac
+#7 CACHED
+
+#8 [4/5] WORKDIR lcms
+#8 sha256:e119f51f4cfd3b5b49d85a34a328b40de43b21f7cbf71ec948960fc5547bf819
+#8 CACHED
+
+#10 [5/5] COPY build.sh cmsIT8_load_fuzzer.* cms_transform_fuzzer.* cms_overwrite_transform_fuzzer.* icc.dict /src/
+#10 sha256:8cdad417cf216dd8adad05f8622b773f498a3bb9c409c60d7921e3cfa66e19f1
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:947b7e69978796582cd9160b9ec76cf73c80c779f112f26a80b70faaf17cc48f done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/lcms_cms_transform_fuzzer done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/lcms_cms_transform_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:027ef5ba8b23e400753b935ecc206b269b45c56b4325b1e5fbff017e197c1ba3
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:dc22a5843c72b9335396362cd04da8bf4519e343492731112ecfb767a18c20cc
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/lcms_cms_transform_fuzzer:latest
+#3 sha256:c0de148880ec5a24142f15dbf4e5d7419792ca720f7bf472fa033d605c708367
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/lcms_cms_transform_fuzzer
+#5 sha256:456aeacbdd22b5d937f3769de3b2c41f6a684a1465b829e69839455b19c7df0e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer-intermediate
+#4 sha256:7d87c24d9ba7fb4820c1d1cbb9413e2a1757ee7904c396dfa17394b6ebaa0cb5
+#4 ERROR: gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:d37608738529081a52208a59df159e6a61a2e3b0da9c9f29bc8db27a42ba6ac4
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:9fcc7ef46cb9a9416f1667f635344ee5749df769315c645c377fcfe81e344825
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3a61a20a575abb5ecc66064d97c2a210a97058d0193c0658cdb30b034df96849 done
+#8 naming to gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:78dcc2b6695fe909de1c0a81e9f229cce7df86c29600611ab5f098ff1b2ff095
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:67adcf5b7c4dbad4523e4e01696578f2a7a7b80190a045939c1b1fafcb55ac6b
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:3d199ab97e71545e93c88d5c2c3cfb77669b4d3608ac27624e352f2ed2b72dbb
+#8 transferring context: 591B 0.0s done
+#8 DONE 0.1s
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:a8e64f4023d1331f08fcabbea99a3a96c7af39181e1f74f540298eaa05a29a61
+#9 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:ec10e01be8a95b4b887d27f2a43c79147c98a719fb43304ea9efcbcca6aecef4
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:421ca21b57234cb76c5f8a522805233fa686c250d8bc98b29456ab75d663d21a
+#10 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:a423a1a488c884c2dce62da101ab470517e99afb0ddb6c6459485b69c1591da5
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:06cefeb620ef0a12ea1bcad2e9d41606970bfe3e730adc09f2f646fe13a3a162 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:bfbbccd858834899aaec4e417c8cea3d188b60fba18c75419e787dd76a557558
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b6e6c216961a178870bb5472d0f364227a6d25c3718cddc12470135c99a30b7b
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer-intermediate:latest
+#3 sha256:d0894a73c691e5de77d3fcc0f1b9863d6c45403d68e563c2aaacb100d8079920
+#3 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer
+#5 sha256:e22f3083ee929f92fae1238f98de4dedbf01461372abec9b55f6446272eefebc
+#5 ...
+
+#12 [internal] load build context
+#12 sha256:7be6e4099433b5148991b8155ad59b52903190b548f0decf8a23a25920bb2e62
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer-intermediate
+#6 sha256:e82b7418dcd5d039740d3c15740221cfdf1f2cd3fdf6caa758bb43f09b1c100d
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer
+#5 sha256:e22f3083ee929f92fae1238f98de4dedbf01461372abec9b55f6446272eefebc
+#5 ERROR: gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:7be6e4099433b5148991b8155ad59b52903190b548f0decf8a23a25920bb2e62
+#12 transferring context: 742.41kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:4fa7a6c40d93449caad770372b347fcaf46e9e952908dc68c6fd0d71e07d5c73
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4822a710fc8fa9fe28702d3a9646be438659f807d06eda3339f63604c91052ed
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:1be08082d875d28d7c33588fd778349d23bdd09cc977cb33807fb37b31d0f5f4
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:884e069ca62ec6100f8f87e450f89f93f581531f01f060c7eba043fe958f5195
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:7535cf3fa7876f9d54d7b3b5a3bd65ab7b7e90a8a2a602f92d7c3d1f58507314
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:63dd047c3beeba6464061b56b2b63608151510f98902b4eadcbf333174085390
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] COPY benchmarks/lcms_cms_transform_fuzzer/benchmark.yaml /
+#15 sha256:929a49cf95e1d69ccbf62520c695321ddb389d3a78523a70c4ed68febe4f27ec
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:2b570505ffccef42bb0408fee82fc0513438ffc5ff4fc44623562e9ffbbbaf07
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:8db7060bfe88bfecee67aa0a6108f15d4c73412ff9f6284945529c144e78e07b
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:527967d5c59aad38228e0b68750ec7e197daa4cedf6d5d57012af0676b23a504
+#18 0.446 Checking out commit 07fbdfb2
+#18 10.43 From https://github.com/mm2/Little-CMS
+#18 10.43  * [new tag]         2.11        -> 2.11
+#18 10.43  * [new tag]         2.12        -> 2.12
+#18 10.43  * [new tag]         lcms2-2.7   -> lcms2-2.7
+#18 10.43  * [new tag]         lcms2.10    -> lcms2.10
+#18 10.43  * [new tag]         lcms2.10rc1 -> lcms2.10rc1
+#18 10.43  * [new tag]         lcms2.12    -> lcms2.12
+#18 10.43  * [new tag]         lcms2.12rc1 -> lcms2.12rc1
+#18 10.44  * [new tag]         lcms2.12rc2 -> lcms2.12rc2
+#18 10.44  * [new tag]         lcms2.13    -> lcms2.13
+#18 10.44  * [new tag]         lcms2.13.1  -> lcms2.13.1
+#18 10.44  * [new tag]         lcms2.13rc1 -> lcms2.13rc1
+#18 10.44  * [new tag]         lcms2.13rc2 -> lcms2.13rc2
+#18 10.44  * [new tag]         lcms2.2     -> lcms2.2
+#18 10.44  * [new tag]         lcms2.2rc0  -> lcms2.2rc0
+#18 10.44  * [new tag]         lcms2.2rc1  -> lcms2.2rc1
+#18 10.44  * [new tag]         lcms2.2rc2  -> lcms2.2rc2
+#18 10.44  * [new tag]         lcms2.3     -> lcms2.3
+#18 10.44  * [new tag]         lcms2.3rc1  -> lcms2.3rc1
+#18 10.44  * [new tag]         lcms2.3rc2  -> lcms2.3rc2
+#18 10.44  * [new tag]         lcms2.3rc3  -> lcms2.3rc3
+#18 10.44  * [new tag]         lcms2.4     -> lcms2.4
+#18 10.44  * [new tag]         lcms2.4rc1  -> lcms2.4rc1
+#18 10.44  * [new tag]         lcms2.4rc2  -> lcms2.4rc2
+#18 10.44  * [new tag]         lcms2.5     -> lcms2.5
+#18 10.44  * [new tag]         lcms2.5rc1  -> lcms2.5rc1
+#18 10.44  * [new tag]         lcms2.5rc2  -> lcms2.5rc2
+#18 10.44  * [new tag]         lcms2.5rc3  -> lcms2.5rc3
+#18 10.44  * [new tag]         lcms2.6     -> lcms2.6
+#18 10.44  * [new tag]         lcms2.6rc0  -> lcms2.6rc0
+#18 10.44  * [new tag]         lcms2.6rc1  -> lcms2.6rc1
+#18 10.44  * [new tag]         lcms2.6rc3  -> lcms2.6rc3
+#18 10.44  * [new tag]         lcms2.7rc1  -> lcms2.7rc1
+#18 10.44  * [new tag]         lcms2.7rc2  -> lcms2.7rc2
+#18 10.44  * [new tag]         lcms2.7rc3  -> lcms2.7rc3
+#18 10.44  * [new tag]         lcms2.8     -> lcms2.8
+#18 10.44  * [new tag]         lcms2.8rc2  -> lcms2.8rc2
+#18 10.44  * [new tag]         lcms2.9     -> lcms2.9
+#18 10.44  * [new tag]         lcms2.9rc1  -> lcms2.9rc1
+#18 10.45 error: pathspec '07fbdfb2' did not match any file(s) known to git
+#18 10.45 error: pathspec '07fbdfb2' did not match any file(s) known to git
+#18 10.46 error: pathspec '07fbdfb2' did not match any file(s) known to git
+#18 10.51 Checkout unsuccessful.
+#18 DONE 10.5s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:c38dcf63938484c91884704d4401443d0113dbc68224f1df072db05ac3a0d276
+#19 DONE 0.5s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:2c9e8cdd41ea5050d314edf6beee3026d46aeed0139079def5d3ff879debad1a
+#20 0.376 Run fuzzer_build to build the target
+#20 0.491 FUZZ_TARGET = cms_transform_fuzzer
+#20 0.491 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.491 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.495 Building benchmark lcms_cms_transform_fuzzer with fuzzer afl
+#20 0.499 + ./configure
+#20 0.725 checking build system type... x86_64-pc-linux-gnu
+#20 0.806 checking host system type... x86_64-pc-linux-gnu
+#20 0.807 checking for a BSD-compatible install... /usr/bin/install -c
+#20 0.821 checking whether build environment is sane... yes
+#20 0.839 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 0.843 checking for gawk... no
+#20 0.843 checking for mawk... mawk
+#20 0.844 checking whether make sets $(MAKE)... yes
+#20 0.860 checking whether make supports nested variables... yes
+#20 0.874 checking whether UID '0' is supported by ustar format... yes
+#20 0.875 checking whether GID '0' is supported by ustar format... yes
+#20 0.876 checking how to create a ustar tar archive... gnutar
+#20 0.904 checking whether make supports the include directive... yes (GNU style)
+#20 0.919 checking for gcc... clang
+#20 1.007 checking whether the C compiler works... yes
+#20 1.143 checking for C compiler default output file name... a.out
+#20 1.146 checking for suffix of executables... 
+#20 1.282 checking whether we are cross compiling... no
+#20 1.425 checking for suffix of object files... o
+#20 1.459 checking whether we are using the GNU C compiler... yes
+#20 1.491 checking whether clang accepts -g... yes
+#20 1.521 checking for clang option to accept ISO C89... none needed
+#20 1.571 checking whether clang understands -c and -o together... yes
+#20 1.620 checking dependency style of clang... gcc3
+#20 1.682 checking for clang option to accept ISO C99... none needed
+#20 1.754 checking for clang option to accept ISO Standard C... (cached) none needed
+#20 1.755 checking how to run the C preprocessor... clang -E
+#20 1.962 checking whether we are using the GNU C++ compiler... yes
+#20 1.995 checking whether clang++ accepts -g... yes
+#20 2.024 checking dependency style of clang++... gcc3
+#20 2.086 checking how to print strings... printf
+#20 2.144 checking for a sed that does not truncate output... /usr/bin/sed
+#20 2.153 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 2.157 checking for egrep... /usr/bin/grep -E
+#20 2.160 checking for fgrep... /usr/bin/grep -F
+#20 2.164 checking for ld used by clang... /usr/bin/ld
+#20 2.187 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 2.192 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 2.198 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 2.237 checking whether ln -s works... yes
+#20 2.238 checking the maximum length of command line arguments... 1572864
+#20 2.250 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 2.251 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 2.251 checking for /usr/bin/ld option to reload object files... -r
+#20 2.253 checking for objdump... objdump
+#20 2.254 checking how to recognize dependent libraries... pass_all
+#20 2.256 checking for dlltool... no
+#20 2.257 checking how to associate runtime and link libraries... printf %s\n
+#20 2.258 checking for ar... ar
+#20 2.259 checking for archiver @FILE support... @
+#20 2.305 checking for strip... strip
+#20 2.307 checking for ranlib... ranlib
+#20 2.308 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 2.501 checking for sysroot... no
+#20 2.502 checking for a working dd... /usr/bin/dd
+#20 2.510 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 2.544 checking for mt... no
+#20 2.545 checking if : is a manifest tool... no
+#20 2.555 checking for ANSI C header files... yes
+#20 2.827 checking for sys/types.h... yes
+#20 2.889 checking for sys/stat.h... yes
+#20 2.954 checking for stdlib.h... yes
+#20 3.014 checking for string.h... yes
+#20 3.083 checking for memory.h... yes
+#20 3.147 checking for strings.h... yes
+#20 3.208 checking for inttypes.h... yes
+#20 3.273 checking for stdint.h... yes
+#20 3.338 checking for unistd.h... yes
+#20 3.402 checking for dlfcn.h... yes
+#20 3.471 checking for objdir... .libs
+#20 3.660 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 3.698 checking for clang option to produce PIC... -fPIC -DPIC
+#20 3.698 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 3.733 checking if clang static flag -static works... yes
+#20 3.927 checking if clang supports -c -o file.o... yes
+#20 3.976 checking if clang supports -c -o file.o... (cached) yes
+#20 3.976 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 4.003 checking whether -lc should be explicitly linked in... no
+#20 4.073 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 4.271 checking how to hardcode library paths into programs... immediate
+#20 4.272 checking whether stripping libraries is possible... yes
+#20 4.275 checking if libtool supports shared libraries... yes
+#20 4.275 checking whether to build shared libraries... yes
+#20 4.276 checking whether to build static libraries... yes
+#20 4.282 checking how to run the C++ preprocessor... clang++ -E
+#20 4.605 checking for ld used by clang++... /usr/bin/ld -m elf_x86_64
+#20 4.629 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 4.653 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 4.821 checking for clang++ option to produce PIC... -fPIC -DPIC
+#20 4.822 checking if clang++ PIC flag -fPIC -DPIC works... yes
+#20 4.859 checking if clang++ static flag -static works... yes
+#20 5.091 checking if clang++ supports -c -o file.o... yes
+#20 5.139 checking if clang++ supports -c -o file.o... (cached) yes
+#20 5.139 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 5.140 checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+#20 5.145 checking how to hardcode library paths into programs... immediate
+#20 5.149 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 5.150 checking for inline... inline
+#20 5.179 checking for __attribute__((visibility))... yes
+#20 5.323 checking whether C compiler accepts -fvisibility=hidden... yes
+#20 5.359 checking whether byte ordering is bigendian... no
+#20 5.485 checking for gmtime_r... yes
+#20 5.632 checking for the pthreads library -lpthreads... no
+#20 5.729 checking whether pthreads work without any flags... yes
+#20 5.888 checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+#20 6.032 checking if more special flags are required for pthreads... no
+#20 6.033 checking whether compiler supports SSE2... yes
+#20 6.129 checking for sqrt in -lm... yes
+#20 6.276 checking for pthread_mutex_lock in -lpthread... yes
+#20 6.421 checking for JPEG support... 
+#20 6.422 checking jconfig.h usability... no
+#20 6.496 checking jconfig.h presence... no
+#20 6.527 checking for jconfig.h... no
+#20 6.531 checking jerror.h usability... no
+#20 6.596 checking jerror.h presence... no
+#20 6.629 checking for jerror.h... no
+#20 6.632 checking for jmorecfg.h... no
+#20 6.669 checking jpeglib.h usability... no
+#20 6.734 checking jpeglib.h presence... no
+#20 6.765 checking for jpeglib.h... no
+#20 6.768 checking for jpeg_read_header in -ljpeg... no
+#20 6.854 checking for JPEG library is version 6b or later... no
+#20 6.906 no
+#20 6.908 checking if JPEG package is complete... no
+#20 6.910 checking for ZLIB support ... 
+#20 6.911 checking zconf.h usability... no
+#20 6.982 checking zconf.h presence... no
+#20 7.015 checking for zconf.h... no
+#20 7.017 checking zlib.h usability... no
+#20 7.085 checking zlib.h presence... no
+#20 7.117 checking for zlib.h... no
+#20 7.119 checking for compress in -lz... no
+#20 7.206 checking for uncompress in -lz... no
+#20 7.292 checking for deflate in -lz... no
+#20 7.380 checking for inflate in -lz... no
+#20 7.467 checking for gzseek in -lz... no
+#20 7.554 checking for gztell in -lz... no
+#20 7.630 checking if ZLIB package is complete... no
+#20 7.631 checking for TIFF support... 
+#20 7.632 checking tiff.h usability... no
+#20 7.696 checking tiff.h presence... no
+#20 7.728 checking for tiff.h... no
+#20 7.731 checking tiffio.h usability... no
+#20 7.798 checking tiffio.h presence... no
+#20 7.830 checking for tiffio.h... no
+#20 7.832 checking for TIFFOpen in -ltiff... no
+#20 7.912 checking for TIFFClientOpen in -ltiff... no
+#20 8.003 checking for TIFFIsByteSwapped in -ltiff... no
+#20 8.091 checking if TIFF package is complete... no
+#20 8.158 checking that generated files are newer than configure... done
+#20 8.159 configure: creating ./config.status
+#20 9.217 config.status: creating Makefile
+#20 9.238 config.status: creating lcms2.pc
+#20 9.257 config.status: creating include/Makefile
+#20 9.283 config.status: creating src/Makefile
+#20 9.310 config.status: creating utils/tificc/Makefile
+#20 9.336 config.status: creating utils/transicc/Makefile
+#20 9.363 config.status: creating utils/linkicc/Makefile
+#20 9.389 config.status: creating utils/jpgicc/Makefile
+#20 9.417 config.status: creating utils/psicc/Makefile
+#20 9.443 config.status: creating testbed/Makefile
+#20 9.470 config.status: creating plugins/Makefile
+#20 9.497 config.status: creating plugins/fast_float/Makefile
+#20 9.525 config.status: creating plugins/fast_float/src/Makefile
+#20 9.552 config.status: creating plugins/fast_float/include/Makefile
+#20 9.577 config.status: creating plugins/fast_float/testbed/Makefile
+#20 9.603 config.status: executing depfiles commands
+#20 9.994 config.status: executing libtool commands
+#20 10.11 ++ nproc
+#20 10.11 + make -j8 all
+#20 10.12 Making all in src
+#20 10.12 make[1]: Entering directory '/src/lcms/src'
+#20 10.12 depbase=`echo cmscnvrt.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.12 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmscnvrt.lo -MD -MP -MF $depbase.Tpo -c -o cmscnvrt.lo cmscnvrt.c &&\
+#20 10.12 mv -f $depbase.Tpo $depbase.Plo
+#20 10.12 depbase=`echo cmserr.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.12 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmserr.lo -MD -MP -MF $depbase.Tpo -c -o cmserr.lo cmserr.c &&\
+#20 10.12 mv -f $depbase.Tpo $depbase.Plo
+#20 10.12 depbase=`echo cmsgamma.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.12 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsgamma.lo -MD -MP -MF $depbase.Tpo -c -o cmsgamma.lo cmsgamma.c &&\
+#20 10.12 mv -f $depbase.Tpo $depbase.Plo
+#20 10.12 depbase=`echo cmsgmt.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.12 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsgmt.lo -MD -MP -MF $depbase.Tpo -c -o cmsgmt.lo cmsgmt.c &&\
+#20 10.12 mv -f $depbase.Tpo $depbase.Plo
+#20 10.13 depbase=`echo cmsintrp.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.13 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsintrp.lo -MD -MP -MF $depbase.Tpo -c -o cmsintrp.lo cmsintrp.c &&\
+#20 10.13 mv -f $depbase.Tpo $depbase.Plo
+#20 10.13 depbase=`echo cmsio0.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.13 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsio0.lo -MD -MP -MF $depbase.Tpo -c -o cmsio0.lo cmsio0.c &&\
+#20 10.13 mv -f $depbase.Tpo $depbase.Plo
+#20 10.13 depbase=`echo cmsio1.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.13 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsio1.lo -MD -MP -MF $depbase.Tpo -c -o cmsio1.lo cmsio1.c &&\
+#20 10.13 mv -f $depbase.Tpo $depbase.Plo
+#20 10.13 depbase=`echo cmslut.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.13 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmslut.lo -MD -MP -MF $depbase.Tpo -c -o cmslut.lo cmslut.c &&\
+#20 10.13 mv -f $depbase.Tpo $depbase.Plo
+#20 10.38 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmscnvrt.lo -MD -MP -MF .deps/cmscnvrt.Tpo -c cmscnvrt.c  -fPIC -DPIC -o .libs/cmscnvrt.o
+#20 10.38 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmserr.lo -MD -MP -MF .deps/cmserr.Tpo -c cmserr.c  -fPIC -DPIC -o .libs/cmserr.o
+#20 10.39 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsgamma.lo -MD -MP -MF .deps/cmsgamma.Tpo -c cmsgamma.c  -fPIC -DPIC -o .libs/cmsgamma.o
+#20 10.39 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsgmt.lo -MD -MP -MF .deps/cmsgmt.Tpo -c cmsgmt.c  -fPIC -DPIC -o .libs/cmsgmt.o
+#20 10.39 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsintrp.lo -MD -MP -MF .deps/cmsintrp.Tpo -c cmsintrp.c  -fPIC -DPIC -o .libs/cmsintrp.o
+#20 10.40 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmslut.lo -MD -MP -MF .deps/cmslut.Tpo -c cmslut.c  -fPIC -DPIC -o .libs/cmslut.o
+#20 10.40 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsio1.lo -MD -MP -MF .deps/cmsio1.Tpo -c cmsio1.c  -fPIC -DPIC -o .libs/cmsio1.o
+#20 10.44 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsio0.lo -MD -MP -MF .deps/cmsio0.Tpo -c cmsio0.c  -fPIC -DPIC -o .libs/cmsio0.o
+#20 10.73 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmserr.lo -MD -MP -MF .deps/cmserr.Tpo -c cmserr.c -o cmserr.o >/dev/null 2>&1
+#20 10.74 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsgmt.lo -MD -MP -MF .deps/cmsgmt.Tpo -c cmsgmt.c -o cmsgmt.o >/dev/null 2>&1
+#20 10.85 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsio1.lo -MD -MP -MF .deps/cmsio1.Tpo -c cmsio1.c -o cmsio1.o >/dev/null 2>&1
+#20 11.00 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmscnvrt.lo -MD -MP -MF .deps/cmscnvrt.Tpo -c cmscnvrt.c -o cmscnvrt.o >/dev/null 2>&1
+#20 11.07 depbase=`echo cmsplugin.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 11.07 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsplugin.lo -MD -MP -MF $depbase.Tpo -c -o cmsplugin.lo cmsplugin.c &&\
+#20 11.07 mv -f $depbase.Tpo $depbase.Plo
+#20 11.08 depbase=`echo cmssm.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 11.08 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmssm.lo -MD -MP -MF $depbase.Tpo -c -o cmssm.lo cmssm.c &&\
+#20 11.08 mv -f $depbase.Tpo $depbase.Plo
+#20 11.29 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsgamma.lo -MD -MP -MF .deps/cmsgamma.Tpo -c cmsgamma.c -o cmsgamma.o >/dev/null 2>&1
+#20 11.32 depbase=`echo cmsmd5.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 11.32 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsmd5.lo -MD -MP -MF $depbase.Tpo -c -o cmsmd5.lo cmsmd5.c &&\
+#20 11.32 mv -f $depbase.Tpo $depbase.Plo
+#20 11.35 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsplugin.lo -MD -MP -MF .deps/cmsplugin.Tpo -c cmsplugin.c  -fPIC -DPIC -o .libs/cmsplugin.o
+#20 11.35 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmssm.lo -MD -MP -MF .deps/cmssm.Tpo -c cmssm.c  -fPIC -DPIC -o .libs/cmssm.o
+#20 11.42 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsio0.lo -MD -MP -MF .deps/cmsio0.Tpo -c cmsio0.c -o cmsio0.o >/dev/null 2>&1
+#20 11.59 depbase=`echo cmsmtrx.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 11.59 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsmtrx.lo -MD -MP -MF $depbase.Tpo -c -o cmsmtrx.lo cmsmtrx.c &&\
+#20 11.59 mv -f $depbase.Tpo $depbase.Plo
+#20 11.61 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsmd5.lo -MD -MP -MF .deps/cmsmd5.Tpo -c cmsmd5.c  -fPIC -DPIC -o .libs/cmsmd5.o
+#20 11.68 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmssm.lo -MD -MP -MF .deps/cmssm.Tpo -c cmssm.c -o cmssm.o >/dev/null 2>&1
+#20 11.86 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmslut.lo -MD -MP -MF .deps/cmslut.Tpo -c cmslut.c -o cmslut.o >/dev/null 2>&1
+#20 11.88 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsmtrx.lo -MD -MP -MF .deps/cmsmtrx.Tpo -c cmsmtrx.c  -fPIC -DPIC -o .libs/cmsmtrx.o
+#20 11.89 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsplugin.lo -MD -MP -MF .deps/cmsplugin.Tpo -c cmsplugin.c -o cmsplugin.o >/dev/null 2>&1
+#20 11.95 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsmd5.lo -MD -MP -MF .deps/cmsmd5.Tpo -c cmsmd5.c -o cmsmd5.o >/dev/null 2>&1
+#20 12.02 depbase=`echo cmspack.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 12.02 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmspack.lo -MD -MP -MF $depbase.Tpo -c -o cmspack.lo cmspack.c &&\
+#20 12.02 mv -f $depbase.Tpo $depbase.Plo
+#20 12.13 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsmtrx.lo -MD -MP -MF .deps/cmsmtrx.Tpo -c cmsmtrx.c -o cmsmtrx.o >/dev/null 2>&1
+#20 12.19 depbase=`echo cmspcs.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 12.19 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmspcs.lo -MD -MP -MF $depbase.Tpo -c -o cmspcs.lo cmspcs.c &&\
+#20 12.19 mv -f $depbase.Tpo $depbase.Plo
+#20 12.29 depbase=`echo cmswtpnt.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 12.29 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmswtpnt.lo -MD -MP -MF $depbase.Tpo -c -o cmswtpnt.lo cmswtpnt.c &&\
+#20 12.29 mv -f $depbase.Tpo $depbase.Plo
+#20 12.29 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmspack.lo -MD -MP -MF .deps/cmspack.Tpo -c cmspack.c  -fPIC -DPIC -o .libs/cmspack.o
+#20 12.38 depbase=`echo cmsxform.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 12.38 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsxform.lo -MD -MP -MF $depbase.Tpo -c -o cmsxform.lo cmsxform.c &&\
+#20 12.38 mv -f $depbase.Tpo $depbase.Plo
+#20 12.41 depbase=`echo cmssamp.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 12.41 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmssamp.lo -MD -MP -MF $depbase.Tpo -c -o cmssamp.lo cmssamp.c &&\
+#20 12.41 mv -f $depbase.Tpo $depbase.Plo
+#20 12.42 depbase=`echo cmsnamed.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 12.42 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsnamed.lo -MD -MP -MF $depbase.Tpo -c -o cmsnamed.lo cmsnamed.c &&\
+#20 12.42 mv -f $depbase.Tpo $depbase.Plo
+#20 12.46 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmspcs.lo -MD -MP -MF .deps/cmspcs.Tpo -c cmspcs.c  -fPIC -DPIC -o .libs/cmspcs.o
+#20 12.56 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmswtpnt.lo -MD -MP -MF .deps/cmswtpnt.Tpo -c cmswtpnt.c  -fPIC -DPIC -o .libs/cmswtpnt.o
+#20 12.69 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsxform.lo -MD -MP -MF .deps/cmsxform.Tpo -c cmsxform.c  -fPIC -DPIC -o .libs/cmsxform.o
+#20 12.69 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmssamp.lo -MD -MP -MF .deps/cmssamp.Tpo -c cmssamp.c  -fPIC -DPIC -o .libs/cmssamp.o
+#20 12.69 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsnamed.lo -MD -MP -MF .deps/cmsnamed.Tpo -c cmsnamed.c  -fPIC -DPIC -o .libs/cmsnamed.o
+#20 12.80 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmswtpnt.lo -MD -MP -MF .deps/cmswtpnt.Tpo -c cmswtpnt.c -o cmswtpnt.o >/dev/null 2>&1
+#20 12.94 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmspcs.lo -MD -MP -MF .deps/cmspcs.Tpo -c cmspcs.c -o cmspcs.o >/dev/null 2>&1
+#20 12.99 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmssamp.lo -MD -MP -MF .deps/cmssamp.Tpo -c cmssamp.c -o cmssamp.o >/dev/null 2>&1
+#20 13.04 depbase=`echo cmscam02.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 13.04 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmscam02.lo -MD -MP -MF $depbase.Tpo -c -o cmscam02.lo cmscam02.c &&\
+#20 13.04 mv -f $depbase.Tpo $depbase.Plo
+#20 13.29 depbase=`echo cmsvirt.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 13.29 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsvirt.lo -MD -MP -MF $depbase.Tpo -c -o cmsvirt.lo cmsvirt.c &&\
+#20 13.29 mv -f $depbase.Tpo $depbase.Plo
+#20 13.31 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmscam02.lo -MD -MP -MF .deps/cmscam02.Tpo -c cmscam02.c  -fPIC -DPIC -o .libs/cmscam02.o
+#20 13.32 depbase=`echo cmstypes.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 13.32 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmstypes.lo -MD -MP -MF $depbase.Tpo -c -o cmstypes.lo cmstypes.c &&\
+#20 13.32 mv -f $depbase.Tpo $depbase.Plo
+#20 13.40 depbase=`echo cmscgats.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 13.40 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmscgats.lo -MD -MP -MF $depbase.Tpo -c -o cmscgats.lo cmscgats.c &&\
+#20 13.40 mv -f $depbase.Tpo $depbase.Plo
+#20 13.41 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsnamed.lo -MD -MP -MF .deps/cmsnamed.Tpo -c cmsnamed.c -o cmsnamed.o >/dev/null 2>&1
+#20 13.45 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsxform.lo -MD -MP -MF .deps/cmsxform.Tpo -c cmsxform.c -o cmsxform.o >/dev/null 2>&1
+#20 13.59 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsvirt.lo -MD -MP -MF .deps/cmsvirt.Tpo -c cmsvirt.c  -fPIC -DPIC -o .libs/cmsvirt.o
+#20 13.63 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmstypes.lo -MD -MP -MF .deps/cmstypes.Tpo -c cmstypes.c  -fPIC -DPIC -o .libs/cmstypes.o
+#20 13.68 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmscgats.lo -MD -MP -MF .deps/cmscgats.Tpo -c cmscgats.c  -fPIC -DPIC -o .libs/cmscgats.o
+#20 13.71 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmscam02.lo -MD -MP -MF .deps/cmscam02.Tpo -c cmscam02.c -o cmscam02.o >/dev/null 2>&1
+#20 13.76 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmspack.lo -MD -MP -MF .deps/cmspack.Tpo -c cmspack.c -o cmspack.o >/dev/null 2>&1
+#20 14.10 depbase=`echo cmsps2.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 14.10 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsps2.lo -MD -MP -MF $depbase.Tpo -c -o cmsps2.lo cmsps2.c &&\
+#20 14.10 mv -f $depbase.Tpo $depbase.Plo
+#20 14.13 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsvirt.lo -MD -MP -MF .deps/cmsvirt.Tpo -c cmsvirt.c -o cmsvirt.o >/dev/null 2>&1
+#20 14.14 depbase=`echo cmsopt.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 14.14 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsopt.lo -MD -MP -MF $depbase.Tpo -c -o cmsopt.lo cmsopt.c &&\
+#20 14.14 mv -f $depbase.Tpo $depbase.Plo
+#20 14.20 depbase=`echo cmshalf.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 14.20 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmshalf.lo -MD -MP -MF $depbase.Tpo -c -o cmshalf.lo cmshalf.c &&\
+#20 14.20 mv -f $depbase.Tpo $depbase.Plo
+#20 14.38 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsps2.lo -MD -MP -MF .deps/cmsps2.Tpo -c cmsps2.c  -fPIC -DPIC -o .libs/cmsps2.o
+#20 14.41 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsintrp.lo -MD -MP -MF .deps/cmsintrp.Tpo -c cmsintrp.c -o cmsintrp.o >/dev/null 2>&1
+#20 14.43 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsopt.lo -MD -MP -MF .deps/cmsopt.Tpo -c cmsopt.c  -fPIC -DPIC -o .libs/cmsopt.o
+#20 14.49 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmshalf.lo -MD -MP -MF .deps/cmshalf.Tpo -c cmshalf.c  -fPIC -DPIC -o .libs/cmshalf.o
+#20 14.64 depbase=`echo cmsalpha.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 14.64 /bin/bash ../libtool  --tag=CC   --mode=compile clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../include -I../include   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -MT cmsalpha.lo -MD -MP -MF $depbase.Tpo -c -o cmsalpha.lo cmsalpha.c &&\
+#20 14.64 mv -f $depbase.Tpo $depbase.Plo
+#20 14.68 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmshalf.lo -MD -MP -MF .deps/cmshalf.Tpo -c cmshalf.c -o cmshalf.o >/dev/null 2>&1
+#20 14.91 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsalpha.lo -MD -MP -MF .deps/cmsalpha.Tpo -c cmsalpha.c  -fPIC -DPIC -o .libs/cmsalpha.o
+#20 15.00 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsps2.lo -MD -MP -MF .deps/cmsps2.Tpo -c cmsps2.c -o cmsps2.o >/dev/null 2>&1
+#20 15.48 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsalpha.lo -MD -MP -MF .deps/cmsalpha.Tpo -c cmsalpha.c -o cmsalpha.o >/dev/null 2>&1
+#20 15.89 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmscgats.lo -MD -MP -MF .deps/cmscgats.Tpo -c cmscgats.c -o cmscgats.o >/dev/null 2>&1
+#20 15.94 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmsopt.lo -MD -MP -MF .deps/cmsopt.Tpo -c cmsopt.c -o cmsopt.o >/dev/null 2>&1
+#20 15.98 libtool: compile:  clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" "-DPACKAGE_STRING=\"lcms2 2.13\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I. -I../include -I../include -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -MT cmstypes.lo -MD -MP -MF .deps/cmstypes.Tpo -c cmstypes.c -o cmstypes.o >/dev/null 2>&1
+#20 17.62 /bin/bash ../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -no-undefined -version-info 2:13:0  -o liblcms2.la -rpath /usr/local/lib cmscnvrt.lo cmserr.lo cmsgamma.lo cmsgmt.lo cmsintrp.lo cmsio0.lo cmsio1.lo cmslut.lo cmsplugin.lo cmssm.lo cmsmd5.lo cmsmtrx.lo cmspack.lo cmspcs.lo cmswtpnt.lo cmsxform.lo cmssamp.lo cmsnamed.lo cmscam02.lo cmsvirt.lo cmstypes.lo cmscgats.lo cmsps2.lo cmsopt.lo cmshalf.lo cmsalpha.lo -lm -lpthread 
+#20 17.77 libtool: link: clang -shared  -fPIC -DPIC  .libs/cmscnvrt.o .libs/cmserr.o .libs/cmsgamma.o .libs/cmsgmt.o .libs/cmsintrp.o .libs/cmsio0.o .libs/cmsio1.o .libs/cmslut.o .libs/cmsplugin.o .libs/cmssm.o .libs/cmsmd5.o .libs/cmsmtrx.o .libs/cmspack.o .libs/cmspcs.o .libs/cmswtpnt.o .libs/cmsxform.o .libs/cmssamp.o .libs/cmsnamed.o .libs/cmscam02.o .libs/cmsvirt.o .libs/cmstypes.o .libs/cmscgats.o .libs/cmsps2.o .libs/cmsopt.o .libs/cmshalf.o .libs/cmsalpha.o   -lm -lpthread  -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -O3   -pthread -Wl,-soname -Wl,liblcms2.so.2 -o .libs/liblcms2.so.2.0.13
+#20 17.88 libtool: link: (cd ".libs" && rm -f "liblcms2.so.2" && ln -s "liblcms2.so.2.0.13" "liblcms2.so.2")
+#20 17.89 libtool: link: (cd ".libs" && rm -f "liblcms2.so" && ln -s "liblcms2.so.2.0.13" "liblcms2.so")
+#20 17.90 libtool: link: ar cr .libs/liblcms2.a  cmscnvrt.o cmserr.o cmsgamma.o cmsgmt.o cmsintrp.o cmsio0.o cmsio1.o cmslut.o cmsplugin.o cmssm.o cmsmd5.o cmsmtrx.o cmspack.o cmspcs.o cmswtpnt.o cmsxform.o cmssamp.o cmsnamed.o cmscam02.o cmsvirt.o cmstypes.o cmscgats.o cmsps2.o cmsopt.o cmshalf.o cmsalpha.o
+#20 17.93 libtool: link: ranlib .libs/liblcms2.a
+#20 17.97 libtool: link: ( cd ".libs" && rm -f "liblcms2.la" && ln -s "../liblcms2.la" "liblcms2.la" )
+#20 17.97 make[1]: Leaving directory '/src/lcms/src'
+#20 17.97 Making all in include
+#20 17.97 make[1]: Entering directory '/src/lcms/include'
+#20 17.97 make[1]: Nothing to be done for 'all'.
+#20 17.97 make[1]: Leaving directory '/src/lcms/include'
+#20 17.97 Making all in utils/tificc
+#20 17.98 make[1]: Entering directory '/src/lcms/utils/tificc'
+#20 17.98 make[1]: Nothing to be done for 'all'.
+#20 17.98 make[1]: Leaving directory '/src/lcms/utils/tificc'
+#20 17.98 Making all in utils/transicc
+#20 17.98 make[1]: Entering directory '/src/lcms/utils/transicc'
+#20 17.98 clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../../include -I../../include -I../../utils/common -I../../utils/common   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -c -o transicc.o transicc.c
+#20 17.99 clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../../include -I../../include -I../../utils/common -I../../utils/common   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -c -o ../common/xgetopt.o ../common/xgetopt.c
+#20 17.99 clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../../include -I../../include -I../../utils/common -I../../utils/common   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -c -o ../common/vprf.o ../common/vprf.c
+#20 18.42 /bin/bash ../../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden    -o transicc transicc.o ../common/xgetopt.o ../common/vprf.o ../../src/liblcms2.la -lm -lpthread 
+#20 18.56 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -o .libs/transicc transicc.o ../common/xgetopt.o ../common/vprf.o  ../../src/.libs/liblcms2.so -lm -lpthread -pthread
+#20 18.69 make[1]: Leaving directory '/src/lcms/utils/transicc'
+#20 18.69 Making all in utils/linkicc
+#20 18.69 make[1]: Entering directory '/src/lcms/utils/linkicc'
+#20 18.69 clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../../include -I../../include -I../../utils/common -I../../utils/common   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -c -o linkicc.o linkicc.c
+#20 18.85 /bin/bash ../../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden    -o linkicc linkicc.o ../common/xgetopt.o ../common/vprf.o ../../src/liblcms2.la  
+#20 18.98 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -o .libs/linkicc linkicc.o ../common/xgetopt.o ../common/vprf.o  ../../src/.libs/liblcms2.so -pthread
+#20 19.10 make[1]: Leaving directory '/src/lcms/utils/linkicc'
+#20 19.10 Making all in utils/jpgicc
+#20 19.10 make[1]: Entering directory '/src/lcms/utils/jpgicc'
+#20 19.10 make[1]: Nothing to be done for 'all'.
+#20 19.10 make[1]: Leaving directory '/src/lcms/utils/jpgicc'
+#20 19.10 Making all in utils/psicc
+#20 19.10 make[1]: Entering directory '/src/lcms/utils/psicc'
+#20 19.10 clang -DPACKAGE_NAME=\"lcms2\" -DPACKAGE_TARNAME=\"lcms2\" -DPACKAGE_VERSION=\"2.13\" -DPACKAGE_STRING=\"lcms2\ 2.13\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_FUNC_ATTRIBUTE_VISIBILITY=1 -DHAVE_GMTIME_R=1 -DHAVE_PTHREAD=1 -DHasTHREADS=1 -I.  -I../../include -I../../include -I../../utils/common -I../../utils/common   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden  -c -o psicc.o psicc.c
+#20 19.23 /bin/bash ../../libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden    -o psicc psicc.o ../common/xgetopt.o ../common/vprf.o ../../src/liblcms2.la -lm -lpthread 
+#20 19.37 libtool: link: clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fvisibility=hidden -o .libs/psicc psicc.o ../common/xgetopt.o ../common/vprf.o  ../../src/.libs/liblcms2.so -lm -lpthread -pthread
+#20 19.49 make[1]: Leaving directory '/src/lcms/utils/psicc'
+#20 19.49 Making all in testbed
+#20 19.50 make[1]: Entering directory '/src/lcms/testbed'
+#20 19.50 make[1]: Nothing to be done for 'all'.
+#20 19.50 make[1]: Leaving directory '/src/lcms/testbed'
+#20 19.50 make[1]: Entering directory '/src/lcms'
+#20 19.50 make[1]: Nothing to be done for 'all-am'.
+#20 19.50 make[1]: Leaving directory '/src/lcms'
+#20 19.50 + FUZZERS='cmsIT8_load_fuzzer cms_transform_fuzzer cms_overwrite_transform_fuzzer'
+#20 19.50 + for F in $FUZZERS
+#20 19.50 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -Iinclude /src/cmsIT8_load_fuzzer.c -o /src/cmsIT8_load_fuzzer.o
+#20 19.55 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard /src/cmsIT8_load_fuzzer.o -o /out/cmsIT8_load_fuzzer /libAFL.a src/.libs/liblcms2.a
+#20 19.84 + for F in $FUZZERS
+#20 19.84 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -Iinclude /src/cms_transform_fuzzer.c -o /src/cms_transform_fuzzer.o
+#20 19.91 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard /src/cms_transform_fuzzer.o -o /out/cms_transform_fuzzer /libAFL.a src/.libs/liblcms2.a
+#20 20.21 + for F in $FUZZERS
+#20 20.21 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -Iinclude /src/cms_overwrite_transform_fuzzer.c -o /src/cms_overwrite_transform_fuzzer.o
+#20 20.26 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard /src/cms_overwrite_transform_fuzzer.o -o /out/cms_overwrite_transform_fuzzer /libAFL.a src/.libs/liblcms2.a
+#20 20.56 + cp /src/icc.dict /src/cmsIT8_load_fuzzer.options /src/cms_overwrite_transform_fuzzer.options /src/cms_transform_fuzzer.options /out/
+#20 20.56 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 20.8s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:e1a9759fc46092a86bafec2f410b6d66c55b160309b9b176cc724c86ea3019d9 done
+#21 naming to gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:625f3d96c7898b816d7cced60badc3a4ef33f327667ddca41a79dcc3eb49c16a
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:03fa4279d0695eb53e033ac63f3bd41c6c8dba9c371cb5dddfdd0065aeb899e7
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer-intermediate
+#4 sha256:520bb349418351c136bd8cb83de5f5d9eb654548b732cbbefc3e25ab8447f6fe
+#4 ERROR: gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:559804d64fdb09848e27ac6aa062a59b9bde70e4fee70f67b96f8abeb802c389
+#6 writing image sha256:559804d64fdb09848e27ac6aa062a59b9bde70e4fee70f67b96f8abeb802c389 done
+#6 naming to gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:95900edeb829b59343dae67936c5bc95de342fa692c111c9996d6faa0191e1cd
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1329228ce989b042efac99481ffcea2a222684b15e92fce4e730ce3efbce4f18
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer-intermediate:latest
+#3 sha256:9f617ec10b07039543cfa6449835ef6cd82fa71471f75dfdeadfe852dc052656
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer:latest
+#4 sha256:1ee195403e6730dfa097bc28ea712497e9bda8c9f89418379d66707ec354854a
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:ed8b0a846c2afaeb7b3d7fad09b4f3b13c33591e16c73ca94e3f0a277020ad1b
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer-intermediate
+#6 sha256:753f4311d09fc404d08029ccb5c8c2eeddd80f9080289f531af57ed1ec50448e
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer
+#10 sha256:722f11718a2a49adcb6dca848040d0cf9802fdbf3f011c4e52c05d651dc9bc4b
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer
+#5 sha256:01ba582b9d6004c37425f7e8d6740e7cb3db67f9ceba7451ea0e3755a9d41511
+#5 ERROR: gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:ed8b0a846c2afaeb7b3d7fad09b4f3b13c33591e16c73ca94e3f0a277020ad1b
+#12 transferring context: 9.03MB 0.2s done
+#12 DONE 0.2s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/lcms_cms_transform_fuzzer
+#10 sha256:722f11718a2a49adcb6dca848040d0cf9802fdbf3f011c4e52c05d651dc9bc4b
+#10 DONE 0.4s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:c601746961b84054b7c6664e480cfacfd8623aec363e2012efe3086ad6be8ead
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:0fe022f3bedc323ee7307ad83d6ddd68ed7b4788fffe48ce15a0cec6c11542bb
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:c3f95c2eb092b09be8abcc139898a39ce25238bcdced6881309072b23b07a687
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:f19c83942ae4889489c1741dcec17d3b7e9eae3ea144f248ea142b83d764f461
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:1f662571b830f72c31ff291e94f9b345e9b50da97b8aa5cbf2efd939418f24b3
+#13 DONE 0.2s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:24b7d1e17e908bc8599111b8214d39f9fb065d461d0030e161f9f53eb845a4f0
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:f0f0919ace4c7a686efd9c8191b5ec65467471533ced6c5abfece6df54c3977e
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:ea39d30a0c080d0136883406562d712cefb94b298aa1210b753280b426f6fae5
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:9605d6e40d94c802eed8de5a47a14bedbf76788938ae5413b972cc8b2bf89fc5
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:8d40920e950a6a1e96d9777a13d09933221cf97806333d479c5babb1ad22ba22
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:668df77facd9bc7e077223b8d188b1676537fa54dca5f95d5e7c6b39dfd84747
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:a3c622d60da9ca03d44ade3b4895005747150fd82467a3b1903e142102e64df2
+#20 DONE 0.8s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:713ec631f26a94f6e72d2ad78813b7d8879b1dd5fcaa36bfe592233860cc5e61
+#21 writing image sha256:713ec631f26a94f6e72d2ad78813b7d8879b1dd5fcaa36bfe592233860cc5e61 done
+#21 naming to gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/lcms_cms_transform_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Executed command: "nice -n 5 python3 -u -c from fuzzers.afl import fuzzer; fuzzer.fuzz('/out/seeds', '/out/corpus', '/out/cms_transform_fuzzer')" returned: 1.
+ERROR:root:Fuzz process returned nonzero. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 209, in run_fuzzer\n    new_process.execute(command,\n  File "/src/common/new_process.py", line 124, in execute\n    raise subprocess.CalledProcessError(retcode, command)\nsubprocess.CalledProcessError: Command \'[\'nice\', \'-n\', \'5\', \'python3\', \'-u\', \'-c\', "from fuzzers.afl import fuzzer; fuzzer.fuzz(\'/out/seeds\', \'/out/corpus\', \'/out/cms_transform_fuzzer\')"]\' returned non-zero exit status 1.\n'}
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7ff192c1dee0> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+make: *** [docker/generated.mk:279563: test-run-afl-lcms_cms_transform_fuzzer] Error 1

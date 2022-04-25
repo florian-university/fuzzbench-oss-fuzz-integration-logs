@@ -1,0 +1,548 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: tidy-html5_tidy_fuzzer.
+INFO:root:Please run "make test-run-afl-tidy-html5_tidy_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:84d851257e27dacdfb2c9a6ff49c5c822934b1ea606266a747afb981f8e52c3d
+#1 transferring dockerfile: 1.02kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b3911d387ae4aa19c10a6dde7f861ebbc10f78aac3e40859d90f1bf1b67320dc
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:2202fcfa2561266e75e8094cb5c711cde48562dd69b374c6b362b6cc0e456c5c
+#9 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/tidy-html5_tidy_fuzzer
+#4 sha256:9058429b61f7bc8229789457f3ac2966d769e2dd640ac96722019fa5fea3fd5b
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/tidy-html5_tidy_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:2202fcfa2561266e75e8094cb5c711cde48562dd69b374c6b362b6cc0e456c5c
+#9 transferring context: 15.66kB done
+#9 DONE 0.0s
+
+#6 [2/6] RUN apt-get update &&     apt-get install -y --no-install-recommends         cmake ninja-build &&     apt-get clean
+#6 sha256:b7790875872711eed7e0937e103cf36e4eed6792f0186be997460f5af7a6a9aa
+#6 CACHED
+
+#7 [3/6] RUN git clone -b next --single-branch     https://github.com/htacg/tidy-html5.git tidy-html5
+#7 sha256:57be4aaee85f26ba9e7dc2b24da86e4501e619044e3bdae8091d28af6d466ae5
+#7 CACHED
+
+#8 [4/6] WORKDIR tidy-html5
+#8 sha256:09031fabbb51b18cf6e2fd2dbdf6b1b960cee06f0c27ba5c5f1d8356977d8e2d
+#8 CACHED
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:81ac9aa5efecf97f4144ab4e7793c21a113ffea0701f644f91c778df4879e939
+#10 CACHED
+
+#11 [6/6] COPY *.c *.h *.options /src/
+#11 sha256:c20cd09575bc66aa9ea60f4cf36cce7f4af1a5845228ba83148d6e68670f02f5
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:b515c707473b56b95b1a6e6234f85030ea0b2927c327c5843213523bfb5a131d
+#12 writing image sha256:b515c707473b56b95b1a6e6234f85030ea0b2927c327c5843213523bfb5a131d done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/tidy-html5_tidy_fuzzer done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/tidy-html5_tidy_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:b46b3c0c6fe842308463b20eeb8456271c8685e14eaa6d959fda35d9306d1c48
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:8b55977bd5970e8d29fd01a8a8add81206799846ce8a22c02e08ae670ea9f8c1
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/tidy-html5_tidy_fuzzer:latest
+#3 sha256:a607e1bbdc5b866aeb2e108274ac2b4ea010b8946be768805a808c2d667accf8
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/tidy-html5_tidy_fuzzer
+#5 sha256:dd393377da604e49679c5935e0245d566ea7187580647391e133294eb7a5bea4
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer-intermediate
+#4 sha256:bc379b9da05958e183969bba326425436d8db3621acdd8c288346a8f73ab2ace
+#4 ERROR: gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:19e29c70b4bd47ee942cc2e559e1e2ca4b1f08c0cbf6086ead104b9a8147a02a
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1450ef8f3d581be9c841c6f6bb7d8a9689e93e73f6aec5f8276fc6313ac613ef
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:3805d20621245d703bb7660b3828a1341340f0d849d62f29a48b4e4757eca660 done
+#8 naming to gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2d906c10390babc781c0bf0474a6ce42ccf4ffb77204f32639bb13184f706ffb
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9159bc0e596a283a69d576508895454bad7cf2a9ee2f3db7d9f7f79c0d8535d6
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:0bfaccb5095486f4728af5b7f8e6c2036ba63f9daa6c48411929d1350cf33391
+#8 transferring context: 591B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:35b2bd7c941194becdf54ec5ffb55288affc69e639f6ed2ae8a665ce30225750
+#10 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:44eab905eb711616a7a0b68716c207c3ab0498be4e27942471742f7d47b308da
+#11 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:4b998dd0a504354dbc2d69536fdee87892d856a7d88b0c5959f4ebb58046e5af
+#9 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:e69d9a7aa72f12bac84c3abd288fe73f689d241fd4930bd5e4d08ba9e69b9c9e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:5fb2f80ccab2180926bb2bc5ede0619da567b589e8773822348f5143b515f16f done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:1dce4a82fd230bfbbb35109462628742374c34b944fd200237c734594a6574f8
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1a773c1cebc47984b6b675824fade9a4ccd321606d8355de20dff5201d723370
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer-intermediate:latest
+#3 sha256:c30999fb4e16db74731902057a4845f0c9bd89da1597073ab471b0a4b9c1af29
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e3ba9b84099643eaa801ae4c96c9bbb01d5229c070ea0e49c6c93e0ad5b90ee5
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer-intermediate
+#6 sha256:c158932f280aa7717fa502b9e25c4555200c7dc31be96ef64c230010674f0b3d
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer
+#5 sha256:3b713a0c0e3795ad0eb2c1deaa18515a2ea383e3c32e75f51026b20c58ef7ad7
+#5 ERROR: gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:e3ba9b84099643eaa801ae4c96c9bbb01d5229c070ea0e49c6c93e0ad5b90ee5
+#12 transferring context: 742.40kB 0.1s done
+#12 DONE 0.1s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:6a3275c7acc7f87fa3e6f293cb4c264ea422435d48d50e17fc824fcbf2d3ede3
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:24f910f8b8a956693cd455083cc278f3e61f875f31017b917d873b6805e33e2e
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:b8a87ff876e967d5506786de8f2968e654f8a1f8cd7f8069d56da3e4ddaa4811
+#11 CACHED
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:111acc254b9d157ef2b64183f20b443960dc6812c9e324c11310d1ca96c163fe
+#8 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:db59ff80e50426e4b4a6e3386fa30b8ca780afc04450b0bf13010b7edd6c1e6b
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:05e21e09e3a1c304cdc5f693b1c1edb090dfd825f376474f5ea2f66447d3ba36
+#14 DONE 0.4s
+
+#15 [stage-1  8/13] COPY benchmarks/tidy-html5_tidy_fuzzer/benchmark.yaml /
+#15 sha256:0cccd9b1d52d02ddcf8f7e1401028917e00d287f07972f05639b036941a69455
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:3a86d7926bf11ae81773d041539e2aaa33166969a89e77145446da5d4c0c0764
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:e78b002ab739080effcc2d6639a2fd3db4f99447db9992fd8d15f04abaa82306
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:4b7d61a5705ac689476b0cc7b3d009faf536eb23dc9ecdb3708e834271405220
+#18 0.507 Checking out commit c91a9f64
+#18 0.521 error: pathspec 'c91a9f64' did not match any file(s) known to git
+#18 0.527 error: pathspec 'c91a9f64' did not match any file(s) known to git
+#18 0.536 error: pathspec 'c91a9f64' did not match any file(s) known to git
+#18 0.581 Checkout unsuccessful.
+#18 DONE 0.7s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:2cc69e2c62f8e3f0612063d4c3fc1682b56d86eb8fe7515b046e90c527c17947
+#19 DONE 0.5s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:929caeaa0747fab80299f3ac38b4a1fdac49b141b504d72ade8b86b1ce685264
+#20 0.421 Run fuzzer_build to build the target
+#20 0.536 FUZZ_TARGET = tidy_fuzzer
+#20 0.536 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.536 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.540 Building benchmark tidy-html5_tidy_fuzzer with fuzzer afl
+#20 0.544 + mkdir -p /work/tidy-html5
+#20 0.546 + cd /work/tidy-html5
+#20 0.546 + cmake -GNinja /src/tidy-html5/
+#20 0.779 -- The C compiler identification is Clang 14.0.0
+#20 1.044 -- The CXX compiler identification is Clang 14.0.0
+#20 1.062 -- Detecting C compiler ABI info
+#20 1.228 -- Detecting C compiler ABI info - done
+#20 1.278 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.278 -- Detecting C compile features
+#20 1.279 -- Detecting C compile features - done
+#20 1.287 -- Detecting CXX compiler ABI info
+#20 1.484 -- Detecting CXX compiler ABI info - done
+#20 1.550 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.551 -- Detecting CXX compile features
+#20 1.552 -- Detecting CXX compile features - done
+#20 1.553 -> TIDY_SO_VERSION = 59. This is an ODD (development) release.
+#20 1.554 -- *** Debug Logging is NOT enabled.
+#20 1.554 -- *** Building support for runtime configuration files.
+#20 1.554 -- *** Also building DLL library SHARED, version 5.9.20, date 2022.01.25
+#20 1.555 -- *** NOTE: xsltproc NOT FOUND! Can NOT generate man page.
+#20 1.555 -- *** You need to install xsltproc in your system.
+#20 1.570 -- Configuring done
+#20 1.582 -- Generating done
+#20 1.591 -- Build files have been written to: /work/tidy-html5
+#20 1.596 + ninja
+#20 1.827 [1/56] Building C object CMakeFiles/tidy-share.dir/src/charsets.c.o
+#20 1.940 [2/56] Building C object CMakeFiles/tidy-share.dir/src/entities.c.o
+#20 1.986 [3/56] Building C object CMakeFiles/tidy-share.dir/src/istack.c.o
+#20 2.257 [4/56] Building C object CMakeFiles/tidy-share.dir/src/alloc.c.o
+#20 2.388 [5/56] Building C object CMakeFiles/tidy-share.dir/src/tags.c.o
+#20 2.698 [6/56] Building C object CMakeFiles/tidy-share.dir/src/buffio.c.o
+#20 2.806 [7/56] Building C object CMakeFiles/tidy-share.dir/src/message.c.o
+#20 2.891 [8/56] Building C object CMakeFiles/tidy-share.dir/src/fileio.c.o
+#20 3.197 [9/56] Building C object CMakeFiles/tidy-share.dir/src/tagask.c.o
+#20 3.219 [10/56] Building C object CMakeFiles/tidy-share.dir/src/clean.c.o
+#20 3.314 [11/56] Building C object CMakeFiles/tidy-share.dir/src/attrs.c.o
+#20 3.387 [12/56] Building C object CMakeFiles/tidy-share.dir/src/config.c.o
+#20 3.409 [13/56] Building C object CMakeFiles/tidy-share.dir/src/streamio.c.o
+#20 3.554 [14/56] Building C object CMakeFiles/tidy-share.dir/src/utf8.c.o
+#20 3.624 [15/56] Building C object CMakeFiles/tidy-share.dir/src/gdoc.c.o
+#20 3.647 [16/56] Building C object CMakeFiles/tidy-share.dir/src/tmbstr.c.o
+#20 3.667 [17/56] Building C object CMakeFiles/tidy-share.dir/src/mappedio.c.o
+#20 3.834 [18/56] Building C object CMakeFiles/tidy-share.dir/src/sprtf.c.o
+#20 3.927 [19/56] Building C object CMakeFiles/tidy-share.dir/src/access.c.o
+#20 4.026 [20/56] Building C object CMakeFiles/tidy-share.dir/src/messageobj.c.o
+#20 4.061 [21/56] Building C object CMakeFiles/tidy-share.dir/src/language.c.o
+#20 4.172 [22/56] Building C object CMakeFiles/tidy-share.dir/src/attrdict.c.o
+#20 4.286 [23/56] Building C object CMakeFiles/tidy-static.dir/src/istack.c.o
+#20 4.483 [24/56] Building C object CMakeFiles/tidy-share.dir/src/tidylib.c.o
+#20 4.637 [25/56] Building C object CMakeFiles/tidy-static.dir/src/entities.c.o
+#20 4.647 [26/56] Building C object CMakeFiles/tidy-share.dir/src/lexer.c.o
+#20 4.895 [27/56] Building C object CMakeFiles/tidy-static.dir/src/tags.c.o
+#20 4.971 [28/56] Building C object CMakeFiles/tidy-static.dir/src/charsets.c.o
+#20 5.344 [29/56] Building C object CMakeFiles/tidy-share.dir/src/parser.c.o
+#20 5.345 /src/tidy-html5/src/parser.c:2793:11: warning: variable 'head' set but not used [-Wunused-but-set-variable]
+#20 5.345     Node *head = NULL;
+#20 5.345           ^
+#20 5.345 1 warning generated.
+#20 5.582 [30/56] Building C object CMakeFiles/tidy-static.dir/src/alloc.c.o
+#20 5.598 [31/56] Building C object CMakeFiles/tidy-static.dir/src/message.c.o
+#20 5.856 [32/56] Building C object CMakeFiles/tidy-static.dir/src/attrs.c.o
+#20 5.867 [33/56] Building C object CMakeFiles/tidy-static.dir/src/access.c.o
+#20 5.882 [34/56] Building C object CMakeFiles/tidy-static.dir/src/buffio.c.o
+#20 6.069 [35/56] Building C object CMakeFiles/tidy-static.dir/src/fileio.c.o
+#20 6.165 [36/56] Building C object CMakeFiles/tidy-static.dir/src/tagask.c.o
+#20 6.409 [37/56] Building C object CMakeFiles/tidy-static.dir/src/clean.c.o
+#20 6.423 [38/56] Building C object CMakeFiles/tidy-static.dir/src/streamio.c.o
+#20 6.427 [39/56] Building C object CMakeFiles/tidy-static.dir/src/tmbstr.c.o
+#20 6.486 [40/56] Building C object CMakeFiles/tidy-static.dir/src/config.c.o
+#20 6.503 [41/56] Building C object CMakeFiles/tidy-static.dir/src/utf8.c.o
+#20 6.557 [42/56] Building C object CMakeFiles/tidy-static.dir/src/mappedio.c.o
+#20 6.632 [43/56] Building C object CMakeFiles/tidy-static.dir/src/sprtf.c.o
+#20 6.635 [44/56] Building C object CMakeFiles/tidy-static.dir/src/gdoc.c.o
+#20 6.856 [45/56] Building C object CMakeFiles/tidy-share.dir/src/pprint.c.o
+#20 6.956 [46/56] Building C object CMakeFiles/tidy-static.dir/src/messageobj.c.o
+#20 7.032 [47/56] Building C object CMakeFiles/tidy-static.dir/src/language.c.o
+#20 7.078 [48/56] Linking C shared library libtidy.so
+#20 7.145 [49/56] Building C object CMakeFiles/tidy-static.dir/src/lexer.c.o
+#20 7.175 [50/56] Building C object CMakeFiles/tidy-static.dir/src/attrdict.c.o
+#20 7.215 [51/56] Building C object CMakeFiles/tidy-static.dir/src/parser.c.o
+#20 7.215 /src/tidy-html5/src/parser.c:2793:11: warning: variable 'head' set but not used [-Wunused-but-set-variable]
+#20 7.215     Node *head = NULL;
+#20 7.215           ^
+#20 7.215 1 warning generated.
+#20 7.325 [52/56] Building C object CMakeFiles/tidy-static.dir/src/tidylib.c.o
+#20 7.837 [53/56] Building C object CMakeFiles/tidy.dir/console/tidy.c.o
+#20 7.837 /src/tidy-html5/console/tidy.c:2085:10: warning: variable 'accessWarnings' set but not used [-Wunused-but-set-variable]
+#20 7.837     uint accessWarnings = 0;
+#20 7.837          ^
+#20 7.837 1 warning generated.
+#20 8.236 [54/56] Building C object CMakeFiles/tidy-static.dir/src/pprint.c.o
+#20 8.261 [55/56] Linking C static library libtidy.a
+#20 8.436 [56/56] Linking C executable tidy
+#20 8.437 + for fuzzer in tidy_config_fuzzer tidy_fuzzer tidy_xml_fuzzer tidy_parse_string_fuzzer tidy_parse_file_fuzzer tidy_general_fuzzer
+#20 8.437 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -I/src/tidy-html5/include /src/tidy_config_fuzzer.c -o tidy_config_fuzzer.o
+#20 8.518 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 tidy_config_fuzzer.o -o /out/tidy_config_fuzzer /libAFL.a libtidy.a
+#20 8.824 + for fuzzer in tidy_config_fuzzer tidy_fuzzer tidy_xml_fuzzer tidy_parse_string_fuzzer tidy_parse_file_fuzzer tidy_general_fuzzer
+#20 8.824 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -I/src/tidy-html5/include /src/tidy_fuzzer.c -o tidy_fuzzer.o
+#20 8.891 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 tidy_fuzzer.o -o /out/tidy_fuzzer /libAFL.a libtidy.a
+#20 9.195 + for fuzzer in tidy_config_fuzzer tidy_fuzzer tidy_xml_fuzzer tidy_parse_string_fuzzer tidy_parse_file_fuzzer tidy_general_fuzzer
+#20 9.195 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -I/src/tidy-html5/include /src/tidy_xml_fuzzer.c -o tidy_xml_fuzzer.o
+#20 9.264 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 tidy_xml_fuzzer.o -o /out/tidy_xml_fuzzer /libAFL.a libtidy.a
+#20 9.563 + for fuzzer in tidy_config_fuzzer tidy_fuzzer tidy_xml_fuzzer tidy_parse_string_fuzzer tidy_parse_file_fuzzer tidy_general_fuzzer
+#20 9.563 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -I/src/tidy-html5/include /src/tidy_parse_string_fuzzer.c -o tidy_parse_string_fuzzer.o
+#20 9.628 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 tidy_parse_string_fuzzer.o -o /out/tidy_parse_string_fuzzer /libAFL.a libtidy.a
+#20 9.929 + for fuzzer in tidy_config_fuzzer tidy_fuzzer tidy_xml_fuzzer tidy_parse_string_fuzzer tidy_parse_file_fuzzer tidy_general_fuzzer
+#20 9.929 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -I/src/tidy-html5/include /src/tidy_parse_file_fuzzer.c -o tidy_parse_file_fuzzer.o
+#20 9.999 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 tidy_parse_file_fuzzer.o -o /out/tidy_parse_file_fuzzer /libAFL.a libtidy.a
+#20 10.30 + for fuzzer in tidy_config_fuzzer tidy_fuzzer tidy_xml_fuzzer tidy_parse_string_fuzzer tidy_parse_file_fuzzer tidy_general_fuzzer
+#20 10.30 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -c -I/src/tidy-html5/include /src/tidy_general_fuzzer.c -o tidy_general_fuzzer.o
+#20 10.40 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 tidy_general_fuzzer.o -o /out/tidy_general_fuzzer /libAFL.a libtidy.a
+#20 10.69 + cp /src/tidy_config_fuzzer.options /out/
+#20 10.70 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 10.9s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:12875346640c0d7dd8ea6c88c585099f211e568cdda8f0ccabd75c765c333666
+#21 writing image sha256:12875346640c0d7dd8ea6c88c585099f211e568cdda8f0ccabd75c765c333666 done
+#21 naming to gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:9288793bc70a7e2af138d78c1e7f3f85dbd793d7032d4e4020217e9f3d9928be
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1b4670672cdcb136bef9d01ec644576ee43a7b2f276f764fd55bcfdd942cb3f5
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer-intermediate
+#4 sha256:5a5a7128104393f7deaa86d6b298c3d5551123967fea1e646efa238e82cee362
+#4 ERROR: gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer-intermediate:latest: not found
+
+#5 [1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:a75bb0b8a3d6ff10c4e4f0b01262d9c6b8d28fb7a48062d52ee04e8302c3dcb7 done
+#6 naming to gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:748c9bab6bdef3401f466796733141e059b9f312ea6c5f86eb6ecee532438fee
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ea8162ef3b3b49eb91fe8f335093aaf7a799227ed87dda8333bf2d8aabca1b9a
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer-intermediate:latest
+#3 sha256:045625b56b24b03a7cec7fd771aa835e2efac18bf8aac50181814d9594c5f8c3
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer:latest
+#4 sha256:970b0694812bd414ed8488cc44657cb4938911319216d62cf2ff90d8b8499f35
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1ffad46179708a3a9b77990f4e8d765242a79c07c66e339b62101f603517478b
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer-intermediate
+#6 sha256:5a5bb6533701d12d714dd51624fe8617a60b8a84e3472c99948c93a0c800725a
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer
+#10 sha256:3312e404538e62e2b044aa3751ca29fd1ecd4099a7113bc35dd5d5f4b1223466
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer
+#5 sha256:1ed07f9672bdedb5a2439739869713312740600dc8fd624dbf154c1ddb42117f
+#5 ERROR: gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:1ffad46179708a3a9b77990f4e8d765242a79c07c66e339b62101f603517478b
+#12 transferring context: 9.04MB 0.2s done
+#12 DONE 0.2s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/tidy-html5_tidy_fuzzer
+#10 sha256:3312e404538e62e2b044aa3751ca29fd1ecd4099a7113bc35dd5d5f4b1223466
+#10 DONE 0.4s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:22692b9e2534c0fd13c19fa51dbe281976cd84da3ed46475c5d2d7df71b6ce50
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:c5e803f1ec604668759f542080b9acf49defe343e62a79dd6446e9ab8fcb8037
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:0a761f0c4debd6873672f188e6b5dae7666c9925048bc820755652325cae7c18
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:0c5d2a38c0a8ed75321aa52b94419a3027f81f28633feeae57e54bc4ee5790db
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:b39d5516ac7c4fd61add976417581efef54e4790bff10a2cba33c953f876636a
+#13 DONE 0.2s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:53d1e03e2c8d1388f89e9e9ceb4b384428f53a926b06fdf38bddd9a12ae3cce4
+#14 DONE 0.2s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:9cc4bdb6cc5712e9e75ccea7d95a23a16d8854b92a9e4193bdfaac24dbfc2d89
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:aec6c25ee0b51f1596b6d05595f3f0b73b294103457f5119c9120a28fca54497
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:99b1464dc4b1ea63ce9065e20b9b5c9d90ab558021a8498a37c2d891ca69fcbc
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:3f28434a90412b4595ebf94e233016f33d893a26722b42074860b767ff12c4f9
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:8bfc119ae4d569fa8fa2b61c193c9b1af5eb6040e46a659f8bd70c2124799d56
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:17376b3aa1e0256a08976bf8485076ee36a0e8a5406bfc647aa9cf53604b4c15
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:ed205563299b291b6cba0143c39b932deb2f53dcd9fee2b7f4270ce95da1683e done
+#21 naming to gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/tidy-html5_tidy_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Doing final sync.

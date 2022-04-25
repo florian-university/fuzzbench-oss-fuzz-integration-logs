@@ -1,0 +1,715 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: zlib_checksum_fuzzer.
+INFO:root:Please run "make test-run-afl-zlib_checksum_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:61a35a95510200bb5365a2520131654ad6b1277dc1654afd2713892f683129c9
+#1 transferring dockerfile: 925B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:f287106a4c14f0eedbcc49866e18382a13656fec797fd3d83055c5d893f7676a
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#9 [internal] load build context
+#9 sha256:ae2793984c17b30498570e2c32f18b8bd0adade95253a51834ecae532dc575f6
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/zlib_checksum_fuzzer
+#4 sha256:ff67f46090f5eae9370f43437a7d4ccb2b4ecd52f05cf8729c0f835344c916d5
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/zlib_checksum_fuzzer:latest: not found
+
+#9 [internal] load build context
+#9 sha256:ae2793984c17b30498570e2c32f18b8bd0adade95253a51834ecae532dc575f6
+#9 transferring context: 34.45kB done
+#9 DONE 0.0s
+
+#8 [4/5] WORKDIR zlib
+#8 sha256:305dacf35f7191abfcbb2e67237640cbb20138484e70dff50d1fc662a0772ce2
+#8 CACHED
+
+#6 [2/5] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:425dc7a252565eeea60f3de4c59c779438ad25f6692cfd7941a8ec9fc7a73f78
+#6 CACHED
+
+#7 [3/5] RUN git clone --depth 1 -b develop https://github.com/madler/zlib.git
+#7 sha256:2db80f1acb4ec415ea6aff45b9903fcdbf63fe7be6dd577e99489178db800722
+#7 CACHED
+
+#10 [5/5] COPY build.sh *_fuzzer.c* /src/
+#10 sha256:1fdce7ca8d0df49e3f9c9be021ccca2f1fd78bcbd0fde51e925047742a4840a3
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:385f0799292aa8bb79a294af498f9b511a0481156fdbfe0fed3de6035ff240e0
+#11 writing image sha256:385f0799292aa8bb79a294af498f9b511a0481156fdbfe0fed3de6035ff240e0 done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/zlib_checksum_fuzzer done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/zlib_checksum_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:742a2c084503d391c1508e187b399993e151f773e4decea2ea8135d0bac6df70
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e235261ca2cafb90ee085e7856fad45911dc3ef290fd75cdf6515ca148e3a23c
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/zlib_checksum_fuzzer:latest
+#3 sha256:3d16e78b685636e10783f1b6878d26874e71441084dc3d99ec2f0133dff233a7
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/zlib_checksum_fuzzer
+#5 sha256:68bfb519b94c5889b77187c0ffe648ab571e3504c1dd917513bff6ee7eda1935
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer-intermediate
+#4 sha256:3d8890797fb31e36061bc95baf373bf2131c7bf7fc13410bbbf2b35e9789f500
+#4 ERROR: gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b38b16eee92a854cd1559d6ce0bb26d8e0d52d61713c9b399ce91091c48fdb6b
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:5a962a4fda13f189f6505bcbae47bce88a4af726260f6d468188b9b83d7cceb8
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:e507d2de6cab8b4b5a1d88dc6368b1c9956770946881bf5a1dc07c01b0e6df63 done
+#8 naming to gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:586fa69daaeea9be81211c0b8f2b0310047f16a66dbe9aa617a629a38290ac93
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:ccedf908cc72ea000ad562d0e91543cea338123e8f34154fde27a2e02d57c8e6
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:cb5cc1cbc4d12e23d2195c0803508db4b9dd26a5879652d9e598fbd746bad02f
+#8 transferring context: 591B 0.0s done
+#8 DONE 0.1s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:4b40a5332163224b1857c87e014485a18d7b8bcc578d30ee1a0cd22217a0481b
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:e5812bfe70765a1454bf363ecea198ebcc5ceed37315521e027f24f04503a219
+#10 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:e440714808dbaa88a9d5071def32ab83123f3675175e9d56a912bb9dc1226832
+#11 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:7d719e29db43ab3f166e88e87160f4b5a74d73d003a003847bcc2e463893bb80
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:4f3dd76512df28a9318832178fc76739758c784ed8f6f0bb7d2f9fdfb54ec807 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:166f732659061e22336aba27ba4934d144cfe6dd7c1387f2776868c95d7ec4cf
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:d68a93119cf827a948599e8135282ecc706a9a24f675bdb28c68c3e8f123a434
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer-intermediate:latest
+#3 sha256:7a209c6af50d22a5c8bb430da8bd5c8d47ed394b18a8841ea62ccdda47bc06db
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:68c02150fbc472705b8c3acc2d9f23f886aaa91e087f986902783d0da967b042
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer-intermediate
+#6 sha256:60bbe292e647d8fac680bf19ac1cd29546adebb326524fd796b817549f9283f1
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer
+#5 sha256:ccd2e24ac9920a7769e92a83fadbf981ddca462c34b69aeb36c11549f7dc6106
+#5 ERROR: gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:68c02150fbc472705b8c3acc2d9f23f886aaa91e087f986902783d0da967b042
+#12 transferring context: 742.39kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:ff19be19fcebd153f521766947d7abb13eaa5ce391b44ec451fe555a30592687
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:aeb81f0224c5458969824c2420bddca1add387fb4c98f86a289adb1db6718050
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:4248a3bb81bc39bf1f7d8953c6e8504c304898782bcadbcc38c9c08e0b839f01
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3ea7fb7795023e4c7e0be7f770db87a91f612428b4e2cb11312df7b2c506a4dd
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:35967ca01f6d6b70539acd768d5cf9c4ed7b27d64a5d5d95a46901c791d6144e
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:4f88a4717e07f3d2f8db3737358c8dcab324cc791da7c547530b47855950e6ce
+#14 DONE 0.6s
+
+#15 [stage-1  8/13] COPY benchmarks/zlib_checksum_fuzzer/benchmark.yaml /
+#15 sha256:4e109de9ba695648e72497e5592ecd779b84849315f74cc6bd4d02e96554f9ce
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:d5afba12fdb6823e9713c62e70df09368e5b73d9f8e83b0a0d48e58c73cbde98
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:e884ac2d42c9aafa7c07a3a0cd914b51171282977aceb012336cd0e3d9eef5e8
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3f72f695239abb020efef12c8500eb72b3966ebc0563a55699ffa380c5203eff
+#18 0.465 Checking out commit 1d5a2cd8
+#18 2.431 From https://github.com/madler/zlib
+#18 2.431  * [new tag]         v0.71       -> v0.71
+#18 2.431  * [new tag]         v0.79       -> v0.79
+#18 2.432  * [new tag]         v0.8        -> v0.8
+#18 2.432  * [new tag]         v0.9        -> v0.9
+#18 2.432  * [new tag]         v0.91       -> v0.91
+#18 2.433  * [new tag]         v0.92       -> v0.92
+#18 2.433  * [new tag]         v0.93       -> v0.93
+#18 2.433  * [new tag]         v0.94       -> v0.94
+#18 2.433  * [new tag]         v0.95       -> v0.95
+#18 2.434  * [new tag]         v0.99       -> v0.99
+#18 2.434  * [new tag]         v1.0-pre    -> v1.0-pre
+#18 2.434  * [new tag]         v1.0.1      -> v1.0.1
+#18 2.435  * [new tag]         v1.0.2      -> v1.0.2
+#18 2.435  * [new tag]         v1.0.4      -> v1.0.4
+#18 2.435  * [new tag]         v1.0.5      -> v1.0.5
+#18 2.436  * [new tag]         v1.0.7      -> v1.0.7
+#18 2.436  * [new tag]         v1.0.8      -> v1.0.8
+#18 2.436  * [new tag]         v1.0.9      -> v1.0.9
+#18 2.436  * [new tag]         v1.1.0      -> v1.1.0
+#18 2.437  * [new tag]         v1.1.1      -> v1.1.1
+#18 2.437  * [new tag]         v1.1.2      -> v1.1.2
+#18 2.437  * [new tag]         v1.1.3      -> v1.1.3
+#18 2.438  * [new tag]         v1.1.4      -> v1.1.4
+#18 2.438  * [new tag]         v1.2.0      -> v1.2.0
+#18 2.438  * [new tag]         v1.2.0.1    -> v1.2.0.1
+#18 2.438  * [new tag]         v1.2.0.2    -> v1.2.0.2
+#18 2.439  * [new tag]         v1.2.0.3    -> v1.2.0.3
+#18 2.439  * [new tag]         v1.2.0.4    -> v1.2.0.4
+#18 2.439  * [new tag]         v1.2.0.5    -> v1.2.0.5
+#18 2.439  * [new tag]         v1.2.0.6    -> v1.2.0.6
+#18 2.440  * [new tag]         v1.2.0.7    -> v1.2.0.7
+#18 2.440  * [new tag]         v1.2.0.8    -> v1.2.0.8
+#18 2.440  * [new tag]         v1.2.1      -> v1.2.1
+#18 2.440  * [new tag]         v1.2.1.1    -> v1.2.1.1
+#18 2.440  * [new tag]         v1.2.1.2    -> v1.2.1.2
+#18 2.441  * [new tag]         v1.2.10     -> v1.2.10
+#18 2.441  * [new tag]         v1.2.11     -> v1.2.11
+#18 2.441  * [new tag]         v1.2.12     -> v1.2.12
+#18 2.441  * [new tag]         v1.2.2      -> v1.2.2
+#18 2.442  * [new tag]         v1.2.2.1    -> v1.2.2.1
+#18 2.442  * [new tag]         v1.2.2.2    -> v1.2.2.2
+#18 2.442  * [new tag]         v1.2.2.3    -> v1.2.2.3
+#18 2.442  * [new tag]         v1.2.2.4    -> v1.2.2.4
+#18 2.443  * [new tag]         v1.2.3      -> v1.2.3
+#18 2.443  * [new tag]         v1.2.3.1    -> v1.2.3.1
+#18 2.443  * [new tag]         v1.2.3.2    -> v1.2.3.2
+#18 2.443  * [new tag]         v1.2.3.3    -> v1.2.3.3
+#18 2.444  * [new tag]         v1.2.3.4    -> v1.2.3.4
+#18 2.444  * [new tag]         v1.2.3.5    -> v1.2.3.5
+#18 2.444  * [new tag]         v1.2.3.6    -> v1.2.3.6
+#18 2.444  * [new tag]         v1.2.3.7    -> v1.2.3.7
+#18 2.444  * [new tag]         v1.2.3.8    -> v1.2.3.8
+#18 2.445  * [new tag]         v1.2.3.9    -> v1.2.3.9
+#18 2.445  * [new tag]         v1.2.4      -> v1.2.4
+#18 2.445  * [new tag]         v1.2.4-pre1 -> v1.2.4-pre1
+#18 2.445  * [new tag]         v1.2.4-pre2 -> v1.2.4-pre2
+#18 2.446  * [new tag]         v1.2.4.1    -> v1.2.4.1
+#18 2.446  * [new tag]         v1.2.4.2    -> v1.2.4.2
+#18 2.446  * [new tag]         v1.2.4.3    -> v1.2.4.3
+#18 2.446  * [new tag]         v1.2.4.4    -> v1.2.4.4
+#18 2.447  * [new tag]         v1.2.4.5    -> v1.2.4.5
+#18 2.447  * [new tag]         v1.2.5      -> v1.2.5
+#18 2.447  * [new tag]         v1.2.5.1    -> v1.2.5.1
+#18 2.447  * [new tag]         v1.2.5.2    -> v1.2.5.2
+#18 2.448  * [new tag]         v1.2.5.3    -> v1.2.5.3
+#18 2.448  * [new tag]         v1.2.6      -> v1.2.6
+#18 2.448  * [new tag]         v1.2.6.1    -> v1.2.6.1
+#18 2.448  * [new tag]         v1.2.7      -> v1.2.7
+#18 2.448  * [new tag]         v1.2.7.1    -> v1.2.7.1
+#18 2.449  * [new tag]         v1.2.7.2    -> v1.2.7.2
+#18 2.449  * [new tag]         v1.2.7.3    -> v1.2.7.3
+#18 2.449  * [new tag]         v1.2.8      -> v1.2.8
+#18 2.449  * [new tag]         v1.2.9      -> v1.2.9
+#18 2.456 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 2.461 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 2.468 error: pathspec '1d5a2cd8' did not match any file(s) known to git
+#18 2.512 Checkout unsuccessful.
+#18 DONE 2.6s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:90166d06d6a152b732634735873ceeb364716c476e13047c5469456e8b6c1a3d
+#19 DONE 0.5s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:b482b15f0962131b9cb74351b566bcb46ac68d7163e5efb5ec4441e4afc3a4f8
+#20 0.409 Run fuzzer_build to build the target
+#20 0.522 FUZZ_TARGET = checksum_fuzzer
+#20 0.522 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.522 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.526 Building benchmark zlib_checksum_fuzzer with fuzzer afl
+#20 0.530 + ./configure
+#20 0.649 Checking for shared library support...
+#20 0.726 Building shared library libz.so.1.2.12.1-motley with clang.
+#20 0.769 Checking for size_t... Yes.
+#20 0.799 Checking for off64_t... Yes.
+#20 0.800 Checking for fseeko... Yes.
+#20 0.947 Checking for strerror... Yes.
+#20 0.993 Checking for unistd.h... Yes.
+#20 1.027 Checking for stdarg.h... Yes.
+#20 1.078 Checking whether to use vs[n]printf() or s[n]printf()... using vs[n]printf().
+#20 1.229 Checking for vsnprintf() in stdio.h... Yes.
+#20 1.267 Checking for return value of vsnprintf()... Yes.
+#20 1.294 Checking for attribute(visibility) support... Yes.
+#20 1.308 ++ nproc
+#20 1.309 + make -j8 clean
+#20 1.312 rm -f *.o *.lo *~ \
+#20 1.312    example minigzip examplesh minigzipsh \
+#20 1.312    example64 minigzip64 \
+#20 1.312    infcover \
+#20 1.312    libz.* foo.gz so_locations \
+#20 1.312    _match.s maketree contrib/infback9/*.o
+#20 1.314 rm -rf objs
+#20 1.315 rm -f *.gcda *.gcno *.gcov
+#20 1.317 rm -f contrib/infback9/*.gcda contrib/infback9/*.gcno contrib/infback9/*.gcov
+#20 1.320 ++ nproc
+#20 1.322 + make -j8 all
+#20 1.326 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -c -o example.o test/example.c
+#20 1.326 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o adler32.o adler32.c
+#20 1.326 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o crc32.o crc32.c
+#20 1.327 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o deflate.o deflate.c
+#20 1.328 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o infback.o infback.c
+#20 1.328 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o inffast.o inffast.c
+#20 1.328 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o inflate.o inflate.c
+#20 1.329 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o inftrees.o inftrees.c
+#20 1.528 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o trees.o trees.c
+#20 1.555 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o zutil.o zutil.c
+#20 1.568 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o compress.o compress.c
+#20 1.642 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o uncompr.o uncompr.c
+#20 1.650 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzclose.o gzclose.c
+#20 1.655 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzlib.o gzlib.c
+#20 1.679 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzread.o gzread.c
+#20 1.723 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -c -o gzwrite.o gzwrite.c
+#20 1.740 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -c -o minigzip.o test/minigzip.c
+#20 1.902 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/adler32.o adler32.c
+#20 1.925 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/crc32.o crc32.c
+#20 1.961 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/deflate.o deflate.c
+#20 2.011 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/infback.o infback.c
+#20 2.053 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/inffast.o inffast.c
+#20 2.112 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/inflate.o inflate.c
+#20 2.254 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/inftrees.o inftrees.c
+#20 2.311 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/trees.o trees.c
+#20 2.424 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/zutil.o zutil.c
+#20 2.491 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/compress.o compress.c
+#20 2.524 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzclose.o gzclose.c
+#20 2.533 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/uncompr.o uncompr.c
+#20 2.583 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzlib.o gzlib.c
+#20 2.615 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzread.o gzread.c
+#20 2.618 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN  -DPIC -c -o objs/gzwrite.o gzwrite.c
+#20 2.678 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -D_FILE_OFFSET_BITS=64 -c -o example64.o test/example.c
+#20 2.748 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -D_FILE_OFFSET_BITS=64 -c -o minigzip64.o test/minigzip.c
+#20 2.840 ar rc libz.a adler32.o crc32.o deflate.o infback.o inffast.o inflate.o inftrees.o trees.o zutil.o compress.o uncompr.o gzclose.o gzlib.o gzread.o gzwrite.o 
+#20 2.863 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o example example.o -L. libz.a
+#20 2.925 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o minigzip minigzip.o -L. libz.a
+#20 2.934 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o example64 example64.o -L. libz.a
+#20 2.960 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o minigzip64 minigzip64.o -L. libz.a
+#20 3.414 clang -shared -Wl,-soname,libz.so.1,--version-script,zlib.map -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o libz.so.1.2.12.1-motley adler32.lo crc32.lo deflate.lo infback.lo inffast.lo inflate.lo inftrees.lo trees.lo zutil.lo compress.lo uncompr.lo gzclose.lo gzlib.lo gzread.lo gzwrite.lo  -lc 
+#20 3.481 rm -f libz.so libz.so.1
+#20 3.482 ln -s libz.so.1.2.12.1-motley libz.so
+#20 3.484 ln -s libz.so.1.2.12.1-motley libz.so.1
+#20 3.486 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o examplesh example.o -L. libz.so.1.2.12.1-motley
+#20 3.487 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -o minigzipsh minigzip.o -L. libz.so.1.2.12.1-motley
+#20 3.610 ++ find /src -name '*_fuzzer.cc'
+#20 3.633 + for f in $(find $SRC -name '*_fuzzer.cc')
+#20 3.633 ++ basename -s .cc /src/zlib_uncompress2_fuzzer.cc
+#20 3.634 + b=zlib_uncompress2_fuzzer
+#20 3.635 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I. /src/zlib_uncompress2_fuzzer.cc -o /out/zlib_uncompress2_fuzzer /libAFL.a ./libz.a
+#20 3.932 + for f in $(find $SRC -name '*_fuzzer.cc')
+#20 3.933 ++ basename -s .cc /src/zlib_uncompress_fuzzer.cc
+#20 3.934 + b=zlib_uncompress_fuzzer
+#20 3.934 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I. /src/zlib_uncompress_fuzzer.cc -o /out/zlib_uncompress_fuzzer /libAFL.a ./libz.a
+#20 4.233 + zip /out/seed_corpus.zip CMakeLists.txt Makefile.in adler32.c adler32.lo adler32.o compress.c compress.lo compress.o configure.log crc32.c crc32.h crc32.lo crc32.o deflate.c deflate.h deflate.lo deflate.o example.o example64.o gzclose.c gzclose.lo gzclose.o gzguts.h gzlib.c gzlib.lo gzlib.o gzread.c gzread.lo gzread.o gzwrite.c gzwrite.lo gzwrite.o infback.c infback.lo infback.o inffast.c inffast.h inffast.lo inffast.o inffixed.h inflate.c inflate.h inflate.lo inflate.o inftrees.c inftrees.h inftrees.lo inftrees.o libz.a libz.so libz.so.1 libz.so.1.2.12.1-motley make_vms.com minigzip.o minigzip64.o treebuild.xml trees.c trees.h trees.lo trees.o uncompr.c uncompr.lo uncompr.o zconf.h zconf.h.cmakein zconf.h.in zlib.3 zlib.3.pdf zlib.h zlib.map zlib.pc zlib.pc.cmakein zlib.pc.in zutil.c zutil.h zutil.lo zutil.o
+#20 4.239   adding: CMakeLists.txt (deflated 68%)
+#20 4.240   adding: Makefile.in (deflated 77%)
+#20 4.240   adding: adler32.c (deflated 69%)
+#20 4.241   adding: adler32.lo (deflated 70%)
+#20 4.241   adding: adler32.o (deflated 70%)
+#20 4.242   adding: compress.c (deflated 63%)
+#20 4.242   adding: compress.lo (deflated 71%)
+#20 4.242   adding: compress.o (deflated 71%)
+#20 4.243   adding: configure.log (deflated 79%)
+#20 4.243   adding: crc32.c (deflated 75%)
+#20 4.244   adding: crc32.h (deflated 61%)
+#20 4.287   adding: crc32.lo (deflated 43%)
+#20 4.287   adding: crc32.o (deflated 47%)
+#20 4.288   adding: deflate.c (deflated 76%)
+#20 4.292   adding: deflate.h (deflated 64%)
+#20 4.293   adding: deflate.lo (deflated 77%)
+#20 4.297   adding: deflate.o (deflated 79%)
+#20 4.302   adding: example.o (deflated 77%)
+#20 4.303   adding: example64.o (deflated 77%)
+#20 4.305   adding: gzclose.c (deflated 41%)
+#20 4.305   adding: gzclose.lo (deflated 67%)
+#20 4.305   adding: gzclose.o (deflated 67%)
+#20 4.305   adding: gzguts.h (deflated 63%)
+#20 4.305   adding: gzlib.c (deflated 73%)
+#20 4.306   adding: gzlib.lo (deflated 77%)
+#20 4.307   adding: gzlib.o (deflated 78%)
+#20 4.308   adding: gzread.c (deflated 74%)
+#20 4.309   adding: gzread.lo (deflated 74%)
+#20 4.310   adding: gzread.o (deflated 74%)
+#20 4.312   adding: gzwrite.c (deflated 79%)
+#20 4.313   adding: gzwrite.lo (deflated 75%)
+#20 4.314   adding: gzwrite.o (deflated 75%)
+#20 4.315   adding: infback.c (deflated 76%)
+#20 4.316   adding: infback.lo (deflated 69%)
+#20 4.317   adding: infback.o (deflated 69%)
+#20 4.319   adding: inffast.c (deflated 75%)
+#20 4.319   adding: inffast.h (deflated 32%)
+#20 4.319   adding: inffast.lo (deflated 69%)
+#20 4.320   adding: inffast.o (deflated 66%)
+#20 4.321   adding: inffixed.h (deflated 75%)
+#20 4.321   adding: inflate.c (deflated 77%)
+#20 4.323   adding: inflate.h (deflated 67%)
+#20 4.323   adding: inflate.lo (deflated 73%)
+#20 4.327   adding: inflate.o (deflated 73%)
+#20 4.331   adding: inftrees.c (deflated 67%)
+#20 4.331   adding: inftrees.h (deflated 58%)
+#20 4.332   adding: inftrees.lo (deflated 67%)
+#20 4.332   adding: inftrees.o (deflated 66%)
+#20 4.333   adding: libz.a (deflated 73%)
+#20 4.353   adding: libz.so (deflated 55%)
+#20 4.365   adding: libz.so.1 (deflated 55%)
+#20 4.377   adding: libz.so.1.2.12.1-motley (deflated 55%)
+#20 4.389   adding: make_vms.com (deflated 72%)
+#20 4.391   adding: minigzip.o (deflated 74%)
+#20 4.391   adding: minigzip64.o (deflated 74%)
+#20 4.392   adding: treebuild.xml (deflated 80%)
+#20 4.392   adding: trees.c (deflated 73%)
+#20 4.394   adding: trees.h (deflated 83%)
+#20 4.395   adding: trees.lo (deflated 72%)
+#20 4.396   adding: trees.o (deflated 71%)
+#20 4.398   adding: uncompr.c (deflated 62%)
+#20 4.398   adding: uncompr.lo (deflated 66%)
+#20 4.399   adding: uncompr.o (deflated 66%)
+#20 4.399   adding: zconf.h (deflated 73%)
+#20 4.400   adding: zconf.h.cmakein (deflated 73%)
+#20 4.401   adding: zconf.h.in (deflated 73%)
+#20 4.402   adding: zlib.3 (deflated 54%)
+#20 4.402   adding: zlib.3.pdf (deflated 20%)
+#20 4.403   adding: zlib.h (deflated 73%)
+#20 4.409   adding: zlib.map (deflated 69%)
+#20 4.409   adding: zlib.pc (deflated 38%)
+#20 4.409   adding: zlib.pc.cmakein (deflated 39%)
+#20 4.409   adding: zlib.pc.in (deflated 38%)
+#20 4.409   adding: zutil.c (deflated 65%)
+#20 4.409   adding: zutil.h (deflated 63%)
+#20 4.410   adding: zutil.lo (deflated 72%)
+#20 4.410   adding: zutil.o (deflated 73%)
+#20 4.411 ++ find /src -name '*_fuzzer.c'
+#20 4.432 + for f in $(find $SRC -name '*_fuzzer.c')
+#20 4.433 ++ basename -s .c /src/checksum_fuzzer.c
+#20 4.434 + b=checksum_fuzzer
+#20 4.434 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I. /src/checksum_fuzzer.c -c -o /tmp/checksum_fuzzer.o
+#20 4.526 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/checksum_fuzzer /tmp/checksum_fuzzer.o -stdlib=libc++ /libAFL.a ./libz.a
+#20 4.773 + rm -f /tmp/checksum_fuzzer.o
+#20 4.775 + ln -sf /out/seed_corpus.zip /out/checksum_fuzzer_seed_corpus.zip
+#20 4.777 + for f in $(find $SRC -name '*_fuzzer.c')
+#20 4.777 ++ basename -s .c /src/compress_fuzzer.c
+#20 4.778 + b=compress_fuzzer
+#20 4.778 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I. /src/compress_fuzzer.c -c -o /tmp/compress_fuzzer.o
+#20 4.845 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/compress_fuzzer /tmp/compress_fuzzer.o -stdlib=libc++ /libAFL.a ./libz.a
+#20 5.104 + rm -f /tmp/compress_fuzzer.o
+#20 5.105 + ln -sf /out/seed_corpus.zip /out/compress_fuzzer_seed_corpus.zip
+#20 5.106 + for f in $(find $SRC -name '*_fuzzer.c')
+#20 5.106 ++ basename -s .c /src/example_small_fuzzer.c
+#20 5.107 + b=example_small_fuzzer
+#20 5.107 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I. /src/example_small_fuzzer.c -c -o /tmp/example_small_fuzzer.o
+#20 5.185 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/example_small_fuzzer /tmp/example_small_fuzzer.o -stdlib=libc++ /libAFL.a ./libz.a
+#20 5.428 + rm -f /tmp/example_small_fuzzer.o
+#20 5.430 + ln -sf /out/seed_corpus.zip /out/example_small_fuzzer_seed_corpus.zip
+#20 5.431 + for f in $(find $SRC -name '*_fuzzer.c')
+#20 5.432 ++ basename -s .c /src/example_large_fuzzer.c
+#20 5.433 + b=example_large_fuzzer
+#20 5.433 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I. /src/example_large_fuzzer.c -c -o /tmp/example_large_fuzzer.o
+#20 5.511 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/example_large_fuzzer /tmp/example_large_fuzzer.o -stdlib=libc++ /libAFL.a ./libz.a
+#20 5.768 + rm -f /tmp/example_large_fuzzer.o
+#20 5.769 + ln -sf /out/seed_corpus.zip /out/example_large_fuzzer_seed_corpus.zip
+#20 5.771 + for f in $(find $SRC -name '*_fuzzer.c')
+#20 5.771 ++ basename -s .c /src/example_flush_fuzzer.c
+#20 5.773 + b=example_flush_fuzzer
+#20 5.773 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I. /src/example_flush_fuzzer.c -c -o /tmp/example_flush_fuzzer.o
+#20 5.848 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/example_flush_fuzzer /tmp/example_flush_fuzzer.o -stdlib=libc++ /libAFL.a ./libz.a
+#20 6.097 + rm -f /tmp/example_flush_fuzzer.o
+#20 6.098 + ln -sf /out/seed_corpus.zip /out/example_flush_fuzzer_seed_corpus.zip
+#20 6.100 + for f in $(find $SRC -name '*_fuzzer.c')
+#20 6.100 ++ basename -s .c /src/example_dict_fuzzer.c
+#20 6.101 + b=example_dict_fuzzer
+#20 6.102 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I. /src/example_dict_fuzzer.c -c -o /tmp/example_dict_fuzzer.o
+#20 6.184 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/example_dict_fuzzer /tmp/example_dict_fuzzer.o -stdlib=libc++ /libAFL.a ./libz.a
+#20 6.427 + rm -f /tmp/example_dict_fuzzer.o
+#20 6.428 + ln -sf /out/seed_corpus.zip /out/example_dict_fuzzer_seed_corpus.zip
+#20 6.429 + for f in $(find $SRC -name '*_fuzzer.c')
+#20 6.430 ++ basename -s .c /src/minigzip_fuzzer.c
+#20 6.430 + b=minigzip_fuzzer
+#20 6.430 + clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -I. /src/minigzip_fuzzer.c -c -o /tmp/minigzip_fuzzer.o
+#20 6.531 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -o /out/minigzip_fuzzer /tmp/minigzip_fuzzer.o -stdlib=libc++ /libAFL.a ./libz.a
+#20 6.782 + rm -f /tmp/minigzip_fuzzer.o
+#20 6.784 + ln -sf /out/seed_corpus.zip /out/minigzip_fuzzer_seed_corpus.zip
+#20 6.785 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 7.0s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:792f3a23635ea8771e1a6dc0ac9e4e0920de6c5ff5bb84bccf78247d6fa0db16
+#21 writing image sha256:792f3a23635ea8771e1a6dc0ac9e4e0920de6c5ff5bb84bccf78247d6fa0db16 done
+#21 naming to gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:13aab93525a719ab619b913c5862c44f3d7f11cc9b909ad2d4fa5dc3a28b4f80
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:152a58ba9ae696397704d2108538187e528df1f50aacf4aaf3959eed6384c69f
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer-intermediate
+#5 sha256:c0229baed35f2daf823e5a7f2240296d829961f82184fbcbe3f31d0c6148088d
+#5 ERROR: gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:2c1a4fdee9c5d94984aa494cbb6ed2d2c3af173ad21b30731bc92c7eb4e30e66 done
+#6 naming to gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer-intermediate done
+#6 DONE 0.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:14ac01c098aca6c2cbdc62df5a6317672a6866eefc6b610666cac768d4779253
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:cf7336fcf0abe02fff1812c0fd8468f0a221db92d73aa690a0cb8c9b8a94c78b
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer-intermediate:latest
+#3 sha256:10bd39f51fab31dcd9b1f4301d147a46f7afe76c5a03618cf2f98aba234ae0b5
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer:latest
+#4 sha256:dda5813c5bde47c96b795b1d67b3f3af258ccd8856562bf8833c1b4e382a8950
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:dde07989b3bf48e2fdcc08d3ff49b9da737a259339f27cfd40c3586641357929
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer-intermediate
+#6 sha256:86e04634040931c541939a35ae197e514e3518be95d08f9a902cdad6f064e8b9
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer
+#10 sha256:3fcbff23b6aa5decc34a4d4aa56d5f9fe260fbc314458a30e35856a92036fa05
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer
+#5 sha256:3bae065fd376711d25c17f08646c5d6a5c6da0f20cdc94064949336400c47400
+#5 ERROR: gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:dde07989b3bf48e2fdcc08d3ff49b9da737a259339f27cfd40c3586641357929
+#12 transferring context: 9.06MB 0.2s done
+#12 DONE 0.3s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/zlib_checksum_fuzzer
+#10 sha256:3fcbff23b6aa5decc34a4d4aa56d5f9fe260fbc314458a30e35856a92036fa05
+#10 DONE 0.4s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:285e984c8d549e292642bd3d3c714caa9402581d4f4145d58b9e86be625a17dc
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:81c7431eb231ff99bdcc9854f6111f1424af8df00091d81ebf9007a91082d215
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:40b2a78bb1eb17fbcdee6f85315e35f3f9f1c4c4b2ab318fa3b24008954be782
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:a002a093bab45dab1d125de2c135115cce366b2e287b6df5c6f4598c1f3eb2ce
+#11 DONE 0.3s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:6273622d6e41f45cd2157e520e30fe2e1f4fe7d7050e2e0c808bad3e730b9216
+#13 DONE 0.5s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:8a2944eb748c5cc82cd7f0430b78347bdd7082aee35dc1f4f892120c1950bf83
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:66de9bde9babbb7c7857551eb68f6b844bc59c7757ca68c99aa6237bfd587058
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:76b30ed8b731327368c92e7a2037fecfc5941e366f8a47423fb8a261b234fefb
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:76a5f0158067cbfeb13ccf01432cc4fa6080a468683f9e39002a8388296b0824
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:692d1f9f5fa67a007fc062269384f0745c504c62f80d42f08a106e0fa3e74f62
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:a87f300e92cc4a1d301c5ee5c71185176e28e5e4a7cfe7bfd4bb083fff7e2b03
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:15ba11677050f07b7a691c6590ea5d286fb576e75b02dba16948730f3b65359a
+#20 DONE 0.5s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:26dacba5f39bd3e62ca86794dcece0685eec7acbd1315647d19dd86374f69be6 done
+#21 naming to gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/zlib_checksum_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+INFO:root:Unarchived 77 files from seed corpus /out/checksum_fuzzer_seed_corpus.zip.
+INFO:root:Doing final sync.

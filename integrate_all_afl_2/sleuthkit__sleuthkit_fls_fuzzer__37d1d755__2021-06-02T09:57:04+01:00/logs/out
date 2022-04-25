@@ -1,0 +1,48 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/sleuthkit_sleuthkit_fls_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/sleuthkit_sleuthkit_fls_fuzzer \
+--file benchmarks/sleuthkit_sleuthkit_fls_fuzzer/Dockerfile \
+benchmarks/sleuthkit_sleuthkit_fls_fuzzer
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/sleuthkit_sleuthkit_fls_fuzzer-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/sleuthkit_sleuthkit_fls_fuzzer-intermediate \
+--build-arg parent_image=gcr.io/fuzzbench/builders/benchmark/sleuthkit_sleuthkit_fls_fuzzer \
+--file fuzzers/afl/builder.Dockerfile \
+fuzzers/afl
+docker pull ubuntu:xenial
+xenial: Pulling from library/ubuntu
+58690f9b18fc: Pulling fs layer
+b51569e7c507: Pulling fs layer
+da8ef40b9eca: Pulling fs layer
+fb15d46c38dc: Pulling fs layer
+da8ef40b9eca: Verifying Checksum
+da8ef40b9eca: Download complete
+b51569e7c507: Download complete
+fb15d46c38dc: Verifying Checksum
+fb15d46c38dc: Download complete
+58690f9b18fc: Download complete
+58690f9b18fc: Pull complete
+b51569e7c507: Pull complete
+da8ef40b9eca: Pull complete
+fb15d46c38dc: Pull complete
+Digest: sha256:20858ebbc96215d6c3c574f781133ebffdc7c18d98af4f294cc4c04871a6fe61
+Status: Downloaded newer image for ubuntu:xenial
+docker.io/library/ubuntu:xenial
+docker build \
+--tag gcr.io/fuzzbench/base-image \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/base-image \
+--file docker/base-image/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/sleuthkit_sleuthkit_fls_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/sleuthkit_sleuthkit_fls_fuzzer \
+--build-arg benchmark=sleuthkit_sleuthkit_fls_fuzzer \
+--build-arg fuzzer=afl \
+--build-arg parent_image=gcr.io/fuzzbench/builders/afl/sleuthkit_sleuthkit_fls_fuzzer-intermediate \
+--file docker/benchmark-builder/Dockerfile \
+.

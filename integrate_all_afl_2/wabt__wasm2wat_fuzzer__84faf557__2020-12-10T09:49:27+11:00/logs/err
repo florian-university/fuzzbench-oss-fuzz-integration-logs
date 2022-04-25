@@ -1,0 +1,937 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: wabt_wasm2wat_fuzzer.
+INFO:root:Please run "make test-run-afl-wabt_wasm2wat_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4bb44bcf75ac83c7c5d382e2063e0169b8c44d7ab9ee0e46dbc3a310991a6f6a
+#1 transferring dockerfile: 967B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:60e06867315ea049f489a7e48d6bae9d3675a1ff90cf42ff5afa80db5b1d794c
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#11 [internal] load build context
+#11 sha256:821492760490ea7595a77cdc5242ee43c2ff29dc7cc27d5ad7f64937ddc445e5
+#11 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/wabt_wasm2wat_fuzzer
+#4 sha256:8d378550e7b95701bdef4336dbb30569d70e4a859ecda608bc472dae61b885af
+#4 DONE 1.4s
+
+#5 [1/7] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 CACHED
+
+#6 [2/7] RUN apt-get update && apt-get install -y cmake libtool make python
+#6 sha256:abf7f0934dbf2d226288797656800895e4fa93eeea0ff74a6a5a7a7a3c0c273e
+#6 ...
+
+#11 [internal] load build context
+#11 sha256:821492760490ea7595a77cdc5242ee43c2ff29dc7cc27d5ad7f64937ddc445e5
+#11 transferring context: 2.02kB done
+#11 DONE 0.1s
+
+#6 [2/7] RUN apt-get update && apt-get install -y cmake libtool make python
+#6 sha256:abf7f0934dbf2d226288797656800895e4fa93eeea0ff74a6a5a7a7a3c0c273e
+#6 1.681 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#6 1.681 Hit:2 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#6 1.681 Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#6 1.769 Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#6 1.791 Get:5 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+#6 2.834 Get:6 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1153 kB]
+#6 2.995 Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe i386 Packages [839 kB]
+#6 3.060 Get:8 http://archive.ubuntu.com/ubuntu focal-updates/restricted i386 Packages [29.5 kB]
+#6 3.062 Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [791 kB]
+#6 3.120 Get:10 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [1214 kB]
+#6 3.211 Get:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [2185 kB]
+#6 3.399 Get:12 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [26.0 kB]
+#6 3.401 Get:13 http://archive.ubuntu.com/ubuntu focal-backports/universe i386 Packages [14.4 kB]
+#6 3.961 Get:14 http://security.ubuntu.com/ubuntu focal-security/restricted i386 Packages [26.7 kB]
+#6 4.074 Get:15 http://security.ubuntu.com/ubuntu focal-security/universe i386 Packages [679 kB]
+#6 4.339 Get:16 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1771 kB]
+#6 4.515 Get:17 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [1139 kB]
+#6 4.599 Get:18 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [870 kB]
+#6 4.664 Get:19 http://security.ubuntu.com/ubuntu focal-security/main i386 Packages [526 kB]
+#6 5.301 Fetched 11.6 MB in 4s (3198 kB/s)
+#6 5.301 Reading package lists...
+#6 8.908 Reading package lists...
+#6 12.13 Building dependency tree...
+#6 12.58 Reading state information...
+#6 13.15 make is already the newest version (4.2.1-1.2).
+#6 13.15 make set to manually installed.
+#6 13.15 The following additional packages will be installed:
+#6 13.15   autoconf automake autotools-dev cmake-data libarchive13 libjsoncpp1
+#6 13.15   libltdl-dev libltdl7 libpython2-stdlib libpython2.7-minimal
+#6 13.15   libpython2.7-stdlib librhash0 libsigsegv2 libuv1 m4 python2 python2-minimal
+#6 13.15   python2.7 python2.7-minimal
+#6 13.16 Suggested packages:
+#6 13.16   autoconf-archive gnu-standards autoconf-doc gettext cmake-doc ninja-build
+#6 13.16   lrzip libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc python2-doc
+#6 13.16   python-tk python2.7-doc binfmt-support
+#6 13.46 The following NEW packages will be installed:
+#6 13.47   autoconf automake autotools-dev cmake cmake-data libarchive13 libjsoncpp1
+#6 13.47   libltdl-dev libltdl7 libpython2-stdlib libpython2.7-minimal
+#6 13.47   libpython2.7-stdlib librhash0 libsigsegv2 libtool libuv1 m4
+#6 13.47   python-is-python2 python2 python2-minimal python2.7 python2.7-minimal
+#6 13.57 0 upgraded, 22 newly installed, 0 to remove and 2 not upgraded.
+#6 13.57 Need to get 11.2 MB of archives.
+#6 13.57 After this operation, 52.6 MB of additional disk space will be used.
+#6 13.57 Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libpython2.7-minimal amd64 2.7.18-1~20.04.1 [335 kB]
+#6 13.71 Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 python2.7-minimal amd64 2.7.18-1~20.04.1 [1285 kB]
+#6 13.81 Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2-minimal amd64 2.7.17-2ubuntu4 [27.5 kB]
+#6 13.82 Get:4 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libpython2.7-stdlib amd64 2.7.18-1~20.04.1 [1887 kB]
+#6 13.96 Get:5 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 python2.7 amd64 2.7.18-1~20.04.1 [248 kB]
+#6 13.98 Get:6 http://archive.ubuntu.com/ubuntu focal/universe amd64 libpython2-stdlib amd64 2.7.17-2ubuntu4 [7072 B]
+#6 13.98 Get:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2 amd64 2.7.17-2ubuntu4 [26.5 kB]
+#6 13.99 Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libuv1 amd64 1.34.2-1ubuntu1.3 [80.8 kB]
+#6 13.99 Get:9 http://archive.ubuntu.com/ubuntu focal/main amd64 libsigsegv2 amd64 2.12-2 [13.9 kB]
+#6 13.99 Get:10 http://archive.ubuntu.com/ubuntu focal/main amd64 m4 amd64 1.4.18-4 [199 kB]
+#6 14.01 Get:11 http://archive.ubuntu.com/ubuntu focal/main amd64 autoconf all 2.69-11.1 [321 kB]
+#6 14.02 Get:12 http://archive.ubuntu.com/ubuntu focal/main amd64 autotools-dev all 20180224.1 [39.6 kB]
+#6 14.03 Get:13 http://archive.ubuntu.com/ubuntu focal/main amd64 automake all 1:1.16.1-4ubuntu6 [522 kB]
+#6 14.06 Get:14 http://archive.ubuntu.com/ubuntu focal/main amd64 cmake-data all 3.16.3-1ubuntu1 [1612 kB]
+#6 14.18 Get:15 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libarchive13 amd64 3.4.0-2ubuntu1.2 [327 kB]
+#6 14.21 Get:16 http://archive.ubuntu.com/ubuntu focal/main amd64 libjsoncpp1 amd64 1.7.4-3.1ubuntu2 [75.6 kB]
+#6 14.22 Get:17 http://archive.ubuntu.com/ubuntu focal/main amd64 librhash0 amd64 1.3.9-1 [113 kB]
+#6 14.22 Get:18 http://archive.ubuntu.com/ubuntu focal/main amd64 cmake amd64 3.16.3-1ubuntu1 [3669 kB]
+#6 14.50 Get:19 http://archive.ubuntu.com/ubuntu focal/main amd64 libltdl7 amd64 2.4.6-14 [38.5 kB]
+#6 14.50 Get:20 http://archive.ubuntu.com/ubuntu focal/main amd64 libltdl-dev amd64 2.4.6-14 [162 kB]
+#6 14.51 Get:21 http://archive.ubuntu.com/ubuntu focal/main amd64 libtool all 2.4.6-14 [161 kB]
+#6 14.52 Get:22 http://archive.ubuntu.com/ubuntu focal/universe amd64 python-is-python2 all 2.7.17-4 [2496 B]
+#6 15.05 debconf: delaying package configuration, since apt-utils is not installed
+#6 15.15 Fetched 11.2 MB in 1s (10.9 MB/s)
+#6 15.24 Selecting previously unselected package libpython2.7-minimal:amd64.
+#6 15.24 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21308 files and directories currently installed.)
+#6 15.28 Preparing to unpack .../0-libpython2.7-minimal_2.7.18-1~20.04.1_amd64.deb ...
+#6 15.30 Unpacking libpython2.7-minimal:amd64 (2.7.18-1~20.04.1) ...
+#6 15.60 Selecting previously unselected package python2.7-minimal.
+#6 15.60 Preparing to unpack .../1-python2.7-minimal_2.7.18-1~20.04.1_amd64.deb ...
+#6 15.62 Unpacking python2.7-minimal (2.7.18-1~20.04.1) ...
+#6 15.97 Selecting previously unselected package python2-minimal.
+#6 15.97 Preparing to unpack .../2-python2-minimal_2.7.17-2ubuntu4_amd64.deb ...
+#6 15.98 Unpacking python2-minimal (2.7.17-2ubuntu4) ...
+#6 16.10 Selecting previously unselected package libpython2.7-stdlib:amd64.
+#6 16.10 Preparing to unpack .../3-libpython2.7-stdlib_2.7.18-1~20.04.1_amd64.deb ...
+#6 16.12 Unpacking libpython2.7-stdlib:amd64 (2.7.18-1~20.04.1) ...
+#6 16.78 Selecting previously unselected package python2.7.
+#6 16.79 Preparing to unpack .../4-python2.7_2.7.18-1~20.04.1_amd64.deb ...
+#6 16.80 Unpacking python2.7 (2.7.18-1~20.04.1) ...
+#6 16.94 Selecting previously unselected package libpython2-stdlib:amd64.
+#6 16.95 Preparing to unpack .../5-libpython2-stdlib_2.7.17-2ubuntu4_amd64.deb ...
+#6 16.96 Unpacking libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
+#6 17.11 Setting up libpython2.7-minimal:amd64 (2.7.18-1~20.04.1) ...
+#6 17.16 Setting up python2.7-minimal (2.7.18-1~20.04.1) ...
+#6 17.92 Setting up python2-minimal (2.7.17-2ubuntu4) ...
+#6 18.10 Selecting previously unselected package python2.
+#6 18.10 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22055 files and directories currently installed.)
+#6 18.13 Preparing to unpack .../00-python2_2.7.17-2ubuntu4_amd64.deb ...
+#6 18.15 Unpacking python2 (2.7.17-2ubuntu4) ...
+#6 18.23 Selecting previously unselected package libuv1:amd64.
+#6 18.23 Preparing to unpack .../01-libuv1_1.34.2-1ubuntu1.3_amd64.deb ...
+#6 18.24 Unpacking libuv1:amd64 (1.34.2-1ubuntu1.3) ...
+#6 18.33 Selecting previously unselected package libsigsegv2:amd64.
+#6 18.34 Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+#6 18.34 Unpacking libsigsegv2:amd64 (2.12-2) ...
+#6 18.41 Selecting previously unselected package m4.
+#6 18.41 Preparing to unpack .../03-m4_1.4.18-4_amd64.deb ...
+#6 18.42 Unpacking m4 (1.4.18-4) ...
+#6 18.52 Selecting previously unselected package autoconf.
+#6 18.52 Preparing to unpack .../04-autoconf_2.69-11.1_all.deb ...
+#6 18.53 Unpacking autoconf (2.69-11.1) ...
+#6 18.68 Selecting previously unselected package autotools-dev.
+#6 18.69 Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+#6 18.69 Unpacking autotools-dev (20180224.1) ...
+#6 18.76 Selecting previously unselected package automake.
+#6 18.77 Preparing to unpack .../06-automake_1%3a1.16.1-4ubuntu6_all.deb ...
+#6 18.77 Unpacking automake (1:1.16.1-4ubuntu6) ...
+#6 18.99 Selecting previously unselected package cmake-data.
+#6 19.00 Preparing to unpack .../07-cmake-data_3.16.3-1ubuntu1_all.deb ...
+#6 19.00 Unpacking cmake-data (3.16.3-1ubuntu1) ...
+#6 20.41 Selecting previously unselected package libarchive13:amd64.
+#6 20.42 Preparing to unpack .../08-libarchive13_3.4.0-2ubuntu1.2_amd64.deb ...
+#6 20.42 Unpacking libarchive13:amd64 (3.4.0-2ubuntu1.2) ...
+#6 20.58 Selecting previously unselected package libjsoncpp1:amd64.
+#6 20.59 Preparing to unpack .../09-libjsoncpp1_1.7.4-3.1ubuntu2_amd64.deb ...
+#6 20.60 Unpacking libjsoncpp1:amd64 (1.7.4-3.1ubuntu2) ...
+#6 20.68 Selecting previously unselected package librhash0:amd64.
+#6 20.68 Preparing to unpack .../10-librhash0_1.3.9-1_amd64.deb ...
+#6 20.69 Unpacking librhash0:amd64 (1.3.9-1) ...
+#6 20.79 Selecting previously unselected package cmake.
+#6 20.79 Preparing to unpack .../11-cmake_3.16.3-1ubuntu1_amd64.deb ...
+#6 20.80 Unpacking cmake (3.16.3-1ubuntu1) ...
+#6 21.77 Selecting previously unselected package libltdl7:amd64.
+#6 21.77 Preparing to unpack .../12-libltdl7_2.4.6-14_amd64.deb ...
+#6 21.78 Unpacking libltdl7:amd64 (2.4.6-14) ...
+#6 21.85 Selecting previously unselected package libltdl-dev:amd64.
+#6 21.86 Preparing to unpack .../13-libltdl-dev_2.4.6-14_amd64.deb ...
+#6 21.86 Unpacking libltdl-dev:amd64 (2.4.6-14) ...
+#6 21.99 Selecting previously unselected package libtool.
+#6 22.00 Preparing to unpack .../14-libtool_2.4.6-14_all.deb ...
+#6 22.01 Unpacking libtool (2.4.6-14) ...
+#6 22.12 Selecting previously unselected package python-is-python2.
+#6 22.13 Preparing to unpack .../15-python-is-python2_2.7.17-4_all.deb ...
+#6 22.14 Unpacking python-is-python2 (2.7.17-4) ...
+#6 22.24 Setting up libarchive13:amd64 (3.4.0-2ubuntu1.2) ...
+#6 22.27 Setting up libpython2.7-stdlib:amd64 (2.7.18-1~20.04.1) ...
+#6 22.28 Setting up autotools-dev (20180224.1) ...
+#6 22.30 Setting up libuv1:amd64 (1.34.2-1ubuntu1.3) ...
+#6 22.31 Setting up libsigsegv2:amd64 (2.12-2) ...
+#6 22.33 Setting up libltdl7:amd64 (2.4.6-14) ...
+#6 22.35 Setting up librhash0:amd64 (1.3.9-1) ...
+#6 22.37 Setting up cmake-data (3.16.3-1ubuntu1) ...
+#6 22.40 Setting up libjsoncpp1:amd64 (1.7.4-3.1ubuntu2) ...
+#6 22.41 Setting up python2.7 (2.7.18-1~20.04.1) ...
+#6 24.39 Setting up libtool (2.4.6-14) ...
+#6 24.40 Setting up libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
+#6 24.42 Setting up m4 (1.4.18-4) ...
+#6 24.44 Setting up python2 (2.7.17-2ubuntu4) ...
+#6 24.46 Setting up autoconf (2.69-11.1) ...
+#6 24.48 Setting up cmake (3.16.3-1ubuntu1) ...
+#6 24.49 Setting up python-is-python2 (2.7.17-4) ...
+#6 24.51 Setting up automake (1:1.16.1-4ubuntu6) ...
+#6 24.53 update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+#6 24.53 update-alternatives: warning: skip creation of /usr/share/man/man1/automake.1.gz because associated file /usr/share/man/man1/automake-1.16.1.gz (of link group automake) doesn't exist
+#6 24.53 update-alternatives: warning: skip creation of /usr/share/man/man1/aclocal.1.gz because associated file /usr/share/man/man1/aclocal-1.16.1.gz (of link group automake) doesn't exist
+#6 24.54 Setting up libltdl-dev:amd64 (2.4.6-14) ...
+#6 24.56 Processing triggers for libc-bin (2.31-0ubuntu9.7) ...
+#6 24.63 Processing triggers for mime-support (3.64ubuntu1) ...
+#6 DONE 25.5s
+
+#7 [3/7] RUN git clone --recursive https://github.com/WebAssembly/wabt
+#7 sha256:a9672aa3960830e2fafb10909d9442a3f4feffe31d194b986e6c038a2cc1932d
+#7 1.526 Cloning into 'wabt'...
+#7 9.674 Submodule 'third_party/gtest' (https://github.com/google/googletest) registered for path 'third_party/gtest'
+#7 9.675 Submodule 'third_party/ply' (https://github.com/dabeaz/ply) registered for path 'third_party/ply'
+#7 9.675 Submodule 'third_party/testsuite' (https://github.com/WebAssembly/testsuite) registered for path 'third_party/testsuite'
+#7 9.676 Submodule 'third_party/uvwasi' (https://github.com/nodejs/uvwasi) registered for path 'third_party/uvwasi'
+#7 9.676 Submodule 'third_party/wasm-c-api' (https://github.com/WebAssembly/wasm-c-api) registered for path 'third_party/wasm-c-api'
+#7 9.689 Cloning into '/src/wabt/third_party/gtest'...
+#7 14.45 Cloning into '/src/wabt/third_party/ply'...
+#7 15.98 Cloning into '/src/wabt/third_party/testsuite'...
+#7 17.27 Cloning into '/src/wabt/third_party/uvwasi'...
+#7 18.07 Cloning into '/src/wabt/third_party/wasm-c-api'...
+#7 19.06 Submodule path 'third_party/gtest': checked out '703bd9caab50b139428cea1aaff9974ebee5742e'
+#7 19.12 Submodule path 'third_party/ply': checked out 'd776a2ece6c12bf8f8b6a0e65b48546ac6078765'
+#7 19.28 Submodule path 'third_party/testsuite': checked out 'd42da0117f7a93c6a9127e2b9eec64749152c4c1'
+#7 19.33 Submodule path 'third_party/uvwasi': checked out '55eff19f4c7e69ec151424a037f951e0ad006ed6'
+#7 19.37 Submodule path 'third_party/wasm-c-api': checked out 'd9a80099d496b5cdba6f3fe8fc77586e0e505ddc'
+#7 DONE 20.0s
+
+#8 [4/7] WORKDIR wabt
+#8 sha256:c2c03a5eafdbccabd89a9e008806ff4dda00149109327fc541082aa2f7caaf19
+#8 DONE 0.2s
+
+#9 [5/7] RUN git submodule init
+#9 sha256:46230acb1dced467e583cdc4f8bc1f426d05eb82a610b6b851837251970c62d3
+#9 DONE 2.1s
+
+#10 [6/7] RUN git submodule update
+#10 sha256:f1a6ae19dcbec97e6f746dffd39165dd82b177ef6e2299cfae5cf8696e1df535
+#10 DONE 1.4s
+
+#12 [7/7] COPY build.sh wasm2wat_fuzzer.cc /src/
+#12 sha256:80e115cc486f18e263b2d11b6bbb43dce7be1a5aeab99b848cbf9bae8fc43c2b
+#12 DONE 0.2s
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:bea6fa803e931e61fc8f83b452ae164a4828b0d47d2d402991dd2ccd8958829d done
+#13 naming to gcr.io/fuzzbench/builders/benchmark/wabt_wasm2wat_fuzzer done
+#13 DONE 0.2s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:e965dada27ff07ea9695906c52a9dad4aabd2f4d038c15947f4e4b1c3a70a0c3
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:43a753341dfad836d11671ec2454eceb8bf8ea5554b18013a89b6b607ae4fef9
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/wabt_wasm2wat_fuzzer:latest
+#3 sha256:e750d9976f63e3f1eefe8041ce42b21f04d36c6d43100594c965ab06c3158d0d
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/wabt_wasm2wat_fuzzer
+#5 sha256:afeb15efcd4c4d198ec4a0a5c21639dc6f90b75771c89f49e62b5d59dd5cf33e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer-intermediate
+#4 sha256:baac28fa0d19ecaec5027984d91d7cb965b8e78ab8a2034d02ce21b2c81ae36e
+#4 DONE 1.4s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/wabt_wasm2wat_fuzzer
+#5 sha256:afeb15efcd4c4d198ec4a0a5c21639dc6f90b75771c89f49e62b5d59dd5cf33e
+#5 DONE 0.3s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:befdd67689d07505c3aa112082e8d8b59c35793b781a35738976fccc7a17ca66
+#6 1.191 Cloning into '/afl'...
+#6 2.135 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 2.135 
+#6 2.135 You are in 'detached HEAD' state. You can look around, make experimental
+#6 2.135 changes and commit them, and you can discard any commits you make in this
+#6 2.135 state without impacting any branches by switching back to a branch.
+#6 2.135 
+#6 2.135 If you want to create a new branch to retain commits you create, you may
+#6 2.135 do so (now or later) by using -c with the switch command. Example:
+#6 2.135 
+#6 2.135   git switch -c <new-branch-name>
+#6 2.135 
+#6 2.135 Or undo this operation with:
+#6 2.135 
+#6 2.135   git switch -
+#6 2.135 
+#6 2.135 Turn off this advice by setting config variable advice.detachedHead to false
+#6 2.135 
+#6 2.135 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 2.180 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 2.181 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 2.563 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 2.588 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 7.988 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 8.667 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 9.580 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 9.875 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 10.74 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 11.22 ln -sf afl-as as
+#6 11.23 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 11.23 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 11.23 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 11.4s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:7263edde0bb316c2bc12843f7bbe18b060dd7b3b76c7aa179103a6bfbe6e6611
+#7 1.391 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 1.391 Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 1.391 Hit:3 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 1.415 Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.537 Hit:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 3.254 Reading package lists...
+#7 6.702 Reading package lists...
+#7 9.954 Building dependency tree...
+#7 10.41 Reading state information...
+#7 11.07 wget is already the newest version (1.20.3-1ubuntu2).
+#7 11.07 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#7 11.11 --2022-04-23 13:44:54--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 11.13 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+#7 11.13 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#7 11.19 HTTP request sent, awaiting response... 200 OK
+#7 11.37 Length: 9177 (9.0K) [text/plain]
+#7 11.37 Saving to: '/afl/afl_driver.cpp'
+#7 11.37 
+#7 11.37      0K ........                                              100% 9.56M=0.001s
+#7 11.37 
+#7 11.37 2022-04-23 13:44:54 (9.56 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 11.37 
+#7 14.81 ar: creating /libAFL.a
+#7 DONE 15.0s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:41c1688c619a5d864b014a0bb149d2d96105674ba0a2cc859dfeaf3dced55a61 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:3e290f778f8c8686034b12eed771efef8df19cbde9a56003acedaec3b96faea9
+#1 transferring dockerfile: 2.00kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:7cc091ddd1d1ea10ee75df966d3e71dc9db22613235e7265f507c95f3bc585ed
+#2 transferring context:
+#2 transferring context: 143B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:521830a45939ad12970778136e4b798c3efe3104220830279a29ace2482254e8
+#8 transferring context: 591B done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:014c08614607aace0ce9eef113e6159e7cf73041294c9994c8b110bd78821e76
+#11 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:97402793565107fa322be46626576450ead534eca33e559ff7a1fe5550a9f59a
+#10 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:f4bf3096fc7791ce9bc67e79799d4544c63244369dbe80a45feda698ba7af98b
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:d66ddc0aabc0635859fb38acaa3d3bd5692c4dc230e5f34c45d84b6c161304ed
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:05b2aa84fbb14d46a2428ada51f12a750d9a6a7322c0a63b3b82bda36d00b178
+#13 writing image sha256:05b2aa84fbb14d46a2428ada51f12a750d9a6a7322c0a63b3b82bda36d00b178 0.0s done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6246c08a90a0bffbe44cc97e6604d15059da08f38d2987337f5310c39dc485a0
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:9201b8961e9142e16f0d300dcc9f4647eb73c43afa5214176886f3f51ed0465a
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer-intermediate:latest
+#3 sha256:90cddaa71a27db815c305d56023a87b07598b08c2ee7ac61b81c134978fea3fe
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:e199a9d41ecc361049c59c10da7b57e1efabb2ae3da9b1fd4a89cf281d8d3fc7
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer
+#5 sha256:7fa196e1928aa7ddf3c3fd36d5a40c5fca7e2eaf20b6288f696dc0400b5a1bc3
+#5 DONE 1.4s
+
+#12 [internal] load build context
+#12 sha256:e199a9d41ecc361049c59c10da7b57e1efabb2ae3da9b1fd4a89cf281d8d3fc7
+#12 transferring context: 742.39kB 0.2s done
+#12 DONE 0.2s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer-intermediate
+#6 sha256:389486061743d010dd6ab73b1aaf0af1b562227237be99ddfddf6ee8a56902ca
+#6 DONE 0.4s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:c729dae3ea7689e382cf22b8be292567775d69703dffb0f0f36bacde6cc26ba9
+#8 DONE 0.4s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:e66752a5fcff45d0a9dbcb00812346df41e64040db3ddd02adfaf52c995ede7a
+#9 DONE 18.1s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:a18a45717a560e2ea319b9107180ffc16e207e8b5b37b463a74f4b411bab7800
+#10 DONE 0.5s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:1c773d399cbee6848ee1b911234f4b8467fdc1cdfebe0bf3c7b6a43bef14def0
+#11 DONE 19.5s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:bb73090b65846159b70f511b7934f5f65d0d4c05b3ca71c7f341a19e6e283319
+#13 DONE 0.3s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:7502d761aea590c00cd7439eff1f7ebd3c1df3e92484b7eff859bab578cbdff8
+#14 DONE 2.0s
+
+#15 [stage-1  8/13] COPY benchmarks/wabt_wasm2wat_fuzzer/benchmark.yaml /
+#15 sha256:9e30d16e0b432b91f459e23097e3c6d7bde18420dd55ab389ebd9cdcbb2f3038
+#15 DONE 0.4s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:7e931dbeada5caa2b7ebf9e5e2f4d0d445fbc55a0dbdce9891022eee5b276039
+#16 DONE 1.8s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:b95dee85169ab0b0ae2a0d04364a83ef2fa935ab59d197149d35dbe1d754dffc
+#17 DONE 0.7s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:8a0479513db6849fe0d2336fd87ac21fb272c436fcfab9c68ffca9a61608cea5
+#18 1.284 Checking out commit 84faf557
+#18 1.327 error: pathspec '84faf557' did not match any file(s) known to git
+#18 1.338 error: pathspec '84faf557' did not match any file(s) known to git
+#18 1.354 error: pathspec '84faf557' did not match any file(s) known to git
+#18 1.494 Checkout unsuccessful.
+#18 DONE 2.0s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:6c98c630c00cf4c5216bc82a998b85b328bfe9f77d19fd53d3e5834d2b1bf7ac
+#19 DONE 4.2s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:a9d64b8768e07eb4a8aa3279aeb2f6c6a8632f5e405c1acaf5d2608dc5a1ae12
+#20 1.394 Run fuzzer_build to build the target
+#20 1.647 FUZZ_TARGET = wasm2wat_fuzzer
+#20 1.647 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 1.647 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 1.691 Building benchmark wabt_wasm2wat_fuzzer with fuzzer afl
+#20 1.696 + mkdir build
+#20 1.699 + cd build
+#20 1.699 + cmake ..
+#20 2.166 -- The C compiler identification is Clang 14.0.0
+#20 2.691 -- The CXX compiler identification is Clang 14.0.0
+#20 2.717 -- Detecting C compiler ABI info
+#20 3.092 -- Detecting C compiler ABI info - done
+#20 3.202 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 3.203 -- Detecting C compile features
+#20 3.204 -- Detecting C compile features - done
+#20 3.217 -- Detecting CXX compiler ABI info
+#20 3.639 -- Detecting CXX compiler ABI info - done
+#20 3.765 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 3.767 -- Detecting CXX compile features
+#20 3.769 -- Detecting CXX compile features - done
+#20 3.817 -- Looking for alloca.h
+#20 4.146 -- Looking for alloca.h - found
+#20 4.147 -- Looking for unistd.h
+#20 4.465 -- Looking for unistd.h - found
+#20 4.467 -- Looking for snprintf
+#20 4.840 -- Looking for snprintf - found
+#20 4.842 -- Looking for strcasecmp
+#20 5.190 -- Looking for strcasecmp - found
+#20 5.199 -- Looking for sys/types.h
+#20 5.609 -- Looking for sys/types.h - found
+#20 5.610 -- Looking for stdint.h
+#20 5.968 -- Looking for stdint.h - found
+#20 5.969 -- Looking for stddef.h
+#20 6.335 -- Looking for stddef.h - found
+#20 6.336 -- Check size of ssize_t
+#20 6.788 -- Check size of ssize_t - done
+#20 6.790 -- Check size of size_t
+#20 7.259 -- Check size of size_t - done
+#20 7.765 -- Found PythonInterp: /usr/local/bin/python3 (found suitable version "3.8.6", minimum required is "3.5") 
+#20 7.769 -- Looking for pthread.h
+#20 8.108 -- Looking for pthread.h - found
+#20 8.109 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 8.456 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 8.460 -- Found Threads: TRUE  
+#20 8.474 -- Configuring done
+#20 8.737 -- Generating done
+#20 8.759 -- Build files have been written to: /src/wabt/build
+#20 8.767 + cmake --build .
+#20 8.820 [  1%] Building CXX object CMakeFiles/wabt.dir/src/apply-names.cc.o
+#20 13.72 [  2%] Building CXX object CMakeFiles/wabt.dir/src/binary.cc.o
+#20 15.68 [  2%] Building CXX object CMakeFiles/wabt.dir/src/binary-reader.cc.o
+#20 23.88 [  3%] Building CXX object CMakeFiles/wabt.dir/src/binary-reader-ir.cc.o
+#20 39.85 [  3%] Building CXX object CMakeFiles/wabt.dir/src/binary-reader-logging.cc.o
+#20 45.02 [  4%] Building CXX object CMakeFiles/wabt.dir/src/binary-writer.cc.o
+#20 55.24 [  5%] Building CXX object CMakeFiles/wabt.dir/src/binary-writer-spec.cc.o
+#20 60.06 [  5%] Building CXX object CMakeFiles/wabt.dir/src/binding-hash.cc.o
+#20 64.14 [  6%] Building CXX object CMakeFiles/wabt.dir/src/color.cc.o
+#20 66.05 [  7%] Building CXX object CMakeFiles/wabt.dir/src/common.cc.o
+#20 68.23 [  7%] Building CXX object CMakeFiles/wabt.dir/src/config.cc.o
+#20 68.35 [  8%] Building CXX object CMakeFiles/wabt.dir/src/decompiler.cc.o
+#20 79.52 [  9%] Building CXX object CMakeFiles/wabt.dir/src/error-formatter.cc.o
+#20 81.86 [  9%] Building CXX object CMakeFiles/wabt.dir/src/expr-visitor.cc.o
+#20 86.34 [ 10%] Building CXX object CMakeFiles/wabt.dir/src/feature.cc.o
+#20 97.02 [ 10%] Building CXX object CMakeFiles/wabt.dir/src/filenames.cc.o
+#20 98.98 [ 11%] Building CXX object CMakeFiles/wabt.dir/src/generate-names.cc.o
+#20 104.0 [ 12%] Building CXX object CMakeFiles/wabt.dir/src/ir.cc.o
+#20 111.1 [ 12%] Building CXX object CMakeFiles/wabt.dir/src/ir-util.cc.o
+#20 115.0 [ 13%] Building CXX object CMakeFiles/wabt.dir/src/leb128.cc.o
+#20 117.3 [ 14%] Building CXX object CMakeFiles/wabt.dir/src/lexer-source.cc.o
+#20 119.4 [ 14%] Building CXX object CMakeFiles/wabt.dir/src/lexer-source-line-finder.cc.o
+#20 121.8 [ 15%] Building CXX object CMakeFiles/wabt.dir/src/literal.cc.o
+#20 125.1 [ 16%] Building CXX object CMakeFiles/wabt.dir/src/opcode.cc.o
+#20 129.7 [ 16%] Building C object CMakeFiles/wabt.dir/src/opcode-code-table.c.o
+#20 129.8 [ 17%] Building CXX object CMakeFiles/wabt.dir/src/option-parser.cc.o
+#20 134.5 [ 17%] Building CXX object CMakeFiles/wabt.dir/src/resolve-names.cc.o
+#20 140.1 [ 18%] Building CXX object CMakeFiles/wabt.dir/src/shared-validator.cc.o
+#20 148.9 [ 19%] Building CXX object CMakeFiles/wabt.dir/src/stream.cc.o
+#20 151.6 [ 19%] Building CXX object CMakeFiles/wabt.dir/src/token.cc.o
+#20 153.9 [ 20%] Building CXX object CMakeFiles/wabt.dir/src/tracing.cc.o
+#20 155.8 [ 21%] Building CXX object CMakeFiles/wabt.dir/src/type-checker.cc.o
+#20 159.9 [ 21%] Building CXX object CMakeFiles/wabt.dir/src/utf8.cc.o
+#20 160.0 [ 22%] Building CXX object CMakeFiles/wabt.dir/src/validator.cc.o
+#20 166.2 [ 23%] Building CXX object CMakeFiles/wabt.dir/src/wast-lexer.cc.o
+#20 177.5 [ 23%] Building CXX object CMakeFiles/wabt.dir/src/wast-parser.cc.o
+#20 196.8 [ 24%] Building CXX object CMakeFiles/wabt.dir/src/wat-writer.cc.o
+#20 205.0 [ 24%] Building CXX object CMakeFiles/wabt.dir/src/interp/binary-reader-interp.cc.o
+#20 216.9 [ 25%] Building CXX object CMakeFiles/wabt.dir/src/interp/interp.cc.o
+#20 237.0 [ 26%] Building CXX object CMakeFiles/wabt.dir/src/interp/interp-util.cc.o
+#20 240.2 [ 26%] Building CXX object CMakeFiles/wabt.dir/src/interp/istream.cc.o
+#20 243.2 [ 27%] Linking CXX static library libwabt.a
+#20 243.3 [ 27%] Built target wabt
+#20 243.3 [ 28%] Building CXX object CMakeFiles/wasm.dir/src/apply-names.cc.o
+#20 248.2 [ 29%] Building CXX object CMakeFiles/wasm.dir/src/binary.cc.o
+#20 250.1 [ 29%] Building CXX object CMakeFiles/wasm.dir/src/binary-reader.cc.o
+#20 258.6 [ 30%] Building CXX object CMakeFiles/wasm.dir/src/binary-reader-ir.cc.o
+#20 274.3 [ 31%] Building CXX object CMakeFiles/wasm.dir/src/binary-reader-logging.cc.o
+#20 279.4 [ 31%] Building CXX object CMakeFiles/wasm.dir/src/binary-writer.cc.o
+#20 289.5 [ 32%] Building CXX object CMakeFiles/wasm.dir/src/binary-writer-spec.cc.o
+#20 294.3 [ 32%] Building CXX object CMakeFiles/wasm.dir/src/binding-hash.cc.o
+#20 298.4 [ 33%] Building CXX object CMakeFiles/wasm.dir/src/color.cc.o
+#20 300.3 [ 34%] Building CXX object CMakeFiles/wasm.dir/src/common.cc.o
+#20 302.5 [ 34%] Building CXX object CMakeFiles/wasm.dir/src/config.cc.o
+#20 302.6 [ 35%] Building CXX object CMakeFiles/wasm.dir/src/decompiler.cc.o
+#20 313.9 [ 36%] Building CXX object CMakeFiles/wasm.dir/src/error-formatter.cc.o
+#20 316.1 [ 36%] Building CXX object CMakeFiles/wasm.dir/src/expr-visitor.cc.o
+#20 320.5 [ 37%] Building CXX object CMakeFiles/wasm.dir/src/feature.cc.o
+#20 331.0 [ 38%] Building CXX object CMakeFiles/wasm.dir/src/filenames.cc.o
+#20 332.9 [ 38%] Building CXX object CMakeFiles/wasm.dir/src/generate-names.cc.o
+#20 338.0 [ 39%] Building CXX object CMakeFiles/wasm.dir/src/ir.cc.o
+#20 345.0 [ 39%] Building CXX object CMakeFiles/wasm.dir/src/ir-util.cc.o
+#20 349.0 [ 40%] Building CXX object CMakeFiles/wasm.dir/src/leb128.cc.o
+#20 351.3 [ 41%] Building CXX object CMakeFiles/wasm.dir/src/lexer-source.cc.o
+#20 353.3 [ 41%] Building CXX object CMakeFiles/wasm.dir/src/lexer-source-line-finder.cc.o
+#20 355.8 [ 42%] Building CXX object CMakeFiles/wasm.dir/src/literal.cc.o
+#20 359.0 [ 43%] Building CXX object CMakeFiles/wasm.dir/src/opcode.cc.o
+#20 363.6 [ 43%] Building C object CMakeFiles/wasm.dir/src/opcode-code-table.c.o
+#20 363.8 [ 44%] Building CXX object CMakeFiles/wasm.dir/src/option-parser.cc.o
+#20 368.5 [ 45%] Building CXX object CMakeFiles/wasm.dir/src/resolve-names.cc.o
+#20 374.0 [ 45%] Building CXX object CMakeFiles/wasm.dir/src/shared-validator.cc.o
+#20 382.8 [ 46%] Building CXX object CMakeFiles/wasm.dir/src/stream.cc.o
+#20 385.4 [ 46%] Building CXX object CMakeFiles/wasm.dir/src/token.cc.o
+#20 387.6 [ 47%] Building CXX object CMakeFiles/wasm.dir/src/tracing.cc.o
+#20 389.5 [ 48%] Building CXX object CMakeFiles/wasm.dir/src/type-checker.cc.o
+#20 393.6 [ 48%] Building CXX object CMakeFiles/wasm.dir/src/utf8.cc.o
+#20 393.7 [ 49%] Building CXX object CMakeFiles/wasm.dir/src/validator.cc.o
+#20 399.8 [ 50%] Building CXX object CMakeFiles/wasm.dir/src/wast-lexer.cc.o
+#20 411.2 [ 50%] Building CXX object CMakeFiles/wasm.dir/src/wast-parser.cc.o
+#20 430.3 [ 51%] Building CXX object CMakeFiles/wasm.dir/src/wat-writer.cc.o
+#20 438.3 [ 52%] Building CXX object CMakeFiles/wasm.dir/src/interp/binary-reader-interp.cc.o
+#20 450.2 [ 52%] Building CXX object CMakeFiles/wasm.dir/src/interp/interp.cc.o
+#20 470.9 [ 53%] Building CXX object CMakeFiles/wasm.dir/src/interp/interp-util.cc.o
+#20 474.2 [ 53%] Building CXX object CMakeFiles/wasm.dir/src/interp/istream.cc.o
+#20 477.2 [ 54%] Building CXX object CMakeFiles/wasm.dir/src/interp/interp-wasm-c-api.cc.o
+#20 491.2 [ 55%] Linking CXX shared library libwasm.so
+#20 492.1 [ 55%] Built target wasm
+#20 492.1 [ 55%] Building C object CMakeFiles/wasm-c-api-threads.dir/third_party/wasm-c-api/example/threads.c.o
+#20 492.4 [ 56%] Linking CXX executable wasm-c-api-threads
+#20 492.6 [ 56%] Built target wasm-c-api-threads
+#20 492.7 [ 56%] Built target wasm-c-api-threads-copy-to-bin
+#20 492.8 [ 57%] Building C object CMakeFiles/wasm-c-api-trap.dir/third_party/wasm-c-api/example/trap.c.o
+#20 492.9 [ 57%] Linking CXX executable wasm-c-api-trap
+#20 493.2 [ 57%] Built target wasm-c-api-trap
+#20 493.2 [ 58%] Building C object CMakeFiles/wasm-c-api-table.dir/third_party/wasm-c-api/example/table.c.o
+#20 493.5 [ 59%] Linking CXX executable wasm-c-api-table
+#20 493.8 [ 59%] Built target wasm-c-api-table
+#20 493.8 [ 59%] Built target wasm-c-api-table-copy-to-bin
+#20 493.9 [ 60%] Building C object CMakeFiles/wasm-c-api-serialize.dir/third_party/wasm-c-api/example/serialize.c.o
+#20 494.0 [ 60%] Linking CXX executable wasm-c-api-serialize
+#20 494.3 [ 60%] Built target wasm-c-api-serialize
+#20 494.4 [ 60%] Built target wasm-c-api-serialize-copy-to-bin
+#20 494.4 [ 60%] Building C object CMakeFiles/wasm-c-api-reflect.dir/third_party/wasm-c-api/example/reflect.c.o
+#20 494.7 [ 61%] Linking CXX executable wasm-c-api-reflect
+#20 494.9 [ 61%] Built target wasm-c-api-reflect
+#20 495.0 [ 62%] Building C object CMakeFiles/wasm-c-api-multi.dir/third_party/wasm-c-api/example/multi.c.o
+#20 495.2 [ 63%] Linking CXX executable wasm-c-api-multi
+#20 495.4 [ 63%] Built target wasm-c-api-multi
+#20 495.4 [ 63%] Built target wasm-c-api-multi-copy-to-bin
+#20 495.5 [ 64%] Building CXX object CMakeFiles/wat-desugar.dir/src/tools/wat-desugar.cc.o
+#20 501.5 [ 64%] Linking CXX executable wat-desugar
+#20 502.1 [ 64%] Built target wat-desugar
+#20 502.2 [ 64%] Built target wat-desugar-copy-to-bin
+#20 502.2 [ 64%] Building C object CMakeFiles/wasm-c-api-hello.dir/third_party/wasm-c-api/example/hello.c.o
+#20 502.3 [ 65%] Linking CXX executable wasm-c-api-hello
+#20 502.6 [ 65%] Built target wasm-c-api-hello
+#20 502.6 [ 65%] Built target wasm-c-api-hello-copy-to-bin
+#20 502.6 [ 66%] Building CXX object CMakeFiles/spectest-interp.dir/src/tools/spectest-interp.cc.o
+#20 517.8 [ 66%] Linking CXX executable spectest-interp
+#20 518.6 [ 66%] Built target spectest-interp
+#20 518.7 [ 66%] Built target spectest-interp-copy-to-bin
+#20 518.8 [ 66%] Building CXX object CMakeFiles/wasm-objdump.dir/src/tools/wasm-objdump.cc.o
+#20 524.6 [ 67%] Building CXX object CMakeFiles/wasm-objdump.dir/src/binary-reader-objdump.cc.o
+#20 531.2 [ 68%] Linking CXX executable wasm-objdump
+#20 531.8 [ 68%] Built target wasm-objdump
+#20 531.8 [ 68%] Built target wasm-objdump-copy-to-bin
+#20 531.8 [ 69%] Building CXX object CMakeFiles/wasm-decompile.dir/src/tools/wasm-decompile.cc.o
+#20 537.6 [ 70%] Linking CXX executable wasm-decompile
+#20 538.2 [ 70%] Built target wasm-decompile
+#20 538.3 [ 70%] Built target wasm-decompile-copy-to-bin
+#20 538.3 [ 70%] Building CXX object CMakeFiles/wasm-opcodecnt.dir/src/tools/wasm-opcodecnt.cc.o
+#20 544.8 [ 71%] Building CXX object CMakeFiles/wasm-opcodecnt.dir/src/binary-reader-opcnt.cc.o
+#20 549.7 [ 72%] Linking CXX executable wasm-opcodecnt
+#20 550.2 [ 72%] Built target wasm-opcodecnt
+#20 550.2 [ 72%] Building CXX object CMakeFiles/wasm-interp.dir/src/tools/wasm-interp.cc.o
+#20 561.0 [ 73%] Linking CXX executable wasm-interp
+#20 561.7 [ 73%] Built target wasm-interp
+#20 561.7 [ 74%] Building CXX object CMakeFiles/wasm2c.dir/src/tools/wasm2c.cc.o
+#20 568.4 [ 75%] Building CXX object CMakeFiles/wasm2c.dir/src/c-writer.cc.o
+#20 587.5 [ 75%] Linking CXX executable wasm2c
+#20 588.2 [ 75%] Built target wasm2c
+#20 588.4 [ 75%] Built target wasm2c-copy-to-bin
+#20 588.4 [ 75%] Building CXX object CMakeFiles/wast2json.dir/src/tools/wast2json.cc.o
+#20 595.6 [ 76%] Linking CXX executable wast2json
+#20 596.5 [ 76%] Built target wast2json
+#20 596.5 [ 76%] Building C object CMakeFiles/wasm-rt-impl.dir/wasm2c/wasm-rt-impl.c.o
+#20 596.9 [ 77%] Linking C static library libwasm-rt-impl.a
+#20 596.9 [ 77%] Built target wasm-rt-impl
+#20 596.9 [ 78%] Building C object CMakeFiles/wasm-c-api-memory.dir/third_party/wasm-c-api/example/memory.c.o
+#20 597.2 [ 78%] Linking CXX executable wasm-c-api-memory
+#20 597.5 [ 78%] Built target wasm-c-api-memory
+#20 597.6 [ 78%] Built target wasm-opcodecnt-copy-to-bin
+#20 597.7 [ 78%] Built target wast2json-copy-to-bin
+#20 597.8 [ 79%] Building CXX object CMakeFiles/wasm-strip.dir/src/tools/wasm-strip.cc.o
+#20 601.6 [ 79%] Linking CXX executable wasm-strip
+#20 602.0 [ 79%] Built target wasm-strip
+#20 602.1 [ 79%] Built target wasm-strip-copy-to-bin
+#20 602.2 [ 79%] Building CXX object CMakeFiles/gtest.dir/third_party/gtest/googletest/src/gtest-all.cc.o
+#20 627.6 [ 80%] Linking CXX static library libgtest.a
+#20 627.7 [ 80%] Built target gtest
+#20 627.7 [ 81%] Building C object CMakeFiles/wasm-c-api-start.dir/third_party/wasm-c-api/example/start.c.o
+#20 627.9 [ 81%] Linking CXX executable wasm-c-api-start
+#20 628.2 [ 81%] Built target wasm-c-api-start
+#20 628.2 [ 82%] Building CXX object CMakeFiles/wat2wasm.dir/src/tools/wat2wasm.cc.o
+#20 635.8 [ 83%] Linking CXX executable wat2wasm
+#20 636.5 [ 83%] Built target wat2wasm
+#20 636.6 [ 83%] Built target wat2wasm-copy-to-bin
+#20 636.6 [ 83%] Built target wasm-interp-copy-to-bin
+#20 636.7 [ 83%] Built target wasm-c-api-trap-copy-to-bin
+#20 636.8 [ 83%] Built target wasm-c-api-reflect-copy-to-bin
+#20 636.9 [ 83%] Built target wasm-c-api-memory-copy-to-bin
+#20 636.9 [ 84%] Building CXX object CMakeFiles/wasm2wat.dir/src/tools/wasm2wat.cc.o
+#20 644.9 [ 85%] Linking CXX executable wasm2wat
+#20 645.6 [ 85%] Built target wasm2wat
+#20 645.6 [ 86%] Building CXX object CMakeFiles/wasm-validate.dir/src/tools/wasm-validate.cc.o
+#20 651.6 [ 86%] Linking CXX executable wasm-validate
+#20 652.2 [ 86%] Built target wasm-validate
+#20 652.2 [ 86%] Built target wasm2wat-copy-to-bin
+#20 652.3 [ 86%] Building CXX object CMakeFiles/gtest_main.dir/third_party/gtest/googletest/src/gtest_main.cc.o
+#20 656.2 [ 87%] Linking CXX static library libgtest_main.a
+#20 656.2 [ 87%] Built target gtest_main
+#20 656.2 [ 88%] Building CXX object CMakeFiles/hexfloat_test.dir/src/literal.cc.o
+#20 659.6 [ 88%] Building CXX object CMakeFiles/hexfloat_test.dir/src/test-hexfloat.cc.o
+#20 665.1 [ 89%] Linking CXX executable hexfloat_test
+#20 665.8 [ 89%] Built target hexfloat_test
+#20 665.8 [ 89%] Building C object CMakeFiles/wasm-c-api-callback.dir/third_party/wasm-c-api/example/callback.c.o
+#20 666.0 [ 90%] Linking CXX executable wasm-c-api-callback
+#20 666.3 [ 90%] Built target wasm-c-api-callback
+#20 666.3 [ 90%] Built target wasm-c-api-callback-copy-to-bin
+#20 666.4 [ 90%] Built target wasm-validate-copy-to-bin
+#20 666.4 [ 91%] Building C object CMakeFiles/wasm-c-api-finalize.dir/third_party/wasm-c-api/example/finalize.c.o
+#20 666.6 [ 91%] Linking CXX executable wasm-c-api-finalize
+#20 666.8 [ 91%] Built target wasm-c-api-finalize
+#20 666.9 [ 91%] Built target wasm-c-api-finalize-copy-to-bin
+#20 667.0 [ 91%] Built target wasm-c-api-start-copy-to-bin
+#20 667.0 [ 92%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-binary-reader.cc.o
+#20 672.5 [ 92%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-circular-array.cc.o
+#20 678.6 [ 93%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-interp.cc.o
+#20 692.1 [ 94%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-intrusive-list.cc.o
+#20 700.8 [ 94%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-literal.cc.o
+#20 707.9 [ 95%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-option-parser.cc.o
+#20 719.9 [ 95%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-filenames.cc.o
+#20 724.6 [ 96%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-utf8.cc.o
+#20 729.6 [ 97%] Building CXX object CMakeFiles/wabt-unittests.dir/src/test-wast-parser.cc.o
+#20 736.3 [ 97%] Linking CXX executable wabt-unittests
+#20 737.6 [ 97%] Built target wabt-unittests
+#20 737.6 [ 98%] Building C object CMakeFiles/wasm-c-api-global.dir/third_party/wasm-c-api/example/global.c.o
+#20 738.0 [ 99%] Linking CXX executable wasm-c-api-global
+#20 738.2 [ 99%] Built target wasm-c-api-global
+#20 738.3 [ 99%] Building C object CMakeFiles/wasm-c-api-hostref.dir/third_party/wasm-c-api/example/hostref.c.o
+#20 738.7 [100%] Linking CXX executable wasm-c-api-hostref
+#20 739.0 [100%] Built target wasm-c-api-hostref
+#20 739.1 [100%] Built target wasm-c-api-global-copy-to-bin
+#20 739.2 [100%] Built target wasm-c-api-hostref-copy-to-bin
+#20 739.2 + cd ..
+#20 739.2 ++ find /src -name '*_fuzzer.cc'
+#20 739.4 + for fuzzers in $(find $SRC -name '*_fuzzer.cc')
+#20 739.4 ++ basename -s .cc /src/wasm2wat_fuzzer.cc
+#20 739.4 + fuzz_basename=wasm2wat_fuzzer
+#20 739.4 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I. -Ibuild /src/wasm2wat_fuzzer.cc /libAFL.a ./build/libwabt.a -o /out/wasm2wat_fuzzer
+#20 743.6 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 743.8s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:c1deba491b3e52802910f17692c1f557ee1608e43cc04ac3fe2584404f03d5ea
+#21 writing image sha256:c1deba491b3e52802910f17692c1f557ee1608e43cc04ac3fe2584404f03d5ea 0.0s done
+#21 naming to gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer done
+#21 DONE 0.2s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:7443b1550532ca5e120799f44b01ccfea8b71458c86167c85c269a25269d4331
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:21845e283cc78a75c502bbac97e35562a29bf960c89892e7ed8fdb94ef6463e8
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#5 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#5 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#5 CACHED
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:2bcd8a28d09b2877e9fed13034afdcd6c49e3872d99c3c229d26008416c664d6
+#6 writing image sha256:2bcd8a28d09b2877e9fed13034afdcd6c49e3872d99c3c229d26008416c664d6 0.5s done
+#6 naming to gcr.io/fuzzbench/runners/afl/wabt_wasm2wat_fuzzer-intermediate done
+#6 DONE 1.0s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/runners/afl/wabt_wasm2wat_fuzzer-intermediate
+#4 sha256:e941058b106ae521e1b4ad68c271702e6307eca2c6379df4fb2b3e601d2d18e1
+#4 DONE 1.4s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:00369ec11b8997f41f274c51522d11a54c9cd7bddfdf538e4ca651089f6eb484
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:a3aa186d11f9a9793f20312bc673d44681fbd38913de75d65de35df8cea6754d
+#2 transferring context: 34B 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer:latest
+#3 sha256:7d7e564f5da8d17d92ef81abf6b59d9d9e41ef25af1691e0ecb65c2a246b04c7
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/runners/afl/wabt_wasm2wat_fuzzer-intermediate:latest
+#4 sha256:52cae0a0662356bdd99d1a1724f0df9827cdeb08305b2ae0992e15e606a9ef02
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b3b1384c19d18922dd26bfed44b8d6f78e6fa15d4225b2a9bc0f52f35c1d2acc
+#12 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/wabt_wasm2wat_fuzzer
+#5 sha256:d319b4971aef0e920db0b41c2748e32cc35b638ed3ce58257cb81770f7854da1
+#5 DONE 1.4s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/wabt_wasm2wat_fuzzer-intermediate
+#6 sha256:ab34f64c661ec810dbbea1dc16951880d8ecbbfcc32902924f4a164b4417b661
+#6 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b3b1384c19d18922dd26bfed44b8d6f78e6fa15d4225b2a9bc0f52f35c1d2acc
+#12 transferring context: 9.03MB 0.6s done
+#12 DONE 0.7s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/wabt_wasm2wat_fuzzer
+#10 sha256:349ad2fe11d7602f9db7f26cea9d8819dcee55439e14dc915ba2a5bf4cef573e
+#10 DONE 2.0s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:95c5d03e108484cb7174b6f9991d28aa7a657efe17fd0729c91080d8119a1699
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:3db2415e540c8a9c871f01301402f99535c4e48ef53a461104fbd7745d678149
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:da3a5e3a8529b149eb2aa1c1b5aae7d60123f7c59e3111ea12a71909e751a169
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:669d524fa9cc8516ca8f14c5fe7f91e69621943d577729c6f8b1777d50051df8
+#11 DONE 0.4s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:5a4fe58678cd2889bcf99397f27e54d1ac8311201ca29b503f0b339ab6810b00
+#13 DONE 0.6s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:60d7e6160b91b86221621ae372244f015800820c31e29a521b9b27491d339ad4
+#14 DONE 0.6s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:2e8f648faa8d23af62cc29da09642b7403c6de77ca8b6ff79ae4b5b12d8a07e2
+#15 DONE 1.9s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:5c8f5629c4b08d1c91be2ac0885a341a22d15a26e7127704e53e482469ea4e4f
+#16 DONE 1.8s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:0da12eec73617fbafbb88ea855a43a0340eadd560126059ebf7efc5a363f22c8
+#17 DONE 0.6s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:a3521a703a03c94778db4559004eb85fd9773a52bbd25bacf693a23173c41837
+#18 DONE 0.4s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:d0caaa0b1564016ea04ec0883849b6582b8701853cc4c5860ec641eb2e16c513
+#19 DONE 0.3s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:85d4d1bcf6b10b067a43c13993edf7c2761f2d05f1997026a9c01d5869914ba8
+#20 DONE 1.2s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:5dfb4345443ede377a0080df713a2b5236b0fb93b6b3f738f802aed19598c8b6 done
+#21 naming to gcr.io/fuzzbench/runners/afl/wabt_wasm2wat_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/src/experiment/runner.py", line 187, in run_fuzzer
+    if benchmark_config.get_config(benchmark).get('type') == 'bug':
+  File "/src/common/benchmark_config.py", line 32, in get_config
+    return yaml_utils.read(get_config_file(benchmark))
+  File "/src/common/yaml_utils.py", line 20, in read
+    with open(yaml_filename) as file_handle:
+FileNotFoundError: [Errno 2] No such file or directory: '/src/benchmarks/wabt_wasm2wat_fuzzer/benchmark.yaml'
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f8f32f85790> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

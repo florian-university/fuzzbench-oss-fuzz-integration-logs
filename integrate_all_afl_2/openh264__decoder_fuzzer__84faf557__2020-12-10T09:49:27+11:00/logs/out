@@ -1,0 +1,7 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/openh264_decoder_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/openh264_decoder_fuzzer \
+--file benchmarks/openh264_decoder_fuzzer/Dockerfile \
+benchmarks/openh264_decoder_fuzzer

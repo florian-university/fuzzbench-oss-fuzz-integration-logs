@@ -1,0 +1,7 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/xpdf_fuzz_pdfload \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/xpdf_fuzz_pdfload \
+--file benchmarks/xpdf_fuzz_pdfload/Dockerfile \
+benchmarks/xpdf_fuzz_pdfload

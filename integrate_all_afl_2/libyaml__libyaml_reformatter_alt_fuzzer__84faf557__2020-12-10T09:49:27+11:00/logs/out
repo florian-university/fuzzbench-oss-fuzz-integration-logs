@@ -1,0 +1,156 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_reformatter_alt_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_reformatter_alt_fuzzer \
+--file benchmarks/libyaml_libyaml_reformatter_alt_fuzzer/Dockerfile \
+benchmarks/libyaml_libyaml_reformatter_alt_fuzzer
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/libyaml_libyaml_reformatter_alt_fuzzer-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_reformatter_alt_fuzzer-intermediate \
+--build-arg parent_image=gcr.io/fuzzbench/builders/benchmark/libyaml_libyaml_reformatter_alt_fuzzer \
+--file fuzzers/afl/builder.Dockerfile \
+fuzzers/afl
+docker pull ubuntu:xenial
+xenial: Pulling from library/ubuntu
+Digest: sha256:20858ebbc96215d6c3c574f781133ebffdc7c18d98af4f294cc4c04871a6fe61
+Status: Image is up to date for ubuntu:xenial
+docker.io/library/ubuntu:xenial
+docker build \
+--tag gcr.io/fuzzbench/base-image \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/base-image \
+--file docker/base-image/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/libyaml_libyaml_reformatter_alt_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/libyaml_libyaml_reformatter_alt_fuzzer \
+--build-arg benchmark=libyaml_libyaml_reformatter_alt_fuzzer \
+--build-arg fuzzer=afl \
+--build-arg parent_image=gcr.io/fuzzbench/builders/afl/libyaml_libyaml_reformatter_alt_fuzzer-intermediate \
+--file docker/benchmark-builder/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/libyaml_libyaml_reformatter_alt_fuzzer-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_reformatter_alt_fuzzer-intermediate \
+--file fuzzers/afl/runner.Dockerfile \
+fuzzers/afl
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/libyaml_libyaml_reformatter_alt_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/libyaml_libyaml_reformatter_alt_fuzzer \
+--build-arg benchmark=libyaml_libyaml_reformatter_alt_fuzzer \
+--build-arg fuzzer=afl \
+--file docker/benchmark-runner/Dockerfile \
+.
+docker run \
+--cpus=1 \
+--cap-add SYS_NICE \
+--cap-add SYS_PTRACE \
+-e FUZZ_OUTSIDE_EXPERIMENT=1 \
+-e FORCE_LOCAL=1 \
+-e TRIAL_ID=1 \
+-e FUZZER=afl \
+-e BENCHMARK=libyaml_libyaml_reformatter_alt_fuzzer \
+-e FUZZ_TARGET=libyaml_reformatter_alt_fuzzer \
+-e MAX_TOTAL_TIME=20 \
+-e SNAPSHOT_PERIOD=10 \
+gcr.io/fuzzbench/runners/afl/libyaml_libyaml_reformatter_alt_fuzzer
+[run_afl_fuzz] Running target with afl-fuzz
+[run_afl_fuzz] Running command: ./afl-fuzz -i /out/seeds -o /out/corpus -m none -t 1000+ -d -x /out/yaml.dict -- /out/libyaml_reformatter_alt_fuzzer 2147483647
+[0;36mafl-fuzz [1;97m2.57b[0m by <lcamtuf@google.com>
+[1;92m[+] [0mDisabling the UI because AFL_NO_UI is set.[0m
+[1;92m[+] [0mYou have 8 CPU cores and 1 runnable tasks (utilization: 12%).[0m
+[1;92m[+] [0mTry parallel jobs - see docs/parallel_fuzzing.txt.[0m
+[1;93m[!] [1;97mWARNING: [0mNot binding to a CPU core (AFL_NO_AFFINITY set).[0m
+[1;94m[*] [0mChecking core_pattern...[0m
+
+[1;91m[-] [0mHmm, your system is configured to send core dump notifications to an
+    external utility. This will cause issues: there will be an extended delay
+    between stumbling upon a crash and having this information relayed to the
+    fuzzer via the standard waitpid() API.
+
+    To avoid having crashes misinterpreted as timeouts, please log in as root
+    and temporarily modify /proc/sys/kernel/core_pattern, like so:
+
+    echo core >/proc/sys/kernel/core_pattern
+[1;94m[*] [0mSetting up output directories...[0m
+[1;92m[+] [0mOutput directory exists but deemed OK to reuse.[0m
+[1;94m[*] [0mDeleting old session data...[0m
+[1;92m[+] [0mOutput dir cleanup successful.[0m
+[1;94m[*] [0mScanning '/out/seeds'...[0m
+[1;94m[*] [0mShuffling queue...[0m
+[1;92m[+] [0mNo auto-generated dictionary tokens to reuse.[0m
+[1;94m[*] [0mCreating hard links for all input files...[0m
+[1;94m[*] [0mLoading extra dictionary from '/out/yaml.dict' (level 0)...[0m
+[1;92m[+] [0mLoaded 17 extra tokens, size range 1 B to 6 B.[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mPersistent mode binary detected.[0m
+[1;92m[+] [0m[1;95mDeferred forkserver binary detected.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000000,orig:8ec9f74706d1cc84cc93fb473e47bece5cf6db7b'...[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+[1;92m[+] [0mAll right - fork server is up.[0m
+[1;90m    len = 289, map size = 443, exec speed = 505 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000001,orig:054227e9596e4434c4e3b933a601ecd93b8127d1'...[0m
+[1;90m    len = 34, map size = 371, exec speed = 336 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000002,orig:849d6749b5e71453d38efdf0b4c7b92b08ca795c'...[0m
+[1;90m    len = 298, map size = 372, exec speed = 271 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000003,orig:1c1e3c779e20ce341765b428b72ce0523da44681'...[0m
+[1;90m    len = 26, map size = 312, exec speed = 239 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000004,orig:d53233142b6813a5ce101923d2b33e55049cdaa7'...[0m
+[1;90m    len = 22, map size = 257, exec speed = 186 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000005,orig:bda1e40b46a413be2d75736bcea0f65f6b865393'...[0m
+[1;90m    len = 119, map size = 420, exec speed = 296 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000006,orig:b3f5164af9a5871e68d0b8dc27bef2f27d184ba5'...[0m
+[1;90m    len = 24, map size = 298, exec speed = 172 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000007,orig:f028364072f088b89ac6fcbff1f876cde97ed696'...[0m
+[1;90m    len = 19, map size = 312, exec speed = 308 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000008,orig:849a8ac7a2ed93cab60a5739f5d998193fe4f505'...[0m
+[1;90m    len = 356, map size = 483, exec speed = 378 us
+[0m[1;92m[+] [0mAll test cases processed.[0m
+
+[1;92m[+] [0mHere are some useful stats:
+
+[1;90m    Test case count : [0m8 favored, 0 variable, 9 total
+[1;90m       Bitmap range : [0m257 to 483 bits (average: 363.11 bits)
+[1;90m        Exec timing : [0m172 to 505 us (average: 299 us)
+[0m
+[1;92m[+] [0mAll set and ready to roll![0m
+[1;94m[*] [0mEntering queue cycle 1.[0m
+[1;94m[*] [0mFuzzing test case #0 (9 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #2 (187 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #4 (241 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #5 (388 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #6 (453 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #8 (501 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #26 (533 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #29 (533 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #33 (542 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #53 (542 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #68 (542 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #71 (550 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #73 (562 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #75 (563 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #77 (564 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #79 (565 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #81 (567 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #85 (584 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #86 (584 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #97 (592 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #100 (601 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #109 (618 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #112 (630 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #121 (634 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #122 (636 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #126 (659 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #128 (660 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #130 (660 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #131 (660 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #137 (661 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #140 (667 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #141 (668 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #142 (671 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #143 (687 total, 0 uniq crashes found)...[0m

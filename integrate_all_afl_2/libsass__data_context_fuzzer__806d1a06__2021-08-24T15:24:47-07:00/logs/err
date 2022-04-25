@@ -1,0 +1,692 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: libsass_data_context_fuzzer.
+INFO:root:Please run "make test-run-afl-libsass_data_context_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:8cddeec9a476ff591b837b44cf71141d72c7f191da3ddb0239a350d6c73aced0
+#1 transferring dockerfile: 945B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:c9c4edba6c730903bdfe09baaa1510c256c31c41e3b80503bf27541b8b12a772
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:b0f4a9c06eb2538beb3e4c6e4bae694d63e6e665cff97a746e2cbaa61515da12
+#9 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libsass_data_context_fuzzer
+#4 sha256:fc6063e3791016d92f164e1c665f4ea0f4e3efd206d53d3aaa67a6724337e89f
+#4 DONE 1.6s
+
+#6 [2/6] RUN apt-get update && apt-get install -y make autoconf automake libtool
+#6 sha256:425dc7a252565eeea60f3de4c59c779438ad25f6692cfd7941a8ec9fc7a73f78
+#6 CACHED
+
+#9 [internal] load build context
+#9 sha256:b0f4a9c06eb2538beb3e4c6e4bae694d63e6e665cff97a746e2cbaa61515da12
+#9 transferring context: 1.77kB done
+#9 DONE 0.0s
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/sass/libsass.git libsass
+#7 sha256:2a772b7363b182f4570227a247465753faafa9f32c701552bd2b38580432996a
+#7 0.345 Cloning into 'libsass'...
+#7 DONE 1.9s
+
+#8 [4/6] WORKDIR /src
+#8 sha256:13983793e1192b9cb128e003256cfed4ea6bc18552b875e3bc49b6c7258603a2
+#8 DONE 0.1s
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:6761134b501f4ab7e785d7145761ba33452d2c6e5f057016e456d00c27b30f04
+#10 DONE 0.1s
+
+#11 [6/6] COPY data_context_fuzzer.cc /src/
+#11 sha256:224b4c0710e0b033d89ccd6342c55e16ffc808a512d32e30c35d30ae510a3c21
+#11 DONE 0.1s
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:d4865c2fa6d3442d27b63480bfdafa4992c3a2e934f9a9409f9af39c4916b5f2
+#12 writing image sha256:d4865c2fa6d3442d27b63480bfdafa4992c3a2e934f9a9409f9af39c4916b5f2 0.0s done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/libsass_data_context_fuzzer done
+#12 DONE 0.2s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:86c68a06c7829878a53ee3497254fd63de7859c915ff1213840a6912eab7c31b
+#1 transferring dockerfile: 46B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:69c8340dd71ed89db2e7e50a39079b9cd56d528b3b2e8cf0b8f927c5e32c3002
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libsass_data_context_fuzzer:latest
+#3 sha256:d3551eca9001394eb64dcc9f3413dd2777663984d1420f1a35d5097d50ee03f1
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libsass_data_context_fuzzer
+#5 sha256:af7ed12c61e2f1cb6f71982e75ca840973c08714e4e5f8c19d75f2a18a534373
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer-intermediate
+#4 sha256:52f9fb44cae255438740d919adcc7557bab802b40a15b46ff7ae1c9695c88a5c
+#4 DONE 1.4s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libsass_data_context_fuzzer
+#5 sha256:af7ed12c61e2f1cb6f71982e75ca840973c08714e4e5f8c19d75f2a18a534373
+#5 DONE 0.2s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b587526bff393ccb9f4424beec3771251b03e004a61d38477493bcfeb40b7f99
+#6 0.367 Cloning into '/afl'...
+#6 1.686 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.686 
+#6 1.686 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.686 changes and commit them, and you can discard any commits you make in this
+#6 1.686 state without impacting any branches by switching back to a branch.
+#6 1.686 
+#6 1.686 If you want to create a new branch to retain commits you create, you may
+#6 1.686 do so (now or later) by using -c with the switch command. Example:
+#6 1.686 
+#6 1.686   git switch -c <new-branch-name>
+#6 1.686 
+#6 1.686 Or undo this operation with:
+#6 1.686 
+#6 1.686   git switch -
+#6 1.686 
+#6 1.686 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.686 
+#6 1.686 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.720 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.721 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.904 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.908 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 4.422 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.742 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 5.172 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 5.326 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.731 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.971 ln -sf afl-as as
+#6 5.973 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.974 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.975 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 7.3s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:4655dcd50e0991b194730587f5770cdadce0df15452df432741908840820fd9d
+#7 0.605 Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+#7 0.623 Hit:2 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.623 Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.637 Get:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#7 0.738 Get:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#7 1.159 Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [2185 kB]
+#7 1.558 Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1153 kB]
+#7 2.030 Fetched 3675 kB in 1s (2910 kB/s)
+#7 2.030 Reading package lists...
+#7 4.305 Reading package lists...
+#7 5.854 Building dependency tree...
+#7 6.095 Reading state information...
+#7 6.417 wget is already the newest version (1.20.3-1ubuntu2).
+#7 6.417 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#7 6.420 --2022-04-23 13:17:06--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 6.422 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+#7 6.424 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+#7 6.446 HTTP request sent, awaiting response... 200 OK
+#7 6.617 Length: 9177 (9.0K) [text/plain]
+#7 6.617 Saving to: '/afl/afl_driver.cpp'
+#7 6.617 
+#7 6.617      0K ........                                              100% 9.33M=0.001s
+#7 6.618 
+#7 6.618 2022-04-23 13:17:07 (9.33 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 6.618 
+#7 8.432 ar: creating /libAFL.a
+#7 DONE 11.5s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:87f16bfd2ab93ae5fec8948880c7d132428f56e5a564c68b6305313b70be8544
+#8 writing image sha256:87f16bfd2ab93ae5fec8948880c7d132428f56e5a564c68b6305313b70be8544 0.0s done
+#8 naming to gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:23bea6c3874c9a17bd7703bcdd32ac58a84915e6e31358871a84e2518e430a21
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1103463e68194003a1919417851e00965ca88b12f32c26e7989c86b0cb9bec11
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:56b56c415d161f6e470f41fd00f3b57bf47b586c6e5d7e66e4603c772b89ca43
+#8 transferring context: 591B 0.0s done
+#8 DONE 0.0s
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:42c140ae33e67e306f8ae59ed3d9d3d4e53a10a36f10fd56f680570a0fb374e1
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:a0e288a4ead4802233a8e136697fb70a2aa844608d205d601f4084d2cca22867
+#10 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:f47ea7ea1bf94c484c998fd6a7608746b96f481e9312d6ccaa20e805252595df
+#11 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:c379d6384b17dd2dc423b4873d51f60c5b5b458daa5962b44b2460cc8805e61c
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:05b2aa84fbb14d46a2428ada51f12a750d9a6a7322c0a63b3b82bda36d00b178 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:59f24d6c7e803bf9c458276206191319b31b2d2cbf439e1ff5aec0052c2cfc6c
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b14289d987529c8ac5ea315f6879a04e3899e4d249cc2b3de3ef5a7405e8f715
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer-intermediate:latest
+#3 sha256:11c01808244fe10e54a777e1ffe75b232ae8af47421913aa77ba65481bd8b32c
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1a1350958432219db8e53f45addce4e0189355fcfd58ac6e144b0a9de03519b9
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer-intermediate
+#6 sha256:3d3a95b833dcbbbce44651804752a6b5ee010fcd01bb9d7b7f7260bcea1009ce
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer
+#5 sha256:074634b93def37333c90a592b6f5d9af57774e240c73d878d1c0970008730f1d
+#5 DONE 1.3s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:1a1350958432219db8e53f45addce4e0189355fcfd58ac6e144b0a9de03519b9
+#12 transferring context: 742.41kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer-intermediate
+#6 sha256:3d3a95b833dcbbbce44651804752a6b5ee010fcd01bb9d7b7f7260bcea1009ce
+#6 DONE 0.5s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:036aebe06da8d45f61b772d79c452f919f0c176f13b87f43bc892aa2a2e05dfe
+#8 DONE 0.6s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:4c50a521f5e5de18e3430855e214be681d3d10dc2498d94426d7abdb7c25c4b9
+#9 DONE 13.6s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:d905a886f5e7fe41873056fa30027c909c8f8da4cc42ae2377bf506da664d664
+#10 DONE 0.2s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:74e7af18e7800d6f654083fd906e33936551019716b57249682e77bcd2671ff5
+#11 DONE 14.7s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:aad9d44291f3e9d7a0855ff98c68166ba78d12c30dbb7a0bdaf0f76ea7ecc334
+#13 DONE 0.3s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:5cc4d58d1b0829a6c762602c0a4adb14d9896766e7798f1fdef416c191a3f9f7
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] COPY benchmarks/libsass_data_context_fuzzer/benchmark.yaml /
+#15 sha256:3cbee188fb8e33ab245e5a77fb6841e74cddfe4bc10d2b7ca86e2d29f3035a53
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:23b95bfd355444aa5b65bcad47c8eda4d84672d83f8ff90e1b44d16f53f631f3
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:531b31cad45a16aecd19e134bdf0e9809105692c4d76008b4b16170e36ce4358
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:d6032960ef408daa8d8166325e049bf2f45702b04ab5ffc7b0d5ece0fcfc6539
+#18 0.527 Checking out commit 806d1a06
+#18 5.270 From https://github.com/sass/libsass
+#18 5.270  * [new tag]           2.1.0-beta   -> 2.1.0-beta
+#18 5.270  * [new tag]           3.0          -> 3.0
+#18 5.270  * [new tag]           3.0.1        -> 3.0.1
+#18 5.271  * [new tag]           3.0.2        -> 3.0.2
+#18 5.271  * [new tag]           3.0rc1       -> 3.0rc1
+#18 5.271  * [new tag]           3.0rc2       -> 3.0rc2
+#18 5.271  * [new tag]           3.0rc4       -> 3.0rc4
+#18 5.272  * [new tag]           3.1-alpha    -> 3.1-alpha
+#18 5.272  * [new tag]           3.1-alpha2   -> 3.1-alpha2
+#18 5.272  * [new tag]           3.1.0        -> 3.1.0
+#18 5.272  * [new tag]           3.1.0-beta   -> 3.1.0-beta
+#18 5.273  * [new tag]           3.1.0-beta.2 -> 3.1.0-beta.2
+#18 5.273  * [new tag]           3.2.0        -> 3.2.0
+#18 5.273  * [new tag]           3.2.0-beta.1 -> 3.2.0-beta.1
+#18 5.274  * [new tag]           3.2.0-beta.2 -> 3.2.0-beta.2
+#18 5.274  * [new tag]           3.2.0-beta.3 -> 3.2.0-beta.3
+#18 5.274  * [new tag]           3.2.0-beta.4 -> 3.2.0-beta.4
+#18 5.274  * [new tag]           3.2.0-beta.5 -> 3.2.0-beta.5
+#18 5.275  * [new tag]           3.2.0-beta.6 -> 3.2.0-beta.6
+#18 5.275  * [new tag]           3.2.1        -> 3.2.1
+#18 5.275  * [new tag]           3.2.2        -> 3.2.2
+#18 5.275  * [new tag]           3.2.3        -> 3.2.3
+#18 5.276  * [new tag]           3.2.4        -> 3.2.4
+#18 5.276  * [new tag]           3.2.5        -> 3.2.5
+#18 5.276  * [new tag]           3.3.0        -> 3.3.0
+#18 5.276  * [new tag]           3.3.0-beta1  -> 3.3.0-beta1
+#18 5.277  * [new tag]           3.3.0-beta2  -> 3.3.0-beta2
+#18 5.277  * [new tag]           3.3.0-beta3  -> 3.3.0-beta3
+#18 5.277  * [new tag]           3.3.1        -> 3.3.1
+#18 5.277  * [new tag]           3.3.2        -> 3.3.2
+#18 5.278  * [new tag]           3.3.3        -> 3.3.3
+#18 5.278  * [new tag]           3.3.4        -> 3.3.4
+#18 5.278  * [new tag]           3.3.5        -> 3.3.5
+#18 5.278  * [new tag]           3.3.6        -> 3.3.6
+#18 5.278  * [new tag]           3.4.0        -> 3.4.0
+#18 5.279  * [new tag]           3.4.0-RC1    -> 3.4.0-RC1
+#18 5.279  * [new tag]           3.4.2        -> 3.4.2
+#18 5.279  * [new tag]           3.5.0        -> 3.5.0
+#18 5.279  * [new tag]           3.5.0.beta.1 -> 3.5.0.beta.1
+#18 5.280  * [new tag]           3.5.0.beta.2 -> 3.5.0.beta.2
+#18 5.280  * [new tag]           3.5.0.beta.3 -> 3.5.0.beta.3
+#18 5.280  * [new tag]           3.5.1        -> 3.5.1
+#18 5.280  * [new tag]           3.5.2        -> 3.5.2
+#18 5.281  * [new tag]           3.6.0        -> 3.6.0
+#18 5.281  * [new tag]           3.6.1        -> 3.6.1
+#18 5.281  * [new tag]           3.6.2        -> 3.6.2
+#18 5.281  * [new tag]           3.6.3        -> 3.6.3
+#18 5.281  * [new tag]           3.6.4        -> 3.6.4
+#18 5.282  * [new tag]           3.6.5        -> 3.6.5
+#18 5.282  * [new tag]           RELEASE-1.0  -> RELEASE-1.0
+#18 5.282  * [new tag]           v1.0.1       -> v1.0.1
+#18 5.282  * [new tag]           v2.0         -> v2.0
+#18 5.289 error: pathspec '806d1a06' did not match any file(s) known to git
+#18 5.293 error: pathspec '806d1a06' did not match any file(s) known to git
+#18 5.301 error: pathspec '806d1a06' did not match any file(s) known to git
+#18 5.346 Checkout unsuccessful.
+#18 DONE 6.2s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:74b95e7649695b44cda93b33331c95e1710d43756e406b758c81547f301a5dbe
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:d2c96de25380e529e468967decfb3e66b61f67192a70ad3d694e49e4bd21bd55
+#20 0.453 Run fuzzer_build to build the target
+#20 0.593 FUZZ_TARGET = data_context_fuzzer
+#20 0.593 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.593 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.602 Building benchmark libsass_data_context_fuzzer with fuzzer afl
+#20 0.606 + pushd libsass
+#20 0.606 + export BUILD=static
+#20 0.606 + BUILD=static
+#20 0.606 /src/libsass /src
+#20 0.606 ++ nproc
+#20 0.609 + make -j8
+#20 0.847 clang -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -I /src/libsass/include  -fPIC -c -o src/cencode.o src/cencode.c
+#20 0.888 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast.o src/ast.cpp
+#20 0.926 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_values.o src/ast_values.cpp
+#20 0.960 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_supports.o src/ast_supports.cpp
+#20 0.994 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_sel_cmp.o src/ast_sel_cmp.cpp
+#20 1.033 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_sel_unify.o src/ast_sel_unify.cpp
+#20 1.084 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_sel_super.o src/ast_sel_super.cpp
+#20 1.126 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_sel_weave.o src/ast_sel_weave.cpp
+#20 1.178 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_selectors.o src/ast_selectors.cpp
+#20 5.473 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/context.o src/context.cpp
+#20 6.371 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/constants.o src/constants.cpp
+#20 7.066 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_utils.o src/fn_utils.cpp
+#20 7.616 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_miscs.o src/fn_miscs.cpp
+#20 8.391 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_maps.o src/fn_maps.cpp
+#20 10.54 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_lists.o src/fn_lists.cpp
+#20 10.79 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_colors.o src/fn_colors.cpp
+#20 11.13 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_numbers.o src/fn_numbers.cpp
+#20 13.41 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_strings.o src/fn_strings.cpp
+#20 14.20 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/fn_selectors.o src/fn_selectors.cpp
+#20 15.29 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/color_maps.o src/color_maps.cpp
+#20 15.40 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/environment.o src/environment.cpp
+#20 18.21 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast_fwd_decl.o src/ast_fwd_decl.cpp
+#20 19.49 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/bind.o src/bind.cpp
+#20 19.94 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/file.o src/file.cpp
+#20 20.52 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/util.o src/util.cpp
+#20 20.85 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/util_string.o src/util_string.cpp
+#20 20.95 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/json.o src/json.cpp
+#20 21.80 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/units.o src/units.cpp
+#20 22.60 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/values.o src/values.cpp
+#20 22.90 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/plugins.o src/plugins.cpp
+#20 23.24 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/source.o src/source.cpp
+#20 25.55 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/position.o src/position.cpp
+#20 26.01 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/lexer.o src/lexer.cpp
+#20 26.33 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/parser.o src/parser.cpp
+#20 26.42 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/parser_selectors.o src/parser_selectors.cpp
+#20 26.77 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/prelexer.o src/prelexer.cpp
+#20 27.64 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/eval.o src/eval.cpp
+#20 28.01 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/eval_selectors.o src/eval_selectors.cpp
+#20 28.33 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/expand.o src/expand.cpp
+#20 28.61 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/listize.o src/listize.cpp
+#20 29.09 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/cssize.o src/cssize.cpp
+#20 33.46 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/extender.o src/extender.cpp
+#20 33.82 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/extension.o src/extension.cpp
+#20 34.10 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/stylesheet.o src/stylesheet.cpp
+#20 34.40 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/output.o src/output.cpp
+#20 37.38 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/inspect.o src/inspect.cpp
+#20 38.70 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/emitter.o src/emitter.cpp
+#20 38.93 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/check_nesting.o src/check_nesting.cpp
+#20 40.85 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/remove_placeholders.o src/remove_placeholders.cpp
+#20 41.77 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/sass.o src/sass.cpp
+#20 43.92 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/sass_values.o src/sass_values.cpp
+#20 46.03 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/sass_context.o src/sass_context.cpp
+#20 46.43 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/sass_functions.o src/sass_functions.cpp
+#20 47.39 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/sass2scss.o src/sass2scss.cpp
+#20 47.51 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/backtrace.o src/backtrace.cpp
+#20 48.05 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/operators.o src/operators.cpp
+#20 49.35 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/ast2c.o src/ast2c.cpp
+#20 50.19 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/c2ast.o src/c2ast.cpp
+#20 51.36 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/to_value.o src/to_value.cpp
+#20 52.39 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/source_map.o src/source_map.cpp
+#20 52.53 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/error_handling.o src/error_handling.cpp
+#20 54.29 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/memory/allocator.o src/memory/allocator.cpp
+#20 54.35 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/memory/shared_ptr.o src/memory/shared_ptr.cpp
+#20 54.45 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/utf8_string.o src/utf8_string.cpp
+#20 56.32 clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -O2 -DLIBSASS_VERSION="\"3.6.5-6-g006b\"" -std=c++11 -I /src/libsass/include  -fPIC -c -o src/base64vlq.o src/base64vlq.cpp
+#20 56.36 mkdir lib
+#20 60.46 ar rcvs lib/libsass.a src/cencode.o src/ast.o src/ast_values.o src/ast_supports.o src/ast_sel_cmp.o src/ast_sel_unify.o src/ast_sel_super.o src/ast_sel_weave.o src/ast_selectors.o src/context.o src/constants.o src/fn_utils.o src/fn_miscs.o src/fn_maps.o src/fn_lists.o src/fn_colors.o src/fn_numbers.o src/fn_strings.o src/fn_selectors.o src/color_maps.o src/environment.o src/ast_fwd_decl.o src/bind.o src/file.o src/util.o src/util_string.o src/json.o src/units.o src/values.o src/plugins.o src/source.o src/position.o src/lexer.o src/parser.o src/parser_selectors.o src/prelexer.o src/eval.o src/eval_selectors.o src/expand.o src/listize.o src/cssize.o src/extender.o src/extension.o src/stylesheet.o src/output.o src/inspect.o src/emitter.o src/check_nesting.o src/remove_placeholders.o src/sass.o src/sass_values.o src/sass_context.o src/sass_functions.o src/sass2scss.o src/backtrace.o src/operators.o src/ast2c.o src/c2ast.o src/to_value.o src/source_map.o src/error_handling.o src/memory/allocator.o src/memory/shared_ptr.o src/utf8_string.o src/base64vlq.o
+#20 60.67 a - src/cencode.o
+#20 60.67 a - src/ast.o
+#20 60.67 a - src/ast_values.o
+#20 60.67 a - src/ast_supports.o
+#20 60.67 a - src/ast_sel_cmp.o
+#20 60.67 a - src/ast_sel_unify.o
+#20 60.67 a - src/ast_sel_super.o
+#20 60.67 a - src/ast_sel_weave.o
+#20 60.67 a - src/ast_selectors.o
+#20 60.67 a - src/context.o
+#20 60.67 a - src/constants.o
+#20 60.67 a - src/fn_utils.o
+#20 60.67 a - src/fn_miscs.o
+#20 60.67 a - src/fn_maps.o
+#20 60.67 a - src/fn_lists.o
+#20 60.67 a - src/fn_colors.o
+#20 60.67 a - src/fn_numbers.o
+#20 60.67 a - src/fn_strings.o
+#20 60.67 a - src/fn_selectors.o
+#20 60.67 a - src/color_maps.o
+#20 60.67 a - src/environment.o
+#20 60.67 a - src/ast_fwd_decl.o
+#20 60.67 a - src/bind.o
+#20 60.67 a - src/file.o
+#20 60.67 a - src/util.o
+#20 60.67 a - src/util_string.o
+#20 60.67 a - src/json.o
+#20 60.67 a - src/units.o
+#20 60.67 a - src/values.o
+#20 60.67 a - src/plugins.o
+#20 60.67 a - src/source.o
+#20 60.67 a - src/position.o
+#20 60.67 a - src/lexer.o
+#20 60.67 a - src/parser.o
+#20 60.67 a - src/parser_selectors.o
+#20 60.67 a - src/prelexer.o
+#20 60.67 a - src/eval.o
+#20 60.67 a - src/eval_selectors.o
+#20 60.67 a - src/expand.o
+#20 60.67 a - src/listize.o
+#20 60.67 a - src/cssize.o
+#20 60.67 a - src/extender.o
+#20 60.67 a - src/extension.o
+#20 60.67 a - src/stylesheet.o
+#20 60.67 a - src/output.o
+#20 60.67 a - src/inspect.o
+#20 60.67 a - src/emitter.o
+#20 60.67 a - src/check_nesting.o
+#20 60.67 a - src/remove_placeholders.o
+#20 60.67 a - src/sass.o
+#20 60.67 a - src/sass_values.o
+#20 60.67 a - src/sass_context.o
+#20 60.67 a - src/sass_functions.o
+#20 60.67 a - src/sass2scss.o
+#20 60.67 a - src/backtrace.o
+#20 60.67 a - src/operators.o
+#20 60.67 a - src/ast2c.o
+#20 60.67 a - src/c2ast.o
+#20 60.67 a - src/to_value.o
+#20 60.67 a - src/source_map.o
+#20 60.67 a - src/error_handling.o
+#20 60.67 a - src/memory/allocator.o
+#20 60.67 a - src/memory/shared_ptr.o
+#20 60.67 a - src/utf8_string.o
+#20 60.67 a - src/base64vlq.o
+#20 60.67 + popd
+#20 60.67 + INSTALL_DIR=/src/libsass
+#20 60.67 /src
+#20 60.67 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I/src/libsass/include data_context_fuzzer.cc /libAFL.a -o /out/data_context_fuzzer /src/libsass/lib/libsass.a
+#20 62.55 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 62.7s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:9ab0e388890c7779e0c04099451200cf8455ca227cff21cc4eddb2edf2217111 done
+#21 naming to gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:dc94999a6f2b31291164019a00ddc6e0a640a82ecc18110ba234ba62d19afe86
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:cd30e2fe1d8859328a01be0e030041bf99c700c06b3630cc3c5bfd9dbd57a885
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libsass_data_context_fuzzer-intermediate
+#5 sha256:3c29169186f5bbae84b173db3b401558c3edb2ff21a881508195bbb4b983bd12
+#5 DONE 1.5s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:2bcd8a28d09b2877e9fed13034afdcd6c49e3872d99c3c229d26008416c664d6 done
+#6 naming to gcr.io/fuzzbench/runners/afl/libsass_data_context_fuzzer-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:ea81f446f793b7bfbcccc4f346cff34e733478c434884c06519a0612796344d9
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:871a990d5ed9c933f30590eb2df07d581dd8fd2a9bb615a7e73c87226f827a60
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libsass_data_context_fuzzer-intermediate:latest
+#3 sha256:49fdcd386650739f8b3cc70327ea6610502a58aba9e318bfcbd9aff688342e34
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer:latest
+#4 sha256:7d51042206ad31a93c3b29a6b3e7ae6ca48d22c75435d116d7bf7abbb0655193
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:6ad43194f6264e814c92594aa0e1ceabfe31b69e2b79b2c8940eeb1c87ffdf56
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libsass_data_context_fuzzer-intermediate
+#6 sha256:98bd910d79c08dc329693fcbb0513c00174ba88312f7c24d3e4b2fc408a81f50
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer
+#10 sha256:4b42da2f9ed5c6142c32c20b5f7094a189e8b0b03bd6de184b565e5088761927
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libsass_data_context_fuzzer
+#5 sha256:114ca417a10e7c861bacedfc6b12888dc2b292d0b8069c854032a8103cef1709
+#5 DONE 1.3s
+
+#12 [internal] load build context
+#12 sha256:6ad43194f6264e814c92594aa0e1ceabfe31b69e2b79b2c8940eeb1c87ffdf56
+#12 transferring context: 9.02MB 0.2s done
+#12 DONE 0.2s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libsass_data_context_fuzzer
+#10 sha256:4b42da2f9ed5c6142c32c20b5f7094a189e8b0b03bd6de184b565e5088761927
+#10 DONE 1.3s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:50ab715e9336ed2563ecae6c15f62d160ccda41f2df9278546a05ed61dbe4981
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:1423c54194179838423f34e5e3fe9c68188606a209e65b7104ffb6f5dd88d36c
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:a6ebe972f639f6c0c5aab5eaf7b2cf082973b86b388dee4160478804d349168e
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:2915cdabca403c2ec821c94a2163358ee49e3e1724ad81afc263315c3b1f6fb8
+#11 DONE 0.1s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:7e5876d4d7780069a4733e47ff7632adbe06bcfcbb046561debc651f95a55d16
+#13 DONE 0.3s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:724601b2d470734ca8c5406fc2397782f77accc3e943e04d17b8386ac56c4411
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:01f5bd6ffc9dbb4232f2197b2ebe21bc25bc7efd839a463b1459cb86600186fa
+#15 DONE 0.6s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:e614b66ceae6e8359dcd655c877fba8435393303161826940fc225109f45aee9
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:4dad4f9938f49f4fb5bf761ced2daca627f3320e039ba8a39511aabc2a3d8efd
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:d0cf3c6741340daacf45246f414fdac6b6f5f31da599482e88eba1e29f79baa8
+#18 DONE 0.2s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:92b4de6da824d8bf3691308a3464aff5f13a073857d5dc07f66794e33328a745
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:6040d7c7a762ca45213fc7eaea2f347970804df8b61dc8e7ca29cff91dc3db78
+#20 DONE 0.4s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:81c4d7eb3a792c6cb1a838d976e5c572a3f09ca586cbb4cece0d7f4e4730617a
+#21 writing image sha256:81c4d7eb3a792c6cb1a838d976e5c572a3f09ca586cbb4cece0d7f4e4730617a done
+#21 naming to gcr.io/fuzzbench/runners/afl/libsass_data_context_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Executed command: "nice -n 5 python3 -u -c from fuzzers.afl import fuzzer; fuzzer.fuzz('/out/seeds', '/out/corpus', '/out/data_context_fuzzer')" returned: 1.
+ERROR:root:Fuzz process returned nonzero. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 209, in run_fuzzer\n    new_process.execute(command,\n  File "/src/common/new_process.py", line 124, in execute\n    raise subprocess.CalledProcessError(retcode, command)\nsubprocess.CalledProcessError: Command \'[\'nice\', \'-n\', \'5\', \'python3\', \'-u\', \'-c\', "from fuzzers.afl import fuzzer; fuzzer.fuzz(\'/out/seeds\', \'/out/corpus\', \'/out/data_context_fuzzer\')"]\' returned non-zero exit status 1.\n'}
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7fa874e4cee0> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+make: *** [docker/generated.mk:280340: test-run-afl-libsass_data_context_fuzzer] Error 1

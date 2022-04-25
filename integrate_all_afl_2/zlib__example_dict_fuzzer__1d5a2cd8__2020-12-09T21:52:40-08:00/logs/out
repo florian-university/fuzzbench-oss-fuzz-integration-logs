@@ -1,0 +1,256 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/zlib_example_dict_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/zlib_example_dict_fuzzer \
+--file benchmarks/zlib_example_dict_fuzzer/Dockerfile \
+benchmarks/zlib_example_dict_fuzzer
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/zlib_example_dict_fuzzer-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/zlib_example_dict_fuzzer-intermediate \
+--build-arg parent_image=gcr.io/fuzzbench/builders/benchmark/zlib_example_dict_fuzzer \
+--file fuzzers/afl/builder.Dockerfile \
+fuzzers/afl
+docker pull ubuntu:xenial
+xenial: Pulling from library/ubuntu
+Digest: sha256:20858ebbc96215d6c3c574f781133ebffdc7c18d98af4f294cc4c04871a6fe61
+Status: Image is up to date for ubuntu:xenial
+docker.io/library/ubuntu:xenial
+docker build \
+--tag gcr.io/fuzzbench/base-image \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/base-image \
+--file docker/base-image/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/zlib_example_dict_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/zlib_example_dict_fuzzer \
+--build-arg benchmark=zlib_example_dict_fuzzer \
+--build-arg fuzzer=afl \
+--build-arg parent_image=gcr.io/fuzzbench/builders/afl/zlib_example_dict_fuzzer-intermediate \
+--file docker/benchmark-builder/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/zlib_example_dict_fuzzer-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/zlib_example_dict_fuzzer-intermediate \
+--file fuzzers/afl/runner.Dockerfile \
+fuzzers/afl
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/zlib_example_dict_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/zlib_example_dict_fuzzer \
+--build-arg benchmark=zlib_example_dict_fuzzer \
+--build-arg fuzzer=afl \
+--file docker/benchmark-runner/Dockerfile \
+.
+docker run \
+--cpus=1 \
+--cap-add SYS_NICE \
+--cap-add SYS_PTRACE \
+-e FUZZ_OUTSIDE_EXPERIMENT=1 \
+-e FORCE_LOCAL=1 \
+-e TRIAL_ID=1 \
+-e FUZZER=afl \
+-e BENCHMARK=zlib_example_dict_fuzzer \
+-e FUZZ_TARGET=example_dict_fuzzer \
+-e MAX_TOTAL_TIME=20 \
+-e SNAPSHOT_PERIOD=10 \
+gcr.io/fuzzbench/runners/afl/zlib_example_dict_fuzzer
+[run_afl_fuzz] Running target with afl-fuzz
+[run_afl_fuzz] Running command: ./afl-fuzz -i /out/seeds -o /out/corpus -m none -t 1000+ -d -- /out/example_dict_fuzzer 2147483647
+[0;36mafl-fuzz [1;97m2.57b[0m by <lcamtuf@google.com>
+[1;92m[+] [0mDisabling the UI because AFL_NO_UI is set.[0m
+[1;92m[+] [0mYou have 8 CPU cores and 1 runnable tasks (utilization: 12%).[0m
+[1;92m[+] [0mTry parallel jobs - see docs/parallel_fuzzing.txt.[0m
+[1;93m[!] [1;97mWARNING: [0mNot binding to a CPU core (AFL_NO_AFFINITY set).[0m
+[1;94m[*] [0mChecking core_pattern...[0m
+
+[1;91m[-] [0mHmm, your system is configured to send core dump notifications to an
+    external utility. This will cause issues: there will be an extended delay
+    between stumbling upon a crash and having this information relayed to the
+    fuzzer via the standard waitpid() API.
+
+    To avoid having crashes misinterpreted as timeouts, please log in as root
+    and temporarily modify /proc/sys/kernel/core_pattern, like so:
+
+    echo core >/proc/sys/kernel/core_pattern
+[1;94m[*] [0mSetting up output directories...[0m
+[1;92m[+] [0mOutput directory exists but deemed OK to reuse.[0m
+[1;94m[*] [0mDeleting old session data...[0m
+[1;92m[+] [0mOutput dir cleanup successful.[0m
+[1;94m[*] [0mScanning '/out/seeds'...[0m
+[1;94m[*] [0mShuffling queue...[0m
+[1;92m[+] [0mNo auto-generated dictionary tokens to reuse.[0m
+[1;94m[*] [0mCreating hard links for all input files...[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mPersistent mode binary detected.[0m
+[1;92m[+] [0m[1;95mDeferred forkserver binary detected.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000000,orig:6cbbea709e272306388639a73f136c79721a0db0'...[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+[1;92m[+] [0mAll right - fork server is up.[0m
+[1;90m    len = 42917, map size = 343, exec speed = 8009 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000001,orig:d29ceef6a0fb2aaf6784da34f4f30164b8aa4e60'...[0m
+[1;90m    len = 23368, map size = 359, exec speed = 6758 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000002,orig:ca0d2aa2efb026448ad43fb680ca815fff520c86'...[0m
+[1;90m    len = 10552, map size = 348, exec speed = 3288 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000003,orig:083ae032c7ce5cde8a3324c4887e88d3bb667e32'...[0m
+[1;90m    len = 591749, map size = 3, exec speed = 963 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000004,orig:59b51b2da1b4b909807e4a375b27425714dffbb2'...[0m
+[1;90m    len = 7332, map size = 337, exec speed = 2197 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000005,orig:b1d89ab1e6077153f85826cd15b6f3cfe21582d3'...[0m
+[1;90m    len = 7376, map size = 349, exec speed = 2192 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000006,orig:4698124c166f59728db9ae229f8467459b458ef3'...[0m
+[1;90m    len = 678, map size = 321, exec speed = 566 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000007,orig:6bb823f008ca414736dfbf46398484af85c292fc'...[0m
+[1;90m    len = 26440, map size = 350, exec speed = 6018 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000008,orig:70ec5bddb2f70b065d8f4f5c5602a4949e1e34ac'...[0m
+[1;90m    len = 25704, map size = 351, exec speed = 6054 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000009,orig:104001a96f38fa56293f1cdf0576f22b01c2b1fa'...[0m
+[1;90m    len = 7236, map size = 336, exec speed = 1673 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000010,orig:459ef73b147e0a48c060faa70500c0b4471f7b59'...[0m
+[1;90m    len = 37504, map size = 353, exec speed = 9374 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000011,orig:e8f77ddf538f0f537dae5c432fc5948add015016'...[0m
+[1;90m    len = 1553, map size = 409, exec speed = 741 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000012,orig:5355617c198335a19e8ea1ebed2b1c9bb1bfc19e'...[0m
+[1;90m    len = 27008, map size = 348, exec speed = 5796 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000013,orig:dc817ba3a5335de14bde5b81b1a3365734757625'...[0m
+[1;90m    len = 26402, map size = 430, exec speed = 4990 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000014,orig:f7a2f57d81c6d11d7e0eab7eb5675e46c8439b4f'...[0m
+[1;90m    len = 27016, map size = 349, exec speed = 5733 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000015,orig:3ebc107b34d82b134e9f5933c2a569eb6e952ce4'...[0m
+[1;90m    len = 254, map size = 301, exec speed = 409 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000016,orig:5d3aaa27d7e605fdee3b65818ce48d2365fc8cc0'...[0m
+[1;90m    len = 104192, map size = 3, exec speed = 370 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000017,orig:2de5ec4a65d416b3da5fac7b88401eedd250ab5d'...[0m
+[1;90m    len = 13001, map size = 347, exec speed = 2570 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000018,orig:9ff4e0d9ef37953a40321e34f33b9b7850be5076'...[0m
+[1;90m    len = 2616, map size = 333, exec speed = 969 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000019,orig:39ba91c2ed8dec28c2c824d458737eded866477d'...[0m
+[1;90m    len = 5232, map size = 343, exec speed = 2371 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000020,orig:4fc803c43a562b2b92a97e22300754ddfe44c603'...[0m
+[1;90m    len = 427, map size = 307, exec speed = 481 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000021,orig:ac5b642344780a5ab4ff30b556715f1f7272366b'...[0m
+[1;90m    len = 24960, map size = 351, exec speed = 5501 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000022,orig:b8f815b65e15435e5f3dbd853a4e73924055ce1f'...[0m
+[1;90m    len = 22749, map size = 339, exec speed = 4000 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000023,orig:fc5ca41597c2b538e507748277e0e319779f7ff4'...[0m
+[1;90m    len = 3146, map size = 391, exec speed = 605 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000024,orig:b3468647708a13ab8112ae9c13cd41568625634a'...[0m
+[1;90m    len = 15104, map size = 349, exec speed = 3851 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000025,orig:795c6205ec4113a4e5c16a22d4cf1e7afdf44a5d'...[0m
+[1;90m    len = 25464, map size = 370, exec speed = 6744 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000026,orig:0266c816e9947d8bdbda0e179e33ed2353bfe8ba'...[0m
+[1;90m    len = 16709, map size = 339, exec speed = 3574 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000027,orig:5a1330a5a2d37b72c44846a9c7c2ff48c413c902'...[0m
+[1;90m    len = 4479, map size = 412, exec speed = 1742 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000028,orig:0ac81268fd3d8acc83c085096cc2dc5ddffc9d92'...[0m
+[1;90m    len = 14024, map size = 346, exec speed = 3743 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000029,orig:54889a9a97e64cc08d2ed85dab5f79b92547d981'...[0m
+[1;90m    len = 5240, map size = 344, exec speed = 1278 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000030,orig:c53d93082fc614f9c8fe30eff51ad5abed2dbdec'...[0m
+[1;90m    len = 14192, map size = 346, exec speed = 3681 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000031,orig:12b881f7e49ce7aee4760ac200c35517eadd55e7'...[0m
+[1;90m    len = 4656, map size = 341, exec speed = 1861 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000032,orig:b4fd9743bb0b812bf9e7c1ada8330aa17f0e05dc'...[0m
+[1;90m    len = 26920, map size = 348, exec speed = 6755 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000033,orig:6c1114794db137af50f9b060aaade1a1a35ed784'...[0m
+[1;90m    len = 5204, map size = 337, exec speed = 1682 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000034,orig:5b4b8798bdd0c34e076d2e3cf365ea5451837b57'...[0m
+[1;90m    len = 6683, map size = 336, exec speed = 1484 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000035,orig:2ad4bc90ef4d00c3762d01339e0f90b985772a0e'...[0m
+[1;90m    len = 8101, map size = 331, exec speed = 2894 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000036,orig:bf7c04f33ab1083712fc8debd6743eaa6c409e9e'...[0m
+[1;90m    len = 55967, map size = 342, exec speed = 9092 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000037,orig:1328ed6139d33d9e214a643269db6c6a32988a4f'...[0m
+[1;90m    len = 19652, map size = 341, exec speed = 3626 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000038,orig:1775418e5a536d8f4bf132ec8cd1327cac7da0d4'...[0m
+[1;90m    len = 71968, map size = 368, exec speed = 16453 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000039,orig:8770ab43c9050b824c646f6e6cee8b3c0628cbda'...[0m
+[1;90m    len = 6332, map size = 337, exec speed = 1010 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000040,orig:5d4de593374a0691a9cb50e0f49b4b412a68b6a7'...[0m
+[1;90m    len = 15104, map size = 347, exec speed = 3704 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000041,orig:5d8a9c42f902d2418a7e63b539c0f319373e9400'...[0m
+[1;90m    len = 8472, map size = 341, exec speed = 1524 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000042,orig:37d67e3a5edffcda681cd70c6ba56f76ede5352b'...[0m
+[1;90m    len = 12998, map size = 340, exec speed = 2843 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000043,orig:f0548112d0ee9524cfc2ffc56a645a00772732c5'...[0m
+[1;90m    len = 13559, map size = 406, exec speed = 1836 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000044,orig:1f5342d097df17297bc93d8a2dc21060c5e3c721'...[0m
+[1;90m    len = 5184, map size = 342, exec speed = 1511 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000045,orig:a51b2c4b9f868aa937f3dc9d99f0580b91a04968'...[0m
+[1;90m    len = 70176, map size = 359, exec speed = 16102 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000046,orig:194d22c818d82fe42340ad3219c3b2f7b93e6069'...[0m
+[1;90m    len = 97328, map size = 349, exec speed = 13871 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000047,orig:90f92698d7de79341e85bd3ca411a6b165c58848'...[0m
+[1;90m    len = 2966, map size = 332, exec speed = 838 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000048,orig:0ef05b0d12bf2cfbbf1aa84cff0e8dcf4fc5b731'...[0m
+[1;90m    len = 16298, map size = 340, exec speed = 3316 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000049,orig:d12cf0b13d3d620dd10bc507ea11d3a430b6d5f8'...[0m
+[1;90m    len = 5565, map size = 412, exec speed = 1316 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000050,orig:f9f9dcadf303b30865e53d2781f23403259e28cf'...[0m
+[1;90m    len = 8848, map size = 350, exec speed = 3268 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000051,orig:b7ee1d984c2764d1e41195fccc241bb4da9334ca'...[0m
+[1;90m    len = 103352, map size = 3, exec speed = 309 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000052,orig:271930a2d09d1bc5b1f7504c1f122c54f72a61e0'...[0m
+[1;90m    len = 6843, map size = 334, exec speed = 1516 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000053,orig:580ac633b3fe49162ce68740c551b686a1d246b7'...[0m
+[1;90m    len = 31946, map size = 340, exec speed = 5796 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000054,orig:01e8e6b4d614f5e6c2aee3feba15c150ee041a30'...[0m
+[1;90m    len = 28088, map size = 357, exec speed = 6643 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000055,orig:cbd5ddffb39904669e115e270b23138106bb0ac2'...[0m
+[1;90m    len = 16349, map size = 340, exec speed = 2845 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000056,orig:9db7d6f9dad9ef879e940d2f1106edbc8c6420a9'...[0m
+[1;90m    len = 13125, map size = 338, exec speed = 2774 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000057,orig:4157a52d1940250061be2f7c4e3f7580eaddf033'...[0m
+[1;90m    len = 392494, map size = 3, exec speed = 626 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000058,orig:f09441e56b3932c3007949a1c2c7d1bea4fe0e50'...[0m
+[1;90m    len = 36664, map size = 352, exec speed = 8166 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000059,orig:f30ac03dcb9e685c1df2739a0e1f639c1317d4fb'...[0m
+[1;90m    len = 7488, map size = 357, exec speed = 1962 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000060,orig:fd905a1a2b82242a894633f8446e3303ea3e681f'...[0m
+[1;90m    len = 26320, map size = 348, exec speed = 5943 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000061,orig:8dfb15b84d843cb5fcd39935583b95dfb8a0721c'...[0m
+[1;90m    len = 2616, map size = 333, exec speed = 849 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000062,orig:c80d6efe2a2991a1836ee797f75b12c9d60b6783'...[0m
+[1;90m    len = 294, map size = 307, exec speed = 371 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000063,orig:60f7f857e714d2ff57a0e7eb38fb94ceee60521e'...[0m
+[1;90m    len = 26976, map size = 351, exec speed = 6398 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000064,orig:dd24cf943e04c039452c0b1f15fd0f9e11fba0a7'...[0m
+[1;90m    len = 10440, map size = 346, exec speed = 2680 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000065,orig:67a869e89c02f7ece8991a0882432abd0d85c17c'...[0m
+[1;90m    len = 268, map size = 306, exec speed = 414 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000066,orig:3c63a7707d83991f3e074391c047b3136ff3e558'...[0m
+[1;90m    len = 2928, map size = 333, exec speed = 857 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000067,orig:c4ca48bc617f725adbb9a240e99c8b0f0c1e20f7'...[0m
+[1;90m    len = 4584, map size = 343, exec speed = 1495 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000068,orig:57e6c047536a3f36c1c79628813c21b9501b1bec'...[0m
+[1;90m    len = 81630, map size = 350, exec speed = 12950 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000069,orig:0d606a1b8939498707c8573a31557cb69bf04737'...[0m
+[1;90m    len = 25240, map size = 351, exec speed = 5336 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000070,orig:6024355499c49d3f03536ff7f9ea93e727b0b87e'...[0m
+[1;90m    len = 185496, map size = 3, exec speed = 424 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000071,orig:bd40f3ba8567a21560dc307d99c810de6f2d0533'...[0m
+[1;90m    len = 2699, map size = 333, exec speed = 885 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000072,orig:a21881913ad4b565a356b94f5d4eec1a16a8885c'...[0m
+[1;90m    len = 20399, map size = 339, exec speed = 3761 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000073,orig:aa7295775671dc48baa541a4e97979ca0c432a73'...[0m
+[1;90m    len = 16262, map size = 342, exec speed = 2956 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000074,orig:be4355b99cb1b20405392d5fbd21d3554288afaa'...[0m
+[1;90m    len = 5336, map size = 343, exec speed = 1529 us
+[0m[1;92m[+] [0mAll test cases processed.[0m
+
+[1;93m[!] [1;97mWARNING: [0m[1;91mSome test cases are huge (577 kB) - see docs/perf_tips.txt![0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mSome test cases look useless. Consider using a smaller set.[0m
+[1;93m[!] [1;97mWARNING: [0mYou have lots of input files; try starting small.[0m
+[1;92m[+] [0mHere are some useful stats:
+
+[1;90m    Test case count : [0m17 favored, 0 variable, 75 total
+[1;90m       Bitmap range : [0m3 to 430 bits (average: 324.77 bits)
+[1;90m        Exec timing : [0m309 to 16.5k us (average: 3716 us)
+[0m
+[1;92m[+] [0mAll set and ready to roll![0m
+[1;94m[*] [0mEntering queue cycle 1.[0m
+[1;94m[*] [0mFuzzing test case #1 (75 total, 0 uniq crashes found)...[0m

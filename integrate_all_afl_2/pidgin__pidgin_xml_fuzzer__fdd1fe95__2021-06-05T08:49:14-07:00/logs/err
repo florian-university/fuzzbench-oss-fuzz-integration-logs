@@ -1,0 +1,2266 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: pidgin_pidgin_xml_fuzzer.
+INFO:root:Please run "make test-run-afl-pidgin_pidgin_xml_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:2b6265b2680bc16de5517ff26ded4d7fb76084ecdf7e01a47c1bc2e84fe92d28
+#1 transferring dockerfile: 1.51kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:1a9c476fa08322e390d77372028f7a9ba653363ff59ebfbcc367f3d48d4b46eb
+#2 transferring context: 2B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#15 [internal] load build context
+#15 sha256:5e8323acec765deb10904ac070bdfb5eb148ae684bcd7bef9ab32e7ba2c31121
+#15 DONE 0.0s
+
+#5 [ 1/11] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/pidgin_pidgin_xml_fuzzer
+#4 sha256:363f077d257b95bf0c03779ab6ea23a6c4cd79a6e9a033cb4d9fe55f868bcc66
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/pidgin_pidgin_xml_fuzzer:latest: not found
+
+#8 [ 4/11] RUN git clone --depth 1 https://gitlab.gnome.org/GNOME/glib
+#8 sha256:178a08f62eb165b60cb36523318126cff90cd3961c3c9ba63354293330cf8668
+#8 CACHED
+
+#6 [ 2/11] RUN apt-get update &&     apt-get install -y --no-install-recommends         make autoconf automake libtool pkg-config         zlib1g-dev zlib1g-dev:i386 liblzma-dev liblzma-dev:i386         wget intltool  sasl2-bin python3-pip
+#6 sha256:c278ff6fc7dae296faffb28cfe3d448e5d9e2adced6d47c6643246eaa1ad17c3
+#6 CACHED
+
+#7 [ 3/11] RUN pip3 install -U meson ninja
+#7 sha256:d647c3bcff60c432b3ac32f4cc0d8dd6543b8ddabcdf96b5cbec2952bd8d10d2
+#7 CACHED
+
+#9 [ 5/11] RUN git clone --depth 1 https://gitlab.gnome.org/GNOME/libxml2.git
+#9 sha256:adc0af08052e02666e631c20f523c04f654d99bbb0d98a5ffb6b9d419ddc2a41
+#9 CACHED
+
+#10 [ 6/11] RUN wget https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.5/pidgin-2.14.5.tar.bz2
+#10 sha256:1ed48af94c2384a1cbe195367e435c5f759186d73d36b4d33912cd67f75200b9
+#10 CACHED
+
+#11 [ 7/11] RUN wget ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
+#11 sha256:97a89bceadf72eafc65110d7ec1bfa624c2242450bfa58a5fcd76b4195dc143e
+#11 CACHED
+
+#15 [internal] load build context
+#15 sha256:5e8323acec765deb10904ac070bdfb5eb148ae684bcd7bef9ab32e7ba2c31121
+#15 transferring context: 6.71kB done
+#15 DONE 0.1s
+
+#12 [ 8/11] RUN git clone --depth 1 https://github.com/dvyukov/go-fuzz-corpus
+#12 sha256:d6950eaaea1b22d2c00a24a8001af334ec90fbf52d2a2f7f692c10fe578c9235
+#12 0.507 Cloning into 'go-fuzz-corpus'...
+#12 4.390 Updating files:  24% (15007/60861)Updating files:  25% (15216/60861)Updating files:  26% (15824/60861)Updating files:  27% (16433/60861)Updating files:  28% (17042/60861)Updating files:  29% (17650/60861)Updating files:  30% (18259/60861)Updating files:  31% (18867/60861)Updating files:  32% (19476/60861)Updating files:  33% (20085/60861)Updating files:  34% (20693/60861)Updating files:  35% (21302/60861)Updating files:  36% (21910/60861)Updating files:  37% (22519/60861)Updating files:  38% (23128/60861)Updating files:  39% (23736/60861)Updating files:  40% (24345/60861)Updating files:  41% (24954/60861)Updating files:  42% (25562/60861)Updating files:  43% (26171/60861)Updating files:  44% (26779/60861)Updating files:  45% (27388/60861)Updating files:  46% (27997/60861)Updating files:  47% (28605/60861)Updating files:  48% (29214/60861)Updating files:  49% (29822/60861)Updating files:  49% (30063/60861)Updating files:  50% (30431/60861)Updating files:  51% (31040/60861)Updating files:  52% (31648/60861)Updating files:  53% (32257/60861)Updating files:  54% (32865/60861)Updating files:  55% (33474/60861)Updating files:  56% (34083/60861)Updating files:  57% (34691/60861)Updating files:  58% (35300/60861)Updating files:  59% (35908/60861)Updating files:  60% (36517/60861)Updating files:  61% (37126/60861)Updating files:  62% (37734/60861)Updating files:  63% (38343/60861)Updating files:  64% (38952/60861)Updating files:  65% (39560/60861)Updating files:  66% (40169/60861)Updating files:  67% (40777/60861)Updating files:  68% (41386/60861)Updating files:  69% (41995/60861)Updating files:  70% (42603/60861)Updating files:  71% (43212/60861)Updating files:  72% (43820/60861)Updating files:  72% (43906/60861)Updating files:  73% (44429/60861)Updating files:  74% (45038/60861)Updating files:  75% (45646/60861)Updating files:  76% (46255/60861)Updating files:  77% (46863/60861)Updating files:  78% (47472/60861)Updating files:  79% (48081/60861)Updating files:  80% (48689/60861)Updating files:  81% (49298/60861)Updating files:  82% (49907/60861)Updating files:  83% (50515/60861)Updating files:  84% (51124/60861)Updating files:  85% (51732/60861)Updating files:  86% (52341/60861)Updating files:  87% (52950/60861)Updating files:  88% (53558/60861)Updating files:  89% (54167/60861)Updating files:  90% (54775/60861)Updating files:  91% (55384/60861)Updating files:  92% (55993/60861)Updating files:  93% (56601/60861)Updating files:  94% (57210/60861)Updating files:  95% (57818/60861)Updating files:  95% (58061/60861)Updating files:  96% (58427/60861)Updating files:  97% (59036/60861)Updating files:  98% (59644/60861)Updating files:  99% (60253/60861)Updating files: 100% (60861/60861)Updating files: 100% (60861/60861), done.
+#12 DONE 9.3s
+
+#13 [ 9/11] RUN git clone --depth 1 https://github.com/google/fuzzing
+#13 sha256:c11ecef765278fc5fe5358408d6151e54b537661f8f22b279e1a0ef30e44f624
+#13 0.667 Cloning into 'fuzzing'...
+#13 DONE 1.7s
+
+#14 [10/11] WORKDIR /src
+#14 sha256:817356e856ccab761969d95043441e7d9fd94c57c444a2aaff0e9526395d899e
+#14 DONE 0.3s
+
+#16 [11/11] COPY build.sh      pidgin_xml_fuzzer.c      pidgin_utils_fuzzer.c      /src/
+#16 sha256:41b6e4fdbaa8af3157db9f57c373fea6532fdcb00cb8fbdd91106bbf563d7916
+#16 DONE 0.4s
+
+#17 exporting to image
+#17 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#17 exporting layers done
+#17 writing image sha256:6e4ee82890e44305c3beb454c6bcb25c8a3d43dca40b49866945aa5bf85e7c27 done
+#17 naming to gcr.io/fuzzbench/builders/benchmark/pidgin_pidgin_xml_fuzzer done
+#17 DONE 0.1s
+
+#18 exporting cache
+#18 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#18 preparing build cache for export done
+#18 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/pidgin_pidgin_xml_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:82badfa6d51837213392023d03423a56832ecb17038b4ca63fee9939c618cabc
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:fc6a088d9571d4895c4518c316869a96838097ae532aa69313d489ec3bda9d64
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/pidgin_pidgin_xml_fuzzer:latest
+#3 sha256:75439f60469a808c88e087588c086340d2ec5417c14ec7e5d97d167b8b94c077
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/pidgin_pidgin_xml_fuzzer
+#5 sha256:60eb7f660f049e5a7ba7294412011af2832fdd906bd6466e193f796249ca2500
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer-intermediate
+#4 sha256:41da69dda56d8ad72989dac5f5ea8dc64333a703ba56740a644ec47ec9932e96
+#4 ERROR: gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/pidgin_pidgin_xml_fuzzer
+#5 sha256:60eb7f660f049e5a7ba7294412011af2832fdd906bd6466e193f796249ca2500
+#5 DONE 0.4s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:92d2a2c431cbcfbe31b2934fa4ce9503f48fba907047376392960aa7510bca8e
+#6 0.336 Cloning into '/afl'...
+#6 1.084 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.084 
+#6 1.084 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.084 changes and commit them, and you can discard any commits you make in this
+#6 1.084 state without impacting any branches by switching back to a branch.
+#6 1.084 
+#6 1.084 If you want to create a new branch to retain commits you create, you may
+#6 1.084 do so (now or later) by using -c with the switch command. Example:
+#6 1.084 
+#6 1.084   git switch -c <new-branch-name>
+#6 1.084 
+#6 1.084 Or undo this operation with:
+#6 1.084 
+#6 1.084   git switch -
+#6 1.084 
+#6 1.084 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.084 
+#6 1.084 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.111 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.112 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.306 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.311 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.694 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.018 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.458 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.615 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.020 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.268 ln -sf afl-as as
+#6 5.270 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.273 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.273 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.5s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:a2d6a24d927653bd3eb10c032ef0b87f82888d6ad1d518e18d89148f19a96c27
+#7 0.599 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.738 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.738 Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 0.835 Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.935 Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.433 Reading package lists...
+#7 2.963 Reading package lists...
+#7 4.424 Building dependency tree...
+#7 4.646 Reading state information...
+#7 4.907 wget is already the newest version (1.20.3-1ubuntu2).
+#7 4.907 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+#7 4.913 --2022-04-23 15:28:26--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 4.916 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.110.133, ...
+#7 4.918 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#7 4.942 HTTP request sent, awaiting response... 200 OK
+#7 4.962 Length: 9177 (9.0K) [text/plain]
+#7 4.962 Saving to: '/afl/afl_driver.cpp'
+#7 4.962 
+#7 4.962      0K ........                                              100% 8.57M=0.001s
+#7 4.963 
+#7 4.963 2022-04-23 15:28:26 (8.57 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 4.963 
+#7 6.685 ar: creating /libAFL.a
+#7 DONE 6.8s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:5bbb0e95ab796887ac412051b5316109110975cf1db82b9767836c0e2bedbfc0 done
+#8 naming to gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:4af92444e2921fe086782e1adba08a74f0a1fcbdff83d0d9b08574258b29e88c
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:2ba18108e185189ac0724dd7e0fba69697e7d0dc98e887920ad4027a703521ca
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:fcabc46b48846924e83f52915d4e742e264e618b5dce22dce61f5a7086c75e92
+#8 transferring context: 591B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:ac185deaad7ad5aca9db2e31d9a758b71b4fcad8ba98068a088c25496ab82540
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:04dfd6b22b895b9b82dea4c7ce7f0a25ad8fe4fa7da1de1c4acb5d6fe3703ec1
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:4ebf190d9cca58a2ccb911422d2bfee8c480427e88b38882cce99ce0e37e9d9c
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:9fb3486e7d85e1d24d90250d3ec116d5f3ae8eb7e6da18dc3e20765ebbf1af46
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:dcdf917ef78ccd0654739c59f483e635ede83d9d5725ebf1cf71bebe3cfad474 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:6459e8db108cd2bd459354e5951d52ef13cbba724b06e868434fff452059b5a2
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:3a10b759028cb42775a8affa1edc784865f3ef76b14f53326304328e1201739c
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer-intermediate:latest
+#3 sha256:0277f0c4c24ffb3ed6fc5d21e5d68673c4261842d470678684d137f338ff5b19
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:1a2260c3fecb51a9d41b95066926374aeca2c9d33c244e152684e0143207309e
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer-intermediate
+#6 sha256:eef98777b31eb8025704cb368faf410687305d58aba0c4c97ab1c44a0f58d32e
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer
+#5 sha256:a0b655c0fbd94d69cd735da827a3fc4d1f308fb1b5983718250d115cb31c4aeb
+#5 ERROR: gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:1a2260c3fecb51a9d41b95066926374aeca2c9d33c244e152684e0143207309e
+#12 transferring context: 742.40kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer-intermediate
+#6 sha256:eef98777b31eb8025704cb368faf410687305d58aba0c4c97ab1c44a0f58d32e
+#6 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:d281c899a76fca9a35e5d49287d7459c2bf3f21d436301368a4b95b553c9404a
+#8 DONE 0.4s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:a20fe2d0da118406b0246414749bda7f54934e8d2bd953b8357c4f61804fd686
+#9 DONE 14.2s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:bba317dcf7d779e4a2f71e61263d6ee79f210b54b229885ca166d200189106f0
+#10 DONE 0.4s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:35df65112a809c1ddb1b7f21639442cde2c4792fae0469f0f05d91cf2394f363
+#11 DONE 14.0s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:c820dd4aff08bdb1c1af7031e67a94f969150bb15c4bef2440ffa6121df37fd5
+#13 DONE 0.3s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:6ad5ed0354f2b1846416f1d4c62f0873d0a70de69dd55b47f940e71b3e8f89f4
+#14 DONE 0.6s
+
+#15 [stage-1  8/13] COPY benchmarks/pidgin_pidgin_xml_fuzzer/benchmark.yaml /
+#15 sha256:a783e43ca9e160f0478a5ac2a08bd0471cf9c70f341e216c1dc8d5854abaa1a5
+#15 DONE 0.2s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:078c0695f23ae697de0c79b48c27576ae18cd4e4df4dc8fa0aa8f6b0d9adc63c
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:11a75331b848534c48d6ccf0083ab74551adb2a00d64717f38a0cee2f9c7ae8f
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:3cee7bdba041798edd51ca5361197a93ee90855b168ea8dd04c3dfeb842063cd
+#18 0.543 Checking out commit fdd1fe95
+#18 1.233 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 2.691 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 19.43 From https://gitlab.gnome.org/GNOME/libxml2
+#18 19.43    65b01647..b31e07db  master     -> origin/master
+#18 20.96  * [new tag]           CVE-2013-2877           -> CVE-2013-2877
+#18 20.96  * [new tag]           CVE-2014-0191           -> CVE-2014-0191
+#18 20.96  * [new tag]           CVE-2014-3660           -> CVE-2014-3660
+#18 20.96  * [new tag]           CVE-2015-1819           -> CVE-2015-1819
+#18 20.96  * [new tag]           CVE-2015-5312           -> CVE-2015-5312
+#18 20.96  * [new tag]           CVE-2015-7497           -> CVE-2015-7497
+#18 20.96  * [new tag]           CVE-2015-7498           -> CVE-2015-7498
+#18 20.96  * [new tag]           CVE-2015-7499-1         -> CVE-2015-7499-1
+#18 20.96  * [new tag]           CVE-2015-7499-2         -> CVE-2015-7499-2
+#18 20.96  * [new tag]           CVE-2015-7500           -> CVE-2015-7500
+#18 20.97  * [new tag]           CVE-2015-7941_1         -> CVE-2015-7941_1
+#18 20.97  * [new tag]           CVE-2015-7941_2         -> CVE-2015-7941_2
+#18 20.97  * [new tag]           CVE-2015-7942           -> CVE-2015-7942
+#18 20.97  * [new tag]           CVE-2015-7942-2         -> CVE-2015-7942-2
+#18 20.97  * [new tag]           CVE-2015-8035           -> CVE-2015-8035
+#18 20.97  * [new tag]           CVE-2015-8242           -> CVE-2015-8242
+#18 20.97  * [new tag]           CVE-2015-8317           -> CVE-2015-8317
+#18 20.97  * [new tag]           CVE-2016-1762           -> CVE-2016-1762
+#18 20.97  * [new tag]           CVE-2016-1833           -> CVE-2016-1833
+#18 20.97  * [new tag]           CVE-2016-1834           -> CVE-2016-1834
+#18 20.97  * [new tag]           CVE-2016-1835           -> CVE-2016-1835
+#18 20.97  * [new tag]           CVE-2016-1836           -> CVE-2016-1836
+#18 20.97  * [new tag]           CVE-2016-1837           -> CVE-2016-1837
+#18 20.97  * [new tag]           CVE-2016-1838           -> CVE-2016-1838
+#18 20.97  * [new tag]           CVE-2016-1839           -> CVE-2016-1839
+#18 20.97  * [new tag]           CVE-2016-1840           -> CVE-2016-1840
+#18 20.97  * [new tag]           CVE-2016-3627           -> CVE-2016-3627
+#18 20.97  * [new tag]           CVE-2016-3705           -> CVE-2016-3705
+#18 20.97  * [new tag]           CVE-2016-4449           -> CVE-2016-4449
+#18 20.97  * [new tag]           CVE-2016-4483           -> CVE-2016-4483
+#18 20.97  * [new tag]           CVE-2021-3541           -> CVE-2021-3541
+#18 20.97  * [new tag]           EAZEL-NAUTILUS-MS-AUG07 -> EAZEL-NAUTILUS-MS-AUG07
+#18 20.97  * [new tag]           FOR_GNOME_0_99_1        -> FOR_GNOME_0_99_1
+#18 20.97  * [new tag]           GNOME_0_30              -> GNOME_0_30
+#18 20.97  * [new tag]           GNOME_PRINT_0_24        -> GNOME_PRINT_0_24
+#18 20.97  * [new tag]           GNUMERIC_FIRST_PUBLIC_RELEASE -> GNUMERIC_FIRST_PUBLIC_RELEASE
+#18 20.97  * [new tag]           LIBXML2.6.32            -> LIBXML2.6.32
+#18 20.97  * [new tag]           LIBXML2.7.0             -> LIBXML2.7.0
+#18 20.97  * [new tag]           LIBXML2.7.1             -> LIBXML2.7.1
+#18 20.97  * [new tag]           LIBXML2.7.2             -> LIBXML2.7.2
+#18 20.97  * [new tag]           LIBXML2.7.3             -> LIBXML2.7.3
+#18 20.97  * [new tag]           LIBXML2_2_4_21          -> LIBXML2_2_4_21
+#18 20.97  * [new tag]           LIBXML2_2_5_0           -> LIBXML2_2_5_0
+#18 20.97  * [new tag]           LIBXML2_2_5_10          -> LIBXML2_2_5_10
+#18 20.98  * [new tag]           LIBXML2_2_5_7           -> LIBXML2_2_5_7
+#18 20.98  * [new tag]           LIBXML2_2_5_8           -> LIBXML2_2_5_8
+#18 20.98  * [new tag]           LIBXML2_2_5_9           -> LIBXML2_2_5_9
+#18 20.98  * [new tag]           LIBXML2_2_5_x           -> LIBXML2_2_5_x
+#18 20.98  * [new tag]           LIBXML2_2_6_1           -> LIBXML2_2_6_1
+#18 20.98  * [new tag]           LIBXML2_2_6_11          -> LIBXML2_2_6_11
+#18 20.98  * [new tag]           LIBXML2_2_6_12          -> LIBXML2_2_6_12
+#18 20.98  * [new tag]           LIBXML2_2_6_13          -> LIBXML2_2_6_13
+#18 20.98  * [new tag]           LIBXML2_2_6_14          -> LIBXML2_2_6_14
+#18 20.98  * [new tag]           LIBXML2_2_6_15          -> LIBXML2_2_6_15
+#18 20.98  * [new tag]           LIBXML2_2_6_16          -> LIBXML2_2_6_16
+#18 20.98  * [new tag]           LIBXML2_2_6_18          -> LIBXML2_2_6_18
+#18 20.98  * [new tag]           LIBXML2_2_6_19          -> LIBXML2_2_6_19
+#18 20.98  * [new tag]           LIBXML2_2_6_2           -> LIBXML2_2_6_2
+#18 20.98  * [new tag]           LIBXML2_2_6_20          -> LIBXML2_2_6_20
+#18 20.98  * [new tag]           LIBXML2_2_6_21          -> LIBXML2_2_6_21
+#18 20.98  * [new tag]           LIBXML2_2_6_22          -> LIBXML2_2_6_22
+#18 20.98  * [new tag]           LIBXML2_2_6_23          -> LIBXML2_2_6_23
+#18 20.98  * [new tag]           LIBXML2_2_6_24          -> LIBXML2_2_6_24
+#18 20.98  * [new tag]           LIBXML2_2_6_26          -> LIBXML2_2_6_26
+#18 20.98  * [new tag]           LIBXML2_2_6_27          -> LIBXML2_2_6_27
+#18 20.98  * [new tag]           LIBXML2_2_6_28          -> LIBXML2_2_6_28
+#18 20.98  * [new tag]           LIBXML2_2_6_3           -> LIBXML2_2_6_3
+#18 20.98  * [new tag]           LIBXML2_2_6_4           -> LIBXML2_2_6_4
+#18 20.98  * [new tag]           LIBXML2_2_6_5           -> LIBXML2_2_6_5
+#18 20.98  * [new tag]           LIBXML2_2_6_6           -> LIBXML2_2_6_6
+#18 20.98  * [new tag]           LIBXML2_2_6_7           -> LIBXML2_2_6_7
+#18 20.98  * [new tag]           LIBXML2_2_6_8           -> LIBXML2_2_6_8
+#18 20.98  * [new tag]           LIBXML2_2_6_9           -> LIBXML2_2_6_9
+#18 20.98  * [new tag]           LIBXML2_6_0             -> LIBXML2_6_0
+#18 20.98  * [new tag]           LIBXML_0_99             -> LIBXML_0_99
+#18 20.98  * [new tag]           LIBXML_1_5_0            -> LIBXML_1_5_0
+#18 20.98  * [new tag]           LIBXML_1_8_5            -> LIBXML_1_8_5
+#18 20.98  * [new tag]           LIBXML_1_8_6            -> LIBXML_1_8_6
+#18 20.98  * [new tag]           LIBXML_2_0_0            -> LIBXML_2_0_0
+#18 20.98  * [new tag]           LIBXML_2_1_0            -> LIBXML_2_1_0
+#18 20.98  * [new tag]           LIBXML_2_1_1            -> LIBXML_2_1_1
+#18 20.98  * [new tag]           LIBXML_2_2_1            -> LIBXML_2_2_1
+#18 20.98  * [new tag]           LIBXML_2_2_3            -> LIBXML_2_2_3
+#18 20.98  * [new tag]           LIBXML_2_2_4            -> LIBXML_2_2_4
+#18 20.98  * [new tag]           LIBXML_2_2_6            -> LIBXML_2_2_6
+#18 20.98  * [new tag]           LIBXML_2_2_7            -> LIBXML_2_2_7
+#18 20.98  * [new tag]           LIBXML_2_2_8            -> LIBXML_2_2_8
+#18 20.98  * [new tag]           LIBXML_2_3_0            -> LIBXML_2_3_0
+#18 20.98  * [new tag]           LIBXML_2_3_10           -> LIBXML_2_3_10
+#18 20.99  * [new tag]           LIBXML_2_3_11           -> LIBXML_2_3_11
+#18 20.99  * [new tag]           LIBXML_2_3_12           -> LIBXML_2_3_12
+#18 20.99  * [new tag]           LIBXML_2_3_13           -> LIBXML_2_3_13
+#18 20.99  * [new tag]           LIBXML_2_3_14           -> LIBXML_2_3_14
+#18 20.99  * [new tag]           LIBXML_2_3_2            -> LIBXML_2_3_2
+#18 20.99  * [new tag]           LIBXML_2_3_3            -> LIBXML_2_3_3
+#18 20.99  * [new tag]           LIBXML_2_3_4            -> LIBXML_2_3_4
+#18 20.99  * [new tag]           LIBXML_2_3_5            -> LIBXML_2_3_5
+#18 20.99  * [new tag]           LIBXML_2_3_6            -> LIBXML_2_3_6
+#18 20.99  * [new tag]           LIBXML_2_3_7            -> LIBXML_2_3_7
+#18 20.99  * [new tag]           LIBXML_2_3_8            -> LIBXML_2_3_8
+#18 20.99  * [new tag]           LIBXML_2_3_9            -> LIBXML_2_3_9
+#18 20.99  * [new tag]           LIBXML_2_4_0            -> LIBXML_2_4_0
+#18 20.99  * [new tag]           LIBXML_2_4_11           -> LIBXML_2_4_11
+#18 20.99  * [new tag]           LIBXML_2_4_12           -> LIBXML_2_4_12
+#18 20.99  * [new tag]           LIBXML_2_4_13           -> LIBXML_2_4_13
+#18 20.99  * [new tag]           LIBXML_2_4_14           -> LIBXML_2_4_14
+#18 20.99  * [new tag]           LIBXML_2_4_16           -> LIBXML_2_4_16
+#18 20.99  * [new tag]           LIBXML_2_4_18           -> LIBXML_2_4_18
+#18 20.99  * [new tag]           LIBXML_2_4_2            -> LIBXML_2_4_2
+#18 20.99  * [new tag]           LIBXML_2_4_20           -> LIBXML_2_4_20
+#18 20.99  * [new tag]           LIBXML_2_4_22           -> LIBXML_2_4_22
+#18 20.99  * [new tag]           LIBXML_2_4_23           -> LIBXML_2_4_23
+#18 20.99  * [new tag]           LIBXML_2_4_24           -> LIBXML_2_4_24
+#18 20.99  * [new tag]           LIBXML_2_4_25           -> LIBXML_2_4_25
+#18 20.99  * [new tag]           LIBXML_2_4_26           -> LIBXML_2_4_26
+#18 20.99  * [new tag]           LIBXML_2_4_27           -> LIBXML_2_4_27
+#18 20.99  * [new tag]           LIBXML_2_4_29           -> LIBXML_2_4_29
+#18 20.99  * [new tag]           LIBXML_2_4_3            -> LIBXML_2_4_3
+#18 20.99  * [new tag]           LIBXML_2_4_30           -> LIBXML_2_4_30
+#18 21.00  * [new tag]           LIBXML_2_4_4            -> LIBXML_2_4_4
+#18 21.00  * [new tag]           LIBXML_2_4_6            -> LIBXML_2_4_6
+#18 21.00  * [new tag]           LIBXML_2_4_7            -> LIBXML_2_4_7
+#18 21.00  * [new tag]           LIBXML_2_5_1            -> LIBXML_2_5_1
+#18 21.00  * [new tag]           LIBXML_2_5_2            -> LIBXML_2_5_2
+#18 21.00  * [new tag]           LIBXML_2_5_3            -> LIBXML_2_5_3
+#18 21.00  * [new tag]           LIBXML_2_5_4            -> LIBXML_2_5_4
+#18 21.00  * [new tag]           LIBXML_2_5_5            -> LIBXML_2_5_5
+#18 21.00  * [new tag]           LIBXML_2_5_6            -> LIBXML_2_5_6
+#18 21.00  * [new tag]           LIBXML_2_6_10           -> LIBXML_2_6_10
+#18 21.00  * [new tag]           LIBXML_TEST_2_0_0       -> LIBXML_TEST_2_0_0
+#18 21.00  * [new tag]           LIB_XML_1_1             -> LIB_XML_1_1
+#18 21.00  * [new tag]           LIB_XML_1_3             -> LIB_XML_1_3
+#18 21.00  * [new tag]           LIB_XML_1_4             -> LIB_XML_1_4
+#18 21.00  * [new tag]           LIB_XML_1_6_1           -> LIB_XML_1_6_1
+#18 21.00  * [new tag]           LIB_XML_1_6_2           -> LIB_XML_1_6_2
+#18 21.00  * [new tag]           LIB_XML_1_7_0           -> LIB_XML_1_7_0
+#18 21.00  * [new tag]           LIB_XML_1_7_1           -> LIB_XML_1_7_1
+#18 21.00  * [new tag]           LIB_XML_1_7_3           -> LIB_XML_1_7_3
+#18 21.00  * [new tag]           LIB_XML_1_8_3           -> LIB_XML_1_8_3
+#18 21.00  * [new tag]           LIB_XML_1_X             -> LIB_XML_1_X
+#18 21.00  * [new tag]           PRE_MUCKUP              -> PRE_MUCKUP
+#18 21.00  * [new tag]           PRE_MUCKUP2             -> PRE_MUCKUP2
+#18 21.00  * [new tag]           PRE_MUCKUP3             -> PRE_MUCKUP3
+#18 21.00  * [new tag]           help                    -> help
+#18 21.00  * [new tag]           v2.7.4                  -> v2.7.4
+#18 21.00  * [new tag]           v2.7.5                  -> v2.7.5
+#18 21.00  * [new tag]           v2.7.6                  -> v2.7.6
+#18 21.00  * [new tag]           v2.7.7                  -> v2.7.7
+#18 21.00  * [new tag]           v2.7.8                  -> v2.7.8
+#18 21.00  * [new tag]           v2.8.0                  -> v2.8.0
+#18 21.00  * [new tag]           v2.8.0-rc1              -> v2.8.0-rc1
+#18 21.00  * [new tag]           v2.8.0-rc2              -> v2.8.0-rc2
+#18 21.00  * [new tag]           v2.9.0                  -> v2.9.0
+#18 21.00  * [new tag]           v2.9.0-rc2              -> v2.9.0-rc2
+#18 21.00  * [new tag]           v2.9.1                  -> v2.9.1
+#18 21.00  * [new tag]           v2.9.10                 -> v2.9.10
+#18 21.00  * [new tag]           v2.9.10-rc1             -> v2.9.10-rc1
+#18 21.00  * [new tag]           v2.9.11                 -> v2.9.11
+#18 21.01  * [new tag]           v2.9.12                 -> v2.9.12
+#18 21.01  * [new tag]           v2.9.13                 -> v2.9.13
+#18 21.01  * [new tag]           v2.9.2                  -> v2.9.2
+#18 21.01  * [new tag]           v2.9.2-rc1              -> v2.9.2-rc1
+#18 21.01  * [new tag]           v2.9.2-rc2              -> v2.9.2-rc2
+#18 21.01  * [new tag]           v2.9.3                  -> v2.9.3
+#18 21.01  * [new tag]           v2.9.4                  -> v2.9.4
+#18 21.01  * [new tag]           v2.9.4-rc1              -> v2.9.4-rc1
+#18 21.01  * [new tag]           v2.9.4-rc2              -> v2.9.4-rc2
+#18 21.01  * [new tag]           v2.9.5                  -> v2.9.5
+#18 21.01  * [new tag]           v2.9.5-rc1              -> v2.9.5-rc1
+#18 21.01  * [new tag]           v2.9.5-rc2              -> v2.9.5-rc2
+#18 21.01  * [new tag]           v2.9.6                  -> v2.9.6
+#18 21.01  * [new tag]           v2.9.6-rc1              -> v2.9.6-rc1
+#18 21.01  * [new tag]           v2.9.7                  -> v2.9.7
+#18 21.01  * [new tag]           v2.9.7-rc1              -> v2.9.7-rc1
+#18 21.01  * [new tag]           v2.9.8                  -> v2.9.8
+#18 21.01  * [new tag]           v2.9.8-rc1              -> v2.9.8-rc1
+#18 21.01  * [new tag]           v2.9.9                  -> v2.9.9
+#18 21.01  * [new tag]           v2.9.9-rc1              -> v2.9.9-rc1
+#18 21.01  * [new tag]           v2.9.9-rc2              -> v2.9.9-rc2
+#18 21.02 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 21.79 warning: redirecting to https://gitlab.gnome.org/GNOME/glib.git/
+#18 55.74 warning: redirecting to https://gitlab.gnome.org/GNOME/glib.git/
+#18 56.93 From https://gitlab.gnome.org/GNOME/glib
+#18 56.93  * [new tag]             2.20.0                -> 2.20.0
+#18 56.93  * [new tag]             2.20.1                -> 2.20.1
+#18 56.93  * [new tag]             2.21.1                -> 2.21.1
+#18 56.93  * [new tag]             2.21.2                -> 2.21.2
+#18 56.93  * [new tag]             2.21.3                -> 2.21.3
+#18 56.93  * [new tag]             2.21.4                -> 2.21.4
+#18 56.93  * [new tag]             2.21.5                -> 2.21.5
+#18 56.93  * [new tag]             2.21.6                -> 2.21.6
+#18 56.93  * [new tag]             2.22.0                -> 2.22.0
+#18 56.93  * [new tag]             2.22.2                -> 2.22.2
+#18 56.94  * [new tag]             2.23.0                -> 2.23.0
+#18 56.94  * [new tag]             2.23.1                -> 2.23.1
+#18 56.94  * [new tag]             2.23.2                -> 2.23.2
+#18 56.94  * [new tag]             2.23.3                -> 2.23.3
+#18 56.94  * [new tag]             2.23.4                -> 2.23.4
+#18 56.94  * [new tag]             2.23.5                -> 2.23.5
+#18 56.94  * [new tag]             2.23.6                -> 2.23.6
+#18 56.94  * [new tag]             2.24.0                -> 2.24.0
+#18 56.94  * [new tag]             2.25.0                -> 2.25.0
+#18 56.94  * [new tag]             2.25.10               -> 2.25.10
+#18 56.94  * [new tag]             2.25.11               -> 2.25.11
+#18 56.94  * [new tag]             2.25.12               -> 2.25.12
+#18 56.94  * [new tag]             2.25.13               -> 2.25.13
+#18 56.94  * [new tag]             2.25.14               -> 2.25.14
+#18 56.94  * [new tag]             2.25.15               -> 2.25.15
+#18 56.94  * [new tag]             2.25.2                -> 2.25.2
+#18 56.94  * [new tag]             2.25.3                -> 2.25.3
+#18 56.94  * [new tag]             2.25.4                -> 2.25.4
+#18 56.94  * [new tag]             2.25.5                -> 2.25.5
+#18 56.94  * [new tag]             2.25.6                -> 2.25.6
+#18 56.94  * [new tag]             2.25.8                -> 2.25.8
+#18 56.94  * [new tag]             2.25.9                -> 2.25.9
+#18 56.94  * [new tag]             2.27.0                -> 2.27.0
+#18 56.94  * [new tag]             2.27.1                -> 2.27.1
+#18 56.94  * [new tag]             2.27.2                -> 2.27.2
+#18 56.94  * [new tag]             2.27.3                -> 2.27.3
+#18 56.94  * [new tag]             2.27.5                -> 2.27.5
+#18 56.94  * [new tag]             2.27.90               -> 2.27.90
+#18 56.94  * [new tag]             2.27.91               -> 2.27.91
+#18 56.94  * [new tag]             2.27.92               -> 2.27.92
+#18 56.94  * [new tag]             2.27.93               -> 2.27.93
+#18 56.94  * [new tag]             2.28.0                -> 2.28.0
+#18 56.94  * [new tag]             2.29.10               -> 2.29.10
+#18 56.94  * [new tag]             2.29.12               -> 2.29.12
+#18 56.95  * [new tag]             2.29.14               -> 2.29.14
+#18 56.95  * [new tag]             2.29.16               -> 2.29.16
+#18 56.95  * [new tag]             2.29.18               -> 2.29.18
+#18 56.95  * [new tag]             2.29.2                -> 2.29.2
+#18 56.95  * [new tag]             2.29.4                -> 2.29.4
+#18 56.95  * [new tag]             2.29.6                -> 2.29.6
+#18 56.95  * [new tag]             2.29.8                -> 2.29.8
+#18 56.95  * [new tag]             2.29.90               -> 2.29.90
+#18 56.95  * [new tag]             2.31.0                -> 2.31.0
+#18 56.95  * [new tag]             2.31.10               -> 2.31.10
+#18 56.95  * [new tag]             2.31.12               -> 2.31.12
+#18 56.95  * [new tag]             2.31.14               -> 2.31.14
+#18 56.95  * [new tag]             2.31.16               -> 2.31.16
+#18 56.95  * [new tag]             2.31.18               -> 2.31.18
+#18 56.95  * [new tag]             2.31.2                -> 2.31.2
+#18 56.95  * [new tag]             2.31.20               -> 2.31.20
+#18 56.95  * [new tag]             2.31.22               -> 2.31.22
+#18 56.95  * [new tag]             2.31.4                -> 2.31.4
+#18 56.95  * [new tag]             2.31.6                -> 2.31.6
+#18 56.95  * [new tag]             2.31.8                -> 2.31.8
+#18 56.95  * [new tag]             2.32.0                -> 2.32.0
+#18 56.95  * [new tag]             2.32.1                -> 2.32.1
+#18 56.95  * [new tag]             2.33.1                -> 2.33.1
+#18 56.95  * [new tag]             2.33.10               -> 2.33.10
+#18 56.95  * [new tag]             2.33.12               -> 2.33.12
+#18 56.95  * [new tag]             2.33.14               -> 2.33.14
+#18 56.95  * [new tag]             2.33.2                -> 2.33.2
+#18 56.95  * [new tag]             2.33.3                -> 2.33.3
+#18 56.95  * [new tag]             2.33.4                -> 2.33.4
+#18 56.95  * [new tag]             2.33.6                -> 2.33.6
+#18 56.95  * [new tag]             2.33.8                -> 2.33.8
+#18 56.95  * [new tag]             2.34.0                -> 2.34.0
+#18 56.95  * [new tag]             2.35.1                -> 2.35.1
+#18 56.95  * [new tag]             2.35.2                -> 2.35.2
+#18 56.95  * [new tag]             2.35.3                -> 2.35.3
+#18 56.95  * [new tag]             2.35.4                -> 2.35.4
+#18 56.95  * [new tag]             2.35.6                -> 2.35.6
+#18 56.95  * [new tag]             2.35.7                -> 2.35.7
+#18 56.95  * [new tag]             2.35.8                -> 2.35.8
+#18 56.95  * [new tag]             2.35.9                -> 2.35.9
+#18 56.95  * [new tag]             2.36.0                -> 2.36.0
+#18 56.95  * [new tag]             2.37.0                -> 2.37.0
+#18 56.95  * [new tag]             2.37.1                -> 2.37.1
+#18 56.95  * [new tag]             2.37.2                -> 2.37.2
+#18 56.95  * [new tag]             2.37.3                -> 2.37.3
+#18 56.95  * [new tag]             2.37.4                -> 2.37.4
+#18 56.95  * [new tag]             2.37.5                -> 2.37.5
+#18 56.95  * [new tag]             2.37.6                -> 2.37.6
+#18 56.96  * [new tag]             2.37.7                -> 2.37.7
+#18 56.96  * [new tag]             2.37.92               -> 2.37.92
+#18 56.96  * [new tag]             2.37.93               -> 2.37.93
+#18 56.96  * [new tag]             2.38.0                -> 2.38.0
+#18 56.96  * [new tag]             2.39.0                -> 2.39.0
+#18 56.96  * [new tag]             2.39.1                -> 2.39.1
+#18 56.96  * [new tag]             2.39.2                -> 2.39.2
+#18 56.96  * [new tag]             2.39.3                -> 2.39.3
+#18 56.96  * [new tag]             2.39.4                -> 2.39.4
+#18 56.96  * [new tag]             2.39.90               -> 2.39.90
+#18 56.96  * [new tag]             2.39.91               -> 2.39.91
+#18 56.96  * [new tag]             2.39.92               -> 2.39.92
+#18 56.96  * [new tag]             2.41.1                -> 2.41.1
+#18 56.96  * [new tag]             2.41.2                -> 2.41.2
+#18 56.96  * [new tag]             2.41.3                -> 2.41.3
+#18 56.96  * [new tag]             2.41.4                -> 2.41.4
+#18 56.96  * [new tag]             2.41.5                -> 2.41.5
+#18 56.96  * [new tag]             2.42.0                -> 2.42.0
+#18 56.96  * [new tag]             2.43.0                -> 2.43.0
+#18 56.96  * [new tag]             2.43.1                -> 2.43.1
+#18 56.96  * [new tag]             2.43.2                -> 2.43.2
+#18 56.96  * [new tag]             2.43.3                -> 2.43.3
+#18 56.96  * [new tag]             2.43.4                -> 2.43.4
+#18 56.96  * [new tag]             2.43.90               -> 2.43.90
+#18 56.96  * [new tag]             2.43.91               -> 2.43.91
+#18 56.96  * [new tag]             2.43.92               -> 2.43.92
+#18 56.96  * [new tag]             2.45.1                -> 2.45.1
+#18 56.96  * [new tag]             2.45.2                -> 2.45.2
+#18 56.96  * [new tag]             2.45.3                -> 2.45.3
+#18 56.96  * [new tag]             2.45.4                -> 2.45.4
+#18 56.96  * [new tag]             2.45.5                -> 2.45.5
+#18 56.96  * [new tag]             2.45.6                -> 2.45.6
+#18 56.97  * [new tag]             2.45.7                -> 2.45.7
+#18 56.97  * [new tag]             2.45.8                -> 2.45.8
+#18 56.97  * [new tag]             2.46.0                -> 2.46.0
+#18 56.97  * [new tag]             2.47.1                -> 2.47.1
+#18 56.97  * [new tag]             2.47.2                -> 2.47.2
+#18 56.97  * [new tag]             2.47.3                -> 2.47.3
+#18 56.97  * [new tag]             2.47.4                -> 2.47.4
+#18 56.97  * [new tag]             2.47.5                -> 2.47.5
+#18 56.97  * [new tag]             2.47.6                -> 2.47.6
+#18 56.97  * [new tag]             2.47.92               -> 2.47.92
+#18 56.97  * [new tag]             2.48.0                -> 2.48.0
+#18 56.97  * [new tag]             2.49.1                -> 2.49.1
+#18 56.97  * [new tag]             2.49.2                -> 2.49.2
+#18 56.97  * [new tag]             2.49.3                -> 2.49.3
+#18 56.97  * [new tag]             2.49.4                -> 2.49.4
+#18 56.97  * [new tag]             2.49.5                -> 2.49.5
+#18 56.97  * [new tag]             2.49.6                -> 2.49.6
+#18 56.97  * [new tag]             2.49.7                -> 2.49.7
+#18 56.97  * [new tag]             2.50.0                -> 2.50.0
+#18 56.97  * [new tag]             2.50.1                -> 2.50.1
+#18 56.97  * [new tag]             2.51.0                -> 2.51.0
+#18 56.97  * [new tag]             2.51.1                -> 2.51.1
+#18 56.97  * [new tag]             2.51.2                -> 2.51.2
+#18 56.97  * [new tag]             2.51.3                -> 2.51.3
+#18 56.97  * [new tag]             2.51.4                -> 2.51.4
+#18 56.97  * [new tag]             2.51.5                -> 2.51.5
+#18 56.97  * [new tag]             2.52.0                -> 2.52.0
+#18 56.97  * [new tag]             2.53.1                -> 2.53.1
+#18 56.97  * [new tag]             2.53.2                -> 2.53.2
+#18 56.97  * [new tag]             2.53.3                -> 2.53.3
+#18 56.97  * [new tag]             2.53.4                -> 2.53.4
+#18 56.97  * [new tag]             2.53.5                -> 2.53.5
+#18 56.97  * [new tag]             2.53.6                -> 2.53.6
+#18 56.97  * [new tag]             2.53.7                -> 2.53.7
+#18 56.97  * [new tag]             2.54.0                -> 2.54.0
+#18 56.97  * [new tag]             2.55.0                -> 2.55.0
+#18 56.97  * [new tag]             2.55.1                -> 2.55.1
+#18 56.97  * [new tag]             2.56.0                -> 2.56.0
+#18 56.97  * [new tag]             2.57.1                -> 2.57.1
+#18 56.97  * [new tag]             2.57.2                -> 2.57.2
+#18 56.97  * [new tag]             2.57.3                -> 2.57.3
+#18 56.97  * [new tag]             2.58.0                -> 2.58.0
+#18 56.98  * [new tag]             2.59.0                -> 2.59.0
+#18 56.98  * [new tag]             2.59.1                -> 2.59.1
+#18 56.98  * [new tag]             2.59.2                -> 2.59.2
+#18 56.98  * [new tag]             2.59.3                -> 2.59.3
+#18 56.98  * [new tag]             2.60.0                -> 2.60.0
+#18 56.98  * [new tag]             2.61.0                -> 2.61.0
+#18 56.98  * [new tag]             2.61.1                -> 2.61.1
+#18 56.98  * [new tag]             2.61.2                -> 2.61.2
+#18 56.98  * [new tag]             2.61.3                -> 2.61.3
+#18 56.98  * [new tag]             2.62.0                -> 2.62.0
+#18 56.98  * [new tag]             2.63.0                -> 2.63.0
+#18 56.98  * [new tag]             2.63.1                -> 2.63.1
+#18 56.98  * [new tag]             2.63.2                -> 2.63.2
+#18 56.98  * [new tag]             2.63.3                -> 2.63.3
+#18 56.98  * [new tag]             2.63.4                -> 2.63.4
+#18 56.98  * [new tag]             2.63.5                -> 2.63.5
+#18 56.98  * [new tag]             2.63.6                -> 2.63.6
+#18 56.98  * [new tag]             2.64.0                -> 2.64.0
+#18 56.98  * [new tag]             2.65.0                -> 2.65.0
+#18 56.98  * [new tag]             2.65.1                -> 2.65.1
+#18 56.98  * [new tag]             2.65.2                -> 2.65.2
+#18 56.98  * [new tag]             2.65.3                -> 2.65.3
+#18 56.98  * [new tag]             2.66.0                -> 2.66.0
+#18 56.98  * [new tag]             2.67.0                -> 2.67.0
+#18 56.98  * [new tag]             2.67.1                -> 2.67.1
+#18 56.98  * [new tag]             2.67.2                -> 2.67.2
+#18 56.98  * [new tag]             2.67.3                -> 2.67.3
+#18 56.98  * [new tag]             2.67.4                -> 2.67.4
+#18 56.98  * [new tag]             2.67.5                -> 2.67.5
+#18 56.98  * [new tag]             2.67.6                -> 2.67.6
+#18 56.98  * [new tag]             2.68.0                -> 2.68.0
+#18 56.98  * [new tag]             2.69.0                -> 2.69.0
+#18 56.98  * [new tag]             2.69.1                -> 2.69.1
+#18 56.98  * [new tag]             2.69.2                -> 2.69.2
+#18 56.98  * [new tag]             2.69.3                -> 2.69.3
+#18 56.98  * [new tag]             2.70.0                -> 2.70.0
+#18 56.98  * [new tag]             2.71.0                -> 2.71.0
+#18 56.98  * [new tag]             2.71.1                -> 2.71.1
+#18 56.98  * [new tag]             2.71.2                -> 2.71.2
+#18 56.98  * [new tag]             2.71.3                -> 2.71.3
+#18 56.98  * [new tag]             2.72.0                -> 2.72.0
+#18 56.98  * [new tag]             FOR_GNOME_0_99_1      -> FOR_GNOME_0_99_1
+#18 56.98  * [new tag]             GLIB_1_1_0            -> GLIB_1_1_0
+#18 56.98  * [new tag]             GLIB_1_1_1            -> GLIB_1_1_1
+#18 56.98  * [new tag]             GLIB_1_1_10           -> GLIB_1_1_10
+#18 56.99  * [new tag]             GLIB_1_1_11           -> GLIB_1_1_11
+#18 56.99  * [new tag]             GLIB_1_1_12           -> GLIB_1_1_12
+#18 56.99  * [new tag]             GLIB_1_1_13           -> GLIB_1_1_13
+#18 56.99  * [new tag]             GLIB_1_1_14           -> GLIB_1_1_14
+#18 56.99  * [new tag]             GLIB_1_1_15           -> GLIB_1_1_15
+#18 56.99  * [new tag]             GLIB_1_1_16           -> GLIB_1_1_16
+#18 56.99  * [new tag]             GLIB_1_1_2            -> GLIB_1_1_2
+#18 56.99  * [new tag]             GLIB_1_1_3            -> GLIB_1_1_3
+#18 56.99  * [new tag]             GLIB_1_1_3a           -> GLIB_1_1_3a
+#18 56.99  * [new tag]             GLIB_1_1_4            -> GLIB_1_1_4
+#18 56.99  * [new tag]             GLIB_1_1_5            -> GLIB_1_1_5
+#18 56.99  * [new tag]             GLIB_1_1_6            -> GLIB_1_1_6
+#18 56.99  * [new tag]             GLIB_1_1_7            -> GLIB_1_1_7
+#18 56.99  * [new tag]             GLIB_1_1_8            -> GLIB_1_1_8
+#18 56.99  * [new tag]             GLIB_1_1_8a           -> GLIB_1_1_8a
+#18 56.99  * [new tag]             GLIB_1_1_9            -> GLIB_1_1_9
+#18 56.99  * [new tag]             GLIB_1_2_0            -> GLIB_1_2_0
+#18 56.99  * [new tag]             GLIB_1_2_9PRE1        -> GLIB_1_2_9PRE1
+#18 56.99  * [new tag]             GLIB_1_3_0            -> GLIB_1_3_0
+#18 56.99  * [new tag]             GLIB_1_3_1            -> GLIB_1_3_1
+#18 56.99  * [new tag]             GLIB_1_3_10           -> GLIB_1_3_10
+#18 56.99  * [new tag]             GLIB_1_3_11           -> GLIB_1_3_11
+#18 56.99  * [new tag]             GLIB_1_3_12           -> GLIB_1_3_12
+#18 56.99  * [new tag]             GLIB_1_3_13           -> GLIB_1_3_13
+#18 56.99  * [new tag]             GLIB_1_3_14           -> GLIB_1_3_14
+#18 56.99  * [new tag]             GLIB_1_3_15           -> GLIB_1_3_15
+#18 56.99  * [new tag]             GLIB_1_3_2            -> GLIB_1_3_2
+#18 56.99  * [new tag]             GLIB_1_3_3            -> GLIB_1_3_3
+#18 56.99  * [new tag]             GLIB_1_3_4            -> GLIB_1_3_4
+#18 56.99  * [new tag]             GLIB_1_3_5            -> GLIB_1_3_5
+#18 56.99  * [new tag]             GLIB_1_3_6            -> GLIB_1_3_6
+#18 56.99  * [new tag]             GLIB_1_3_7            -> GLIB_1_3_7
+#18 56.99  * [new tag]             GLIB_1_3_8            -> GLIB_1_3_8
+#18 56.99  * [new tag]             GLIB_1_3_9            -> GLIB_1_3_9
+#18 56.99  * [new tag]             GLIB_2_0_0            -> GLIB_2_0_0
+#18 56.99  * [new tag]             GLIB_2_0_0_RC1        -> GLIB_2_0_0_RC1
+#18 56.99  * [new tag]             GLIB_2_0_1            -> GLIB_2_0_1
+#18 56.99  * [new tag]             GLIB_2_10_0           -> GLIB_2_10_0
+#18 56.99  * [new tag]             GLIB_2_10_1           -> GLIB_2_10_1
+#18 56.99  * [new tag]             GLIB_2_11_0           -> GLIB_2_11_0
+#18 56.99  * [new tag]             GLIB_2_11_1           -> GLIB_2_11_1
+#18 56.99  * [new tag]             GLIB_2_11_2           -> GLIB_2_11_2
+#18 57.00  * [new tag]             GLIB_2_11_3           -> GLIB_2_11_3
+#18 57.00  * [new tag]             GLIB_2_11_4           -> GLIB_2_11_4
+#18 57.00  * [new tag]             GLIB_2_12_0           -> GLIB_2_12_0
+#18 57.00  * [new tag]             GLIB_2_12_1           -> GLIB_2_12_1
+#18 57.00  * [new tag]             GLIB_2_12_2           -> GLIB_2_12_2
+#18 57.00  * [new tag]             GLIB_2_13_0           -> GLIB_2_13_0
+#18 57.00  * [new tag]             GLIB_2_13_1           -> GLIB_2_13_1
+#18 57.00  * [new tag]             GLIB_2_13_2           -> GLIB_2_13_2
+#18 57.00  * [new tag]             GLIB_2_13_3           -> GLIB_2_13_3
+#18 57.00  * [new tag]             GLIB_2_13_5           -> GLIB_2_13_5
+#18 57.00  * [new tag]             GLIB_2_13_6           -> GLIB_2_13_6
+#18 57.00  * [new tag]             GLIB_2_13_7           -> GLIB_2_13_7
+#18 57.00  * [new tag]             GLIB_2_14_0           -> GLIB_2_14_0
+#18 57.00  * [new tag]             GLIB_2_14_1           -> GLIB_2_14_1
+#18 57.00  * [new tag]             GLIB_2_14_2           -> GLIB_2_14_2
+#18 57.00  * [new tag]             GLIB_2_14_3           -> GLIB_2_14_3
+#18 57.00  * [new tag]             GLIB_2_15_1           -> GLIB_2_15_1
+#18 57.00  * [new tag]             GLIB_2_15_2           -> GLIB_2_15_2
+#18 57.00  * [new tag]             GLIB_2_15_3           -> GLIB_2_15_3
+#18 57.00  * [new tag]             GLIB_2_15_4           -> GLIB_2_15_4
+#18 57.00  * [new tag]             GLIB_2_15_5           -> GLIB_2_15_5
+#18 57.00  * [new tag]             GLIB_2_15_6           -> GLIB_2_15_6
+#18 57.00  * [new tag]             GLIB_2_16_1           -> GLIB_2_16_1
+#18 57.00  * [new tag]             GLIB_2_17_0           -> GLIB_2_17_0
+#18 57.00  * [new tag]             GLIB_2_17_1           -> GLIB_2_17_1
+#18 57.00  * [new tag]             GLIB_2_17_2           -> GLIB_2_17_2
+#18 57.00  * [new tag]             GLIB_2_17_3           -> GLIB_2_17_3
+#18 57.00  * [new tag]             GLIB_2_17_4           -> GLIB_2_17_4
+#18 57.00  * [new tag]             GLIB_2_17_5           -> GLIB_2_17_5
+#18 57.00  * [new tag]             GLIB_2_17_6           -> GLIB_2_17_6
+#18 57.00  * [new tag]             GLIB_2_17_7           -> GLIB_2_17_7
+#18 57.00  * [new tag]             GLIB_2_18_0           -> GLIB_2_18_0
+#18 57.00  * [new tag]             GLIB_2_18_1           -> GLIB_2_18_1
+#18 57.00  * [new tag]             GLIB_2_19_0           -> GLIB_2_19_0
+#18 57.00  * [new tag]             GLIB_2_19_1           -> GLIB_2_19_1
+#18 57.00  * [new tag]             GLIB_2_19_10          -> GLIB_2_19_10
+#18 57.00  * [new tag]             GLIB_2_19_2           -> GLIB_2_19_2
+#18 57.00  * [new tag]             GLIB_2_19_3           -> GLIB_2_19_3
+#18 57.00  * [new tag]             GLIB_2_19_4           -> GLIB_2_19_4
+#18 57.00  * [new tag]             GLIB_2_19_5           -> GLIB_2_19_5
+#18 57.00  * [new tag]             GLIB_2_19_6           -> GLIB_2_19_6
+#18 57.00  * [new tag]             GLIB_2_19_7           -> GLIB_2_19_7
+#18 57.00  * [new tag]             GLIB_2_19_8           -> GLIB_2_19_8
+#18 57.01  * [new tag]             GLIB_2_19_9           -> GLIB_2_19_9
+#18 57.01  * [new tag]             GLIB_2_1_3            -> GLIB_2_1_3
+#18 57.01  * [new tag]             GLIB_2_1_4            -> GLIB_2_1_4
+#18 57.01  * [new tag]             GLIB_2_1_5            -> GLIB_2_1_5
+#18 57.01  * [new tag]             GLIB_2_20_0           -> GLIB_2_20_0
+#18 57.01  * [new tag]             GLIB_2_2_0            -> GLIB_2_2_0
+#18 57.01  * [new tag]             GLIB_2_3_0            -> GLIB_2_3_0
+#18 57.01  * [new tag]             GLIB_2_3_1            -> GLIB_2_3_1
+#18 57.01  * [new tag]             GLIB_2_3_2            -> GLIB_2_3_2
+#18 57.01  * [new tag]             GLIB_2_3_3            -> GLIB_2_3_3
+#18 57.01  * [new tag]             GLIB_2_3_5            -> GLIB_2_3_5
+#18 57.01  * [new tag]             GLIB_2_3_6            -> GLIB_2_3_6
+#18 57.01  * [new tag]             GLIB_2_4_0            -> GLIB_2_4_0
+#18 57.01  * [new tag]             GLIB_2_4_1            -> GLIB_2_4_1
+#18 57.01  * [new tag]             GLIB_2_5_0            -> GLIB_2_5_0
+#18 57.01  * [new tag]             GLIB_2_5_1            -> GLIB_2_5_1
+#18 57.01  * [new tag]             GLIB_2_5_2            -> GLIB_2_5_2
+#18 57.01  * [new tag]             GLIB_2_5_3            -> GLIB_2_5_3
+#18 57.01  * [new tag]             GLIB_2_5_5            -> GLIB_2_5_5
+#18 57.01  * [new tag]             GLIB_2_5_6            -> GLIB_2_5_6
+#18 57.01  * [new tag]             GLIB_2_6_0            -> GLIB_2_6_0
+#18 57.01  * [new tag]             GLIB_2_6_1            -> GLIB_2_6_1
+#18 57.01  * [new tag]             GLIB_2_7_0            -> GLIB_2_7_0
+#18 57.01  * [new tag]             GLIB_2_7_1            -> GLIB_2_7_1
+#18 57.01  * [new tag]             GLIB_2_7_2            -> GLIB_2_7_2
+#18 57.01  * [new tag]             GLIB_2_7_3            -> GLIB_2_7_3
+#18 57.01  * [new tag]             GLIB_2_7_4            -> GLIB_2_7_4
+#18 57.01  * [new tag]             GLIB_2_7_5            -> GLIB_2_7_5
+#18 57.01  * [new tag]             GLIB_2_7_6            -> GLIB_2_7_6
+#18 57.01  * [new tag]             GLIB_2_7_7            -> GLIB_2_7_7
+#18 57.01  * [new tag]             GLIB_2_8_0            -> GLIB_2_8_0
+#18 57.01  * [new tag]             GLIB_2_8_1            -> GLIB_2_8_1
+#18 57.01  * [new tag]             GLIB_2_9_0            -> GLIB_2_9_0
+#18 57.01  * [new tag]             GLIB_2_9_1            -> GLIB_2_9_1
+#18 57.01  * [new tag]             GLIB_2_9_2            -> GLIB_2_9_2
+#18 57.01  * [new tag]             GLIB_2_9_3            -> GLIB_2_9_3
+#18 57.01  * [new tag]             GLIB_2_9_4            -> GLIB_2_9_4
+#18 57.01  * [new tag]             GLIB_2_9_5            -> GLIB_2_9_5
+#18 57.01  * [new tag]             GLIB_2_9_6            -> GLIB_2_9_6
+#18 57.01  * [new tag]             GLIB_GNOME_0_99_1     -> GLIB_GNOME_0_99_1
+#18 57.01  * [new tag]             GLIB_VERSION_1_1_3    -> GLIB_VERSION_1_1_3
+#18 57.01  * [new tag]             GNOME_PRINT_0_24      -> GNOME_PRINT_0_24
+#18 57.01  * [new tag]             GOBJECT_GType_guint   -> GOBJECT_GType_guint
+#18 57.02  * [new tag]             GTK_2_5_4             -> GTK_2_5_4
+#18 57.02  * [new tag]             GTK_2_7_4             -> GTK_2_7_4
+#18 57.02  * [new tag]             GTK_ALL_1_3_6         -> GTK_ALL_1_3_6
+#18 57.02  * [new tag]             PRE_CLEANUP           -> PRE_CLEANUP
+#18 57.02  * [new tag]             R_2_0_core            -> R_2_0_core
+#18 57.02  * [new tag]             glib-2-0-branchpoint  -> glib-2-0-branchpoint
+#18 57.02  * [new tag]             glib-2-10-branchpoint -> glib-2-10-branchpoint
+#18 57.02  * [new tag]             glib-2-12-branchpoint -> glib-2-12-branchpoint
+#18 57.02  * [new tag]             glib-2-2-branchpoint  -> glib-2-2-branchpoint
+#18 57.02  * [new tag]             glib-2-4-branchpoint  -> glib-2-4-branchpoint
+#18 57.02  * [new tag]             glib-2-6-branchpoint  -> glib-2-6-branchpoint
+#18 57.02  * [new tag]             glib-2.25.7           -> glib-2.25.7
+#18 57.02  * [new tag]             gobject_0_10_0        -> gobject_0_10_0
+#18 57.02  * [new tag]             gobject_0_9_0         -> gobject_0_9_0
+#18 57.02  * [new tag]             start                 -> start
+#18 57.03 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 57.03 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 57.04 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 57.21 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 57.21 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 57.23 error: pathspec 'fdd1fe95' did not match any file(s) known to git
+#18 57.26 Checkout unsuccessful.
+#18 DONE 57.9s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:688fb2ccb9a9ff9cf0dc05cc47ff3f0e503145010dbbe757ecd9fc60d74a992a
+#19 DONE 0.7s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:a8d29a20caee8ee3d223e2757baf6b22023408c2bb4ddec7dac1d89019f8f4fa
+#20 0.470 Run fuzzer_build to build the target
+#20 0.590 FUZZ_TARGET = pidgin_xml_fuzzer
+#20 0.590 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.590 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.600 Building benchmark pidgin_pidgin_xml_fuzzer with fuzzer afl
+#20 0.603 + DEPS=/deps
+#20 0.603 + mkdir /deps
+#20 0.605 + cd /src
+#20 0.605 + tar xvfz libffi-3.2.1.tar.gz
+#20 0.611 libffi-3.2.1/
+#20 0.611 libffi-3.2.1/doc/
+#20 0.612 libffi-3.2.1/doc/version.texi
+#20 0.612 libffi-3.2.1/doc/stamp-vti
+#20 0.612 libffi-3.2.1/doc/libffi.texi
+#20 0.612 libffi-3.2.1/doc/libffi.info
+#20 0.612 libffi-3.2.1/libffi.xcodeproj/
+#20 0.612 libffi-3.2.1/libffi.xcodeproj/project.pbxproj
+#20 0.613 libffi-3.2.1/m4/
+#20 0.613 libffi-3.2.1/m4/asmcfi.m4
+#20 0.613 libffi-3.2.1/m4/ax_append_flag.m4
+#20 0.613 libffi-3.2.1/m4/ax_cc_maxopt.m4
+#20 0.613 libffi-3.2.1/m4/ax_cflags_warn_all.m4
+#20 0.613 libffi-3.2.1/m4/ax_check_compile_flag.m4
+#20 0.613 libffi-3.2.1/m4/ax_compiler_vendor.m4
+#20 0.613 libffi-3.2.1/m4/ax_configure_args.m4
+#20 0.613 libffi-3.2.1/m4/ax_enable_builddir.m4
+#20 0.614 libffi-3.2.1/m4/ax_gcc_archflag.m4
+#20 0.614 libffi-3.2.1/m4/ax_gcc_x86_cpuid.m4
+#20 0.614 libffi-3.2.1/m4/libtool.m4
+#20 0.616 libffi-3.2.1/m4/ltoptions.m4
+#20 0.616 libffi-3.2.1/m4/ltsugar.m4
+#20 0.616 libffi-3.2.1/m4/ltversion.m4
+#20 0.616 libffi-3.2.1/m4/lt~obsolete.m4
+#20 0.616 libffi-3.2.1/src/
+#20 0.617 libffi-3.2.1/src/aarch64/
+#20 0.617 libffi-3.2.1/src/aarch64/ffi.c
+#20 0.617 libffi-3.2.1/src/aarch64/ffitarget.h
+#20 0.617 libffi-3.2.1/src/aarch64/sysv.S
+#20 0.617 libffi-3.2.1/src/alpha/
+#20 0.617 libffi-3.2.1/src/alpha/ffi.c
+#20 0.617 libffi-3.2.1/src/alpha/osf.S
+#20 0.617 libffi-3.2.1/src/alpha/ffitarget.h
+#20 0.618 libffi-3.2.1/src/arc/
+#20 0.618 libffi-3.2.1/src/arc/ffi.c
+#20 0.618 libffi-3.2.1/src/arc/arcompact.S
+#20 0.618 libffi-3.2.1/src/arc/ffitarget.h
+#20 0.618 libffi-3.2.1/src/arm/
+#20 0.618 libffi-3.2.1/src/arm/ffi.c
+#20 0.618 libffi-3.2.1/src/arm/sysv.S
+#20 0.618 libffi-3.2.1/src/arm/ffitarget.h
+#20 0.619 libffi-3.2.1/src/arm/gentramp.sh
+#20 0.619 libffi-3.2.1/src/arm/trampoline.S
+#20 0.619 libffi-3.2.1/src/avr32/
+#20 0.619 libffi-3.2.1/src/avr32/ffi.c
+#20 0.620 libffi-3.2.1/src/avr32/sysv.S
+#20 0.620 libffi-3.2.1/src/avr32/ffitarget.h
+#20 0.620 libffi-3.2.1/src/bfin/
+#20 0.620 libffi-3.2.1/src/bfin/ffi.c
+#20 0.620 libffi-3.2.1/src/bfin/ffitarget.h
+#20 0.620 libffi-3.2.1/src/bfin/sysv.S
+#20 0.620 libffi-3.2.1/src/cris/
+#20 0.620 libffi-3.2.1/src/cris/ffi.c
+#20 0.620 libffi-3.2.1/src/cris/sysv.S
+#20 0.621 libffi-3.2.1/src/cris/ffitarget.h
+#20 0.621 libffi-3.2.1/src/frv/
+#20 0.621 libffi-3.2.1/src/frv/ffi.c
+#20 0.621 libffi-3.2.1/src/frv/eabi.S
+#20 0.621 libffi-3.2.1/src/frv/ffitarget.h
+#20 0.621 libffi-3.2.1/src/ia64/
+#20 0.621 libffi-3.2.1/src/ia64/ffi.c
+#20 0.621 libffi-3.2.1/src/ia64/ffitarget.h
+#20 0.622 libffi-3.2.1/src/ia64/ia64_flags.h
+#20 0.622 libffi-3.2.1/src/ia64/unix.S
+#20 0.622 libffi-3.2.1/src/m32r/
+#20 0.622 libffi-3.2.1/src/m32r/ffi.c
+#20 0.622 libffi-3.2.1/src/m32r/sysv.S
+#20 0.622 libffi-3.2.1/src/m32r/ffitarget.h
+#20 0.622 libffi-3.2.1/src/m68k/
+#20 0.622 libffi-3.2.1/src/m68k/ffi.c
+#20 0.622 libffi-3.2.1/src/m68k/sysv.S
+#20 0.623 libffi-3.2.1/src/m68k/ffitarget.h
+#20 0.623 libffi-3.2.1/src/m88k/
+#20 0.623 libffi-3.2.1/src/m88k/ffi.c
+#20 0.623 libffi-3.2.1/src/m88k/obsd.S
+#20 0.623 libffi-3.2.1/src/m88k/ffitarget.h
+#20 0.623 libffi-3.2.1/src/metag/
+#20 0.623 libffi-3.2.1/src/metag/ffi.c
+#20 0.623 libffi-3.2.1/src/metag/ffitarget.h
+#20 0.623 libffi-3.2.1/src/metag/sysv.S
+#20 0.624 libffi-3.2.1/src/microblaze/
+#20 0.624 libffi-3.2.1/src/microblaze/ffi.c
+#20 0.624 libffi-3.2.1/src/microblaze/sysv.S
+#20 0.624 libffi-3.2.1/src/microblaze/ffitarget.h
+#20 0.624 libffi-3.2.1/src/mips/
+#20 0.624 libffi-3.2.1/src/mips/ffi.c
+#20 0.624 libffi-3.2.1/src/mips/n32.S
+#20 0.625 libffi-3.2.1/src/mips/o32.S
+#20 0.625 libffi-3.2.1/src/mips/ffitarget.h
+#20 0.625 libffi-3.2.1/src/moxie/
+#20 0.625 libffi-3.2.1/src/moxie/ffi.c
+#20 0.625 libffi-3.2.1/src/moxie/ffitarget.h
+#20 0.625 libffi-3.2.1/src/moxie/eabi.S
+#20 0.625 libffi-3.2.1/src/nios2/
+#20 0.625 libffi-3.2.1/src/nios2/ffi.c
+#20 0.625 libffi-3.2.1/src/nios2/ffitarget.h
+#20 0.626 libffi-3.2.1/src/nios2/sysv.S
+#20 0.626 libffi-3.2.1/src/or1k/
+#20 0.626 libffi-3.2.1/src/or1k/ffi.c
+#20 0.626 libffi-3.2.1/src/or1k/ffitarget.h
+#20 0.626 libffi-3.2.1/src/or1k/sysv.S
+#20 0.626 libffi-3.2.1/src/pa/
+#20 0.626 libffi-3.2.1/src/pa/ffitarget.h
+#20 0.626 libffi-3.2.1/src/pa/ffi.c
+#20 0.626 libffi-3.2.1/src/pa/linux.S
+#20 0.627 libffi-3.2.1/src/pa/hpux32.S
+#20 0.627 libffi-3.2.1/src/powerpc/
+#20 0.627 libffi-3.2.1/src/powerpc/ffi.c
+#20 0.627 libffi-3.2.1/src/powerpc/ffi_powerpc.h
+#20 0.627 libffi-3.2.1/src/powerpc/ffi_sysv.c
+#20 0.627 libffi-3.2.1/src/powerpc/ffi_linux64.c
+#20 0.627 libffi-3.2.1/src/powerpc/sysv.S
+#20 0.627 libffi-3.2.1/src/powerpc/linux64.S
+#20 0.628 libffi-3.2.1/src/powerpc/linux64_closure.S
+#20 0.628 libffi-3.2.1/src/powerpc/ppc_closure.S
+#20 0.628 libffi-3.2.1/src/powerpc/asm.h
+#20 0.628 libffi-3.2.1/src/powerpc/aix.S
+#20 0.628 libffi-3.2.1/src/powerpc/darwin.S
+#20 0.628 libffi-3.2.1/src/powerpc/aix_closure.S
+#20 0.628 libffi-3.2.1/src/powerpc/darwin_closure.S
+#20 0.628 libffi-3.2.1/src/powerpc/ffi_darwin.c
+#20 0.629 libffi-3.2.1/src/powerpc/ffitarget.h
+#20 0.629 libffi-3.2.1/src/s390/
+#20 0.629 libffi-3.2.1/src/s390/ffi.c
+#20 0.629 libffi-3.2.1/src/s390/sysv.S
+#20 0.629 libffi-3.2.1/src/s390/ffitarget.h
+#20 0.629 libffi-3.2.1/src/sh/
+#20 0.629 libffi-3.2.1/src/sh/ffi.c
+#20 0.629 libffi-3.2.1/src/sh/sysv.S
+#20 0.629 libffi-3.2.1/src/sh/ffitarget.h
+#20 0.630 libffi-3.2.1/src/sh64/
+#20 0.630 libffi-3.2.1/src/sh64/ffi.c
+#20 0.630 libffi-3.2.1/src/sh64/sysv.S
+#20 0.630 libffi-3.2.1/src/sh64/ffitarget.h
+#20 0.630 libffi-3.2.1/src/sparc/
+#20 0.630 libffi-3.2.1/src/sparc/v8.S
+#20 0.630 libffi-3.2.1/src/sparc/v9.S
+#20 0.630 libffi-3.2.1/src/sparc/ffitarget.h
+#20 0.630 libffi-3.2.1/src/sparc/ffi.c
+#20 0.631 libffi-3.2.1/src/tile/
+#20 0.631 libffi-3.2.1/src/tile/ffi.c
+#20 0.631 libffi-3.2.1/src/tile/ffitarget.h
+#20 0.631 libffi-3.2.1/src/tile/tile.S
+#20 0.631 libffi-3.2.1/src/vax/
+#20 0.631 libffi-3.2.1/src/vax/ffi.c
+#20 0.631 libffi-3.2.1/src/vax/ffitarget.h
+#20 0.631 libffi-3.2.1/src/vax/elfbsd.S
+#20 0.631 libffi-3.2.1/src/x86/
+#20 0.631 libffi-3.2.1/src/x86/darwin64.S
+#20 0.631 libffi-3.2.1/src/x86/ffi.c
+#20 0.632 libffi-3.2.1/src/x86/sysv.S
+#20 0.632 libffi-3.2.1/src/x86/win32.S
+#20 0.632 libffi-3.2.1/src/x86/darwin.S
+#20 0.632 libffi-3.2.1/src/x86/win64.S
+#20 0.632 libffi-3.2.1/src/x86/freebsd.S
+#20 0.632 libffi-3.2.1/src/x86/ffi64.c
+#20 0.632 libffi-3.2.1/src/x86/unix64.S
+#20 0.632 libffi-3.2.1/src/x86/ffitarget.h
+#20 0.633 libffi-3.2.1/src/xtensa/
+#20 0.633 libffi-3.2.1/src/xtensa/ffitarget.h
+#20 0.633 libffi-3.2.1/src/xtensa/ffi.c
+#20 0.633 libffi-3.2.1/src/xtensa/sysv.S
+#20 0.633 libffi-3.2.1/src/prep_cif.c
+#20 0.633 libffi-3.2.1/src/types.c
+#20 0.633 libffi-3.2.1/src/raw_api.c
+#20 0.633 libffi-3.2.1/src/java_raw_api.c
+#20 0.633 libffi-3.2.1/src/closures.c
+#20 0.634 libffi-3.2.1/src/dlmalloc.c
+#20 0.635 libffi-3.2.1/src/debug.c
+#20 0.635 libffi-3.2.1/Makefile.in
+#20 0.636 libffi-3.2.1/Makefile.am
+#20 0.636 libffi-3.2.1/configure
+#20 0.641 libffi-3.2.1/acinclude.m4
+#20 0.641 libffi-3.2.1/configure.ac
+#20 0.641 libffi-3.2.1/aclocal.m4
+#20 0.642 libffi-3.2.1/fficonfig.h.in
+#20 0.642 libffi-3.2.1/libffi.pc.in
+#20 0.642 libffi-3.2.1/depcomp
+#20 0.642 libffi-3.2.1/mdate-sh
+#20 0.642 libffi-3.2.1/texinfo.tex
+#20 0.645 libffi-3.2.1/README
+#20 0.645 libffi-3.2.1/compile
+#20 0.645 libffi-3.2.1/config.guess
+#20 0.645 libffi-3.2.1/config.sub
+#20 0.646 libffi-3.2.1/install-sh
+#20 0.646 libffi-3.2.1/missing
+#20 0.646 libffi-3.2.1/ltmain.sh
+#20 0.648 libffi-3.2.1/LICENSE
+#20 0.648 libffi-3.2.1/ChangeLog.v1
+#20 0.648 libffi-3.2.1/ChangeLog.libgcj
+#20 0.648 libffi-3.2.1/libtool-version
+#20 0.648 libffi-3.2.1/ChangeLog.libffi
+#20 0.648 libffi-3.2.1/msvcc.sh
+#20 0.648 libffi-3.2.1/generate-darwin-source-and-headers.py
+#20 0.648 libffi-3.2.1/libtool-ldflags
+#20 0.648 libffi-3.2.1/ChangeLog.libffi-3.1
+#20 0.649 libffi-3.2.1/include/
+#20 0.649 libffi-3.2.1/include/Makefile.in
+#20 0.650 libffi-3.2.1/include/Makefile.am
+#20 0.650 libffi-3.2.1/include/ffi.h.in
+#20 0.650 libffi-3.2.1/include/ffi_common.h
+#20 0.650 libffi-3.2.1/testsuite/
+#20 0.650 libffi-3.2.1/testsuite/config/
+#20 0.650 libffi-3.2.1/testsuite/config/default.exp
+#20 0.650 libffi-3.2.1/testsuite/lib/
+#20 0.650 libffi-3.2.1/testsuite/lib/wrapper.exp
+#20 0.650 libffi-3.2.1/testsuite/lib/target-libpath.exp
+#20 0.650 libffi-3.2.1/testsuite/lib/libffi.exp
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/cls_19byte.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/cls_align_longdouble_split.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/closure_loc_fn0.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/cls_schar.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/closure_fn1.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/return_ul.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/cls_align_double.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/return_fl2.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/cls_1_1byte.c
+#20 0.651 libffi-3.2.1/testsuite/libffi.call/cls_64byte.c
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/nested_struct7.c
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/cls_align_sint32.c
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/nested_struct2.c
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/ffitest.h
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/nested_struct4.c
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/cls_multi_ushort.c
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/struct3.c
+#20 0.652 libffi-3.2.1/testsuite/libffi.call/cls_3byte1.c
+#20 0.653 libffi-3.2.1/testsuite/libffi.call/cls_16byte.c
+#20 0.653 libffi-3.2.1/testsuite/libffi.call/struct8.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/nested_struct8.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_multi_sshort.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_3byte2.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_pointer.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/err_bad_typedef.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_4_1byte.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_9byte2.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_multi_schar.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/stret_medium2.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_5_1_byte.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/call.exp
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_double.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_align_sint16.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_uint.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/return_ll1.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/nested_struct3.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_20byte1.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/closure_fn4.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_uchar.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/struct2.c
+#20 0.654 libffi-3.2.1/testsuite/libffi.call/cls_7byte.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/strlen.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/many.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/testclosure.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/return_fl.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/struct5.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/cls_12byte.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/cls_multi_sshortchar.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/cls_align_longdouble_split2.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/return_dbl2.c
+#20 0.655 libffi-3.2.1/testsuite/libffi.call/return_fl3.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/stret_medium.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/nested_struct6.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/closure_fn3.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/float3.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/many2.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/closure_simple.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/cls_align_uint16.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/cls_9byte1.c
+#20 0.656 libffi-3.2.1/testsuite/libffi.call/closure_fn6.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/cls_double_va.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/cls_align_pointer.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/cls_align_longdouble.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/closure_fn2.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/cls_sshort.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/nested_struct.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/cls_20byte.c
+#20 0.657 libffi-3.2.1/testsuite/libffi.call/cls_longdouble.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/cls_multi_uchar.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/return_uc.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/cls_18byte.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/cls_8byte.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/promotion.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/return_dbl.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/cls_24byte.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/struct4.c
+#20 0.658 libffi-3.2.1/testsuite/libffi.call/cls_6byte.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/cls_align_uint32.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/float.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/float1.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/float_va.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/negint.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/return_dbl1.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/cls_3_1byte.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/cls_align_float.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/return_fl1.c
+#20 0.659 libffi-3.2.1/testsuite/libffi.call/nested_struct10.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/nested_struct5.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/cls_align_sint64.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/stret_large2.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/return_sl.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/closure_fn0.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/cls_5byte.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/cls_2byte.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/float2.c
+#20 0.660 libffi-3.2.1/testsuite/libffi.call/cls_dbls_struct.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/cls_sint.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/stret_large.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/cls_ulonglong.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/cls_ushort.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/nested_struct1.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/err_bad_abi.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/cls_longdouble_va.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/cls_float.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/cls_pointer_stack.c
+#20 0.661 libffi-3.2.1/testsuite/libffi.call/pyobjc-tc.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/cls_multi_ushortchar.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/struct1.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/nested_struct9.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/huge_struct.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/problem1.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/float4.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/return_ldl.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/closure_fn5.c
+#20 0.662 libffi-3.2.1/testsuite/libffi.call/struct6.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/return_ll.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/struct9.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/return_sc.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/struct7.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/cls_align_uint64.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/cls_4byte.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/cls_6_1_byte.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/cls_7_1_byte.c
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/unwindtest.cc
+#20 0.663 libffi-3.2.1/testsuite/libffi.call/unwindtest_ffi_call.cc
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/cls_struct_va1.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/cls_uchar_va.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/cls_uint_va.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/cls_ulong_va.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/cls_ushort_va.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/nested_struct11.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/uninitialized.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/va_1.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/va_struct1.c
+#20 0.664 libffi-3.2.1/testsuite/libffi.call/va_struct2.c
+#20 0.665 libffi-3.2.1/testsuite/libffi.call/va_struct3.c
+#20 0.665 libffi-3.2.1/testsuite/libffi.call/strlen2.c
+#20 0.665 libffi-3.2.1/testsuite/libffi.call/strlen3.c
+#20 0.665 libffi-3.2.1/testsuite/libffi.call/strlen4.c
+#20 0.665 libffi-3.2.1/testsuite/Makefile.in
+#20 0.665 libffi-3.2.1/testsuite/Makefile.am
+#20 0.665 libffi-3.2.1/man/
+#20 0.665 libffi-3.2.1/man/Makefile.in
+#20 0.665 libffi-3.2.1/man/Makefile.am
+#20 0.665 libffi-3.2.1/man/ffi.3
+#20 0.665 libffi-3.2.1/man/ffi_call.3
+#20 0.666 libffi-3.2.1/man/ffi_prep_cif.3
+#20 0.666 libffi-3.2.1/man/ffi_prep_cif_var.3
+#20 0.666 libffi-3.2.1/ChangeLog
+#20 0.667 + cd libffi-3.2.1
+#20 0.667 + ./configure --disable-shared
+#20 0.913 checking build system type... x86_64-unknown-linux-gnu
+#20 0.998 checking host system type... x86_64-unknown-linux-gnu
+#20 0.999 checking target system type... x86_64-unknown-linux-gnu
+#20 1.007 continue configure in default builddir "./x86_64-unknown-linux-gnu"
+#20 1.015 ....exec /bin/bash .././configure "--srcdir=.." "--enable-builddir=x86_64-unknown-linux-gnu" "linux
+#20 1.015 gnu"
+#20 1.172 checking build system type... x86_64-unknown-linux-gnu
+#20 1.248 checking host system type... x86_64-unknown-linux-gnu
+#20 1.249 checking target system type... x86_64-unknown-linux-gnu
+#20 1.251 checking for gsed... sed
+#20 1.252 checking for a BSD-compatible install... /usr/bin/install -c
+#20 1.266 checking whether build environment is sane... yes
+#20 1.282 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 1.286 checking for gawk... no
+#20 1.286 checking for mawk... mawk
+#20 1.287 checking whether make sets $(MAKE)... yes
+#20 1.305 checking whether make supports nested variables... yes
+#20 1.317 checking for gcc... clang
+#20 1.403 checking whether the C compiler works... yes
+#20 1.539 checking for C compiler default output file name... a.out
+#20 1.542 checking for suffix of executables... 
+#20 1.673 checking whether we are cross compiling... no
+#20 1.822 checking for suffix of object files... o
+#20 1.856 checking whether we are using the GNU C compiler... yes
+#20 1.887 checking whether clang accepts -g... yes
+#20 1.917 checking for clang option to accept ISO C89... none needed
+#20 1.969 checking for style of include used by make... GNU
+#20 1.976 checking dependency style of clang... gcc3
+#20 2.121 checking whether we are using the GNU C++ compiler... yes
+#20 2.153 checking whether clang++ accepts -g... yes
+#20 2.182 checking dependency style of clang++... gcc3
+#20 2.242 checking dependency style of clang... gcc3
+#20 2.302 checking whether clang and cc understand -c and -o together... yes
+#20 2.635 checking how to print strings... printf
+#20 2.688 checking for a sed that does not truncate output... /usr/bin/sed
+#20 2.696 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 2.700 checking for egrep... /usr/bin/grep -E
+#20 2.703 checking for fgrep... /usr/bin/grep -F
+#20 2.706 checking for ld used by clang... /usr/bin/ld
+#20 2.729 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 2.734 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 2.738 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 2.778 checking whether ln -s works... yes
+#20 2.778 checking the maximum length of command line arguments... 1572864
+#20 2.785 checking whether the shell understands some XSI constructs... yes
+#20 2.786 checking whether the shell understands "+="... yes
+#20 2.792 checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+#20 2.792 checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 2.793 checking for /usr/bin/ld option to reload object files... -r
+#20 2.794 checking for objdump... objdump
+#20 2.794 checking how to recognize dependent libraries... pass_all
+#20 2.796 checking for dlltool... no
+#20 2.797 checking how to associate runtime and link libraries... printf %s\n
+#20 2.798 checking for ar... ar
+#20 2.799 checking for archiver @FILE support... @
+#20 2.844 checking for strip... strip
+#20 2.845 checking for ranlib... ranlib
+#20 2.846 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 3.034 checking for sysroot... no
+#20 3.062 checking for mt... no
+#20 3.063 checking if : is a manifest tool... no
+#20 3.071 checking how to run the C preprocessor... clang -E
+#20 3.191 checking for ANSI C header files... yes
+#20 3.455 checking for sys/types.h... yes
+#20 3.512 checking for sys/stat.h... yes
+#20 3.571 checking for stdlib.h... yes
+#20 3.635 checking for string.h... yes
+#20 3.698 checking for memory.h... yes
+#20 3.762 checking for strings.h... yes
+#20 3.830 checking for inttypes.h... yes
+#20 3.894 checking for stdint.h... yes
+#20 3.964 checking for unistd.h... yes
+#20 4.028 checking for dlfcn.h... yes
+#20 4.091 checking for objdir... .libs
+#20 4.278 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 4.312 checking for clang option to produce PIC... -fPIC -DPIC
+#20 4.312 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 4.348 checking if clang static flag -static works... yes
+#20 4.536 checking if clang supports -c -o file.o... yes
+#20 4.585 checking if clang supports -c -o file.o... (cached) yes
+#20 4.585 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 4.611 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 4.809 checking how to hardcode library paths into programs... immediate
+#20 4.810 checking whether stripping libraries is possible... yes
+#20 4.813 checking if libtool supports shared libraries... yes
+#20 4.813 checking whether to build shared libraries... no
+#20 4.813 checking whether to build static libraries... yes
+#20 4.818 checking how to run the C++ preprocessor... clang++ -E
+#20 5.156 checking for ld used by clang++... /usr/bin/ld -m elf_x86_64
+#20 5.180 checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+#20 5.203 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 5.382 checking for clang++ option to produce PIC... -fPIC -DPIC
+#20 5.383 checking if clang++ PIC flag -fPIC -DPIC works... yes
+#20 5.420 checking if clang++ static flag -static works... yes
+#20 5.670 checking if clang++ supports -c -o file.o... yes
+#20 5.720 checking if clang++ supports -c -o file.o... (cached) yes
+#20 5.720 checking whether the clang++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 5.720 checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+#20 5.726 checking how to hardcode library paths into programs... immediate
+#20 5.728 checking size of size_t... 8
+#20 5.908 checking for C compiler vendor... clang
+#20 6.070 checking CFLAGS for maximum warnings... -Wall
+#20 6.151 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 6.152 checking sys/mman.h usability... yes
+#20 6.211 checking sys/mman.h presence... yes
+#20 6.238 checking for sys/mman.h... yes
+#20 6.244 checking for mmap... yes
+#20 6.391 checking for mkostemp... yes
+#20 6.535 checking for sys/mman.h... (cached) yes
+#20 6.536 checking for mmap... (cached) yes
+#20 6.537 checking whether read-only mmap of a plain file works... yes
+#20 6.537 checking whether mmap from /dev/zero works... yes
+#20 6.537 checking for MAP_ANON(YMOUS)... yes
+#20 6.587 checking whether mmap with MAP_ANON(YMOUS) works... yes
+#20 6.591 checking for ANSI C header files... (cached) yes
+#20 6.591 checking for memcpy... yes
+#20 6.736 checking for size_t... yes
+#20 6.870 checking for working alloca.h... yes
+#20 7.004 checking for alloca... yes
+#20 7.145 checking size of double... 8
+#20 7.319 checking size of long double... 16
+#20 7.497 checking whether byte ordering is bigendian... no
+#20 7.626 checking assembler .cfi pseudo-op support... yes
+#20 7.660 checking assembler supports pc related relocs... yes
+#20 7.678 checking assembler .ascii pseudo-op support... yes
+#20 7.710 checking assembler .string pseudo-op support... yes
+#20 7.741 checking for _ prefix in compiled symbols... no
+#20 7.781 checking toolchain supports unwind section type... yes
+#20 7.866 checking whether .eh_frame section should be read-only... yes
+#20 7.905 checking for __attribute__((visibility("hidden")))... yes
+#20 7.951 clang-14: error: unsupported option '-print-multi-os-directory'
+#20 8.002 checking that generated files are newer than configure... done
+#20 8.005 configure: creating ./config.status
+#20 9.035 config.status: creating include/Makefile
+#20 9.063 config.status: creating include/ffi.h
+#20 9.090 config.status: creating Makefile
+#20 9.112 config.status: creating testsuite/Makefile
+#20 9.139 config.status: creating man/Makefile
+#20 9.166 config.status: creating libffi.pc
+#20 9.186 config.status: creating fficonfig.h
+#20 9.206 config.status: linking ../src/x86/ffitarget.h to include/ffitarget.h
+#20 9.212 config.status: executing buildir commands
+#20 9.212 config.status: create top_srcdir/Makefile guessed from local Makefile
+#20 9.229 config.status: build in x86_64-unknown-linux-gnu (HOST=)
+#20 9.232 config.status: executing depfiles commands
+#20 9.586 config.status: executing libtool commands
+#20 9.731 config.status: executing include commands
+#20 9.734 config.status: executing src commands
+#20 9.844 ++ nproc
+#20 9.845 + make -j8
+#20 9.899 MAKE x86_64-unknown-linux-gnu : 0 * all-all
+#20 9.917 make[1]: Entering directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu'
+#20 9.922 make 'AR_FLAGS=' 'CC_FOR_BUILD=' 'CFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions' 'CXXFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard' 'CFLAGS_FOR_BUILD=' 'CFLAGS_FOR_TARGET=' 'INSTALL=/usr/bin/install -c' 'INSTALL_DATA=/usr/bin/install -c -m 644' 'INSTALL_PROGRAM=/usr/bin/install -c' 'INSTALL_SCRIPT=/usr/bin/install -c' 'JC1FLAGS=' 'LDFLAGS=' 'LIBCFLAGS=' 'LIBCFLAGS_FOR_TARGET=' 'MAKE=make' 'MAKEINFO=/bin/bash /src/libffi-3.2.1/missing makeinfo ' 'PICFLAG=' 'PICFLAG_FOR_TARGET=' 'RUNTESTFLAGS=' 'SHELL=/bin/bash' 'exec_prefix=/usr/local' 'infodir=/usr/local/share/info' 'libdir=/usr/local/lib' 'mandir=/usr/local/share/man' 'prefix=/usr/local' 'AR=ar' 'AS=as' 'CC=clang' 'CXX=clang++' 'LD=/usr/bin/ld -m elf_x86_64' 'NM=/usr/bin/nm -B' 'RANLIB=ranlib' 'DESTDIR=' all-recursive
+#20 9.939 make[2]: Entering directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu'
+#20 9.946 Making all in include
+#20 9.949 make[3]: Entering directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu/include'
+#20 9.949 make[3]: Nothing to be done for 'all'.
+#20 9.949 make[3]: Leaving directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu/include'
+#20 9.950 Making all in testsuite
+#20 9.953 make[3]: Entering directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu/testsuite'
+#20 9.953 make[3]: Nothing to be done for 'all'.
+#20 9.953 make[3]: Leaving directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu/testsuite'
+#20 9.954 Making all in man
+#20 9.956 make[3]: Entering directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu/man'
+#20 9.956 make[3]: Nothing to be done for 'all'.
+#20 9.956 make[3]: Leaving directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu/man'
+#20 9.972 make[3]: Entering directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu'
+#20 9.977 depbase=`echo src/prep_cif.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.977 /bin/bash ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -MT src/prep_cif.lo -MD -MP -MF $depbase.Tpo -c -o src/prep_cif.lo ../src/prep_cif.c &&\
+#20 9.977 mv -f $depbase.Tpo $depbase.Plo
+#20 9.977 depbase=`echo src/types.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.977 /bin/bash ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -MT src/types.lo -MD -MP -MF $depbase.Tpo -c -o src/types.lo ../src/types.c &&\
+#20 9.977 mv -f $depbase.Tpo $depbase.Plo
+#20 9.978 depbase=`echo src/raw_api.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.978 /bin/bash ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -MT src/raw_api.lo -MD -MP -MF $depbase.Tpo -c -o src/raw_api.lo ../src/raw_api.c &&\
+#20 9.978 mv -f $depbase.Tpo $depbase.Plo
+#20 9.978 depbase=`echo src/java_raw_api.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.978 /bin/bash ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -MT src/java_raw_api.lo -MD -MP -MF $depbase.Tpo -c -o src/java_raw_api.lo ../src/java_raw_api.c &&\
+#20 9.978 mv -f $depbase.Tpo $depbase.Plo
+#20 9.979 depbase=`echo src/closures.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.979 /bin/bash ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -MT src/closures.lo -MD -MP -MF $depbase.Tpo -c -o src/closures.lo ../src/closures.c &&\
+#20 9.979 mv -f $depbase.Tpo $depbase.Plo
+#20 9.979 depbase=`echo src/x86/ffi64.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.979 /bin/bash ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -MT src/x86/ffi64.lo -MD -MP -MF $depbase.Tpo -c -o src/x86/ffi64.lo ../src/x86/ffi64.c &&\
+#20 9.979 mv -f $depbase.Tpo $depbase.Plo
+#20 9.979 depbase=`echo src/x86/unix64.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.979 /bin/bash ./libtool    --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src  -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT src/x86/unix64.lo -MD -MP -MF $depbase.Tpo -c -o src/x86/unix64.lo ../src/x86/unix64.S &&\
+#20 9.979 mv -f $depbase.Tpo $depbase.Plo
+#20 9.980 depbase=`echo src/x86/ffi.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 9.980 /bin/bash ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src   -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -MT src/x86/ffi.lo -MD -MP -MF $depbase.Tpo -c -o src/x86/ffi.lo ../src/x86/ffi.c &&\
+#20 9.980 mv -f $depbase.Tpo $depbase.Plo
+#20 10.01 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wall -fexceptions -MT src/prep_cif.lo -MD -MP -MF src/.deps/prep_cif.Tpo -c ../src/prep_cif.c -o src/prep_cif.o
+#20 10.01 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wall -fexceptions -MT src/raw_api.lo -MD -MP -MF src/.deps/raw_api.Tpo -c ../src/raw_api.c -o src/raw_api.o
+#20 10.01 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wall -fexceptions -MT src/java_raw_api.lo -MD -MP -MF src/.deps/java_raw_api.Tpo -c ../src/java_raw_api.c -o src/java_raw_api.o
+#20 10.01 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wall -fexceptions -MT src/types.lo -MD -MP -MF src/.deps/types.Tpo -c ../src/types.c -o src/types.o
+#20 10.01 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wall -fexceptions -MT src/x86/ffi64.lo -MD -MP -MF src/x86/.deps/ffi64.Tpo -c ../src/x86/ffi64.c -o src/x86/ffi64.o
+#20 10.01 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wall -fexceptions -MT src/closures.lo -MD -MP -MF src/.deps/closures.Tpo -c ../src/closures.c -o src/closures.o
+#20 10.02 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -Wall -fexceptions -MT src/x86/ffi.lo -MD -MP -MF src/x86/.deps/ffi.Tpo -c ../src/x86/ffi.c -o src/x86/ffi.o
+#20 10.02 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT src/x86/unix64.lo -MD -MP -MF src/x86/.deps/unix64.Tpo -c ../src/x86/unix64.S -o src/x86/unix64.o
+#20 10.05 depbase=`echo src/x86/sysv.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+#20 10.05 /bin/bash ./libtool    --mode=compile clang -DHAVE_CONFIG_H -I. -I..  -I. -I../include -Iinclude -I../src  -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT src/x86/sysv.lo -MD -MP -MF $depbase.Tpo -c -o src/x86/sysv.lo ../src/x86/sysv.S &&\
+#20 10.05 mv -f $depbase.Tpo $depbase.Plo
+#20 10.10 libtool: compile:  clang -DHAVE_CONFIG_H -I. -I.. -I. -I../include -Iinclude -I../src -I. -I../include -Iinclude -I../src -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -MT src/x86/sysv.lo -MD -MP -MF src/x86/.deps/sysv.Tpo -c ../src/x86/sysv.S -o src/x86/sysv.o
+#20 10.96 /bin/bash ./libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions   -o libffi_convenience.la  src/prep_cif.lo src/types.lo src/raw_api.lo src/java_raw_api.lo src/closures.lo                                src/x86/ffi64.lo src/x86/unix64.lo src/x86/ffi.lo src/x86/sysv.lo          
+#20 10.97 /bin/bash ./libtool  --tag=CC   --mode=link clang  -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard  -Wall -fexceptions -no-undefined -version-info `grep -v '^#' ../libtool-version`    -o libffi.la -rpath /usr/local/lib src/prep_cif.lo src/types.lo src/raw_api.lo src/java_raw_api.lo src/closures.lo                                src/x86/ffi64.lo src/x86/unix64.lo src/x86/ffi.lo src/x86/sysv.lo          
+#20 11.04 libtool: link: ar cru .libs/libffi_convenience.a  src/prep_cif.o src/types.o src/raw_api.o src/java_raw_api.o src/closures.o src/x86/ffi64.o src/x86/unix64.o src/x86/ffi.o src/x86/sysv.o
+#20 11.05 ar: `u' modifier ignored since `D' is the default (see `U')
+#20 11.05 libtool: link: ranlib .libs/libffi_convenience.a
+#20 11.05 libtool: link: ar cru .libs/libffi.a  src/prep_cif.o src/types.o src/raw_api.o src/java_raw_api.o src/closures.o src/x86/ffi64.o src/x86/unix64.o src/x86/ffi.o src/x86/sysv.o
+#20 11.05 ar: `u' modifier ignored since `D' is the default (see `U')
+#20 11.06 libtool: link: ranlib .libs/libffi.a
+#20 11.07 libtool: link: ( cd ".libs" && rm -f "libffi_convenience.la" && ln -s "../libffi_convenience.la" "libffi_convenience.la" )
+#20 11.07 libtool: link: ( cd ".libs" && rm -f "libffi.la" && ln -s "../libffi.la" "libffi.la" )
+#20 11.08 make[3]: Leaving directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu'
+#20 11.08 make[2]: Leaving directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu'
+#20 11.08 make[1]: Leaving directory '/src/libffi-3.2.1/x86_64-unknown-linux-gnu'
+#20 11.08 + export 'LIBFFI_LIBS=-L/src/libffi-3.2.1 libraries/ -lffi'
+#20 11.08 + LIBFFI_LIBS='-L/src/libffi-3.2.1 libraries/ -lffi'
+#20 11.08 + cp ./x86_64-unknown-linux-gnu/.libs/libffi.a /deps/
+#20 11.08 + cd /src/libxml2
+#20 11.08 + ./autogen.sh --disable-shared --without-debug --without-ftp --without-http --without-legacy --without-python
+#20 16.16 libtoolize: putting auxiliary files in '.'.
+#20 16.16 libtoolize: copying file './ltmain.sh'
+#20 16.21 libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+#20 16.21 libtoolize: copying file 'm4/libtool.m4'
+#20 16.25 libtoolize: copying file 'm4/ltoptions.m4'
+#20 16.29 libtoolize: copying file 'm4/ltsugar.m4'
+#20 16.33 libtoolize: copying file 'm4/ltversion.m4'
+#20 16.38 libtoolize: copying file 'm4/lt~obsolete.m4'
+#20 21.09 configure.ac:47: installing './compile'
+#20 21.09 configure.ac:12: installing './config.guess'
+#20 21.10 configure.ac:12: installing './config.sub'
+#20 21.10 configure.ac:42: installing './install-sh'
+#20 21.11 configure.ac:42: installing './missing'
+#20 21.19 Makefile.am: installing './depcomp'
+#20 21.79 python/Makefile.am:37: installing './py-compile'
+#20 22.19 checking build system type... x86_64-pc-linux-gnu
+#20 22.27 checking host system type... x86_64-pc-linux-gnu
+#20 22.30 extra=v2.9.13-162-g65b01647
+#20 22.30 checking for a BSD-compatible install... /usr/bin/install -c
+#20 22.31 checking whether build environment is sane... yes
+#20 22.33 checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+#20 22.33 checking for gawk... no
+#20 22.34 checking for mawk... mawk
+#20 22.34 checking whether make sets $(MAKE)... yes
+#20 22.35 checking whether make supports nested variables... yes
+#20 22.37 checking whether to enable maintainer-specific portions of Makefiles... yes
+#20 22.37 checking whether make supports nested variables... (cached) yes
+#20 22.37 checking for gcc... clang
+#20 22.47 checking whether the C compiler works... yes
+#20 22.60 checking for C compiler default output file name... a.out
+#20 22.60 checking for suffix of executables... 
+#20 22.74 checking whether we are cross compiling... no
+#20 22.88 checking for suffix of object files... o
+#20 22.92 checking whether we are using the GNU C compiler... yes
+#20 22.95 checking whether clang accepts -g... yes
+#20 22.98 checking for clang option to accept ISO C89... none needed
+#20 23.03 checking whether clang understands -c and -o together... yes
+#20 23.08 checking whether make supports the include directive... yes (GNU style)
+#20 23.10 checking dependency style of clang... gcc3
+#20 23.16 checking whether ln -s works... yes
+#20 23.16 checking how to run the C preprocessor... clang -E
+#20 23.28 checking for mv... /usr/bin/mv
+#20 23.28 checking for tar... /usr/bin/tar
+#20 23.28 checking for perl... /usr/bin/perl
+#20 23.28 checking for wget... /usr/bin/wget
+#20 23.28 checking for xmllint... /usr/bin/xmllint
+#20 23.29 checking for xsltproc... /usr/bin/xsltproc
+#20 23.29 checking for pkg-config... /usr/bin/pkg-config
+#20 23.29 checking pkg-config is at least version 0.9.0... yes
+#20 23.29 checking how to print strings... printf
+#20 23.35 checking for a sed that does not truncate output... /usr/bin/sed
+#20 23.36 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 23.36 checking for egrep... /usr/bin/grep -E
+#20 23.36 checking for fgrep... /usr/bin/grep -F
+#20 23.37 checking for ld used by clang... /usr/bin/ld
+#20 23.39 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 23.40 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 23.40 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 23.44 checking the maximum length of command line arguments... 1572864
+#20 23.45 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 23.45 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 23.45 checking for /usr/bin/ld option to reload object files... -r
+#20 23.45 checking for objdump... objdump
+#20 23.46 checking how to recognize dependent libraries... pass_all
+#20 23.46 checking for dlltool... no
+#20 23.46 checking how to associate runtime and link libraries... printf %s\n
+#20 23.46 checking for ar... ar
+#20 23.46 checking for archiver @FILE support... @
+#20 23.53 checking for strip... strip
+#20 23.53 checking for ranlib... ranlib
+#20 23.53 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 23.85 checking for sysroot... no
+#20 23.85 checking for a working dd... /usr/bin/dd
+#20 23.86 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 23.90 checking for mt... no
+#20 23.90 checking if : is a manifest tool... no
+#20 23.91 checking for ANSI C header files... yes
+#20 24.18 checking for sys/types.h... yes
+#20 24.24 checking for sys/stat.h... yes
+#20 24.30 checking for stdlib.h... yes
+#20 24.36 checking for string.h... yes
+#20 24.42 checking for memory.h... yes
+#20 24.49 checking for strings.h... yes
+#20 24.56 checking for inttypes.h... yes
+#20 24.63 checking for stdint.h... yes
+#20 24.70 checking for unistd.h... yes
+#20 24.77 checking for dlfcn.h... yes
+#20 24.83 checking for objdir... .libs
+#20 25.02 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 25.06 checking for clang option to produce PIC... -fPIC -DPIC
+#20 25.06 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 25.10 checking if clang static flag -static works... yes
+#20 25.28 checking if clang supports -c -o file.o... yes
+#20 25.33 checking if clang supports -c -o file.o... (cached) yes
+#20 25.33 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 25.36 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 25.55 checking how to hardcode library paths into programs... immediate
+#20 25.56 checking whether stripping libraries is possible... yes
+#20 25.56 checking if libtool supports shared libraries... yes
+#20 25.56 checking whether to build shared libraries... no
+#20 25.56 checking whether to build static libraries... yes
+#20 25.56 checking for cos in -lm... yes
+#20 25.71 Checking zlib
+#20 25.72 checking for Z... yes
+#20 25.73 Checking lzma
+#20 25.73 checking for LZMA... yes
+#20 25.74 Checking headers
+#20 25.75 checking fcntl.h usability... yes
+#20 25.81 checking fcntl.h presence... yes
+#20 25.84 checking for fcntl.h... yes
+#20 25.84 checking for unistd.h... (cached) yes
+#20 25.84 checking for sys/stat.h... (cached) yes
+#20 25.84 checking for sys/types.h... (cached) yes
+#20 25.85 checking for stdint.h... (cached) yes
+#20 25.85 checking for inttypes.h... (cached) yes
+#20 25.85 checking for sys/socket.h... yes
+#20 25.90 checking for netinet/in.h... yes
+#20 25.94 checking for arpa/inet.h... yes
+#20 25.98 checking netdb.h usability... yes
+#20 26.06 checking netdb.h presence... yes
+#20 26.09 checking for netdb.h... yes
+#20 26.09 checking sys/time.h usability... yes
+#20 26.16 checking sys/time.h presence... yes
+#20 26.19 checking for sys/time.h... yes
+#20 26.19 checking sys/select.h usability... yes
+#20 26.26 checking sys/select.h presence... yes
+#20 26.29 checking for sys/select.h... yes
+#20 26.29 checking poll.h usability... yes
+#20 26.35 checking poll.h presence... yes
+#20 26.38 checking for poll.h... yes
+#20 26.38 checking sys/mman.h usability... yes
+#20 26.44 checking sys/mman.h presence... yes
+#20 26.47 checking for sys/mman.h... yes
+#20 26.47 checking sys/timeb.h usability... yes
+#20 26.54 checking sys/timeb.h presence... yes
+#20 26.57 checking for sys/timeb.h... yes
+#20 26.57 checking for arpa/nameser.h... yes
+#20 26.61 checking for resolv.h... yes
+#20 26.67 checking dl.h usability... no
+#20 26.74 checking dl.h presence... no
+#20 26.77 checking for dl.h... no
+#20 26.77 checking for dlfcn.h... (cached) yes
+#20 26.77 Checking types
+#20 26.77 checking for uint32_t... yes
+#20 26.84 Checking libraries
+#20 26.85 checking for gettimeofday... yes
+#20 26.99 checking for ftime... yes
+#20 27.14 checking for stat... yes
+#20 27.28 checking for rand_r... yes
+#20 27.42 checking for isascii... yes
+#20 27.57 checking for mmap... yes
+#20 27.72 checking for munmap... yes
+#20 27.87 checking for putenv... yes
+#20 28.02 checking for va_copy... yes
+#20 28.16 checking whether va_list is an array type... yes
+#20 28.21 checking for library containing gethostent... none required
+#20 28.34 checking for library containing setsockopt... none required
+#20 28.48 checking for library containing connect... none required
+#20 28.61 checking for type of socket length (socklen_t)... socklen_t *
+#20 28.69 checking for const gethostbyname() argument... yes
+#20 28.84 checking for const send() second argument... yes
+#20 28.98 checking whether __attribute__((destructor)) is accepted... yes
+#20 29.05 checking whether to enable IPv6... yes
+#20 29.09 checking struct sockaddr::ss_family... yes
+#20 29.14 checking for getaddrinfo... yes
+#20 29.27 checking for shl_load... no
+#20 29.42 checking for shl_load in -ldld... no
+#20 29.50 checking for dlopen... yes
+#20 29.64 Checking configuration requirements
+#20 29.64 Enabling multithreaded support
+#20 29.64 checking pthread.h usability... yes
+#20 29.71 checking pthread.h presence... yes
+#20 29.74 checking for pthread.h... yes
+#20 29.74 checking for pthread_join in -lpthread... yes
+#20 29.92 Disabling FTP support
+#20 29.92 Disabling HTTP support
+#20 29.92 Disabling deprecated APIs
+#20 29.92 Enabled Schematron support
+#20 29.92 checking iconv.h usability... yes
+#20 29.98 checking iconv.h presence... yes
+#20 30.01 checking for iconv.h... yes
+#20 30.01 checking for iconv... yes
+#20 30.15 Disabling ICU support
+#20 30.15 Enabled Schemas/Relax-NG support
+#20 30.15 Disabling DEBUG support
+#20 30.16 checking for snprintf... yes
+#20 30.31 checking for vsnprintf... yes
+#20 30.46 Disabling code coverage for GCC
+#20 30.52 checking that generated files are newer than configure... done
+#20 30.52 configure: creating ./config.status
+#20 31.32 config.status: creating libxml2.spec
+#20 31.34 config.status: creating Makefile
+#20 31.36 config.status: creating include/Makefile
+#20 31.39 config.status: creating include/libxml/Makefile
+#20 31.42 config.status: creating doc/Makefile
+#20 31.44 config.status: creating doc/examples/Makefile
+#20 31.47 config.status: creating doc/devhelp/Makefile
+#20 31.50 config.status: creating example/Makefile
+#20 31.53 config.status: creating fuzz/Makefile
+#20 31.55 config.status: creating python/Makefile
+#20 31.58 config.status: creating python/tests/Makefile
+#20 31.60 config.status: creating xstc/Makefile
+#20 31.63 config.status: creating include/libxml/xmlversion.h
+#20 31.66 config.status: creating libxml-2.0.pc
+#20 31.68 config.status: creating libxml-2.0-uninstalled.pc
+#20 31.71 config.status: creating libxml2-config.cmake
+#20 31.73 config.status: creating python/setup.py
+#20 31.76 config.status: creating xml2-config
+#20 31.78 config.status: creating config.h
+#20 31.79 config.status: executing depfiles commands
+#20 32.49 config.status: executing libtool commands
+#20 32.50 Done configuring
+#20 32.61 
+#20 32.61 Now type 'make' to compile libxml2.
+#20 32.61 ++ nproc
+#20 32.61 + make -j8
+#20 32.63 make  all-recursive
+#20 32.64 make[1]: Entering directory '/src/libxml2'
+#20 32.64 Making all in include
+#20 32.65 make[2]: Entering directory '/src/libxml2/include'
+#20 32.65 Making all in libxml
+#20 32.66 make[3]: Entering directory '/src/libxml2/include/libxml'
+#20 32.66 make[3]: Nothing to be done for 'all'.
+#20 32.66 make[3]: Leaving directory '/src/libxml2/include/libxml'
+#20 32.66 make[3]: Entering directory '/src/libxml2/include'
+#20 32.66 make[3]: Nothing to be done for 'all-am'.
+#20 32.66 make[3]: Leaving directory '/src/libxml2/include'
+#20 32.66 make[2]: Leaving directory '/src/libxml2/include'
+#20 32.66 Making all in .
+#20 32.67 make[2]: Entering directory '/src/libxml2'
+#20 32.67   CC       xmllint.o
+#20 32.67   CC       libxml2_la-SAX.lo
+#20 32.67   CC       libxml2_la-entities.lo
+#20 32.67   CC       libxml2_la-encoding.lo
+#20 32.67   CC       libxml2_la-error.lo
+#20 32.67   CC       libxml2_la-parserInternals.lo
+#20 32.67   CC       libxml2_la-parser.lo
+#20 32.68   CC       libxml2_la-tree.lo
+#20 32.92   CC       libxml2_la-hash.lo
+#20 32.93 encoding.c:514:26: warning: cast from 'const unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+#20 32.93     unsigned short* in = (unsigned short*) inb;
+#20 32.93                          ^~~~~~~~~~~~~~~~~~~~~
+#20 32.93 encoding.c:601:27: warning: cast from 'unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+#20 32.93     unsigned short* out = (unsigned short*) outb;
+#20 32.93                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 32.93 encoding.c:757:26: warning: cast from 'const unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+#20 32.93     unsigned short* in = (unsigned short*) inb;
+#20 32.94                          ^~~~~~~~~~~~~~~~~~~~~
+#20 32.94 encoding.c:844:27: warning: cast from 'unsigned char *' to 'unsigned short *' increases required alignment from 1 to 2 [-Wcast-align]
+#20 32.94     unsigned short* out = (unsigned short*) outb;
+#20 32.94                           ^~~~~~~~~~~~~~~~~~~~~~
+#20 33.30   CC       libxml2_la-list.lo
+#20 33.35   CC       libxml2_la-xmlIO.lo
+#20 33.62   CC       libxml2_la-xmlmemory.lo
+#20 33.80   CC       libxml2_la-uri.lo
+#20 33.84   CC       libxml2_la-valid.lo
+#20 33.91 4 warnings generated.
+#20 33.94   CC       libxml2_la-xlink.lo
+#20 34.23   CC       libxml2_la-HTMLparser.lo
+#20 34.32   CC       libxml2_la-HTMLtree.lo
+#20 34.38   CC       libxml2_la-debugXML.lo
+#20 34.44   CC       libxml2_la-xpath.lo
+#20 34.59   CC       libxml2_la-xpointer.lo
+#20 34.96   CC       libxml2_la-xinclude.lo
+#20 35.05 xpath.c:10500:9: warning: variable 'len' set but not used [-Wunused-but-set-variable]
+#20 35.05     int len = 0, l;
+#20 35.05         ^
+#20 35.08   CC       libxml2_la-nanohttp.lo
+#20 35.30   CC       libxml2_la-nanoftp.lo
+#20 35.49   CC       libxml2_la-catalog.lo
+#20 35.52   CC       libxml2_la-globals.lo
+#20 35.95   CC       libxml2_la-threads.lo
+#20 36.33   CC       libxml2_la-c14n.lo
+#20 36.52   CC       libxml2_la-xmlstring.lo
+#20 36.80   CC       libxml2_la-buf.lo
+#20 37.16   CC       libxml2_la-xmlregexp.lo
+#20 37.18   CC       libxml2_la-xmlschemas.lo
+#20 37.19   CC       libxml2_la-xmlschemastypes.lo
+#20 37.56   CC       libxml2_la-xmlunicode.lo
+#20 37.62   CC       libxml2_la-xmlreader.lo
+#20 38.17   CC       libxml2_la-relaxng.lo
+#20 38.22   CC       libxml2_la-dict.lo
+#20 39.11   CC       libxml2_la-SAX2.lo
+#20 39.66   CC       libxml2_la-xmlwriter.lo
+#20 40.02   CC       libxml2_la-legacy.lo
+#20 40.21   CC       libxml2_la-chvalid.lo
+#20 40.44   CC       libxml2_la-pattern.lo
+#20 40.45   CC       libxml2_la-xmlsave.lo
+#20 40.49   CC       libxml2_la-xmlmodule.lo
+#20 40.78   CC       libxml2_la-schematron.lo
+#20 41.07   CC       libxml2_la-xzlib.lo
+#20 41.13 1 warning generated.
+#20 41.15   CC       xmlcatalog.o
+#20 41.20   CC       testdso.lo
+#20 41.40   CCLD     testdso.la
+#20 47.19   CCLD     libxml2.la
+#20 47.54   CCLD     xmllint
+#20 47.54   CCLD     xmlcatalog
+#20 47.94 make[2]: Leaving directory '/src/libxml2'
+#20 47.94 Making all in doc
+#20 47.94 make[2]: Entering directory '/src/libxml2/doc'
+#20 47.95 Making all in .
+#20 47.95 make[3]: Entering directory '/src/libxml2/doc'
+#20 47.95 make[3]: Nothing to be done for 'all-am'.
+#20 47.95 make[3]: Leaving directory '/src/libxml2/doc'
+#20 47.95 Making all in devhelp
+#20 47.96 make[3]: Entering directory '/src/libxml2/doc/devhelp'
+#20 47.96 make[3]: Nothing to be done for 'all'.
+#20 47.96 make[3]: Leaving directory '/src/libxml2/doc/devhelp'
+#20 47.96 Making all in examples
+#20 47.96 make[3]: Entering directory '/src/libxml2/doc/examples'
+#20 47.96 make[3]: Nothing to be done for 'all'.
+#20 47.96 make[3]: Leaving directory '/src/libxml2/doc/examples'
+#20 47.96 make[2]: Leaving directory '/src/libxml2/doc'
+#20 47.97 Making all in example
+#20 47.97 make[2]: Entering directory '/src/libxml2/example'
+#20 47.97 make[2]: Nothing to be done for 'all'.
+#20 47.97 make[2]: Leaving directory '/src/libxml2/example'
+#20 47.97 Making all in fuzz
+#20 47.98 make[2]: Entering directory '/src/libxml2/fuzz'
+#20 47.98 make[2]: Nothing to be done for 'all'.
+#20 47.98 make[2]: Leaving directory '/src/libxml2/fuzz'
+#20 47.98 Making all in xstc
+#20 47.98 make[2]: Entering directory '/src/libxml2/xstc'
+#20 47.98 make[2]: Nothing to be done for 'all'.
+#20 47.98 make[2]: Leaving directory '/src/libxml2/xstc'
+#20 47.98 make[1]: Leaving directory '/src/libxml2'
+#20 47.98 + make install
+#20 48.00 make  install-recursive
+#20 48.02 make[1]: Entering directory '/src/libxml2'
+#20 48.03 Making install in include
+#20 48.03 make[2]: Entering directory '/src/libxml2/include'
+#20 48.04 Making install in libxml
+#20 48.04 make[3]: Entering directory '/src/libxml2/include/libxml'
+#20 48.05 make[4]: Entering directory '/src/libxml2/include/libxml'
+#20 48.05 make[4]: Nothing to be done for 'install-exec-am'.
+#20 48.05  /usr/bin/mkdir -p '/usr/local/include/libxml2/libxml'
+#20 48.06  /usr/bin/install -c -m 644 SAX.h entities.h encoding.h parser.h parserInternals.h xmlerror.h HTMLparser.h HTMLtree.h debugXML.h tree.h list.h hash.h xpath.h xpathInternals.h xpointer.h xinclude.h xmlIO.h xmlmemory.h nanohttp.h nanoftp.h uri.h valid.h xlink.h xmlversion.h catalog.h threads.h globals.h c14n.h xmlautomata.h xmlregexp.h xmlmodule.h xmlschemas.h schemasInternals.h xmlschemastypes.h xmlstring.h xmlunicode.h xmlreader.h relaxng.h dict.h SAX2.h '/usr/local/include/libxml2/libxml'
+#20 48.06  /usr/bin/install -c -m 644 xmlexports.h xmlwriter.h chvalid.h pattern.h xmlsave.h schematron.h '/usr/local/include/libxml2/libxml'
+#20 48.07 make[4]: Leaving directory '/src/libxml2/include/libxml'
+#20 48.07 make[3]: Leaving directory '/src/libxml2/include/libxml'
+#20 48.07 make[3]: Entering directory '/src/libxml2/include'
+#20 48.08 make[4]: Entering directory '/src/libxml2/include'
+#20 48.08 make[4]: Nothing to be done for 'install-exec-am'.
+#20 48.08 make[4]: Nothing to be done for 'install-data-am'.
+#20 48.08 make[4]: Leaving directory '/src/libxml2/include'
+#20 48.08 make[3]: Leaving directory '/src/libxml2/include'
+#20 48.08 make[2]: Leaving directory '/src/libxml2/include'
+#20 48.08 Making install in .
+#20 48.10 make[2]: Entering directory '/src/libxml2'
+#20 48.14 make[3]: Entering directory '/src/libxml2'
+#20 48.16  /usr/bin/mkdir -p '/usr/local/lib'
+#20 48.16  /bin/bash ./libtool   --mode=install /usr/bin/install -c   libxml2.la '/usr/local/lib'
+#20 48.20 libtool: install: /usr/bin/install -c .libs/libxml2.lai /usr/local/lib/libxml2.la
+#20 48.21 libtool: install: /usr/bin/install -c .libs/libxml2.a /usr/local/lib/libxml2.a
+#20 48.22 libtool: install: chmod 644 /usr/local/lib/libxml2.a
+#20 48.22 libtool: install: ranlib /usr/local/lib/libxml2.a
+#20 48.35 libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/out:/sbin" ldconfig -n /usr/local/lib
+#20 48.36 ----------------------------------------------------------------------
+#20 48.36 Libraries have been installed in:
+#20 48.36    /usr/local/lib
+#20 48.36 
+#20 48.36 If you ever happen to want to link against installed libraries
+#20 48.36 in a given directory, LIBDIR, you must either use libtool, and
+#20 48.36 specify the full pathname of the library, or use the '-LLIBDIR'
+#20 48.36 flag during linking and do at least one of the following:
+#20 48.36    - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+#20 48.36      during execution
+#20 48.36    - add LIBDIR to the 'LD_RUN_PATH' environment variable
+#20 48.36      during linking
+#20 48.36    - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+#20 48.36    - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+#20 48.36 
+#20 48.36 See any operating system documentation about shared libraries for
+#20 48.36 more information, such as the ld(1) and ld.so(8) manual pages.
+#20 48.36 ----------------------------------------------------------------------
+#20 48.36  /usr/bin/mkdir -p '/usr/local/bin'
+#20 48.37   /bin/bash ./libtool   --mode=install /usr/bin/install -c xmllint xmlcatalog '/usr/local/bin'
+#20 48.41 libtool: install: /usr/bin/install -c xmllint /usr/local/bin/xmllint
+#20 48.42 libtool: install: /usr/bin/install -c xmlcatalog /usr/local/bin/xmlcatalog
+#20 48.44  /usr/bin/mkdir -p '/usr/local/bin'
+#20 48.44  /usr/bin/install -c xml2-config '/usr/local/bin'
+#20 48.45  /usr/bin/mkdir -p '/usr/local/lib/cmake/libxml2'
+#20 48.45  /usr/bin/install -c -m 644 libxml2-config.cmake '/usr/local/lib/cmake/libxml2'
+#20 48.45  /usr/bin/mkdir -p '/usr/local/share/doc/libxml2/examples'
+#20 48.46  /usr/bin/install -c -m 644 xmllint.c '/usr/local/share/doc/libxml2/examples'
+#20 48.46  /usr/bin/mkdir -p '/usr/local/share/aclocal'
+#20 48.47  /usr/bin/install -c -m 644 libxml.m4 '/usr/local/share/aclocal'
+#20 48.47  /usr/bin/mkdir -p '/usr/local/lib/pkgconfig'
+#20 48.48  /usr/bin/install -c -m 644 libxml-2.0.pc '/usr/local/lib/pkgconfig'
+#20 48.48 make[3]: Leaving directory '/src/libxml2'
+#20 48.48 make[2]: Leaving directory '/src/libxml2'
+#20 48.48 Making install in doc
+#20 48.49 make[2]: Entering directory '/src/libxml2/doc'
+#20 48.49 Making install in .
+#20 48.50 make[3]: Entering directory '/src/libxml2/doc'
+#20 48.50 make[4]: Entering directory '/src/libxml2/doc'
+#20 48.50 make[4]: Nothing to be done for 'install-exec-am'.
+#20 48.50  /usr/bin/mkdir -p '/usr/local/share/man/man1'
+#20 48.51  /usr/bin/install -c -m 644 xml2-config.1 xmllint.1 xmlcatalog.1 '/usr/local/share/man/man1'
+#20 48.52  /usr/bin/mkdir -p '/usr/local/share/doc/libxml2'
+#20 48.53  /usr/bin/mkdir -p '/usr/local/share/doc/libxml2/tutorial/images'
+#20 48.53  /usr/bin/install -c -m 644  tutorial/images/blank.png tutorial/images/caution.png tutorial/images/draft.png tutorial/images/home.png tutorial/images/important.png tutorial/images/next.png tutorial/images/note.png tutorial/images/prev.png tutorial/images/tip.png tutorial/images/toc-blank.png tutorial/images/toc-minus.png tutorial/images/toc-plus.png tutorial/images/up.png tutorial/images/warning.png '/usr/local/share/doc/libxml2/tutorial/images'
+#20 48.54  /usr/bin/mkdir -p '/usr/local/share/doc/libxml2/tutorial'
+#20 48.54  /usr/bin/install -c -m 644  tutorial/apa.html tutorial/apb.html tutorial/apc.html tutorial/apd.html tutorial/ape.html tutorial/apf.html tutorial/apg.html tutorial/aph.html tutorial/api.html tutorial/ar01s02.html tutorial/ar01s03.html tutorial/ar01s04.html tutorial/ar01s05.html tutorial/ar01s06.html tutorial/ar01s07.html tutorial/ar01s08.html tutorial/ar01s09.html tutorial/includeaddattribute.c tutorial/includeaddkeyword.c tutorial/includeconvert.c tutorial/includegetattribute.c tutorial/includekeyword.c tutorial/includexpath.c tutorial/index.html tutorial/ix01.html '/usr/local/share/doc/libxml2/tutorial'
+#20 48.57  /usr/bin/install -c -m 644  xmlcatalog.html xmllint.html '/usr/local/share/doc/libxml2/.'
+#20 48.57  /usr/bin/mkdir -p '/usr/local/share/doc/libxml2/tutorial/images/callouts'
+#20 48.58  /usr/bin/install -c -m 644  tutorial/images/callouts/1.png tutorial/images/callouts/10.png tutorial/images/callouts/2.png tutorial/images/callouts/3.png tutorial/images/callouts/4.png tutorial/images/callouts/5.png tutorial/images/callouts/6.png tutorial/images/callouts/7.png tutorial/images/callouts/8.png tutorial/images/callouts/9.png '/usr/local/share/doc/libxml2/tutorial/images/callouts'
+#20 48.59 make[4]: Leaving directory '/src/libxml2/doc'
+#20 48.59 make[3]: Leaving directory '/src/libxml2/doc'
+#20 48.59 Making install in devhelp
+#20 48.59 make[3]: Entering directory '/src/libxml2/doc/devhelp'
+#20 48.60 make[4]: Entering directory '/src/libxml2/doc/devhelp'
+#20 48.60 make[4]: Nothing to be done for 'install-exec-am'.
+#20 48.60  /usr/bin/mkdir -p '/usr/local/share/gtk-doc/html/libxml2'
+#20 48.61  /usr/bin/install -c -m 644 libxml2.devhelp2 general.html index.html libxml2-c14n.html libxml2-catalog.html libxml2-chvalid.html libxml2-debugXML.html libxml2-dict.html libxml2-encoding.html libxml2-entities.html libxml2-globals.html libxml2-hash.html libxml2-HTMLparser.html libxml2-HTMLtree.html libxml2-list.html libxml2-nanoftp.html libxml2-nanohttp.html libxml2-parser.html libxml2-parserInternals.html libxml2-pattern.html libxml2-relaxng.html libxml2-SAX2.html libxml2-SAX.html libxml2-schemasInternals.html libxml2-schematron.html libxml2-threads.html libxml2-tree.html libxml2-uri.html libxml2-valid.html libxml2-xinclude.html libxml2-xlink.html libxml2-xmlautomata.html libxml2-xmlerror.html libxml2-xmlexports.html libxml2-xmlIO.html libxml2-xmlmemory.html libxml2-xmlmodule.html libxml2-xmlreader.html libxml2-xmlregexp.html libxml2-xmlsave.html '/usr/local/share/gtk-doc/html/libxml2'
+#20 48.65  /usr/bin/install -c -m 644 libxml2-xmlschemas.html libxml2-xmlschemastypes.html libxml2-xmlstring.html libxml2-xmlunicode.html libxml2-xmlversion.html libxml2-xmlwriter.html libxml2-xpath.html libxml2-xpathInternals.html libxml2-xpointer.html home.png left.png right.png up.png style.css '/usr/local/share/gtk-doc/html/libxml2'
+#20 48.66 make[4]: Leaving directory '/src/libxml2/doc/devhelp'
+#20 48.66 make[3]: Leaving directory '/src/libxml2/doc/devhelp'
+#20 48.66 Making install in examples
+#20 48.67 make[3]: Entering directory '/src/libxml2/doc/examples'
+#20 48.67 make[4]: Entering directory '/src/libxml2/doc/examples'
+#20 48.67 make[4]: Nothing to be done for 'install-exec-am'.
+#20 48.67 /usr/bin/mkdir -p /usr/local/share/doc/libxml2/examples
+#20 48.68 /usr/bin/install -c -m 0644 ./*.html ./*.c /usr/local/share/doc/libxml2/examples/
+#20 48.69 make[4]: Leaving directory '/src/libxml2/doc/examples'
+#20 48.69 make[3]: Leaving directory '/src/libxml2/doc/examples'
+#20 48.69 make[2]: Leaving directory '/src/libxml2/doc'
+#20 48.69 Making install in example
+#20 48.70 make[2]: Entering directory '/src/libxml2/example'
+#20 48.70 make[3]: Entering directory '/src/libxml2/example'
+#20 48.70 make[3]: Nothing to be done for 'install-exec-am'.
+#20 48.70 make[3]: Nothing to be done for 'install-data-am'.
+#20 48.70 make[3]: Leaving directory '/src/libxml2/example'
+#20 48.70 make[2]: Leaving directory '/src/libxml2/example'
+#20 48.70 Making install in fuzz
+#20 48.71 make[2]: Entering directory '/src/libxml2/fuzz'
+#20 48.71 make[3]: Entering directory '/src/libxml2/fuzz'
+#20 48.71 make[3]: Nothing to be done for 'install-exec-am'.
+#20 48.71 make[3]: Nothing to be done for 'install-data-am'.
+#20 48.71 make[3]: Leaving directory '/src/libxml2/fuzz'
+#20 48.71 make[2]: Leaving directory '/src/libxml2/fuzz'
+#20 48.71 Making install in xstc
+#20 48.72 make[2]: Entering directory '/src/libxml2/xstc'
+#20 48.72 make[3]: Entering directory '/src/libxml2/xstc'
+#20 48.72 make[3]: Nothing to be done for 'install-exec-am'.
+#20 48.72 make[3]: Nothing to be done for 'install-data-am'.
+#20 48.72 make[3]: Leaving directory '/src/libxml2/xstc'
+#20 48.72 make[2]: Leaving directory '/src/libxml2/xstc'
+#20 48.72 make[1]: Leaving directory '/src/libxml2'
+#20 48.72 + cp .libs/libxml2.a /deps/
+#20 48.74 + cd /src/glib
+#20 48.74 + GLIB_BUILD=/work/meson
+#20 48.74 + rm -rf /work/meson
+#20 48.74 + mkdir /work/meson
+#20 48.74 + meson /work/meson -Db_lundef=false -Ddefault_library=static -Dlibmount=disabled
+#20 61.82 The Meson build system
+#20 61.82 Version: 0.62.1
+#20 61.82 Source dir: /src/glib
+#20 61.82 Build dir: /work/meson
+#20 61.82 Build type: native build
+#20 61.82 Project name: glib
+#20 61.82 Project version: 2.73.0
+#20 61.82 C compiler for the host machine: clang (clang 14.0.0 "clang version 14.0.0 (https://github.com/llvm/llvm-project.git aee49255074fd4ef38d97e6e70cbfbf2f9fd0fa7)")
+#20 61.82 C linker for the host machine: clang ld.bfd 2.34
+#20 61.82 C++ compiler for the host machine: clang++ (clang 14.0.0 "clang version 14.0.0 (https://github.com/llvm/llvm-project.git aee49255074fd4ef38d97e6e70cbfbf2f9fd0fa7)")
+#20 61.82 C++ linker for the host machine: clang++ ld.bfd 2.34
+#20 61.82 Host machine cpu family: x86_64
+#20 61.82 Host machine cpu: x86_64
+#20 61.82 Compiler for C supports arguments -fno-strict-aliasing: YES 
+#20 61.82 Checking if "GNU C visibility attributes test" compiles: YES 
+#20 61.82 Message: Enabling various debug infrastructure
+#20 61.82 Has header "alloca.h" : YES 
+#20 61.82 Has header "afunix.h" : NO 
+#20 61.82 Has header "crt_externs.h" : NO 
+#20 61.82 Has header "dirent.h" : YES 
+#20 61.82 Has header "float.h" : YES 
+#20 61.82 Has header "fstab.h" : YES 
+#20 61.82 Has header "grp.h" : YES 
+#20 61.82 Has header "inttypes.h" : YES 
+#20 61.82 Has header "limits.h" : YES 
+#20 61.82 Has header "locale.h" : YES 
+#20 61.82 Has header "mach/mach_time.h" : NO 
+#20 61.82 Has header "memory.h" : YES 
+#20 61.82 Has header "mntent.h" : YES 
+#20 61.82 Has header "poll.h" : YES 
+#20 61.82 Has header "pwd.h" : YES 
+#20 61.82 Has header "sched.h" : YES 
+#20 61.82 Has header "spawn.h" : YES 
+#20 61.82 Has header "stdatomic.h" : YES 
+#20 61.82 Has header "stdint.h" : YES 
+#20 61.82 Has header "stdlib.h" : YES 
+#20 61.82 Has header "string.h" : YES 
+#20 61.82 Has header "strings.h" : YES 
+#20 61.82 Has header "sys/auxv.h" : YES 
+#20 61.82 Has header "sys/event.h" : NO 
+#20 61.82 Has header "sys/filio.h" : NO 
+#20 61.82 Has header "sys/inotify.h" : YES 
+#20 61.82 Has header "sys/mkdev.h" : NO 
+#20 61.82 Has header "sys/mntctl.h" : NO 
+#20 61.82 Has header "sys/mnttab.h" : NO 
+#20 61.82 Has header "sys/mount.h" : YES 
+#20 61.82 Has header "sys/param.h" : YES 
+#20 61.82 Has header "sys/resource.h" : YES 
+#20 61.82 Has header "sys/select.h" : YES 
+#20 61.82 Has header "sys/statfs.h" : YES 
+#20 61.82 Has header "sys/stat.h" : YES 
+#20 61.82 Has header "sys/statvfs.h" : YES 
+#20 61.82 Has header "sys/sysctl.h" : YES 
+#20 61.82 Has header "sys/time.h" : YES 
+#20 61.82 Has header "sys/times.h" : YES 
+#20 61.82 Has header "sys/types.h" : YES 
+#20 61.82 Has header "sys/uio.h" : YES 
+#20 61.82 Has header "sys/vfs.h" : YES 
+#20 61.82 Has header "sys/vfstab.h" : NO 
+#20 61.82 Has header "sys/vmount.h" : NO 
+#20 61.82 Has header "sys/wait.h" : YES 
+#20 61.82 Has header "termios.h" : YES 
+#20 61.82 Has header "unistd.h" : YES 
+#20 61.82 Has header "values.h" : YES 
+#20 61.82 Has header "wchar.h" : YES 
+#20 61.82 Has header "xlocale.h" : NO 
+#20 61.82 Checking if "malloc.h" compiles: YES 
+#20 61.82 Has header "linux/netlink.h" : YES 
+#20 61.82 Checking if "statx() test" compiles: YES 
+#20 61.82 Header <locale.h> has symbol "LC_MESSAGES" : YES 
+#20 61.82 Checking whether type "struct stat" has member "st_mtimensec" : NO 
+#20 61.82 Checking whether type "struct stat" has member "st_mtim.tv_nsec" : YES 
+#20 61.82 Checking whether type "struct stat" has member "st_atimensec" : NO 
+#20 61.82 Checking whether type "struct stat" has member "st_atim.tv_nsec" : YES 
+#20 61.82 Checking whether type "struct stat" has member "st_ctimensec" : NO 
+#20 61.82 Checking whether type "struct stat" has member "st_ctim.tv_nsec" : YES 
+#20 61.82 Checking whether type "struct stat" has member "st_birthtime" : NO 
+#20 61.82 Checking whether type "struct stat" has member "st_birthtimensec" : NO 
+#20 61.82 Checking whether type "struct stat" has member "st_birthtim" : NO 
+#20 61.82 Checking whether type "struct stat" has member "st_birthtim.tv_nsec" : NO 
+#20 61.82 Checking whether type "struct stat" has member "st_blksize" : YES 
+#20 61.82 Checking whether type "struct stat" has member "st_blocks" : YES 
+#20 61.82 Checking whether type "struct statfs" has member "f_fstypename" : NO 
+#20 61.82 Checking whether type "struct statfs" has member "f_bavail" : YES 
+#20 61.82 Checking whether type "struct dirent" has member "d_type" : YES 
+#20 61.82 Checking whether type "struct statvfs" has member "f_basetype" : NO 
+#20 61.82 Checking whether type "struct statvfs" has member "f_fstypename" : NO 
+#20 61.82 Checking whether type "struct tm" has member "tm_gmtoff" : YES 
+#20 61.82 Checking whether type "struct tm" has member "__tm_gmtoff" : NO 
+#20 61.82 Compiler for C supports arguments -Wduplicated-branches: NO 
+#20 61.82 Compiler for C supports arguments -Wimplicit-fallthrough: YES 
+#20 61.82 Compiler for C supports arguments -Wmisleading-indentation: YES 
+#20 61.82 Compiler for C supports arguments -Wunused: YES 
+#20 61.82 Compiler for C supports arguments -Wno-unused-parameter: YES 
+#20 61.82 Compiler for C supports arguments -Wno-cast-function-type: YES 
+#20 61.82 Compiler for C supports arguments -Wno-pedantic: YES 
+#20 61.82 Compiler for C supports arguments -Wno-format-zero-length: YES 
+#20 61.82 Compiler for C supports arguments -Wno-variadic-macros: YES 
+#20 61.82 Compiler for C supports arguments -Werror=format=2: YES 
+#20 61.82 Compiler for C supports arguments -Werror=init-self: YES 
+#20 61.82 Compiler for C supports arguments -Werror=missing-include-dirs: YES 
+#20 61.82 Compiler for C supports arguments -Werror=pointer-arith: YES 
+#20 61.82 Compiler for C supports arguments -Wstrict-prototypes: YES 
+#20 61.82 Compiler for C supports arguments -Wno-bad-function-cast: YES 
+#20 61.82 Compiler for C supports arguments -Werror=declaration-after-statement: YES 
+#20 61.82 Compiler for C supports arguments -Werror=implicit-function-declaration: YES 
+#20 61.82 Compiler for C supports arguments -Werror=missing-prototypes: YES 
+#20 61.82 Compiler for C++ supports arguments -Wduplicated-branches: NO 
+#20 61.82 Compiler for C++ supports arguments -Wimplicit-fallthrough: YES 
+#20 61.82 Compiler for C++ supports arguments -Wmisleading-indentation: YES 
+#20 61.82 Compiler for C++ supports arguments -Wunused: YES 
+#20 61.82 Compiler for C++ supports arguments -Wno-unused-parameter: YES 
+#20 61.82 Compiler for C++ supports arguments -Wno-cast-function-type: YES 
+#20 61.82 Compiler for C++ supports arguments -Wno-pedantic: YES 
+#20 61.82 Compiler for C++ supports arguments -Wno-format-zero-length: YES 
+#20 61.82 Compiler for C++ supports arguments -Wno-variadic-macros: YES 
+#20 61.82 Compiler for C++ supports arguments -Werror=format=2: YES 
+#20 61.82 Compiler for C++ supports arguments -Werror=init-self: YES 
+#20 61.82 Compiler for C++ supports arguments -Werror=missing-include-dirs: YES 
+#20 61.82 Compiler for C++ supports arguments -Werror=pointer-arith: YES 
+#20 61.82 Compiler for C supports link arguments -Wl,-z,nodelete: YES 
+#20 61.82 Compiler for C supports link arguments -Wl,-Bsymbolic-functions: YES 
+#20 61.82 Checking for function "close_range" : NO 
+#20 61.82 Checking for function "endmntent" : YES 
+#20 61.82 Checking for function "endservent" : YES 
+#20 61.82 Checking for function "epoll_create" : YES 
+#20 61.82 Checking for function "fallocate" : YES 
+#20 61.82 Checking for function "fchmod" : YES 
+#20 61.82 Checking for function "fchown" : YES 
+#20 61.82 Checking for function "fdwalk" : NO 
+#20 61.82 Checking for function "fsync" : YES 
+#20 61.82 Checking for function "getauxval" : YES 
+#20 61.82 Checking for function "getc_unlocked" : YES 
+#20 61.82 Checking for function "getfsstat" : NO 
+#20 61.82 Checking for function "getgrgid_r" : YES 
+#20 61.82 Checking for function "getmntent_r" : YES 
+#20 61.82 Checking for function "getpwuid_r" : YES 
+#20 61.82 Checking for function "getresuid" : YES 
+#20 61.82 Checking for function "getvfsstat" : NO 
+#20 61.82 Checking for function "gmtime_r" : YES 
+#20 61.82 Checking for function "hasmntopt" : YES 
+#20 61.82 Checking for function "inotify_init1" : YES 
+#20 61.82 Checking for function "issetugid" : NO 
+#20 61.82 Checking for function "kevent" : NO 
+#20 61.82 Checking for function "kqueue" : NO 
+#20 61.82 Checking for function "lchmod" : NO 
+#20 61.82 Checking for function "lchown" : YES 
+#20 61.82 Checking for function "link" : YES 
+#20 61.82 Checking for function "localtime_r" : YES 
+#20 61.82 Checking for function "lstat" : YES 
+#20 61.82 Checking for function "mbrtowc" : YES 
+#20 61.82 Checking for function "memalign" : YES 
+#20 61.82 Checking for function "mmap" : YES 
+#20 61.82 Checking for function "newlocale" : YES 
+#20 61.82 Checking for function "pipe2" : YES 
+#20 61.82 Checking for function "poll" : YES 
+#20 61.82 Checking for function "prlimit" : YES 
+#20 61.82 Checking for function "readlink" : YES 
+#20 61.82 Checking for function "recvmmsg" : YES 
+#20 61.82 Checking for function "sendmmsg" : YES 
+#20 61.82 Checking for function "setenv" : YES 
+#20 61.82 Checking for function "setmntent" : YES 
+#20 61.82 Checking for function "strerror_r" : YES 
+#20 61.82 Checking for function "strnlen" : YES 
+#20 61.82 Checking for function "strsignal" : YES 
+#20 61.82 Checking for function "strtod_l" : YES 
+#20 61.82 Checking for function "strtoll_l" : YES 
+#20 61.82 Checking for function "strtoull_l" : YES 
+#20 61.82 Checking for function "symlink" : YES 
+#20 61.82 Checking for function "timegm" : YES 
+#20 61.82 Checking for function "unsetenv" : YES 
+#20 61.82 Checking for function "uselocale" : YES 
+#20 61.82 Checking for function "utimes" : YES 
+#20 61.82 Checking for function "valloc" : YES 
+#20 61.82 Checking for function "vasprintf" : YES 
+#20 61.82 Checking for function "vsnprintf" : YES 
+#20 61.82 Checking for function "wcrtomb" : YES 
+#20 61.82 Checking for function "wcslen" : YES 
+#20 61.82 Checking for function "wcsnlen" : YES 
+#20 61.82 Checking for function "sysctlbyname" : NO 
+#20 105.2 Checking for function "statvfs" : YES 
+#20 105.2 Checking for function "statfs" : YES 
+#20 105.2 Checking for function "if_indextoname" : YES 
+#20 105.2 Checking for function "if_nametoindex" : YES 
+#20 105.2 Checking for function "splice" : YES 
+#20 105.2 Checking for function "stpcpy" : YES 
+#20 105.2 Checking for function "memalign" : YES 
+#20 105.2 Checking for function "_aligned_malloc" : NO 
+#20 105.2 Checking for function "aligned_alloc" : NO 
+#20 105.2 Checking for function "posix_memalign" : YES 
+#20 105.2 Checking for function "posix_spawn" : YES 
+#20 105.2 Checking if "strerror_r() returns char *" compiles: YES 
+#20 105.2 Checking for function "snprintf" : YES 
+#20 105.2 Checking for function "strcasecmp" : YES 
+#20 105.2 Checking for function "strncasecmp" : YES 
+#20 105.2 Header <sys/sysmacros.h> has symbol "major" : YES 
+#20 105.2 Header <dlfcn.h> has symbol "RTLD_LAZY" : YES 
+#20 105.2 Header <dlfcn.h> has symbol "RTLD_NOW" : YES 
+#20 105.2 Header <dlfcn.h> has symbol "RTLD_GLOBAL" : YES 
+#20 105.2 Header <dlfcn.h> has symbol "RTLD_NEXT" : YES 
+#20 105.2 Message: Checking whether to use statfs or statvfs .. statfs
+#20 105.2 Checking for function "mkostemp" : YES 
+#20 105.2 Checking if "futex(2) system call" : links: YES 
+#20 105.2 Checking if "eventfd(2) system call" : links: YES 
+#20 105.2 Checking if "__uint128_t available" compiles: YES 
+#20 105.2 Checking if "clock_gettime" : links: YES 
+#20 105.2 Checking if "dlopen() and dlsym() in system libraries" : links: YES 
+#20 105.2 Checking if "number of arguments to statfs() (n=2)" compiles: YES 
+#20 105.2 Checking if "open() option O_DIRECTORY" compiles: YES 
+#20 105.2 Checking if "fcntl() option F_FULLFSYNC" compiles: NO 
+#20 105.2 Checking if "C99 vsnprintf" runs: YES
+#20 105.2 Checking if "C99 snprintf" runs: YES
+#20 105.2 Checking if "Unix98 printf positional parameters" runs: YES
+#20 105.2 Checking if "nl_langinfo and CODESET" : links: YES 
+#20 105.2 Checking if "nl_langinfo (PM_STR)" : links: YES 
+#20 105.2 Checking if "nl_langinfo (_NL_CTYPE_OUTDIGITn_MB)" : links: YES 
+#20 105.2 Checking if "nl_langinfo (ALTMON_n)" : links: YES 
+#20 105.2 Checking if "nl_langinfo (_NL_ABALTMON_n)" : links: YES 
+#20 105.2 Checking if "nl_langinfo and _NL_TIME_CODESET" : links: YES 
+#20 105.2 Checking if "signed" compiles: YES 
+#20 105.2 Header <stddef.h> has symbol "ptrdiff_t" : YES 
+#20 105.2 Checking if "sig_atomic_t" : links: YES 
+#20 105.2 Checking if "long long" compiles: YES 
+#20 105.2 Checking if "long double" compiles: YES 
+#20 105.2 Header <stddef.h> has symbol "wchar_t" : YES 
+#20 105.2 Header <wchar.h> has symbol "wint_t" : YES 
+#20 105.2 Checking if "uintmax_t in inttypes.h" compiles: YES 
+#20 105.2 Checking if "uintmax_t in stdint.h" compiles: YES 
+#20 105.2 Checking for size of "char" : 1
+#20 105.2 Checking for size of "short" : 2
+#20 105.2 Checking for size of "int" : 4
+#20 105.2 Checking for size of "void*" : 8
+#20 105.2 Checking for size of "long" : 8
+#20 105.2 Checking for size of "long long" : 8
+#20 105.2 Checking for size of "size_t" : 8
+#20 105.2 Checking for size of "ssize_t" : 8
+#20 105.2 Checking if "int64_t is long" compiles: YES 
+#20 105.2 Checking for alignment of "char" : 1
+#20 105.2 Checking for alignment of "short" : 2
+#20 105.2 Checking for alignment of "int" : 4
+#20 105.2 Checking for alignment of "void*" : 8
+#20 105.2 Checking for alignment of "long" : 8
+#20 105.2 Checking for alignment of "long long" : 8
+#20 105.2 Checking for alignment of "size_t" : 8
+#20 105.2 Checking for size of "wchar_t" : 4
+#20 105.2 Checking if "GCC size_t typedef is long" compiles: YES 
+#20 105.2 Checking if "GCC size_t typedef is long long" compiles: NO 
+#20 105.2 Checking if "__va_copy check" compiles: YES 
+#20 105.2 Checking if "va_copy check" compiles: YES 
+#20 105.2 Checking if "va_lists can be copied as values" runs: DID NOT COMPILE
+#20 105.2 Checking if "ISO C99 varargs macros in C" compiles: YES 
+#20 105.2 Checking if "ISO C99 varargs macros in C++" compiles: YES 
+#20 105.2 Checking if "GNUC varargs macros" compiles: YES 
+#20 105.2 Has header "alloca.h" : YES (cached)
+#20 105.2 Has header "sys/poll.h" : YES 
+#20 105.2 Has header "sys/types.h" : YES (cached)
+#20 105.2 Has header "winsock2.h" : NO 
+#20 105.2 Computing int of "POLLIN" : 1
+#20 105.2 Computing int of "POLLOUT" : 4
+#20 105.2 Computing int of "POLLPRI" : 2
+#20 105.2 Computing int of "POLLERR" : 8
+#20 105.2 Computing int of "POLLHUP" : 16
+#20 105.2 Computing int of "POLLNVAL" : 32
+#20 105.2 Computing int of "AF_UNIX" : 1
+#20 105.2 Computing int of "AF_INET" : 2
+#20 105.2 Computing int of "AF_INET6" : 10
+#20 105.2 Computing int of "MSG_OOB" : 1
+#20 105.2 Computing int of "MSG_PEEK" : 2
+#20 105.2 Computing int of "MSG_DONTROUTE" : 4
+#20 105.2 Checking for type "struct in6_addr" : YES 
+#20 105.2 Checking if "atomic ops" : links: YES 
+#20 105.2 Run-time dependency threads found: YES
+#20 105.2 Header <pthread.h> has symbol "pthread_attr_setstacksize" : YES 
+#20 105.2 Header <pthread.h> has symbol "pthread_attr_setinheritsched" : YES 
+#20 105.2 Header <pthread.h> has symbol "pthread_condattr_setclock" : YES 
+#20 105.2 Header <pthread.h> has symbol "pthread_cond_timedwait_relative_np" : NO 
+#20 105.2 Header <pthread.h> has symbol "pthread_getname_np" : YES 
+#20 105.2 Header <sys/syscall.h> has symbol "SYS_sched_getattr" : YES 
+#20 105.2 Checking if "pthread_setname_np(const char*)" with dependency threads: links: NO 
+#20 105.2 Checking if "pthread_setname_np(pthread_t, const char*)" with dependency threads: links: YES 
+#20 105.2 Checking if "stack grows check" runs: NO (1)
+#20 105.2 Checking for function "iconv_open" : YES 
+#20 105.2 Found pkg-config: /usr/bin/pkg-config (0.29.1)
+#20 105.2 Found CMake: /usr/local/bin/cmake (3.21.1)
+#20 105.2 Run-time dependency libpcre found: NO (tried pkgconfig and cmake)
+#20 105.2 Run-time dependency libpcre found: NO (tried pkgconfig and cmake)
+#20 105.2 Looking for a fallback subproject for the dependency libpcre
+#20 105.2 Downloading pcre source from https://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2
+#20 105.2 <urlopen error unknown url type: https>
+#20 105.2 WARNING: failed to download with error: could not get https://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2 is the internet available?. Trying after a delay...
+#20 105.2 <urlopen error unknown url type: https>
+#20 105.2 WARNING: failed to download with error: could not get https://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2 is the internet available?. Trying after a delay...
+#20 105.2 <urlopen error unknown url type: https>
+#20 105.2 WARNING: failed to download with error: could not get https://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2 is the internet available?. Trying after a delay...
+#20 105.2 <urlopen error unknown url type: https>
+#20 105.2 WARNING: failed to download with error: could not get https://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2 is the internet available?. Trying after a delay...
+#20 105.2 <urlopen error unknown url type: https>
+#20 105.2 WARNING: failed to download with error: could not get https://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2 is the internet available?. Trying after a delay...
+#20 105.2 <urlopen error unknown url type: https>
+#20 105.2 A fallback URL could be specified using source_fallback_url key in the wrap file
+#20 105.2 
+#20 105.2 meson.build:2048:2: ERROR: could not get https://sourceforge.net/projects/pcre/files/pcre/8.37/pcre-8.37.tar.bz2 is the internet available?
+#20 105.2 
+#20 105.2 A full log can be found at /work/meson/meson-logs/meson-log.txt
+#20 105.2 Traceback (most recent call last):
+#20 105.2   File "<string>", line 1, in <module>
+#20 105.2   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#20 105.3     utils.build_benchmark()
+#20 105.3   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#20 105.3     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#20 105.3   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#20 105.3     raise CalledProcessError(retcode, cmd)
+#20 105.3 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#20 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/pidgin_pidgin_xml_fuzzer:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:281852: .afl-pidgin_pidgin_xml_fuzzer-builder] Error 1

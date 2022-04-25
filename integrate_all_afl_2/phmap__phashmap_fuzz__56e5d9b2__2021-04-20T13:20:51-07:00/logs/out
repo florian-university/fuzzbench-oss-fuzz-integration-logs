@@ -1,0 +1,34 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/phmap_phashmap_fuzz \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/phmap_phashmap_fuzz \
+--file benchmarks/phmap_phashmap_fuzz/Dockerfile \
+benchmarks/phmap_phashmap_fuzz
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/phmap_phashmap_fuzz-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/phmap_phashmap_fuzz-intermediate \
+--build-arg parent_image=gcr.io/fuzzbench/builders/benchmark/phmap_phashmap_fuzz \
+--file fuzzers/afl/builder.Dockerfile \
+fuzzers/afl
+docker pull ubuntu:xenial
+xenial: Pulling from library/ubuntu
+Digest: sha256:20858ebbc96215d6c3c574f781133ebffdc7c18d98af4f294cc4c04871a6fe61
+Status: Image is up to date for ubuntu:xenial
+docker.io/library/ubuntu:xenial
+docker build \
+--tag gcr.io/fuzzbench/base-image \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/base-image \
+--file docker/base-image/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/phmap_phashmap_fuzz \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/phmap_phashmap_fuzz \
+--build-arg benchmark=phmap_phashmap_fuzz \
+--build-arg fuzzer=afl \
+--build-arg parent_image=gcr.io/fuzzbench/builders/afl/phmap_phashmap_fuzz-intermediate \
+--file docker/benchmark-builder/Dockerfile \
+.

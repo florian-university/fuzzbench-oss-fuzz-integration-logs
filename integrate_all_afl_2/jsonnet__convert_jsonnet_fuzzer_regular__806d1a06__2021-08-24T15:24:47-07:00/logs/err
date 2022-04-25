@@ -1,0 +1,800 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: jsonnet_convert_jsonnet_fuzzer_regular.
+INFO:root:Please run "make test-run-afl-jsonnet_convert_jsonnet_fuzzer_regular" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:32710850477f327c47cd7591dc010daf9365a56255e7017e72f30fe4a9698aa6
+#1 transferring dockerfile: 922B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e7342896600a7482c55bd600e228f7b466870324ba3c7637a0dd1204d126a0b5
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:2b4c236fd0acf5516563d289cfb7c1ced3d52e7dad427b8f80f327d9ab1fb01e
+#9 DONE 0.0s
+
+#5 [1/6] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jsonnet_convert_jsonnet_fuzzer_regular
+#4 sha256:b327ccc3ab280a52d38107e36d89a3ee392b1092b0d68fcc8e1fa0a3cecfc697
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/jsonnet_convert_jsonnet_fuzzer_regular:latest: not found
+
+#9 [internal] load build context
+#9 sha256:2b4c236fd0acf5516563d289cfb7c1ced3d52e7dad427b8f80f327d9ab1fb01e
+#9 transferring context: 7.60kB done
+#9 DONE 0.0s
+
+#6 [2/6] RUN apt-get update && apt-get install -y build-essential cmake
+#6 sha256:9beb6a640fb728ab70e897948b5cda0da17f990754287ff14c14ea29a1d955af
+#6 CACHED
+
+#7 [3/6] RUN git clone --depth 1 https://github.com/google/jsonnet.git jsonnet
+#7 sha256:b41f4b2046f8d8743b94af03ab1b7edf2b43010e89614a6b7217044be9d3651a
+#7 CACHED
+
+#8 [4/6] WORKDIR /src/
+#8 sha256:0907797bf978890e94f606d0ae212024d300972f8b2731e2b9af2c8f695734b6
+#8 CACHED
+
+#10 [5/6] COPY build.sh /src/
+#10 sha256:d9caa4558db2c95c1a6f3bd1dcf208309d392e9b86fca0fd7353875fdd57f570
+#10 CACHED
+
+#11 [6/6] COPY *.cc /src/
+#11 sha256:013ec070bcbf00481e458c32fecadb7e770e475d95446156d33ea045487d7bd7
+#11 CACHED
+
+#12 exporting to image
+#12 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#12 exporting layers done
+#12 writing image sha256:5ea97ce63ee425b99eea1d32ebf843026c747db191d68e7405a73197ae686ea8 done
+#12 naming to gcr.io/fuzzbench/builders/benchmark/jsonnet_convert_jsonnet_fuzzer_regular done
+#12 DONE 0.1s
+
+#13 exporting cache
+#13 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#13 preparing build cache for export done
+#13 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/jsonnet_convert_jsonnet_fuzzer_regular:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:72c59854235f726060f2a42402c586a528d36fc4428875f313d26c7f977bbb84
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:d336b7df3b51c6fabad3e799f6b8e234c225775baf50352f173dd744be319a1c
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/jsonnet_convert_jsonnet_fuzzer_regular:latest
+#3 sha256:c78c861ea1128bb032fe3547ffced996ad0da674330b9267bc509d6b0ec66d09
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/jsonnet_convert_jsonnet_fuzzer_regular
+#5 sha256:776ef5075bb5639ccfe82ac684b4514907803b853bdde2b1ee32767a6810ccff
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate
+#4 sha256:dc859c3ace87be28c077b8918d3a5e27dde73b036e58cde54c918f665cf16a92
+#4 ERROR: gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate:latest: not found
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:b78733b1fb4895e095a7f729fb29519da0b739774e66c66f16c1142c08d377a4
+#6 CACHED
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:1e8dc95ce6bad13e0bd6828a71afcc74edb83e34b7647cc6b03404a49ae00af3
+#7 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:25507eb465f04e78189dff74b70ac98f1ab2e81c639df7fdb4cbfbb3ed5afc05 done
+#8 naming to gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:257bc4ed34be1269007215728f83fb0fb6af413d7cf337ca5a01409a2523751d
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:e3dcc86f20bbfe9af67c61e93201a3374078abdc97e3fe495c1b1bdde304cfc4
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:236bc16fe2cc178d4fa54bd6eb19491f308697b947b8a7f1d0b42b7f9f60d13d
+#8 transferring context: 591B 0.0s done
+#8 DONE 0.1s
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:67bc0c2c6989c2395ce9b3324cbdce51db7f67dc13c9d38d9c59a98f98bbe717
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:e7ee7d109f7b1bed07394ff8000ce586517d293a9f86ad008ca78a98307f9cae
+#11 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:3f4c3ba239687ca752fe9c3b0f22f4cd2d9b96e1177d7e6e29b77a354d868422
+#9 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:2c72d2654608232b8057cdd99924b397e0dc5103a4d893eeece5d8d5ffa5f27e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:06cefeb620ef0a12ea1bcad2e9d41606970bfe3e730adc09f2f646fe13a3a162 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.0s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:94b39765b3a8900dfc86e9d5dc2883e3242ddbb8b3150e1b4c12c1a8d03e2fc3
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:771e40c662c64ff7c608382bd398b5ba8ef81454a78a5a13bcfe082cf72ed9c9
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate:latest
+#3 sha256:cf69089aa6fd493ed0cae582b8dd52fe915630e23e15972f95599b79c677b194
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:19b1dd74464dcb7c08b3afed03a9be6eec408de740beafae83ea1ebf17703297
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate
+#6 sha256:7fdd96feaaa807f60c8fba939cf9a65d5e410a2aae58f37d55a5f9c56c04efce
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular
+#5 sha256:b87e2410a1bc9a78ca8b468f9aa3dc28dd404d6e9523da6667d195838458ea6e
+#5 ERROR: gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular:latest: not found
+
+#12 [internal] load build context
+#12 sha256:19b1dd74464dcb7c08b3afed03a9be6eec408de740beafae83ea1ebf17703297
+#12 transferring context: 742.45kB 0.1s done
+#12 DONE 0.1s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:2877b4c8c052791b38326904b50a44260b9f511505fe11ad41b3853a42d2eb98
+#8 CACHED
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:1dd33e2a3f259b7df6d8214d80a7d75d5126592c1491d332828e9dfd5848d53f
+#9 CACHED
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:12a7f04b4ebb3a07c06031a1b577502a3b81cbdc96c43e159a0864c7a8801bd2
+#10 CACHED
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:3b6e699fe5092dd26b12b8fd79e376152c5b69042f244fa1854878f7f9116e84
+#11 CACHED
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:4b6284f86ea9639893ab1750db339f23445104d35433b17933e35dacda3836c7
+#13 CACHED
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:36a973efbead9d80bbf217f284819253e5c6859a301f2188d9d39849e6d549f3
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] COPY benchmarks/jsonnet_convert_jsonnet_fuzzer_regular/benchmark.yaml /
+#15 sha256:8e19993a024ff7dfbea8facbcfbac1362ba83f0b00cd7bb00ffdc5004079bff9
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:71bf3271e9fd84bd8855b65ea226e9f41df8a54336d48073477b9669519cfc0b
+#16 DONE 0.5s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:36997b761d85eb14119ee2e1d49fd5a3db8e42f8789808fd75aeaa3340a3391f
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:b29812b054ce1ee875c00fbea3d3825e44440d8f99827e2b5caddf7e74f7d270
+#18 0.442 Checking out commit 806d1a06
+#18 4.825 From https://github.com/google/jsonnet
+#18 4.825  * [new tag]         0.12.0            -> 0.12.0
+#18 4.825  * [new tag]         go-jsonnet-phase1 -> go-jsonnet-phase1
+#18 4.826  * [new tag]         v0.10.0           -> v0.10.0
+#18 4.826  * [new tag]         v0.11.2           -> v0.11.2
+#18 4.826  * [new tag]         v0.12.0           -> v0.12.0
+#18 4.827  * [new tag]         v0.12.1           -> v0.12.1
+#18 4.827  * [new tag]         v0.13.0           -> v0.13.0
+#18 4.827  * [new tag]         v0.14.0           -> v0.14.0
+#18 4.828  * [new tag]         v0.15.0           -> v0.15.0
+#18 4.828  * [new tag]         v0.16.0           -> v0.16.0
+#18 4.828  * [new tag]         v0.17.0           -> v0.17.0
+#18 4.829  * [new tag]         v0.18.0           -> v0.18.0
+#18 4.829  * [new tag]         v0.5.0-beta       -> v0.5.0-beta
+#18 4.829  * [new tag]         v0.6.0-beta       -> v0.6.0-beta
+#18 4.830  * [new tag]         v0.7.0-beta       -> v0.7.0-beta
+#18 4.830  * [new tag]         v0.7.5            -> v0.7.5
+#18 4.830  * [new tag]         v0.7.6            -> v0.7.6
+#18 4.831  * [new tag]         v0.7.9            -> v0.7.9
+#18 4.831  * [new tag]         v0.8.0            -> v0.8.0
+#18 4.831  * [new tag]         v0.8.1            -> v0.8.1
+#18 4.832  * [new tag]         v0.8.2            -> v0.8.2
+#18 4.832  * [new tag]         v0.8.3            -> v0.8.3
+#18 4.832  * [new tag]         v0.8.4            -> v0.8.4
+#18 4.832  * [new tag]         v0.8.5            -> v0.8.5
+#18 4.833  * [new tag]         v0.8.6            -> v0.8.6
+#18 4.833  * [new tag]         v0.8.7            -> v0.8.7
+#18 4.833  * [new tag]         v0.8.8            -> v0.8.8
+#18 4.834  * [new tag]         v0.8.9            -> v0.8.9
+#18 4.834  * [new tag]         v0.9.0            -> v0.9.0
+#18 4.834  * [new tag]         v0.9.1            -> v0.9.1
+#18 4.835  * [new tag]         v0.9.2            -> v0.9.2
+#18 4.835  * [new tag]         v0.9.3            -> v0.9.3
+#18 4.835  * [new tag]         v0.9.4            -> v0.9.4
+#18 4.836  * [new tag]         v0.9.5            -> v0.9.5
+#18 4.846 error: pathspec '806d1a06' did not match any file(s) known to git
+#18 4.851 error: pathspec '806d1a06' did not match any file(s) known to git
+#18 4.859 error: pathspec '806d1a06' did not match any file(s) known to git
+#18 5.066 Checkout unsuccessful.
+#18 DONE 5.2s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:49344c94b0103fa18798784a4428f71da66aa9c8aa4807342fe87f96ad58cd9a
+#19 DONE 0.5s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:016692bd9a2255d8d9de66adf5e6b839a0f0ff28bb34e8d402fad791748fde5d
+#20 0.496 Run fuzzer_build to build the target
+#20 0.611 FUZZ_TARGET = convert_jsonnet_fuzzer_regular
+#20 0.611 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.611 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.616 Building benchmark jsonnet_convert_jsonnet_fuzzer_regular with fuzzer afl
+#20 0.619 + mkdir jsonnet/build
+#20 0.622 + pushd jsonnet/build
+#20 0.622 /src/jsonnet/build /src
+#20 0.622 + cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ '-DCMAKE_C_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard' '-DCMAKE_CXX_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard' ..
+#20 0.626 CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
+#20 0.626   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#20 0.626   CMake.
+#20 0.626 
+#20 0.626   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#20 0.626   CMake that the project does not need compatibility with older versions.
+#20 0.626 
+#20 0.626 
+#20 0.837 -- The C compiler identification is Clang 14.0.0
+#20 1.097 -- The CXX compiler identification is Clang 14.0.0
+#20 1.110 -- Detecting C compiler ABI info
+#20 1.272 -- Detecting C compiler ABI info - done
+#20 1.322 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#20 1.323 -- Detecting C compile features
+#20 1.324 -- Detecting C compile features - done
+#20 1.333 -- Detecting CXX compiler ABI info
+#20 1.541 -- Detecting CXX compiler ABI info - done
+#20 1.614 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#20 1.615 -- Detecting CXX compile features
+#20 1.616 -- Detecting CXX compile features - done
+#20 1.634 CMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+#20 1.634   Compatibility with CMake < 2.8.12 will be removed from a future version of
+#20 1.634   CMake.
+#20 1.634 
+#20 1.634   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+#20 1.634   CMake that the project does not need compatibility with older versions.
+#20 1.634 
+#20 1.634 
+#20 1.691 -- Configuring done
+#20 1.694 -- Generating done
+#20 1.695 -- Build files have been written to: /src/jsonnet/build/googletest-download
+#20 1.721 [ 11%] Creating directories for 'googletest'
+#20 1.744 [ 22%] Performing download step (git clone) for 'googletest'
+#20 1.754 Cloning into 'googletest-src'...
+#20 4.134 HEAD is now at e2239ee6 Googletest export
+#20 4.189 [ 33%] Performing update step for 'googletest'
+#20 4.208 [ 44%] No patch step for 'googletest'
+#20 4.217 [ 55%] No configure step for 'googletest'
+#20 4.228 [ 66%] No build step for 'googletest'
+#20 4.239 [ 77%] No install step for 'googletest'
+#20 4.250 [ 88%] No test step for 'googletest'
+#20 4.261 [100%] Completed 'googletest'
+#20 4.273 [100%] Built target googletest
+#20 4.744 -- Found Python: /usr/local/bin/python3.8 (found version "3.8.6") found components: Interpreter 
+#20 4.748 -- Looking for pthread.h
+#20 4.920 -- Looking for pthread.h - found
+#20 4.921 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+#20 5.100 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+#20 5.103 -- Found Threads: TRUE  
+#20 5.130 -- ryml: using C++ standard: C++11
+#20 5.130 -- ryml: setting C++ standard required: ON
+#20 5.133 -- ryml: importing subproject c4core (SUBDIRECTORY)... /src/jsonnet/third_party/rapidyaml/rapidyaml/ext/c4core
+#20 5.141 -- c4core: using C++ standard: C++11
+#20 5.183 -- ryml: -----> target ryml PUBLIC incorporating lib c4core
+#20 5.190 Extracted Jsonnet version: 0.18.0
+#20 5.194 Testing with Jsonnet executable: /src/jsonnet/build/jsonnet
+#20 5.195 -- Configuring done
+#20 5.276 -- Generating done
+#20 5.283 -- Build files have been written to: /src/jsonnet/build
+#20 5.291 ++ nproc
+#20 5.292 + make -j8
+#20 5.317 [  1%] Building CXX object googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+#20 5.318 [  2%] Building CXX object stdlib/CMakeFiles/to_c_array.dir/to_c_array.cpp.o
+#20 5.320 [  3%] Building CXX object third_party/md5/CMakeFiles/md5.dir/md5.cpp.o
+#20 5.321 [  5%] Building CXX object ryml/CMakeFiles/ryml.dir/src/c4/yml/common.cpp.o
+#20 5.321 [  6%] Building CXX object ryml/CMakeFiles/ryml.dir/src/c4/yml/parse.cpp.o
+#20 5.322 [  7%] Building CXX object ryml/CMakeFiles/ryml.dir/src/c4/yml/preprocess.cpp.o
+#20 5.322 [  9%] Building CXX object ryml/CMakeFiles/ryml.dir/src/c4/yml/tree.cpp.o
+#20 5.323 [ 10%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/base64.cpp.o
+#20 5.671 [ 11%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/base64.cpp.o
+#20 6.097 [ 12%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/char_traits.cpp.o
+#20 7.253 [ 14%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/error.cpp.o
+#20 7.284 [ 15%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/char_traits.cpp.o
+#20 7.504 [ 16%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/format.cpp.o
+#20 7.538 [ 18%] Linking CXX static library ../../libmd5.a
+#20 7.570 [ 18%] Built target md5
+#20 7.575 [ 19%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/language.cpp.o
+#20 7.616 [ 20%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/memory_resource.cpp.o
+#20 7.671 [ 22%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/memory_util.cpp.o
+#20 7.854 [ 23%] Building CXX object ryml/CMakeFiles/ryml.dir/ext/c4core/src/c4/time.cpp.o
+#20 7.981 [ 24%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/error.cpp.o
+#20 8.005 [ 25%] Linking CXX executable ../to_c_array
+#20 8.231 [ 27%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/format.cpp.o
+#20 8.436 [ 27%] Built target to_c_array
+#20 8.451 [ 28%] Generating ../../core/std.jsonnet.h
+#20 8.456 [ 29%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/language.cpp.o
+#20 8.493 [ 29%] Built target stdlib
+#20 8.497 [ 32%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/memory_util.cpp.o
+#20 8.497 [ 32%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/memory_resource.cpp.o
+#20 8.633 [ 33%] Building CXX object ryml/subprojects/c4core/build/CMakeFiles/c4core.dir/src/c4/time.cpp.o
+#20 9.765 [ 35%] Linking CXX static library ../../../../libc4core.a
+#20 9.785 [ 35%] Built target c4core
+#20 11.33 [ 36%] Linking CXX static library ../libryml.a
+#20 11.35 [ 36%] Built target ryml
+#20 11.36 [ 40%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/desugarer.cpp.o
+#20 11.36 [ 40%] Building CXX object core/CMakeFiles/libjsonnet.dir/desugarer.cpp.o
+#20 11.36 [ 41%] Building CXX object core/CMakeFiles/libjsonnet.dir/formatter.cpp.o
+#20 11.36 [ 44%] Building CXX object core/CMakeFiles/libjsonnet.dir/lexer.cpp.o
+#20 11.36 [ 44%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/lexer.cpp.o
+#20 11.36 [ 40%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/formatter.cpp.o
+#20 11.36 [ 45%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/libjsonnet.cpp.o
+#20 17.90 [ 46%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/parser.cpp.o
+#20 18.01 [ 48%] Building CXX object core/CMakeFiles/libjsonnet.dir/libjsonnet.cpp.o
+#20 21.63 [ 49%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/pass.cpp.o
+#20 28.97 [ 50%] Building CXX object core/CMakeFiles/libjsonnet.dir/parser.cpp.o
+#20 29.71 [ 51%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/static_analysis.cpp.o
+#20 29.86 [ 53%] Building CXX object core/CMakeFiles/libjsonnet.dir/pass.cpp.o
+#20 32.00 [ 54%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/string_utils.cpp.o
+#20 32.13 [ 55%] Building CXX object core/CMakeFiles/libjsonnet.dir/static_analysis.cpp.o
+#20 32.40 [ 57%] Building CXX object core/CMakeFiles/libjsonnet_static.dir/vm.cpp.o
+#20 35.93 In file included from /src/jsonnet/core/vm.cpp:26:
+#20 35.93 /src/jsonnet/third_party/json/json.hpp:13087:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.93     JSON_NODISCARD
+#20 35.93     ^
+#20 35.93 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.93         #define JSON_NODISCARD [[nodiscard]]
+#20 35.93                                  ^
+#20 35.94 /src/jsonnet/third_party/json/json.hpp:14262:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.94     JSON_NODISCARD
+#20 35.94     ^
+#20 35.94 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.94         #define JSON_NODISCARD [[nodiscard]]
+#20 35.94                                  ^
+#20 35.94 /src/jsonnet/third_party/json/json.hpp:14306:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.94     JSON_NODISCARD
+#20 35.94     ^
+#20 35.94 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.94         #define JSON_NODISCARD [[nodiscard]]
+#20 35.94                                  ^
+#20 35.96 /src/jsonnet/third_party/json/json.hpp:18858:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.96     JSON_NODISCARD
+#20 35.96     ^
+#20 35.96 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.96         #define JSON_NODISCARD [[nodiscard]]
+#20 35.96                                  ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:19627:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.97     JSON_NODISCARD
+#20 35.97     ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.97         #define JSON_NODISCARD [[nodiscard]]
+#20 35.97                                  ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:19643:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.97     JSON_NODISCARD
+#20 35.97     ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.97         #define JSON_NODISCARD [[nodiscard]]
+#20 35.97                                  ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:19736:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.97     JSON_NODISCARD
+#20 35.97     ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.97         #define JSON_NODISCARD [[nodiscard]]
+#20 35.97                                  ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:19752:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.97     JSON_NODISCARD
+#20 35.97     ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.97         #define JSON_NODISCARD [[nodiscard]]
+#20 35.97                                  ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:19824:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.97     JSON_NODISCARD
+#20 35.97     ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.97         #define JSON_NODISCARD [[nodiscard]]
+#20 35.97                                  ^
+#20 35.97 /src/jsonnet/third_party/json/json.hpp:19840:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.97     JSON_NODISCARD
+#20 35.97     ^
+#20 35.98 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.98         #define JSON_NODISCARD [[nodiscard]]
+#20 35.98                                  ^
+#20 35.98 /src/jsonnet/third_party/json/json.hpp:19911:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.98     JSON_NODISCARD
+#20 35.98     ^
+#20 35.98 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.98         #define JSON_NODISCARD [[nodiscard]]
+#20 35.98                                  ^
+#20 35.98 /src/jsonnet/third_party/json/json.hpp:19927:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.98     JSON_NODISCARD
+#20 35.98     ^
+#20 35.98 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.98         #define JSON_NODISCARD [[nodiscard]]
+#20 35.98                                  ^
+#20 35.98 /src/jsonnet/third_party/json/json.hpp:20516:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 35.98     JSON_NODISCARD
+#20 35.98     ^
+#20 35.98 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 35.98         #define JSON_NODISCARD [[nodiscard]]
+#20 35.98                                  ^
+#20 36.31 [ 58%] Building CXX object core/CMakeFiles/libjsonnet.dir/string_utils.cpp.o
+#20 36.98 [ 59%] Building CXX object core/CMakeFiles/libjsonnet.dir/vm.cpp.o
+#20 38.18 [ 61%] Linking CXX static library ../../lib/libgtest.a
+#20 38.23 [ 61%] Built target gtest
+#20 38.25 [ 62%] Building CXX object googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+#20 38.25 [ 63%] Building CXX object googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+#20 40.03 In file included from /src/jsonnet/core/vm.cpp:26:
+#20 40.03 /src/jsonnet/third_party/json/json.hpp:13087:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.03     JSON_NODISCARD
+#20 40.03     ^
+#20 40.03 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.03         #define JSON_NODISCARD [[nodiscard]]
+#20 40.03                                  ^
+#20 40.04 /src/jsonnet/third_party/json/json.hpp:14262:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.04     JSON_NODISCARD
+#20 40.04     ^
+#20 40.04 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.04         #define JSON_NODISCARD [[nodiscard]]
+#20 40.04                                  ^
+#20 40.04 /src/jsonnet/third_party/json/json.hpp:14306:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.04     JSON_NODISCARD
+#20 40.04     ^
+#20 40.04 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.04         #define JSON_NODISCARD [[nodiscard]]
+#20 40.04                                  ^
+#20 40.05 /src/jsonnet/third_party/json/json.hpp:18858:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.05     JSON_NODISCARD
+#20 40.05     ^
+#20 40.05 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.05         #define JSON_NODISCARD [[nodiscard]]
+#20 40.05                                  ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:19627:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.06     JSON_NODISCARD
+#20 40.06     ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.06         #define JSON_NODISCARD [[nodiscard]]
+#20 40.06                                  ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:19643:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.06     JSON_NODISCARD
+#20 40.06     ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.06         #define JSON_NODISCARD [[nodiscard]]
+#20 40.06                                  ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:19736:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.06     JSON_NODISCARD
+#20 40.06     ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.06         #define JSON_NODISCARD [[nodiscard]]
+#20 40.06                                  ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:19752:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.06     JSON_NODISCARD
+#20 40.06     ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.06         #define JSON_NODISCARD [[nodiscard]]
+#20 40.06                                  ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:19824:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.06     JSON_NODISCARD
+#20 40.06     ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.06         #define JSON_NODISCARD [[nodiscard]]
+#20 40.06                                  ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:19840:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.06     JSON_NODISCARD
+#20 40.06     ^
+#20 40.06 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.07         #define JSON_NODISCARD [[nodiscard]]
+#20 40.07                                  ^
+#20 40.07 /src/jsonnet/third_party/json/json.hpp:19911:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.07     JSON_NODISCARD
+#20 40.07     ^
+#20 40.07 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.07         #define JSON_NODISCARD [[nodiscard]]
+#20 40.07                                  ^
+#20 40.07 /src/jsonnet/third_party/json/json.hpp:19927:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.07     JSON_NODISCARD
+#20 40.07     ^
+#20 40.07 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.07         #define JSON_NODISCARD [[nodiscard]]
+#20 40.07                                  ^
+#20 40.07 /src/jsonnet/third_party/json/json.hpp:20516:5: warning: use of the 'nodiscard' attribute is a C++17 extension [-Wc++17-extensions]
+#20 40.07     JSON_NODISCARD
+#20 40.07     ^
+#20 40.07 /src/jsonnet/third_party/json/json.hpp:496:34: note: expanded from macro 'JSON_NODISCARD'
+#20 40.07         #define JSON_NODISCARD [[nodiscard]]
+#20 40.07                                  ^
+#20 41.48 [ 64%] Linking CXX static library ../../lib/libgtest_main.a
+#20 41.51 [ 64%] Built target gtest_main
+#20 45.96 [ 66%] Linking CXX static library ../../lib/libgmock.a
+#20 45.98 [ 66%] Built target gmock
+#20 45.99 [ 67%] Building CXX object googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+#20 48.61 [ 68%] Linking CXX static library ../../lib/libgmock_main.a
+#20 48.63 [ 68%] Built target gmock_main
+#20 65.44 13 warnings generated.
+#20 65.46 [ 70%] Linking CXX static library ../libjsonnet.a
+#20 65.51 [ 70%] Built target libjsonnet_static
+#20 65.52 [ 72%] Building CXX object core/CMakeFiles/lexer_test.dir/lexer_test.cpp.o
+#20 65.52 [ 72%] Building CXX object core/CMakeFiles/libjsonnet_test.dir/libjsonnet_test.cpp.o
+#20 65.52 [ 74%] Building C object core/CMakeFiles/libjsonnet_test_file.dir/libjsonnet_test_file.c.o
+#20 65.52 [ 75%] Building C object core/CMakeFiles/libjsonnet_test_snippet.dir/libjsonnet_test_snippet.c.o
+#20 65.52 [ 76%] Building CXX object core/CMakeFiles/parser_test.dir/parser_test.cpp.o
+#20 65.52 [ 77%] Building CXX object cmd/CMakeFiles/jsonnet.dir/jsonnet.cpp.o
+#20 65.52 [ 79%] Building CXX object cmd/CMakeFiles/jsonnetfmt.dir/jsonnetfmt.cpp.o
+#20 65.59 [ 80%] Linking CXX executable ../libjsonnet_test_file
+#20 65.65 [ 81%] Linking CXX executable ../libjsonnet_test_snippet
+#20 66.44 [ 81%] Built target libjsonnet_test_file
+#20 66.45 [ 83%] Building CXX object cmd/CMakeFiles/jsonnetfmt.dir/utils.cpp.o
+#20 66.50 [ 83%] Built target libjsonnet_test_snippet
+#20 66.50 [ 84%] Building CXX object cmd/CMakeFiles/jsonnet.dir/utils.cpp.o
+#20 69.41 [ 85%] Linking CXX executable ../libjsonnet_test
+#20 69.69 13 warnings generated.
+#20 69.73 [ 87%] Linking CXX shared library ../libjsonnet.so
+#20 70.11 [ 88%] Linking CXX executable ../jsonnetfmt
+#20 70.26 [ 88%] Built target libjsonnet_test
+#20 70.43 [ 88%] Built target libjsonnet
+#20 70.80 [ 88%] Built target jsonnetfmt
+#20 71.60 [ 89%] Linking CXX executable ../jsonnet
+#20 72.17 [ 89%] Built target jsonnet
+#20 72.18 [ 92%] Building CXX object cpp/CMakeFiles/libjsonnet++_static.dir/libjsonnet++.cpp.o
+#20 72.18 [ 92%] Building CXX object cpp/CMakeFiles/libjsonnet++.dir/libjsonnet++.cpp.o
+#20 73.22 [ 93%] Linking CXX executable ../parser_test
+#20 73.52 [ 96%] Linking CXX static library ../libjsonnet++.a
+#20 73.52 [ 96%] Linking CXX shared library ../libjsonnet++.so
+#20 73.54 [ 96%] Built target libjsonnet++_static
+#20 73.56 [ 97%] Building CXX object cpp/CMakeFiles/libjsonnet++_test.dir/libjsonnet++_test.cpp.o
+#20 73.62 [ 98%] Linking CXX executable ../lexer_test
+#20 73.65 [ 98%] Built target libjsonnet++
+#20 73.71 [ 98%] Built target parser_test
+#20 74.07 [ 98%] Built target lexer_test
+#20 76.93 [100%] Linking CXX executable ../libjsonnet++_test
+#20 77.52 [100%] Built target libjsonnet++_test
+#20 77.53 + popd
+#20 77.53 + INSTALL_DIR=/src/jsonnet
+#20 77.53 + fuzzer=convert_jsonnet_fuzzer
+#20 77.53 /src
+#20 77.53 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -I/src/jsonnet/include /libAFL.a convert_jsonnet_fuzzer.cc -o /out/convert_jsonnet_fuzzer /src/jsonnet/build/libjsonnet.a /src/jsonnet/build/libmd5.a /src/jsonnet/build/libryml.a
+#20 78.85 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 79.9s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:9ef0c29c27bc79d1086ac5fe7fb861ae76e954e4640c4567e68ac7f8ec06a4a5 done
+#21 naming to gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular 0.0s done
+#21 DONE 0.3s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:39bb16a1991c7beb5b0d1b46ebbba4695c565717b5c954c4d40637cf6fb7202b
+#1 transferring dockerfile: 656B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:f315eb4a7963a3f124b9ac7b6793757f24d48cb7430d8d3a2585ed357d90f590
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate
+#5 sha256:20a2a1c7ffeabe4891b5d90613be62061516988a807db4ed4ec6bceefd962b00
+#5 ERROR: gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:559804d64fdb09848e27ac6aa062a59b9bde70e4fee70f67b96f8abeb802c389 done
+#6 naming to gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:23bb06b4c4947ed7e5f9cfe05dd5bd585b4e749cdc12616704e50b3f0a7d67cf
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:0277666909f7b41a5b239e2e4e359f134121432902b4575488a7fc8f552433eb
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate:latest
+#3 sha256:85229a7d6b647f1d452af28d435fbe297f7bcceade411931e6e80f0a4c3b36d4
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular:latest
+#4 sha256:25946a5ede205369f5f68c00fa9b3813daa17b843449dd5d9058173dda135a44
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b04f7b9772b75d41770fa9e5a0c662985f88ab247b9d962ddeed50198698564a
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular-intermediate
+#6 sha256:06ec0bf7533d6b665be413e01a43681e76ff45e07f23e1d34df7ceb8ada5c895
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular
+#10 sha256:bbfa1c3f52aba712bcfe7b383b9073254a377a182676073a819e3d7426263b9f
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular
+#5 sha256:d4cd1e37ee8180ebe585a637499cd10953ec55f4a9184ae389f47ddfad80533c
+#5 ERROR: gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular:latest: not found
+
+#12 [internal] load build context
+#12 sha256:b04f7b9772b75d41770fa9e5a0c662985f88ab247b9d962ddeed50198698564a
+#12 transferring context: 9.03MB 0.2s done
+#12 DONE 0.2s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/jsonnet_convert_jsonnet_fuzzer_regular
+#10 sha256:bbfa1c3f52aba712bcfe7b383b9073254a377a182676073a819e3d7426263b9f
+#10 DONE 0.6s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:693c26f37cd050b0c3b2e63ba88a2e19a75d64c07ea85ccb2a42830b1caadbba
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:d39170d83127c747e310e20bda7df4cb9c17e4c0c4e4d95944839b89d246fc49
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:550914081cbddd4cf0cd588e6a215617d67cf19866761dd4d5544845730e25a3
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:ad6541bc82aae11dca4ac2709def8fc118bb316ce1166718a4186e396481b967
+#11 CACHED
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:9c935576dca4ebed9921efce876fdc48bd4eecf65194e1a39002bb4211998cf4
+#13 DONE 0.3s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:ed354c51eea696aafa2c5144d6d65cd3434af65abaac61d268d3d00b01b43ab7
+#14 DONE 0.3s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:cd4824eb30bff7ea32bcfefc05dbef9fdb11eb4f2168afe4d88e3ddd6d04d274
+#15 DONE 0.5s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:4eb3aaebc71791a8fcfd33fcb3fd260d55a7e5430ab6a2b273c8cf4856e0a198
+#16 DONE 0.6s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:a0c9ba5fdee52c2e6d3d46da9f50ce8d4248d0bf2d00279703a704c1b1542055
+#17 DONE 0.1s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:06a05ec8a1b8ab0b4342d40effbbec0dba71a2981f20287bd1e2926cbad514e5
+#18 DONE 0.1s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:e288d481d616218d92f6baee36788e44f31e1b0c974b880890d7989bc63f0a7b
+#19 DONE 0.1s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:56c1622a468386c6f1c782c4a1dd322fb3ba4f197daf61b66225252d89935793
+#20 DONE 1.1s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:5b611a212eb3fbe837e7f1ffd24e28b72911dcbce2dc3a30355c463a509fad72
+#21 writing image sha256:5b611a212eb3fbe837e7f1ffd24e28b72911dcbce2dc3a30355c463a509fad72 0.0s done
+#21 naming to gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/jsonnet_convert_jsonnet_fuzzer_regular:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Fuzz target binary not found.
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7facbc552790> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}

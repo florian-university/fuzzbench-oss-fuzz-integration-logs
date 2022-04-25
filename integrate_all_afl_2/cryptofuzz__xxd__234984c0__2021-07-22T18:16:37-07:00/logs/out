@@ -1,0 +1,7 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/cryptofuzz_xxd \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/cryptofuzz_xxd \
+--file benchmarks/cryptofuzz_xxd/Dockerfile \
+benchmarks/cryptofuzz_xxd

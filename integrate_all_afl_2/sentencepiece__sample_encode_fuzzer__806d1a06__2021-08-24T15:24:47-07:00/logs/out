@@ -1,0 +1,110 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/sentencepiece_sample_encode_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/sentencepiece_sample_encode_fuzzer \
+--file benchmarks/sentencepiece_sample_encode_fuzzer/Dockerfile \
+benchmarks/sentencepiece_sample_encode_fuzzer
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/sentencepiece_sample_encode_fuzzer-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/sentencepiece_sample_encode_fuzzer-intermediate \
+--build-arg parent_image=gcr.io/fuzzbench/builders/benchmark/sentencepiece_sample_encode_fuzzer \
+--file fuzzers/afl/builder.Dockerfile \
+fuzzers/afl
+docker pull ubuntu:xenial
+xenial: Pulling from library/ubuntu
+Digest: sha256:20858ebbc96215d6c3c574f781133ebffdc7c18d98af4f294cc4c04871a6fe61
+Status: Image is up to date for ubuntu:xenial
+docker.io/library/ubuntu:xenial
+docker build \
+--tag gcr.io/fuzzbench/base-image \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/base-image \
+--file docker/base-image/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/sentencepiece_sample_encode_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/sentencepiece_sample_encode_fuzzer \
+--build-arg benchmark=sentencepiece_sample_encode_fuzzer \
+--build-arg fuzzer=afl \
+--build-arg parent_image=gcr.io/fuzzbench/builders/afl/sentencepiece_sample_encode_fuzzer-intermediate \
+--file docker/benchmark-builder/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/sentencepiece_sample_encode_fuzzer-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/sentencepiece_sample_encode_fuzzer-intermediate \
+--file fuzzers/afl/runner.Dockerfile \
+fuzzers/afl
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/sentencepiece_sample_encode_fuzzer \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/sentencepiece_sample_encode_fuzzer \
+--build-arg benchmark=sentencepiece_sample_encode_fuzzer \
+--build-arg fuzzer=afl \
+--file docker/benchmark-runner/Dockerfile \
+.
+docker run \
+--cpus=1 \
+--cap-add SYS_NICE \
+--cap-add SYS_PTRACE \
+-e FUZZ_OUTSIDE_EXPERIMENT=1 \
+-e FORCE_LOCAL=1 \
+-e TRIAL_ID=1 \
+-e FUZZER=afl \
+-e BENCHMARK=sentencepiece_sample_encode_fuzzer \
+-e FUZZ_TARGET=sample_encode_fuzzer \
+-e MAX_TOTAL_TIME=20 \
+-e SNAPSHOT_PERIOD=10 \
+gcr.io/fuzzbench/runners/afl/sentencepiece_sample_encode_fuzzer
+Creating a fake seed file in empty corpus directory.
+[run_afl_fuzz] Running target with afl-fuzz
+[run_afl_fuzz] Running command: ./afl-fuzz -i /out/seeds -o /out/corpus -m none -t 1000+ -d -- /out/sample_encode_fuzzer 2147483647
+[0;36mafl-fuzz [1;97m2.57b[0m by <lcamtuf@google.com>
+[1;92m[+] [0mDisabling the UI because AFL_NO_UI is set.[0m
+[1;92m[+] [0mYou have 8 CPU cores and 1 runnable tasks (utilization: 12%).[0m
+[1;92m[+] [0mTry parallel jobs - see docs/parallel_fuzzing.txt.[0m
+[1;93m[!] [1;97mWARNING: [0mNot binding to a CPU core (AFL_NO_AFFINITY set).[0m
+[1;94m[*] [0mChecking core_pattern...[0m
+
+[1;91m[-] [0mHmm, your system is configured to send core dump notifications to an
+    external utility. This will cause issues: there will be an extended delay
+    between stumbling upon a crash and having this information relayed to the
+    fuzzer via the standard waitpid() API.
+
+    To avoid having crashes misinterpreted as timeouts, please log in as root
+    and temporarily modify /proc/sys/kernel/core_pattern, like so:
+
+    echo core >/proc/sys/kernel/core_pattern
+[1;94m[*] [0mSetting up output directories...[0m
+[1;92m[+] [0mOutput directory exists but deemed OK to reuse.[0m
+[1;94m[*] [0mDeleting old session data...[0m
+[1;92m[+] [0mOutput dir cleanup successful.[0m
+[1;94m[*] [0mScanning '/out/seeds'...[0m
+[1;94m[*] [0mShuffling queue...[0m
+[1;92m[+] [0mNo auto-generated dictionary tokens to reuse.[0m
+[1;94m[*] [0mCreating hard links for all input files...[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mPersistent mode binary detected.[0m
+[1;92m[+] [0m[1;95mDeferred forkserver binary detected.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000000,orig:default_seed'...[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+
+[1;91m[-] [0mHmm, looks like the target binary terminated before we could complete a
+    handshake with the injected code. Perhaps there is a horrible bug in the
+    fuzzer. Poke <lcamtuf@coredump.cx> for troubleshooting tips.
+)B[?25h[0m[1;91m
+[-] PROGRAM ABORT : [1;97mFork server handshake failed[1;91m
+         Location : [0minit_forkserver(), afl-fuzz.c:2282
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/src/fuzzers/afl/fuzzer.py", line 138, in fuzz
+    run_afl_fuzz(input_corpus, output_corpus, target_binary)
+  File "/src/fuzzers/afl/fuzzer.py", line 131, in run_afl_fuzz
+    subprocess.check_call(command, stdout=output_stream, stderr=output_stream)
+  File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['./afl-fuzz', '-i', '/out/seeds', '-o', '/out/corpus', '-m', 'none', '-t', '1000+', '-d', '--', '/out/sample_encode_fuzzer', '2147483647']' returned non-zero exit status 1.

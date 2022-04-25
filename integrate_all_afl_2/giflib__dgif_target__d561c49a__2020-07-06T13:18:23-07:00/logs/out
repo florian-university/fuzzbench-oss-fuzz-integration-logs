@@ -1,0 +1,174 @@
+source .venv/bin/activate && PYTHONPATH=. python3 docker/generate_makefile.py docker/generated.mk
+docker build \
+--tag gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target \
+--file benchmarks/giflib_dgif_target/Dockerfile \
+benchmarks/giflib_dgif_target
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate \
+--build-arg parent_image=gcr.io/fuzzbench/builders/benchmark/giflib_dgif_target \
+--file fuzzers/afl/builder.Dockerfile \
+fuzzers/afl
+docker pull ubuntu:xenial
+xenial: Pulling from library/ubuntu
+Digest: sha256:20858ebbc96215d6c3c574f781133ebffdc7c18d98af4f294cc4c04871a6fe61
+Status: Image is up to date for ubuntu:xenial
+docker.io/library/ubuntu:xenial
+docker build \
+--tag gcr.io/fuzzbench/base-image \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/base-image \
+--file docker/base-image/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/builders/afl/giflib_dgif_target \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/builders/afl/giflib_dgif_target \
+--build-arg benchmark=giflib_dgif_target \
+--build-arg fuzzer=afl \
+--build-arg parent_image=gcr.io/fuzzbench/builders/afl/giflib_dgif_target-intermediate \
+--file docker/benchmark-builder/Dockerfile \
+.
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/giflib_dgif_target-intermediate \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/giflib_dgif_target-intermediate \
+--file fuzzers/afl/runner.Dockerfile \
+fuzzers/afl
+docker build \
+--tag gcr.io/fuzzbench/runners/afl/giflib_dgif_target \
+--build-arg BUILDKIT_INLINE_CACHE=1 \
+--cache-from gcr.io/fuzzbench/runners/afl/giflib_dgif_target \
+--build-arg benchmark=giflib_dgif_target \
+--build-arg fuzzer=afl \
+--file docker/benchmark-runner/Dockerfile \
+.
+docker run \
+--cpus=1 \
+--cap-add SYS_NICE \
+--cap-add SYS_PTRACE \
+-e FUZZ_OUTSIDE_EXPERIMENT=1 \
+-e FORCE_LOCAL=1 \
+-e TRIAL_ID=1 \
+-e FUZZER=afl \
+-e BENCHMARK=giflib_dgif_target \
+-e FUZZ_TARGET=dgif_target \
+-e MAX_TOTAL_TIME=20 \
+-e SNAPSHOT_PERIOD=10 \
+gcr.io/fuzzbench/runners/afl/giflib_dgif_target
+[run_afl_fuzz] Running target with afl-fuzz
+[run_afl_fuzz] Running command: ./afl-fuzz -i /out/seeds -o /out/corpus -m none -t 1000+ -d -x /out/gif.dict -- /out/dgif_target 2147483647
+[0;36mafl-fuzz [1;97m2.57b[0m by <lcamtuf@google.com>
+[1;92m[+] [0mDisabling the UI because AFL_NO_UI is set.[0m
+[1;92m[+] [0mYou have 8 CPU cores and 1 runnable tasks (utilization: 12%).[0m
+[1;92m[+] [0mTry parallel jobs - see docs/parallel_fuzzing.txt.[0m
+[1;93m[!] [1;97mWARNING: [0mNot binding to a CPU core (AFL_NO_AFFINITY set).[0m
+[1;94m[*] [0mChecking core_pattern...[0m
+
+[1;91m[-] [0mHmm, your system is configured to send core dump notifications to an
+    external utility. This will cause issues: there will be an extended delay
+    between stumbling upon a crash and having this information relayed to the
+    fuzzer via the standard waitpid() API.
+
+    To avoid having crashes misinterpreted as timeouts, please log in as root
+    and temporarily modify /proc/sys/kernel/core_pattern, like so:
+
+    echo core >/proc/sys/kernel/core_pattern
+[1;94m[*] [0mSetting up output directories...[0m
+[1;92m[+] [0mOutput directory exists but deemed OK to reuse.[0m
+[1;94m[*] [0mDeleting old session data...[0m
+[1;92m[+] [0mOutput dir cleanup successful.[0m
+[1;94m[*] [0mScanning '/out/seeds'...[0m
+[1;94m[*] [0mShuffling queue...[0m
+[1;92m[+] [0mNo auto-generated dictionary tokens to reuse.[0m
+[1;94m[*] [0mCreating hard links for all input files...[0m
+[1;94m[*] [0mLoading extra dictionary from '/out/gif.dict' (level 0)...[0m
+[1;92m[+] [0mLoaded 9 extra tokens, size range 1 B to 3 B.[0m
+[1;94m[*] [0mValidating target binary...[0m
+[1;92m[+] [0m[1;95mPersistent mode binary detected.[0m
+[1;92m[+] [0m[1;95mDeferred forkserver binary detected.[0m
+[1;94m[*] [0mAttempting dry run with 'id:000000,orig:13efae750ca310fcacb73cb8c7c75f5977e17c58'...[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+[1;92m[+] [0mAll right - fork server is up.[0m
+[1;90m    len = 1113, map size = 120, exec speed = 708 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000001,orig:2d2c46ae2e7de9bd054181b91bf9c86c35f58258'...[0m
+[1;90m    len = 108, map size = 109, exec speed = 267 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000002,orig:4d5941932ecc3746711b9b50a243df1430b2c08f'...[0m
+[1;90m    len = 2778, map size = 110, exec speed = 1363 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000003,orig:b3e21383461dbce9f4eb8258e81e9a9dc5697f63'...[0m
+[1;90m    len = 8429, map size = 110, exec speed = 2471 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000004,orig:70e5928903737e2b657581d51681c23d6af874ef'...[0m
+[1;90m    len = 1836, map size = 110, exec speed = 956 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000005,orig:baaca4bb42139613bed639e0c962205dbff627b0'...[0m
+[1;90m    len = 107, map size = 109, exec speed = 267 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000006,orig:dcd017c6bc9d581bd994d1b900d3b72d4f9cdfbe'...[0m
+[1;90m    len = 7344, map size = 110, exec speed = 2959 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000007,orig:c86fac62e2ac996ab21709359c1fe17bd18c602e'...[0m
+[1;90m    len = 222, map size = 109, exec speed = 437 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000008,orig:1c97721fc88e0334b7c40224ab251ff5a70b15b9'...[0m
+[1;90m    len = 13887, map size = 109, exec speed = 3081 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000009,orig:b1b8a2f7a7317d0d2fbbcefe25a055b2b6c56093'...[0m
+[1;90m    len = 6144, map size = 99, exec speed = 1801 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000010,orig:0b6786519c4704072cfb28467f36fe018dd6c5e5'...[0m
+[1;90m    len = 6542, map size = 110, exec speed = 2120 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000011,orig:efd814ca2ea8e4bdfca0f21e6da395c49f84e880'...[0m
+[1;90m    len = 393, map size = 108, exec speed = 424 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000012,orig:7257e0fccf5eea9bbf7ee2c40bcf83568fedac0b'...[0m
+[1;90m    len = 15317, map size = 98, exec speed = 5372 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000013,orig:319e1388d120b34614ff489fb7ac16c2338039a2'...[0m
+[1;90m    len = 225, map size = 109, exec speed = 440 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000014,orig:04a3da1126d9a76e8fe4b14068f1da3b651689e3'...[0m
+[1;90m    len = 407, map size = 99, exec speed = 282 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000015,orig:deeb44285f439dc223e4d4ba318c35eb731a770d'...[0m
+[1;90m    len = 18599, map size = 98, exec speed = 5503 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000016,orig:fbfd544c57103fd2a2d87438ce4184bd6c60366d'...[0m
+[1;90m    len = 950, map size = 110, exec speed = 558 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000017,orig:681d6f1d2c61970a8acdafc16641ee7f2ddc5a99'...[0m
+[1;90m    len = 21280, map size = 126, exec speed = 2594 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000018,orig:f37a00ea8f93edaebfd3e1b9ea97060b61de506d'...[0m
+[1;90m    len = 69, map size = 103, exec speed = 1196 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000019,orig:e74051eebccdcdee30203f4f82aab0effbc659dc'...[0m
+[1;90m    len = 36832, map size = 122, exec speed = 3574 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000020,orig:9d318a683e0c77e16e5e95a4f8002905d4652e8a'...[0m
+[1;90m    len = 464, map size = 109, exec speed = 471 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000021,orig:a1cc5ae8eaf9254bccbbbf9c18a4473a731ef3bc'...[0m
+[1;90m    len = 411, map size = 108, exec speed = 375 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000022,orig:1141496ee07ce47f686dd9e323d259addf91420e'...[0m
+[1;90m    len = 16858, map size = 108, exec speed = 4012 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000023,orig:3914689f2ba8f0ecfa8176e981d74e32c1f91078'...[0m
+[1;90m    len = 69, map size = 103, exec speed = 311 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000024,orig:35fea4cd2de3408c6cb4d51cb72aef634625d9f1'...[0m
+[1;90m    len = 69, map size = 103, exec speed = 270 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000025,orig:6cc47a7b3188ca77d5a5d9f573d064838d3245fb'...[0m
+[1;90m    len = 5512, map size = 110, exec speed = 1895 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000026,orig:67ae37a1577c34de64800e3a689259cc0932200e'...[0m
+[1;90m    len = 11984, map size = 109, exec speed = 3938 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000027,orig:b5de79066699fafea4d722ced9b246a4f547693c'...[0m
+[1;90m    len = 69, map size = 103, exec speed = 257 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000028,orig:4696038298269871967e3b79e849bfe02f6a3eb0'...[0m
+[1;90m    len = 4284, map size = 110, exec speed = 1460 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000029,orig:72929707ce1465719a117d45d37d0845c08fd54b'...[0m
+[1;90m    len = 531, map size = 110, exec speed = 475 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000030,orig:3cbf5d8b326e9662324cbe84f70f6940b2df93d2'...[0m
+[1;90m    len = 926, map size = 110, exec speed = 640 us
+[0m[1;94m[*] [0mAttempting dry run with 'id:000031,orig:9c2ab321ea944b1744d6d8b8800e5dbacac1fee3'...[0m
+[1;90m    len = 107, map size = 109, exec speed = 235 us
+[0m[1;92m[+] [0mAll test cases processed.[0m
+
+[1;93m[!] [1;97mWARNING: [0mSome test cases are big (36.0 kB) - see docs/perf_tips.txt.[0m
+[1;93m[!] [1;97mWARNING: [0m[1;91mSome test cases look useless. Consider using a smaller set.[0m
+[1;93m[!] [1;97mWARNING: [0mYou have lots of input files; try starting small.[0m
+[1;92m[+] [0mHere are some useful stats:
+
+[1;90m    Test case count : [0m4 favored, 0 variable, 32 total
+[1;90m       Bitmap range : [0m98 to 126 bits (average: 108.44 bits)
+[1;90m        Exec timing : [0m235 to 5503 us (average: 1585 us)
+[0m
+[1;92m[+] [0mAll set and ready to roll![0m
+[1;94m[*] [0mEntering queue cycle 1.[0m
+[1;94m[*] [0mFuzzing test case #14 (32 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #17 (106 total, 0 uniq crashes found)...[0m
+[1;94m[*] [0mFuzzing test case #19 (161 total, 0 uniq crashes found)...[0m

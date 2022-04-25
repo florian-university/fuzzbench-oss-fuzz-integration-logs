@@ -1,0 +1,993 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: libsodium_secret_key_auth_fuzzer.
+INFO:root:Please run "make test-run-afl-libsodium_secret_key_auth_fuzzer" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:230ca2220841d0e1a1ac73ab873c5176a2a39ab152c30b2853bf7e48b54c792a
+#1 transferring dockerfile: 923B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:4d20aa5ca9d57b127ef70996efb8a2f39efc278844ba0d3e3ecbfdc1a844aaee
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.4s
+
+#9 [internal] load build context
+#9 sha256:d9fff0622b34d234e820c9cf8b2025ac6bee602bbfab50f07c8736552955713b
+#9 DONE 0.0s
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libsodium_secret_key_auth_fuzzer
+#4 sha256:b7e8ed1d81cfac8682474386d87716ddc5e6815a81c615c166d2b18a28d0e7b1
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/libsodium_secret_key_auth_fuzzer:latest: not found
+
+#5 [1/5] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 CACHED
+
+#9 [internal] load build context
+#9 sha256:d9fff0622b34d234e820c9cf8b2025ac6bee602bbfab50f07c8736552955713b
+#9 transferring context: 5.69kB done
+#9 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y make
+#6 sha256:3f1d6a55af806298c1b6951fbf76321c67d198023e00277385a4beaf410c5a65
+#6 0.547 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#6 0.724 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#6 0.743 Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+#6 0.846 Get:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+#6 1.363 Get:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+#6 1.429 Get:6 http://security.ubuntu.com/ubuntu focal-security/restricted i386 Packages [26.7 kB]
+#6 1.584 Get:7 http://security.ubuntu.com/ubuntu focal-security/main i386 Packages [526 kB]
+#6 1.598 Get:8 http://archive.ubuntu.com/ubuntu focal-updates/restricted i386 Packages [29.5 kB]
+#6 1.741 Get:9 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1153 kB]
+#6 1.881 Get:10 http://security.ubuntu.com/ubuntu focal-security/universe i386 Packages [679 kB]
+#6 2.026 Get:11 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [870 kB]
+#6 2.130 Get:12 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1771 kB]
+#6 2.146 Get:13 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [1214 kB]
+#6 2.334 Get:14 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [1139 kB]
+#6 2.400 Get:15 http://archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [791 kB]
+#6 2.501 Get:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [2185 kB]
+#6 2.665 Get:17 http://archive.ubuntu.com/ubuntu focal-updates/universe i386 Packages [839 kB]
+#6 2.727 Get:18 http://archive.ubuntu.com/ubuntu focal-backports/universe i386 Packages [14.4 kB]
+#6 2.728 Get:19 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [26.0 kB]
+#6 3.046 Fetched 11.6 MB in 3s (4599 kB/s)
+#6 3.046 Reading package lists...
+#6 4.753 Reading package lists...
+#6 6.203 Building dependency tree...
+#6 6.419 Reading state information...
+#6 6.680 make is already the newest version (4.2.1-1.2).
+#6 6.680 make set to manually installed.
+#6 6.680 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#6 DONE 6.8s
+
+#7 [3/5] RUN git clone --depth 1 https://github.com/jedisct1/libsodium.git --branch stable libsodium
+#7 sha256:85ad97b42462d5b196bcd3453b31c775bf9d033766cafa10800126f17403d242
+#7 0.436 Cloning into 'libsodium'...
+#7 DONE 1.8s
+
+#8 [4/5] WORKDIR libsodium
+#8 sha256:1bf173253edc70736e8da449c7ff147d80d0a0d4e1e65ab54c0d6b6c6eccd41c
+#8 DONE 0.1s
+
+#10 [5/5] COPY build.sh *.cc *.h /src/
+#10 sha256:2beebb911add8476a67578e35f837447d949734a134abc0d3f7b60451a400e54
+#10 DONE 0.2s
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:146e9dee8f6572947e9c24c8425b471ca4264566bdd7c31cf35495b934ab333e done
+#11 naming to gcr.io/fuzzbench/builders/benchmark/libsodium_secret_key_auth_fuzzer done
+#11 DONE 0.1s
+
+#12 exporting cache
+#12 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#12 preparing build cache for export done
+#12 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/libsodium_secret_key_auth_fuzzer:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:a76fdc0f14595a35665d18409999d5da0db054e6b39659d456f66162ab45cc16
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:b9b57bd4d69b938a512af0afbcca6aae5c7d75bc7ba02be6925d16fc390d4736
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/libsodium_secret_key_auth_fuzzer:latest
+#3 sha256:efdbc8326e82cc2562355319069bad873e56c6008bb3cc38eb51a8b3ce7170a5
+#3 DONE 0.0s
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libsodium_secret_key_auth_fuzzer
+#5 sha256:f840fb7d9bdf40f874aca08cd59249d641c585053f2769611a825d5d48fe481f
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer-intermediate
+#4 sha256:15a67aa5b1f7daa00c3f5abdeb878398b260520be71a9f2a3ca066925fdba778
+#4 ERROR: gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer-intermediate:latest: not found
+
+#5 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/libsodium_secret_key_auth_fuzzer
+#5 sha256:f840fb7d9bdf40f874aca08cd59249d641c585053f2769611a825d5d48fe481f
+#5 DONE 0.5s
+
+#6 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#6 sha256:7210bcdce00be471876ee0cf5f4eddead17b65ee4a40acedada73d8e4c9ecf75
+#6 0.356 Cloning into '/afl'...
+#6 1.049 Note: switching to '61037103ae3722c8060ff7082994836a794f978e'.
+#6 1.049 
+#6 1.049 You are in 'detached HEAD' state. You can look around, make experimental
+#6 1.049 changes and commit them, and you can discard any commits you make in this
+#6 1.049 state without impacting any branches by switching back to a branch.
+#6 1.049 
+#6 1.049 If you want to create a new branch to retain commits you create, you may
+#6 1.049 do so (now or later) by using -c with the switch command. Example:
+#6 1.049 
+#6 1.049   git switch -c <new-branch-name>
+#6 1.049 
+#6 1.049 Or undo this operation with:
+#6 1.049 
+#6 1.049   git switch -
+#6 1.049 
+#6 1.049 Turn off this advice by setting config variable advice.detachedHead to false
+#6 1.049 
+#6 1.049 HEAD is now at 6103710 Fix a typo filename comparison in the fuzzer (#139)
+#6 1.076 [!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+#6 1.076 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gcc.c -o afl-gcc -ldl
+#6 1.541 set -e; for i in afl-g++ afl-clang afl-clang++; do ln -sf afl-gcc $i; done
+#6 1.546 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-fuzz.c -o afl-fuzz -ldl
+#6 3.923 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-showmap.c -o afl-showmap -ldl
+#6 4.259 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-tmin.c -o afl-tmin -ldl
+#6 4.716 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-gotcpu.c -o afl-gotcpu -ldl
+#6 4.875 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-analyze.c -o afl-analyze -ldl
+#6 5.285 clang -O1 -fno-omit-frame-pointer -gline-tables-only -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -Wall -D_FORTIFY_SOURCE=2 -g -Wno-pointer-sign -DAFL_PATH=\"/usr/local/lib/afl\" -DDOC_PATH=\"/usr/local/share/doc/afl\" -DBIN_PATH=\"/usr/local/bin\" afl-as.c -o afl-as -ldl
+#6 5.545 ln -sf afl-as as
+#6 5.547 [!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+#6 5.550 [+] LLVM users: see llvm_mode/README.llvm for a faster alternative to afl-gcc.
+#6 5.550 [+] All done! Be sure to review README - it's pretty short and useful.
+#6 DONE 5.7s
+
+#7 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#7 sha256:b45f8e75717d52f2e7d54a7fac3862cc745750ede12a199fd24ed0db21ddad5c
+#7 0.650 Hit:1 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
+#7 0.782 Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+#7 0.833 Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease
+#7 0.878 Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+#7 0.987 Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+#7 1.503 Reading package lists...
+#7 3.400 Reading package lists...
+#7 4.857 Building dependency tree...
+#7 5.072 Reading state information...
+#7 5.327 wget is already the newest version (1.20.3-1ubuntu2).
+#7 5.327 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#7 5.334 --2022-04-23 15:18:50--  https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp
+#7 5.337 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.108.133, ...
+#7 5.339 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+#7 5.364 HTTP request sent, awaiting response... 200 OK
+#7 5.532 Length: 9177 (9.0K) [text/plain]
+#7 5.532 Saving to: '/afl/afl_driver.cpp'
+#7 5.533 
+#7 5.533      0K ........                                              100% 8.40M=0.001s
+#7 5.534 
+#7 5.534 2022-04-23 15:18:51 (8.40 MB/s) - '/afl/afl_driver.cpp' saved [9177/9177]
+#7 5.534 
+#7 7.254 ar: creating /libAFL.a
+#7 DONE 7.3s
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:8231c2632428bc9e7d91807fce93ab80416325012f751893241ce7ceabeb8a19
+#8 writing image sha256:8231c2632428bc9e7d91807fce93ab80416325012f751893241ce7ceabeb8a19 done
+#8 naming to gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a9b8c91a2d42a2ef2ade7bd15e7d15b1d3d6f34dab0e2ed1c8cf9fa949092ea0
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:5518838e49e7986ea0c698fc87643d8babedc0f5ee5b513e019ecc71aaa533a4
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/base-image
+#4 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/ubuntu:xenial
+#5 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#5 DONE 0.0s
+
+#8 [internal] load build context
+#8 sha256:0652f4c53b813ddf0f834c72c09d2d6a8ccd7e6651fdcca6b9f3be45d551a62e
+#8 transferring context: 591B 0.0s done
+#8 DONE 0.1s
+
+#6 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#6 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#6 CACHED
+
+#7 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#7 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#7 CACHED
+
+#9 [4/7] COPY ./requirements.txt /
+#9 sha256:66b951466c767bdddb8f1aadabd8b0043a14e2b9861bf186e9d8dfc3c3ce720c
+#9 CACHED
+
+#10 [5/7] RUN pip3 install -r /requirements.txt
+#10 sha256:baa2725b435d7836313cb9aecb6d4c6bf29fb04afdd2259f80a371dbd1d837e9
+#10 CACHED
+
+#11 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#11 sha256:aa73cb635e3b470784839fabf7b46a31ddd26109b18a5d9bb2210371fb494b53
+#11 CACHED
+
+#12 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#12 sha256:d0dd3918bea5014e1fcd7d6b34d4b5b7766d45016b440717b50952082069987e
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:dcdf917ef78ccd0654739c59f483e635ede83d9d5725ebf1cf71bebe3cfad474 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:757694fc2fd5c83225177e88d1b1b0c43295697dae58740d289a43892c88739e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:0ded62d6f1411636c5402810a9c587754f3539684bd17abec205d4a3c2b0fe98
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#4 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#4 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer-intermediate:latest
+#3 sha256:d5f28c3a104f3a7476eaef5d32c2ea1fd20029c28fd70f7b93e4b5374affe891
+#3 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:b1687321bc586a16d07ff3b8899a711acaee08e38ddb19516040644550d60c65
+#12 DONE 0.0s
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer-intermediate
+#6 sha256:fb613df628adca03915eafcedcea7f5c678635aa51e8df84a738a9af52a1bb8f
+#6 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer
+#5 sha256:07b24ed61214678a3b647c3506518bd6e784cbbf030cbc2d8de0ca6a00ec5b65
+#5 ERROR: gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer:latest: not found
+
+#7 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#7 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#7 CACHED
+
+#12 [internal] load build context
+#12 sha256:b1687321bc586a16d07ff3b8899a711acaee08e38ddb19516040644550d60c65
+#12 transferring context: 742.43kB 0.1s done
+#12 DONE 0.1s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer-intermediate
+#6 sha256:fb613df628adca03915eafcedcea7f5c678635aa51e8df84a738a9af52a1bb8f
+#6 DONE 0.2s
+
+#8 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#8 sha256:fd5ea9e06bb957ae0399ca8ea3e55d80a84180b16805d28fb07deb44033d736c
+#8 DONE 0.3s
+
+#9 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#9 sha256:a9f564dd6693421ce42e4076b617b52cbfa990d1b3a868a6a4679c4899b62860
+#9 DONE 11.3s
+
+#10 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#10 sha256:b791ac482dd0b2e3285382a61dd512b3e0d2717ee93eadb30816dcfd0e0a816d
+#10 DONE 0.1s
+
+#11 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#11 sha256:f5bbc91058bb42005c5006223420b37547b1aff6efe9a264f7836431c8ace8be
+#11 DONE 16.1s
+
+#13 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#13 sha256:d4e56fbb85055b42113e02236c3777ac5492b868f14a8c6da13d761a8f29975b
+#13 DONE 0.2s
+
+#14 [stage-1  7/13] RUN touch /src/__init__.py
+#14 sha256:ca4e6aebd448141fcae63515577745bf506b8e48001def1759dbfac3868bbfde
+#14 DONE 0.5s
+
+#15 [stage-1  8/13] COPY benchmarks/libsodium_secret_key_auth_fuzzer/benchmark.yaml /
+#15 sha256:cb20b176200ae0321ae8b883452d4141c348af3c2d665b06402f873c33baab88
+#15 DONE 0.1s
+
+#16 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#16 sha256:e15c45a2a8334d3bf98031e1b5e678a2d98d98fa51e130435760fa926ecfdb8f
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#17 sha256:91328c308a6aa23f216f58511b26c4a0fd5abf6c4f7f9713ee4068eb211cc4bc
+#17 DONE 0.2s
+
+#18 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#18 sha256:eb5f8a89626b4558330e101045ec36abecb5ecbc49f106b411e5b213430659a8
+#18 0.513 Checking out commit 27f13eb5
+#18 4.186 From https://github.com/jedisct1/libsodium
+#18 4.186  * [new tag]           0.1            -> 0.1
+#18 4.187  * [new tag]           0.2            -> 0.2
+#18 4.187  * [new tag]           0.3            -> 0.3
+#18 4.187  * [new tag]           0.4            -> 0.4
+#18 4.188  * [new tag]           0.4.1          -> 0.4.1
+#18 4.188  * [new tag]           0.4.2          -> 0.4.2
+#18 4.188  * [new tag]           0.4.3          -> 0.4.3
+#18 4.188  * [new tag]           0.4.4          -> 0.4.4
+#18 4.189  * [new tag]           0.4.5          -> 0.4.5
+#18 4.189  * [new tag]           0.5.0          -> 0.5.0
+#18 4.189  * [new tag]           0.6.0          -> 0.6.0
+#18 4.190  * [new tag]           0.6.1          -> 0.6.1
+#18 4.190  * [new tag]           0.7.0          -> 0.7.0
+#18 4.190  * [new tag]           0.7.1          -> 0.7.1
+#18 4.190  * [new tag]           1.0.0          -> 1.0.0
+#18 4.190  * [new tag]           1.0.1          -> 1.0.1
+#18 4.191  * [new tag]           1.0.10         -> 1.0.10
+#18 4.191  * [new tag]           1.0.11         -> 1.0.11
+#18 4.191  * [new tag]           1.0.12         -> 1.0.12
+#18 4.192  * [new tag]           1.0.13         -> 1.0.13
+#18 4.192  * [new tag]           1.0.14         -> 1.0.14
+#18 4.192  * [new tag]           1.0.15         -> 1.0.15
+#18 4.192  * [new tag]           1.0.16         -> 1.0.16
+#18 4.193  * [new tag]           1.0.17         -> 1.0.17
+#18 4.193  * [new tag]           1.0.18-RELEASE -> 1.0.18-RELEASE
+#18 4.193  * [new tag]           1.0.2          -> 1.0.2
+#18 4.193  * [new tag]           1.0.3          -> 1.0.3
+#18 4.194  * [new tag]           1.0.4          -> 1.0.4
+#18 4.194  * [new tag]           1.0.5          -> 1.0.5
+#18 4.194  * [new tag]           1.0.6          -> 1.0.6
+#18 4.194  * [new tag]           1.0.7          -> 1.0.7
+#18 4.194  * [new tag]           1.0.8          -> 1.0.8
+#18 4.195  * [new tag]           1.0.9          -> 1.0.9
+#18 4.202 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.227 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.235 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.255 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.270 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.275 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.279 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.283 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.287 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.292 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.296 error: pathspec '27f13eb5' did not match any file(s) known to git
+#18 4.332 Checkout unsuccessful.
+#18 DONE 4.7s
+
+#19 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#19 sha256:3018dc4b50e7900fd9779f673820f369b9cfc530d395c4fcc1c72c5c5bede2e4
+#19 DONE 0.9s
+
+#20 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#20 sha256:fcf1d7820830310632a593f295ba0af5db168fb81ba1e5f77c93c179742a1a32
+#20 0.550 Run fuzzer_build to build the target
+#20 0.671 FUZZ_TARGET = secret_key_auth_fuzzer
+#20 0.671 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#20 0.671 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#20 0.678 Building benchmark libsodium_secret_key_auth_fuzzer with fuzzer afl
+#20 0.682 + ./configure --enable-static 'LDFLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard'
+#20 0.854 checking build system type... x86_64-pc-linux-gnu
+#20 0.949 checking host system type... x86_64-pc-linux-gnu
+#20 0.950 checking target system type... x86_64-pc-linux-gnu
+#20 0.951 checking for a BSD-compatible install... /usr/bin/install -c
+#20 0.964 checking whether build environment is sane... yes
+#20 0.984 checking for a race-free mkdir -p... /usr/bin/mkdir -p
+#20 0.988 checking for gawk... no
+#20 0.989 checking for mawk... mawk
+#20 0.990 checking whether make sets $(MAKE)... yes
+#20 1.007 checking whether make supports nested variables... yes
+#20 1.022 checking whether UID '0' is supported by ustar format... yes
+#20 1.023 checking whether GID '0' is supported by ustar format... yes
+#20 1.023 checking how to create a ustar tar archive... gnutar
+#20 1.050 checking whether make supports nested variables... (cached) yes
+#20 1.051 checking whether to enable maintainer-specific portions of Makefiles... no
+#20 1.055 checking for gcc... clang
+#20 1.168 checking whether the C compiler works... yes
+#20 1.315 checking for C compiler default output file name... a.out
+#20 1.317 checking for suffix of executables... 
+#20 1.461 checking whether we are cross compiling... no
+#20 1.604 checking for suffix of object files... o
+#20 1.640 checking whether the compiler supports GNU C... yes
+#20 1.673 checking whether clang accepts -g... yes
+#20 1.703 checking for clang option to enable C11 features... none needed
+#20 1.772 checking whether clang understands -c and -o together... yes
+#20 1.822 checking whether make supports the include directive... yes (GNU style)
+#20 1.836 checking dependency style of clang... gcc3
+#20 1.903 checking dependency style of clang... gcc3
+#20 1.962 checking for stdio.h... yes
+#20 2.000 checking for stdlib.h... yes
+#20 2.047 checking for string.h... yes
+#20 2.097 checking for inttypes.h... yes
+#20 2.148 checking for stdint.h... yes
+#20 2.201 checking for strings.h... yes
+#20 2.253 checking for sys/stat.h... yes
+#20 2.306 checking for sys/types.h... yes
+#20 2.362 checking for unistd.h... yes
+#20 2.419 checking for wchar.h... yes
+#20 2.482 checking for minix/config.h... no
+#20 2.545 checking whether it is safe to define __EXTENSIONS__... yes
+#20 2.605 checking whether _XOPEN_SOURCE should be defined... no
+#20 2.647 checking for a sed that does not truncate output... /usr/bin/sed
+#20 2.655 checking how to run the C preprocessor... clang -E
+#20 2.771 checking for grep that handles long lines and -e... /usr/bin/grep
+#20 2.775 checking for egrep... /usr/bin/grep -E
+#20 2.782 checking whether clang is Clang... yes
+#20 2.813 checking whether pthreads work with "-pthread" and "-lpthread"... yes
+#20 2.966 checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... no
+#20 3.231 checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+#20 3.383 checking whether more special flags are required for pthreads... no
+#20 3.383 checking for PTHREAD_PRIO_INHERIT... yes
+#20 3.687 checking for variable-length arrays... yes
+#20 3.747 checking for __wasi__ defined... no
+#20 3.782 checking whether to add -D_FORTIFY_SOURCE=2 to CPPFLAGS... yes
+#20 4.065 checking whether C compiler accepts -fvisibility=hidden... yes
+#20 4.206 checking whether C compiler accepts -fPIC... yes
+#20 4.347 checking whether C compiler accepts -fPIE... yes
+#20 4.488 checking whether the linker accepts -pie... yes
+#20 4.632 checking whether C compiler accepts -fno-strict-aliasing... yes
+#20 4.774 checking whether C compiler accepts -fno-strict-overflow... yes
+#20 4.959 checking for a broken Xcode version... no
+#20 4.993 checking whether C compiler accepts -fstack-protector... yes
+#20 5.197 checking whether the linker accepts -fstack-protector... yes
+#20 5.351 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wall... yes
+#20 5.497 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra... yes
+#20 5.641 checking for clang... yes
+#20 5.682 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option... yes
+#20 5.838 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast... yes
+#20 5.987 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual... yes
+#20 6.137 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero... yes
+#20 6.288 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches... yes
+#20 6.443 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond... yes
+#20 6.604 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal... yes
+#20 6.765 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2... yes
+#20 6.919 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op... yes
+#20 7.071 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized... yes
+#20 7.222 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation... yes
+#20 7.375 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations... yes
+#20 7.526 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes... yes
+#20 7.680 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs... yes
+#20 7.837 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits... yes
+#20 7.984 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas... yes
+#20 8.135 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id... yes
+#20 8.292 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference... yes
+#20 8.442 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration... yes
+#20 8.599 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith... yes
+#20 8.748 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls... yes
+#20 9.102 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wrestrict... yes
+#20 9.257 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wrestrict -Wshorten-64-to-32... yes
+#20 9.412 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wrestrict -Wshorten-64-to-32 -Wsometimes-uninitialized... yes
+#20 9.572 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wrestrict -Wshorten-64-to-32 -Wsometimes-uninitialized -Wstrict-prototypes... yes
+#20 9.730 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wrestrict -Wshorten-64-to-32 -Wsometimes-uninitialized -Wstrict-prototypes -Wswitch-enum... yes
+#20 9.885 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wrestrict -Wshorten-64-to-32 -Wsometimes-uninitialized -Wstrict-prototypes -Wswitch-enum -Wvariable-decl... yes
+#20 10.11 checking whether C compiler accepts -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -pthread -fvisibility=hidden -fPIC -fPIE -fno-strict-aliasing -fno-strict-overflow -fstack-protector -Wextra -Wno-unknown-warning-option -Wbad-function-cast -Wcast-qual -Wdiv-by-zero -Wduplicated-branches -Wduplicated-cond -Wfloat-equal -Wformat=2 -Wlogical-op -Wmaybe-uninitialized -Wmisleading-indentation -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wno-type-limits -Wno-unknown-pragmas -Wnormalized=id -Wnull-dereference -Wold-style-declaration -Wpointer-arith -Wredundant-decls -Wrestrict -Wshorten-64-to-32 -Wsometimes-uninitialized -Wstrict-prototypes -Wswitch-enum -Wvariable-decl -Wwrite-strings... yes
+#20 10.27 checking whether the linker accepts -Wl,-z,relro... yes
+#20 10.40 checking whether the linker accepts -Wl,-z,now... yes
+#20 10.54 checking whether the linker accepts -Wl,-z,noexecstack... yes
+#20 10.71 checking whether segmentation violations can be caught... yes
+#20 10.87 checking whether SIGABRT can be caught... yes
+#20 11.03 checking for thread local storage (TLS) class... _Thread_local
+#20 11.13 thread local storage is supported
+#20 11.13 checking whether C compiler accepts -ftls-model=local-dynamic... yes
+#20 11.27 checking how to print strings... printf
+#20 11.34 checking for a sed that does not truncate output... (cached) /usr/bin/sed
+#20 11.34 checking for fgrep... /usr/bin/grep -F
+#20 11.35 checking for ld used by clang... /usr/bin/ld
+#20 11.37 checking if the linker (/usr/bin/ld) is GNU ld... yes
+#20 11.37 checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+#20 11.38 checking the name lister (/usr/bin/nm -B) interface... BSD nm
+#20 11.42 checking whether ln -s works... yes
+#20 11.42 checking the maximum length of command line arguments... 1572864
+#20 11.43 checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+#20 11.43 checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+#20 11.43 checking for /usr/bin/ld option to reload object files... -r
+#20 11.44 checking for file... file
+#20 11.44 checking for objdump... objdump
+#20 11.44 checking how to recognize dependent libraries... pass_all
+#20 11.44 checking for dlltool... no
+#20 11.44 checking how to associate runtime and link libraries... printf %s\n
+#20 11.44 checking for ar... ar
+#20 11.44 checking for archiver @FILE support... @
+#20 11.49 checking for strip... strip
+#20 11.49 checking for ranlib... ranlib
+#20 11.49 checking command to parse /usr/bin/nm -B output from clang object... ok
+#20 11.68 checking for sysroot... no
+#20 11.68 checking for a working dd... /usr/bin/dd
+#20 11.69 checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+#20 11.73 checking for mt... no
+#20 11.73 checking if : is a manifest tool... no
+#20 11.74 checking for dlfcn.h... yes
+#20 11.82 checking for objdir... .libs
+#20 12.01 checking if clang supports -fno-rtti -fno-exceptions... yes
+#20 12.05 checking for clang option to produce PIC... -fPIC -DPIC
+#20 12.05 checking if clang PIC flag -fPIC -DPIC works... yes
+#20 12.08 checking if clang static flag -static works... yes
+#20 12.27 checking if clang supports -c -o file.o... yes
+#20 12.32 checking if clang supports -c -o file.o... (cached) yes
+#20 12.32 checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+#20 12.35 checking whether -lc should be explicitly linked in... no
+#20 12.42 checking dynamic linker characteristics... GNU/Linux ld.so
+#20 12.62 checking how to hardcode library paths into programs... immediate
+#20 12.62 checking whether stripping libraries is possible... yes
+#20 12.62 checking if libtool supports shared libraries... yes
+#20 12.62 checking whether to build shared libraries... yes
+#20 12.62 checking whether to build static libraries... yes
+#20 12.62 checking for ar... (cached) ar
+#20 12.63 checking whether C compiler accepts -mmmx... yes
+#20 12.76 checking for MMX instructions set... yes
+#20 12.81 checking whether C compiler accepts -mmmx... (cached) yes
+#20 12.81 checking whether C compiler accepts -msse2... yes
+#20 12.95 checking for SSE2 instructions set... yes
+#20 13.05 checking whether C compiler accepts -msse2... (cached) yes
+#20 13.05 checking whether C compiler accepts -msse3... yes
+#20 13.20 checking for SSE3 instructions set... yes
+#20 13.30 checking whether C compiler accepts -msse3... (cached) yes
+#20 13.30 checking whether C compiler accepts -mssse3... yes
+#20 13.45 checking for SSSE3 instructions set... yes
+#20 13.55 checking whether C compiler accepts -mssse3... (cached) yes
+#20 13.56 checking whether C compiler accepts -msse4.1... yes
+#20 13.71 checking for SSE4.1 instructions set... yes
+#20 13.89 checking whether C compiler accepts -msse4.1... (cached) yes
+#20 13.90 checking whether C compiler accepts -mavx... yes
+#20 14.03 checking for AVX instructions set... yes
+#20 14.74 checking whether C compiler accepts -mavx... (cached) yes
+#20 14.74 checking whether C compiler accepts -mavx2... yes
+#20 14.89 checking for AVX2 instructions set... yes
+#20 15.42 checking whether C compiler accepts -mavx2... (cached) yes
+#20 15.42 checking if _mm256_broadcastsi128_si256 is correctly defined... yes
+#20 15.97 checking whether C compiler accepts -mavx512f... yes
+#20 16.11 checking for AVX512F instructions set... yes
+#20 16.64 checking whether C compiler accepts -mavx512f... (cached) yes
+#20 16.65 checking whether C compiler accepts -maes... yes
+#20 16.79 checking whether C compiler accepts -mpclmul... yes
+#20 16.94 checking for AESNI instructions set and PCLMULQDQ... yes
+#20 17.03 checking whether C compiler accepts -maes... (cached) yes
+#20 17.03 checking whether C compiler accepts -mpclmul... (cached) yes
+#20 17.04 checking whether C compiler accepts -mrdrnd... yes
+#20 17.18 checking for RDRAND... yes
+#20 17.71 checking whether C compiler accepts -mrdrnd... (cached) yes
+#20 17.72 checking for sys/mman.h... yes
+#20 17.80 checking for sys/param.h... yes
+#20 17.89 checking for sys/random.h... yes
+#20 17.99 checking for intrin.h... no
+#20 18.09 checking if _xgetbv() is available... no
+#20 18.14 checking for inline... inline
+#20 18.17 checking whether byte ordering is bigendian... (cached) no
+#20 18.17 checking whether __STDC_LIMIT_MACROS is required... no
+#20 18.20 checking whether we can use inline asm code... yes
+#20 18.35 no
+#20 18.35 checking whether we can use x86_64 asm code... yes
+#20 18.50 checking whether we can assemble AVX opcodes... yes
+#20 18.64 checking for 128-bit arithmetic... yes
+#20 18.68 checking for cpuid instruction... yes
+#20 18.82 checking if the .private_extern asm directive is supported... no
+#20 18.88 checking if the .hidden asm directive is supported... yes
+#20 19.01 checking if weak symbols are supported... yes
+#20 19.15 checking if data alignment is required... no
+#20 19.15 checking if atomic operations are supported... yes
+#20 19.29 checking for size_t... yes
+#20 19.46 checking for working alloca.h... yes
+#20 19.59 checking for alloca... yes
+#20 19.59 checking for arc4random... no
+#20 19.73 checking for arc4random_buf... no
+#20 19.88 checking for mmap... yes
+#20 20.02 checking for mlock... yes
+#20 20.16 checking for madvise... yes
+#20 20.29 checking for mprotect... yes
+#20 20.43 checking for raise... yes
+#20 20.56 checking for sysconf... yes
+#20 20.70 checking for getrandom with a standard API... yes
+#20 20.87 checking for getrandom... yes
+#20 21.00 checking for getentropy with a standard API... yes
+#20 21.17 checking for getentropy... yes
+#20 21.32 checking for getpid... yes
+#20 21.48 checking for getauxva... no
+#20 21.64 checking for elf_aux_info... no
+#20 21.79 checking for posix_memalign... yes
+#20 21.92 checking for nanosleep... yes
+#20 22.06 checking for memset_s... no
+#20 22.21 checking for explicit_bzero... yes
+#20 22.36 checking for explicit_memset... no
+#20 22.50 checking if gcc/ld supports -Wl,--output-def... no
+#20 22.63 checking that generated files are newer than configure... done
+#20 22.63 configure: creating ./config.status
+#20 23.44 config.status: creating Makefile
+#20 23.48 config.status: creating builds/Makefile
+#20 23.51 config.status: creating contrib/Makefile
+#20 23.54 config.status: creating dist-build/Makefile
+#20 23.57 config.status: creating libsodium.pc
+#20 23.59 config.status: creating libsodium-uninstalled.pc
+#20 23.62 config.status: creating msvc-scripts/Makefile
+#20 23.65 config.status: creating src/Makefile
+#20 23.68 config.status: creating src/libsodium/Makefile
+#20 23.72 config.status: creating src/libsodium/include/Makefile
+#20 23.74 config.status: creating src/libsodium/include/sodium/version.h
+#20 23.78 config.status: creating test/default/Makefile
+#20 23.81 config.status: creating test/Makefile
+#20 23.85 config.status: executing depfiles commands
+#20 25.12 config.status: executing libtool commands
+#20 25.24 ++ nproc
+#20 25.24 + make -j8 all
+#20 25.25 Making all in builds
+#20 25.26 make[1]: Entering directory '/src/libsodium/builds'
+#20 25.26 make[1]: Nothing to be done for 'all'.
+#20 25.26 make[1]: Leaving directory '/src/libsodium/builds'
+#20 25.26 Making all in contrib
+#20 25.26 make[1]: Entering directory '/src/libsodium/contrib'
+#20 25.26 make[1]: Nothing to be done for 'all'.
+#20 25.26 make[1]: Leaving directory '/src/libsodium/contrib'
+#20 25.26 Making all in dist-build
+#20 25.26 make[1]: Entering directory '/src/libsodium/dist-build'
+#20 25.26 make[1]: Nothing to be done for 'all'.
+#20 25.26 make[1]: Leaving directory '/src/libsodium/dist-build'
+#20 25.26 Making all in msvc-scripts
+#20 25.27 make[1]: Entering directory '/src/libsodium/msvc-scripts'
+#20 25.27 make[1]: Nothing to be done for 'all'.
+#20 25.27 make[1]: Leaving directory '/src/libsodium/msvc-scripts'
+#20 25.27 Making all in src
+#20 25.27 make[1]: Entering directory '/src/libsodium/src'
+#20 25.28 Making all in libsodium
+#20 25.29 make[2]: Entering directory '/src/libsodium/src/libsodium'
+#20 25.29 Making all in include
+#20 25.30 make[3]: Entering directory '/src/libsodium/src/libsodium/include'
+#20 25.30 make[3]: Nothing to be done for 'all'.
+#20 25.30 make[3]: Leaving directory '/src/libsodium/src/libsodium/include'
+#20 25.31 make[3]: Entering directory '/src/libsodium/src/libsodium'
+#20 25.39   CC       crypto_shorthash/siphash24/libsodium_la-shorthash_siphashx24.lo
+#20 25.39   CC       crypto_shorthash/siphash24/ref/libsodium_la-shorthash_siphashx24_ref.lo
+#20 25.39   CC       crypto_sign/ed25519/ref10/libsodium_la-obsolete.lo
+#20 25.42   CC       crypto_generichash/blake2b/ref/libssse3_la-blake2b-compress-ssse3.lo
+#20 25.42   CC       crypto_pwhash/argon2/libssse3_la-argon2-fill-block-ssse3.lo
+#20 25.42   CC       crypto_generichash/blake2b/ref/libsse41_la-blake2b-compress-sse41.lo
+#20 25.42   CC       crypto_generichash/blake2b/ref/libavx2_la-blake2b-compress-avx2.lo
+#20 25.42   CC       crypto_pwhash/argon2/libavx2_la-argon2-fill-block-avx2.lo
+#20 25.73   CC       crypto_stream/chacha20/dolbeau/libavx2_la-chacha20_dolbeau-avx2.lo
+#20 25.91   CC       crypto_pwhash/argon2/libavx512f_la-argon2-fill-block-avx512f.lo
+#20 25.98   CC       crypto_aead/chacha20poly1305/sodium/libsodium_la-aead_chacha20poly1305.lo
+#20 26.58   CC       crypto_aead/xchacha20poly1305/sodium/libsodium_la-aead_xchacha20poly1305.lo
+#20 27.10   CC       crypto_auth/libsodium_la-crypto_auth.lo
+#20 27.22   CC       crypto_auth/hmacsha256/libsodium_la-auth_hmacsha256.lo
+#20 27.28   CC       crypto_auth/hmacsha512/libsodium_la-auth_hmacsha512.lo
+#20 27.28   CC       crypto_auth/hmacsha512256/libsodium_la-auth_hmacsha512256.lo
+#20 27.50   CC       crypto_box/libsodium_la-crypto_box.lo
+#20 27.69   CC       crypto_box/libsodium_la-crypto_box_easy.lo
+#20 27.77   CC       crypto_box/libsodium_la-crypto_box_seal.lo
+#20 27.81   CC       crypto_box/curve25519xsalsa20poly1305/libsodium_la-box_curve25519xsalsa20poly1305.lo
+#20 27.88   CC       crypto_core/ed25519/ref10/libsodium_la-ed25519_ref10.lo
+#20 28.02   CC       crypto_core/hchacha20/libsodium_la-core_hchacha20.lo
+#20 28.13   CC       crypto_core/hsalsa20/ref2/libsodium_la-core_hsalsa20_ref2.lo
+#20 28.18   CC       crypto_core/hsalsa20/libsodium_la-core_hsalsa20.lo
+#20 28.25   CC       crypto_core/salsa/ref/libsodium_la-core_salsa_ref.lo
+#20 28.49   CC       crypto_generichash/libsodium_la-crypto_generichash.lo
+#20 28.53   CC       crypto_generichash/blake2b/libsodium_la-generichash_blake2.lo
+#20 28.53   CC       crypto_generichash/blake2b/ref/libsodium_la-blake2b-compress-ref.lo
+#20 28.60   CC       crypto_generichash/blake2b/ref/libsodium_la-blake2b-ref.lo
+#20 28.64   CC       crypto_generichash/blake2b/ref/libsodium_la-generichash_blake2b.lo
+#20 28.89   CC       crypto_hash/libsodium_la-crypto_hash.lo
+#20 28.90   CC       crypto_hash/sha256/libsodium_la-hash_sha256.lo
+#20 28.90   CC       crypto_hash/sha256/cp/libsodium_la-hash_sha256_cp.lo
+#20 28.91   CC       crypto_hash/sha512/libsodium_la-hash_sha512.lo
+#20 29.11   CC       crypto_hash/sha512/cp/libsodium_la-hash_sha512_cp.lo
+#20 29.25   CC       crypto_kdf/blake2b/libsodium_la-kdf_blake2b.lo
+#20 29.25   CC       crypto_kdf/libsodium_la-crypto_kdf.lo
+#20 29.26   CC       crypto_kx/libsodium_la-crypto_kx.lo
+#20 29.28   CC       crypto_onetimeauth/libsodium_la-crypto_onetimeauth.lo
+#20 29.63   CC       crypto_onetimeauth/poly1305/libsodium_la-onetimeauth_poly1305.lo
+#20 29.64   CC       crypto_onetimeauth/poly1305/donna/libsodium_la-poly1305_donna.lo
+#20 29.71   CC       crypto_pwhash/argon2/libsodium_la-argon2-core.lo
+#20 29.86   CC       crypto_pwhash/argon2/libsodium_la-argon2-encoding.lo
+#20 30.07   CC       crypto_pwhash/argon2/libsodium_la-argon2-fill-block-ref.lo
+#20 30.09   CC       crypto_pwhash/argon2/libsodium_la-argon2.lo
+#20 30.27   CC       crypto_pwhash/argon2/libsodium_la-blake2b-long.lo
+#20 30.44   CC       crypto_pwhash/argon2/libsodium_la-pwhash_argon2i.lo
+#20 30.52   CC       crypto_pwhash/argon2/libsodium_la-pwhash_argon2id.lo
+#20 30.53   CC       crypto_pwhash/libsodium_la-crypto_pwhash.lo
+#20 30.58   CC       crypto_scalarmult/libsodium_la-crypto_scalarmult.lo
+#20 30.64   CC       crypto_scalarmult/curve25519/ref10/libsodium_la-x25519_ref10.lo
+#20 30.71   CC       crypto_scalarmult/curve25519/libsodium_la-scalarmult_curve25519.lo
+#20 30.95   CC       crypto_secretbox/libsodium_la-crypto_secretbox.lo
+#20 30.96   CC       crypto_secretbox/libsodium_la-crypto_secretbox_easy.lo
+#20 30.97   CC       crypto_secretbox/xsalsa20poly1305/libsodium_la-secretbox_xsalsa20poly1305.lo
+#20 31.06   CC       crypto_secretstream/xchacha20poly1305/libsodium_la-secretstream_xchacha20poly1305.lo
+#20 31.06   CC       crypto_shorthash/libsodium_la-crypto_shorthash.lo
+#20 31.30   CC       crypto_shorthash/siphash24/libsodium_la-shorthash_siphash24.lo
+#20 31.37   CC       crypto_shorthash/siphash24/ref/libsodium_la-shorthash_siphash24_ref.lo
+#20 31.41   CC       crypto_sign/libsodium_la-crypto_sign.lo
+#20 31.45   CC       crypto_sign/ed25519/libsodium_la-sign_ed25519.lo
+#20 31.64   CC       crypto_sign/ed25519/ref10/libsodium_la-keypair.lo
+#20 31.71   CC       crypto_sign/ed25519/ref10/libsodium_la-open.lo
+#20 31.82   CC       crypto_sign/ed25519/ref10/libsodium_la-sign.lo
+#20 31.88   CC       crypto_stream/chacha20/libsodium_la-stream_chacha20.lo
+#20 31.89   CC       crypto_stream/chacha20/ref/libsodium_la-chacha20_ref.lo
+#20 31.89   CC       crypto_stream/libsodium_la-crypto_stream.lo
+#20 32.19   CC       crypto_stream/salsa20/libsodium_la-stream_salsa20.lo
+#20 32.20   CC       crypto_stream/xsalsa20/libsodium_la-stream_xsalsa20.lo
+#20 32.22   CC       crypto_verify/sodium/libsodium_la-verify.lo
+#20 32.28   CC       randombytes/libsodium_la-randombytes.lo
+#20 32.31   CC       sodium/libsodium_la-codecs.lo
+#20 32.36   CC       sodium/libsodium_la-core.lo
+#20 32.57   CC       sodium/libsodium_la-runtime.lo
+#20 32.61   CC       sodium/libsodium_la-utils.lo
+#20 32.70   CC       sodium/libsodium_la-version.lo
+#20 32.72   CPPAS    crypto_stream/salsa20/xmm6/libsodium_la-salsa20_xmm6-asm.lo
+#20 32.76   CC       crypto_stream/salsa20/xmm6/libsodium_la-salsa20_xmm6.lo
+#20 32.90   CC       crypto_scalarmult/curve25519/sandy2x/libsodium_la-curve25519_sandy2x.lo
+#20 33.01   CC       crypto_scalarmult/curve25519/sandy2x/libsodium_la-fe51_invert.lo
+#20 33.01   CC       crypto_scalarmult/curve25519/sandy2x/libsodium_la-fe_frombytes_sandy2x.lo
+#20 33.08   CPPAS    crypto_scalarmult/curve25519/sandy2x/libsodium_la-sandy2x.lo
+#20 33.09   CC       crypto_box/curve25519xchacha20poly1305/libsodium_la-box_curve25519xchacha20poly1305.lo
+#20 33.31   CC       crypto_box/curve25519xchacha20poly1305/libsodium_la-box_seal_curve25519xchacha20poly1305.lo
+#20 33.33   CC       crypto_core/ed25519/libsodium_la-core_ed25519.lo
+#20 33.43   CC       crypto_core/ed25519/libsodium_la-core_ristretto255.lo
+#20 33.43   CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-crypto_scrypt-common.lo
+#20 33.45   CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-scrypt_platform.lo
+#20 33.50   CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-pbkdf2-sha256.lo
+#20 33.62   CC       crypto_pwhash/scryptsalsa208sha256/libsodium_la-pwhash_scryptsalsa208sha256.lo
+#20 33.72   CC       crypto_pwhash/scryptsalsa208sha256/nosse/libsodium_la-pwhash_scryptsalsa208sha256_nosse.lo
+#20 33.83   CC       crypto_scalarmult/ed25519/ref10/libsodium_la-scalarmult_ed25519_ref10.lo
+#20 33.91   CC       crypto_scalarmult/ristretto255/ref10/libsodium_la-scalarmult_ristretto255_ref10.lo
+#20 33.92   CC       crypto_secretbox/xchacha20poly1305/libsodium_la-secretbox_xchacha20poly1305.lo
+#20 33.98   CC       crypto_stream/salsa2012/ref/libsodium_la-stream_salsa2012_ref.lo
+#20 34.10   CC       crypto_stream/salsa2012/libsodium_la-stream_salsa2012.lo
+#20 34.31   CC       crypto_stream/salsa208/ref/libsodium_la-stream_salsa208_ref.lo
+#20 34.41   CC       crypto_stream/salsa208/libsodium_la-stream_salsa208.lo
+#20 34.41   CC       crypto_stream/xchacha20/libsodium_la-stream_xchacha20.lo
+#20 34.42   CC       randombytes/sysrandom/libsodium_la-randombytes_sysrandom.lo
+#20 34.47   CC       crypto_aead/aes256gcm/aesni/libaesni_la-aead_aes256gcm_aesni.lo
+#20 34.56   CC       crypto_onetimeauth/poly1305/sse2/libsse2_la-poly1305_sse2.lo
+#20 34.67   CC       crypto_pwhash/scryptsalsa208sha256/sse/libsse2_la-pwhash_scryptsalsa208sha256_sse.lo
+#20 34.74   CC       crypto_stream/chacha20/dolbeau/libssse3_la-chacha20_dolbeau-ssse3.lo
+#20 34.81   CCLD     libsse41.la
+#20 34.87   CC       crypto_stream/salsa20/xmm6int/libavx2_la-salsa20_xmm6int-avx2.lo
+#20 35.01 libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+#20 35.07   CCLD     libavx512f.la
+#20 35.07   CC       randombytes/internal/librdrand_la-randombytes_internal_random.lo
+#20 35.26 libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+#20 35.84   CCLD     libssse3.la
+#20 36.02 libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+#20 36.46   CCLD     libaesni.la
+#20 36.57 libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+#20 36.67   CCLD     libsse2.la
+#20 36.78 libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+#20 36.85   CCLD     librdrand.la
+#20 36.95 libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+#20 37.33   CCLD     libavx2.la
+#20 37.45 libtool: warning: '-version-info/-version-number' is ignored for convenience libraries
+#20 42.46   CCLD     libsodium.la
+#20 43.32 make[3]: Leaving directory '/src/libsodium/src/libsodium'
+#20 43.33 make[2]: Leaving directory '/src/libsodium/src/libsodium'
+#20 43.33 make[2]: Entering directory '/src/libsodium/src'
+#20 43.33 make[2]: Nothing to be done for 'all-am'.
+#20 43.33 make[2]: Leaving directory '/src/libsodium/src'
+#20 43.33 make[1]: Leaving directory '/src/libsodium/src'
+#20 43.33 Making all in test
+#20 43.33 make[1]: Entering directory '/src/libsodium/test'
+#20 43.34 Making all in default
+#20 43.35 make[2]: Entering directory '/src/libsodium/test/default'
+#20 43.35 make[2]: Nothing to be done for 'all'.
+#20 43.35 make[2]: Leaving directory '/src/libsodium/test/default'
+#20 43.35 make[2]: Entering directory '/src/libsodium/test'
+#20 43.35 make[2]: Nothing to be done for 'all-am'.
+#20 43.35 make[2]: Leaving directory '/src/libsodium/test'
+#20 43.35 make[1]: Leaving directory '/src/libsodium/test'
+#20 43.36 make[1]: Entering directory '/src/libsodium'
+#20 43.36 make[1]: Nothing to be done for 'all-am'.
+#20 43.36 make[1]: Leaving directory '/src/libsodium'
+#20 43.36 + for f in $SRC/*_fuzzer.cc
+#20 43.36 ++ basename /src/secret_key_auth_fuzzer.cc _fuzzer.cc
+#20 43.36 + fuzzer=secret_key_auth
+#20 43.36 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I/src/libsodium/src/libsodium/include /src/secret_key_auth_fuzzer.cc -o /out/secret_key_auth_fuzzer /src/libsodium/src/libsodium/.libs/libsodium.a /libAFL.a
+#20 44.26 + for f in $SRC/*_fuzzer.cc
+#20 44.26 ++ basename /src/secretbox_easy_fuzzer.cc _fuzzer.cc
+#20 44.26 + fuzzer=secretbox_easy
+#20 44.26 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -std=c++11 -I/src/libsodium/src/libsodium/include /src/secretbox_easy_fuzzer.cc -o /out/secretbox_easy_fuzzer /src/libsodium/src/libsodium/.libs/libsodium.a /libAFL.a
+#20 45.14 [post_build] Copying afl-fuzz to $OUT directory
+#20 DONE 45.4s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:0f5baff4c968e0aae08f9f6bf8022bd946ba006d9bd3c26bb897eb35b2ec95e6
+#21 writing image sha256:0f5baff4c968e0aae08f9f6bf8022bd946ba006d9bd3c26bb897eb35b2ec95e6 done
+#21 naming to gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer done
+#21 DONE 0.1s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer:
+------
+#1 [internal] load build definition from runner.Dockerfile
+#1 sha256:c45f6949bc3d216b406f142e548ea3fe8ae048f3eccda5ff765c9db4ad7b21ea
+#1 transferring dockerfile: 656B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1e65d25976bf365e43ca37da877f9cbff462501c87e17497e7f64d0d1b63a3bb
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer-intermediate
+#5 sha256:1fb69dbe886a4b37e2a9c10a1eaa4c4e2c30189774694275fa0b0c4263f2061c
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer-intermediate:latest: not found
+
+#4 [1/1] FROM gcr.io/fuzzbench/base-image
+#4 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#4 CACHED
+
+#6 exporting to image
+#6 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#6 exporting layers done
+#6 writing image sha256:3f7aa51dac32fbd604217d4910baf20707acd86a9059f840fbece7176fa38e4b
+#6 writing image sha256:3f7aa51dac32fbd604217d4910baf20707acd86a9059f840fbece7176fa38e4b done
+#6 naming to gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer-intermediate done
+#6 DONE 0.1s
+
+#7 exporting cache
+#7 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#7 preparing build cache for export done
+#7 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:a139d134bb96c5003dc7833d2865053ec4cc5e88ad866d857bae6857d8731f3c
+#1 transferring dockerfile: 3.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:729964956c1806f87165456de2390194c493a283e1beb2ec3ca619ea44908708
+#2 transferring context: 34B done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer-intermediate:latest
+#3 sha256:f54934e9b8d13389c55280de733b00bada7003ce878e396a176c285ef7025b8d
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer:latest
+#4 sha256:2ef7a340ba043b1333dcac09902bc3da68c03749a057514aa7584582a548286c
+#4 DONE 0.0s
+
+#12 [internal] load build context
+#12 sha256:52d6233765f8f3085d52b07de779fbaa31c75c09aabbf215b580a822f0816e07
+#12 DONE 0.0s
+
+#6 [stage-1  1/13] FROM gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer-intermediate
+#6 sha256:7f58e3763f33271805256ebe2d8e3ac6e4011df4941222eaed80b93095b77c23
+#6 DONE 0.0s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer
+#10 sha256:fe062fed0e51b0aa52172c7a34ed6ca446c48182ed22b9d31c475073317c056b
+#10 DONE 0.0s
+
+#5 importing cache manifest from gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer
+#5 sha256:f92a41ad21f5a8fbe9b53af42eacbfc4f21a04bc73bf898c2c0c7e6ae9547d80
+#5 ERROR: gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer:latest: not found
+
+#12 [internal] load build context
+#12 sha256:52d6233765f8f3085d52b07de779fbaa31c75c09aabbf215b580a822f0816e07
+#12 transferring context: 9.03MB 0.2s done
+#12 DONE 0.2s
+
+#10 [builder 1/1] FROM gcr.io/fuzzbench/builders/afl/libsodium_secret_key_auth_fuzzer
+#10 sha256:fe062fed0e51b0aa52172c7a34ed6ca446c48182ed22b9d31c475073317c056b
+#10 DONE 0.7s
+
+#7 [stage-1  2/13] RUN apt-get update -y && apt-get install -y     libglib2.0-0     libxml2     libarchive13     libgss3
+#7 sha256:923d5986772415bdc37b565c52218ee2b78499a2593393899e7dc345bfa64520
+#7 CACHED
+
+#8 [stage-1  3/13] RUN mkdir -p /out
+#8 sha256:85bb6cedb8844285561f0ebde7c648a34026fe42ae3f9ea80d4f3fe53f4a7a17
+#8 CACHED
+
+#9 [stage-1  4/13] WORKDIR /out
+#9 sha256:9f3d2f7f479c51bde92ba00e5c7a1f6f00bf94a685e2fab1e2087db1e9f914ed
+#9 CACHED
+
+#11 [stage-1  5/13] COPY --from=builder /out/ ./
+#11 sha256:68e384a5f6477f67335318ea49e6ca3f012a4bd92f5602d8c721536c760650dc
+#11 DONE 0.1s
+
+#13 [stage-1  6/13] COPY benchmarks /src/benchmarks
+#13 sha256:f69f68c658db88ac3ab645b22463cdcc0d209b09c1915275a23955ed2086a89e
+#13 DONE 0.3s
+
+#14 [stage-1  7/13] COPY fuzzers /src/fuzzers
+#14 sha256:e517bfe9a2e54b32cf8507e0cd8dc91db5059c0b8a035950dbc4d6c7522cd7bb
+#14 DONE 0.4s
+
+#15 [stage-1  8/13] RUN touch __init__.py
+#15 sha256:2c592ada50f76feb4534d86e8aaad2b92c49658cb989e0c6b7ebfbfb4dcac43b
+#15 DONE 0.7s
+
+#16 [stage-1  9/13] RUN mkdir -p /out/seeds /out/corpus
+#16 sha256:3252d15069e0265cae98de34b3ecb92803e91a767ce0bdb3700dc1efdade9d08
+#16 DONE 0.7s
+
+#17 [stage-1 10/13] COPY common /src/common
+#17 sha256:8a65c6e884aa3c1744e5cd77f055685f5337e8cdb8226be21c0b42a92a5e15e4
+#17 DONE 0.3s
+
+#18 [stage-1 11/13] COPY experiment/runner.py /src/experiment/runner.py
+#18 sha256:e1dfbe7d0f1ad565e7ec496332ef52ef984901d7caabc487325e9e47cc75aec6
+#18 DONE 0.3s
+
+#19 [stage-1 12/13] COPY docker/benchmark-runner /src/docker/benchmark-runner
+#19 sha256:29d1919eb8b9b2b55cefc9ecf1d89b180f1f9ef1f7730fb3701bf00cb6a089a9
+#19 DONE 0.2s
+
+#20 [stage-1 13/13] RUN chmod +x /src/docker/benchmark-runner/startup-runner.sh
+#20 sha256:1b43be32c69fbbc739cd65a77f8a3ee6bb4dafa3389c3f149b51a5cd2fa92558
+#20 DONE 0.4s
+
+#21 exporting to image
+#21 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#21 exporting layers done
+#21 writing image sha256:fd575fcbe5295e0665a763490ab181cccec4f49ebba000ea300a4bfe8bee9a72 done
+#21 naming to gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer done
+#21 DONE 0.0s
+
+#22 exporting cache
+#22 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#22 preparing build cache for export done
+#22 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/runners/afl/libsodium_secret_key_auth_fuzzer:
+------
+INFO:root:Doing trial as part of experiment.
+INFO:root:Starting trial.
+ERROR:root:Executed command: "nice -n 5 python3 -u -c from fuzzers.afl import fuzzer; fuzzer.fuzz('/out/seeds', '/out/corpus', '/out/secret_key_auth_fuzzer')" returned: 1.
+ERROR:root:Fuzz process returned nonzero. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 209, in run_fuzzer\n    new_process.execute(command,\n  File "/src/common/new_process.py", line 124, in execute\n    raise subprocess.CalledProcessError(retcode, command)\nsubprocess.CalledProcessError: Command \'[\'nice\', \'-n\', \'5\', \'python3\', \'-u\', \'-c\', "from fuzzers.afl import fuzzer; fuzzer.fuzz(\'/out/seeds\', \'/out/corpus\', \'/out/secret_key_auth_fuzzer\')"]\' returned non-zero exit status 1.\n'}
+INFO:root:Doing final sync.
+ERROR:root:Call to <function get_stats at 0x7f7312bffee0> failed. Extras: {'traceback': 'Traceback (most recent call last):\n  File "/src/experiment/runner.py", line 374, in record_stats\n    stats_json_str = fuzzer_module_get_stats(output_corpus,\n  File "/src/fuzzers/afl/fuzzer.py", line 51, in get_stats\n    with open(stats_file) as file_handle:\nFileNotFoundError: [Errno 2] No such file or directory: \'/out/corpus/fuzzer_stats\'\n'}
+make: *** [docker/generated.mk:280340: test-run-afl-libsodium_secret_key_auth_fuzzer] Error 1

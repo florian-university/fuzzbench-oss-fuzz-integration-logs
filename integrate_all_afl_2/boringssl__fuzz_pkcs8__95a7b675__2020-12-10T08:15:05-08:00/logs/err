@@ -1,0 +1,840 @@
+WARNING:root:gcloud not found in PATH.
+INFO:root:Successfully integrated benchmark: boringssl_fuzz_pkcs8.
+INFO:root:Please run "make test-run-afl-boringssl_fuzz_pkcs8" to test integration.
+#1 [internal] load build definition from Dockerfile
+#1 sha256:f2972b207e573b54e9c7a449c5f994f8ee15130949b48b42357c49da715083a7
+#1 transferring dockerfile: 1.35kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:ac1e91a32bf9688e10ade12cf22c32c92004560054eb037d37964d908e41746b
+#2 transferring context: 2B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
+#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
+#3 DONE 0.5s
+
+#11 [internal] load build context
+#11 sha256:ea27cee73a8163697b9aa485c7d0ae98542086de862cd177c91b1bec183578be
+#11 DONE 0.0s
+
+#5 [1/7] FROM gcr.io/oss-fuzz-base/base-builder@sha256:7f76292abe20e3a09554cd7e52e4ba7f174e2726aa0615496ca232017535a443
+#5 sha256:b785341069aff1aa420741f46c0341befe7652e19f60afc8069313b0e11f206e
+#5 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boringssl_fuzz_pkcs8
+#4 sha256:e9a597f7927fd7d055716a435a28e8d1dfdf756ee6658378e2de81fc6360d20f
+#4 ERROR: gcr.io/fuzzbench/builders/benchmark/boringssl_fuzz_pkcs8:latest: not found
+
+#11 [internal] load build context
+#11 sha256:ea27cee73a8163697b9aa485c7d0ae98542086de862cd177c91b1bec183578be
+#11 transferring context: 7.44kB done
+#11 DONE 0.0s
+
+#6 [2/7] RUN apt-get update && apt-get install -y wget     golang binutils cmake ninja-build liblzma-dev libz-dev     pkg-config autoconf libtool
+#6 sha256:cb842321c81fad95ae7a0dfa3ece063a57726e2542f60bac5304442397f072c1
+#6 CACHED
+
+#7 [3/7] RUN git clone --depth 1 https://boringssl.googlesource.com/boringssl
+#7 sha256:52258623c75fbe1d326d2077580aea37bcdc2f322d66f8d0639b44f485ce49ce
+#7 CACHED
+
+#8 [4/7] RUN git clone --depth 1 https://github.com/google/fuzzing.git
+#8 sha256:990faf02e50b495cf6ecf288058f9dfca62633435c7a6c2a4fb9549c181bad56
+#8 CACHED
+
+#9 [5/7] RUN git clone --depth 1 https://github.com/google/libprotobuf-mutator.git
+#9 sha256:7e5fa58c20304909709856a830f45f55fb14fa5f6444edbbd2fff11c86557d95
+#9 CACHED
+
+#10 [6/7] RUN (mkdir LPM && cd LPM && cmake ../libprotobuf-mutator -GNinja -DLIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF=ON -DLIB_PROTO_MUTATOR_TESTING=OFF -DCMAKE_BUILD_TYPE=Release && ninja)
+#10 sha256:fc16f58c45467b90f12e88d0552426d316c865a25091fc90983a415eb130a745
+#10 CACHED
+
+#12 [7/7] COPY *.cc build.sh /src/
+#12 sha256:cb6d48f5ed3950116eee0277fea215812144d7629d44a9323c8795abc64db2b9
+#12 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:e43c3b336d9513c54fee1b71b09fbb85fa2178418aebadc53aff2bc2bf3c88b3
+#13 writing image sha256:e43c3b336d9513c54fee1b71b09fbb85fa2178418aebadc53aff2bc2bf3c88b3 done
+#13 naming to gcr.io/fuzzbench/builders/benchmark/boringssl_fuzz_pkcs8 done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/boringssl_fuzz_pkcs8:
+------
+#1 [internal] load build definition from builder.Dockerfile
+#1 sha256:193006d80cc02460eb8eebedbe122358db0b4e7308133a88ca175ca1add230b6
+#1 transferring dockerfile: 46B done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:705395a8576a4ebe35a13105556312bfc75c296826dc9856e3cbfee5754ca927
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/builders/benchmark/boringssl_fuzz_pkcs8:latest
+#3 sha256:68f714422c19eed2b611595977061b6581bc52ddcdc680580f96fdcccf447089
+#3 DONE 0.0s
+
+#7 [1/3] FROM gcr.io/fuzzbench/builders/benchmark/boringssl_fuzz_pkcs8
+#7 sha256:b5d163fd72cb4a5033f1d213caab5c2a92ee11b799190c99cd291b60668b33e7
+#7 DONE 0.0s
+
+#4 importing cache manifest from gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8-intermediate
+#4 sha256:cb9e743aa078643b7fa0de9ce68acfc0e43c72d88d7856d8ab7133358c9f6c7c
+#4 ERROR: gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8-intermediate:latest: not found
+
+#5 [2/3] RUN git clone https://github.com/google/AFL.git /afl &&     cd /afl &&     git checkout 61037103ae3722c8060ff7082994836a794f978e &&     AFL_NO_X86=1 make
+#5 sha256:562d08c271fbe864fb88e25f5bb37c4a78ae7259156dfed59e01afb788575d33
+#5 CACHED
+
+#6 [3/3] RUN apt-get update &&     apt-get install wget -y &&     wget https://raw.githubusercontent.com/llvm/llvm-project/5feb80e748924606531ba28c97fe65145c65372e/compiler-rt/lib/fuzzer/afl/afl_driver.cpp -O /afl/afl_driver.cpp &&     clang -Wno-pointer-sign -c /afl/llvm_mode/afl-llvm-rt.o.c -I/afl &&     clang++ -stdlib=libc++ -std=c++11 -O2 -c /afl/afl_driver.cpp &&     ar r /libAFL.a *.o
+#6 sha256:2f6a277457479043c341e8df2571d345bc994b211b36b43e9a4e948ca556718b
+#6 CACHED
+
+#8 exporting to image
+#8 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#8 exporting layers done
+#8 writing image sha256:815311bb252abe59524abd07791be4efc6ef3eb6b6e3ea3b72d9c38c5d286d81 done
+#8 naming to gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8-intermediate done
+#8 DONE 0.1s
+
+#9 exporting cache
+#9 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#9 preparing build cache for export done
+#9 DONE 0.0s
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8-intermediate:
+------
+#1 [internal] load build definition from Dockerfile
+#1 sha256:284e4da1f56e564f316c0b0a16eb4138cfd9d36878a5fa91a4d0ce013f2fa713
+#1 transferring dockerfile: 2.00kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:24c792006ed6b6980089ab7b7cfcc3e9d7c4f455d368f5631fbbba18d52b2ae2
+#2 transferring context: 34B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:xenial
+#3 sha256:f62bae18ed588840f045c881b2502661f2a89578a2f8f99b83f5200ee83dd25b
+#3 DONE 0.0s
+
+#12 importing cache manifest from gcr.io/fuzzbench/base-image
+#12 sha256:9b220ebb4d4daceed1b96df9b6dca076e762f1cd612574f010b82d5b9e5ad896
+#12 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/ubuntu:xenial
+#4 sha256:14dd403f25ae9e519bd44f27dc17af7ce80f5a4f9f48ca88108364e67ec5d360
+#4 DONE 0.0s
+
+#7 [internal] load build context
+#7 sha256:dd81d24dad994d19d113d9db214d8c077bf16fe7483f477c8670e0967eebf28a
+#7 transferring context: 591B 0.1s done
+#7 DONE 0.1s
+
+#6 [3/7] RUN cd /tmp/ &&     curl -O https://www.python.org/ftp/python/3.8.6/Python-3.8.6.tar.xz &&     tar -xvf Python-3.8.6.tar.xz &&     cd Python-3.8.6 &&     ./configure --enable-loadable-sqlite-extensions --enable-optimizations &&     make -j install &&     rm -r /tmp/Python-3.8.6.tar.xz /tmp/Python-3.8.6
+#6 sha256:c5b9d1fb3371e84dbc60b76e7b2f8d5913bc93bcd4910ab65daa03e7b2ec4bb0
+#6 CACHED
+
+#8 [4/7] COPY ./requirements.txt /
+#8 sha256:21e3a4bf04c4d29874528fce2beb8761dfef5e15720144ad9a8d311a62526acf
+#8 CACHED
+
+#9 [5/7] RUN pip3 install -r /requirements.txt
+#9 sha256:5911c7b3bd392da92be627cfd1e4d7696589fe9a3f0c924ff56ec2393e6a57ac
+#9 CACHED
+
+#10 [6/7] RUN apt-get update -y && apt-get install -y     apt-transport-https     lsb-release
+#10 sha256:36e6998f3d7d9675f4d6948150ef4b5b2a03b844bc45f93fe432c857071748de
+#10 CACHED
+
+#5 [2/7] RUN apt-get update -y && apt-get install -y     build-essential     rsync     curl     zlib1g-dev     libncurses5-dev     libgdbm-dev     libnss3-dev     libssl-dev     libreadline-dev     libffi-dev     virtualenv     libbz2-dev     liblzma-dev     libsqlite3-dev
+#5 sha256:3a1b0960f17eed529eaae93dc8fd3554f2743dd584d8fa569cdbe6bc734371ac
+#5 CACHED
+
+#11 [7/7] RUN CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" &&     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"     | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list &&     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg     | apt-key add - &&     apt-get update -y &&     apt-get install -y google-cloud-sdk
+#11 sha256:9578f5c8feb660ee825af9c36c19f89f3d82cec3efa6e088e632ae8aa67776c6
+#11 CACHED
+
+#13 exporting to image
+#13 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#13 exporting layers done
+#13 writing image sha256:05b2aa84fbb14d46a2428ada51f12a750d9a6a7322c0a63b3b82bda36d00b178
+#13 writing image sha256:05b2aa84fbb14d46a2428ada51f12a750d9a6a7322c0a63b3b82bda36d00b178 done
+#13 naming to gcr.io/fuzzbench/base-image done
+#13 DONE 0.1s
+
+#14 exporting cache
+#14 sha256:2700d4ef94dee473593c5c614b55b2dedcca7893909811a8f2b48291a1f581e4
+#14 preparing build cache for export done
+#14 DONE 0.0s
+#1 [internal] load build definition from Dockerfile
+#1 sha256:535efc116434255d86a361e892c2c5c473c42370e8fa4599ccf7bbd72d8cec8e
+#1 transferring dockerfile: 2.22kB done
+#1 DONE 0.1s
+
+#2 [internal] load .dockerignore
+#2 sha256:8446d61c8f2fe097c394f1564d03434207f6cfbbcf330ef12afc5bbfa90b16ba
+#2 transferring context: 34B done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for gcr.io/fuzzbench/base-image:latest
+#3 sha256:932022888f650cc455b10eb5123bb08c0cccacac29a693e69314abbfd28a72c3
+#3 DONE 0.0s
+
+#6 [base-image 1/1] FROM gcr.io/fuzzbench/base-image
+#6 sha256:4d07825694520f8b6f6a0d8592dbd345433361ae044cb7f06706c5a95e3daaad
+#6 CACHED
+
+#4 [internal] load metadata for gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8-intermediate:latest
+#4 sha256:2837b4a7b6fdd202c4d676424b667de1c7f1c409319887eba7f9749d6882ace7
+#4 DONE 0.0s
+
+#11 [internal] load build context
+#11 sha256:a52bc208a7916cf7f2bc39876864fb87b52ff5e668c53dd9e27f243ed8252a0b
+#11 DONE 0.0s
+
+#5 [stage-1  1/13] FROM gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8-intermediate
+#5 sha256:e4754db4f0027170c5f757a83ef5a6d8d891a864ed15e70009367378b4e65757
+#5 DONE 0.0s
+
+#20 importing cache manifest from gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8
+#20 sha256:da7ed8c7e3c25382323296e91ba503c62e32e508ac46e42cde5ed2359f619557
+#20 ERROR: gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8:latest: not found
+
+#11 [internal] load build context
+#11 sha256:a52bc208a7916cf7f2bc39876864fb87b52ff5e668c53dd9e27f243ed8252a0b
+#11 transferring context: 742.39kB 0.1s done
+#11 DONE 0.2s
+
+#8 [stage-1  3/13] COPY --from=base-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+#8 sha256:c62a935f9d5376762bffd01b024fa3d1c53add5e2e76286d9a1fa91e06bc75e2
+#8 CACHED
+
+#9 [stage-1  4/13] COPY --from=base-image /usr/local/include/python3.8 /usr/local/include/python3.8
+#9 sha256:031de8af7ad31c30a1597690202558045b728ec2fb5ad759b98fc2097e7f55b5
+#9 CACHED
+
+#10 [stage-1  5/13] COPY --from=base-image /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+#10 sha256:ad74a8583d73b901d981b1ea9c8641a587ed33bb0baa0998f4dc740c0966a19e
+#10 CACHED
+
+#12 [stage-1  6/13] COPY fuzzers /src/fuzzers
+#12 sha256:41d17433a925a8c8142b1a0e5fe94c517a3f98a5efbad9c28595d1970e65bcb3
+#12 CACHED
+
+#7 [stage-1  2/13] COPY --from=base-image /usr/local/bin/python3* /usr/local/bin/
+#7 sha256:f5fbda5c349be4d825a7cdb3f42d21e59d443be8123f475eb85aeec80f779c6c
+#7 CACHED
+
+#13 [stage-1  7/13] RUN touch /src/__init__.py
+#13 sha256:04ecc15b0b89d86d7e4f7aec4b9dd956782e170df4ff08ec8b3da160c855fbcd
+#13 DONE 2.2s
+
+#14 [stage-1  8/13] COPY benchmarks/boringssl_fuzz_pkcs8/benchmark.yaml /
+#14 sha256:bbae422d0610e0a56c95b1678b9302aacce60b1b67b0353f8e40135515dcfef5
+#14 DONE 0.1s
+
+#15 [stage-1  9/13] RUN mkdir /opt/fuzzbench/
+#15 sha256:ed95aa5702b83a2551b87f034920d0e18bea3d9d7ad564cd32012d5b5c2442ac
+#15 DONE 1.5s
+
+#16 [stage-1 10/13] COPY docker/benchmark-builder/checkout_commit.py /opt/fuzzbench/
+#16 sha256:c4f45d95800cc6136a1af3c4d45f1fc69abbdf899cba55085479e7328744b408
+#16 DONE 0.3s
+
+#17 [stage-1 11/13] RUN export CHECKOUT_COMMIT=$(cat /benchmark.yaml | tr -d ' ' | grep 'commit:' | cut -d ':' -f2) &&     python3 -u /opt/fuzzbench/checkout_commit.py $CHECKOUT_COMMIT /src
+#17 sha256:24d22c2146c1b768723660f5c12f366b88a831c6577f43521d82ad6b2cc9c965
+#17 1.371 Checking out commit 95a7b675
+#17 2.958 From https://github.com/google/libprotobuf-mutator
+#17 2.958  * [new tag]         v1.0       -> v1.0
+#17 2.973 error: pathspec '95a7b675' did not match any file(s) known to git
+#17 3.975 error: pathspec '95a7b675' did not match any file(s) known to git
+#17 34.94 From https://boringssl.googlesource.com/boringssl
+#17 34.94  * [new tag]             fips-20170615             -> fips-20170615
+#17 34.95  * [new tag]             fips-20190808             -> fips-20190808
+#17 34.95  * [new tag]             fips-20210429             -> fips-20210429
+#17 34.95  * [new tag]             fips-android-20191020     -> fips-android-20191020
+#17 34.95  * [new tag]             version_for_cocoapods_1.0 -> version_for_cocoapods_1.0
+#17 34.95  * [new tag]             version_for_cocoapods_2.0 -> version_for_cocoapods_2.0
+#17 34.95  * [new tag]             version_for_cocoapods_3.0 -> version_for_cocoapods_3.0
+#17 34.95  * [new tag]             version_for_cocoapods_4.0 -> version_for_cocoapods_4.0
+#17 34.95  * [new tag]             version_for_cocoapods_5.0 -> version_for_cocoapods_5.0
+#17 34.95  * [new tag]             version_for_cocoapods_6.0 -> version_for_cocoapods_6.0
+#17 34.95  * [new tag]             version_for_cocoapods_7.0 -> version_for_cocoapods_7.0
+#17 34.95  * [new tag]             version_for_cocoapods_9.0 -> version_for_cocoapods_9.0
+#17 35.00 error: pathspec '95a7b675' did not match any file(s) known to git
+#17 35.01 error: pathspec '95a7b675' did not match any file(s) known to git
+#17 35.03 error: pathspec '95a7b675' did not match any file(s) known to git
+#17 35.20 error: pathspec '95a7b675' did not match any file(s) known to git
+#17 35.33 Checkout unsuccessful.
+#17 DONE 35.4s
+
+#18 [stage-1 12/13] RUN echo "#!/bin/bash\nPYTHONPATH=/src python3 -u -c "from fuzzers import utils; utils.initialize_env(); from fuzzers.afl import fuzzer; fuzzer.build()"" > /usr/bin/fuzzer_build &&     chmod +x /usr/bin/fuzzer_build
+#18 sha256:4e72e9b014455e7e2e99a2507edc035797d6368e3831cdb22dc9c55d903eb9e4
+#18 DONE 1.3s
+
+#19 [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi
+#19 sha256:ae2340f8f341e6a2a954c67c316a727ef96d8b06526b0f63a1a4524d37a54aec
+#19 1.113 Run fuzzer_build to build the target
+#19 1.357 FUZZ_TARGET = fuzz_pkcs8
+#19 1.357 CFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3
+#19 1.357 CXXFLAGS = -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3
+#19 1.371 Building benchmark boringssl_fuzz_pkcs8 with fuzzer afl
+#19 1.376 + mkdir -p /work/boringssl
+#19 1.383 + cd /work/boringssl
+#19 1.383 + CFLAGS='-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -DBORINGSSL_UNSAFE_FUZZER_MODE'
+#19 1.383 + CXXFLAGS='-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -DBORINGSSL_UNSAFE_FUZZER_MODE'
+#19 1.384 + CMAKE_DEFINES=-DBORINGSSL_ALLOW_CXX_RUNTIME=1
+#19 1.384 + [[ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -DBORINGSSL_UNSAFE_FUZZER_MODE = *sanitize=memory* ]]
+#19 1.384 + cmake -GNinja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ '-DCMAKE_C_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -O3 -fsanitize-coverage=trace-pc-guard -DBORINGSSL_UNSAFE_FUZZER_MODE' '-DCMAKE_CXX_FLAGS=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -DBORINGSSL_UNSAFE_FUZZER_MODE' -DBORINGSSL_ALLOW_CXX_RUNTIME=1 /src/boringssl/
+#19 1.813 -- The C compiler identification is Clang 14.0.0
+#19 1.837 -- Detecting C compiler ABI info
+#19 2.198 -- Detecting C compiler ABI info - done
+#19 2.303 -- Check for working C compiler: /usr/local/bin/clang - skipped
+#19 2.304 -- Detecting C compile features
+#19 2.306 -- Detecting C compile features - done
+#19 2.844 -- The CXX compiler identification is Clang 14.0.0
+#19 2.865 -- Detecting CXX compiler ABI info
+#19 3.229 -- Detecting CXX compiler ABI info - done
+#19 3.369 -- Check for working CXX compiler: /usr/local/bin/clang++ - skipped
+#19 3.371 -- Detecting CXX compile features
+#19 3.373 -- Detecting CXX compile features - done
+#19 3.428 -- Found Perl: /usr/bin/perl (found version "5.30.0") 
+#19 3.446 -- Checking for module 'libunwind-generic'
+#19 3.460 --   No package 'libunwind-generic' found
+#19 3.461 libunwind not found. Disabling unwind tests.
+#19 3.528 -- The ASM compiler identification is Clang
+#19 3.535 -- Found assembler: /usr/local/bin/clang
+#19 3.585 -- Configuring done
+#19 3.794 -- Generating done
+#19 3.826 -- Build files have been written to: /work/boringssl
+#19 3.842 + ninja
+#19 4.216 [1/453] Generating rdrand-x86_64.S
+#19 4.303 [2/453] Generating p256_beeu-x86_64-asm.S
+#19 4.341 [3/453] Generating ghash-ssse3-x86_64.S
+#19 4.663 [4/453] Generating aesni-gcm-x86_64.S
+#19 4.835 [5/453] Generating md5-x86_64.S
+#19 4.916 [6/453] Generating ghash-x86_64.S
+#19 5.683 [7/453] Generating vpaes-x86_64.S
+#19 5.965 [8/453] Generating rsaz-avx2.S
+#19 6.199 [9/453] Generating aesni-x86_64.S
+#19 6.615 [10/453] Generating x86_64-mont.S
+#19 6.663 [11/453] Generating p256-x86_64-asm.S
+#19 7.267 [12/453] Generating sha512-x86_64.S
+#19 7.475 [13/453] Generating x86_64-mont5.S
+#19 8.666 [14/453] Generating sha256-x86_64.S
+#19 10.23 [15/453] Generating sha1-x86_64.S
+#19 10.34 [16/453] Generating crypto_test_data.cc
+#19 10.43 [17/453] Building C object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/fips_shared_support.c.o
+#19 10.70 [18/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/aesni-gcm-x86_64.S.o
+#19 10.78 [19/453] Building CXX object crypto/test/CMakeFiles/test_support_lib.dir/malloc.cc.o
+#19 11.04 [20/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/aesni-x86_64.S.o
+#19 11.17 [21/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/ghash-ssse3-x86_64.S.o
+#19 11.34 [22/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/ghash-x86_64.S.o
+#19 11.56 [23/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/md5-x86_64.S.o
+#19 11.72 [24/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/p256-x86_64-asm.S.o
+#19 11.94 [25/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/p256_beeu-x86_64-asm.S.o
+#19 11.96 [26/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/rdrand-x86_64.S.o
+#19 12.36 [27/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/rsaz-avx2.S.o
+#19 12.44 [28/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/sha1-x86_64.S.o
+#19 12.78 [29/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/sha256-x86_64.S.o
+#19 12.89 [30/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/sha512-x86_64.S.o
+#19 13.16 [31/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/vpaes-x86_64.S.o
+#19 13.31 [32/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/x86_64-mont5.S.o
+#19 13.51 [33/453] Building ASM object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/x86_64-mont.S.o
+#19 16.47 [34/453] Building CXX object crypto/test/CMakeFiles/test_support_lib.dir/test_util.cc.o
+#19 17.34 [35/453] Building CXX object crypto/test/CMakeFiles/test_support_lib.dir/wycheproof_util.cc.o
+#19 19.25 [36/453] Building CXX object crypto/test/CMakeFiles/test_support_lib.dir/abi_test.cc.o
+#19 19.75 [37/453] Building CXX object crypto/test/CMakeFiles/boringssl_gtest_main.dir/gtest_main.cc.o
+#19 20.77 [38/453] Building CXX object CMakeFiles/crypto_test_data.dir/crypto_test_data.cc.o
+#19 21.24 [39/453] Building CXX object crypto/test/CMakeFiles/test_support_lib.dir/file_test.cc.o
+#19 21.33 [40/453] Linking CXX static library crypto/test/libtest_support_lib.a
+#19 52.19 [41/453] Building CXX object CMakeFiles/boringssl_gtest.dir/third_party/googletest/src/gtest-all.cc.o
+#19 52.23 [42/453] Linking CXX static library libboringssl_gtest.a
+#19 69.49 [43/453] Building C object crypto/fipsmodule/CMakeFiles/fipsmodule.dir/bcm.c.o
+#19 69.68 [44/453] Generating test/trampoline-x86_64.S
+#19 70.44 [45/453] Generating chacha/chacha-x86_64.S
+#19 70.76 [46/453] Generating cipher_extra/aes128gcmsiv-x86_64.S
+#19 71.14 [47/453] Generating err_data.c
+#19 71.85 [48/453] Generating cipher_extra/chacha20_poly1305_x86_64.S
+#19 72.43 [49/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_d2i_fp.c.o
+#19 72.45 [50/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_type.c.o
+#19 72.57 [51/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_dup.c.o
+#19 72.61 [52/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_bool.c.o
+#19 72.63 [53/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_i2d_fp.c.o
+#19 72.69 [54/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_time.c.o
+#19 73.05 [55/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_mbstr.c.o
+#19 73.06 [56/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_octet.c.o
+#19 73.23 [57/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_print.c.o
+#19 73.25 [58/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_bitstr.c.o
+#19 73.42 [59/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_gentm.c.o
+#19 73.70 [60/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_object.c.o
+#19 73.78 [61/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_strnid.c.o
+#19 73.84 [62/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/asn1_par.c.o
+#19 73.92 [63/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_utf8.c.o
+#19 74.04 [64/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/asn_pack.c.o
+#19 74.08 [65/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_int.c.o
+#19 74.24 [66/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/f_int.c.o
+#19 74.45 [67/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_utctm.c.o
+#19 74.50 [68/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/f_string.c.o
+#19 74.72 [69/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/asn1_lib.c.o
+#19 74.96 [70/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/a_strex.c.o
+#19 75.25 [71/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/tasn_fre.c.o
+#19 75.47 [72/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/tasn_new.c.o
+#19 75.52 [73/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/time_support.c.o
+#19 75.81 [74/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/tasn_typ.c.o
+#19 75.89 [75/453] Building C object crypto/CMakeFiles/crypto.dir/x509/asn1_gen.c.o
+#19 75.90 [76/453] Building C object crypto/CMakeFiles/crypto.dir/bio/bio_mem.c.o
+#19 75.95 [77/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/tasn_dec.c.o
+#19 75.96 [78/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/tasn_utl.c.o
+#19 76.02 [79/453] Building C object crypto/CMakeFiles/crypto.dir/asn1/tasn_enc.c.o
+#19 76.48 [80/453] Building C object crypto/CMakeFiles/crypto.dir/bio/printf.c.o
+#19 76.52 [81/453] Building C object crypto/CMakeFiles/crypto.dir/bio/socket.c.o
+#19 76.62 [82/453] Building C object crypto/CMakeFiles/crypto.dir/bio/hexdump.c.o
+#19 76.68 [83/453] Building C object crypto/CMakeFiles/crypto.dir/bio/fd.c.o
+#19 76.72 [84/453] Building C object crypto/CMakeFiles/crypto.dir/base64/base64.c.o
+#19 76.73 [85/453] Building C object crypto/CMakeFiles/crypto.dir/bio/socket_helper.c.o
+#19 76.78 [86/453] Building C object crypto/CMakeFiles/crypto.dir/bn_extra/bn_asn1.c.o
+#19 76.82 [87/453] Building C object crypto/CMakeFiles/crypto.dir/bio/connect.c.o
+#19 76.97 [88/453] Building C object crypto/CMakeFiles/crypto.dir/bio/file.c.o
+#19 77.09 [89/453] Building C object crypto/CMakeFiles/crypto.dir/bio/pair.c.o
+#19 77.24 [90/453] Building C object crypto/CMakeFiles/crypto.dir/bytestring/asn1_compat.c.o
+#19 77.40 [91/453] Building C object crypto/CMakeFiles/crypto.dir/buf/buf.c.o
+#19 77.59 [92/453] Building C object crypto/CMakeFiles/crypto.dir/bytestring/unicode.c.o
+#19 77.62 [93/453] Building C object crypto/CMakeFiles/crypto.dir/blake2/blake2.c.o
+#19 77.83 [94/453] Building C object crypto/CMakeFiles/crypto.dir/bytestring/ber.c.o
+#19 77.92 [95/453] Building C object crypto/CMakeFiles/crypto.dir/chacha/chacha.c.o
+#19 77.94 [96/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/cipher_extra.c.o
+#19 77.96 [97/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/derive_key.c.o
+#19 78.20 [98/453] Building C object crypto/CMakeFiles/crypto.dir/bio/bio.c.o
+#19 78.49 [99/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_null.c.o
+#19 78.66 [100/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_des.c.o
+#19 78.76 [101/453] Building C object crypto/CMakeFiles/crypto.dir/bn_extra/convert.c.o
+#19 78.78 [102/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_aesctrhmac.c.o
+#19 78.87 [103/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_rc4.c.o
+#19 79.19 [104/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_chacha20poly1305.c.o
+#19 79.62 [105/453] Building C object crypto/CMakeFiles/crypto.dir/bytestring/cbs.c.o
+#19 79.73 [106/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_aarch64_apple.c.o
+#19 79.94 [107/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_aesccm.c.o
+#19 80.05 [108/453] Building C object crypto/CMakeFiles/crypto.dir/bytestring/cbb.c.o
+#19 80.12 [109/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_aarch64_fuchsia.c.o
+#19 80.17 [110/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_aarch64_linux.c.o
+#19 80.25 [111/453] Building C object crypto/CMakeFiles/crypto.dir/cmac/cmac.c.o
+#19 80.29 [112/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_tls.c.o
+#19 80.32 [113/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_rc2.c.o
+#19 80.45 [114/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_aarch64_win.c.o
+#19 80.49 [115/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_ppc64le.c.o
+#19 80.51 [116/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/tls_cbc.c.o
+#19 80.53 [117/453] Building C object crypto/CMakeFiles/crypto.dir/cipher_extra/e_aesgcmsiv.c.o
+#19 80.56 [118/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_arm_linux.c.o
+#19 80.60 [119/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_arm.c.o
+#19 80.68 [120/453] Building C object crypto/CMakeFiles/crypto.dir/cpu_intel.c.o
+#19 80.86 [121/453] Building C object crypto/CMakeFiles/crypto.dir/crypto.c.o
+#19 81.06 [122/453] Building C object crypto/CMakeFiles/crypto.dir/curve25519/spake25519.c.o
+#19 81.17 [123/453] Building C object crypto/CMakeFiles/crypto.dir/dh_extra/params.c.o
+#19 81.19 [124/453] Building C object crypto/CMakeFiles/crypto.dir/dh_extra/dh_asn1.c.o
+#19 81.71 [125/453] Building C object crypto/CMakeFiles/crypto.dir/ecdh_extra/ecdh_extra.c.o
+#19 82.01 [126/453] Building C object crypto/CMakeFiles/crypto.dir/digest_extra/digest_extra.c.o
+#19 82.07 [127/453] Building C object crypto/CMakeFiles/crypto.dir/conf/conf.c.o
+#19 82.08 [128/453] Building C object crypto/CMakeFiles/crypto.dir/ec_extra/ec_derive.c.o
+#19 82.20 [129/453] Building C object crypto/CMakeFiles/crypto.dir/dsa/dsa_asn1.c.o
+#19 82.24 [130/453] Building C object crypto/CMakeFiles/crypto.dir/ec_extra/ec_asn1.c.o
+#19 82.42 [131/453] Building C object crypto/CMakeFiles/crypto.dir/err_data.c.o
+#19 82.56 [132/453] Building C object crypto/CMakeFiles/crypto.dir/ecdsa_extra/ecdsa_asn1.c.o
+#19 82.96 [133/453] Building C object crypto/CMakeFiles/crypto.dir/engine/engine.c.o
+#19 83.27 [134/453] Building C object crypto/CMakeFiles/crypto.dir/evp/digestsign.c.o
+#19 83.59 [135/453] Building C object crypto/CMakeFiles/crypto.dir/ec_extra/hash_to_curve.c.o
+#19 83.78 [136/453] Building C object crypto/CMakeFiles/crypto.dir/dsa/dsa.c.o
+#19 83.98 [137/453] Building C object crypto/CMakeFiles/crypto.dir/evp/evp.c.o
+#19 84.05 [138/453] Building C object crypto/CMakeFiles/crypto.dir/evp/evp_asn1.c.o
+#19 84.08 [139/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_dsa_asn1.c.o
+#19 84.52 [140/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_ed25519.c.o
+#19 84.55 [141/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_ec_asn1.c.o
+#19 84.70 [142/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_ec.c.o
+#19 84.75 [143/453] Building C object crypto/CMakeFiles/crypto.dir/evp/evp_ctx.c.o
+#19 85.13 [144/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_rsa_asn1.c.o
+#19 85.21 [145/453] Building C object crypto/CMakeFiles/crypto.dir/err/err.c.o
+#19 85.27 [146/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_x25519.c.o
+#19 85.33 [147/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_ed25519_asn1.c.o
+#19 85.59 [148/453] Building C object crypto/CMakeFiles/crypto.dir/evp/pbkdf.c.o
+#19 85.89 [149/453] Building C object crypto/CMakeFiles/crypto.dir/evp/sign.c.o
+#19 85.94 [150/453] Building C object crypto/CMakeFiles/crypto.dir/des/des.c.o
+#19 85.95 [151/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_x25519_asn1.c.o
+#19 86.14 [152/453] Building C object crypto/CMakeFiles/crypto.dir/evp/p_rsa.c.o
+#19 86.19 [153/453] Building C object crypto/CMakeFiles/crypto.dir/ex_data.c.o
+#19 86.22 [154/453] Building C object crypto/CMakeFiles/crypto.dir/hkdf/hkdf.c.o
+#19 86.83 [155/453] Building C object crypto/CMakeFiles/crypto.dir/evp/print.c.o
+#19 87.05 [156/453] Building C object crypto/CMakeFiles/crypto.dir/evp/scrypt.c.o
+#19 87.10 [157/453] Building C object crypto/CMakeFiles/crypto.dir/obj/obj_xref.c.o
+#19 87.29 [158/453] Building C object crypto/CMakeFiles/crypto.dir/mem.c.o
+#19 87.36 [159/453] Building C object crypto/CMakeFiles/crypto.dir/lhash/lhash.c.o
+#19 88.03 [160/453] Building C object crypto/CMakeFiles/crypto.dir/hpke/hpke.c.o
+#19 88.07 [161/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_oth.c.o
+#19 88.57 [162/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_pk8.c.o
+#19 88.88 [163/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_info.c.o
+#19 88.99 [164/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_pkey.c.o
+#19 89.03 [165/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_all.c.o
+#19 89.26 [166/453] Building C object crypto/CMakeFiles/crypto.dir/obj/obj.c.o
+#19 89.28 [167/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_x509.c.o
+#19 89.39 [168/453] Building C object crypto/CMakeFiles/crypto.dir/pkcs7/pkcs7.c.o
+#19 89.61 [169/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_xaux.c.o
+#19 89.81 [170/453] Building C object crypto/CMakeFiles/crypto.dir/poly1305/poly1305.c.o
+#19 89.85 [171/453] Building C object crypto/CMakeFiles/crypto.dir/poly1305/poly1305_arm.c.o
+#19 90.49 [172/453] Building C object crypto/CMakeFiles/crypto.dir/rand_extra/deterministic.c.o
+#19 90.51 [173/453] Building C object crypto/CMakeFiles/crypto.dir/pem/pem_lib.c.o
+#19 90.71 [174/453] Building C object crypto/CMakeFiles/crypto.dir/rand_extra/fuchsia.c.o
+#19 90.94 [175/453] Building C object crypto/CMakeFiles/crypto.dir/rand_extra/forkunsafe.c.o
+#19 90.98 [176/453] Building C object crypto/CMakeFiles/crypto.dir/pool/pool.c.o
+#19 91.06 [177/453] Building C object crypto/CMakeFiles/crypto.dir/pkcs8/p5_pbev2.c.o
+#19 91.23 [178/453] Building C object crypto/CMakeFiles/crypto.dir/rand_extra/passive.c.o
+#19 91.25 [179/453] Building C object crypto/CMakeFiles/crypto.dir/rand_extra/windows.c.o
+#19 91.27 [180/453] Building C object crypto/CMakeFiles/crypto.dir/rand_extra/rand_extra.c.o
+#19 91.49 [181/453] Building C object crypto/CMakeFiles/crypto.dir/pkcs7/pkcs7_x509.c.o
+#19 91.52 [182/453] Building C object crypto/CMakeFiles/crypto.dir/rc4/rc4.c.o
+#19 91.54 [183/453] Building C object crypto/CMakeFiles/crypto.dir/pkcs8/pkcs8.c.o
+#19 91.63 [184/453] Building C object crypto/CMakeFiles/crypto.dir/refcount_lock.c.o
+#19 91.84 [185/453] Building C object crypto/CMakeFiles/crypto.dir/refcount_c11.c.o
+#19 91.87 [186/453] Building C object crypto/CMakeFiles/crypto.dir/thread.c.o
+#19 91.98 [187/453] Building C object crypto/CMakeFiles/crypto.dir/rsa_extra/rsa_print.c.o
+#19 92.19 [188/453] Building C object crypto/CMakeFiles/crypto.dir/thread_none.c.o
+#19 92.43 [189/453] Building C object crypto/CMakeFiles/crypto.dir/siphash/siphash.c.o
+#19 92.47 [190/453] Building C object crypto/CMakeFiles/crypto.dir/thread_win.c.o
+#19 92.50 [191/453] Building C object crypto/CMakeFiles/crypto.dir/rsa_extra/rsa_asn1.c.o
+#19 92.74 [192/453] Building C object crypto/CMakeFiles/crypto.dir/thread_pthread.c.o
+#19 92.87 [193/453] Building C object crypto/CMakeFiles/crypto.dir/pkcs8/pkcs8_x509.c.o
+#19 93.08 [194/453] Building C object crypto/CMakeFiles/crypto.dir/poly1305/poly1305_vec.c.o
+#19 93.39 [195/453] Building C object crypto/CMakeFiles/crypto.dir/stack/stack.c.o
+#19 93.48 [196/453] Building C object crypto/CMakeFiles/crypto.dir/x509/a_digest.c.o
+#19 93.98 [197/453] Building C object crypto/CMakeFiles/crypto.dir/x509/a_sign.c.o
+#19 94.00 [198/453] Building C object crypto/CMakeFiles/crypto.dir/x509/a_verify.c.o
+#19 94.25 [199/453] Building C object crypto/CMakeFiles/crypto.dir/x509/algorithm.c.o
+#19 94.86 [200/453] Building C object crypto/CMakeFiles/crypto.dir/trust_token/trust_token.c.o
+#19 95.19 [201/453] Building C object crypto/CMakeFiles/crypto.dir/trust_token/voprf.c.o
+#19 95.64 [202/453] Building C object crypto/CMakeFiles/crypto.dir/x509/i2d_pr.c.o
+#19 95.86 [203/453] Building C object crypto/CMakeFiles/crypto.dir/x509/by_file.c.o
+#19 96.32 [204/453] Building C object crypto/CMakeFiles/crypto.dir/x509/by_dir.c.o
+#19 96.52 [205/453] Building C object crypto/CMakeFiles/crypto.dir/curve25519/curve25519.c.o
+#19 96.94 [206/453] Building C object crypto/CMakeFiles/crypto.dir/x509/name_print.c.o
+#19 97.40 [207/453] Building C object crypto/CMakeFiles/crypto.dir/hrss/hrss.c.o
+#19 97.59 [208/453] Building C object crypto/CMakeFiles/crypto.dir/trust_token/pmbtoken.c.o
+#19 97.69 [209/453] Building C object crypto/CMakeFiles/crypto.dir/x509/rsa_pss.c.o
+#19 97.73 [210/453] Building C object crypto/CMakeFiles/crypto.dir/x509/t_crl.c.o
+#19 98.20 [211/453] Building C object crypto/CMakeFiles/crypto.dir/x509/t_req.c.o
+#19 98.39 [212/453] Building C object crypto/CMakeFiles/crypto.dir/x509/t_x509a.c.o
+#19 98.42 [213/453] Building C object crypto/CMakeFiles/crypto.dir/x509/t_x509.c.o
+#19 98.68 [214/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509.c.o
+#19 99.02 [215/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_d2.c.o
+#19 99.20 [216/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_def.c.o
+#19 99.60 [217/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_att.c.o
+#19 99.97 [218/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_ext.c.o
+#19 100.5 [219/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_obj.c.o
+#19 100.6 [220/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_req.c.o
+#19 100.8 [221/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_set.c.o
+#19 101.1 [222/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_cmp.c.o
+#19 101.2 [223/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_txt.c.o
+#19 101.6 [224/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_lu.c.o
+#19 101.7 [225/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_trs.c.o
+#19 102.6 [226/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_v3.c.o
+#19 102.9 [227/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509rset.c.o
+#19 103.0 [228/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509cset.c.o
+#19 103.2 [229/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509spki.c.o
+#19 103.4 [230/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509name.c.o
+#19 103.6 [231/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_algor.c.o
+#19 103.6 [232/453] Building CXX object tool/CMakeFiles/bssl.dir/ciphers.cc.o
+#19 103.8 [233/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_vpm.c.o
+#19 104.3 [234/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_attrib.c.o
+#19 104.3 [235/453] Building CXX object tool/CMakeFiles/bssl.dir/args.cc.o
+#19 104.4 [236/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_exten.c.o
+#19 104.6 [237/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_info.c.o
+#19 105.3 [238/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_pkey.c.o
+#19 105.4 [239/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_pubkey.c.o
+#19 105.7 [240/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_sig.c.o
+#19 105.8 [241/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_all.c.o
+#19 105.9 [242/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_req.c.o
+#19 106.1 [243/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_spki.c.o
+#19 106.2 [244/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_name.c.o
+#19 106.3 [245/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_crl.c.o
+#19 106.6 [246/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_val.c.o
+#19 107.2 [247/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_x509a.c.o
+#19 107.5 [248/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x_x509.c.o
+#19 107.5 [249/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/pcy_data.c.o
+#19 107.8 [250/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/pcy_lib.c.o
+#19 107.9 [251/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/pcy_node.c.o
+#19 108.0 [252/453] Building C object crypto/CMakeFiles/crypto.dir/x509/x509_vfy.c.o
+#19 108.0 [253/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/pcy_cache.c.o
+#19 108.1 [254/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/pcy_map.c.o
+#19 108.8 [255/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_akey.c.o
+#19 109.1 [256/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_akeya.c.o
+#19 109.2 [257/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_bitst.c.o
+#19 109.5 [258/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_bcons.c.o
+#19 110.4 [259/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_conf.c.o
+#19 110.5 [260/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_enum.c.o
+#19 110.6 [261/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_alt.c.o
+#19 110.6 [262/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_extku.c.o
+#19 110.9 [263/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_cpols.c.o
+#19 110.9 [264/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/pcy_tree.c.o
+#19 111.1 [265/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_crld.c.o
+#19 111.3 [266/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_ia5.c.o
+#19 111.5 [267/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_genn.c.o
+#19 112.0 [268/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_int.c.o
+#19 112.1 [269/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_ocsp.c.o
+#19 112.5 [270/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_pcia.c.o
+#19 112.5 [271/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_info.c.o
+#19 112.8 [272/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_lib.c.o
+#19 113.0 [273/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_pcons.c.o
+#19 113.1 [274/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_pci.c.o
+#19 113.3 [275/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_pmaps.c.o
+#19 113.3 [276/453] Building ASM object crypto/CMakeFiles/crypto.dir/chacha/chacha-x86_64.S.o
+#19 113.5 [277/453] Building ASM object crypto/CMakeFiles/crypto.dir/cipher_extra/aes128gcmsiv-x86_64.S.o
+#19 113.5 [278/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_ncons.c.o
+#19 113.7 [279/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_prn.c.o
+#19 113.8 [280/453] Building ASM object crypto/CMakeFiles/crypto.dir/test/trampoline-x86_64.S.o
+#19 113.8 [281/453] Building ASM object crypto/CMakeFiles/crypto.dir/cipher_extra/chacha20_poly1305_x86_64.S.o
+#19 114.1 [282/453] Building ASM object crypto/CMakeFiles/crypto.dir/hrss/asm/poly_rq_mul.S.o
+#19 114.2 [283/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_skey.c.o
+#19 116.1 [284/453] Building CXX object tool/CMakeFiles/bssl.dir/client.cc.o
+#19 117.0 [285/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_purp.c.o
+#19 118.0 [286/453] Building C object crypto/CMakeFiles/crypto.dir/x509v3/v3_utl.c.o
+#19 118.3 [287/453] Linking C static library crypto/libcrypto.a
+#19 128.1 [288/453] Building CXX object crypto/CMakeFiles/urandom_test.dir/fipsmodule/rand/urandom_test.cc.o
+#19 129.4 [289/453] Linking CXX executable crypto/urandom_test
+#19 129.7 [290/453] Building CXX object tool/CMakeFiles/bssl.dir/server.cc.o
+#19 133.1 [291/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/dsa/dsa_test.cc.o
+#19 135.9 [292/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/abi_self_test.cc.o
+#19 141.6 [293/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/digest_extra/digest_test.cc.o
+#19 146.2 [294/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/err/err_test.cc.o
+#19 151.0 [295/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/base64/base64_test.cc.o
+#19 151.9 [296/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/blake2/blake2_test.cc.o
+#19 152.6 [297/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/buf/buf_test.cc.o
+#19 154.9 [298/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/chacha/chacha_test.cc.o
+#19 156.3 [299/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/evp/evp_extra_test.cc.o
+#19 169.2 [300/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/conf/conf_test.cc.o
+#19 173.8 [301/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/compiler_test.cc.o
+#19 174.0 [302/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/bio/bio_test.cc.o
+#19 174.8 [303/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/cpu_arm_linux_test.cc.o
+#19 187.7 [304/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/cmac/cmac_test.cc.o
+#19 188.0 [305/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/crypto_test.cc.o
+#19 188.7 [306/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/constant_time_test.cc.o
+#19 189.8 [307/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/cipher_extra/cipher_test.cc.o
+#19 194.6 [308/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/curve25519/spake25519_test.cc.o
+#19 198.5 [309/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/curve25519/ed25519_test.cc.o
+#19 199.3 [310/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/curve25519/x25519_test.cc.o
+#19 210.2 [311/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/evp/pbkdf_test.cc.o
+#19 211.7 [312/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/dh_extra/dh_test.cc.o
+#19 213.1 [313/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/bytestring/bytestring_test.cc.o
+#19 220.3 [314/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/evp/scrypt_test.cc.o
+#19 222.4 [315/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/ecdh_extra/ecdh_test.cc.o
+#19 226.9 [316/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/cipher_extra/aead_test.cc.o
+#19 235.8 [317/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/md5/md5_test.cc.o
+#19 245.5 [318/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/asn1/asn1_test.cc.o
+#19 247.3 [319/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/aes/aes_test.cc.o
+#19 251.6 [320/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/ec/p256-nistz_test.cc.o
+#19 252.3 [321/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/modes/gcm_test.cc.o
+#19 253.4 [322/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/rand/ctrdrbg_test.cc.o
+#19 255.2 [323/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/evp/evp_test.cc.o
+#19 258.4 [324/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/ecdsa/ecdsa_test.cc.o
+#19 260.6 [325/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/rand/fork_detect_test.cc.o
+#19 262.0 [326/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/sha/sha_test.cc.o
+#19 273.5 [327/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/hkdf/hkdf_test.cc.o
+#19 278.4 [328/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/impl_dispatch_test.cc.o
+#19 281.4 [329/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/hmac_extra/hmac_test.cc.o
+#19 281.5 [330/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/hrss/hrss_test.cc.o
+#19 282.0 [331/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/pem/pem_test.cc.o
+#19 282.2 [332/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/obj/obj_test.cc.o
+#19 283.0 [333/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/lhash/lhash_test.cc.o
+#19 293.9 [334/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/hpke/hpke_test.cc.o
+#19 303.3 [335/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/rand_extra/rand_test.cc.o
+#19 303.9 [336/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/pkcs8/pkcs8_test.cc.o
+#19 305.1 [337/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/refcount_test.cc.o
+#19 305.8 [338/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/ec/ec_test.cc.o
+#19 306.2 [339/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/poly1305/poly1305_test.cc.o
+#19 312.2 [340/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/pool/pool_test.cc.o
+#19 315.8 [341/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/pkcs7/pkcs7_test.cc.o
+#19 319.0 [342/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/self_test.cc.o
+#19 321.8 [343/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/pkcs8/pkcs12_test.cc.o
+#19 322.2 [344/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/test/file_test_gtest.cc.o
+#19 328.2 [345/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/siphash/siphash_test.cc.o
+#19 330.7 [346/453] Building CXX object ssl/CMakeFiles/ssl.dir/bio_ssl.cc.o
+#19 330.9 [347/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/thread_test.cc.o
+#19 338.7 [348/453] Building CXX object ssl/CMakeFiles/ssl.dir/d1_pkt.cc.o
+#19 338.9 [349/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/x509/x509_time_test.cc.o
+#19 339.4 [350/453] Building CXX object ssl/CMakeFiles/ssl.dir/d1_both.cc.o
+#19 340.4 [351/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/x509v3/tab_test.cc.o
+#19 341.3 [352/453] Building CXX object ssl/CMakeFiles/ssl.dir/d1_lib.cc.o
+#19 343.6 [353/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/stack/stack_test.cc.o
+#19 345.8 [354/453] Building CXX object ssl/CMakeFiles/ssl.dir/d1_srtp.cc.o
+#19 346.3 [355/453] Building CXX object ssl/CMakeFiles/ssl.dir/dtls_record.cc.o
+#19 346.5 [356/453] Building CXX object ssl/CMakeFiles/ssl.dir/dtls_method.cc.o
+#19 352.5 [357/453] Building CXX object ssl/CMakeFiles/ssl.dir/encrypted_client_hello.cc.o
+#19 353.4 [358/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/fipsmodule/bn/bn_test.cc.o
+#19 353.7 [359/453] Building CXX object ssl/CMakeFiles/ssl.dir/handoff.cc.o
+#19 354.4 [360/453] Building CXX object ssl/CMakeFiles/ssl.dir/handshake.cc.o
+#19 358.1 [361/453] Building CXX object ssl/CMakeFiles/ssl.dir/extensions.cc.o
+#19 359.0 [362/453] Building CXX object ssl/CMakeFiles/ssl.dir/s3_pkt.cc.o
+#19 359.0 [363/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/rsa_extra/rsa_test.cc.o
+#19 360.5 [364/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_aead_ctx.cc.o
+#19 361.1 [365/453] Building CXX object ssl/CMakeFiles/ssl.dir/handshake_client.cc.o
+#19 362.3 [366/453] Building CXX object ssl/CMakeFiles/ssl.dir/s3_lib.cc.o
+#19 362.7 [367/453] Building CXX object ssl/CMakeFiles/ssl.dir/s3_both.cc.o
+#19 363.1 [368/453] Building CXX object ssl/CMakeFiles/ssl.dir/handshake_server.cc.o
+#19 363.6 [369/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_buffer.cc.o
+#19 366.3 [370/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_asn1.cc.o
+#19 369.3 [371/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_cert.cc.o
+#19 369.4 [372/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_key_share.cc.o
+#19 370.9 [373/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_file.cc.o
+#19 372.0 [374/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_cipher.cc.o
+#19 373.8 [375/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_privkey.cc.o
+#19 374.5 [376/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_stat.cc.o
+#19 375.0 [377/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_versions.cc.o
+#19 376.5 [378/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_lib.cc.o
+#19 376.6 [379/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_session.cc.o
+#19 377.8 [380/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_transcript.cc.o
+#19 379.8 [381/453] Building CXX object ssl/CMakeFiles/ssl.dir/tls_method.cc.o
+#19 380.7 [382/453] Building CXX object ssl/CMakeFiles/ssl.dir/t1_enc.cc.o
+#19 382.8 [383/453] Building CXX object ssl/CMakeFiles/ssl.dir/tls_record.cc.o
+#19 383.5 [384/453] Building C object ssl/CMakeFiles/ssl_test.dir/ssl_c_test.c.o
+#19 384.7 [385/453] Building CXX object ssl/CMakeFiles/ssl.dir/ssl_x509.cc.o
+#19 385.3 [386/453] Building CXX object ssl/CMakeFiles/ssl.dir/tls13_both.cc.o
+#19 385.8 [387/453] Building CXX object ssl/CMakeFiles/ssl.dir/tls13_enc.cc.o
+#19 386.5 [388/453] Building CXX object ssl/CMakeFiles/ssl.dir/tls13_client.cc.o
+#19 386.8 [389/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/async_bio.cc.o
+#19 388.9 [390/453] Building CXX object ssl/CMakeFiles/ssl.dir/tls13_server.cc.o
+#19 389.1 [391/453] Linking CXX static library ssl/libssl.a
+#19 390.1 [392/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/packeted_bio.cc.o
+#19 391.9 [393/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/trust_token/trust_token_test.cc.o
+#19 392.7 [394/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/settings_writer.cc.o
+#19 395.4 [395/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/async_bio.cc.o
+#19 395.6 [396/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/mock_quic_transport.cc.o
+#19 399.7 [397/453] Building CXX object ssl/CMakeFiles/ssl_test.dir/span_test.cc.o
+#19 400.1 [398/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/mock_quic_transport.cc.o
+#19 402.5 [399/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/test_state.cc.o
+#19 402.8 [400/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/packeted_bio.cc.o
+#19 403.7 [401/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/bssl_shim.cc.o
+#19 404.4 [402/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/handshake_util.cc.o
+#19 408.0 [403/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/handshaker.cc.o
+#19 408.4 [404/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/settings_writer.cc.o
+#19 408.7 [405/453] Building CXX object tool/CMakeFiles/bssl.dir/const.cc.o
+#19 408.8 [406/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/handshake_util.cc.o
+#19 412.4 [407/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/test_state.cc.o
+#19 412.8 [408/453] Building CXX object tool/CMakeFiles/bssl.dir/fd.cc.o
+#19 412.9 [409/453] Building CXX object tool/CMakeFiles/bssl.dir/digest.cc.o
+#19 414.0 [410/453] Building CXX object tool/CMakeFiles/bssl.dir/file.cc.o
+#19 414.7 [411/453] Building CXX object tool/CMakeFiles/bssl.dir/generate_ed25519.cc.o
+#19 417.8 [412/453] Building CXX object tool/CMakeFiles/bssl.dir/generate_ech.cc.o
+#19 419.4 [413/453] Building CXX object tool/CMakeFiles/bssl.dir/rand.cc.o
+#19 419.8 [414/453] Building CXX object tool/CMakeFiles/bssl.dir/genrsa.cc.o
+#19 421.3 [415/453] Building C object decrepit/CMakeFiles/decrepit.dir/bio/base64_bio.c.o
+#19 421.5 [416/453] Building CXX object tool/CMakeFiles/bssl.dir/pkcs12.cc.o
+#19 422.7 [417/453] Building CXX object tool/CMakeFiles/bssl.dir/sign.cc.o
+#19 422.9 [418/453] Building C object decrepit/CMakeFiles/decrepit.dir/blowfish/blowfish.c.o
+#19 423.0 [419/453] Building C object decrepit/CMakeFiles/decrepit.dir/cast/cast_tables.c.o
+#19 423.4 [420/453] Building C object decrepit/CMakeFiles/decrepit.dir/cfb/cfb.c.o
+#19 423.6 [421/453] Building C object decrepit/CMakeFiles/decrepit.dir/dh/dh_decrepit.c.o
+#19 423.8 [422/453] Building C object decrepit/CMakeFiles/decrepit.dir/cast/cast.c.o
+#19 423.9 [423/453] Building C object decrepit/CMakeFiles/decrepit.dir/dsa/dsa_decrepit.c.o
+#19 424.0 [424/453] Building C object decrepit/CMakeFiles/decrepit.dir/evp/dss1.c.o
+#19 424.1 [425/453] Building C object decrepit/CMakeFiles/decrepit.dir/evp/evp_do_all.c.o
+#19 424.1 [426/453] Building C object decrepit/CMakeFiles/decrepit.dir/des/cfb64ede.c.o
+#19 424.1 [427/453] Building C object decrepit/CMakeFiles/decrepit.dir/rc4/rc4_decrepit.c.o
+#19 424.2 [428/453] Building C object decrepit/CMakeFiles/decrepit.dir/rsa/rsa_decrepit.c.o
+#19 424.5 [429/453] Building C object decrepit/CMakeFiles/decrepit.dir/obj/obj_decrepit.c.o
+#19 424.9 [430/453] Building C object decrepit/CMakeFiles/decrepit.dir/ssl/ssl_decrepit.c.o
+#19 425.4 [431/453] Building C object decrepit/CMakeFiles/decrepit.dir/x509/x509_decrepit.c.o
+#19 425.7 [432/453] Building CXX object tool/CMakeFiles/bssl.dir/tool.cc.o
+#19 425.8 [433/453] Building C object decrepit/CMakeFiles/decrepit.dir/xts/xts.c.o
+#19 426.5 [434/453] Building C object decrepit/CMakeFiles/decrepit.dir/ripemd/ripemd.c.o
+#19 426.6 [435/453] Linking CXX static library decrepit/libdecrepit.a
+#19 428.9 [436/453] Building CXX object tool/CMakeFiles/bssl.dir/transport_common.cc.o
+#19 431.3 [437/453] Building CXX object ssl/test/CMakeFiles/bssl_shim.dir/test_config.cc.o
+#19 434.9 [438/453] Linking CXX executable ssl/test/bssl_shim
+#19 438.5 [439/453] Building CXX object decrepit/CMakeFiles/decrepit_test.dir/evp/evp_test.cc.o
+#19 440.1 [440/453] Building CXX object decrepit/CMakeFiles/decrepit_test.dir/ripemd/ripemd_test.cc.o
+#19 440.2 [441/453] Building CXX object decrepit/CMakeFiles/decrepit_test.dir/cast/cast_test.cc.o
+#19 440.3 [442/453] Building CXX object decrepit/CMakeFiles/decrepit_test.dir/cfb/cfb_test.cc.o
+#19 440.4 [443/453] Building CXX object ssl/test/CMakeFiles/handshaker.dir/test_config.cc.o
+#19 440.9 [444/453] Building CXX object decrepit/CMakeFiles/decrepit_test.dir/blowfish/blowfish_test.cc.o
+#19 442.5 [445/453] Linking CXX executable ssl/test/handshaker
+#19 444.6 [446/453] Building CXX object decrepit/CMakeFiles/decrepit_test.dir/xts/xts_test.cc.o
+#19 444.9 [447/453] Building CXX object crypto/CMakeFiles/crypto_test.dir/x509/x509_test.cc.o
+#19 446.1 [448/453] Linking CXX executable decrepit/decrepit_test
+#19 448.9 [449/453] Linking CXX executable crypto/crypto_test
+#19 454.8 [450/453] Building CXX object tool/CMakeFiles/bssl.dir/speed.cc.o
+#19 456.4 [451/453] Linking CXX executable tool/bssl
+#19 512.3 [452/453] Building CXX object ssl/CMakeFiles/ssl_test.dir/ssl_test.cc.o
+#19 514.4 [453/453] Linking CXX executable ssl/ssl_test
+#19 514.4 ++ find /src/boringssl/fuzz/ -name '*.cc'
+#19 514.4 + fuzzerFiles='/src/boringssl/fuzz/bn_mod_exp.cc
+#19 514.4 /src/boringssl/fuzz/pkcs12.cc
+#19 514.4 /src/boringssl/fuzz/client.cc
+#19 514.4 /src/boringssl/fuzz/pkcs8.cc
+#19 514.4 /src/boringssl/fuzz/server.cc
+#19 514.4 /src/boringssl/fuzz/dtls_server.cc
+#19 514.4 /src/boringssl/fuzz/bn_div.cc
+#19 514.4 /src/boringssl/fuzz/read_pem.cc
+#19 514.4 /src/boringssl/fuzz/ssl_ctx_api.cc
+#19 514.4 /src/boringssl/fuzz/decode_client_hello_inner.cc
+#19 514.4 /src/boringssl/fuzz/privkey.cc
+#19 514.4 /src/boringssl/fuzz/session.cc
+#19 514.4 /src/boringssl/fuzz/spki.cc
+#19 514.4 /src/boringssl/fuzz/cert.cc
+#19 514.4 /src/boringssl/fuzz/dtls_client.cc
+#19 514.4 /src/boringssl/fuzz/arm_cpuinfo.cc'
+#19 514.4 + find . -name '*.a'
+#19 514.5 ./ssl/libssl.a
+#19 514.5 ./crypto/test/libtest_support_lib.a
+#19 514.5 ./crypto/libcrypto.a
+#19 514.5 ./decrepit/libdecrepit.a
+#19 514.5 ./libboringssl_gtest.a
+#19 514.5 + for F in $fuzzerFiles
+#19 514.5 ++ basename /src/boringssl/fuzz/bn_mod_exp.cc .cc
+#19 514.5 + fuzzerName=bn_mod_exp
+#19 514.5 + echo 'Building fuzzer bn_mod_exp'
+#19 514.5 Building fuzzer bn_mod_exp
+#19 514.5 + clang++ -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION -pthread -Wl,--no-as-needed -Wl,-ldl -Wl,-lm -Wno-unused-command-line-argument -stdlib=libc++ -O3 -fsanitize-coverage=trace-pc-guard -DBORINGSSL_UNSAFE_FUZZER_MODE -std=c++11 -o /out/bn_mod_exp /libAFL.a /src/boringssl/fuzz/bn_mod_exp.cc -I /src/boringssl/include ./ssl/libssl.a ./crypto/libcrypto.a
+#19 515.6 In file included from /src/boringssl/fuzz/bn_mod_exp.cc:16:
+#19 515.6 In file included from /src/boringssl/include/openssl/bytestring.h:20:
+#19 515.6 /src/boringssl/include/openssl/span.h:104:34: error: no template named 'enable_if_t' in namespace 'std'
+#19 515.6   using EnableIfContainer = std::enable_if_t<
+#19 515.6                             ~~~~~^
+#19 515.6 /src/boringssl/include/openssl/span.h:115:36: error: no template named 'EnableIfContainer'
+#19 515.6   template <typename C, typename = EnableIfContainer<C>,
+#19 515.6                                    ^
+#19 515.6 /src/boringssl/include/openssl/span.h:116:29: error: no template named 'enable_if_t' in namespace 'std'
+#19 515.6             typename = std::enable_if_t<std::is_const<T>::value, C>>
+#19 515.6                        ~~~~~^
+#19 515.6 /src/boringssl/include/openssl/span.h:119:36: error: no template named 'EnableIfContainer'
+#19 515.6   template <typename C, typename = EnableIfContainer<C>,
+#19 515.6                                    ^
+#19 515.6 /src/boringssl/include/openssl/span.h:120:29: error: no template named 'enable_if_t' in namespace 'std'
+#19 515.6             typename = std::enable_if_t<!std::is_const<T>::value, C>>
+#19 515.6                        ~~~~~^
+#19 515.7 5 errors generated.
+#19 515.8 Traceback (most recent call last):
+#19 515.8   File "<string>", line 1, in <module>
+#19 515.8   File "/src/fuzzers/afl/fuzzer.py", line 40, in build
+#19 515.8     utils.build_benchmark()
+#19 515.8   File "/src/fuzzers/utils.py", line 82, in build_benchmark
+#19 515.8     subprocess.check_call(['/bin/bash', '-ex', build_script], env=env)
+#19 515.8   File "/usr/local/lib/python3.8/subprocess.py", line 364, in check_call
+#19 515.8     raise CalledProcessError(retcode, cmd)
+#19 515.8 subprocess.CalledProcessError: Command '['/bin/bash', '-ex', '/src/build.sh']' returned non-zero exit status 1.
+#19 ERROR: executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+------
+ > importing cache manifest from gcr.io/fuzzbench/builders/afl/boringssl_fuzz_pkcs8:
+------
+------
+ > [stage-1 13/13] RUN echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi:
+------
+executor failed running [/bin/sh -c echo "Run fuzzer_build to build the target" && if [ -z "$debug_builder" ] ; then fuzzer_build; fi]: exit code: 1
+make: *** [docker/generated.mk:278530: .afl-boringssl_fuzz_pkcs8-builder] Error 1
