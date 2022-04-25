@@ -1,5 +1,5 @@
 Results of trying to integrate and test-run all current OSS-Fuzz projects into Fuzzbench, using AFL. In the folder 
-`integrate_all_afl_2`, I have a `main_log` containing logs from my script and the folders for each integrated experiment
+`integrate_all_afl_2`, there is a `main_log` containing logs from my script and the folders for each integrated experiment
 (that existed) and their respective log files and out directory (if it built). 
 
 Out of 569 projects, I was not able to test 469 projects, since they did not exist before the 25th of August 2021.
