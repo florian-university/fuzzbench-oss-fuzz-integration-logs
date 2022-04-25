@@ -1,337 +1,0 @@
-WARNING:root:gcloud not found in PATH.
-INFO:root:Successfully integrated benchmark: firefox_target.
-INFO:root:Please run "make test-run-afl-firefox_target" to test integration.
-#1 [internal] load build definition from Dockerfile
-#1 sha256:6409156e1d6ce7f8b57a2367ace96407fca368db519d19bc6b1a03058d82ae9f
-#1 transferring dockerfile: 1.12kB done
-#1 DONE 0.1s
-
-#2 [internal] load .dockerignore
-#2 sha256:23aaf067f48f0065f575919219c66d47eefcef8af6df497890310fa438af8676
-#2 transferring context: 2B done
-#2 DONE 0.1s
-
-#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
-#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
-#3 DONE 0.6s
-
-#6 [1/8] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
-#6 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
-#6 CACHED
-
-#5 [2/8] RUN apt-get update && apt-get install -y gawk mercurial
-#5 sha256:b0e7dcafff7167db70a24a07da5d989fdc750df63c250c8f41acf40c3f426c96
-#5 0.554 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
-#5 0.554 Hit:2 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
-#5 0.558 Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
-#5 0.646 Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
-#5 0.693 Get:5 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
-#5 1.080 Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1973 kB]
-#5 1.269 Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1134 kB]
-#5 1.353 Get:8 http://archive.ubuntu.com/ubuntu focal-updates/universe i386 Packages [827 kB]
-#5 1.414 Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [752 kB]
-#5 1.466 Get:10 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1546 kB]
-#5 1.977 Get:11 http://security.ubuntu.com/ubuntu focal-security/universe i386 Packages [657 kB]
-#5 2.026 Get:12 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [840 kB]
-#5 2.227 Fetched 8065 kB in 2s (4747 kB/s)
-#5 2.227 Reading package lists...
-#5 3.746 Reading package lists...
-#5 5.160 Building dependency tree...
-#5 5.369 Reading state information...
-#5 5.577 The following additional packages will be installed:
-#5 5.578   libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib libsigsegv2
-#5 5.578   mercurial-common python2 python2-minimal python2.7 python2.7-minimal
-#5 5.580 Suggested packages:
-#5 5.580   gawk-doc kdiff3 | kdiff3-qt | kompare | meld | tkcvs | mgdiff qct
-#5 5.580   python-mysqldb python-openssl python-pygments wish python2-doc python-tk
-#5 5.580   python2.7-doc binfmt-support
-#5 5.736 The following NEW packages will be installed:
-#5 5.737   gawk libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib libsigsegv2
-#5 5.738   mercurial mercurial-common python2 python2-minimal python2.7
-#5 5.738   python2.7-minimal
-#5 5.814 0 upgraded, 11 newly installed, 0 to remove and 2 not upgraded.
-#5 5.814 Need to get 7221 kB of archives.
-#5 5.814 After this operation, 33.4 MB of additional disk space will be used.
-#5 5.814 Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 libsigsegv2 amd64 2.12-2 [13.9 kB]
-#5 5.841 Get:2 http://archive.ubuntu.com/ubuntu focal/main amd64 gawk amd64 1:5.0.1+dfsg-1 [418 kB]
-#5 5.940 Get:3 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libpython2.7-minimal amd64 2.7.18-1~20.04.1 [335 kB]
-#5 5.965 Get:4 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 python2.7-minimal amd64 2.7.18-1~20.04.1 [1285 kB]
-#5 6.069 Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2-minimal amd64 2.7.17-2ubuntu4 [27.5 kB]
-#5 6.071 Get:6 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libpython2.7-stdlib amd64 2.7.18-1~20.04.1 [1887 kB]
-#5 6.234 Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 python2.7 amd64 2.7.18-1~20.04.1 [248 kB]
-#5 6.255 Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 libpython2-stdlib amd64 2.7.17-2ubuntu4 [7072 B]
-#5 6.255 Get:9 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2 amd64 2.7.17-2ubuntu4 [26.5 kB]
-#5 6.257 Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 mercurial-common all 5.3.1-1ubuntu1 [2650 kB]
-#5 6.464 Get:11 http://archive.ubuntu.com/ubuntu focal/universe amd64 mercurial amd64 5.3.1-1ubuntu1 [323 kB]
-#5 6.706 debconf: delaying package configuration, since apt-utils is not installed
-#5 6.757 Fetched 7221 kB in 1s (9793 kB/s)
-#5 6.801 Selecting previously unselected package libsigsegv2:amd64.
-#5 6.801 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21291 files and directories currently installed.)
-#5 6.823 Preparing to unpack .../libsigsegv2_2.12-2_amd64.deb ...
-#5 6.835 Unpacking libsigsegv2:amd64 (2.12-2) ...
-#5 6.895 Setting up libsigsegv2:amd64 (2.12-2) ...
-#5 6.953 Selecting previously unselected package gawk.
-#5 6.953 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21298 files and directories currently installed.)
-#5 6.973 Preparing to unpack .../0-gawk_1%3a5.0.1+dfsg-1_amd64.deb ...
-#5 6.977 Unpacking gawk (1:5.0.1+dfsg-1) ...
-#5 7.073 Selecting previously unselected package libpython2.7-minimal:amd64.
-#5 7.076 Preparing to unpack .../1-libpython2.7-minimal_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.080 Unpacking libpython2.7-minimal:amd64 (2.7.18-1~20.04.1) ...
-#5 7.180 Selecting previously unselected package python2.7-minimal.
-#5 7.183 Preparing to unpack .../2-python2.7-minimal_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.192 Unpacking python2.7-minimal (2.7.18-1~20.04.1) ...
-#5 7.368 Selecting previously unselected package python2-minimal.
-#5 7.371 Preparing to unpack .../3-python2-minimal_2.7.17-2ubuntu4_amd64.deb ...
-#5 7.374 Unpacking python2-minimal (2.7.17-2ubuntu4) ...
-#5 7.415 Selecting previously unselected package libpython2.7-stdlib:amd64.
-#5 7.418 Preparing to unpack .../4-libpython2.7-stdlib_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.422 Unpacking libpython2.7-stdlib:amd64 (2.7.18-1~20.04.1) ...
-#5 7.669 Selecting previously unselected package python2.7.
-#5 7.672 Preparing to unpack .../5-python2.7_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.675 Unpacking python2.7 (2.7.18-1~20.04.1) ...
-#5 7.727 Selecting previously unselected package libpython2-stdlib:amd64.
-#5 7.730 Preparing to unpack .../6-libpython2-stdlib_2.7.17-2ubuntu4_amd64.deb ...
-#5 7.733 Unpacking libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
-#5 7.786 Setting up libpython2.7-minimal:amd64 (2.7.18-1~20.04.1) ...
-#5 7.824 Setting up python2.7-minimal (2.7.18-1~20.04.1) ...
-#5 8.199 Setting up python2-minimal (2.7.17-2ubuntu4) ...
-#5 8.298 Selecting previously unselected package python2.
-#5 8.298 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22199 files and directories currently installed.)
-#5 8.319 Preparing to unpack .../python2_2.7.17-2ubuntu4_amd64.deb ...
-#5 8.329 Unpacking python2 (2.7.17-2ubuntu4) ...
-#5 8.390 Selecting previously unselected package mercurial-common.
-#5 8.393 Preparing to unpack .../mercurial-common_5.3.1-1ubuntu1_all.deb ...
-#5 8.413 Unpacking mercurial-common (5.3.1-1ubuntu1) ...
-#5 8.774 Selecting previously unselected package mercurial.
-#5 8.777 Preparing to unpack .../mercurial_5.3.1-1ubuntu1_amd64.deb ...
-#5 8.784 Unpacking mercurial (5.3.1-1ubuntu1) ...
-#5 8.911 Setting up gawk (1:5.0.1+dfsg-1) ...
-#5 8.981 Setting up libpython2.7-stdlib:amd64 (2.7.18-1~20.04.1) ...
-#5 9.000 Setting up python2.7 (2.7.18-1~20.04.1) ...
-#5 9.936 Setting up libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
-#5 9.987 Setting up python2 (2.7.17-2ubuntu4) ...
-#5 10.05 Setting up mercurial-common (5.3.1-1ubuntu1) ...
-#5 11.78 Setting up mercurial (5.3.1-1ubuntu1) ...
-#5 12.08 
-#5 12.08 Creating config file /etc/mercurial/hgrc.d/hgext.rc with new version
-#5 12.23 Processing triggers for mime-support (3.64ubuntu1) ...
-#5 12.27 Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
-#5 DONE 12.8s
-
-#10 [internal] load build context
-#10 sha256:b51913df4b60144d144e19221147f83b9a99103740f947ab8f9d8f3113fc0127
-#10 DONE 0.0s
-
-#7 [3/8] RUN hg clone --uncompressed https://hg.mozilla.org/mozilla-central
-#7 sha256:67ce0a08e1c303409ee6d5fd6845a24784c1a98c2cd3bcd3592edf35f2d9692e
-#7 ...
-
-#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target
-#4 sha256:3a67bf70b24f60503314b32fad2331f5c838f74c4ebfaa7bb0255f90a65a572b
-#4 ERROR: gcr.io/fuzzbench/builders/benchmark/firefox_target:latest: not found
-
-#10 [internal] load build context
-#10 sha256:b51913df4b60144d144e19221147f83b9a99103740f947ab8f9d8f3113fc0127
-#10 transferring context: 7.31kB done
-#10 DONE 0.1s
-
-#7 [3/8] RUN hg clone --uncompressed https://hg.mozilla.org/mozilla-central
-#7 sha256:67ce0a08e1c303409ee6d5fd6845a24784c1a98c2cd3bcd3592edf35f2d9692e
-#7 675.3 destination directory: mozilla-central
-#7 675.3 applying clone bundle from https://hg.cdn.mozilla.net/mozilla-central/06e62c0f0b870617216e239b35fa88f1afda6b71.stream-v2.hg
-#7 675.3 654058 files to transfer, 3.74 GB of data
-#7 675.3 transferred 3.74 GB in 668.1 seconds (5.73 MB/sec)
-#7 675.3 finished applying clone bundle
-#7 675.3 searching for changes
-#7 675.3 adding changesets
-#7 675.3 adding manifests
-#7 675.3 adding file changes
-#7 705.7 added 62 changesets with 443 changes to 369 files
-#7 705.7 new changesets b8bdedd3d655:2bbcda1a3414
-#7 705.7 updating to branch default
-#7 705.7 (warning: large working directory being used without fsmonitor enabled; enable fsmonitor to improve performance; see "hg help -e fsmonitor")
-#7 873.1 303894 files updated, 0 files merged, 0 files removed, 0 files unresolved
-/bin/sh: 1: source: not found
-#7 DONE 886.3s
-
-#8 [4/8] RUN git clone --depth 1 https://github.com/mozillasecurity/fuzzdata
-#8 sha256:b3e1a2de9e44b686a59520b47e551d835b5502478bb26efa70c652279e48b197
-#1 [internal] load build definition from Dockerfile
-#1 sha256:3efe196733c0836244ae445025fb4caee4bd894f9001fcc730cdc43bb1a91437
-#1 transferring dockerfile:
-#1 transferring dockerfile: 1.12kB 0.0s done
-#1 DONE 0.4s
-
-#2 [internal] load .dockerignore
-#2 sha256:47bc9b07b969e04f5e42882133f7c6575d47690fbf6ca143017b1b5286cfe041
-#2 transferring context: 2B done
-#2 DONE 0.3s
-
-#3 [internal] load metadata for gcr.io/oss-fuzz-base/base-builder:latest
-#3 sha256:f10dc39cc9d418a5bc416dead31a1902b6821fdae909cd3b08f7a3fd1faba7b5
-#3 DONE 0.5s
-
-#6 [1/8] FROM gcr.io/oss-fuzz-base/base-builder@sha256:f4e5ea12494fab091c5d830cf803b3421f2860f729b9d1b07da44924396cf8cf
-#6 sha256:ef290950573a2779ee526af357b28fbddfc20d7409aa51f58f777c9e972cba29
-#6 CACHED
-
-#5 [2/8] RUN apt-get update && apt-get install -y gawk mercurial
-#5 sha256:b0e7dcafff7167db70a24a07da5d989fdc750df63c250c8f41acf40c3f426c96
-#5 0.554 Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
-#5 0.554 Hit:2 http://ppa.launchpad.net/git-core/ppa/ubuntu focal InRelease
-#5 0.558 Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
-#5 0.646 Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
-#5 0.693 Get:5 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
-#5 1.080 Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1973 kB]
-#5 1.269 Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1134 kB]
-#5 1.353 Get:8 http://archive.ubuntu.com/ubuntu focal-updates/universe i386 Packages [827 kB]
-#5 1.414 Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main i386 Packages [752 kB]
-#5 1.466 Get:10 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1546 kB]
-#5 1.977 Get:11 http://security.ubuntu.com/ubuntu focal-security/universe i386 Packages [657 kB]
-#5 2.026 Get:12 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [840 kB]
-#5 2.227 Fetched 8065 kB in 2s (4747 kB/s)
-#5 2.227 Reading package lists...
-#5 3.746 Reading package lists...
-#5 5.160 Building dependency tree...
-#5 5.369 Reading state information...
-#5 5.577 The following additional packages will be installed:
-#5 5.578   libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib libsigsegv2
-#5 5.578   mercurial-common python2 python2-minimal python2.7 python2.7-minimal
-#5 5.580 Suggested packages:
-#5 5.580   gawk-doc kdiff3 | kdiff3-qt | kompare | meld | tkcvs | mgdiff qct
-#5 5.580   python-mysqldb python-openssl python-pygments wish python2-doc python-tk
-#5 5.580   python2.7-doc binfmt-support
-#5 5.736 The following NEW packages will be installed:
-#5 5.737   gawk libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib libsigsegv2
-#5 5.738   mercurial mercurial-common python2 python2-minimal python2.7
-#5 5.738   python2.7-minimal
-#5 5.814 0 upgraded, 11 newly installed, 0 to remove and 2 not upgraded.
-#5 5.814 Need to get 7221 kB of archives.
-#5 5.814 After this operation, 33.4 MB of additional disk space will be used.
-#5 5.814 Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 libsigsegv2 amd64 2.12-2 [13.9 kB]
-#5 5.841 Get:2 http://archive.ubuntu.com/ubuntu focal/main amd64 gawk amd64 1:5.0.1+dfsg-1 [418 kB]
-#5 5.940 Get:3 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libpython2.7-minimal amd64 2.7.18-1~20.04.1 [335 kB]
-#5 5.965 Get:4 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 python2.7-minimal amd64 2.7.18-1~20.04.1 [1285 kB]
-#5 6.069 Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2-minimal amd64 2.7.17-2ubuntu4 [27.5 kB]
-#5 6.071 Get:6 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libpython2.7-stdlib amd64 2.7.18-1~20.04.1 [1887 kB]
-#5 6.234 Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 python2.7 amd64 2.7.18-1~20.04.1 [248 kB]
-#5 6.255 Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 libpython2-stdlib amd64 2.7.17-2ubuntu4 [7072 B]
-#5 6.255 Get:9 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2 amd64 2.7.17-2ubuntu4 [26.5 kB]
-#5 6.257 Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 mercurial-common all 5.3.1-1ubuntu1 [2650 kB]
-#5 6.464 Get:11 http://archive.ubuntu.com/ubuntu focal/universe amd64 mercurial amd64 5.3.1-1ubuntu1 [323 kB]
-#5 6.706 debconf: delaying package configuration, since apt-utils is not installed
-#5 6.757 Fetched 7221 kB in 1s (9793 kB/s)
-#5 6.801 Selecting previously unselected package libsigsegv2:amd64.
-#5 6.801 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21291 files and directories currently installed.)
-#5 6.823 Preparing to unpack .../libsigsegv2_2.12-2_amd64.deb ...
-#5 6.835 Unpacking libsigsegv2:amd64 (2.12-2) ...
-#5 6.895 Setting up libsigsegv2:amd64 (2.12-2) ...
-#5 6.953 Selecting previously unselected package gawk.
-#5 6.953 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21298 files and directories currently installed.)
-#5 6.973 Preparing to unpack .../0-gawk_1%3a5.0.1+dfsg-1_amd64.deb ...
-#5 6.977 Unpacking gawk (1:5.0.1+dfsg-1) ...
-#5 7.073 Selecting previously unselected package libpython2.7-minimal:amd64.
-#5 7.076 Preparing to unpack .../1-libpython2.7-minimal_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.080 Unpacking libpython2.7-minimal:amd64 (2.7.18-1~20.04.1) ...
-#5 7.180 Selecting previously unselected package python2.7-minimal.
-#5 7.183 Preparing to unpack .../2-python2.7-minimal_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.192 Unpacking python2.7-minimal (2.7.18-1~20.04.1) ...
-#5 7.368 Selecting previously unselected package python2-minimal.
-#5 7.371 Preparing to unpack .../3-python2-minimal_2.7.17-2ubuntu4_amd64.deb ...
-#5 7.374 Unpacking python2-minimal (2.7.17-2ubuntu4) ...
-#5 7.415 Selecting previously unselected package libpython2.7-stdlib:amd64.
-#5 7.418 Preparing to unpack .../4-libpython2.7-stdlib_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.422 Unpacking libpython2.7-stdlib:amd64 (2.7.18-1~20.04.1) ...
-#5 7.669 Selecting previously unselected package python2.7.
-#5 7.672 Preparing to unpack .../5-python2.7_2.7.18-1~20.04.1_amd64.deb ...
-#5 7.675 Unpacking python2.7 (2.7.18-1~20.04.1) ...
-#5 7.727 Selecting previously unselected package libpython2-stdlib:amd64.
-#5 7.730 Preparing to unpack .../6-libpython2-stdlib_2.7.17-2ubuntu4_amd64.deb ...
-#5 7.733 Unpacking libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
-#5 7.786 Setting up libpython2.7-minimal:amd64 (2.7.18-1~20.04.1) ...
-#5 7.824 Setting up python2.7-minimal (2.7.18-1~20.04.1) ...
-#5 8.199 Setting up python2-minimal (2.7.17-2ubuntu4) ...
-#5 8.298 Selecting previously unselected package python2.
-#5 8.298 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 22199 files and directories currently installed.)
-#5 8.319 Preparing to unpack .../python2_2.7.17-2ubuntu4_amd64.deb ...
-#5 8.329 Unpacking python2 (2.7.17-2ubuntu4) ...
-#5 8.390 Selecting previously unselected package mercurial-common.
-#5 8.393 Preparing to unpack .../mercurial-common_5.3.1-1ubuntu1_all.deb ...
-#5 8.413 Unpacking mercurial-common (5.3.1-1ubuntu1) ...
-#5 8.774 Selecting previously unselected package mercurial.
-#5 8.777 Preparing to unpack .../mercurial_5.3.1-1ubuntu1_amd64.deb ...
-#5 8.784 Unpacking mercurial (5.3.1-1ubuntu1) ...
-#5 8.911 Setting up gawk (1:5.0.1+dfsg-1) ...
-#5 8.981 Setting up libpython2.7-stdlib:amd64 (2.7.18-1~20.04.1) ...
-#5 9.000 Setting up python2.7 (2.7.18-1~20.04.1) ...
-#5 9.936 Setting up libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
-#5 9.987 Setting up python2 (2.7.17-2ubuntu4) ...
-#5 10.05 Setting up mercurial-common (5.3.1-1ubuntu1) ...
-#5 11.78 Setting up mercurial (5.3.1-1ubuntu1) ...
-#5 12.08 
-#5 12.08 Creating config file /etc/mercurial/hgrc.d/hgext.rc with new version
-#5 12.23 Processing triggers for mime-support (3.64ubuntu1) ...
-#5 12.27 Processing triggers for libc-bin (2.31-0ubuntu9.2) ...
-#5 DONE 12.8s
-
-#7 [3/8] RUN hg clone --uncompressed https://hg.mozilla.org/mozilla-central
-#7 sha256:67ce0a08e1c303409ee6d5fd6845a24784c1a98c2cd3bcd3592edf35f2d9692e
-#7 675.3 destination directory: mozilla-central
-#7 675.3 applying clone bundle from https://hg.cdn.mozilla.net/mozilla-central/06e62c0f0b870617216e239b35fa88f1afda6b71.stream-v2.hg
-#7 675.3 654058 files to transfer, 3.74 GB of data
-#7 675.3 transferred 3.74 GB in 668.1 seconds (5.73 MB/sec)
-#7 675.3 finished applying clone bundle
-#7 675.3 searching for changes
-#7 675.3 adding changesets
-#7 675.3 adding manifests
-#7 675.3 adding file changes
-#7 705.7 added 62 changesets with 443 changes to 369 files
-#7 705.7 new changesets b8bdedd3d655:2bbcda1a3414
-#7 705.7 updating to branch default
-#7 705.7 (warning: large working directory being used without fsmonitor enabled; enable fsmonitor to improve performance; see "hg help -e fsmonitor")
-#7 873.1 303894 files updated, 0 files merged, 0 files removed, 0 files unresolved
-#7 DONE 886.3s
-
-#10 [internal] load build context
-#10 sha256:9c1a1fe9275a5e15a09866cc15ff478fe46c792080408bd880009b696c860e5f
-#10 DONE 0.0s
-
-#8 [4/8] RUN git clone --depth 1 https://github.com/mozillasecurity/fuzzdata
-#8 sha256:b3e1a2de9e44b686a59520b47e551d835b5502478bb26efa70c652279e48b197
-#8 1.300 Cloning into 'fuzzdata'...
-#8 1.300 Cloning into 'fuzzdata'...
-#8 ...
-
-#4 importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target
-#4 sha256:3a67bf70b24f60503314b32fad2331f5c838f74c4ebfaa7bb0255f90a65a572b
-#4 ERROR: gcr.io/fuzzbench/builders/benchmark/firefox_target:latest: not found
-
-#10 [internal] load build context
-#10 sha256:9c1a1fe9275a5e15a09866cc15ff478fe46c792080408bd880009b696c860e5f
-#10 transferring context: 7.31kB done
-#10 DONE 1.2s
-
-#8 [4/8] RUN git clone --depth 1 https://github.com/mozillasecurity/fuzzdata
-#8 sha256:b3e1a2de9e44b686a59520b47e551d835b5502478bb26efa70c652279e48b197
-#8 60.08 Updating files:  11% (7345/61606)#8 60.08 Updating files:  11% (7345/61606)Updating files:  12% (7393/61606)Updating files:  12% (7393/61606)Updating files:  13% (8009/61606)Updating files:  14% (8625/61606)Updating files:  13% (8009/61606)Updating files:  14% (8625/61606)Updating files:  15% (9241/61606)Updating files:  16% (9857/61606)Updating files:  15% (9241/61606)Updating files:  16% (9857/61606)Updating files:  17% (10474/61606)Updating files:  18% (11090/61606)Updating files:  17% (10474/61606)Updating files:  18% (11090/61606)Updating files:  19% (11706/61606)Updating files:  20% (12322/61606)Updating files:  19% (11706/61606)Updating files:  20% (12322/61606)Updating files:  21% (12938/61606)Updating files:  22% (13554/61606)Updating files:  21% (12938/61606)Updating files:  22% (13554/61606)Updating files:  23% (14170/61606)Updating files:  24% (14786/61606)Updating files:  23% (14170/61606)Updating files:  24% (14786/61606)Updating files:  25% (15402/61606)Updating files:  26% (16018/61606)Updating files:  25% (15402/61606)Updating files:  26% (16018/61606)Updating files:  27% (16634/61606)Updating files:  28% (17250/61606)Updating files:  28% (17381/61606)Updating files:  29% (17866/61606)Updating files:  30% (18482/61606)Updating files:  27% (16634/61606)Updating files:  28% (17250/61606)Updating files:  28% (17381/61606)Updating files:  29% (17866/61606)Updating files:  30% (18482/61606)Updating files:  31% (19098/61606)Updating files:  32% (19714/61606)Updating files:  33% (20330/61606)Updating files:  31% (19098/61606)Updating files:  32% (19714/61606)Updating files:  33% (20330/61606)Updating files:  34% (20947/61606)Updating files:  35% (21563/61606)Updating files:  34% (20947/61606)Updating files:  35% (21563/61606)Updating files:  36% (22179/61606)Updating files:  37% (22795/61606)Updating files:  38% (23411/61606)Updating files:  36% (22179/61606)Updating files:  37% (22795/61606)Updating files:  38% (23411/61606)Updating files:  39% (24027/61606)Updating files:  40% (24643/61606)Updating files:  41% (25259/61606)Updating files:  39% (24027/61606)Updating files:  40% (24643/61606)Updating files:  41% (25259/61606)Updating files:  42% (25875/61606)Updating files:  43% (26491/61606)Updating files:  42% (25875/61606)Updating files:  43% (26491/61606)Updating files:  44% (27107/61606)Updating files:  45% (27723/61606)Updating files:  44% (27107/61606)Updating files:  45% (27723/61606)Updating files:  46% (28339/61606)Updating files:  47% (28955/61606)Updating files:  48% (29571/61606)Updating files:  46% (28339/61606)Updating files:  47% (28955/61606)Updating files:  48% (29571/61606)Updating files:  48% (30107/61606)Updating files:  49% (30187/61606)Updating files:  50% (30803/61606)Updating files:  48% (30107/61606)Updating files:  49% (30187/61606)Updating files:  50% (30803/61606)Updating files:  51% (31420/61606)Updating files:  52% (32036/61606)Updating files:  53% (32652/61606)Updating files:  51% (31420/61606)Updating files:  52% (32036/61606)Updating files:  53% (32652/61606)Updating files:  54% (33268/61606)Updating files:  55% (33884/61606)Updating files:  54% (33268/61606)Updating files:  55% (33884/61606)Updating files:  56% (34500/61606)Updating files:  57% (35116/61606)Updating files:  56% (34500/61606)Updating files:  57% (35116/61606)Updating files:  58% (35732/61606)Updating files:  59% (36348/61606)Updating files:  60% (36964/61606)Updating files:  58% (35732/61606)Updating files:  59% (36348/61606)Updating files:  60% (36964/61606)Updating files:  61% (37580/61606)Updating files:  62% (38196/61606)Updating files:  61% (37580/61606)Updating files:  62% (38196/61606)Updating files:  63% (38812/61606)Updating files:  64% (39428/61606)Updating files:  63% (38812/61606)Updating files:  64% (39428/61606)Updating files:  65% (40044/61606)Updating files:  65% (40044/61606)Updating files:  65% (40488/61606)Updating files:  65% (40488/61606)Updating files:  66% (40660/61606)Updating files:  67% (41277/61606)Updating files:  66% (40660/61606)Updating files:  67% (41277/61606)Updating files:  68% (41893/61606)Updating files:  68% (41893/61606)Updating files:  69% (42509/61606)Updating files:  69% (42509/61606)Updating files:  70% (43125/61606)Updating files:  70% (43125/61606)Updating files:  71% (43741/61606)Updating files:  71% (43741/61606)Updating files:  72% (44357/61606)Updating files:  72% (44357/61606)Updating files:  73% (44973/61606)Updating files:  73% (44973/61606)Updating files:  73% (45296/61606)Updating files:  74% (45589/61606)Updating files:  73% (45296/61606)Updating files:  74% (45589/61606)Updating files:  75% (46205/61606)Updating files:  75% (46205/61606)Updating files:  75% (46631/61606)Updating files:  75% (46631/61606)Updating files:  76% (46821/61606)Updating files:  76% (46821/61606)Updating files:  76% (47179/61606)Updating files:  76% (47179/61606)Updating files:  77% (47437/61606)Updating files:  77% (47437/61606)Updating files:  77% (47578/61606)Updating files:  77% (47578/61606)Updating files:  77% (48006/61606)Updating files:  78% (48053/61606)Updating files:  77% (48006/61606)Updating files:  78% (48053/61606)Updating files:  79% (48669/61606)Updating files:  79% (48669/61606)Updating files:  79% (48823/61606)Updating files:  79% (48823/61606)Updating files:  80% (49285/61606)Updating files:  81% (49901/61606)Updating files:  82% (50517/61606)Updating files:  83% (51133/61606)Updating files:  80% (49285/61606)Updating files:  81% (49901/61606)Updating files:  82% (50517/61606)Updating files:  83% (51133/61606)Updating files:  84% (51750/61606)Updating files:  85% (52366/61606)Updating files:  84% (51750/61606)Updating files:  85% (52366/61606)Updating files:  86% (52982/61606)Updating files:  87% (53598/61606)Updating files:  88% (54214/61606)Updating files:  86% (52982/61606)Updating files:  87% (53598/61606)Updating files:  88% (54214/61606)Updating files:  89% (54830/61606)Updating files:  89% (54830/61606)Updating files:  90% (55446/61606)Updating files:  91% (56062/61606)Updating files:  90% (55446/61606)Updating files:  91% (56062/61606)Updating files:  92% (56678/61606)Updating files:  93% (57294/61606)Updating files:  92% (56678/61606)Updating files:  93% (57294/61606)Updating files:  94% (57910/61606)Updating files:  94% (58114/61606)Updating files:  94% (57910/61606)Updating files:  94% (58114/61606)Updating files:  95% (58526/61606)Updating files:  95% (58526/61606)Updating files:  96% (59142/61606)Updating files:  96% (59142/61606)Updating files:  97% (59758/61606)Updating files:  98% (60374/61606)Updating files:  97% (59758/61606)Updating files:  98% (60374/61606)Updating files:  99% (60990/61606)Updating files:  99% (60990/61606)Updating files: 100% (61606/61606)Updating files: 100% (61606/61606), done.Updating files: 100% (61606/61606)Updating files: 100% (61606/61606), done.
-
-#8 DONE 108.0s
-#8 DONE 108.0s
-
-#9 [5/8] WORKDIR mozilla-central
-#9 sha256:a16097e7ad361825ea82dd143bbf3481d2d9c5e32a77f43238b7f41fcba149de
-
-#9 [5/8] WORKDIR mozilla-central
-#9 sha256:a16097e7ad361825ea82dd143bbf3481d2d9c5e32a77f43238b7f41fcba149de
-#9 DONE 2.1s
-#9 DONE 2.1s
-------
- > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target:
-------
-executor failed running [/bin/sh -c hg patch --no-commit ContentSecurityPolicyParser.diff]: exit code: 255
-------
- > importing cache manifest from gcr.io/fuzzbench/builders/benchmark/firefox_target:
-------
-executor failed running [/bin/sh -c hg patch --no-commit ContentSecurityPolicyParser.diff]: exit code: 255
-make: *** [docker/generated.mk:14248: .firefox_target-project-builder] Error 1
-make: *** [docker/generated.mk:14248: .firefox_target-project-builder] Error 1
