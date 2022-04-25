@@ -13,8 +13,8 @@ insight (still doing by bachelor). 75 failing libs are still a lot and might als
 projects are outdated. I still thought that this test run and the log files might be valuable to you. If not that's 
 also fine.
 
-Anyway thank you and stay healthy :) I'll be the fist one to test the OSS-Fuzz integration, once Fuzzbench runs on 
-20.04. Keep the good work up, it's absolutely crucial for the evaluation of fuzzers.
+Anyway thank you and stay healthy :) I'll be the first one to test the OSS-Fuzz integration, once Fuzzbench runs on 
+20.04. Keep up the good work, it's absolutely crucial for the evaluation of fuzzers.
 
 
 PS: `pffft_fuzzers_seed_corpus.zip` is not in the repo cause its too big
